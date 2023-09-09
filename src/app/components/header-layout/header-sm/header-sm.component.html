@@ -1,1 +1,27 @@
-<p>header-sm works!</p>
+<nav>
+    <div class="toggle top-10" *ngIf="!activeNavBar" >
+        <a (click)="openandClose()" style="background-color: black;width: 25%" href="#">محل </a>
+    </div>  
+    <ul class="menu active  position-fixed mobile-menu" *ngIf="activeNavBar" style="font-size: 1.5rem;">
+      <li class="toggle " >
+            <a (click)="openandClose()" style="background-color: black;width: 25%" href="#">محل </a>
+      </li>  
+      <li class="item actived-tab" style="margin-top: 50%;" ><a href="#">خانه
+      </a></li>
+      <li class="item"  ><a href="#">جستجو
+    </a></li>
+    <li class="item"  ><a href="#">فروشگاه
+    </a></li>
+    <li class="item" ><a href="#">تقویم اقتصادی
+    </a></li>
+    <li class="item" ><a href="#">مجله ایرانی اکسپرت
+    </a></li>
+    <li class="item"  ><a href="#">چرا ما؟
+    </a></li>
+    <li class="item" >
+    <button>
+        ورود|عضویت
+    </button>
+    </li>
+    </ul>
+  </nav>
