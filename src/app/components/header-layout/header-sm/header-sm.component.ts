@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class HeaderSmComponent {
 
+  activeNavBar:boolean=false;
+
+
+  openandClose(){
+    this.activeNavBar=!this.activeNavBar
+  }
 }
