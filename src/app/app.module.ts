@@ -8,6 +8,7 @@ import { HeaderLgComponent } from './components/header-layout/header-lg/header-l
 import { HeaderSmComponent } from './components/header-layout/header-sm/header-sm.component';
 import { HeaderAltComponent } from './components/header-layout/header-alt/header-alt.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Headeer Comps
 const header = [
@@ -20,7 +21,7 @@ const header = [
 const footer = [FooterComponent];
 @NgModule({
   declarations: [AppComponent, header, footer],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule,BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
