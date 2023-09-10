@@ -1,9 +1,9 @@
-<nav>
-    <div class="toggle top-10" *ngIf="!activeNavBar" >
+<nav class="d-sm-none">
+    <div class="toggle top-10" >
         <a (click)="openandClose()" style="background-color: black;width: 25%" href="#">محل </a>
     </div>  
-    <ul [@slideInOut]="menuState" class="menu active  position-fixed mobile-menu"  style="font-size: 1.5rem;">
-      <li class="toggle " >
+    <ul [@slideInOut]="menuState" class="menu active  p-fixed  mobile-menu"  style="font-size: 1.5rem;">
+      <li  >
             <a (click)="openandClose()" style="background-color: black;width: 25%" href="#">محل </a>
       </li>  
       <li class="item actived-tab" style="margin-top: 50%;" ><a href="#">خانه
