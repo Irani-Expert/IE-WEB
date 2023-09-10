@@ -175,7 +175,7 @@ a {
   .submenu-active {
     border-radius: 0;
   }
-  
+
   /* Tablet menu */
   @media all and (min-width: 700px) {
     .menu {
@@ -251,7 +251,7 @@ a {
       border-radius: 0;
     }
   }
-  button{
+  button {
     background: #6db500;
     color: white;
     padding: 10px;
@@ -259,9 +259,8 @@ a {
     font-size: 1.5rem;
     border: none;
     border-radius: 11px;
-
   }
-  .actived-tab{
+  .actived-tab {
     background-color: #293dc8;
   }
-  
+}
