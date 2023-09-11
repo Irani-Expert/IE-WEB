@@ -1,8 +1,11 @@
+@import "tailwind";
 @import "./variables";
 @import "./mixins";
+@import "./colors";
 @import "./typography";
-@import "functions", "variables", "mixins";
+@import "./forms";
 body {
   font-family: $font-family-base;
   font-size: $font-size-base;
+  background-color: $darken-white;
 }
