@@ -8,7 +8,8 @@ import { Component } from '@angular/core';
   animations: [
     trigger('slideInOut', [
       state('in', style({
-        opacity:0  
+        opacity:0,
+        display:'none'
       })),
       state('out', style({
         opacity:1
@@ -23,11 +24,10 @@ import { Component } from '@angular/core';
 export class HeaderSmComponent {
 
   activeNavBar:boolean=false;
-  menuState:string = 'out';
+  menuState:string = 'in';
 
   openandClose(){
     this.menuState = this.menuState === 'out' ? 'in' : 'out';
-    
-
   }
+
 }
