@@ -1,7 +1,18 @@
+@import "src/sass/colors";
 .navbar{
     display: flex;
 }
 .image-top-right{
-    width: 100px;
-    height: 150px;
+    width: 282px;
+    height: 152px;
+}
+a{
+    margin-left: 34px;
+    p{
+        font-size: 27px;
+        color: $text-header-primary;
+        &:hover{
+            color: $text-header-hover;
+        }
+    }
 }
