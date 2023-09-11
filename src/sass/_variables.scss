@@ -14,6 +14,7 @@ $persian-unicode-range: U+20-21, U+24-25, U+27-3A, U+3C-3E, U+5B-5F, U+7C, U+A0,
     url("../assets/fonts/YekanBakh-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
   unicode-range: $persian-unicode-range;
 }
 @font-face {
@@ -26,6 +27,7 @@ $persian-unicode-range: U+20-21, U+24-25, U+27-3A, U+3C-3E, U+5B-5F, U+7C, U+A0,
     url("../assets/fonts/YekanBakh-Bold.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
+  font-display: swap;
   unicode-range: $persian-unicode-range;
 }
 @font-face {
@@ -38,6 +40,7 @@ $persian-unicode-range: U+20-21, U+24-25, U+27-3A, U+3C-3E, U+5B-5F, U+7C, U+A0,
     url("../assets/fonts/YekanBakh-Heavy.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
+  font-display: swap;
   unicode-range: $persian-unicode-range;
 }
 @font-face {
@@ -50,6 +53,7 @@ $persian-unicode-range: U+20-21, U+24-25, U+27-3A, U+3C-3E, U+5B-5F, U+7C, U+A0,
     url("../assets/fonts/YekanBakh-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
   unicode-range: $persian-unicode-range;
 }
 @font-face {
@@ -62,6 +66,7 @@ $persian-unicode-range: U+20-21, U+24-25, U+27-3A, U+3C-3E, U+5B-5F, U+7C, U+A0,
     url("../assets/fonts/YekanBakh-Light.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
+  font-display: swap;
   unicode-range: $persian-unicode-range;
 }
 @font-face {
@@ -74,6 +79,7 @@ $persian-unicode-range: U+20-21, U+24-25, U+27-3A, U+3C-3E, U+5B-5F, U+7C, U+A0,
     url("../assets/fonts/YekanBakh-Thin.ttf") format("truetype");
   font-weight: 100;
   font-style: normal;
+  font-display: swap;
   unicode-range: $persian-unicode-range;
 }
 
