@@ -1,25 +1,19 @@
-<nav class="d-sm-none">
-    <div class="toggle top-10" >
-        <a (click)="openandClose()" style="background-color: black;width: 25%" href="#">محل </a>
+<nav dir="ltr" class="sm:hidden pl-3.5	 ">
+    <div class="top-6	 absolute" >
+        <a (click)="openandClose()" class="w-1/4 colors.red ">محل </a>
     </div>  
-    <ul [@slideInOut]="menuState" class="menu active  p-fixed  mobile-menu"  style="font-size: 1.5rem;">
-      <li  >
-            <a (click)="openandClose()" style="background-color: black;width: 25%" href="#">محل </a>
+    <ul [@slideInOut]="menuState" class="fixed text-2xl	top-0 left-0 h-full max-[480px]:right-[20%] min-[481px]:right-[55%] bg-main-blue"  >
+      <li  class="mb-10">
+            <a (click)="openandClose()" class="w-1/4 bg-black "  href="#">محل </a>
       </li>  
-      <li class="item actived-tab" style="margin-top: 50%;" ><a href="#">خانه
-      </a></li>
-      <li class="item"  ><a href="#">جستجو
-    </a></li>
-    <li class="item"  ><a href="#">فروشگاه
-    </a></li>
-    <li class="item" ><a href="#">تقویم اقتصادی
-    </a></li>
-    <li class="item" ><a href="#">مجله ایرانی اکسپرت
-    </a></li>
-    <li class="item"  ><a href="#">چرا ما؟
-    </a></li>
-    <li class="item" >
-    <button>
+      
+      <ng-container style="margin-top: 50%;" *ngFor="let x of rows">
+        <li class="justify-end p-2.5 pr-8 flex" [ngClass]="x.id==link?'active-tabe':''" (click)="choosenLink(x.id)" ><a class="text-white no-underline	">{{x.Name}}
+        </a></li>
+        </ng-container>
+
+    <li class="justify-end p-2.5 pr-8 flex" >
+    <button class="p-2.5">
         ورود|عضویت
     </button>
     </li>

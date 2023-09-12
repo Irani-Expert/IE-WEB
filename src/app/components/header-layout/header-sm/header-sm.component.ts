@@ -22,12 +22,22 @@ import { Component } from '@angular/core';
 })
 
 export class HeaderSmComponent {
-
+  link:number=1;
+ rows:any[]=[
+  {id:0,Name:'خانه'},
+  {id:1,Name:'جستجو'},
+  {id:2,Name:'فروشگاه'},
+  {id:3,Name:'تقویم اقتصادی'},
+  {id:4,Name:'مجله ایرانی اکسپرت'},
+  {id:5,Name:'چرا ما؟'},
+ ]
   activeNavBar:boolean=false;
   menuState:string = 'in';
 
   openandClose(){
     this.menuState = this.menuState === 'out' ? 'in' : 'out';
   }
-
+choosenLink(id:number){
+  this.link=id
+}
 }
