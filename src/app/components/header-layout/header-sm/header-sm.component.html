@@ -1,23 +1,17 @@
-<nav class="d-sm-none">
+<nav dir="ltr" class="d-sm-none">
     <div class="toggle top-10" >
         <a (click)="openandClose()" style="background-color: black;width: 25%" href="#">محل </a>
     </div>  
     <ul [@slideInOut]="menuState" class="menu active  p-fixed  mobile-menu"  style="font-size: 1.5rem;">
-      <li  >
-            <a (click)="openandClose()" style="background-color: black;width: 25%" href="#">محل </a>
+      <li  style="margin-bottom: 25%;" >
+            <a (click)="openandClose()" style="background-color: black;width: 25%;" href="#">محل </a>
       </li>  
-      <li class="item actived-tab" style="margin-top: 50%;" ><a href="#">خانه
-      </a></li>
-      <li class="item"  ><a href="#">جستجو
-    </a></li>
-    <li class="item"  ><a href="#">فروشگاه
-    </a></li>
-    <li class="item" ><a href="#">تقویم اقتصادی
-    </a></li>
-    <li class="item" ><a href="#">مجله ایرانی اکسپرت
-    </a></li>
-    <li class="item"  ><a href="#">چرا ما؟
-    </a></li>
+      
+      <ng-container style="margin-top: 50%;" *ngFor="let x of rows">
+        <li class="item" [ngClass]="x.id==link?'active-tabe':''" (click)="choosenLink(x.id)" ><a href="#">{{x.Name}}
+        </a></li>
+        </ng-container>
+
     <li class="item" >
     <button>
         ورود|عضویت
