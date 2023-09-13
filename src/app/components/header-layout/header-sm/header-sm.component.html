@@ -1,10 +1,10 @@
-<nav dir="ltr" class="sm:hidden pl-3.5	 ">
-    <div class="top-6	 absolute " >
-        <a (click)="openandClose() " class="w-1/4 colors.red  cursor-pointer"><img src="../../../../assets/img/Artbd – 1.png"> </a>
+<nav dir="ltr" class=" pl-3.5	 "(window:resize)="windowWidth($event)">
+    <div class="top-6 left-5 	 absolute  sm:hidden" >
+        <a (click)="openandClose() " class="w-1/4 colors.red  cursor-pointer"><img class="w-[25px]" src="../../../../assets/img/Artbd – 1.png"> </a>
     </div>  
     <ul [@slideInOut]="menuState" class="fixed text-2xl	top-0 left-0 h-full max-[480px]:right-[20%] min-[481px]:right-[55%] bg-main-blue"  >
-      <li  class="mb-10">
-            <a (click)="openandClose()" class="w-1/4 bg-black "  href="#"><img src="../../../../assets/img/Artbod – 1.png"> </a>
+      <li  class="mb-10 mt-4 ms-4">
+            <a (click)="openandClose()" class="w-1/4 bg-black "  href="#"><img class="w-[26px]" src="../../../../assets/img/Artbod – 1.png"> </a>
       </li>  
       
       <ng-container style="margin-top: 50%;" *ngFor="let x of rows">
