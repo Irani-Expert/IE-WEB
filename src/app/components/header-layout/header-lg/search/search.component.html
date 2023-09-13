@@ -15,15 +15,29 @@
                 stroke="#707070" stroke-width="2" />
         </g>
     </svg>
-    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 58 55" *ngIf="isSearchClicked">
-        <rect id="Rectangle_141" data-name="Rectangle 141" width="58" height="55" rx="10" fill="#cc3a39"/>
-        <g id="Group_56" data-name="Group 56" transform="translate(-297 -117)">
-          <line id="Line_56" data-name="Line 56" x2="15" y2="15" transform="translate(318.5 136.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2"/>
-          <line id="Line_57" data-name="Line 57" x1="15" y2="15" transform="translate(318.5 136.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2"/>
-        </g>
-      </svg>
-      
-      
+    <div class="flex flex-col items-end"  *ngIf="isSearchClicked">
+        <div class="relative">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 58 55">
+                <rect id="Rectangle_141" data-name="Rectangle 141" width="58" height="55" rx="10" fill="#cc3a39" />
+                <g id="Group_56" data-name="Group 56" transform="translate(-297 -117)">
+                    <line id="Line_56" data-name="Line 56" x2="15" y2="15" transform="translate(318.5 136.5)" fill="none"
+                        stroke="#fff" stroke-linecap="round" stroke-width="2" />
+                    <line id="Line_57" data-name="Line 57" x1="15" y2="15" transform="translate(318.5 136.5)" fill="none"
+                        stroke="#fff" stroke-linecap="round" stroke-width="2" />
+                </g>
+            </svg>
+        </div>
+
+        <div class="absolute top-28" (click)="onEvent($event)">
+            <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900"></label>
+            <div class="mt-2 " style="width: 130px;">
+                <input type="text" name="first-name" id="first-name" autocomplete="given-name"
+                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm 
+                    ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset
+                    focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-white">
+            </div>
+        </div>
+    </div>
 
 
 </button>

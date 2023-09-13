@@ -11,4 +11,7 @@ export class SearchComponent {
   isSearchOpened(){
     this.isSearchClicked = !this.isSearchClicked
   }
+  onEvent(event: Event){
+    event.stopPropagation();
+  }
 }
