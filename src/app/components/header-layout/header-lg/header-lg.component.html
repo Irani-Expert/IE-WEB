@@ -1,26 +1,36 @@
-<div class="flex">
+<div class="flex items-center justify-between mx-10 my-10">
   <div class="">
     <img src="assets/img/logo.webp" class="image-top-right">
   </div>
-  <div class="flex flex-row ">
-    <a routerLink="./" href="./">
-      <p class="">خانه</p>
-    </a>
-    <a routerLink="./" href="./">
-      <p class="">فروشگاه</p>
-    </a>
-    <a routerLink="./" href="./">
-      <p class="">تقویم اقتصادی</p>
-    </a>
-    <a routerLink="./" href="./">
-      <p class="">مجله ایرانی اکسپرت</p>
-    </a>
-    <a routerLink="./" href="./">
-      <p class="">چرا ما؟</p>
-    </a>
-    <a routerLink="./" href="./">
-      <p class="">فروشگاه</p>
-    </a>
-  </div>
+  <div class="flex flex-row items-center ms-28">
+    <div class="flex items-center align-middle">
+      <a routerLink="./" href="#">
+        <u class="text-23 font-bold hover:color:black">خانه</u>
+      </a>
+      <a routerLink="./" href="#">
+        <p class="">فروشگاه</p>
+      </a>
+      <a routerLink="./" href="#">
+        <p class="">تقویم اقتصادی</p>
+      </a>
+      <a routerLink="./" href="#">
+        <p class="">مجله ایرانی اکسپرت</p>
+      </a>
+      <a routerLink="./" href="#">
+        <p class="">چرا ما؟</p>
+      </a>
+      <button type="button" class="button-enter font-medium ms-3">
+        ورود
+      </button>
+      <button type="button" class="button-subscription rounded-lg px-1 text-white font-medium 
+        focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 
+          mx-1">
+        عضویت
+      </button>
+      <app-search></app-search>
+    </div>
 
-</div>
+    
+
+
+  </div>

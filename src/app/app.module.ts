@@ -9,6 +9,7 @@ import { HeaderSmComponent } from './components/header-layout/header-sm/header-s
 import { HeaderAltComponent } from './components/header-layout/header-alt/header-alt.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SearchComponent } from './components/header-layout/header-lg/search/search.component';
 
 // Headeer Comps
 const header = [
@@ -16,11 +17,12 @@ const header = [
   HeaderLgComponent,
   HeaderSmComponent,
   HeaderAltComponent,
+  SearchComponent,
 ];
 // Footer Comps
 const footer = [FooterComponent];
 @NgModule({
-  declarations: [AppComponent, header, footer],
+  declarations: [AppComponent, header, footer,],
   imports: [BrowserModule, AppRoutingModule,BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
