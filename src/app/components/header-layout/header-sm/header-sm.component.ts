@@ -40,4 +40,11 @@ export class HeaderSmComponent {
 choosenLink(id:number){
   this.link=id
 }
+windowWidth(event:any){
+  
+  if(event.target.innerWidth>=640){
+   this.menuState='in'
+  }
+  
+}
 }
