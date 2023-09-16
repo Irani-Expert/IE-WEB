@@ -5,14 +5,15 @@ $size: 40px;
     display: flex;
 }
 .image-top-right{
-    width: 200px;
-    height: 110px;
+    width: 180px;
+    height: 100px;
     aspect-ratio: 4/3;
 }
 a{
-    margin-left: 15px;
+    margin-left: 20px;
     p{
         font-size: $font-size;
+        font-weight: bold;
         color: $text-header-primary;
         &:hover{
             color: $text-header-hover;
