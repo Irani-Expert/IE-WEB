@@ -39,6 +39,7 @@ export class HeaderSmComponent {
   }
 choosenLink(id:number){
   this.link=id
+  this.menuState='in'
 }
 windowWidth(event:any){
   
