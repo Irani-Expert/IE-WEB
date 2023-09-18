@@ -5,7 +5,9 @@ import { HomeRoutingModule } from './home-routing.module';
 import { LandingPageComponent } from '../components/landing-page/landing-page.component';
 import { SellInfoComponent } from '../components/sell-info/sell-info.component';
 
-const components = [LandingPageComponent,SellInfoComponent];
+import { HeroComponent } from '../components/hero/hero.component';
+
+const components = [LandingPageComponent,HeroComponent];
 @NgModule({
   declarations: [components],
   imports: [CommonModule, HomeRoutingModule],
