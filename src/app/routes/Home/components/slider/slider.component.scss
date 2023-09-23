@@ -1,0 +1,28 @@
+@import "../../../../../sass/colors";
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #C7CEFF;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+position: relative;
+    box-shadow:0px 3px 2px 0px #00000017 inset  
+}
+.deActive{
+    animation: changeSize 0.15s normal forwards ease-in;
+
+}
+  .active-tab{
+    background-color: $blue;
+    width: 32px;
+    border-radius: 30px;  
+}
+@keyframes changeSize {
+    0%   { width:32px;    background-color: $blue;    }
+    50% {width:22px; background-color: $blue; }
+    100% {width:15px; }
+  }
+  

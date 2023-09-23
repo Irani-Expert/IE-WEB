@@ -1,0 +1,14 @@
+
+<div class="m-11 w-full justify-center flex align-middle">
+    <div class="slide">
+        <div *ngIf="choosenSlide==1">text 1</div>
+        <div *ngIf="choosenSlide==2">text 2</div>
+        <div *ngIf="choosenSlide==3">text 3</div>
+       
+<div style="text-align:center">
+    <span class="dot" (click)="changeSlide(1)" [ngClass]="choosenSlide==1?'active-tab':'deActive'"></span> 
+    <span class="dot" (click)="changeSlide(2)" [ngClass]="choosenSlide==2?'active-tab':'deActive'"></span> 
+    <span class="dot" (click)="changeSlide(3)" [ngClass]="choosenSlide==3?'active-tab':'deActive'"></span> 
+  </div>
+    </div>
+</div>

@@ -1,26 +1,27 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component } from '@angular/core';
-
 @Component({
   selector: 'app-sell-info',
   templateUrl: './sell-info.component.html',
   styleUrls: ['./sell-info.component.scss'],
-  animations: [
-    trigger('simpleFadeAnimation', [
-        transition('*=>*', [
-            style({top:'15px',
-            opacity :0}),
-            animate(600)
-        ])
-    ])
-]
+  
 })
 export class SellInfoComponent {
-value:number=0
-ngOnInit() {
+val:number[][]=[[0,0,0,0],[70,22,57,222]];
+  ngOnInit() {
     setInterval(() => {
-        this.value++
-      },1000)
-}
-
+      if(this.val[0][0]<this.val[1][0]){
+        this.val[0][0]++
+      }
+      if(this.val[0][1]<this.val[1][1]){
+        this.val[0][1]++
+      }
+      if(this.val[0][2]<this.val[1][2]){
+        this.val[0][2]++
+      }
+      if(this.val[0][3]<this.val[1][3]){
+        this.val[0][3]++
+      }
+    },10)
+    }
 }
