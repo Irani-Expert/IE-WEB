@@ -24,9 +24,12 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": ["./src/favicon.ico", "./src/assets/img"],
-            "styles": ["./src/sass/styles.scss" ,              "node_modules/font-awesome/css/font-awesome.css"          ],
+            "styles": ["./src/sass/styles.scss"],
             "stylePreprocessorOptions": {
-              "includePaths": ["node_modules/tailwindcss"]
+              "includePaths": [
+                "node_modules/tailwindcss",
+                "node_modules/font-awesome"
+              ]
             },
             "scripts": []
           },
