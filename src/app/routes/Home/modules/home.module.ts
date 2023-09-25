@@ -8,8 +8,9 @@ import { SellInfoComponent } from '../components/sell-info/sell-info.component';
 import { HeroComponent } from '../components/hero/hero.component';
 import { CounterNumberComponent } from '../components/counter-number/counter-number.component';
 import { SliderComponent } from '../components/slider/slider.component';
+import { BotFacilitiesComponent } from '../components/bot-facilities/bot-facilities.component';
 
-const components = [LandingPageComponent,HeroComponent,SellInfoComponent,CounterNumberComponent,SliderComponent];
+const components = [LandingPageComponent,HeroComponent,SellInfoComponent,CounterNumberComponent,SliderComponent,BotFacilitiesComponent];
 @NgModule({
   declarations: [components],
   imports: [CommonModule, HomeRoutingModule],

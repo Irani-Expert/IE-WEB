@@ -1,28 +1,66 @@
-<app-counter-number></app-counter-number>
-<div class="w-full flex" >
-<div class="text-[2.75rem] w-full flex font-bold main-sell-card text-white" >
-    <div class="flex w-[31%] ">
-        <div class="text-center grid pt-5" >
-            <span  class="leading-5	">{{val[0][0]}}%</span>
-            <small class=" text-base font-medium">وین ریت</small>
-        </div>
-    </div>
-    <div class="flex w-[27%] ">
-        <div class="	text-center grid pt-5">
-            <span  class="leading-5">{{val[0][1]}}%</span>
-            <small class=" text-base font-medium">سود ماقبل</small>
-        </div>
-</div>
-    <div class="flex w-[27%] ">
-                <div class="	text-center grid pt-5">
-                    <span  class="leading-5">{{val[0][2]}}%</span>
-                    <small class=" text-base font-medium">سود ماقبل</small>
+
+    <div class="sm:text-[2.75rem] text-[5rem] w-full  sm:w-3/4 sm:flex font-bold main-sell-card h-40	sm:h-20	 text-white" >
+        <div class="sm:contents flex justify-center " >
+            <div class="sm:hidden w-[20%] text-end ml-2.5	">
+                <button (click)="changeSlide(choosenSlide-1>=1?choosenSlide-1:4)"><i class="fa fa-angle-right"style="font-size: 50px;"></i>
+                </button>
+            </div>
+            <ng-container *ngFor="let x of  [1,2,3,4]; let i = index">
+                <div class="flex sm:w-[31%]  "[ngClass]="choosenSlide!=i?'d-mobile-none':'d-mobile-show'">
+                    <div class="text-center grid " >
+                        <span class="sm:leading-9	leading-[90px] hide-item" >
+                            <div class="sm:static	 relative top-5" >{{val[0][0]}}%</div>
+                            <small class="text-[2.75rem]  sm:text-base text-base font-medium flex justify-center">وین ریت</small>
+                        </span>
+                    </div>
                 </div>
-     </div>
-    <div >        <div class="text-center grid pt-5" >
-        <span class="leading-5">{{val[0][3]}}+</span>
-        <small class=" text-base font-medium">حساب های فعال</small>
+            </ng-container>
+            <!-- <div class="flex sm:w-[31%]  "[ngClass]="choosenSlide!=1?'d-mobile-none':'d-mobile-show'">
+                <div class="text-center grid " >
+                    <span class="sm:leading-9	leading-[90px] hide-item" >
+                        <div class="sm:static	 relative top-5" >{{val[0][0]}}%</div>
+                        <small class="text-[2.75rem]  sm:text-base text-base font-medium flex justify-center">وین ریت</small>
+                    </span>
+                </div>
+            </div> -->
+                    <!-- <div class="flex sm:w-[31%]  "[ngClass]="choosenSlide!=2?'d-mobile-none':'d-mobile-show'">
+                <div class="text-center grid " >
+                    <span class="sm:leading-9	leading-[90px]" >
+                        <div class="sm:static	 relative top-5" >{{val[0][0]}}%</div>
+                        <small class="text-[2.75rem]  sm:text-base text-base font-medium flex justify-center">وین ریت</small>
+                    </span>
+                </div>
+            </div> -->
+            <!-- <div class="flex sm:w-[27%]  "[ngClass]="choosenSlide!=3?'d-mobile-none':'d-mobile-show'">
+                <div class="text-center grid " >
+                    <span class="sm:leading-9	leading-[90px]" >
+                        <div class="sm:static	 relative top-5" >{{val[0][0]}}%</div>
+                        <small class="text-[2.75rem]  sm:text-base text-base font-medium flex justify-center">وین ریت</small>
+                    </span>
+                </div>
+            </div> -->
+            <!-- <div class="flex  justify-center "[ngClass]="choosenSlide!=4?'d-mobile-none':'d-mobile-show'">
+                <div class="text-center grid " >
+                    <span class="sm:leading-9	leading-[90px]" >
+                        <div class="sm:static	 relative top-5" >{{val[0][2]}}%</div>
+                        <small class="text-[2.75rem]  sm:text-base text-base font-medium flex justify-center">وین ریت</small>
+                    </span>
+                </div>
+            </div> -->
+        <div class="sm:hidden w-[20%] mr-2.5"> 
+            <button (click)="changeSlide(choosenSlide+1<=4?choosenSlide+1:1)"><i class="fa fa-angle-left text-3xl" style="font-size: 50px;"></i></button>
+        </div>
+        </div>
+   
+
+    <div class="sm:hidden   leading-4	">
+        <app-slider [choosenSlide]="choosenSlide" (changednum)="changeSlide($event)"></app-slider> 
     </div>
-</div>
-</div>
-</div>
+    </div>
+
+
+<!-- <app-hero /> -->
+<!-- <app-sell-info></app-sell-info> -->
+
+
+

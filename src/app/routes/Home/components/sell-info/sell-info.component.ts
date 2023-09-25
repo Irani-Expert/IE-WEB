@@ -24,4 +24,9 @@ val:number[][]=[[0,0,0,0],[70,22,57,222]];
       }
     },10)
     }
+    choosenSlide:number=1
+  changeSlide(slide:any){
+    
+    this.choosenSlide=slide
+    }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-slider',
@@ -6,8 +6,21 @@ import { Component } from '@angular/core';
 styleUrls: ['./slider.component.scss'],
 })
 export class SliderComponent {
-choosenSlide:number=1;
+  arr:any[]=[]
+  @Output() changednum = new EventEmitter<number>();
+  @Input() choosenSlide!: number; // decorate the property with @Input()
+
+ 
+   ngOnInit() {
+    var number = 4;
+    
+    for(var i = 0; i < number; i++) this.arr.push(i+1);
+    
+    
+   }
 changeSlide(slide:number){
 this.choosenSlide=slide
+this.changednum.emit(slide);
+
 }
 }
