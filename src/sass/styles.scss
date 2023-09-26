@@ -1,3 +1,4 @@
+// @import"scss/font-awesome";
 @import "tailwind";
 @import "./variables";
 @import "./mixins";
@@ -10,15 +11,12 @@ body {
   background-color: $darken-white;
   word-spacing: $word-spacing-base;
 }
-.button-styles{
-  
+.button-styles {
   color: white;
   border: none;
   border-radius: 11px;
 }
-.header-sm-button{
+.header-sm-button {
   background: #6db500;
-  @extend .button-styles
+  @extend .button-styles;
 }
-
-

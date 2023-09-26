@@ -30,19 +30,19 @@ $persian-unicode-range: U+20-21, U+24-25, U+27-3A, U+3C-3E, U+5B-5F, U+7C, U+A0,
   font-display: swap;
   unicode-range: $persian-unicode-range;
 }
-  @font-face {
-    font-family: Yekan;
-    src: url("../assets/fonts/YekanBakh-Fat.eot");
-    src: url("../assets/fonts/YekanBakh-Fat.eot?#iefix")
-        format("embedded-opentype"),
-      url("../assets/fonts/YekanBakh-Fat.woff2") format("woff2"),
-      url("../assets/fonts/YekanBakh-Fat.woff") format("woff"),
-      url("../assets/fonts/YekanBakh-Fat.ttf") format("truetype");
-    font-weight: bolder;
-    font-style: normal;
-    font-display: swap;
-    unicode-range: $persian-unicode-range;
-  }
+@font-face {
+  font-family: Yekan;
+  src: url("../assets/fonts/YekanBakh-Fat.eot");
+  src: url("../assets/fonts/YekanBakh-Fat.eot?#iefix")
+      format("embedded-opentype"),
+    url("../assets/fonts/YekanBakh-Fat.woff2") format("woff2"),
+    url("../assets/fonts/YekanBakh-Fat.woff") format("woff"),
+    url("../assets/fonts/YekanBakh-Fat.ttf") format("truetype");
+  font-weight: bolder;
+  font-style: oblique;
+  font-display: swap;
+  unicode-range: $persian-unicode-range;
+}
 @font-face {
   font-family: Yekan;
   src: url("../assets/fonts/YekanBakh-Heavy.eot");
