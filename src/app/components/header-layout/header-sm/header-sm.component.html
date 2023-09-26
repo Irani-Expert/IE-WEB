@@ -1,21 +1,33 @@
-<nav dir="ltr" class=" pl-3.5	 "(window:resize)="windowWidth($event)">
-    <div class="top-6 left-5 	 absolute  sm:hidden" >
-        <a (click)="openandClose() " class="w-1/4 colors.red  cursor-pointer"><img class="w-[25px]" src="../../../../assets/img/Artbd – 1.png"> </a>
-    </div>  
-    <ul [@slideInOut]="menuState" class="fixed text-1.5xl	top-0 left-0 h-full max-[480px]:right-[20%] min-[481px]:right-[55%] bg-main-blue"  >
-      <li  class="mb-12 mt-4 ms-4">
-            <a (click)="openandClose()" class="w-1/4 bg-black "  href="#"><img class="w-[26px]" src="../../../../assets/img/Artbod – 1.png"> </a>
-      </li>  
-      
-      <ng-container style="margin-top: 50%;" *ngFor="let x of rows">
-        <li class="justify-end p-2.5 pr-8 flex cursor-pointer hover:bg-[#293dc8]" [ngClass]="x.id==link?'active-tab':''" (click)="choosenLink(x.id)" ><a class="text-white no-underline	">{{x.Name}}
-        </a></li>
-        </ng-container>
-
-    <li class="justify-end p-2.5 pr-8 flex" >
-    <button class="p-2.5 text-1.5xl header-sm-button">
-        ورود|عضویت
-    </button>
+<nav dir="ltr" class="pl-3.5" (window:resize)="windowWidth($event)">
+  <div class="top-6 left-5 absolute sm:hidden">
+    <a (click)="openandClose()" class="w-1/4 colors.red cursor-pointer"
+      ><img class="w-[25px]" src="../../../../assets/img/Artbd – 1.png" />
+    </a>
+  </div>
+  <ul
+    [@slideInOut]="menuState"
+    class="fixed text-1.5xl top-0 left-0 h-full max-[480px]:right-[20%] min-[481px]:right-[55%] bg-main-blue"
+  >
+    <li class="mb-12 mt-4 ms-4">
+      <a (click)="openandClose()" class="w-1/4 bg-black" href="#"
+        ><img class="w-[26px]" src="../../../../assets/img/Artbod – 1.png" />
+      </a>
     </li>
-    </ul>
-  </nav>
+
+    <ng-container style="margin-top: 50%" *ngFor="let x of rows">
+      <li
+        class="justify-end p-2.5 pr-8 flex cursor-pointer hover:bg-[#293dc8]"
+        [ngClass]="x.id == link ? 'active-tab' : ''"
+        (click)="choosenLink(x.id)"
+      >
+        <a class="text-white no-underline font-medium">{{ x.Name }} </a>
+      </li>
+    </ng-container>
+
+    <li class="justify-end p-2.5 pr-8 flex">
+      <button class="p-2.5 text-1.5xl header-sm-button font-medium">
+        ورود|عضویت
+      </button>
+    </li>
+  </ul>
+</nav>
