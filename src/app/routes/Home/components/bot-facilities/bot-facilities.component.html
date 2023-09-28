@@ -1,10 +1,10 @@
 <div
-  class="sm:flex grid grid-cols-2 sm:m-10 text-base font-medium mt-16 resclass w-full resclass"
+  class="sm:flex grid grid-cols-2 sm:m-10 text-base font-medium mt-16 resclass w-full resclass sm:h-[40vh]"
 >
   <ng-container *ngFor="let x of info">
     <div
       (click)="enableClick(x.id - 1)"
-      class="cursor-pointer text-justify sm:rounded-3xl border-none border p-4 sm:h-[70vh]"
+      class="cursor-pointer text-justify sm:rounded-3xl border-none border p-4"
       [ngClass]="
         x.isOpend
           ? ' sm:text-2xl sm:h-72		sm:w-1/4   bg-grey '

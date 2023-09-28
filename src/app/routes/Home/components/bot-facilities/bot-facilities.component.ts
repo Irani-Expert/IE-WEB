@@ -11,7 +11,7 @@ export class BotFacilitiesComponent {
       id: 1,
       isOpend: false,
       title: 'شخصی سازی استراتژی',
-      description: 'مدیریت و اضافه کردن استراتژ  شخصی به صورت دقیق و حساب شده',
+      description: 'مدیریت و اضافه کردن استراتژی  شخصی به صورت دقیق و حساب شده',
       class: '',
     },
     {
