@@ -14,9 +14,13 @@ body {
 .button-styles {
   color: white;
   border: none;
-  border-radius: 11px;
 }
 .header-sm-button {
+  padding: 0.625rem;
   background: #6db500;
   @extend .button-styles;
+}
+.btn-blue {
+  @extend .button-styles;
+  background-color: $activeBlue;
 }

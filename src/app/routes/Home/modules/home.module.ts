@@ -9,6 +9,7 @@ import { HeroComponent } from '../components/hero/hero.component';
 // import { CounterNumberComponent } from '../components/counter-number/counter-number.component';
 import { SliderComponent } from '../components/slider/slider.component';
 import { BotFacilitiesComponent } from '../components/bot-facilities/bot-facilities.component';
+import { BotAdvantagesComponent } from '../components/bot-advantages/bot-advantages.component';
 
 const components = [
   LandingPageComponent,
@@ -17,6 +18,7 @@ const components = [
   // CounterNumberComponent,
   SliderComponent,
   BotFacilitiesComponent,
+  BotAdvantagesComponent,
 ];
 @NgModule({
   declarations: [components],
