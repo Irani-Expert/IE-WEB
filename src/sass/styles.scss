@@ -24,3 +24,15 @@ body {
   @extend .button-styles;
   background-color: $activeBlue;
 }
+.ltr {
+  direction: ltr;
+}
+.rtl {
+  direction: rtl;
+}
+.color--blue {
+  color: $blue;
+}
+.color--grey500 {
+  color: $gray-500;
+}
