@@ -1,7 +1,30 @@
-<div class="flex m-10 text-base font-medium" (click)="enableClick()">
-  <div class="w-1/5" [ngClass]="testi ? ' text-2xl	' : 'p-5 enable-facilities '">
-    <img src="../../../../../assets/img/Group 40.png" style="height: 36%" />
-    <h4>شخصی سازی استراتژی</h4>
-    <p>مدیریت و اضافه کردن استراتژی شخصی به صورت دقیق و حساب شده</p>
-  </div>
+<div
+  class="sm:flex grid grid-cols-2 sm:m-10 text-base font-medium mt-16 resclass w-full resclass sm:h-[40vh]"
+>
+  <ng-container *ngFor="let x of info">
+    <div
+      (click)="enableClick(x.id - 1)"
+      class="cursor-pointer text-justify sm:rounded-3xl border-none border p-4"
+      [ngClass]="
+        x.isOpend
+          ? ' sm:text-2xl sm:h-72		sm:w-1/4   bg-grey '
+          : 'disable-facilities sm:w-1/5  '
+      "
+    >
+      <div class="sm:w-1/2" [ngClass]="x.id < 3 ? 'img-container' : ''">
+        <img
+          class="w-inher"
+          [ngClass]="x.isOpend ? 'up-icon ' : 'h-[36%]  down-icon'"
+          src="../../../../../assets/img/{{ x.id }}Fa.png"
+        />
+      </div>
+      <h4>{{ x.title }}</h4>
+      <p>{{ x.description }}</p>
+      <div class="flex justify-center mt-2" *ngIf="x.isOpend">
+        <a class="f-btn"
+          ><i class="fa fa-angle-right" style="font-size: 15px"></i
+        ></a>
+      </div>
+    </div>
+  </ng-container>
 </div>

@@ -1,10 +1,10 @@
-// @import"scss/font-awesome";
 @import "./variables";
 @import "./mixins";
 @import "./colors";
 @import "./typography";
 @import "./forms";
 @import "tailwind";
+@import "scss/font-awesome";
 body {
   font-family: $font-family-base;
   font-size: $font-size-base;
@@ -14,9 +14,25 @@ body {
 .button-styles {
   color: white;
   border: none;
-  border-radius: 11px;
 }
 .header-sm-button {
+  padding: 0.625rem;
   background: #6db500;
   @extend .button-styles;
+}
+.btn-blue {
+  @extend .button-styles;
+  background-color: $activeBlue;
+}
+.ltr {
+  direction: ltr;
+}
+.rtl {
+  direction: rtl;
+}
+.color--blue {
+  color: $blue;
+}
+.color--grey500 {
+  color: $gray-500;
 }
