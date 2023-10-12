@@ -1,0 +1,71 @@
+@import "../../../../../sass/colors";
+.box-shadow-ac:hover {
+  box-shadow: -6px 5px 4px 0px #d8d8d8;
+  transform: translate(2px, -2px);
+  border-color: #3246d3;
+  .video-opa {
+    opacity: 1;
+  }
+}
+.box-shadow-ac .video-opa {
+  opacity: 0.7;
+}
+.box-shadow-ac {
+  transition: box-shadow 0.2s linear, transform 0.2s linear,
+    border-color 0.2s linear;
+  position: relative;
+  border-radius: 18px;
+  height: 35rem;
+  width: 55rem;
+  border-style: solid;
+  border-width: thin;
+  border-color: #d8d8d8;
+}
+
+progress::-webkit-progress-bar {
+  border: 0;
+  border-radius: 20px;
+}
+progress::-webkit-progress-value {
+  border: 0;
+  border-radius: 20px;
+  background: $blue;
+}
+progress {
+  border: none;
+  width: 80%;
+  height: 6px;
+  position: relative;
+  border: none;
+}
+progress:before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: $blue; /* Adjust the color of the dot */
+}
+.pr-Before:before {
+  left: calc(var(--movement));
+}
+.p-div {
+  display: flex;
+  height: 2.5rem;
+  left: 0%;
+  list-style-type: none;
+  margin: 0;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 0 0.625rem;
+  position: absolute;
+  width: 100%;
+  bottom: 6px;
+  z-index: 3;
+}
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
