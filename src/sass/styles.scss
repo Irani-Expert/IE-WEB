@@ -3,8 +3,8 @@
 @import "./colors";
 @import "./typography";
 @import "./forms";
-@import "scss/font-awesome";
 @import "tailwind";
+@import "scss/font-awesome";
 body {
   font-family: $font-family-base;
   font-size: $font-size-base;
