@@ -5,7 +5,10 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
+import { Header } from '../header';
+import { NavigationService } from 'src/app/classes/services/navigation.service';
+import { Utils } from 'src/app/classes/utils';
 
 @Component({
   selector: 'app-header-sm',
@@ -17,13 +20,14 @@ import { Component } from '@angular/core';
         'in',
         style({
           opacity: 0,
-          display: 'none',
+          transform: 'translateX(-300%)',
         })
       ),
       state(
         'out',
         style({
           opacity: 1,
+          transform: 'translateX(0)',
         })
       ),
       transition('in => out', animate('400ms ease-in-out')),
@@ -31,30 +35,33 @@ import { Component } from '@angular/core';
     ]),
   ],
 })
-export class HeaderSmComponent {
+export class HeaderSmComponent extends Header {
+  constructor(navService: NavigationService) {
+    super(navService);
+  }
+
   link: number = 1;
-  rows: any[] = [
-    { id: 0, Name: 'خانه' },
-    { id: 1, Name: 'جستجو' },
-    { id: 2, Name: 'فروشگاه' },
-    { id: 3, Name: 'تقویم اقتصادی' },
-    { id: 4, Name: 'مجله ایرانی اکسپرت' },
-    { id: 5, Name: 'چرا ما؟' },
-  ];
   activeNavBar: boolean = false;
   menuState: string = 'in';
 
+  ngOninit() {
+    this.updateMenu();
+  }
   openandClose() {
     this.menuState = this.menuState === 'out' ? 'in' : 'out';
   }
-choosenLink(id:number){
-  this.link=id
-  this.menuState='in'
-}
-windowWidth(event:any){
-  
-  if(event.target.innerWidth>=640){
-   this.menuState='in'
+  choosenLink(id: number) {
+    this.link = id;
+    this.menuState = 'in';
   }
-}
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.updateMenu();
+  }
+
+  updateMenu() {
+    if (!Utils.isSmLaptop()) {
+      this.menuState = 'in';
+    }
+  }
 }

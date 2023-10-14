@@ -1,36 +1,78 @@
-<div class="sm:flex items-center justify-between my-10 hidden" style="margin-right: 60px; margin-left: 60px;">
-  <div class="">
-    <img src="assets/img/logo.webp" class="image-top-right">
-  </div>
-  <div class="flex flex-row items-center ms-28">
-    <div class="flex items-center align-middle">
-      <a routerLink="./" href="#">
-        <u class="text-23 font-bold hover:color:black">خانه</u>
-      </a>
-      <a routerLink="./" href="#">
-        <p class="">فروشگاه</p>
-      </a>
-      <a routerLink="./" href="#">
-        <p class="">تقویم اقتصادی</p>
-      </a>
-      <a routerLink="./" href="#">
-        <p class="">مجله ایرانی اکسپرت</p>
-      </a>
-      <a routerLink="./" href="#">
-        <p class="">چرا ما؟</p>
-      </a>
-      <button type="button" class="button-enter font-medium ms-3">
-        ورود
-      </button>
-      <button type="button" class="button-subscription rounded-lg px-1 text-white font-medium 
-        focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 
-          mx-1">
+<nav class="px-6 pb-2.5 pt-10 max-w-container">
+  <div class="flex items-center mx-auto relative">
+    <a href="https://iraniexpert.com" class="flex items-center">
+      <span class="sr-only">ایرانی اکسپرت - Irani Expert</span>
+      <img
+        src="assets/img/logo.webp"
+        class="mr-1 h-16 w-auto"
+        alt="Irani-Expert Logo"
+      />
+    </a>
+    <div class="justify-between items-center flex w-auto mr-auto">
+      <ul class="flex flex-row mt-0 font-medium space-x-8">
+        <ng-container *ngFor="let item of items; let i = index">
+          <li
+            (mouseenter)="onHover(i)"
+            class="pr-2 link-active relative"
+            [ngClass]="{ 'ml-6': i == 0, '-translate-y-1': item.active }"
+          >
+            <ng-container *ngIf="item.path">
+              <a
+                (click)="selectItem(item)"
+                [href]="'https://iraniexpert.com/' + item.path"
+                [ngClass]="{ active: item.active }"
+                ><p>{{ item.name }}</p></a
+              >
+            </ng-container>
+            <ng-container *ngIf="!item.path">
+              <span
+                class="cursor-pointer"
+                (click)="selectItem(item)"
+                [ngClass]="{ active: item.active }"
+              >
+                <p>{{ item.name }}</p>
+              </span>
+            </ng-container>
+            <ng-container *ngIf="hoveredItem == i && item.sub">
+              <div (mouseleave)="unHovered()" class="dropdown">
+                <ul class="dropdown-ul">
+                  <ng-container *ngFor="let sub of item.sub">
+                    <li class="dropdown-li">
+                      <a (click)="selectItem(item)">
+                        <p>{{ sub.name }}</p>
+                      </a>
+                    </li>
+                  </ng-container>
+                </ul>
+              </div>
+              <!-- <span
+                class="dropdown"
+                [ngClass]="hoveredItem == i ? 'hovered rounded' : 'not-hovered'"
+              >
+                <ul class="flex flex-col mt-0 font-medium space-x-8">
+                  <ng-container *ngFor="let sub of item.sub">
+                    <li>
+                      <a [href]="'https://iraniexpert.com/' + sub.path">
+                        <p style="font-size: 12px !important">{{ sub.name }}</p>
+                      </a>
+                    </li>
+                  </ng-container>
+                </ul>
+              </span> -->
+            </ng-container>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="flex items-center">
+      <button type="button" class="button-enter font-medium ms-3">ورود</button>
+      <button
+        type="button"
+        class="button-subscription rounded-lg px-1 text-white font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 mx-1"
+      >
         عضویت
       </button>
-      
     </div>
     <app-search></app-search>
-    
-
-
   </div>
+</nav>

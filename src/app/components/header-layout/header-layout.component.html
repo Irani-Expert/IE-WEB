@@ -1,3 +1,5 @@
-<app-header-lg></app-header-lg>
-<app-header-sm></app-header-sm>
-<app-header-alt></app-header-alt>
+<header class="relative">
+  <app-header-lg [ngClass]="device == 'lg' ? 'block' : 'hidden'" />
+  <app-header-sm [ngClass]="device == 'sm' ? 'block' : 'hidden'" />
+  <!-- <app-header-alt /> -->
+</header>
