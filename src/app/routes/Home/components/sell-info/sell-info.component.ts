@@ -5,28 +5,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./sell-info.component.scss'],
 })
 export class SellInfoComponent {
-  val: number[][] = [
-    [0, 0, 0, 0],
-    [70, 22, 57, 222],
+  public val: Array<sellInfo> = [
+    { number: 70, title: 'وین ریت' },
+    { number: 5, title: 'ماکسیموم درادون' },
+    { number: 22, title: 'سود ماه قبل' },
+    { number: 200, title: 'حساب های فعال' },
   ];
-  ngOnInit() {
-    setInterval(() => {
-      if (this.val[0][0] < this.val[1][0]) {
-        this.val[0][0]++;
-      }
-      if (this.val[0][1] < this.val[1][1]) {
-        this.val[0][1]++;
-      }
-      if (this.val[0][2] < this.val[1][2]) {
-        this.val[0][2]++;
-      }
-      if (this.val[0][3] < this.val[1][3]) {
-        this.val[0][3]++;
-      }
-    }, 10);
-  }
+  ngOnInit() {}
+
   choosenSlide: number = 1;
   changeSlide(slide: any) {
     this.choosenSlide = slide;
   }
+}
+export class sellInfo {
+  title!: string;
+  number!: number;
 }

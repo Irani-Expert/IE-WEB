@@ -1,4 +1,25 @@
-@import 'src/sass/colors';
-* {
-    background-color: $white;
+@import "src/sass/colors";
+
+@media (max-width: 640px) {
+  .first-order {
+    order: 0;
+  }
+  .secend-order {
+    order: 1;
+  }
+  .third-order {
+    order: 2;
+  }
+}
+
+@media (min-width: 640px) {
+  .slider-class {
+    position: absolute;
+    rotate: 10%;
+    transform: rotate(90deg);
+    margin-right: 0%;
+  }
+  .bgi-world-map1 {
+    background-image: url("../../../../../assets/img/world-map-png.png");
+  }
 }

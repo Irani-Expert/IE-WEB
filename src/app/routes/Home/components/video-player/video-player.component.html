@@ -1,56 +1,60 @@
-<div id="main-card" class="p-4 box-shadow-ac">
-  <video
-    (click)="test()"
-    width="100%"
-    height="20%"
-    class="rounded-xl"
-    [ngClass]="{ ' video-opa': !pauseplay }"
-    webkit-playsinline="true"
-    loop="true"
-    poster="../../../../../assets/img/8629.webp"
-    (timeupdate)="onTimeUpdate()"
-    autoplay
-    webkit-playsinline="true"
-    playsinline
-    type="video/mp4"
-  >
-    <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/mp4" />
-  </video>
-  <div
-    class="p-div p-2 text-2xl flex justify-center"
-    style="align-items: center; padding-left: 4rem; padding-right: 4rem"
-  >
-    <i
-      class="fa fa-expand me-3 text-white ms-2 flex items-center"
-      [ngClass]="{ 'fa-expand': !isFullScreen, 'fa-compress': isFullScreen }"
-      (click)="fullScreen()"
-    ></i>
+<div class="flex justify-center">
+  <div id="main-card" class="p-4 box-shadow-ac">
+    <video
+      (click)="test()"
+      width="100%"
+      height="20%"
+      class="rounded-xl"
+      [ngClass]="{ ' video-opa': !pauseplay }"
+      webkit-playsinline="true"
+      loop="true"
+      poster="../../../../../assets/img/8629.webp"
+      (timeupdate)="onTimeUpdate()"
+      autoplay
+      webkit-playsinline="true"
+      playsinline
+      type="video/mp4"
+    >
+      <source
+        src="https://www.w3schools.com/html/mov_bbb.ogg"
+        type="video/mp4"
+      />
+    </video>
+    <div
+      class="p-div p-2 text-2xl flex justify-center"
+      style="align-items: center; padding-left: 4rem; padding-right: 4rem"
+    >
+      <i
+        class="fa fa-expand me-3 text-white ms-2 flex items-center"
+        [ngClass]="{ 'fa-expand': !isFullScreen, 'fa-compress': isFullScreen }"
+        (click)="fullScreen()"
+      ></i>
 
-    <div class="me-3 mt-1 text-white flex items-center">
-      {{ videoCurrentTime }}
+      <div class="me-3 mt-1 text-white flex items-center">
+        {{ videoCurrentTime }}
+      </div>
+      <progress
+        dir="ltr"
+        (drag)="dragFiunction($event)"
+        class="pr-Before w-full"
+        (click)="handleClick($event)"
+        [value]="progressValue"
+        min="0"
+        max="100"
+        [ngStyle]="{ '--movement': progressbarLeft }"
+      ></progress>
+
+      <i
+        class="fa ms-3 text-white flex items-center"
+        [ngClass]="{ 'fa-pause': pauseplay, 'fa-play': !pauseplay }"
+        (click)="puasePaceVideo()"
+      ></i>
     </div>
-    <progress
-      dir="ltr"
-      (drag)="dragFiunction($event)"
-      class="pr-Before w-full"
-      (click)="handleClick($event)"
-      [value]="progressValue"
-      min="0"
-      max="100"
-      [ngStyle]="{ '--movement': progressbarLeft }"
-    ></progress>
-
-    <i
-      class="fa ms-3 text-white flex items-center"
-      [ngClass]="{ 'fa-pause': pauseplay, 'fa-play': !pauseplay }"
-      (click)="puasePaceVideo()"
-    ></i>
-  </div>
-  <div
-    class="p-div d-flex justify-center align-middle btn-span"
-    style="bottom: 45%"
-  >
-    <!-- <span [@fade] *ngIf="!hidePuase">
+    <div
+      class="p-div d-flex justify-center align-middle btn-span"
+      style="bottom: 45%"
+    >
+      <!-- <span [@fade] *ngIf="!hidePuase">
       <i class="fa fa-circle text-8xl" style="color: #3246d3; z-index: -10">
         <i
           class="fa text-2xl"
@@ -59,14 +63,23 @@
         ></i
       ></i>
     </span> -->
-    <span class="fa-stack fa-4x" style="opacity: 1" [@fade] *ngIf="!hidePuase">
-      <i class="fa fa-circle fa-stack-2x" style="color: #3246d3"></i>
-      <i
-        class="fa fa-stack-1x text-white"
-        style="font-size: 46px"
-        [ngClass]="{ 'fa-pause': pauseplay, 'fa-play left-[3px]': !pauseplay }"
-        (click)="puasePaceVideo()"
-      ></i>
-    </span>
+      <span
+        class="fa-stack fa-4x"
+        style="opacity: 1"
+        [@fade]
+        *ngIf="!hidePuase"
+      >
+        <i class="fa fa-circle fa-stack-2x" style="color: #3246d3"></i>
+        <i
+          class="fa fa-stack-1x text-white"
+          style="font-size: 46px"
+          [ngClass]="{
+            'fa-pause': pauseplay,
+            'fa-play left-[3px]': !pauseplay
+          }"
+          (click)="puasePaceVideo()"
+        ></i>
+      </span>
+    </div>
   </div>
 </div>
