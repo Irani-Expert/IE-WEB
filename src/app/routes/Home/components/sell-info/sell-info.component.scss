@@ -1,25 +1,22 @@
-.main-sell-card{
-    @media only screen and (min-width: 600px) {
-        border-radius: 48px;
-        margin: 10%;
-        padding: 15px 90px 8px;    
-      }
+.main-sell-card {
+  @media only screen and (min-width: 600px) {
+    border-radius: 48px;
+    margin: 5%;
+    padding: 15px 90px 8px;
+  }
 
   margin-top: 32%;
-    background-color: #3246d3;
+  background-color: #3246d3;
 }
-.d-mobile-none{
-    @media only screen and (max-width: 600px) {
-      display: none;
-      }
-
+.d-mobile-none {
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
 }
-.d-mobile-show{
-    animation: test 0.5s linear;
-  
-
+.d-mobile-show {
+  animation: test 0.5s linear;
 }
-@keyframes test { 
+@keyframes test {
   0% {
     opacity: 0;
   }
