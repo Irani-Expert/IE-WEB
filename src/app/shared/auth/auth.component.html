@@ -1,0 +1,11 @@
+<section class="custom-container">
+  <app-switch
+    (output)="changeView()"
+    [activeView]="view"
+    [items]="switchItems"
+  ></app-switch>
+  <div class="h-60">
+    <app-signup *ngIf="view == 'sign-up'" />
+    <app-login *ngIf="view == 'login'" />
+  </div>
+</section>

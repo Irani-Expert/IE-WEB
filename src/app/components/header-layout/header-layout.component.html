@@ -1,5 +1,16 @@
 <header class="relative">
-  <app-header-lg [ngClass]="device == 'lg' ? 'block' : 'hidden'" />
-  <app-header-sm [ngClass]="device == 'sm' ? 'block' : 'hidden'" />
+  <app-header-lg
+    (modal)="openedModal($event)"
+    [ngClass]="device == 'lg' ? 'block' : 'hidden'"
+  />
+  <app-header-sm
+    (modal)="openedModal($event)"
+    [ngClass]="device == 'sm' ? 'block' : 'hidden'"
+  />
   <!-- <app-header-alt /> -->
 </header>
+<app-modal *ngIf="modalStatus.value">
+  <div content>
+    <app-auth [view]="modalView" />
+  </div>
+</app-modal>

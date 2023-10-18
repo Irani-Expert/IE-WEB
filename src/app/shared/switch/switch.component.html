@@ -1,0 +1,18 @@
+<ng-container *ngIf="!loading">
+  <ul class="switch-list">
+    <ng-container *ngFor="let item of items; let i = index">
+      <li
+        (click)="changeActiveItem(item, i)"
+        [ngStyle]="{
+          'background-color': item.active ? item.bgColor : 'transparent'
+        }"
+        [ngClass]="{
+          'font-bold text-16': item.active,
+        }"
+        class="switch-item"
+      >
+        <p [ngClass]="{ 'text-black': item.active }">{{ item.title }}</p>
+      </li>
+    </ng-container>
+  </ul>
+</ng-container>

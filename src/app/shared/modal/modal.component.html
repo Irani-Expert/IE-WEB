@@ -1,0 +1,14 @@
+<div @scaleIn class="modal">
+  <div class="modal-header">
+    <span class="modal-close" (click)="close()"><span>&times;</span></span>
+    <ng-content select="[header]"></ng-content>
+  </div>
+  <div class="modal-content">
+    <ng-content select="[content]"></ng-content>
+  </div>
+  <div class="modal-footer">
+    <ng-content select="[footer]"></ng-content>
+  </div>
+</div>
+
+<div @fadeIn class="modal-backdrop" (click)="close()"></div>

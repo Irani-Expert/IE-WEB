@@ -1,5 +1,8 @@
 import { Component, HostListener } from '@angular/core';
+import { PlatformService } from 'src/app/classes/services/platform.service';
 import { Utils } from 'src/app/classes/utils';
+import { ModalService } from 'src/app/shared/modal/services/modal.service';
+
 enum Device {
   Mobile = 'sm',
   Laptop = 'lg',
@@ -10,9 +13,12 @@ enum Device {
   styleUrls: ['./header-layout.component.scss'],
 })
 export class HeaderLayoutComponent {
-  deviceSize = Device;
-  device = '';
-
+  device = 'lg';
+  modalView = '';
+  modalStatus;
+  constructor(private platform: PlatformService, private modal: ModalService) {
+    this.modalStatus = this.modal.modalStatusSubject;
+  }
   ngOnInit() {
     this.updateDeviceValue();
   }
@@ -21,10 +27,16 @@ export class HeaderLayoutComponent {
     this.updateDeviceValue();
   }
   updateDeviceValue() {
-    if (Utils.isSmLaptop()) {
-      this.device = this.deviceSize.Mobile;
-    } else {
-      this.device = this.deviceSize.Laptop;
+    if (this.platform.isPlatformBrowser()) {
+      if (Utils.isSmLaptop()) {
+        this.device = Device.Mobile;
+      } else {
+        this.device = Device.Laptop;
+      }
     }
+  }
+  openedModal(event: any) {
+    console.log(event);
+    this.modalView = event;
   }
 }

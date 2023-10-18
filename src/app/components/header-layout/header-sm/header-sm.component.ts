@@ -9,6 +9,7 @@ import { Component, HostListener } from '@angular/core';
 import { Header } from '../header';
 import { NavigationService } from 'src/app/classes/services/navigation.service';
 import { Utils } from 'src/app/classes/utils';
+import { PlatformService } from 'src/app/classes/services/platform.service';
 
 @Component({
   selector: 'app-header-sm',
@@ -36,8 +37,8 @@ import { Utils } from 'src/app/classes/utils';
   ],
 })
 export class HeaderSmComponent extends Header {
-  constructor(navService: NavigationService) {
-    super(navService);
+  constructor(navService: NavigationService, platform: PlatformService) {
+    super(navService, platform);
   }
 
   link: number = 1;
@@ -60,8 +61,10 @@ export class HeaderSmComponent extends Header {
   }
 
   updateMenu() {
-    if (!Utils.isSmLaptop()) {
-      this.menuState = 'in';
+    if (this.platform.isPlatformBrowser()) {
+      if (!Utils.isSmLaptop()) {
+        this.menuState = 'in';
+      }
     }
   }
 }

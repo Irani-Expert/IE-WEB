@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app.routing';
@@ -10,7 +10,7 @@ import { HeaderAltComponent } from './components/header-layout/header-alt/header
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchComponent } from './components/header-layout/header-lg/search/search.component';
-
+import { SharedModule } from './shared/shared.module';
 // Headeer Comps
 const header = [
   HeaderLayoutComponent,
@@ -22,8 +22,14 @@ const header = [
 // Footer Comps
 const footer = [FooterComponent];
 @NgModule({
-  declarations: [AppComponent, header, footer,],
-  imports: [BrowserModule, AppRoutingModule,BrowserAnimationsModule],
+  declarations: [AppComponent, header, footer],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    SharedModule,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent],
 })
