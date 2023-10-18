@@ -82,3 +82,9 @@ body {
 .grey-filter {
   filter: grayscale(7);
 }
+.bg--blue {
+  background-color: #3246d3;
+}
+.bg--red {
+  background-color: $red;
+}
