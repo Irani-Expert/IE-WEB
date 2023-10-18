@@ -1,0 +1,23 @@
+.switch-list {
+  @include align-center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 4px 2px;
+  background-color: #e3e3e3;
+  border-radius: 10px;
+}
+.switch-item {
+  cursor: pointer;
+  margin: 1px;
+  padding: 6px 10px 5px 10px;
+  text-align: center;
+  min-width: 120px;
+  max-width: 200px;
+  border-radius: 10px;
+  transition: background-color 0.6s ease-out;
+
+  p {
+    transition: color 0.6s ease-out;
+    user-select: none;
+  }
+}

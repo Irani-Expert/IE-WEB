@@ -1,0 +1,78 @@
+$md: 768px;
+$lg: 1018px;
+$xlg: 1270px;
+
+.modal-backdrop {
+  @include justify-align-center;
+  @include full-backdrop;
+  z-index: 1000;
+}
+
+.modal {
+  &::-webkit-scrollbar {
+    width: 6px;
+    background: transparent;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $dim-green;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+  overflow: auto;
+  @include absolute-center;
+  z-index: 1001;
+  width: initial;
+  max-width: 97%;
+  height: auto;
+  max-height: 97%;
+  border: $dim-green 1px solid;
+  background-color: $white;
+  border-radius: 15px;
+  .modal-header {
+    @include justify-between;
+    font-size: 18px;
+    padding: 10px;
+
+    flex-direction: row-reverse;
+    margin-bottom: 20px;
+  }
+
+  .modal-content {
+    &::-webkit-scrollbar {
+      width: 6px;
+      background: transparent;
+      border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: $dim-green;
+      border-radius: 10px;
+    }
+    &::-webkit-scrollbar-track {
+      border-radius: 10px;
+    }
+    overflow: auto;
+    margin-bottom: 20px;
+  }
+
+  .modal-footer {
+    @include justify-end;
+  }
+
+  .modal-close {
+    @include justify-align-center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    &:hover {
+      background-color: $gray-500;
+    }
+    span {
+      margin-top: 7px;
+    }
+    cursor: pointer;
+  }
+}
