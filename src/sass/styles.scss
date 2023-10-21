@@ -1,5 +1,6 @@
-@import "tailwind";
 @import "scss/font-awesome";
+@import "tailwind";
+@import "star-rating";
 @import "./variables";
 @import "./colors";
 @import "./mixins";
@@ -7,7 +8,6 @@
 @import "./forms";
 @import "./components/modals";
 @import "./components/switcher";
-
 body {
   font-family: $font-family-base;
   font-size: $font-size-base;
@@ -90,4 +90,14 @@ body {
 }
 .bg--red {
   background-color: $red;
+}
+//esmesh ro behtarok
+.box-shadow-ac:hover {
+  box-shadow: -6px 5px 4px 0px #d8d8d8;
+  transform: translate(2px, -2px);
+  border-color: #3246d3;
+}
+.rating.medium .star {
+  width: 50px !important;
+  height: 58px !important;
 }

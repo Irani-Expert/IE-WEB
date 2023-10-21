@@ -11,6 +11,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchComponent } from './components/header-layout/header-lg/search/search.component';
 import { SharedModule } from './shared/shared.module';
+import { StarRatingModule } from 'angular-star-rating';
 // Headeer Comps
 const header = [
   HeaderLayoutComponent,
@@ -27,6 +28,7 @@ const footer = [FooterComponent];
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    StarRatingModule.forRoot(),
     SharedModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
