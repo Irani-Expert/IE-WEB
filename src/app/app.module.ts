@@ -11,6 +11,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchComponent } from './components/header-layout/header-lg/search/search.component';
 import { SharedModule } from './shared/shared.module';
+import { BaseService } from './classes/services/base.service';
+import { HttpClientModule } from '@angular/common/http';
+// import { RetryHttpErrorsInterceptor } from './classes/error.interceptor';
 // Headeer Comps
 const header = [
   HeaderLayoutComponent,
@@ -24,13 +27,21 @@ const footer = [FooterComponent];
 @NgModule({
   declarations: [AppComponent, header, footer],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [],
+  providers: [
+    BaseService,
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: RetryHttpErrorsInterceptor,
+    //   multi: true,
+    // },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
