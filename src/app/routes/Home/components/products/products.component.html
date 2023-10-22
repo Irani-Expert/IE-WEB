@@ -1,0 +1,27 @@
+<div class="bg--blue">
+  <div
+    class="w-full h-full flex bg-white rounded-b-[60px]"
+    style="height: 400px"
+  >
+    <div
+      class="w-1/4 bg-[#F7F7F7] rounded-br-[60px] flex justify-center items-baseline"
+    >
+      <div class="flex justify-center m-6 w-11/12 flex-col">
+        <div
+          class="bg-[#3246d3] font-bold text-center w-full border-2 relative border-[#3246d3] border-solid text-white p-1.5 rounded-full text-lg"
+        >
+          فیلتر ها
+        </div>
+        <star-rating [starType]="'svg'" [rating]="3"></star-rating>
+      </div>
+    </div>
+    <div class="w-3/4 p-3">
+      <div class="w-full flex items-center text-[#CFCFCF] text-lg p-6 ps-0">
+        <a class="pt-[5px]">خانه</a>
+        <i class="fa fa-angle-left ms-1 me-1"></i>
+        <a class="pt-[5px]">فروشگاه</a>
+      </div>
+      <app-detail-card></app-detail-card>
+    </div>
+  </div>
+</div>

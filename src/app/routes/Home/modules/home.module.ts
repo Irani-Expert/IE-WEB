@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
@@ -15,6 +15,10 @@ import { VideoPlayerComponent } from '../components/video-player/video-player.co
 import { ConsultationFormComponent } from '../components/consultation-form/consultation-form.component';
 import { GiftFormComponent } from '../components/gift-form/gift-form.component';
 import { BannersComponent } from '../components/banners/banners.component';
+import { ProductsComponent } from '../components/products/products.component';
+import { DetailCardComponent } from '../components/detail-card/detail-card.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StarRatingModule } from 'angular-star-rating';
 
 const components = [
   LandingPageComponent,
@@ -29,9 +33,18 @@ const components = [
   ConsultationFormComponent,
   GiftFormComponent,
   BannersComponent,
+  ProductsComponent,
+  DetailCardComponent,
 ];
 @NgModule({
   declarations: [components],
-  imports: [CommonModule, HomeRoutingModule],
+  imports: [
+    CommonModule,
+    HomeRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    StarRatingModule.forRoot(),
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HomeModule {}

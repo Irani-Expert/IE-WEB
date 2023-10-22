@@ -13,6 +13,8 @@ import { SearchComponent } from './components/header-layout/header-lg/search/sea
 import { SharedModule } from './shared/shared.module';
 import { BaseService } from './classes/services/base.service';
 import { HttpClientModule } from '@angular/common/http';
+import { StarRatingModule } from 'angular-star-rating';
+
 // import { RetryHttpErrorsInterceptor } from './classes/error.interceptor';
 // Headeer Comps
 const header = [
@@ -31,6 +33,7 @@ const footer = [FooterComponent];
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    StarRatingModule.forRoot(),
     SharedModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

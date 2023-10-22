@@ -1,0 +1,27 @@
+button {
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+.ico-res {
+  object-fit: contain;
+  aspect-ratio: 1/1;
+}
+.wrapper {
+  position: relative;
+}
+
+.wrapper input {
+  width: 100%;
+}
+
+.wrapper button {
+  height: 80%;
+
+  position: absolute;
+  top: 10%;
+  right: 5px;
+}
