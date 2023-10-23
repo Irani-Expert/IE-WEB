@@ -19,7 +19,10 @@ import { ProductsComponent } from '../components/products/products.component';
 import { DetailCardComponent } from '../components/detail-card/detail-card.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StarRatingModule } from 'angular-star-rating';
-
+import { TypeFilterComponent } from '../components/type-filter/type-filter.component';
+import { PriceRangComponent } from '../components/price-rang/price-rang.component';
+import { NgxSliderModule } from 'ngx-slider-v2';
+import { AboutUsComponent } from '../components/about-us/about-us.component';
 const components = [
   LandingPageComponent,
   HeroComponent,
@@ -35,6 +38,9 @@ const components = [
   BannersComponent,
   ProductsComponent,
   DetailCardComponent,
+  TypeFilterComponent,
+  PriceRangComponent,
+  AboutUsComponent,
 ];
 @NgModule({
   declarations: [components],
@@ -42,6 +48,7 @@ const components = [
     CommonModule,
     HomeRoutingModule,
     FormsModule,
+    NgxSliderModule,
     ReactiveFormsModule,
     StarRatingModule.forRoot(),
   ],

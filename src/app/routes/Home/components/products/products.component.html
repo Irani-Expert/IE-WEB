@@ -1,18 +1,24 @@
 <div class="bg--blue">
   <div
     class="w-full h-full flex bg-white rounded-b-[60px]"
-    style="height: 400px"
+    style="height: 40rem"
   >
     <div
       class="w-1/4 bg-[#F7F7F7] rounded-br-[60px] flex justify-center items-baseline"
     >
-      <div class="flex justify-center m-6 w-11/12 flex-col">
+      <div class="flex justify-center m-6 w-11/12 flex-col items-center">
         <div
           class="bg-[#3246d3] font-bold text-center w-full border-2 relative border-[#3246d3] border-solid text-white p-1.5 rounded-full text-lg"
         >
           فیلتر ها
         </div>
-        <star-rating [starType]="'svg'" [rating]="3"></star-rating>
+        <div class="w-10/12 mt-2">
+          <app-type-filter></app-type-filter>
+          <hr />
+          <app-price-rang></app-price-rang>
+          <hr />
+          <star-rating [starType]="'svg'" [rating]="3"></star-rating>
+        </div>
       </div>
     </div>
     <div class="w-3/4 p-3">
@@ -20,6 +26,25 @@
         <a class="pt-[5px]">خانه</a>
         <i class="fa fa-angle-left ms-1 me-1"></i>
         <a class="pt-[5px]">فروشگاه</a>
+      </div>
+      <div
+        class="w-10/12 text-white m-3 me-0 flex rounded-lg p-6 bg-cover bg-Img max-h-32"
+      >
+        <div class="w-9/12 flex">
+          <h1 class="p-1 text-8xl text-[#ffee00]" style="font-style: oblique">
+            20%
+          </h1>
+          <p class="text-[26px] text-white font-semibold text-justify">
+            تخفیف ویژه اشتراک پلن های سه ماهه و شش ماهه به مناسبات یک سالگـــــی
+            ربات معامله گـری
+          </p>
+        </div>
+        <div class="w-3/12 h-20 flex justify-end">
+          <img
+            src="../../../../../assets/img/bot.png"
+            class="relative h-36 bottom-11"
+          />
+        </div>
       </div>
       <app-detail-card></app-detail-card>
     </div>
