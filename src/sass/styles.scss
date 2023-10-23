@@ -101,3 +101,28 @@ body {
   width: 50px !important;
   height: 58px !important;
 }
+.ngx-slider .ngx-slider-pointer {
+  background-color: $blue !important;
+}
+.ngx-slider .ngx-slider-selection {
+  background-color: $blue !important;
+}
+
+.ngx-slider-floor,
+.ngx-slider-ceil {
+  display: none !important;
+}
+.ngx-slider .ngx-slider-pointer {
+  width: 24px !important;
+  height: 24px !important;
+  top: -10px !important;
+}
+.ngx-slider .ngx-slider-pointer:after {
+  background-color: $blue !important;
+}
+.ngx-slider .ngx-slider-bubble {
+  bottom: -20px !important;
+}
+.ngx-slider {
+  height: 23px !important;
+}
