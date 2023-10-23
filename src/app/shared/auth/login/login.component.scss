@@ -1,9 +1,18 @@
-.input::after {
-  display: block;
-  background: url(../../../../assets/img/botAdvantageIcons-1.png);
-  aspect-ratio: 1/1;
-  object-fit: contain;
-  background-size: cover;
-  background-position: center;
-  width: 500000000px;
+.right-icon {
+  user-select: none;
+  position: absolute;
+  transform: translate(50%, 50%);
+}
+.left-icon {
+  user-select: none;
+  position: absolute;
+  transform: translate(-50%, 50%);
+}
+.input-with-icon {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 1rem;
+  font-size: 16px;
+  background-color: #fff;
 }
