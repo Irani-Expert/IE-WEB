@@ -36,7 +36,6 @@ export class HeaderLayoutComponent {
     }
   }
   openedModal(event: any) {
-    console.log(event);
     this.modalView = event;
   }
 }
