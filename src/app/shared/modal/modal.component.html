@@ -1,9 +1,9 @@
-<div @scaleIn class="modal">
+<div @scaleIn [ngStyle]="{ '--overflow': overflow }" class="modal">
   <div class="modal-header">
     <span class="modal-close" (click)="close()"><span>&times;</span></span>
     <ng-content select="[header]"></ng-content>
   </div>
-  <div class="modal-content">
+  <div [ngStyle]="{ '--overflow': overflow }" class="modal-content">
     <ng-content select="[content]"></ng-content>
   </div>
   <div class="modal-footer">

@@ -1,23 +1,71 @@
 <form [formGroup]="form" (ngSubmit)="login()">
-  <div class="flex flex-col">
-    <div ieInput class="flex flex-row items-center">
-      <span class="mx-2 relative">
-        <input
-          class="input-with-icon"
-          type="text"
-          formControlName="username"
-          placeholder="IraniExpert@gmail.com"
-        />
-      </span>
-      <span class="right-icon">
-        <img src="../../../../assets/images/email.svg" alt="email-icon" />
-      </span>
-      <span class="left-icon"
-        ><img src="../../../../assets/images/eye-on.svg" alt="eye-open-icon" />
-      </span>
+  <div class="container-login gap-3">
+    <ng-container *ngFor="let control of formControls; let i = index">
+      <div class="input-container">
+        <div class="relative">
+          <label [for]="control.name"></label>
+          <input
+            [id]="control.name"
+            autocomplete="off"
+            class="input-with-icon"
+            [type]="control?.type ? control.type : 'text'"
+            formControlName="{{ control.name }}"
+            [placeholder]="control?.placeholder ? control.placeholder : ''"
+          />
+          <ng-container *ngFor="let icon of control.icon">
+            <span [class]="icon.placement">
+              <ng-container *ngIf="icon.placement == 'left-icon'">
+                <img
+                  (click)="showPassClick(icon, i)"
+                  [@rotatedState]="state"
+                  [src]="icon.src"
+                  [alt]="icon.alt"
+                />
+              </ng-container>
+              <ng-container *ngIf="icon.placement == 'right-icon'">
+                <img [src]="icon.src" [alt]="icon.alt" />
+              </ng-container>
+            </span>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+    <div class="col-span-2">
+      <app-toggle (checked)="this.rememberMe = $event" [name]="'rememberme'">
+        <strong class="mx-1.5 font-black">مرا به خاطر بسپار</strong>
+      </app-toggle>
+      <p class="text-xs mt-1 text-justify">
+        با فعال سازی این قسمت اطلاعات شما برای دفعات بعدی ذخیره میشود
+      </p>
     </div>
-
-    <!-- <input type="text" formControlName="password" /> -->
-    <button [disabled]="form.invalid" type="submit">وارد شوید</button>
+    <button
+      [disabled]="form.invalid"
+      class="button-submit rounded-lg text-white font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 col-span-2"
+      type="submit"
+    >
+      ورود
+    </button>
   </div>
 </form>
+<p class="text-small font-black text-black mt-2">
+  رمز عبور خود را فراموش کرد‌اید؟<a href="#" class="text-blue-800 no-underline"
+    >بازیابی رمز عبور</a
+  >
+</p>
+
+<div class="flex flex-row my-2 items-center">
+  <hr class="flex-1" style="margin: 13px 10px 13px 8px" />
+  <div class="flex-initial">
+    <p class="text-12 font-semibold">یا از روش های زیر اقدام به ورود کنید</p>
+  </div>
+  <hr class="flex-1" style="margin: 13px 8px 13px 10px" />
+</div>
+<div class="flex flex-row justify-center">
+  <span
+    class="flex p-2.5 mx-2 bg-slate-50 border border-gray-300 rounded-full hover:bg-slate-200 transition-colors cursor-pointer"
+    ><img src="assets/images/google.svg" alt="Google-Icon"
+  /></span>
+  <span class="flex p-2.5 mx-2 facebook-icon border rounded-full cursor-pointer"
+    ><img src="assets/images/facebook.svg" alt="Facebook-Icon"
+  /></span>
+</div>

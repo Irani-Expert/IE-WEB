@@ -23,6 +23,7 @@ import { TypeFilterComponent } from '../components/type-filter/type-filter.compo
 import { PriceRangComponent } from '../components/price-rang/price-rang.component';
 import { NgxSliderModule } from 'ngx-slider-v2';
 import { AboutUsComponent } from '../components/about-us/about-us.component';
+
 const components = [
   LandingPageComponent,
   HeroComponent,

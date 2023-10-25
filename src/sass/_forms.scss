@@ -3,3 +3,73 @@ input {
   background-color: $gray-300;
   font-weight: 900;
 }
+
+.right-icon {
+  -webkit-user-select: none;
+  user-select: none;
+  position: absolute;
+  transform: translate(0, 50%);
+  top: 2%;
+  right: 3px;
+  img {
+    scale: 0.8;
+  }
+}
+.left-icon {
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  position: absolute;
+  transform: translate(0, 50%);
+  top: 2%;
+  left: 7px;
+  img {
+    scale: 0.8;
+  }
+}
+.input-with-icon {
+  border-radius: 10px;
+  border: 2px solid $border-input;
+  padding-top: 0.63rem;
+  padding-bottom: 0.6rem;
+  padding-left: 0.75rem;
+  padding-right: 1.6rem;
+  font-size: 0.85rem;
+  font-weight: 300;
+  background-color: $white;
+  width: 100%;
+  transition: box-shadow 0.3s ease;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    box-shadow: -2px 4px 6px 1px $border-input;
+  }
+}
+
+.input-without-icon {
+  border-radius: 10px;
+  border: 2px solid $border-input;
+  padding-top: 0.63rem;
+  padding-bottom: 0.6rem;
+  padding-left: 0.75rem;
+  padding-right: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 300;
+  background-color: $white;
+  width: 100%;
+  transition: box-shadow 0.3s ease, border 0.3s ease;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    box-shadow: -2px 4px 6px 1px $border-input;
+  }
+}
+.input-container {
+  min-width: 200px;
+  max-width: 100%;
+}
+.has-error {
+  border: 2px solid $red !important;
+}

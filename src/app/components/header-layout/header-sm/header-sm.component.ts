@@ -62,7 +62,7 @@ export class HeaderSmComponent extends Header {
 
   updateMenu() {
     if (this.platform.isPlatformBrowser()) {
-      if (!Utils.isSmLaptop()) {
+      if (!Utils.isLaptopSm()) {
         this.menuState = 'in';
       }
     }

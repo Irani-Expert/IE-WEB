@@ -1,11 +1,21 @@
-<section class="custom-container">
-  <app-switch
-    (output)="changeView()"
-    [activeView]="view"
-    [items]="switchItems"
-  ></app-switch>
-  <div class="h-60">
-    <app-signup *ngIf="view == 'sign-up'" />
-    <app-login *ngIf="view == 'login'" />
+<section
+  class="custom-container"
+  [ngStyle]="{ '--flex-direction': flexDirection }"
+>
+  <div class="right-container">
+    <app-switch
+      (output)="changeView()"
+      [activeView]="view"
+      [items]="switchItems"
+    ></app-switch>
+    <div class="w-full" [smoothHeight]="changed">
+      <div>
+        <app-signup *ngIf="view == 'sign-up'" />
+        <app-login *ngIf="view == 'login'" />
+      </div>
+    </div>
+  </div>
+  <div class="left-container">
+    <img src="../../../assets/img/2Fa.png" alt="" />
   </div>
 </section>

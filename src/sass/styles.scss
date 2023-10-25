@@ -8,6 +8,7 @@
 @import "./forms";
 @import "./components/modals";
 @import "./components/switcher";
+@import "./components/toggler";
 body {
   font-family: $font-family-base;
   font-size: $font-size-base;
@@ -22,6 +23,12 @@ body {
   padding: 0.625rem;
   background: #6db500;
   @extend .button-styles;
+}
+.bg-main-blue {
+  background-color: $blue;
+}
+.active-tab {
+  background-color: $activeBlue;
 }
 .btn-blue {
   @extend .button-styles;

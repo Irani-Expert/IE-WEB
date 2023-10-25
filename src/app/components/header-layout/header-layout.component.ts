@@ -28,7 +28,7 @@ export class HeaderLayoutComponent {
   }
   updateDeviceValue() {
     if (this.platform.isPlatformBrowser()) {
-      if (Utils.isSmLaptop()) {
+      if (Utils.isLaptopSm()) {
         this.device = Device.Mobile;
       } else {
         this.device = Device.Laptop;

@@ -8,11 +8,19 @@
         }"
         [ngClass]="{
           'font-bold text-16': item.active,
+          'bg-transparent': isChanging,
         }"
         class="switch-item"
       >
         <p [ngClass]="{ 'text-black': item.active }">{{ item.title }}</p>
       </li>
     </ng-container>
+    <span
+      class="animation-bg"
+      [ngClass]="{
+      'is-changing': isChanging,
+    }"
+      [ngStyle]="{ '--translateX': translatePercent }"
+    ></span>
   </ul>
 </ng-container>

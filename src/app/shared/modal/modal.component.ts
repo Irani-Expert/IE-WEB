@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, Input } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { ModalService } from './services/modal.service';
 import { animate, style, transition, trigger } from '@angular/animations';
@@ -29,6 +29,7 @@ import { CommonModule } from '@angular/common';
   ],
 })
 export class ModalComponent {
+  @Input('overflow') overflow!: string;
   constructor(private el: ElementRef, private modal: ModalService) {}
   ngOnInit() {
     if (AppComponent.isBrowser.value) {
