@@ -1,1 +1,42 @@
-<p>signup works!</p>
+<form [formGroup]="form" (ngSubmit)="signup()">
+  <div class="container-signup gap-3">
+    <ng-container *ngFor="let control of formControls; let i = index">
+      <div class="input-container">
+        <div class="relative">
+          <label [for]="control.name"></label>
+          <input
+            [id]="control.name"
+            autocomplete="off"
+            [ngClass]="control?.hasErr ? 'has-error' : ''"
+            [class]="control.class ? control.class : 'input-without-icon'"
+            [type]="control?.type ? control.type : 'text'"
+            formControlName="{{ control.name }}"
+            [placeholder]="control?.placeholder ? control.placeholder : ''"
+          />
+          <ng-container *ngFor="let icon of control?.icon">
+            <span [class]="icon.placement">
+              <ng-container *ngIf="icon.placement == 'left-icon'">
+                <img
+                  (click)="showPassClick(icon, i)"
+                  [@rotatedState]="state"
+                  [src]="icon.src"
+                  [alt]="icon.alt"
+                />
+              </ng-container>
+              <ng-container *ngIf="icon.placement == 'right-icon'">
+                <img [src]="icon.src" [alt]="icon.alt" />
+              </ng-container>
+            </span>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+    <button
+      [disabled]="loading"
+      class="button-submit rounded-lg text-white font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 col-span-2"
+      type="submit"
+    >
+      عضویت
+    </button>
+  </div>
+</form>

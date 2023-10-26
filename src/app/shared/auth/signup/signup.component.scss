@@ -1,0 +1,19 @@
+@import "src/sass/colors";
+.input-container {
+  min-width: unset;
+}
+.input-container:nth-child(n + 3) {
+  grid-column: span 2 / span 2;
+}
+.container-signup {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 0.5fr));
+}
+.button-submit {
+  font-size: 20px;
+  padding: 6px 26px 5px 27px;
+  background-color: $blue;
+  &:hover {
+    box-shadow: -7px 11px 9px #00000016;
+  }
+}

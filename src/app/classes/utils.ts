@@ -1,14 +1,20 @@
 export class Utils {
-  static isSmMobile() {
-    return window && window.matchMedia('(max-width: 639px)').matches;
+  static isMobileS() {
+    return window && window.matchMedia('(max-width: 319px)').matches;
   }
-  static isLgMobile() {
+  static isMobileM() {
+    return window && window.matchMedia('(max-width: 376px)').matches;
+  }
+  static isMobileL() {
+    return window && window.matchMedia('(max-width: 424px)').matches;
+  }
+  static isTablet() {
     return window && window.matchMedia('(max-width: 767px)').matches;
   }
-  static isSmLaptop() {
+  static isLaptopSm() {
     return window && window.matchMedia('(max-width: 1023px)').matches;
   }
-  static isLgLaptop() {
+  static isLaptopLg() {
     return window && window.matchMedia('(max-width: 1279px)').matches;
   }
   static scrollToTop(selector: string) {

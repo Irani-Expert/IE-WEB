@@ -9,7 +9,7 @@
   />
   <!-- <app-header-alt /> -->
 </header>
-<app-modal *ngIf="modalStatus.value">
+<app-modal [overflow]="'hidden'" *ngIf="modalStatus.value">
   <div content>
     <app-auth [view]="modalView" />
   </div>

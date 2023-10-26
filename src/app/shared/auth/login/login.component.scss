@@ -1,9 +1,26 @@
-.input::after {
-  display: block;
-  background: url(../../../../assets/img/botAdvantageIcons-1.png);
-  aspect-ratio: 1/1;
-  object-fit: contain;
-  background-size: cover;
-  background-position: center;
-  width: 500000000px;
+@import "src/sass/colors";
+.button-submit {
+  font-size: 20px;
+  padding: 6px 26px 5px 27px;
+  background-color: $blue;
+  &:hover {
+    box-shadow: -7px 11px 9px #00000016;
+  }
+}
+.input-container {
+  min-width: unset;
+}
+.input-container {
+  grid-column: span 2 / span 2;
+}
+.container-login {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 0.5fr));
+}
+.facebook-icon {
+  background-color: #1977f3;
+  transition: mix-blend-mode 0.3s ease;
+  img {
+    transform: translate(0px, -2px);
+  }
 }

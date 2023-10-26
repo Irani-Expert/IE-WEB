@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ILogin, User } from './user.interface';
+import { ILogin, ISignUp, User } from './user.interface';
 import { BehaviorSubject, lastValueFrom, map } from 'rxjs';
 import { BaseService } from 'src/app/classes/services/base.service';
 import { HttpClient } from '@angular/common/http';
@@ -27,6 +27,14 @@ export class AuthService extends BaseService<User | ILogin> {
         if (res.success) {
           if (res.data instanceof User) this.userSubject.next(res.data);
         }
+        return res.success;
+      })
+    );
+    return await lastValueFrom(result);
+  }
+  async signup(formData: ISignUp) {
+    const result = this.post('Auth/sign-up', formData).pipe(
+      map((res) => {
         return res.success;
       })
     );
