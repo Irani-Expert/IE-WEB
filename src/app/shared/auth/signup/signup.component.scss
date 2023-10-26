@@ -17,3 +17,10 @@
     box-shadow: -7px 11px 9px #00000016;
   }
 }
+.facebook-icon {
+  background-color: #1977f3;
+  transition: mix-blend-mode 0.3s ease;
+  img {
+    transform: translate(0px, -2px);
+  }
+}

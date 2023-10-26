@@ -20,7 +20,10 @@
       [ngClass]="{
       'is-changing': isChanging,
     }"
-      [ngStyle]="{ '--translateX': translatePercent }"
+      [ngStyle]="{
+        '--translateX': translatePercent,
+        '--background-color': selectedItem?.bgColor
+      }"
     ></span>
   </ul>
 </ng-container>
