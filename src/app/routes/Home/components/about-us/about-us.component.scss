@@ -1,0 +1,22 @@
+ul {
+  list-style-type: none; /* Removes the default dot */
+  padding-left: 20px; /* Adjust the left indentation */
+  position: relative; /* Enable relative positioning */
+}
+
+ul li::before {
+  content: "";
+  margin-top: 30px;
+  position: absolute; /* Enable absolute positioning */
+  right: -15px; /* Adjust the horizontal position of the bullet */
+  transform: translateY(-50%); /* Center the bullet vertically */
+  width: 12px;
+  height: 12px;
+  background-color: blue; /* Change the color of the bullet */
+  border-radius: 50%; /* Make the bullet round */
+}
+.close-btn {
+  position: relative;
+  left: 20%;
+  bottom: 7rem;
+}
