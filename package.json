@@ -25,6 +25,7 @@
     "@angular/platform-server": "^16.1.0",
     "@angular/router": "^16.1.0",
     "@nguniversal/express-engine": "^16.2.0",
+    "@syncfusion/ej2-angular-maps": "23.1.42",
     "angular-star-rating": "^7.0.0",
     "express": "^4.15.2",
     "font-awesome": "^4.7.0",

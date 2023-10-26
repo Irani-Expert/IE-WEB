@@ -51,6 +51,7 @@ const components = [
     FormsModule,
     NgxSliderModule,
     ReactiveFormsModule,
+
     StarRatingModule.forRoot(),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

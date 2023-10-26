@@ -46,6 +46,12 @@ body {
 .color--grey500 {
   color: $gray-500;
 }
+.mainCards-design {
+  border-bottom-left-radius: 5rem;
+  border-bottom-right-radius: 5rem;
+
+  background-color: white;
+}
 .dropdown {
   text-align: center;
   position: absolute;
@@ -97,6 +103,12 @@ body {
 }
 .bg--red {
   background-color: $red;
+}
+.color--green {
+  color: $green;
+}
+.color--blue {
+  color: $blue;
 }
 //esmesh ro behtarok
 .box-shadow-ac:hover {
