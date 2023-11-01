@@ -32,10 +32,10 @@
   padding: 6px 0 5px 0;
   position: absolute;
   transform: translate(var(--translateX), 0);
-  background: transparent;
+  background: var(--background-color);
   transition: transform 200ms ease;
 }
 .is-changing {
-  background-color: white;
+  background-color: var(--background-color);
   z-index: 100;
 }
