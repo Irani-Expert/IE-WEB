@@ -26,7 +26,8 @@
             "assets": [
               "./src/favicon.ico",
               "./src/assets/img",
-              "./src/assets/images"
+              "./src/assets/images",
+              "./src/assets/audio"
             ],
             "styles": ["./src/sass/styles.scss"],
             "stylePreprocessorOptions": {

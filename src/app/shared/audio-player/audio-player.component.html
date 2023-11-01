@@ -1,0 +1,53 @@
+<div class="w-[78rem] flex rounded-full m-4">
+  <div
+    class="bg-[#CCCCCC] w-4/12 rounded-s-full flex flex-col justify-center items-end p-2"
+  >
+    <h3 class="text-base font-semibold">
+      بررسی اخبار مهم این هفته توسط تیم تحلیلگران ایرانی اکسپرت
+    </h3>
+    <span>2023/09/05</span>
+  </div>
+  <div class="w-8/12 bg-[#CCCCCC] rounded-e-full">
+    <div
+      class="bg-white border-2 pe-8 ps-8 p-4 rounded-full"
+      style="display: flex; align-items: center; flex-direction: row"
+    >
+      <div
+        class="ms-0.5 font-extrabold h-3.5 w-5 me-0.5 pt-0 p-0.5 border-2 rounded-full text-xs text-center cursor-pointer"
+        style="color: #b5b5b5"
+      >
+        x1
+      </div>
+      <div class="me-2" style="margin-top: 5px">00:00</div>
+      <div style="display: block; flex: 1 1">
+        <div
+          [style]="gradient"
+          (click)="handleClick($event)"
+          class="h-1 relative"
+        ></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="timebar-circle" [style]="time_cricle_left"></div>
+      <div>
+        <button class="flex ms-4" style="color: #b5b5b5" (click)="pause_play()">
+          <i [ngClass]="isPlayed ? 'fa fa-pause' : 'fa fa-play'"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<audio
+  #audioPlayer
+  preload="none"
+  loop="true"
+  (activate)="test()"
+  type="audio/mpeg"
+  (timeupdate)="updateCurrentTime($event)"
+  autoplay
+  webkit-playsinline="true"
+  playsinline
+>
+  <source src="../../../assets/audio/test.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>

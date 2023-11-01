@@ -4,12 +4,26 @@ import { CommonModule } from '@angular/common';
 import { CalendarModuleRouting } from './calendar-routing.module';
 import { CalendarMainPageComponent } from '../calendar-main-page/calendar-main-page.component';
 import { MapsModule } from '@syncfusion/ej2-angular-maps';
+import { AutoplaySliderComponent } from 'src/app/shared/autoplay-slider/autoplay-slider.component';
+import { AudioPlayerComponent } from 'src/app/shared/audio-player/audio-player.component';
+import { EcoCalComponent } from 'src/app/shared/eco-cal/eco-cal.component';
+import { CalDetailComponent } from 'src/app/shared/cal-detail/cal-detail.component';
+import { TradingviewComponent } from 'src/app/shared/tradingview/tradingview.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
-const components = [CalendarMainPageComponent];
+const components = [
+  CalendarMainPageComponent,
+  AutoplaySliderComponent,
+  AudioPlayerComponent,
+  EcoCalComponent,
+  CalDetailComponent,
+  TradingviewComponent,
+];
 @NgModule({
   declarations: [components],
   imports: [
     CommonModule,
+    SharedModule,
     // FormsModule,
     // ReactiveFormsModule,
     MapsModule,
