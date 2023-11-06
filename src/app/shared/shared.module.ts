@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
 import { ModalComponent } from './modal/modal.component';
 import { AuthModule } from './auth/auth.module';
-import { EcoCalFiltersComponent } from './eco-cal-filters/eco-cal-filters.component';
+import { Toggler } from './toggler/toggler.component';
 
 @NgModule({
-  imports: [ModalComponent, AuthModule],
+  imports: [ModalComponent, Toggler, AuthModule],
   exports: [ModalComponent, AuthModule],
-  declarations: [
-    EcoCalFiltersComponent
-  ],
+  declarations: [],
   providers: [],
 })
 export class SharedModule {}
