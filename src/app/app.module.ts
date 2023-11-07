@@ -14,7 +14,6 @@ import { SharedModule } from './shared/shared.module';
 import { BaseService } from './classes/services/base.service';
 import { HttpClientModule } from '@angular/common/http';
 import { StarRatingModule } from 'angular-star-rating';
-import { Toggler } from './shared/toggler/toggler.component';
 
 // import { RetryHttpErrorsInterceptor } from './classes/error.interceptor';
 // Headeer Comps
@@ -35,7 +34,6 @@ const footer = [FooterComponent];
     AppRoutingModule,
     BrowserAnimationsModule,
     StarRatingModule.forRoot(),
-    Toggler,
     SharedModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
