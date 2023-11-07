@@ -1,4 +1,4 @@
-<div class="bg--blue">
+<!-- <div class="bg--blue">
   <div
     class="w-full h-full flex bg-white rounded-b-[60px]"
     style="height: 40rem"
@@ -46,7 +46,64 @@
           />
         </div>
       </div>
-      <app-detail-card></app-detail-card>
+    </div>
+  </div>
+</div> -->
+<div
+  class="w-full h-full flex bg-white justify-center rounded-b-[60px]"
+  style="height: 60rem"
+>
+  <div class="w-9/12">
+    <div class="w-full flex items-center text-[#CFCFCF] text-lg p-6 ps-0">
+      <a class="pt-[5px]">خانه</a>
+      <i class="fa fa-angle-left ms-1 me-1"></i>
+      <a class="pt-[5px]">فروشگاه</a>
+    </div>
+    <div
+      class="text-white m-3 me-0 ms-0 flex rounded-lg p-6 bg-cover bg-Img max-h-32"
+    >
+      <div class="w-9/12 flex">
+        <h1 class="p-1 text-8xl text-[#ffee00]" style="font-style: oblique">
+          20%
+        </h1>
+        <p class="text-[30px] text-white font-semibold text-justify">
+          تخفیف ویژه اشتراک پلن های سه ماهه و شش ماهه به مناسبات یک سالگـــــی
+          ربات معامله گـری
+        </p>
+      </div>
+      <div class="w-3/12 h-20 flex justify-end">
+        <img
+          src="../../../../../assets/img/bot.png"
+          class="relative h-36 bottom-11"
+        />
+      </div>
+    </div>
+    <div class="flex">
+      <div class="w-3/12 p-4">
+        <div class="mb-3">
+          <img src="../../../../../assets/img/Mask Group 120.png" />
+        </div>
+        <div class="bg-[#F5F5F5] p-4 flex rounded-[20px] flex-col items-center">
+          <div class="w-10/12 m-5 mt-3">
+            <h1 class="text-base font-extrabold">جستجو</h1>
+          </div>
+          <app-search-feild></app-search-feild>
+        </div>
+      </div>
+      <div class="w-9/12">
+        <div class="m-2 flex items-center">
+          <span class="text-sm font-medium me-2">مرتب سازی </span>
+
+          <app-order-filter
+            *ngFor="let Mytitle of orderTitle"
+            [title]="Mytitle"
+          ></app-order-filter>
+        </div>
+        <app-detail-card
+          *ngFor="let product of productModel"
+          [product]="product"
+        ></app-detail-card>
+      </div>
     </div>
   </div>
 </div>

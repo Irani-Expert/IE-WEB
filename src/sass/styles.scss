@@ -117,9 +117,17 @@ body {
 }
 //esmesh ro behtarok
 .box-shadow-ac:hover {
-  box-shadow: -6px 5px 4px 0px #d8d8d8;
-  transform: translate(2px, -2px);
-  border-color: #3246d3;
+  // box-shadow: -6px 5px 4px 0px #d8d8d8;
+  // transform: translate(2px, -2px);
+
+  animation: blueborder 1s ease 0s 1 normal forwards;
+}
+@keyframes blueborder {
+  100% {
+    border-color: #3246d3;
+
+    border-width: 2px;
+  }
 }
 .rating.medium .star {
   width: 50px !important;

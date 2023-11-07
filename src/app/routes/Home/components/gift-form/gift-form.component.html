@@ -1,34 +1,61 @@
-<div class="w-full p-5 flex justify-center bg-white">
-  <div
-    class="sm:w-7/12 flex justify-center flex-col m-1 p-3 rounded-2xl bg-[#F3F3F3]"
-  >
-    <div class="sm:flex">
+<div class="w-full p-5 flex justify-center">
+  <div class="w-6/12 flex justify-center flex-col m-1 p-3 rounded-2xl">
+    <div class="ms-2 text-3xl font-bold">
+      <p class="text-black">برای دریافت جایزه اطلاعات را تکمیل کنید</p>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="login()">
+      <div class="flex flex-col flex-wrap h-[185px]">
+        <ng-container *ngFor="let control of formControls; let i = index">
+          <div class="input-container m-2">
+            <div class="relative">
+              <input
+                [id]="control.name"
+                autocomplete="off"
+                class="input-with-icon p-5 bg-[#f3f3f3]"
+                [type]="control?.type ? control.type : 'text'"
+                formControlName="{{ control.name }}"
+                [placeholder]="control?.placeholder ? control.placeholder : ''"
+              />
+              <!-- <ng-container *ngFor="let icon of control.icon">
+              <span [class]="icon.placement">
+                <ng-container *ngIf="icon.placement == 'left-icon'">
+                  <img
+                    (click)="showPassClick(icon, i)"
+                    [@rotatedState]="state"
+                    [src]="icon.src"
+                    [alt]="icon.alt"
+                  />
+                </ng-container>
+                <ng-container *ngIf="icon.placement == 'right-icon'">
+                  <img [src]="icon.src" [alt]="icon.alt" />
+                </ng-container>
+              </span>
+            </ng-container> -->
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <!-- <div class="sm:flex">
       <input
-        class="sm:w-1/2 w-full sm:m-2 mt-1 p-4 text-2xl font-medium bg-white rounded-lg"
+        class="sm:w-1/2 w-full sm:m-2 mt-1 p-4 text-2xl font-medium rounded-lg"
         placeholder="نام"
       />
       <input
         class="sm:w-1/2 w-full sm:m-2 mt-1 p-4 text-2xl font-medium bg-white rounded-lg"
         placeholder="نام خانوادگی"
       />
-    </div>
-    <div class="sm:flex">
-      <input
-        class="sm:w-1/2 w-full sm:m-2 mt-1 p-4 text-2xl font-medium bg-white rounded-lg"
-        placeholder="شماره تماس"
-      />
-      <input
-        class="sm:w-1/2 w-full sm:m-2 mt-1 p-4 text-2xl font-medium bg-white rounded-lg"
-        placeholder="ایمیل"
-      />
-    </div>
+    </div> -->
 
-    <div class="flex justify-center">
-      <button
-        class="bg-[#3246d3] border-2 top-8 relative border-[#3246d3] border-solid hover:bg-white hover:text-[#3246d3] text-white p-2 sm:w-1/5 rounded-full font-semibold text-lg"
-      >
-        ثبت درخواست
-      </button>
-    </div>
+      <div class="flex justify-start ms-2">
+        <button
+          class="bg-[#3246d3] border-2 relative border-[#3246d3] border-solid hover:bg-white hover:text-[#3246d3] text-white p-2 sm:w-40 rounded-full font-semibold text-lg"
+        >
+          ثبت درخواست
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="w-3/12">
+    <img src="../../../../../assets/img/Group 661.png" />
   </div>
 </div>
