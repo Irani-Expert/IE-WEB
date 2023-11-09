@@ -1,5 +1,5 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-video-player',
@@ -15,8 +15,12 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
   ],
 })
 export class VideoPlayerComponent implements OnInit, AfterViewInit {
+  @Input({ required: true }) VideoId!: number;
+  @Input() homeScreen: boolean = false;
+
   constructor() {}
   video: any;
+  vId!: string;
   videoCurrentTime: string = '00:00';
   pauseplay: boolean = false;
   percentage: number = 1;
@@ -27,12 +31,15 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit {
   progressbarLeft: string = 'calc(0%);';
   ngAfterViewInit() {}
   ngOnInit(): void {
-    this.video = document.getElementsByTagName('video')[0];
-    this.element = document.getElementById('main-card');
+    console.log(this.homeScreen);
 
-    this.video.pause();
+    this.vId = 'vId' + this.VideoId;
+
+    this.element = document.getElementById('main-card');
   }
   onTimeUpdate() {
+    this.video = document.getElementById(this.vId);
+
     this.percentage = (this.video.currentTime / this.video.duration) * 100;
 
     this.progressbarLeft = this.percentage + '%';
@@ -73,6 +80,8 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit {
     this.video.currentTime = (this.video.duration / 100) * per;
   }
   puasePaceVideo() {
+    this.video = document.getElementById(this.vId);
+
     this.pauseplay = !this.pauseplay;
     setTimeout(() => {
       this.hidePuase = !this.hidePuase;

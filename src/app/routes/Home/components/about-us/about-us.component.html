@@ -1,20 +1,20 @@
 <div
-  class="bg-white p-28"
-  style="border-bottom-left-radius: 4rem; border-bottom-right-radius: 4rem"
+  class="bg-white p-28 border-bl-[4rem] border-br-[4rem]"
+  style="word-spacing: 1px"
 >
-  <div class="flex">
-    <div class="w-6/12">
+  <div class="flex justify-center">
+    <div class="w-6/12 ps-8">
       <h2 class="text-4xl" style="font-style: oblique">چرا ایرانی اکسپرت؟</h2>
-      <ul class="text-2xl">
-        <li class="m-4 text-justify">
+      <ul class="text-[22px] font-medium">
+        <li class="m-6 me-0 text-justify">
           ما تیمی از برنامه‌نویسان و تحلیل‌گران بازارهای مالی هستیم که بر توسعه
           اکسپرت‌ها، ربات‌ها و آموزش تمرکز کـردیم
         </li>
-        <li class="m-4 text-justify">
+        <li class="m-6 me-0 text-justify">
           درحال حاضر با توانایی تیم خود و کمک و حمایت خالصانه‌ی شرکای خود در
           ایران و جهان، در ارائه استراتژی‌ها و اکسپرت‌ها موفق عمل کردیم
         </li>
-        <li class="m-4 text-justify">
+        <li class="m-6 me-0 text-justify">
           و قول می‌دهیم برای معامله‌گران و فعالین بازارهای مالی جذاب باشد. ما را
           در اینستاگرام و تلگرام به نشانی IRani_Expert فالو کنید
         </li>
@@ -22,7 +22,7 @@
     </div>
     <div class="w-6/12 flex items-center justify-end">
       <div
-        class="bg-[#F3F3F3] absolute left-0 w-[600px] h-[400px] p-2 rounded-3xl rounded-e-none"
+        class="bg-[#F3F3F3] absolute left-0 w-[500px] h-[400px] p-2 rounded-3xl rounded-e-none"
       ></div>
       <img class="z-10 mt-4" src="../../../../../assets/img/about-us.png" alt="about-us" />
     </div>
@@ -49,24 +49,27 @@
           [ngClass]="isVideoOpend ? ' border-b-2' : ''"
         >
           <div
-            class="m-9 w-6/12 flex flex-col items-end"
-            [ngClass]="isVideoOpend ? 'justify-end ' : 'justify-center'"
+            class="m-9 w-5/12 flex flex-col items-end justify-center relative"
+            [ngClass]="isVideoOpend ? 'open-item ' : ''"
           >
             <h2 class="text-3xl font-bold">ایرانی پادکست شماره یک</h2>
             <span class="text-2xl text-end"
               >مصاحبه با جناب محمودی ؛ اکانت 10.000 دلاری</span
             >
           </div>
-          <div class="w-10/12">
-            <app-video-player></app-video-player>
+          <div class="w-8/12">
+            <app-video-player [VideoId]="0"></app-video-player>
           </div>
         </div>
-        <div [@fadeInAnimation]="isVideoOpend ? 'show' : 'hide'">
+        <div
+          style="position: 'relative'; position: relative; top: -59px"
+          [@fadeInAnimation]="isVideoOpend ? 'show' : 'hide'"
+        >
           <ng-container *ngFor="let index of [1, 2, 3, 4]" style="opacity: 0">
             <div class="flex flex-row border-b-2 pb-3 border-b-black-100 pt-3">
               <div
-                class="m-9 w-5/12 flex flex-col items-end"
-                [ngClass]="isVideoOpend ? 'justify-end ' : 'justify-center'"
+                class="m-9 w-5/12 flex flex-col items-end justify-center relative"
+                [ngClass]="isVideoOpend ? 'open-item ' : ''"
               >
                 <h2 class="text-3xl font-bold">ایرانی پادکست شماره یک</h2>
                 <span class="text-2xl text-end"
@@ -74,10 +77,11 @@
                 >
               </div>
               <div class="w-8/12">
-                <app-video-player></app-video-player>
+                <app-video-player [VideoId]="index"></app-video-player>
               </div>
             </div>
           </ng-container>
+          <div class="video-bottom-Shadow"></div>
         </div>
 
         <div
@@ -95,11 +99,11 @@
     </div>
   </div>
 </div>
-<div class="p-16 flex flex-row">
-  <div class="w-5/12">image Place</div>
-  <div class="w-7/12">
+<div class="p-16 flex justify-center flex-row font-medium">
+  <div class="w-3/12">image Place</div>
+  <div class="w-5/12">
     <h1 class="color--blue text-3xl font-bold">دعوت به همکاری</h1>
-    <p class="text-2xl text-justify">
+    <p class="text-[22px] text-justify text-black">
       از تمامی برنامه نویسان و تریدرها جهت همکاری دعوت بعمل می آید همچنین از
       همکاران گرامی دعوت می شود اگر اکسپرت قابل ارائه دارند جهت فروش آن محـصول
       در ایرانی اکسپرت، با پشتیبانی در ارتباط باشند
@@ -110,8 +114,8 @@
   class="bg-white p-12 flex items-center flex-col"
   style="border-bottom-left-radius: 4rem; border-bottom-right-radius: 4rem"
 >
-  <div class="w-8/12">
-    <p class="text-2xl text-center">
+  <div class="w-6/12">
+    <p class="text-2xl text-center font-medium text-black">
       ایرانی اکسپرت از مجموعه های تابعه فن آوران دنا به شماره ثبت 60136 می باشد
       ضمناً برای ارتباط بیشتر با ما در شبکه های اجتماعی ایرانی اکسپرت را دنبال
       کنید یا اینکه از طریق کادر زیر جهت مشاوره اقدام کنید

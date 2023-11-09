@@ -6,10 +6,10 @@ ul {
 
 ul li::before {
   content: "";
-  margin-top: 30px;
+  vertical-align: middle;
   position: absolute; /* Enable absolute positioning */
   right: -15px; /* Adjust the horizontal position of the bullet */
-  transform: translateY(-50%); /* Center the bullet vertically */
+  transform: translateY(23px); /* Center the bullet vertically */
   width: 12px;
   height: 12px;
   background-color: blue; /* Change the color of the bullet */
@@ -18,5 +18,34 @@ ul li::before {
 .close-btn {
   position: relative;
   left: 20%;
-  bottom: 7rem;
+  bottom: 14rem;
+}
+.open-item {
+  animation: myAnim 0.5s linear 0s 1 normal forwards;
+}
+.video-bottom-Shadow {
+  filter: blur(8px);
+  height: 7rem;
+  transform: translatey(-104px);
+  position: absolute;
+  width: 76rem;
+  background-image: linear-gradient(
+    to top,
+    #ffffff,
+    #ffffff,
+    #ffffff,
+    #ffffff91,
+    #ffffff5c
+  );
+
+  z-index: 1000;
+}
+@keyframes myAnim {
+  0% {
+    top: 0px;
+  }
+
+  100% {
+    top: 7.5rem;
+  }
 }

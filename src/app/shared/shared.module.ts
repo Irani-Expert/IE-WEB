@@ -5,10 +5,11 @@ import { EcoCalFiltersComponent } from './eco-cal-filters/eco-cal-filters.compon
 import { TagsComponent } from './tags/tags.component';
 import { AcordianComponent } from './acordian/acordian.component';
 import { CommonModule } from '@angular/common';
+import { Toggler } from './toggler/toggler.component';
 
 
 @NgModule({
-  imports: [ModalComponent, AuthModule,CommonModule ],
+  imports: [ModalComponent, AuthModule,CommonModule,Toggler ],
   exports: [ModalComponent, AuthModule,TagsComponent ,AcordianComponent],
   declarations: [
     EcoCalFiltersComponent,

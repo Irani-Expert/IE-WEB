@@ -10,6 +10,9 @@ import { EcoCalComponent } from 'src/app/shared/eco-cal/eco-cal.component';
 import { CalDetailComponent } from 'src/app/shared/cal-detail/cal-detail.component';
 import { TradingviewComponent } from 'src/app/shared/tradingview/tradingview.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { EcoCalFiltersComponent } from 'src/app/shared/eco-cal-filters/eco-cal-filters.component';
+import { Toggler } from 'src/app/shared/toggler/toggler.component';
+import { DatePickerComponent } from 'src/app/shared/date-picker/date-picker.component';
 
 const components = [
   CalendarMainPageComponent,
@@ -18,11 +21,14 @@ const components = [
   EcoCalComponent,
   CalDetailComponent,
   TradingviewComponent,
+  EcoCalFiltersComponent,
+  DatePickerComponent,
 ];
 @NgModule({
   declarations: [components],
   imports: [
     CommonModule,
+    Toggler,
     SharedModule,
     // FormsModule,
     // ReactiveFormsModule,

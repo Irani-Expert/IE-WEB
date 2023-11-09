@@ -1,12 +1,18 @@
 input:focus {
-  outline: 1px solid #3246d3 !important;
+  outline: 1.5px solid #3246d3 !important;
+}
+input:hover {
+  outline: 1.5px solid #3246d3 !important;
 }
 input[type="checkbox"] {
   height: 0;
   width: 0;
   visibility: hidden;
 }
-
+input {
+  padding: 20px;
+  font-size: 20px !important;
+}
 label {
   cursor: pointer;
   text-indent: -9999px;
