@@ -1,6 +1,6 @@
 @import "src/sass/colors";
 .button-submit {
-  font-size: 20px;
+  font-size: 18px;
   padding: 6px 26px 5px 27px;
   background-color: $blue;
   &:hover {
@@ -9,11 +9,9 @@
 }
 .input-container {
   min-width: unset;
-}
-.input-container {
   grid-column: span 2 / span 2;
 }
-.container-login {
+.container-inputs {
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 0.5fr));
 }

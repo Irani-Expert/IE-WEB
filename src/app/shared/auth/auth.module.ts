@@ -7,9 +7,22 @@ import { SwitchComponent } from '../switch/switch.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SmoothHeightDirective } from 'src/app/classes/directives/smooth-height.directive';
 import { Toggler } from '../toggler/toggler.component';
-const components = [AuthComponent, SignupComponent, LoginComponent];
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { Spinner } from '../spinner/spinner.component';
+const components = [
+  AuthComponent,
+  SignupComponent,
+  LoginComponent,
+  ForgetPasswordComponent,
+];
 @NgModule({
-  imports: [CommonModule, ReactiveFormsModule, SmoothHeightDirective, Toggler],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    SmoothHeightDirective,
+    Toggler,
+    Spinner,
+  ],
   declarations: [components, SwitchComponent],
   exports: [components],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

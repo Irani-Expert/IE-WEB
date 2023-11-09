@@ -13,3 +13,10 @@ export const smoothHeight = trigger('grow', [
     }
   ),
 ]);
+export const fadeIn = trigger('fadeIn', [
+  transition(':enter', [
+    style({ opacity: 0 }),
+    animate('100ms ease-in-out', style({ opacity: 1 })),
+  ]),
+  transition(':leave', [animate('100ms ease-in-out', style({ opacity: 0 }))]),
+]);

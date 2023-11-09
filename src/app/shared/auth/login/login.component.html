@@ -1,5 +1,5 @@
 <form [formGroup]="form" (ngSubmit)="login()">
-  <div class="container-login gap-3">
+  <div class="container-inputs gap-3">
     <ng-container *ngFor="let control of formControls; let i = index">
       <div class="input-container">
         <div class="relative">
@@ -12,7 +12,7 @@
             formControlName="{{ control.name }}"
             [placeholder]="control?.placeholder ? control.placeholder : ''"
           />
-          <!-- <ng-container *ngFor="let icon of control.icon">
+          <ng-container *ngFor="let icon of control?.icon">
             <span [class]="icon.placement">
               <ng-container *ngIf="icon.placement == 'left-icon'">
                 <img
@@ -26,7 +26,7 @@
                 <img [src]="icon.src" [alt]="icon.alt" />
               </ng-container>
             </span>
-          </ng-container> -->
+          </ng-container>
         </div>
       </div>
     </ng-container>
@@ -48,7 +48,10 @@
   </div>
 </form>
 <p class="text-small font-black text-black mt-2">
-  رمز عبور خود را فراموش کرد‌اید؟<a href="#" class="text-blue-800 no-underline"
+  رمز عبور خود را فراموش کرد‌اید؟<a
+    href="#"
+    class="text-blue-800 no-underline"
+    (click)="forgetPass()"
     >بازیابی رمز عبور</a
   >
 </p>
