@@ -1,6 +1,8 @@
 @import "scss/font-awesome";
 @import "tailwind";
-@import "star-rating";
+// @import "star-rating";
+// @import 'node_modules/font-awesome/scss/_icons.scss';
+// @import 'node_modules/font-awesome/scss/font-awesome.scss';
 @import "./variables";
 @import "./colors";
 @import "./mixins";
@@ -14,7 +16,7 @@
 body {
   font-family: $font-family-base;
   font-size: $font-size-base;
-  background-color: $darken-white;
+  // background-color: $darken-white;
   word-spacing: $word-spacing-base;
 }
 .button-styles {

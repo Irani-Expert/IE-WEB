@@ -1,29 +1,131 @@
-@import "src/sass/colors";
-h1 {
-  font-style: oblique;
+.hero{
+  margin-bottom: -100px;
 }
-.img-style {
-  width: 871px;
-  height: 754px;
+.circle {
+position: absolute;
+top: -325px;
 }
-button {
-  font-size: 24px;
-  &.button-right {
-    padding: 3px 26px 2px 27px;
-    background-color: $blue;
-    &:hover {
-      box-shadow: -7px 11px 9px #00000016;
-    }
+.hero-f{
+  position: relative;
+}
+.hero-image{
+  height: 30rem;
+  animation: img-move 12s  infinite;    
+  width: 450px;
+  height: 300px;
+  float:left;
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+
+}
+// .mosalas{
+//   position: absolute;
+//   top:0;
+//   z-index: 10px;
+//   width: 0;
+//   height: 0;
+//   border: 150px solid transparent;
+// border-top: 0;
+// border-bottom: 300px solid #F1F6FF;
+// border-radius: 100px;
+// border-bottom-right-radius: 100px;
+// }
+.matn-h{
+  text-align: right;
+}
+.r-h{
+  text-align: right;
+  margin-top: 9rem;
+}
+.link{
+  position: relative;
+  top: 5px;
+  right: 30px;
+  color: #707070;
+}
+.mosalas{
+  position: absolute;
+  top: -224px;
+  bottom: 5px;
+  right: -29px;
+}
+.darsad{
+  font-weight: 900;
+  font-size: 28px;
+}
+.title-d{
+  margin-top: -8px;
+  font-size: 13px;
+}
+.mizan-sod{
+  text-align: center;
+}
+.sood{
+  position: relative;
+  left: 150px;
+  bottom: 8px;
+}
+.sod{
+  position: relative;
+  margin-right: -200px;
+}
+.btn{
+  color: white;
+  border-radius: 20px;
+  padding: 8px 15px 8px 15px;
+  background-color: #3246d3;
+}
+.divid-h{
+  font-weight: bold;
+  font-size: 15px;
+  color: #098B41;
+}
+.l{
+  font-size: 50px;
+  font-weight: 900;
+}
+.titile-h{
+  font-weight: 900;
+  font-size: 35px;
+}
+.title-b{
+  font-size: 15px;
+}
+.h-f{
+  font-weight: 900;
+  color: #098B41;
+  font-size: 25px;
+}
+@keyframes img-move {
+  0% {
+    transform: translateX(8px);
   }
-  &.button-left {
-    padding: 3px 26px 2px 27px;
-    background-color: white;
-    border: 2px solid $gray-500;
-    color: $gray-500;
-    &:hover {
-      color: $blue;
-      border-color: $blue;
-      box-shadow: -7px 11px 9px #00000016;
-    }
-  }
+10%{
+  -webkit-transform : translateZ(8px);
+}
+20%{
+  transform: translateX(8px);
+}
+ 30% {
+  -webkit-transform : translateZ(8px);
+}
+40% {
+  transform: translateX(8px);
+}
+50%{
+-webkit-transform : translateZ(8px);
+}
+60%{
+transform: translateX(8px);
+}
+70% {
+-webkit-transform : translateZ(8px);
+}
+80%{
+transform: translateX(8px);
+}
+90%, 100% {
+-webkit-transform : translateZ(8px);
+}
 }
