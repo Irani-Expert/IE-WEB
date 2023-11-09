@@ -11,6 +11,7 @@ import {
 @Component({
   selector: 'app-toggle',
   template: `<div class="toggle-container">
+    <ng-content select="before"></ng-content>
     <input
       class="toggle"
       (click)="check($any($event.target).checked)"
@@ -21,7 +22,7 @@ import {
       class="border-solid bg-[#d8d8d8] border-01 toggle-label"
       >Toggle</label
     >
-    <ng-content></ng-content>
+    <ng-content select="[after]"></ng-content>
   </div>`,
   standalone: true,
   imports: [CommonModule],
