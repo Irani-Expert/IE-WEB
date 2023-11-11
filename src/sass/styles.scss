@@ -1,8 +1,6 @@
 @import "scss/font-awesome";
 @import "tailwind";
-// @import "star-rating";
-// @import 'node_modules/font-awesome/scss/_icons.scss';
-// @import 'node_modules/font-awesome/scss/font-awesome.scss';
+
 @import "./variables";
 @import "./colors";
 @import "./mixins";
@@ -11,8 +9,10 @@
 @import "./components/modals";
 @import "./components/switcher";
 @import "./components/toggler";
+@import "./components/spinner";
+@import "./components/otp";
 @import "/node_modules/flag-icons/css/flag-icons.min.css";
-
+@import "./components/lotties";
 body {
   font-family: $font-family-base;
   font-size: $font-size-base;

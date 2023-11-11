@@ -5,11 +5,12 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { Component, HostListener } from '@angular/core';
+import { Component, EventEmitter, HostListener, Output } from '@angular/core';
 import { Header } from '../header';
 import { NavigationService } from 'src/app/classes/services/navigation.service';
 import { Utils } from 'src/app/classes/utils';
 import { PlatformService } from 'src/app/classes/services/platform.service';
+import { ModalService } from 'src/app/shared/modal/services/modal.service';
 
 @Component({
   selector: 'app-header-sm',
@@ -37,7 +38,12 @@ import { PlatformService } from 'src/app/classes/services/platform.service';
   ],
 })
 export class HeaderSmComponent extends Header {
-  constructor(navService: NavigationService, platform: PlatformService) {
+  @Output('modal') openingModal: EventEmitter<string> = new EventEmitter(false);
+  constructor(
+    navService: NavigationService,
+    platform: PlatformService,
+    private modal: ModalService
+  ) {
     super(navService, platform);
   }
 
@@ -66,5 +72,11 @@ export class HeaderSmComponent extends Header {
         this.menuState = 'in';
       }
     }
+  }
+  openModal(type: string) {
+    this.openingModal.emit(type);
+    this.modal.open().subscribe((action) => {
+      console.log(action);
+    });
   }
 }

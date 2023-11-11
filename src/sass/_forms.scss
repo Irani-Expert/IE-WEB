@@ -45,6 +45,9 @@ input {
   &:hover {
     border: 2px solid $border-hover;
   }
+  &:disabled {
+    background-color: $input-disabled !important;
+  }
 }
 
 .input-without-icon {
@@ -64,6 +67,9 @@ input {
   }
   &:hover {
     border: 2px solid $border-hover;
+  }
+  &:disabled {
+    background-color: $input-disabled !important;
   }
 }
 .input-container {

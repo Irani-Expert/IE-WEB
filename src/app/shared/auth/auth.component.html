@@ -11,7 +11,10 @@
       ></app-switch>
       <div class="w-full" [smoothHeight]="changed">
         <div>
-          <app-signup *ngIf="view == 'sign-up'" />
+          <app-signup
+            (changingView)="changeViewFromSigup()"
+            *ngIf="view == 'sign-up'"
+          />
           <app-login
             *ngIf="view == 'login'"
             (changePassword)="changePasswordStatus($event)"
@@ -29,7 +32,7 @@
       </div>
     </ng-container>
   </div>
-  <div class="left-container">
+  <div *ngIf="this.flexDirection == 'row'" class="left-container">
     <img src="../../../assets/img/2Fa.png" alt="" />
   </div>
 </section>

@@ -41,7 +41,12 @@
   </div>
 </form>
 <p class="text-small font-black text-black mt-2">
-  حساب کاربری دارید؟<a href="#" class="text-blue-800 no-underline">وارد شوید</a>
+  حساب کاربری دارید؟<button
+    (click)="changeView.emit(true)"
+    class="text-blue-800 p-0 m-0 bg-transparent cursor-pointer"
+  >
+    وارد شوید
+  </button>
 </p>
 
 <div class="flex flex-row my-2 items-center">
