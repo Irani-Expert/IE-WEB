@@ -48,9 +48,16 @@ body {
 .color--grey500 {
   color: $gray-500;
 }
+.color-green {
+  color: $green;
+}
+.bg-darken-white {
+  background-color: $darken-white;
+}
 .bg--gray300 {
   background-color: $gray-300;
 }
+
 .mainCards-design {
   border-bottom-left-radius: 5rem;
   border-bottom-right-radius: 5rem;

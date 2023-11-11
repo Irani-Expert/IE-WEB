@@ -26,6 +26,10 @@ import { AboutUsComponent } from '../components/about-us/about-us.component';
 import { OrderFilterComponent } from 'src/app/shared/order-filter/order-filter.component';
 import { SearchFeildComponent } from 'src/app/shared/search-feild/search-feild.component';
 import { TradeBeginningComponent } from '../components/trade-beginning/trade-beginning.component';
+import { ProductCardComponent } from 'src/app/shared/product-card/product-card.component';
+import { CardTitleComponent } from 'src/app/shared/card-title/card-title.component';
+import { CardLinkComponent } from 'src/app/shared/card-link/card-link.component';
+import { DiscountBannerComponent } from 'src/app/shared/discount-banner/discount-banner.component';
 
 const components = [
   LandingPageComponent,
@@ -40,6 +44,7 @@ const components = [
   ConsultationFormComponent,
   GiftFormComponent,
   BannersComponent,
+  ProductCardComponent,
   GiftFormComponent,
   ProductsComponent,
   DetailCardComponent,
@@ -49,6 +54,9 @@ const components = [
   OrderFilterComponent,
   SearchFeildComponent,
   TradeBeginningComponent,
+  CardTitleComponent,
+  CardLinkComponent,
+  DiscountBannerComponent,
 ];
 @NgModule({
   declarations: [components],
