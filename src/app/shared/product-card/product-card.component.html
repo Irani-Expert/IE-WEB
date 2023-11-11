@@ -1,0 +1,70 @@
+<div
+  class="m-4 rounded-xl animation-hover cursor-pointer"
+  style="
+    background: #f3f3f3;
+    height: 316px;
+    display: inline-block;
+    overflow: hidden;
+    width: 324px;
+  "
+>
+  <div class="h-[55%]" style="overflow: hidden">
+    <img class="w-full h-full h-img" src="{{ Data.imgUrl }}" />
+  </div>
+  <div class="h-[45%] justify-between flex-col flex">
+    <div class="h-full flex flex-col justify-evenly items-center">
+      <p class="text-[22px] text-black font-extrabold">
+        {{ Data.title }}
+      </p>
+      <p
+        class="text-xl font-medium"
+        [style.color]="Data.colorCode"
+        *ngIf="Data.price == 0"
+      >
+        رایگان
+      </p>
+      <p
+        class="text-xl font-medium"
+        [style.color]="Data.colorCode"
+        *ngIf="Data.price != 0"
+      >
+        {{ Data.price }} میلیون تومان
+      </p>
+    </div>
+    <div
+      class="bg-[#E6E6E6] flex justify-center items-center h-bottom"
+      [style.background-color]="Data.bgColorCode"
+      *ngIf="Data.type == 1"
+    >
+      <span class="flex flex-row items-center m-2 justify-center"
+        ><img
+          src="../../../assets/img/Group 392.png"
+          class="m-1.5 mt-0.5"
+          style="width: 12px; height: 12px"
+        />
+        <p class="text-lg font-medium">3 جلسه</p>
+      </span>
+      <span class="flex flex-row items-center m-2 justify-center"
+        ><img
+          src="../../../assets/img/Group 393.png"
+          class="m-1.5 mt-0.5"
+          style="width: 14px; height: 14px"
+        />
+        <p class="text-lg font-medium">2:36 ساعت</p>
+      </span>
+    </div>
+    <div
+      class="bg-[#E6E6E6] flex justify-center items-center h-bottom"
+      [style.background-color]="Data.bgColorCode"
+      *ngIf="Data.type == 0"
+    >
+      <div class="text-base font-medium m-1 items-center flex">
+        <img
+          class="w-4"
+          src="../../../../../assets/img/icons8-instagram-verification-badge-144.png"
+        />
+        <p class="mt-1">iraniExpert</p>
+      </div>
+    </div>
+  </div>
+</div>
