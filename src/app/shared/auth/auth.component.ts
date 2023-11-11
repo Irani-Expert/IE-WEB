@@ -14,6 +14,7 @@ enum View {
   animations: [smoothHeight],
 })
 export class AuthComponent {
+  changingPassword: boolean = false;
   flexDirection: 'row' | 'column-reverse' = 'row';
   changed = false;
   @Input('view') view!: string;
@@ -34,6 +35,9 @@ export class AuthComponent {
   constructor() {}
   ngOnInit() {
     this.updateDeviceValue();
+  }
+  changePasswordStatus(event: unknown) {
+    if (typeof event == 'boolean') this.changingPassword = event;
   }
   changeView() {
     this.changed = !this.changed;

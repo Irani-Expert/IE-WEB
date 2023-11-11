@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { ILogin } from '../user.interface';
@@ -26,6 +26,8 @@ const formDataInit: ILogin = { password: '', username: '' };
   ],
 })
 export class LoginComponent {
+  @Output('changePassword') changePassword: EventEmitter<boolean> =
+    new EventEmitter<boolean>(false);
   formControlInit: InputInterface[] = [
     {
       id: 1,
@@ -121,5 +123,11 @@ export class LoginComponent {
         this.state = this.state === 'default' ? 'rotated' : 'default';
       }
     }, 200);
+  }
+  // closeModal(){
+
+  // }
+  forgetPass() {
+    this.changePassword.emit(true);
   }
 }

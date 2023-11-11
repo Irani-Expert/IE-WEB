@@ -1,0 +1,56 @@
+.button-styles {
+    color: white;
+    border-radius: 20px;
+    padding: 8px 15px 8px 15px;
+    background-color: #3246d3;
+  }
+  .bot-h{
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .title-b{
+    font-weight: bold;
+    color: #098B41;
+  }
+  .link{
+    color: #707070;
+  }
+  .img-bot{
+    position: relative;
+    top: 44px;
+    height: 300px;
+    width: 170px;
+  }
+  .divider-c{
+    margin-top: -150px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(241,203,93,1) 1%, rgba(213,228,255,1) 19%, rgba(243,243,243,1) 46%); 
+  }
+  .l{
+    font-size: 50px;
+    font-weight: 900;
+  }
+  
+
+// ====================[colors]==============
+$white: #fff !default;
+$black: #000 !default;
+$darken-white: #f3f3f3 !default;
+$gray-200: #f8f8f8 !default;
+$gray-300: #d8d8d8 !default;
+$gray-500: #040202 !default;
+$gray-600: #676767 !default;
+$gray-700: #646464 !default;
+$gray-800: #535353 !default;
+$light-blue: #9ba8ff !default;
+$blue: #3246d3 !default;
+$red: #cc3a39 !default;
+$yellow: #ffee00 !default;
+$green: #098b41 !default;
+$light-green: #6db500 !default;
+$text-header-primary: #6e6e6e !default;
+$text-header-hover: $blue;
+$activeBlue: #293dc8;
+$dim-green: #707070 !default;
+$border-input: #e3e3e3 !default;
+$close-btn-hover: $gray-300;

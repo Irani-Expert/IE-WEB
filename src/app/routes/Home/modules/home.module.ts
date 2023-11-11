@@ -1,10 +1,8 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { HomeRoutingModule } from './home-routing.module';
 import { LandingPageComponent } from '../components/landing-page/landing-page.component';
 import { SellInfoComponent } from '../components/sell-info/sell-info.component';
-
 import { HeroComponent } from '../components/hero/hero.component';
 // import { CounterNumberComponent } from '../components/counter-number/counter-number.component';
 import { SliderComponent } from '../components/slider/slider.component';
@@ -30,11 +28,20 @@ import { ProductCardComponent } from 'src/app/shared/product-card/product-card.c
 import { CardTitleComponent } from 'src/app/shared/card-title/card-title.component';
 import { CardLinkComponent } from 'src/app/shared/card-link/card-link.component';
 import { DiscountBannerComponent } from 'src/app/shared/discount-banner/discount-banner.component';
+import { BotShowcaseComponent } from '../components/bot-showcase/bot-showcase.component';
+import { InstagramBanerComponent } from '../components/instagram-baner/instagram-baner.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { ServiceBanerComponent } from '../components/service-baner/service-baner.component';
+import { QuestionsComponent } from '../components/questions/questions.component';
 
 const components = [
+  ServiceBanerComponent,
+  QuestionsComponent,
+  InstagramBanerComponent,
   LandingPageComponent,
   HeroComponent,
   SellInfoComponent,
+  BotShowcaseComponent,
   // CounterNumberComponent,
   SliderComponent,
   BotFacilitiesComponent,
@@ -66,7 +73,7 @@ const components = [
     FormsModule,
     NgxSliderModule,
     ReactiveFormsModule,
-
+    SharedModule,
     StarRatingModule.forRoot(),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

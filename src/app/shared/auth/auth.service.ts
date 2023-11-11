@@ -3,6 +3,7 @@ import { ILogin, ISignUp, User } from './user.interface';
 import { BehaviorSubject, lastValueFrom, map } from 'rxjs';
 import { BaseService } from 'src/app/classes/services/base.service';
 import { HttpClient } from '@angular/common/http';
+
 const userInit: User = {
   firstName: '',
   lastName: '',
