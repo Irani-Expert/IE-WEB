@@ -1,21 +1,38 @@
 <section
-  class="custom-container"
+  class="custom-container p-5 md:p-7"
   [ngStyle]="{ '--flex-direction': flexDirection }"
 >
   <div class="right-container">
-    <app-switch
-      (output)="changeView()"
-      [activeView]="view"
-      [items]="switchItems"
-    ></app-switch>
-    <div class="w-full" [smoothHeight]="changed">
-      <div>
-        <app-signup *ngIf="view == 'sign-up'" />
-        <app-login *ngIf="view == 'login'" />
+    <ng-container *ngIf="!changingPassword">
+      <app-switch
+        (output)="changeView()"
+        [activeView]="view"
+        [items]="switchItems"
+      ></app-switch>
+      <div class="w-full" [smoothHeight]="changed">
+        <div>
+          <app-signup
+            (changingView)="changeViewFromSigup()"
+            *ngIf="view == 'sign-up'"
+          />
+          <app-login
+            *ngIf="view == 'login'"
+            (changePassword)="changePasswordStatus($event)"
+          />
+        </div>
       </div>
-    </div>
+    </ng-container>
+    <ng-container *ngIf="changingPassword">
+      <div class="w-full" [smoothHeight]="changed">
+        <div>
+          <app-forget-password
+            (changePassword)="changePasswordStatus($event)"
+          />
+        </div>
+      </div>
+    </ng-container>
   </div>
-  <div class="left-container">
+  <div *ngIf="this.flexDirection == 'row'" class="left-container">
     <img src="../../../assets/img/2Fa.png" alt="" />
   </div>
 </section>

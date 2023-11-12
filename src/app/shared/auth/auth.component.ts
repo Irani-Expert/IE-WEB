@@ -1,8 +1,9 @@
-import { Component, HostListener, Input } from '@angular/core';
+import { Component, HostListener, Input, ViewChild } from '@angular/core';
 import { SwitchItem } from '../switch/switch.interface';
 import { smoothHeight } from 'src/app/classes/animation';
 import { AppComponent } from 'src/app/app.component';
 import { Utils } from 'src/app/classes/utils';
+import { SwitchComponent } from '../switch/switch.component';
 enum View {
   Signup = 'sign-up',
   Login = 'login',
@@ -14,6 +15,9 @@ enum View {
   animations: [smoothHeight],
 })
 export class AuthComponent {
+  @ViewChild(SwitchComponent, { static: false })
+  switchComponent: SwitchComponent;
+  changingPassword: boolean = false;
   flexDirection: 'row' | 'column-reverse' = 'row';
   changed = false;
   @Input('view') view!: string;
@@ -35,6 +39,10 @@ export class AuthComponent {
   ngOnInit() {
     this.updateDeviceValue();
   }
+  changePasswordStatus(event: unknown) {
+    this.changed = !this.changed;
+    if (typeof event == 'boolean') this.changingPassword = event;
+  }
   changeView() {
     this.changed = !this.changed;
     this.view == View.Signup
@@ -50,5 +58,8 @@ export class AuthComponent {
       if (Utils.isLaptopSm()) this.flexDirection = 'column-reverse';
       else this.flexDirection = 'row';
     }
+  }
+  changeViewFromSigup() {
+    this.switchComponent.changeActiveItem(this.switchItems[0]);
   }
 }

@@ -5,16 +5,21 @@ import { TagsComponent } from './tags/tags.component';
 import { AcordianComponent } from './acordian/acordian.component';
 import { CommonModule } from '@angular/common';
 import { Toggler } from './toggler/toggler.component';
-
-
+import { LottieModule } from 'ngx-lottie';
+export function playerFactory(): any {
+  return import('lottie-web');
+}
+const modules = [ModalComponent, AuthModule, Toggler];
+const components = [TagsComponent, AcordianComponent];
 @NgModule({
-  imports: [ModalComponent, AuthModule,CommonModule,Toggler ],
-  exports: [ModalComponent, AuthModule,TagsComponent ,AcordianComponent],
-  declarations: [
-    TagsComponent,
-    AcordianComponent,
+  imports: [
+    modules,
+    CommonModule,
+    LottieModule.forRoot({ player: playerFactory }),
   ],
+  exports: [modules, components],
+  declarations: [components],
   providers: [],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SharedModule {}

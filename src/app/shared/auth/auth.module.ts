@@ -7,10 +7,31 @@ import { SwitchComponent } from '../switch/switch.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SmoothHeightDirective } from 'src/app/classes/directives/smooth-height.directive';
 import { Toggler } from '../toggler/toggler.component';
-const components = [AuthComponent, SignupComponent, LoginComponent];
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { Spinner } from '../spinner/spinner.component';
+import { NgOtpInputModule } from 'ng-otp-input';
+import { LottieModule } from 'ngx-lottie';
+import { LottieComponent } from '../lottie/lottie.component';
+export function playerFactory(): any {
+  return import('lottie-web');
+}
+const components = [
+  AuthComponent,
+  SignupComponent,
+  LoginComponent,
+  ForgetPasswordComponent,
+];
 @NgModule({
-  imports: [CommonModule, ReactiveFormsModule, SmoothHeightDirective, Toggler],
-  declarations: [components, SwitchComponent],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    SmoothHeightDirective,
+    Toggler,
+    Spinner,
+    NgOtpInputModule,
+    LottieModule.forRoot({ player: playerFactory }),
+  ],
+  declarations: [components, SwitchComponent, LottieComponent],
   exports: [components],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

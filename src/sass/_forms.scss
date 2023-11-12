@@ -38,12 +38,15 @@ input {
   font-weight: 300;
   background-color: $white;
   width: 100%;
-  transition: box-shadow 0.3s ease;
+  transition: border 0.3s ease;
   &:focus {
     outline: none;
   }
   &:hover {
-    box-shadow: -2px 4px 6px 1px $border-input;
+    border: 2px solid $border-hover;
+  }
+  &:disabled {
+    background-color: $input-disabled !important;
   }
 }
 
@@ -58,12 +61,15 @@ input {
   font-weight: 300;
   background-color: $white;
   width: 100%;
-  transition: box-shadow 0.3s ease, border 0.3s ease;
+  transition: border 0.3s ease;
   &:focus {
     outline: none;
   }
   &:hover {
-    box-shadow: -2px 4px 6px 1px $border-input;
+    border: 2px solid $border-hover;
+  }
+  &:disabled {
+    background-color: $input-disabled !important;
   }
 }
 .input-container {

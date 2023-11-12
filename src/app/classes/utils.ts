@@ -35,4 +35,9 @@ export class Utils {
   static scrollTracker() {
     return window && window.scrollY;
   }
+  static focusOnElement(id: any) {
+    if (document) {
+      <HTMLElement>(<unknown>document.getElementById(id)!.focus());
+    }
+  }
 }

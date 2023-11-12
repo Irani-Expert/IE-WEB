@@ -1,8 +1,6 @@
 @import "scss/font-awesome";
 @import "tailwind";
-// @import "star-rating";
-// @import 'node_modules/font-awesome/scss/_icons.scss';
-// @import 'node_modules/font-awesome/scss/font-awesome.scss';
+
 @import "./variables";
 @import "./colors";
 @import "./mixins";
@@ -11,14 +9,17 @@
 @import "./components/modals";
 @import "./components/switcher";
 @import "./components/toggler";
+@import "./components/spinner";
+@import "./components/otp";
 @import "/node_modules/flag-icons/css/flag-icons.min.css";
-
+@import "./components/lotties";
 body {
   font-family: $font-family-base;
   font-size: $font-size-base;
   // background-color: $darken-white;
   word-spacing: $word-spacing-base;
 }
+
 .button-styles {
   color: white;
   border: none;
@@ -50,9 +51,16 @@ body {
 .color--grey500 {
   color: $gray-500;
 }
+.color-green {
+  color: $green;
+}
+.bg-darken-white {
+  background-color: $darken-white;
+}
 .bg--gray300 {
   background-color: $gray-300;
 }
+
 .mainCards-design {
   border-bottom-left-radius: 5rem;
   border-bottom-right-radius: 5rem;

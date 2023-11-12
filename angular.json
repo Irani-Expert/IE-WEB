@@ -27,7 +27,8 @@
               "./src/favicon.ico",
               "./src/assets/img",
               "./src/assets/images",
-              "./src/assets/audio"
+              "./src/assets/audio",
+              "./src/assets/lottie"
             ],
             "styles": ["./src/sass/styles.scss"],
             "stylePreprocessorOptions": {

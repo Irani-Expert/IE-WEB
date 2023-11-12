@@ -6,6 +6,12 @@ export class User {
   token = '';
   favourites?: Favourite[];
 }
+export interface IForgetPassword {
+  email?: string;
+  phoneNumber?: string;
+  id?: number;
+  code?: number;
+}
 interface Favourite {
   rowID: number;
   tableType: number;
