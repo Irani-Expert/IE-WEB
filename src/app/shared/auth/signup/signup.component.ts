@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Input, InputIcon, InputInterface } from 'src/app/classes/input';
 // import { AuthService } from '../auth.service';
@@ -35,6 +35,8 @@ const formDataInit: ISignUp = {
   ],
 })
 export class SignupComponent {
+  @Output('changingView') changeView: EventEmitter<boolean> =
+    new EventEmitter<boolean>(false);
   loading = false;
   formsControlInit: InputInterface[] = [
     {

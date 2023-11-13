@@ -14,8 +14,8 @@ import { SharedModule } from './shared/shared.module';
 import { BaseService } from './classes/services/base.service';
 import { HttpClientModule } from '@angular/common/http';
 import { StarRatingModule } from 'angular-star-rating';
-
 // import { RetryHttpErrorsInterceptor } from './classes/error.interceptor';
+
 // Headeer Comps
 const header = [
   HeaderLayoutComponent,

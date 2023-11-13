@@ -9,6 +9,12 @@ import { SmoothHeightDirective } from 'src/app/classes/directives/smooth-height.
 import { Toggler } from '../toggler/toggler.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { Spinner } from '../spinner/spinner.component';
+import { NgOtpInputModule } from 'ng-otp-input';
+import { LottieModule } from 'ngx-lottie';
+import { LottieComponent } from '../lottie/lottie.component';
+export function playerFactory(): any {
+  return import('lottie-web');
+}
 const components = [
   AuthComponent,
   SignupComponent,
@@ -22,8 +28,10 @@ const components = [
     SmoothHeightDirective,
     Toggler,
     Spinner,
+    NgOtpInputModule,
+    LottieModule.forRoot({ player: playerFactory }),
   ],
-  declarations: [components, SwitchComponent],
+  declarations: [components, SwitchComponent, LottieComponent],
   exports: [components],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

@@ -26,7 +26,10 @@
     </ng-container>
 
     <li class="justify-end p-2.5 pr-8 flex">
-      <button class="text-1.5xl header-sm-button font-medium rounded-md">
+      <button
+        (click)="openModal('login')"
+        class="text-1.5xl header-sm-button font-medium rounded-md"
+      >
         ورود|عضویت
       </button>
     </li>

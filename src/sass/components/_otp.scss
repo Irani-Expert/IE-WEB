@@ -1,0 +1,24 @@
+.otp-input {
+  width: 44px !important;
+  height: 47px !important;
+  border-radius: 12px !important;
+  border: solid 2px $border-input !important;
+  text-align: center !important;
+  font-size: 1.4rem !important;
+  background-color: #fff;
+  outline: 0;
+  font-weight: 500;
+  transition: border 0.2s ease, background-color 0.2s ease;
+  &:hover {
+    border: solid 2px $border-hover !important;
+  }
+  &:focus {
+    border: solid 2px $border-hover !important;
+  }
+  &:disabled {
+    background-color: $input-disabled !important;
+  }
+}
+.ng-otp-input-wrapper .otp-input {
+  padding-top: 7px !important;
+}
