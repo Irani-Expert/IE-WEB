@@ -91,4 +91,5 @@ export class LandingPageComponent {
       isOrigin: null,
     },
   ];
+  constructor() {}
 }

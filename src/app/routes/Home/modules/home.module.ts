@@ -18,7 +18,6 @@ import { DetailCardComponent } from '../components/detail-card/detail-card.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StarRatingModule } from 'angular-star-rating';
 import { TypeFilterComponent } from '../components/type-filter/type-filter.component';
-import { PriceRangComponent } from '../components/price-rang/price-rang.component';
 import { NgxSliderModule } from 'ngx-slider-v2';
 import { AboutUsComponent } from '../components/about-us/about-us.component';
 import { OrderFilterComponent } from 'src/app/shared/order-filter/order-filter.component';
@@ -56,7 +55,7 @@ const components = [
   ProductsComponent,
   DetailCardComponent,
   TypeFilterComponent,
-  PriceRangComponent,
+
   AboutUsComponent,
   OrderFilterComponent,
   SearchFeildComponent,
