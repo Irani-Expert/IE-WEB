@@ -5,13 +5,13 @@ import { BehaviorSubject, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class FilterService {
+export class FilterService<T> {
   static filterItems = new BehaviorSubject<IFilterGroup[]>([]);
   static filterItems$: Observable<IFilterGroup[]> = new Observable(
     FilterService.filterItems.subscribe
   );
-  constructor() {
-    // FilterService.filterItems$ = FilterService.filterItems.asObservable();
+  filterModelSubject: BehaviorSubject<T>;
+  get filterModelValue() {
+    return this.filterModelSubject.value;
   }
-  // navigation component has subscribed to this Observable
 }
