@@ -16,7 +16,6 @@ import { BannersComponent } from '../components/banners/banners.component';
 import { ProductsComponent } from '../components/products/products.component';
 import { DetailCardComponent } from '../components/detail-card/detail-card.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { StarRatingModule } from 'angular-star-rating';
 import { TypeFilterComponent } from '../components/type-filter/type-filter.component';
 import { NgxSliderModule } from 'ngx-slider-v2';
 import { AboutUsComponent } from '../components/about-us/about-us.component';
@@ -73,7 +72,6 @@ const components = [
     NgxSliderModule,
     ReactiveFormsModule,
     SharedModule,
-    StarRatingModule.forRoot(),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

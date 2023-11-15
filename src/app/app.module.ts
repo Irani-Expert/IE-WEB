@@ -13,7 +13,6 @@ import { HeaderSearchComponent } from './components/header-layout/header-lg/sear
 import { SharedModule } from './shared/shared.module';
 import { BaseService } from './classes/services/base.service';
 import { HttpClientModule } from '@angular/common/http';
-import { StarRatingModule } from 'angular-star-rating';
 import { ModalComponent } from './shared/modal/modal.component';
 import { AuthModule } from './shared/auth/auth.module';
 // import { RetryHttpErrorsInterceptor } from './classes/error.interceptor';
@@ -37,7 +36,6 @@ const footer = [FooterComponent];
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    StarRatingModule.forRoot(),
     SharedModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
