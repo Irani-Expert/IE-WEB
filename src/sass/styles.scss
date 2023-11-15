@@ -1,6 +1,6 @@
+@import "/node_modules/flag-icons/css/flag-icons.min.css";
 @import "scss/font-awesome";
 @import "tailwind";
-
 @import "./variables";
 @import "./colors";
 @import "./mixins";
@@ -11,8 +11,8 @@
 @import "./components/toggler";
 @import "./components/spinner";
 @import "./components/otp";
-@import "/node_modules/flag-icons/css/flag-icons.min.css";
 @import "./components/lotties";
+@import "./components/filter";
 body {
   font-family: $font-family-base;
   font-size: $font-size-base;
@@ -140,8 +140,8 @@ body {
   }
 }
 .rating.medium .star {
-  width: 50px !important;
-  height: 58px !important;
+  width: 5px !important;
+  height: 5px !important;
 }
 .ngx-slider .ngx-slider-pointer {
   background-color: $blue !important;
