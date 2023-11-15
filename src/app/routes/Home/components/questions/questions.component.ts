@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
-import { config , Menu } from 'src/app/shared/acordian/types';
+import { Component  } from '@angular/core';
+// import { config } from 'src/app/shared/acordian/types';
+// import { FAQ } from './interfaces/faq-interfce';
+// import { FaqService } from './service/faq.service';
+// import {lastValueFrom} from 'rxjs';
 
 @Component({
   selector: 'app-questions',
@@ -7,33 +10,27 @@ import { config , Menu } from 'src/app/shared/acordian/types';
   styleUrls: ['./questions.component.scss']
 })
 export class QuestionsComponent {
-  options: config = { multi: false };
+  // questionFaq : FAQ[];
+
+  // async ngOnInit(){
+  //  const res = this.faq.get('FAQ/GetByTableTypeAndRowID/1/6');
+  //   this.questionFaq = (await lastValueFrom(res)).data!;
+  // }
+  // constructor(private faq : FaqService){
+  // }
+  // options: config = { multi: false };
   
-  menus: Menu[] = [
-    { 
-      name: 'lorem',
-      iconClass: 'fa fa-code',
-      active: false,
-      submenu: [
-        { name: 'loremmmmmmmmmmmmm isssssssssssssss ipsummmmmmmmmmmmm', url: '#' },
-      ]
-    },
-    { 
-      name: 'lorem',
-      iconClass: 'fa fa-mobile',
-      active: false,
-      submenu: [
-        { name: ' Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium debitis a eius iste! At voluptatem deserunt repellendus repudiandae nobis ad quasi, reprehenderit excepturi. Voluptatem, accusamus. Facere dicta vitae ipsam incidunt!'
-        , url: '#' },
-      ]
-    },
-    { 
-      name: 'lorem',
-      iconClass: 'fa fa-globe',
-      active: false,
-      submenu: [
-        { name: 'loremmmmmmmmmm', url: '#' },
-      ]
-    }
-  ];
+
+
+  name = 'Angular';
+  isActive = 1;
+
+  next() {
+    if (this.isActive == 3) this.isActive = 0;
+    this.isActive ++;
+  }
+  pre() {
+    this.isActive --;
+    if (this.isActive == 0) this.isActive = 3;
+  }
 }

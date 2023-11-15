@@ -13,11 +13,9 @@ top: -325px;
   animation: img-move 12s  infinite;    
   width: 450px;
   height: 300px;
-  float:left;
   position: absolute;
-  bottom: 30px;
-  left: 30px;
-
+  bottom: 17px;
+  left: 84px;
 }
 // .mosalas{
 //   position: absolute;
@@ -36,7 +34,7 @@ top: -325px;
 }
 .r-h{
   text-align: right;
-  margin-top: 9rem;
+  margin-top: 11rem;
 }
 .link{
   position: relative;
@@ -63,7 +61,7 @@ top: -325px;
 }
 .sood{
   position: relative;
-  left: 150px;
+  left: 86px;
   bottom: 8px;
 }
 .sod{
@@ -72,14 +70,23 @@ top: -325px;
 }
 .btn{
   color: white;
+  position: relative;
   border-radius: 20px;
-  padding: 8px 15px 8px 15px;
+  padding: 8px 15px 8px 27px;
   background-color: #3246d3;
+  font-weight: 700;
+}
+.btn-icon{
+  font-weight: 900;
+  position: relative;
+  top: 2px;
+  right: 7px;
 }
 .divid-h{
   font-weight: bold;
   font-size: 15px;
   color: #098B41;
+  margin-bottom: -17px;
 }
 .l{
   font-size: 50px;
@@ -90,7 +97,10 @@ top: -325px;
   font-size: 35px;
 }
 .title-b{
+  margin-top: 16px;
   font-size: 15px;
+  font-weight: 400;
+  margin-bottom: 25px;
 }
 .h-f{
   font-weight: 900;

@@ -1,6 +1,5 @@
-@import "scss/font-awesome";
 @import "tailwind";
-
+@import 'node_modules/@fortawesome/fontawesome-free/css/all.css';
 @import "./variables";
 @import "./colors";
 @import "./mixins";
@@ -13,6 +12,7 @@
 @import "./components/otp";
 @import "/node_modules/flag-icons/css/flag-icons.min.css";
 @import "./components/lotties";
+
 body {
   font-family: $font-family-base;
   font-size: $font-size-base;
