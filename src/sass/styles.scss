@@ -1,3 +1,5 @@
+@import "/node_modules/flag-icons/css/flag-icons.min.css";
+@import "scss/font-awesome";
 @import "tailwind";
 @import 'node_modules/@fortawesome/fontawesome-free/css/all.css';
 @import "./variables";
@@ -10,9 +12,7 @@
 @import "./components/toggler";
 @import "./components/spinner";
 @import "./components/otp";
-@import "/node_modules/flag-icons/css/flag-icons.min.css";
 @import "./components/lotties";
-
 body {
   font-family: $font-family-base;
   font-size: $font-size-base;
@@ -140,8 +140,8 @@ body {
   }
 }
 .rating.medium .star {
-  width: 50px !important;
-  height: 58px !important;
+  width: 5px !important;
+  height: 5px !important;
 }
 .ngx-slider .ngx-slider-pointer {
   background-color: $blue !important;

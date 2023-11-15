@@ -1,0 +1,6 @@
+<div *ngIf="rating.config.type == 0">
+  <app-price-range></app-price-range>
+</div>
+<div *ngIf="rating.config.type == 1">
+  <app-star-rating (output)="setRate($event)" [stars]="star"></app-star-rating>
+</div>

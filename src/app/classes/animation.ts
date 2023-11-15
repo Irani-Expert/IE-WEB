@@ -4,10 +4,7 @@ export const smoothHeight = trigger('grow', [
   transition('void <=> *', []),
   transition(
     '* <=> *',
-    [
-      style({ height: '{{startHeight}}px', opacity: 0 }),
-      animate('.3s ease-in-out'),
-    ],
+    [style({ height: '{{startHeight}}px' }), animate('.3s ease-in-out')],
     {
       params: { startHeight: 0 },
     }

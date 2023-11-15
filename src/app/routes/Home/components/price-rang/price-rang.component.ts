@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { Options, LabelType } from '@angular-slider/ngx-slider';
+import { NgxSliderModule } from 'ngx-slider-v2';
 
 @Component({
-  selector: 'app-price-rang',
+  selector: 'app-price-range',
   templateUrl: './price-rang.component.html',
   styleUrls: ['./price-rang.component.scss'],
+  standalone: true,
+  imports: [NgxSliderModule],
 })
 export class PriceRangComponent {
   minValue: number = 100;

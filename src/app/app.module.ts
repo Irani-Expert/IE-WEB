@@ -9,11 +9,12 @@ import { HeaderSmComponent } from './components/header-layout/header-sm/header-s
 import { HeaderAltComponent } from './components/header-layout/header-alt/header-alt.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SearchComponent } from './components/header-layout/header-lg/search/search.component';
+import { HeaderSearchComponent } from './components/header-layout/header-lg/search/search.component';
 import { SharedModule } from './shared/shared.module';
 import { BaseService } from './classes/services/base.service';
 import { HttpClientModule } from '@angular/common/http';
-import { StarRatingModule } from 'angular-star-rating';
+import { ModalComponent } from './shared/modal/modal.component';
+import { AuthModule } from './shared/auth/auth.module';
 // import { RetryHttpErrorsInterceptor } from './classes/error.interceptor';
 
 // Headeer Comps
@@ -22,18 +23,19 @@ const header = [
   HeaderLgComponent,
   HeaderSmComponent,
   HeaderAltComponent,
-  SearchComponent,
+  HeaderSearchComponent,
 ];
 // Footer Comps
 const footer = [FooterComponent];
 @NgModule({
   declarations: [AppComponent, header, footer],
   imports: [
+    ModalComponent,
+    AuthModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    StarRatingModule.forRoot(),
     SharedModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

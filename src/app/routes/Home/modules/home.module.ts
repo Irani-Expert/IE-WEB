@@ -16,9 +16,7 @@ import { BannersComponent } from '../components/banners/banners.component';
 import { ProductsComponent } from '../components/products/products.component';
 import { DetailCardComponent } from '../components/detail-card/detail-card.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { StarRatingModule } from 'angular-star-rating';
 import { TypeFilterComponent } from '../components/type-filter/type-filter.component';
-import { PriceRangComponent } from '../components/price-rang/price-rang.component';
 import { NgxSliderModule } from 'ngx-slider-v2';
 import { AboutUsComponent } from '../components/about-us/about-us.component';
 import { OrderFilterComponent } from 'src/app/shared/order-filter/order-filter.component';
@@ -30,9 +28,9 @@ import { CardLinkComponent } from 'src/app/shared/card-link/card-link.component'
 import { DiscountBannerComponent } from 'src/app/shared/discount-banner/discount-banner.component';
 import { BotShowcaseComponent } from '../components/bot-showcase/bot-showcase.component';
 import { InstagramBanerComponent } from '../components/instagram-baner/instagram-baner.component';
-import { SharedModule } from 'src/app/shared/shared.module';
 import { ServiceBanerComponent } from '../components/service-baner/service-baner.component';
 import { QuestionsComponent } from '../components/questions/questions.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 const components = [
   ServiceBanerComponent,
@@ -56,7 +54,7 @@ const components = [
   ProductsComponent,
   DetailCardComponent,
   TypeFilterComponent,
-  PriceRangComponent,
+
   AboutUsComponent,
   OrderFilterComponent,
   SearchFeildComponent,
@@ -74,7 +72,6 @@ const components = [
     NgxSliderModule,
     ReactiveFormsModule,
     SharedModule,
-    StarRatingModule.forRoot(),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
