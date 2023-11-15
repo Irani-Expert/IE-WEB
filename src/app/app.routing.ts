@@ -8,16 +8,14 @@ const routes: Routes = [
     path: '',
     title: 'Home',
     loadChildren: () =>
-      import('./routes/Home/modules/home.module').then(
-        (m) => m.HomeModule),
+      import('./routes/Home/modules/home.module').then((m) => m.HomeModule),
   },
-  // {
-  //   path: '',
-  //   title: 'Shop',
-  //   loadChildren: () =>
-  //     import('./routes/Shop/modules/shop.module').then(
-  //       (m) => m.ShopModule),
-  // },
+  {
+    path: 'shop',
+    title: 'Shop',
+    loadChildren: () =>
+      import('./routes/Shop/modules/shop.module').then((m) => m.ShopModule),
+  },
 
   {
     path: 'calendar',
