@@ -34,8 +34,7 @@
             "stylePreprocessorOptions": {
               "includePaths": [
                 "node_modules/tailwindcss",
-                "node_modules/font-awesome",
-                "node_modules/css-star-rating/scss"
+                "node_modules/font-awesome"
               ]
             },
             "scripts": []
