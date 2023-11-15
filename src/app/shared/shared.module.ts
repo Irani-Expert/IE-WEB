@@ -6,11 +6,12 @@ import { AcordianComponent } from './acordian/acordian.component';
 import { CommonModule } from '@angular/common';
 import { Toggler } from './toggler/toggler.component';
 import { LottieModule } from 'ngx-lottie';
+import { CommentsComponent } from './comments/comments.component';
 export function playerFactory(): any {
   return import('lottie-web');
 }
 const modules = [ModalComponent, AuthModule, Toggler];
-const components = [TagsComponent, AcordianComponent];
+const components = [TagsComponent, AcordianComponent, CommentsComponent];
 @NgModule({
   imports: [
     modules,

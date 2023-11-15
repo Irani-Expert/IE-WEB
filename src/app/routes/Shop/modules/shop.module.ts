@@ -9,15 +9,11 @@ import { QuestionShopComponent } from '../components/question-shop/question-shop
 const components = [
   ShopHeroComponent,
   LandingShopComponent,
-  QuestionShopComponent
+  QuestionShopComponent,
 ];
 
 @NgModule({
   declarations: [components],
-  imports: [
-    CommonModule,
-    ShopRoutingModule,
-    SharedModule
-  ]
+  imports: [CommonModule, ShopRoutingModule, SharedModule],
 })
-export class ShopModule { }
+export class ShopModule {}
