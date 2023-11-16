@@ -5,6 +5,7 @@ import { Subject, Subscription, debounceTime } from 'rxjs';
   selector: 'search-bar',
   templateUrl: 'search.component.html',
   styles: [``],
+  standalone: true,
 })
 export class SearchComponent {
   @Output('result') inputValue = new EventEmitter<string>();
