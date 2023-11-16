@@ -15,6 +15,10 @@ import { BaseService } from './classes/services/base.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalComponent } from './shared/modal/modal.component';
 import { AuthModule } from './shared/auth/auth.module';
+import { RatingComponent } from './shared/rating/rating.component';
+import { Checkbox } from './shared/checkbox/checkbox.component';
+import { FilterComponent } from './shared/filter/filter.component';
+import { SearchComponent } from './shared/filter/search-bar/search.component';
 // import { RetryHttpErrorsInterceptor } from './classes/error.interceptor';
 
 // Headeer Comps
@@ -37,6 +41,10 @@ const footer = [FooterComponent];
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
+    FilterComponent,
+    RatingComponent,
+    Checkbox,
+    SearchComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
