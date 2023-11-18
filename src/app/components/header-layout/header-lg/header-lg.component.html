@@ -53,8 +53,9 @@
         </ng-container>
       </ul>
     </div>
-    <div class="flex items-center">
+    <div class="flex items-center" *ngIf="!loggedIn">
       <button
+        [disabled]="_btnDisabled"
         type="button"
         (click)="openModal('login')"
         class="button-enter font-medium ms-3"
@@ -62,6 +63,7 @@
         ورود
       </button>
       <button
+        [disabled]="_btnDisabled"
         type="button"
         (click)="openModal('sign-up')"
         class="button-subscription rounded-lg px-1 text-white font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 mx-1"
