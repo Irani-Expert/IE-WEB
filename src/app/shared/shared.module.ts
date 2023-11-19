@@ -3,6 +3,7 @@ import { TagsComponent } from './tags/tags.component';
 import { AcordianComponent } from './acordian/acordian.component';
 import { CommonModule } from '@angular/common';
 import { CommentsComponent } from './comments/comments.component';
+
 export function playerFactory(): any {
   return import('lottie-web');
 }
