@@ -1,6 +1,7 @@
 import { Component , OnInit } from '@angular/core';
 import { planinterface } from './interfaces/plan-interface';
 import { PlanService } from './services/plan.service';
+import { RatingConfig, StarRating } from 'src/app/shared/rating/rating-config';
 
 @Component({
   selector: 'app-shop-hero',
@@ -8,6 +9,12 @@ import { PlanService } from './services/plan.service';
   styleUrls: ['./shop-hero.component.scss']
 })
 export class ShopHeroComponent implements OnInit{
+
+  star : RatingConfig<StarRating> = {
+    type:1,
+    content:{readonly:true,currentRate:4,rate:5}
+  } 
+
 
   plan : planinterface[];
 
