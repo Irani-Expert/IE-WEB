@@ -47,7 +47,9 @@
           </div>
         </div>
         <div class="flex w-full items-end justify-end">
-          ثبت نظر به صورت ناشناس <app-toggle></app-toggle>
+          <app-toggle (checked)="($event)" [name]="'anonymous'">
+            <p after>ثبت نظر به صورت ناشناس</p></app-toggle
+          >
           <button class="bg--blue rounded-xl text-white w-48 m-4 me-0 mb-0 p-4">
             ثبت دیدگاه
           </button>

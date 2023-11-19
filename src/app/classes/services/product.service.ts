@@ -1,31 +1,29 @@
 import { Injectable } from '@angular/core';
 import { BaseService } from './base.service';
-import { BehaviorSubject, map } from 'rxjs';
+import { BehaviorSubject, lastValueFrom, map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { IFilterProduct } from '../filter-product.interface';
-export interface Product {
-  id: number;
-  title: string;
-}
-export interface SingleProduct {
-  id: number;
-  title: string;
-}
+import { FilterProduct } from '../filter-product.interface';
+import { Product, SingleProduct } from '../product.interface';
+import { PageInterface } from '../page.model';
+
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService extends BaseService<any> {
   singleProduct = new BehaviorSubject<SingleProduct | null>(null);
-  productsArray = new BehaviorSubject<Product[] | null>(null);
+  prdArray = new BehaviorSubject<PageInterface<Product[]> | null>(null);
   constructor(http: HttpClient) {
     super(http);
   }
-  get _products() {
-    return this.productsArray.value;
+  get _paginatedPrd() {
+    return this.prdArray.value;
+  }
+  get _product() {
+    return this.singleProduct.value;
   }
   async getProducts(
     path: string,
-    _filter?: IFilterProduct
+    _filter?: FilterProduct
     // page: PageInterface<Blog[]>,
     // _filterModel: IFilter
   ) {
@@ -35,17 +33,22 @@ export class ProductService extends BaseService<any> {
     const res = this.post(path, _filter).pipe(
       map((result) => {
         if (result.success) {
-          if (result.data) {
-            this.productsArray.next(result.data.items);
-            return result.data;
-          } else {
-            return;
-          }
+          this.prdArray.next(result.data);
+          return result.success;
         } else {
-          return result.data;
+          return result.success;
         }
       })
     );
     return res;
+  }
+  async getProduct(id: number) {
+    const result = this.get(`Product/GetByID/${id}`).pipe(
+      map((res) => {
+        if (res.success) this.singleProduct.next(res.data);
+        return res.success;
+      })
+    );
+    return await lastValueFrom(result);
   }
 }

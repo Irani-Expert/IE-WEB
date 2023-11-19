@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Input, InputInterface } from 'src/app/classes/input';
 import { GiftInter } from './gift-Inter';
-import { GiftFormService } from 'src/app/classes/services/gift-form.service';
+import { UserNeedService } from 'src/app/classes/services/user-need.service';
 const formDataInit: GiftInter = {
   id: 0,
   firstName: '',
@@ -62,7 +62,7 @@ export class GiftFormComponent {
   form: FormGroup;
 
   formMaker = new Input(this.formControlInit);
-  constructor(private giftFormService: GiftFormService) {
+  constructor(private giftFormService: UserNeedService) {
     this.form = new FormGroup({});
     this.formMaker.inputs.forEach((item) => {
       this.form.setControl(item.name, this.formMaker.createControl(item));

@@ -1,17 +1,13 @@
 import { Component } from '@angular/core';
-import {
-  BehaviorSubject,
-  // lastValueFrom
-} from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { PlatformService } from './classes/services/platform.service';
 import { ModalService } from './shared/modal/services/modal.service';
 import { IFilterGroup, Type } from './shared/filter/models/filter.interface';
 import { Range, RatingConfig, StarRating } from './shared/rating/rating-config';
 import { AuthService } from './shared/auth/auth.service';
 import { Header } from './components/header-layout/header';
-// import { IFilterProduct } from './classes/filter-product.interface';
-// import { ProductService } from './classes/services/product.service';
-// import { BlogService } from './classes/services/blog.service';
+
+import { ProductService } from './classes/services/product.service';
 
 @Component({
   selector: 'app-root',
@@ -63,7 +59,9 @@ export class AppComponent {
   constructor(
     private platform: PlatformService,
     private modal: ModalService,
-    private auth: AuthService // private blog: BlogService
+    private auth: AuthService,
+    // public blog: BlogService,
+    public prdService: ProductService
   ) {
     this.modalStatus = this.modal.modalStatusSubject;
     if (this.platform.isPlatformBrowser()) {
@@ -82,43 +80,27 @@ export class AppComponent {
         this.auth.logOutUser();
       }
     }
-    // this.getArticles({
-    // pageIndex: 0,
-    // pageSize: 12,
-    // blogName: null,
-    // categories: [],
-    // rates: [],
-    // });
-    // const apiRes = await this.getProducts({
-    //   pageIndex: 0,
-    //   pageSize: 12,
-    //   categories: [],
-    //   rates: [],
-    //   maxPrice: 100000,
-    //   minPrice: 0,
-    //   platForms: [],
-    //   pageOrder: 'ID',
-    // });
-    // console.log(apiRes);
   }
-  // async getArticles(filter?: IFilterBlog) {
-  //   const res = await this.blog.getArticles(
-  //     'Article/GetArticleByFilter',
-  //     filter
-  //   );
-  //   console.log(
-  //     res.subscribe({
-  //       complete: () => {
-  //         console.log(this.blog._articles);
-  //       },
-  //     })
-  //   );
-  // }
-  // async getProducts(filter?: IFilterProduct) {
-  //   const res = await this._productService.getProducts(
-  //     'Product/GetProductByFilters',
-  //     filter
-  //   );
-  //   return await lastValueFrom(res);
-  // }
 }
+
+// Get Blogs
+// loading = true;
+// async getBlogs(filter: IFilterBlog) {
+//   (
+//     await this.blog.getBlogsFromApi('Article/GetArticleByFilter', filter)
+//   ).subscribe({
+//     complete: () => {
+//       this.loading = false;
+//     },
+//   });
+// }
+
+// Get Products
+// async getProducts(filter: IFilterProduct) {
+//   let res = await lastValueFrom(
+//     await this.prdService.getProducts('Product/GetProductByFilters', filter)
+//   );
+//   if (res) {
+//     console.log(await this.prdService.getProduct(1));
+//   }
+// }
