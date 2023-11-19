@@ -3,6 +3,11 @@
   [ngStyle]="{ '--flex-direction': flexDirection }"
 >
   <div class="right-container">
+    <img
+      class="w-32 aspect-video object-contain"
+      src="assets/img/logo.webp"
+      alt="Irani-Expert"
+    />
     <ng-container *ngIf="!changingPassword">
       <app-switch
         (output)="changeView()"
@@ -33,6 +38,6 @@
     </ng-container>
   </div>
   <div *ngIf="this.flexDirection == 'row'" class="left-container">
-    <img src="../../../assets/img/2Fa.png" alt="" />
+    <img src="../../../assets/img/2Fa.png" alt="auth-modal-png" />
   </div>
 </section>
