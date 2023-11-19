@@ -100,7 +100,7 @@ export class LoginComponent {
     formData.password = this._password;
     formData.username = this._userName;
     if (await this.checkFormValidation(formData)) {
-      this.authService.login(formData);
+      this.authService.login(formData, this.rememberMe);
     } else {
       console.log('Not Valid');
     }
