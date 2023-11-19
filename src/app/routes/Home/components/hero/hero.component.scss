@@ -133,9 +133,9 @@ transform: translateX(8px);
   height: 559px;
 }
 .hero-img2 {
-  object-fit: contain;
-  transform: translate(208px, -205px);
-  min-width: 800px;
+  transform: translate(191px, -174px);
+  min-width: 750px;
+  max-width: 809px;
 }
 .box-1{
   position: relative;
@@ -284,11 +284,14 @@ position: relative;
   .box-bg{
     background-color: rgba(0, 0, 0, 0.661);
     position: relative;
-    width: 280px;
     border-radius: 10px;
-    aspect-ratio: 9/3;
-    object-fit: contain;
-    transform: translate(-47px, -128px);    }
+    height: 85px;
+    margin-right: 55px;
+    margin-left: 30px;
+    max-width: 360px;
+    transform: translate(13px, -127px);
+    min-width: 262px;
+    }
 .profit{
   color: #3246D3;
   font-size: 40px;
@@ -323,6 +326,7 @@ position: relative;
     border-radius: 10px;
     margin-right: 55px;
     margin-left: 55px;
+    max-width: 333px;
     margin-bottom: 21px;
     height: 126px;
         &-container{
