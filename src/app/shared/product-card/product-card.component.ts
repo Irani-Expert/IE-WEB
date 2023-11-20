@@ -8,5 +8,6 @@ import { IcardData } from './card-data';
 })
 export class ProductCardComponent {
   @Input() Data!: IcardData;
+  test: any;
   ngOnInit() {}
 }

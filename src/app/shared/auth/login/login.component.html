@@ -39,11 +39,12 @@
       </p>
     </div>
     <button
-      [disabled]="form.invalid"
-      class="button-submit rounded-lg text-white font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 col-span-2"
+      [disabled]="form.invalid || loading"
+      class="button-submit relative rounded-lg text-white font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 col-span-2"
       type="submit"
     >
       ورود
+      <spin *ngIf="loading" />
     </button>
   </div>
 </form>

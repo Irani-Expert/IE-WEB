@@ -7,8 +7,8 @@ import { Component } from '@angular/core';
 })
 export class CommentsComponent {
   rateText: string = 'بد';
-  rangeRate: number = 0;
-  left: string = '96.5%';
+  rangeRate: number = 25;
+  left: string = '72%';
   handleClick(event: any) {
     var clickedM = event.offsetX;
     var totalWidth = event.target.clientWidth;

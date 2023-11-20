@@ -1,6 +1,6 @@
 <div class="w-full p-5 flex justify-center">
-  <div class="w-5/12 flex justify-center flex-col m-1 p-3 rounded-2xl">
-    <div class="ms-2 text-3xl font-bold">
+  <div class="w-5/12 flex justify-center flex-col m-1 p-3 rounded-md">
+    <div class="ms-2 text-2xl font-bold">
       <p class="text-black">برای دریافت جایزه اطلاعات را تکمیل کنید</p>
     </div>
     <form [formGroup]="form" (ngSubmit)="login()">
@@ -11,7 +11,7 @@
               <input
                 [id]="control.name"
                 autocomplete="off"
-                class="input-with-icon text-base bg-[#f3f3f3]"
+                class="input-with-icon text-sm font-semibold bg-[#f3f3f3]"
                 [type]="control?.type ? control.type : 'text'"
                 formControlName="{{ control.name }}"
                 [placeholder]="control?.placeholder ? control.placeholder : ''"
@@ -48,7 +48,7 @@
 
       <div class="flex justify-start ms-2">
         <button
-          class="bg-main-blue border-2 relative border-[#3246d3] border-solid hover:bg-white hover:text-[#3246d3] text-white p-2 sm:w-40 rounded-full font-semibold text-lg"
+          class="bg-main-blue border-2 relative border-[#3246d3] border-solid hover:bg-white hover:text-[#3246d3] text-white pe-2 ps-2 p-1.5 sm:w-40 rounded-full font-semibold text-base"
         >
           ثبت درخواست
         </button>

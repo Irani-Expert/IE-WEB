@@ -103,9 +103,7 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit {
     }
     this.videoCurrentTime = hours + ':' + minutes;
   }
-  test() {
-    console.log('test');
-  }
+
   fullScreen() {
     if (!this.isFullScreen) {
       this.element.requestFullscreen();
