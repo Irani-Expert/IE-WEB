@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { BaseService } from './base.service';
 import { GiftInter } from 'src/app/routes/Home/components/gift-form/gift-Inter';
 import { HttpClient } from '@angular/common/http';
-import { map, lastValueFrom } from 'rxjs';
+import { lastValueFrom, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class GiftFormService extends BaseService<GiftInter> {
+export class UserNeedService extends BaseService<GiftInter | unknown> {
   constructor(http: HttpClient) {
     super(http);
   }

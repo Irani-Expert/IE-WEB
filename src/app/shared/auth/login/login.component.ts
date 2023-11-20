@@ -26,6 +26,7 @@ const formDataInit: ILogin = { password: '', username: '' };
   ],
 })
 export class LoginComponent {
+  loading = false;
   @Output('changePassword') changePassword: EventEmitter<boolean> =
     new EventEmitter<boolean>(false);
   formControlInit: InputInterface[] = [
@@ -96,11 +97,12 @@ export class LoginComponent {
     return this.form.controls['password'].value;
   }
   async login() {
+    this.loading = true;
     let formData = formDataInit;
     formData.password = this._password;
     formData.username = this._userName;
     if (await this.checkFormValidation(formData)) {
-      this.authService.login(formData);
+      this.authService.login(formData, this.rememberMe);
     } else {
       console.log('Not Valid');
     }

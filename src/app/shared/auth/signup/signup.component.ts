@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Input, InputIcon, InputInterface } from 'src/app/classes/input';
-// import { AuthService } from '../auth.service';
 import {
   trigger,
   state,
@@ -10,6 +9,7 @@ import {
   animate,
 } from '@angular/animations';
 import { ISignUp } from '../user.interface';
+import { AuthService } from '../auth.service';
 const formDataInit: ISignUp = {
   password: '',
   userName: '',
@@ -117,8 +117,7 @@ export class SignupComponent {
   form: FormGroup;
   formControls: InputInterface[];
 
-  constructor() {
-    // private authService: AuthService
+  constructor(private authService: AuthService) {
     this.form = new FormGroup({});
     this.formMaker.inputs.forEach((item) => {
       this.form.setControl(item.name, this.formMaker.createControl(item));
@@ -143,8 +142,7 @@ export class SignupComponent {
     formData.phoneNumber = this._formcontrol['phoneNumber'].value;
     formData.userName = formData.email;
     if (await this.checkFormValidation(formData)) {
-      // this.authService.signup(formData);
-      console.log('Vakhe');
+      if (await this.authService.signup(formData)) this.changeView.emit(true);
     } else {
       console.log('Not Valid');
     }

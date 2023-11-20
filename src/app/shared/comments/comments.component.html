@@ -53,68 +53,33 @@
               ثبت دیدگاه
             </button>
           </div>
+          <div class="flex w-full items-end justify-end">
+            <app-toggle (checked)="($event)" [name]="'anonymous'">
+              <p after>ثبت نظر به صورت ناشناس</p></app-toggle
+            >
+            <button
+              class="bg--blue rounded-xl text-white w-48 m-4 me-0 mb-0 p-4"
+            >
+              ثبت دیدگاه
+            </button>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="border-solid border-2 border-gray-300 h-[13rem] rounded-lg">
-      <div
-        class="flex justify-between border-b-2 m-2 me-8 ms-8 border-gray-300"
-      >
-        <div class="flex justify-around w-[28%] text-xs">
-          <div class="point-card font-extrabold">5</div>
-          <p class="font-bold leading-[42px] text-[#847b7b]">3 شهریور 1400</p>
-          <p class="font-bold leading-[40px] text-[#847b7b]">سعید عبداللهی</p>
-          <p
-            class="rounded-full flex text-[#17ee9d] text-base bg-gray-100 pe-4 ms-1 mt-2 pt-0 ps-4 p-1 font-bold items-center h-[50%]"
-            style="align-items: flex-start"
-          >
-            خریدار
-          </p>
-        </div>
-        <div class="w-1/4 flex justify-end">
-          <i class="fa fa-ellipsis-v leading-[44px] text-xl text-gray-400"></i>
-        </div>
-      </div>
-      <div class="h-[48%] flex m-2 me-8 ms-8 border-b-2 pt-2">
-        <img
-          src="../../../assets/img/Mask Group 131.png"
-          class="ms-8 h-12 w-12 bg-[#e8e8e8] rounded-full"
-        />
-        <p class="leading-[3.4rem] ms-2">
-          سلام ... ابتدا یکماهه و سپس یکساله گرفتم و روی تمام جفت ارزهای ماژور
-          کار میکنم ... خدا بهتون برکت بده و ممنون از محصول بی نظیرتون
-        </p>
-      </div>
-      <div class="h-1/4 m-2 me-8 ms-8">
-        <span class="text-[#0f9260]"
-          ><i class="fa fa-thumbs-up text-lg cursor-pointer"></i> 27+</span
-        >
-        <i class="fa fa-thumbs-down text-gray-400 text-lg cursor-pointer"></i>
-      </div>
-    </div>
-    <div class="flex items-end h-64 ms-3">
-      <div class="h-full">
+      <div class="border-solid border-2 border-gray-300 h-[13rem] rounded-lg">
         <div
-          class="border-solid border-r-2 border-b-2 border-gray-300 w-5 h-4/6"
-        ></div>
-        <div class="border-solid border-r-2 border-gray-300 w-5 h-2/6"></div>
-      </div>
-      <div
-        class="border-solid border-2 border-gray-300 h-[85%] w-full rounded-lg bg-[#E9F6FF]"
-      >
-        <div
-          class="flex justify-between border-b-2 m-4 me-8 ms-8 border-gray-300"
+          class="flex justify-between border-b-2 m-2 me-8 ms-8 border-gray-300"
         >
-          <div class="flex justify-around w-[26%] text-xs">
+          <div class="flex justify-around w-[28%] text-xs">
+            <div class="point-card font-extrabold">5</div>
             <p class="font-bold leading-[42px] text-[#847b7b]">3 شهریور 1400</p>
             <p class="font-bold leading-[40px] text-[#847b7b]">سعید عبداللهی</p>
-            <div
-              class="rounded-full flex text-white text-base bg-[#17C9EE] pe-4 ms-1 mt-2 pt-0 ps-4 p-1 font-bold items-center h-[50%]"
+            <p
+              class="rounded-full flex text-[#17ee9d] text-base bg-gray-100 pe-4 ms-1 mt-2 pt-0 ps-4 p-1 font-bold items-center h-[50%]"
               style="align-items: flex-start"
             >
-              فروشنده
-            </div>
+              خریدار
+            </p>
           </div>
           <div class="w-1/4 flex justify-end">
             <i
@@ -122,13 +87,14 @@
             ></i>
           </div>
         </div>
-        <div class="h-[44%] flex m-2 me-8 ms-8 border-b-2 pt-2">
+        <div class="h-[48%] flex m-2 me-8 ms-8 border-b-2 pt-2">
           <img
-            src="../../../assets/img/Mask Group 74.png"
-            class="ms-8 h-12 w-12 rounded-full bg-white"
+            src="../../../assets/img/Mask Group 131.png"
+            class="ms-8 h-12 w-12 bg-[#e8e8e8] rounded-full"
           />
           <p class="leading-[3.4rem] ms-2">
-            سلام و عرض ادب ... خیلی ممنون لطف دارید همیشه پر سود باشید
+            سلام ... ابتدا یکماهه و سپس یکساله گرفتم و روی تمام جفت ارزهای ماژور
+            کار میکنم ... خدا بهتون برکت بده و ممنون از محصول بی نظیرتون
           </p>
         </div>
         <div class="h-1/4 m-2 me-8 ms-8">
@@ -138,50 +104,108 @@
           <i class="fa fa-thumbs-down text-gray-400 text-lg cursor-pointer"></i>
         </div>
       </div>
-    </div>
-    <div class="flex items-end h-64 ms-3">
-      <div class="h-full">
+      <div class="flex items-end h-64 ms-3">
+        <div class="h-full">
+          <div
+            class="border-solid border-r-2 border-b-2 border-gray-300 w-5 h-4/6"
+          ></div>
+          <div class="border-solid border-r-2 border-gray-300 w-5 h-2/6"></div>
+        </div>
         <div
-          class="border-solid border-r-2 border-b-2 border-gray-300 w-5 h-4/6"
-        ></div>
-        <div class="border-solid w-5 h-2/6"></div>
-      </div>
-      <div
-        class="border-solid border-2 border-gray-300 h-[85%] w-full rounded-lg bg-[#E9F6FF]"
-      >
-        <div
-          class="flex justify-between border-b-2 m-4 me-8 ms-8 border-gray-300"
+          class="border-solid border-2 border-gray-300 h-[85%] w-full rounded-lg bg-[#E9F6FF]"
         >
-          <div class="flex justify-around w-[26%] text-xs">
-            <p class="font-bold leading-[42px] text-[#847b7b]">3 شهریور 1400</p>
-            <p class="font-bold leading-[40px] text-[#847b7b]">سعید عبداللهی</p>
-            <div
-              class="rounded-full flex text-white text-base bg-[#17C9EE] pe-4 ms-1 mt-2 pt-0.5 ps-4 p-1 font-bold items-center h-[50%]"
-              style="align-items: flex-start"
-            >
-              فروشنده
+          <div
+            class="flex justify-between border-b-2 m-4 me-8 ms-8 border-gray-300"
+          >
+            <div class="flex justify-around w-[26%] text-xs">
+              <p class="font-bold leading-[42px] text-[#847b7b]">
+                3 شهریور 1400
+              </p>
+              <p class="font-bold leading-[40px] text-[#847b7b]">
+                سعید عبداللهی
+              </p>
+              <div
+                class="rounded-full flex text-white text-base bg-[#17C9EE] pe-4 ms-1 mt-2 pt-0 ps-4 p-1 font-bold items-center h-[50%]"
+                style="align-items: flex-start"
+              >
+                فروشنده
+              </div>
+            </div>
+            <div class="w-1/4 flex justify-end">
+              <i
+                class="fa fa-ellipsis-v leading-[44px] text-xl text-gray-400"
+              ></i>
             </div>
           </div>
-          <div class="w-1/4 flex justify-end">
+          <div class="h-[44%] flex m-2 me-8 ms-8 border-b-2 pt-2">
+            <img
+              src="../../../assets/img/Mask Group 74.png"
+              class="ms-8 h-12 w-12 rounded-full bg-white"
+            />
+            <p class="leading-[3.4rem] ms-2">
+              سلام و عرض ادب ... خیلی ممنون لطف دارید همیشه پر سود باشید
+            </p>
+          </div>
+          <div class="h-1/4 m-2 me-8 ms-8">
+            <span class="text-[#0f9260]"
+              ><i class="fa fa-thumbs-up text-lg cursor-pointer"></i> 27+</span
+            >
             <i
-              class="fa fa-ellipsis-v leading-[44px] text-xl text-gray-400"
+              class="fa fa-thumbs-down text-gray-400 text-lg cursor-pointer"
             ></i>
           </div>
         </div>
-        <div class="h-[44%] flex m-2 me-8 ms-8 border-b-2 pt-2">
-          <img
-            src="../../../assets/img/Mask Group 74.png"
-            class="ms-8 h-12 w-12 rounded-full bg-white"
-          />
-          <p class="leading-[3.4rem] ms-2">
-            سلام و عرض ادب ... خیلی ممنون لطف دارید همیشه پر سود باشید
-          </p>
+      </div>
+      <div class="flex items-end h-64 ms-3">
+        <div class="h-full">
+          <div
+            class="border-solid border-r-2 border-b-2 border-gray-300 w-5 h-4/6"
+          ></div>
+          <div class="border-solid w-5 h-2/6"></div>
         </div>
-        <div class="h-1/4 m-2 me-8 ms-8">
-          <span class="text-[#0f9260]"
-            ><i class="fa fa-thumbs-up text-lg cursor-pointer"></i> 27+</span
+        <div
+          class="border-solid border-2 border-gray-300 h-[85%] w-full rounded-lg bg-[#E9F6FF]"
+        >
+          <div
+            class="flex justify-between border-b-2 m-4 me-8 ms-8 border-gray-300"
           >
-          <i class="fa fa-thumbs-down text-gray-400 text-lg cursor-pointer"></i>
+            <div class="flex justify-around w-[26%] text-xs">
+              <p class="font-bold leading-[42px] text-[#847b7b]">
+                3 شهریور 1400
+              </p>
+              <p class="font-bold leading-[40px] text-[#847b7b]">
+                سعید عبداللهی
+              </p>
+              <div
+                class="rounded-full flex text-white text-base bg-[#17C9EE] pe-4 ms-1 mt-2 pt-0.5 ps-4 p-1 font-bold items-center h-[50%]"
+                style="align-items: flex-start"
+              >
+                فروشنده
+              </div>
+            </div>
+            <div class="w-1/4 flex justify-end">
+              <i
+                class="fa fa-ellipsis-v leading-[44px] text-xl text-gray-400"
+              ></i>
+            </div>
+          </div>
+          <div class="h-[44%] flex m-2 me-8 ms-8 border-b-2 pt-2">
+            <img
+              src="../../../assets/img/Mask Group 74.png"
+              class="ms-8 h-12 w-12 rounded-full bg-white"
+            />
+            <p class="leading-[3.4rem] ms-2">
+              سلام و عرض ادب ... خیلی ممنون لطف دارید همیشه پر سود باشید
+            </p>
+          </div>
+          <div class="h-1/4 m-2 me-8 ms-8">
+            <span class="text-[#0f9260]"
+              ><i class="fa fa-thumbs-up text-lg cursor-pointer"></i> 27+</span
+            >
+            <i
+              class="fa fa-thumbs-down text-gray-400 text-lg cursor-pointer"
+            ></i>
+          </div>
         </div>
       </div>
     </div>

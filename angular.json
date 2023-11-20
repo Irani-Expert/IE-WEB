@@ -34,7 +34,8 @@
             "stylePreprocessorOptions": {
               "includePaths": [
                 "node_modules/tailwindcss",
-                "node_modules/font-awesome"
+                "node_modules/@fortawesome/fontawesome-free/css",
+                "node_modules/flag-icons/css"
               ]
             },
             "scripts": []

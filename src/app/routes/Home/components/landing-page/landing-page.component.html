@@ -1,26 +1,11 @@
-<app-hero />
+<!-- <app-hero />
 <div class="bg-white mb-20 pb-6 rounded-b-[2.5rem] items-center">
-  <app-sell-info class="w-100" />
-  <h1 class="sm:text-5xl text-3xl text-green-800 text-center oblique">
-    بخشی از امکانات ویژه ربات معامله گر ؛ ایرانی اکسپرت
-  </h1>
-  <p class="text-center text-black sm:text-3xl text-xl">
-    این محصول دستیار تریدرهاست با قابلیت ترید خودکار که بر اساس الگوریتم هوش
-    مصنوعی ژنتیک کار می کند
-  </p>
-  <app-bot-facilities />
-  <h1 class="sm:text-5xl text-3xl text-green-800 text-center oblique">
-    برای دریافت جایزه اطلاعات را تکمیل کنید
-  </h1>
+  <app-tags />
+  <app-service-baner />
+  <app-instagram-baner />
 
-  <p class="text-center text-black text-xl sm:text-4xl">
-    اطلاعات زیر را تکمیل کنید و شانس خود را برای دریافت جایزه امتحان کنید
-  </p>
-  <div class="flex justify-center">
-    <div class="w-9/12">
-      <app-trade-beginning></app-trade-beginning>
-    </div>
-  </div>
+  <app-bot-showcase />
+  <app-trade-beginning />
 
   <app-gift-form></app-gift-form>
 
@@ -71,50 +56,12 @@
       ></app-card-link>
     </div>
   </div>
-</div>
-
-<h3 class="text-3xl text-green-800 text-center oblique">
-  بخشی از پرتکرارترین سوالات شما
-</h3>
-<p class="text-center text-black text-4xl">اکسپرت چیست و چگونه کار می کند؟</p>
-<div class="flex justify-center">
-  <div
-    class="sm:w-7/12 w-10/12 flex border-[0.25px] rounded-2xl flex-col sm:flex-row items-center mb-6"
-    style="
-      box-shadow: 0px 0px 24px -13px rgba(0, 0, 0, 0.75);
-      background-image: linear-gradient(
-        to bottom,
-        #fafafa,
-        #f7f7f7,
-        #f3f3f3,
-        #f0f0f0,
-        #ededed
-      );
-    "
-  >
-    <div class="sm:w-14 flex items-center secend-order">
-      <app-slider class="slider-class" />
-    </div>
-    <p class="text-2xl p-8 pt-24 sm:w-8/12 text-justify text-black third-order">
-      بله، باید مذاکره و نیازسنجی کنیم تا ببینیم چنددرصد از استراتژی شما قابلیت
-      پیاده سازی را دارد. امکان دارد 100% از استراتژی شما قابلیت اجرا داشته
-      باشد.
-      <br />همچنین از تریدرها و همکاران دعوت بعمل می آید؛ اگر ربات با عملکرد
-      عالی دارید، میتوانید محصول خود را در فروشگاه ایرانی اکسپرت به فروش
-      برسانید.
-    </p>
-    <div class="sm:w-5/12 w-8/12 border-s-[0.25px] rounded-2xl first-order">
-      <img
-        class="grey-filter"
-        style="
-          filter: brightness(79%) saturate(0%);
-          -webkit-filter: brightness(79%) saturate(0%);
-        "
-        src="../../../../../assets/img/Mask Group 11.png"
-      />
+    <div class="w-[70%] mt-5">
+      <app-discount-banner></app-discount-banner>
     </div>
   </div>
 </div>
+
 <div
   class="bg-white mb-20 pb-6 sm:rounded-b-[2.5rem] flex flex-col items-center"
 >
@@ -156,8 +103,8 @@
   </p>
   <app-consultation-form></app-consultation-form>
 </div>
-<!-- -->
-<div class="">
+ -->
+<!-- <div class="">
   <h1 class="text-4xl text-green-800 text-center oblique">
     یک ربات با چندین مزایا
   </h1>
@@ -174,14 +121,127 @@
     بگیرند
   </p>
   <app-consultation-form></app-consultation-form>
-</div>
+</div> -->
 <!-- <app-slider /> -->
 <!-- <app-bot-advantages /> -->
 <!-- <app-landing-article /> -->
 <!-- <app-sell-info></app-sell-info> -->
-<!-- <app-hero></app-hero>
-<app-tags/>
+<app-hero></app-hero>
+<app-tags />
 <app-service-baner></app-service-baner>
 <app-instagram-baner></app-instagram-baner>
-<app-bot-showcase></app-bot-showcase> -->
+<app-bot-showcase></app-bot-showcase>
 <!-- <app-questions></app-questions> -->
+
+<!-- Cards -->
+
+<!-- <div class="flex justify-center">
+    <div class="w-[68%]">
+      <app-card-title
+        [title]="'فروشگاه محصولات'"
+        [type]="'محصولات ایرانی اکسپرت'"
+        [iconlink]="'../../../assets/img/Group 553.png '"
+      ></app-card-title>
+      <div class="flex justify-center">
+        <app-product-card
+          *ngFor="let data of card_data2"
+          [Data]="data"
+        ></app-product-card>
+      </div>
+      <app-card-link
+        [btnName]="'فروشگاه'"
+        [paragraph]="
+          '  لیست کامل محصولات ایرانی اکسپرت را در صفحه فروشگاه می توانید بررسی و خریداری کنید'
+        "
+      ></app-card-link>
+    </div>
+  </div> -->
+
+<!-- <div class="flex justify-center">
+    <div class="w-[68%]">
+      <app-card-title
+        [title]="'مدرسه ترید'"
+        [type]="'دوره اموزشی'"
+        [iconlink]="'../../../assets/img/Union 25.png'"
+      ></app-card-title>
+      <div class="flex justify-center">
+        <app-product-card
+          *ngFor="let data of card_data"
+          [Data]="data"
+        ></app-product-card>
+      </div>
+      <app-card-link
+        [btnName]="'مدرسه ترید'"
+        [paragraph]="
+          'در مدرسه ترید ایرانی اکسپرت می توانید آخرین آموزش های مرتبط به بازار های مالی را مشاهده و بررسی کنید'
+        "
+      ></app-card-link>
+    </div>
+  </div> -->
+
+<!-- Removed Designs -->
+
+<!-- <app-sell-info class="w-100" />
+  <h1 class="sm:text-5xl text-3xl text-green-800 text-center oblique">
+    بخشی از امکانات ویژه ربات معامله گر ؛ ایرانی اکسپرت
+  </h1>
+  <p class="text-center text-black sm:text-3xl text-xl">
+    این محصول دستیار تریدرهاست با قابلیت ترید خودکار که بر اساس الگوریتم هوش
+    مصنوعی ژنتیک کار می کند
+  </p>
+  <app-bot-facilities />
+  <h1 class="sm:text-5xl text-3xl text-green-800 text-center oblique">
+    برای دریافت جایزه اطلاعات را تکمیل کنید
+  </h1>
+
+  <p class="text-center text-black text-xl sm:text-4xl">
+    اطلاعات زیر را تکمیل کنید و شانس خود را برای دریافت جایزه امتحان کنید
+  </p>
+  <div class="flex justify-center">
+    <div class="w-9/12">
+      <app-trade-beginning></app-trade-beginning>
+    </div>
+  </div> -->
+
+<!-- <h3 class="text-3xl text-green-800 text-center oblique">
+    بخشی از پرتکرارترین سوالات شما
+  </h3>
+  <p class="text-center text-black text-4xl">اکسپرت چیست و چگونه کار می کند؟</p>
+  <div class="flex justify-center">
+    <div
+      class="sm:w-7/12 w-10/12 flex border-[0.25px] rounded-2xl flex-col sm:flex-row items-center mb-6"
+      style="
+        box-shadow: 0px 0px 24px -13px rgba(0, 0, 0, 0.75);
+        background-image: linear-gradient(
+          to bottom,
+          #fafafa,
+          #f7f7f7,
+          #f3f3f3,
+          #f0f0f0,
+          #ededed
+        );
+      "
+    >
+      <div class="sm:w-14 flex items-center secend-order">
+        <app-slider class="slider-class" />
+      </div>
+      <p class="text-2xl p-8 pt-24 sm:w-8/12 text-justify text-black third-order">
+        بله، باید مذاکره و نیازسنجی کنیم تا ببینیم چنددرصد از استراتژی شما قابلیت
+        پیاده سازی را دارد. امکان دارد 100% از استراتژی شما قابلیت اجرا داشته
+        باشد.
+        <br />همچنین از تریدرها و همکاران دعوت بعمل می آید؛ اگر ربات با عملکرد
+        عالی دارید، میتوانید محصول خود را در فروشگاه ایرانی اکسپرت به فروش
+        برسانید.
+      </p>
+      <div class="sm:w-5/12 w-8/12 border-s-[0.25px] rounded-2xl first-order">
+        <img
+          class="grey-filter"
+          style="
+            filter: brightness(79%) saturate(0%);
+            -webkit-filter: brightness(79%) saturate(0%);
+          "
+          src="../../../../../assets/img/Mask Group 11.png"
+        />
+      </div>
+    </div>
+  </div> -->

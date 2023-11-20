@@ -118,4 +118,7 @@ export class ForgetPasswordComponent {
       }, 10000);
     }
   }
+  getBackToLogin() {
+    this.changePassword.emit(false);
+  }
 }

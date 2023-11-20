@@ -25,8 +25,9 @@
       </li>
     </ng-container>
 
-    <li class="justify-end p-2.5 pr-8 flex">
+    <li class="justify-end p-2.5 pr-8 flex" *ngIf="!loggedIn">
       <button
+        [disabled]="_btnDisabled"
         (click)="openModal('login')"
         class="text-1.5xl header-sm-button font-medium rounded-md"
       >

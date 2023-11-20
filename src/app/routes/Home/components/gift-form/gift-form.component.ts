@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Input, InputInterface } from 'src/app/classes/input';
 import { GiftInter } from './gift-Inter';
-import { GiftFormService } from 'src/app/classes/services/gift-form.service';
+import { UserNeedService } from 'src/app/classes/services/user-need.service';
 const formDataInit: GiftInter = {
   id: 0,
   firstName: '',
@@ -25,7 +25,7 @@ export class GiftFormComponent {
       id: 1,
       label: 'نام',
       name: 'firstName',
-      class: 'input-with-icon',
+      class: 'input-without-icon',
       typeofVlaue: 'string',
       placeholder: 'نام',
       required: true,
@@ -34,7 +34,7 @@ export class GiftFormComponent {
       id: 2,
       label: 'شماره تماس',
       name: 'phoneNumber',
-      class: 'input-with-icon',
+      class: 'input-without-icon',
       typeofVlaue: 'string',
       placeholder: 'شماره تماس',
       required: true,
@@ -53,7 +53,7 @@ export class GiftFormComponent {
       id: 4,
       label: 'email',
       name: 'Email',
-      class: 'input-with-icon',
+      class: 'input-without-icon',
       typeofVlaue: 'string',
       placeholder: 'ایمیل',
       required: true,
@@ -63,7 +63,7 @@ export class GiftFormComponent {
   form: FormGroup;
 
   formMaker = new Input(this.formControlInit);
-  constructor(private giftFormService: GiftFormService) {
+  constructor(private giftFormService: UserNeedService) {
     this.form = new FormGroup({});
     this.formMaker.inputs.forEach((item) => {
       this.form.setControl(item.name, this.formMaker.createControl(item));

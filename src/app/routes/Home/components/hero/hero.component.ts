@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
 import { Utils } from 'src/app/classes/utils';
 @Component({
   selector: 'app-hero',
@@ -6,9 +7,37 @@ import { Utils } from 'src/app/classes/utils';
   styleUrls: ['./hero.component.scss']
 })
 export class HeroComponent {
-  device: 'sm' | 'lg' = 'lg'
+
+  device: 'sm' | 'lg' = 'lg';
+
 constructor(){
-  if(Utils.isLaptopLg() ) this.device = 'lg'
-  else this.device = 'sm'
-}  
+
+this.updateDeviceValue()
+
+}
+// ===================[رسپانسیو هیرو]==================
+name = 'Angular';
+isActive = 1;
+
+next() {
+  if (this.isActive == 3) this.isActive = 0;
+  this.isActive ++;
+}
+pre() {
+  this.isActive --;
+  if (this.isActive == 0) this.isActive = 3;
+}
+@HostListener('window:resize', ['$event'])
+  onResize() {
+    this.updateDeviceValue();
+  }
+  updateDeviceValue() {
+    if (AppComponent.isBrowser.value) {
+      if (Utils.isTablet()) {
+        this.device = 'sm';
+      } else {
+        this.device = 'lg';
+      }
+    }
+  }
 }

@@ -1,6 +1,6 @@
-@import "/node_modules/flag-icons/css/flag-icons.min.css";
-@import "scss/font-awesome";
+@import "flag-icons.min";
 @import "tailwind";
+@import "all";
 @import "./variables";
 @import "./colors";
 @import "./mixins";
@@ -13,6 +13,7 @@
 @import "./components/otp";
 @import "./components/lotties";
 @import "./components/filter";
+@import "./components/priceRange";
 body {
   font-family: $font-family-base;
   font-size: $font-size-base;

@@ -1,14 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Range, Rating, RatingConfig, StarRating } from './rating-config';
-import { PriceRangComponent } from '../../routes/Home/components/price-rang/price-rang.component';
+import { PriceRangeComponent } from '../../routes/Home/components/price-rang/price-range.component';
 import { StarRatingComponent } from '../star-rating/star-rating.component';
 
 @Component({
   selector: 'app-rating',
   templateUrl: 'rating.component.html',
   standalone: true,
-  imports: [CommonModule, PriceRangComponent, StarRatingComponent],
+  imports: [CommonModule, PriceRangeComponent, StarRatingComponent],
 })
 export class RatingComponent {
   rating: Rating<StarRating | Range>;

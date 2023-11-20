@@ -1,5 +1,6 @@
 import { Component , OnInit , Input } from '@angular/core';
-import { config , Menu  } from './types';
+import { config  } from './types';
+import { FAQ } from 'src/app/routes/Home/components/questions/interfaces/faq-interfce';
 
 @Component({
   selector: 'app-acordian',
@@ -9,7 +10,7 @@ import { config , Menu  } from './types';
 export class AcordianComponent implements OnInit {
 
   @Input() options : any;
-  @Input() menus: Menu[];
+  @Input() faq: FAQ[];
   config: config;
   
   ngOnInit() {
@@ -29,13 +30,13 @@ export class AcordianComponent implements OnInit {
   toggle(index: number) {
     // ====================[submenu]========
     if (!this.config.multi) {
-      this.menus.filter(
-        (menu, i) => i !== index && menu.active
+      this.faq.filter(
+        (faq, i) => i !== index && faq.active
       );
       // .forEach(menu => menu.active = !menu.active);
     }
     // ====================[active]========
-    this.menus[index].active = !this.menus[index].active;
+    this.faq[index].active = !this.faq[index].active;
   }
 
 }

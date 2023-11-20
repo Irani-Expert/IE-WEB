@@ -10,12 +10,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('./routes/Home/modules/home.module').then((m) => m.HomeModule),
   },
-  {
-    path: 'shop',
-    title: 'Shop',
-    loadChildren: () =>
-      import('./routes/Shop/modules/shop.module').then((m) => m.ShopModule),
-  },
+  // {
+  //   path: '',
+  //   title: 'Shop',
+  //   loadChildren: () =>
+  //     import('./routes/Shop/modules/shop.module').then((m) => m.ShopModule),
+  // },
 
   {
     path: 'calendar',
