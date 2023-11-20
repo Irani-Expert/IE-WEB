@@ -139,6 +139,9 @@ body {
     border-width: 2px;
   }
 }
+.bg--darken--white {
+  background-color: $darken-white;
+}
 .rating.medium .star {
   width: 5px !important;
   height: 5px !important;
@@ -167,4 +170,7 @@ body {
 }
 .ngx-slider {
   height: 23px !important;
+}
+.WSP {
+  word-spacing: 0;
 }

@@ -31,11 +31,11 @@ ul li::before {
   width: 76rem;
   background-image: linear-gradient(
     to top,
+    #ffffffa3,
     #ffffff,
-    #ffffff,
-    #ffffff,
-    #ffffff91,
-    #ffffff5c
+    #ffffffba,
+    rgba(255, 255, 255, 0.568627451),
+    rgba(255, 255, 255, 0.3607843137)
   );
 
   z-index: 1000;

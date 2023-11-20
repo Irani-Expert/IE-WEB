@@ -10,8 +10,9 @@ input[type="checkbox"] {
   visibility: hidden;
 }
 input {
+  border: none !important;
   padding: 15px;
-  font-size: 15px !important;
+  background-color: #f3f3f3;
 }
 label {
   cursor: pointer;

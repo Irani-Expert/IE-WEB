@@ -1,7 +1,7 @@
 <div class="flex p-4 bg-white rounded-2xl box-shadow-ac border">
   <div class="w-4/12">
     <img
-      class="bg-[#f3f3f3] rounded-2xl h-60 scale-x-[-1]"
+      class="bg-[#f3f3f3] rounded-2xl scale-x-[-1] h-[13rem]"
       style="aspect-ratio: 4/3; object-fit: contain"
       src="../../../../../assets/img/hero.webp"
     />
@@ -9,10 +9,10 @@
 
   <div class="w-9/12 flex flex-col justify-around p-2">
     <div>
-      <h1 style="font-size: 38px; font-weight: 600">
+      <h1 class="text-3xl font-bold">
         {{ product.title }}
       </h1>
-      <div class="flex flex-row">
+      <div class="flex flex-row text-sm font-extrabold text-gray-400">
         <span
           class="border-l border-stone-300 pe-2 flex justify-center items-center"
         >
@@ -36,7 +36,7 @@
       </div>
     </div>
     <div>
-      <p class="text-base">
+      <p class="text-sm">
         {{ product.description }}
       </p>
     </div>
@@ -45,42 +45,20 @@
         <ng-container>
           <div
             *ngFor="let i of product.linkTag"
-            class="rounded-full bg-neutral-100 pe-4 ps-4 p-1 text-base font-bold m-1 items-center"
-            style="display: flex; align-items: flex-start"
+            class="rounded-full flex items-start bg-neutral-100 pe-4 ps-4 p-1 text-xs font-bold m-1"
           >
             <img class="w-4 pt-0.5" *ngIf="i.icon != ''" src="{{ i.icon }}" />
             {{ i.name }}
           </div>
         </ng-container>
-
-        <!-- <div
-          class="rounded-full bg-neutral-100 pe-4 ps-4 text-lg font-bold m-1"
-        >
-          فارکس
-        </div>
-        <div
-          class="rounded-full bg-neutral-100 pe-4 ps-4 text-lg font-bold m-1"
-        >
-          اکسپرت
-        </div>
-        <div
-          class="rounded-full bg-neutral-100 pe-4 ps-4 text-lg font-bold m-1"
-        >
-          ترید
-        </div>
-        <div
-          class="rounded-full bg-neutral-100 pe-4 ps-4 text-lg font-bold m-1"
-        >
-          ترید
-        </div> -->
       </div>
     </div>
     <div class="flex items-center justify-end border-t-[1px] pt-3 border-solid">
-      <p class="pt-2 font-bold text-black text-xl">
+      <p class="pt-2 font-bold text-black text-lg">
         شروع قیمت از {{ product.minPrice }}$
       </p>
       <button
-        class="bg-[#3246d3] border-2 ms-2 relative border-[#3246d3] border-solid text-white p-1 w-1/4 rounded-full text-lg"
+        class="bg-[#3246d3] border-2 ms-2 relative border-[#3246d3] border-solid text-white p-1 w-1/4 rounded-full text-base font-semibold"
       >
         بررسی پلن ها
       </button>
