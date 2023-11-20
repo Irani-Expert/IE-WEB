@@ -127,16 +127,13 @@ body {
 }
 //esmesh ro behtarok
 .box-shadow-ac:hover {
-  // box-shadow: -6px 5px 4px 0px #d8d8d8;
-  // transform: translate(2px, -2px);
-
-  animation: blueborder 1s ease 0s 1 normal forwards;
+  animation: blueborder 0.4s ease forwards;
 }
 @keyframes blueborder {
   100% {
     border-color: #3246d3;
 
-    border-width: 2px;
+    border-width: 1px;
   }
 }
 .circle-on-top {

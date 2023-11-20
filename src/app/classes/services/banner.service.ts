@@ -16,8 +16,22 @@ export class BannerService extends BaseService<
   constructor(http: HttpClient) {
     super(http);
   }
-  get _items() {
+  get _pageModel() {
     return this._paginatedBanner.value;
+  }
+  get _items() {
+    return this._paginatedBanner.value?.items?.filter(
+      (item) => item.isActive == true
+    );
+  }
+  get _leftBanners() {
+    return this._items?.filter((res) => res.key == 'leftBanner');
+  }
+  get _rightBanners() {
+    return this._items?.filter((res) => res.key == 'rightBanner');
+  }
+  get _mainBanner() {
+    return this._items?.filter((res) => res.key == null);
   }
   async getBanners() {
     const apiResult = this.get('Banner').pipe(

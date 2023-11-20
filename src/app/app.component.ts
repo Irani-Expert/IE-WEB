@@ -7,8 +7,6 @@ import { Range, RatingConfig, StarRating } from './shared/rating/rating-config';
 import { AuthService } from './shared/auth/auth.service';
 import { Header } from './components/header-layout/header';
 
-import { ProductService } from './classes/services/product.service';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -59,9 +57,7 @@ export class AppComponent {
   constructor(
     private platform: PlatformService,
     private modal: ModalService,
-    private auth: AuthService,
-    // public blog: BlogService,
-    public prdService: ProductService
+    private auth: AuthService
   ) {
     this.modalStatus = this.modal.modalStatusSubject;
     if (this.platform.isPlatformBrowser()) {

@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
-import { BaseService } from './base.service';
+import { BaseService } from '../../../classes/services/base.service';
 import { BehaviorSubject, lastValueFrom, map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { FilterProduct } from '../interfaces/filter-product.interface';
-import { Product, SingleProduct } from '../interfaces/product.interface';
-import { PageInterface } from '../page.model';
+import { FilterProduct } from '../../../classes/interfaces/filter-product.interface';
+import {
+  Product,
+  SingleProduct,
+} from '../../../classes/interfaces/product.interface';
+import { PageInterface } from '../../../classes/page.model';
 
 @Injectable({
   providedIn: 'root',
