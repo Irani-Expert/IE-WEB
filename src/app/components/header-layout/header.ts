@@ -1,5 +1,5 @@
 import { AppComponent } from 'src/app/app.component';
-import { IMenuItem } from 'src/app/classes/menu-item';
+import { IMenuItem } from 'src/app/classes/interfaces/menu-item';
 import { NavigationService } from 'src/app/classes/services/navigation.service';
 import { AuthService } from 'src/app/shared/auth/auth.service';
 export abstract class Header {

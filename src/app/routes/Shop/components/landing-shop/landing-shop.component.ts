@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
-import { FilterProduct } from 'src/app/classes/filter-product.interface';
+import { FilterProduct } from 'src/app/classes/interfaces/filter-product.interface';
 import { ProductService } from 'src/app/classes/services/product.service';
 import {
   IFilterGroup,

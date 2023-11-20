@@ -5,12 +5,12 @@ const routes: Routes = [
   // Here You Add Your Lazy Loading Modules
   // e.g
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
+    path: 'home',
+    redirectTo: '',
+    pathMatch: 'prefix',
   },
   {
-    path: 'home',
+    path: '',
     title: 'Home',
     loadChildren: () =>
       import('./routes/Home/modules/home.module').then((m) => m.HomeModule),
@@ -25,6 +25,7 @@ const routes: Routes = [
   {
     path: 'calendar',
     title: 'calendar',
+
     loadChildren: () =>
       import('./routes/calendar/module/calendar.module').then(
         (m) => m.CalendarModule

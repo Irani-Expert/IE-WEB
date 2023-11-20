@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { IMenuItem } from 'src/app/classes/menu-item';
+import { IMenuItem } from 'src/app/classes/interfaces/menu-item';
 import { NavigationService } from 'src/app/classes/services/navigation.service';
 import { Header } from '../header';
 import { ModalService } from 'src/app/shared/modal/services/modal.service';
