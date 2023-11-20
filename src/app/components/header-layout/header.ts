@@ -1,6 +1,6 @@
+import { AppComponent } from 'src/app/app.component';
 import { IMenuItem } from 'src/app/classes/menu-item';
 import { NavigationService } from 'src/app/classes/services/navigation.service';
-import { PlatformService } from 'src/app/classes/services/platform.service';
 import { AuthService } from 'src/app/shared/auth/auth.service';
 export abstract class Header {
   static _btnDisabled: boolean = false;
@@ -8,10 +8,7 @@ export abstract class Header {
   loggedIn = false;
   selectedItem: IMenuItem | undefined;
   items: IMenuItem[] = [];
-  constructor(
-    public navService: NavigationService,
-    public platform: PlatformService
-  ) {
+  constructor(public navService: NavigationService) {
     this.loggedIn$.subscribe((res) => {
       this.loggedIn = res;
     });
@@ -30,7 +27,7 @@ export abstract class Header {
     item.active = true;
   }
   setActiveFlag() {
-    if (this.platform.isPlatformBrowser()) {
+    if (AppComponent.isBrowser.value) {
       if (window && window.location) {
         const activeRoute = window.location.hash || window.location.pathname;
         this.items.forEach((item) => {

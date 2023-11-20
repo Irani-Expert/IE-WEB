@@ -1,18 +1,19 @@
 import { Component, Input } from '@angular/core';
-import { IProducts } from '../detail-card/products';
+// import { IProducts } from './products';
 @Component({
   selector: 'app-detail-card',
   templateUrl: './detail-card.component.html',
   styleUrls: ['./detail-card.component.scss'],
 })
 export class DetailCardComponent {
-  @Input() product!: IProducts;
-
+  @Input('item') product: any;
+  constructor() {}
   views: number = 773;
   ngOnInit() {
-    this.getProduct();
+    // this.getProduct();
   }
-  getProduct() {
-    //write get services here
-  }
+  // getProduct() {
+  //  this.product.id = this._productService._paginatedPrd!.items![0].id!
+  //  this.product.description = this.p
+  // }
 }

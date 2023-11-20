@@ -106,7 +106,7 @@ export class SignupComponent {
           alt: 'eye-of',
           id: 1,
           placement: 'left-icon',
-          src: 'assets/images/eye-on.svg',
+          src: 'assets/icon/eye-on.svg',
         },
       ],
     },

@@ -1,2 +1,39 @@
-<app-shop-hero></app-shop-hero>
-<app-question-shop></app-question-shop>
+<!-- <app-shop-hero></app-shop-hero>
+<app-question-shop></app-question-shop> -->
+
+<!-- <div *ngIf="!loading">
+  <ng-container *ngFor="let item of _productService._paginatedPrd?.items">
+    <app-detail-card [item]="item" />
+  </ng-container>
+</div> -->
+<div class="grid-cols-10 grid m-0 p-10">
+  <div
+    class="col-span-9 sm:col-span-8 md:col-span-4 lg:col-span-3 xl:col-span-2"
+  >
+    <div class="w-full flex items-center flex-col justify-center">
+      <img
+        src="assets/img/alpari-broker-forex.jpg"
+        class="custom-img-product"
+        alt="alpari"
+      />
+      <app-filter [search]="true" [filterModel]="filter">
+        <search-bar searchBar></search-bar>
+        <checkbox category><p class="text-13 pt-1.5" title>اکسپرت</p></checkbox>
+        <checkbox producer
+          ><p class="text-13 pt-1.5" title>ایرانی اکسپرت</p></checkbox
+        >
+        <app-rating rating [config]="ratingConfig"></app-rating>
+        <app-rating priceRange [config]="rangeConfig"></app-rating>
+      </app-filter>
+    </div>
+  </div>
+  <div
+    class="col-span-9 sm:col-span-8 md:col-span-5 lg:col-span-6 xl:col-span-7"
+  >
+    <div *ngIf="!loading">
+      <ng-container *ngFor="let item of _productService._paginatedPrd?.items">
+        <app-detail-card [item]="item" />
+      </ng-container>
+    </div>
+  </div>
+</div>

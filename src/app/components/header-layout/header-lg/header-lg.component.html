@@ -1,4 +1,4 @@
-<nav class="px-6 pb-2.5 pt-10 max-w-container">
+<nav class="px-6 pb-2.5 pt-4 max-w-container">
   <div class="flex items-center mx-auto relative">
     <a href="https://iraniexpert.com" class="flex items-center">
       <span class="sr-only">ایرانی اکسپرت - Irani Expert</span>
@@ -19,6 +19,7 @@
             <ng-container *ngIf="item.path">
               <a
                 (click)="selectItem(item)"
+                [routerLink]="item.path"
                 [href]="'https://iraniexpert.com/' + item.path"
                 [ngClass]="{ active: item.active }"
                 ><p>{{ item.name }}</p></a
@@ -39,6 +40,7 @@
                   <ng-container *ngFor="let sub of item.sub">
                     <li class="dropdown-li">
                       <a
+                        [routerLink]="item.path"
                         [href]="'https://iraniexpert.com/' + sub.path"
                         (click)="selectItem(item)"
                       >

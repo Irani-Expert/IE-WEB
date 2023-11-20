@@ -13,14 +13,14 @@ export class NavigationService {
       name: 'خانه',
       title: 'Home',
       type: 'link',
-      path: '',
+      path: '/home',
     },
     {
       id: 2,
       name: 'فروشگاه',
       title: 'Store',
       type: 'dropdown',
-      path: 'store',
+      path: '/shop',
       sub: [
         {
           id: 1,

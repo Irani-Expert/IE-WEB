@@ -24,7 +24,6 @@
     "@angular/platform-browser-dynamic": "^16.1.0",
     "@angular/platform-server": "^16.1.0",
     "@angular/router": "^16.1.0",
-    "@fortawesome/fontawesome-free": "^6.4.2",
     "@nguniversal/express-engine": "^16.2.0",
     "@syncfusion/ej2-angular-maps": "23.1.42",
     "express": "^4.15.2",
@@ -35,7 +34,6 @@
     "ngx-lottie": "^10.0.0",
     "ngx-slider-v2": "^16.0.2",
     "rxjs": "~7.8.0",
-    "swiper": "^7.1.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
   },

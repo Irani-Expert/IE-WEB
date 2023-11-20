@@ -41,7 +41,7 @@ export class LoginComponent {
         {
           id: 1,
           placement: 'right-icon',
-          src: 'assets/images/email.svg',
+          src: 'assets/icon/email.svg',
           alt: 'email-icon',
         },
       ],
@@ -61,13 +61,13 @@ export class LoginComponent {
         {
           id: 1,
           placement: 'right-icon',
-          src: 'assets/images/key.svg',
+          src: 'assets/icon/key.svg',
           alt: 'email-icon',
         },
         {
           id: 2,
           placement: 'left-icon',
-          src: 'assets/images/eye-on.svg',
+          src: 'assets/icon/eye-on.svg',
           alt: 'eye-opened',
         },
       ],
@@ -76,7 +76,7 @@ export class LoginComponent {
   ];
   formMaker = new Input(this.formControlInit);
 
-  iconSrc = '../../../../assets/images/email.svg';
+  iconSrc = '../../../../assets/icon/email.svg';
   state: 'default' | 'rotated' = 'default';
   showPass: boolean = false;
   form: FormGroup;
