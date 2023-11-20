@@ -10,6 +10,52 @@
   <app-gift-form></app-gift-form>
 
   <div class="flex justify-center">
+    <div class="w-[72%]">
+      <app-card-title
+        [title]="'مدرسه ترید'"
+        [type]="'دوره اموزشی'"
+        [iconlink]="'../../../assets/img/Union 25.png'"
+      ></app-card-title>
+      <div class="flex justify-center">
+        <app-product-card
+          *ngFor="let data of card_data"
+          [Data]="data"
+        ></app-product-card>
+      </div>
+      <app-card-link
+        [btnName]="'مدرسه ترید'"
+        [paragraph]="
+          'در مدرسه ترید ایرانی اکسپرت می توانید آخرین آموزش های مرتبط به بازار های مالی را مشاهده و بررسی کنید'
+        "
+      ></app-card-link>
+    </div>
+  </div>
+  <div class="flex justify-center">
+    <div class="w-[72%] mt-5">
+      <app-discount-banner></app-discount-banner>
+    </div>
+  </div>
+  <div class="flex justify-center">
+    <div class="w-[72%]">
+      <app-card-title
+        [title]="'فروشگاه محصولات'"
+        [type]="'محصولات ایرانی اکسپرت'"
+        [iconlink]="'../../../assets/img/Group 553.png '"
+      ></app-card-title>
+      <div class="flex justify-center">
+        <app-product-card
+          *ngFor="let data of card_data2"
+          [Data]="data"
+        ></app-product-card>
+      </div>
+      <app-card-link
+        [btnName]="'فروشگاه'"
+        [paragraph]="
+          '  لیست کامل محصولات ایرانی اکسپرت را در صفحه فروشگاه می توانید بررسی و خریداری کنید'
+        "
+      ></app-card-link>
+    </div>
+  </div>
     <div class="w-[70%] mt-5">
       <app-discount-banner></app-discount-banner>
     </div>
@@ -81,10 +127,10 @@
 <!-- <app-landing-article /> -->
 <!-- <app-sell-info></app-sell-info> -->
 <app-hero></app-hero>
-<app-tags />
-<app-service-baner></app-service-baner>
-<app-instagram-baner></app-instagram-baner>
-<app-bot-showcase></app-bot-showcase>
+<!-- <app-tags /> -->
+<!-- <app-service-baner></app-service-baner> -->
+<!-- <app-instagram-baner></app-instagram-baner>
+<app-bot-showcase></app-bot-showcase> -->
 <!-- <app-questions></app-questions> -->
 
 <!-- Cards -->

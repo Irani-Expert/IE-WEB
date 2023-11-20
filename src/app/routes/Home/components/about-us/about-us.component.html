@@ -1,126 +1,139 @@
-<div
-  class="bg-white p-28 border-bl-[4rem] border-br-[4rem]"
-  style="word-spacing: 1px"
->
-  <div class="flex justify-center">
-    <div class="w-6/12 ps-8">
-      <h2 class="text-4xl" style="font-style: oblique">چرا ایرانی اکسپرت؟</h2>
-      <ul class="text-[22px] font-medium">
-        <li class="m-6 me-0 text-justify">
-          ما تیمی از برنامه‌نویسان و تحلیل‌گران بازارهای مالی هستیم که بر توسعه
-          اکسپرت‌ها، ربات‌ها و آموزش تمرکز کـردیم
-        </li>
-        <li class="m-6 me-0 text-justify">
-          درحال حاضر با توانایی تیم خود و کمک و حمایت خالصانه‌ی شرکای خود در
-          ایران و جهان، در ارائه استراتژی‌ها و اکسپرت‌ها موفق عمل کردیم
-        </li>
-        <li class="m-6 me-0 text-justify">
-          و قول می‌دهیم برای معامله‌گران و فعالین بازارهای مالی جذاب باشد. ما را
-          در اینستاگرام و تلگرام به نشانی IRani_Expert فالو کنید
-        </li>
-      </ul>
-    </div>
-    <div class="w-6/12 flex items-center justify-end">
-      <div
-        class="bg-[#F3F3F3] absolute left-0 w-[500px] h-[400px] p-2 rounded-3xl rounded-e-none"
-      ></div>
-      <img class="z-10 mt-4" src="../../../../../assets/img/about-us.png" alt="about-us" />
-    </div>
-  </div>
-  <div class="mt-16">
-    <h4 class="text-4xl color--green" style="font-style: oblique">
-      رضایتمندی ؛ مصاحبه با بخشی از مشتریان ایرانی اکسپرت
-    </h4>
-    <div class="flex flex-col m-12">
-      <div class="w-6/12 flex items-center">
-        <div
-          class="bg-[#F3F3F3] absolute right-[-20px] w-[70rem] h-36 p-2 rounded-3xl"
-        ></div>
-        <ul class="m-10">
-          <li class="text-2xl font-medium">
-            در سری ویدیو های ایرانی پادکست مصاحبه با برخی از مشتریان ایرانی
-            اکسپرت را بررسی کنید
-          </li>
-        </ul>
-      </div>
-      <div class="mt-6">
-        <div
-          class="flex flex-row pb-3 pt-3 relative bottom-20"
-          [ngClass]="isVideoOpend ? ' border-b-2' : ''"
-        >
-          <div
-            class="m-9 w-5/12 flex flex-col items-end justify-center relative"
-            [ngClass]="isVideoOpend ? 'open-item ' : ''"
+<div class="bg--blue">
+  <div class="bg--darken--white">
+    <div class="bg-white p-28 rounded-b-[4rem] WSP">
+      <div class="flex justify-center">
+        <div class="w-6/12 ps-8">
+          <h2 class="text-4xl oblique">چرا ایرانی اکسپرت؟</h2>
+          <ul
+            class="text-xl flex flex-col pt-6 h-[76%] justify-between font-medium"
           >
-            <h2 class="text-3xl font-bold">ایرانی پادکست شماره یک</h2>
-            <span class="text-2xl text-end"
-              >مصاحبه با جناب محمودی ؛ اکانت 10.000 دلاری</span
-            >
-          </div>
-          <div class="w-8/12">
-            <app-video-player [VideoId]="0"></app-video-player>
-          </div>
+            <li class="text-justify">
+              ما تیمی از برنامه‌نویسان و تحلیل‌گران بازارهای مالی هستیم که بر
+              توسعه اکسپرت‌ها، ربات‌ها و آموزش تمرکز کـردیم
+            </li>
+            <li class="text-justify">
+              درحال حاضر با توانایی تیم خود و کمک و حمایت خالصانه‌ی شرکای خود در
+              ایران و جهان، در ارائه استراتژی‌ها و اکسپرت‌ها موفق عمل کردیم
+            </li>
+            <li class="text-justify">
+              و قول می‌دهیم برای معامله‌گران و فعالین بازارهای مالی جذاب باشد.
+              ما را در اینستاگرام و تلگرام به نشانی IRani_Expert فالو کنید
+            </li>
+          </ul>
         </div>
-        <div
-          style="position: 'relative'; position: relative; top: -59px"
-          [@fadeInAnimation]="isVideoOpend ? 'show' : 'hide'"
-        >
-          <ng-container *ngFor="let index of [1, 2, 3, 4]" style="opacity: 0">
-            <div class="flex flex-row border-b-2 pb-3 border-b-black-100 pt-3">
+        <div class="w-6/12 flex items-center justify-end">
+          <div
+            class="absolute left-0 w-[500px] h-[400px] p-2 rounded-3xl rounded-e-none"
+          ></div>
+          <img
+            class="z-10 mt-4"
+            src="../../../../../assets/img/about-us.png"
+            alt="about-us"
+          />
+        </div>
+      </div>
+      <div class="mt-16">
+        <h4 class="text-4xl color--green oblique">
+          رضایتمندی ؛ مصاحبه با بخشی از مشتریان ایرانی اکسپرت
+        </h4>
+        <div class="flex flex-col m-12">
+          <div class="w-6/12 flex items-center">
+            <div
+              class="bg-[#F3F3F3] absolute right-[-20px] w-[55rem] h-36 p-2 rounded-3xl"
+            ></div>
+            <ul class="m-10">
+              <li class="text-xl font-medium">
+                در سری ویدیو های ایرانی پادکست مصاحبه با برخی از مشتریان ایرانی
+                اکسپرت را بررسی کنید
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6">
+            <div
+              class="flex flex-row pb-3 pt-3 relative bottom-20"
+              [ngClass]="isVideoOpend ? ' border-b-2' : ''"
+            >
               <div
                 class="m-9 w-5/12 flex flex-col items-end justify-center relative"
                 [ngClass]="isVideoOpend ? 'open-item ' : ''"
               >
-                <h2 class="text-3xl font-bold">ایرانی پادکست شماره یک</h2>
-                <span class="text-2xl text-end"
+                <h2 class="text-2xl font-bold">ایرانی پادکست شماره یک</h2>
+                <span class="text-xl text-end"
                   >مصاحبه با جناب محمودی ؛ اکانت 10.000 دلاری</span
                 >
               </div>
               <div class="w-8/12">
-                <app-video-player [VideoId]="index"></app-video-player>
+                <app-video-player [VideoId]="0"></app-video-player>
               </div>
             </div>
-          </ng-container>
-          <div class="video-bottom-Shadow"></div>
-        </div>
+            <div
+              class="relative top-[-59]"
+              [@fadeInAnimation]="isVideoOpend ? 'show' : 'hide'"
+            >
+              <ng-container
+                *ngFor="let index of [1, 2, 3, 4]"
+                class="opacity-0"
+              >
+                <div
+                  class="flex flex-row pb-3 pt-3"
+                  [ngClass]="
+                    !(index == 4) ? 'border-b-2  border-b-black-100' : ''
+                  "
+                >
+                  <div
+                    class="m-9 w-5/12 flex flex-col items-end justify-center relative"
+                    [ngClass]="isVideoOpend ? 'open-item ' : ''"
+                  >
+                    <h2 class="text-2xl font-bold">ایرانی پادکست شماره یک</h2>
+                    <span class="text-xl text-end"
+                      >مصاحبه با جناب محمودی ؛ اکانت 10.000 دلاری</span
+                    >
+                  </div>
+                  <div class="w-8/12">
+                    <app-video-player [VideoId]="index"></app-video-player>
+                  </div>
+                </div>
+              </ng-container>
+              <div class="video-bottom-Shadow"></div>
+            </div>
 
-        <div
-          class="flex justify-center mt-4"
-          [ngClass]="isVideoOpend ? '' : 'close-btn'"
-        >
-          <button
-            (click)="openVideoList()"
-            class="hover:bg-[#3246d3] border-2 border-[#3246d3] border-solid hover:text-white text-[#3246d3] p-2 sm:w-1/5 rounded-full font-semibold text-lg"
-          >
-            {{ isVideoOpend ? "بستن لیست پخش" : "باز کردن لیست پخش" }}
-          </button>
+            <div
+              class="flex justify-center mt-4"
+              [ngClass]="isVideoOpend ? '' : 'close-btn'"
+            >
+              <button
+                (click)="openVideoList()"
+                class="hover:bg-[#3246d3] border-2 border-[#3246d3] border-solid hover:text-white text-[#3246d3] p-2 sm:w-1/5 rounded-full font-semibold text-lg"
+              >
+                {{ isVideoOpend ? "بستن لیست پخش" : "باز کردن لیست پخش" }}
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<div class="p-16 flex justify-center flex-row font-medium">
-  <div class="w-3/12">image Place</div>
-  <div class="w-5/12">
-    <h1 class="color--blue text-3xl font-bold">دعوت به همکاری</h1>
-    <p class="text-[22px] text-justify text-black">
-      از تمامی برنامه نویسان و تریدرها جهت همکاری دعوت بعمل می آید همچنین از
-      همکاران گرامی دعوت می شود اگر اکسپرت قابل ارائه دارند جهت فروش آن محـصول
-      در ایرانی اکسپرت، با پشتیبانی در ارتباط باشند
-    </p>
-  </div>
-</div>
-<div
-  class="bg-white p-12 flex items-center flex-col"
-  style="border-bottom-left-radius: 4rem; border-bottom-right-radius: 4rem"
->
-  <div class="w-6/12">
-    <p class="text-2xl text-center font-medium text-black">
-      ایرانی اکسپرت از مجموعه های تابعه فن آوران دنا به شماره ثبت 60136 می باشد
-      ضمناً برای ارتباط بیشتر با ما در شبکه های اجتماعی ایرانی اکسپرت را دنبال
-      کنید یا اینکه از طریق کادر زیر جهت مشاوره اقدام کنید
-    </p>
-  </div>
 
-  <app-consultation-form class="w-full"></app-consultation-form>
+  <div class="p-16 flex justify-center flex-row font-medium bg-[#F3F3F3]">
+    <div class="w-3/12">image Place</div>
+    <div class="w-1/2">
+      <h1 class="color--blue text-3xl font-bold">دعوت به همکاری</h1>
+      <p class="text-[22px] text-justify text-black">
+        از تمامی برنامه نویسان و تریدرها جهت همکاری دعوت بعمل می آید همچنین از
+        همکاران گرامی دعوت می شود اگر اکسپرت قابل ارائه دارند جهت فروش آن محـصول
+        در ایرانی اکسپرت، با پشتیبانی در ارتباط باشند
+      </p>
+    </div>
+  </div>
+  <div class="bg-white p-12 flex items-center flex-col rounded-b-[4rem]">
+    <div class="w-7/12">
+      <p class="text-2xl text-center font-medium text-black">
+        ایرانی اکسپرت از مجموعه های تابعه فن آوران دنا به شماره ثبت 60136 می
+        باشد ضمناً برای ارتباط بیشتر با ما در شبکه های اجتماعی ایرانی اکسپرت را
+        دنبال کنید یا اینکه از طریق کادر زیر جهت مشاوره اقدام کنید
+      </p>
+    </div>
+
+    <app-consultation-form class="w-full"></app-consultation-form>
+  </div>
 </div>

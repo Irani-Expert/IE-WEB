@@ -32,15 +32,6 @@ export class GiftFormComponent {
     },
     {
       id: 2,
-      label: 'نام خانوادگی',
-      name: 'lastName',
-      typeofVlaue: 'string',
-      class: 'input-without-icon',
-      required: true,
-      placeholder: 'نام خانوادگی',
-    },
-    {
-      id: 3,
       label: 'شماره تماس',
       name: 'phoneNumber',
       class: 'input-without-icon',
@@ -48,6 +39,16 @@ export class GiftFormComponent {
       placeholder: 'شماره تماس',
       required: true,
     },
+    {
+      id: 3,
+      label: 'نام خانوادگی',
+      name: 'lastName',
+      typeofVlaue: 'string',
+      class: 'input-with-icon',
+      required: true,
+      placeholder: 'نام خانوادگی',
+    },
+
     {
       id: 4,
       label: 'email',
