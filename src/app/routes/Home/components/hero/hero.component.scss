@@ -270,8 +270,7 @@ position: relative;
 }
 .circle{
   background: rgb(50,70,211);
-  background: radial-gradient(circle, rgba(50,70,211,0.5354341565727854) 0%, rgba(193,193,255,1) 12%, rgba(255,255,255,1) 56%);
-  width: 100%;
+  background: radial-gradient(circle, rgba(50, 70, 211, 0.33) 0%, rgb(193, 193, 255) 12%, rgb(255, 255, 255) 56%);  width: 100%;
   z-index: -10;
   transform: translate(-219px, -196px);
   aspect-ratio: 1/1;
@@ -349,9 +348,10 @@ position: relative;
       position: absolute;
       left: -100%;
       box-sizing: border-box;
-      transition: left 0.3s;
       background: #fff;
       &.active{
+      animation: display 0.7s ease-in forwards;
+
         left: 0;
         &+.carousel-item{
           left: 100%;
@@ -373,5 +373,13 @@ position: relative;
         left: auto;
         right: 20px;
       }
+    }
+  }
+  @keyframes display {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
     }
   }
