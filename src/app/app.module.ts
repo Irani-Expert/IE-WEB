@@ -1,6 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { HeaderLayoutComponent } from './components/header-layout/header-layout.component';
