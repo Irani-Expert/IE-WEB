@@ -1,6 +1,4 @@
-@import "flag-icons.min";
 @import "tailwind";
-@import "all";
 @import "./variables";
 @import "./colors";
 @import "./mixins";
@@ -14,6 +12,7 @@
 @import "./components/lotties";
 @import "./components/filter";
 @import "./components/priceRange";
+
 body {
   font-family: $font-family-base;
   font-size: $font-size-base;

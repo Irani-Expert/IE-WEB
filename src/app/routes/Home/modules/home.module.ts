@@ -54,7 +54,6 @@ const components = [
   ProductsComponent,
   DetailCardComponent,
   TypeFilterComponent,
-
   AboutUsComponent,
   OrderFilterComponent,
   SearchFeildComponent,
