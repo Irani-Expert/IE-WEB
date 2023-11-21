@@ -1,4 +1,4 @@
-<header class="relative z-10">
+<header class="relative z-10 bg-white">
   <app-header-lg
     (modal)="openedModal($event)"
     [ngClass]="device == 'lg' ? 'block' : 'hidden'"
@@ -9,7 +9,7 @@
   />
   <!-- <app-header-alt /> -->
 </header>
-<app-modal [overflow]="'hidden'" *ngIf="modalStatus.value">
+<app-modal [overflow]="'hidden'" [width]="'716px'" *ngIf="modalStatus.value">
   <div content>
     <app-auth [view]="modalView" />
   </div>

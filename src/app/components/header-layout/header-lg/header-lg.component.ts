@@ -1,8 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { IMenuItem } from 'src/app/classes/menu-item';
+import { IMenuItem } from 'src/app/classes/interfaces/menu-item';
 import { NavigationService } from 'src/app/classes/services/navigation.service';
 import { Header } from '../header';
-import { PlatformService } from 'src/app/classes/services/platform.service';
 import { ModalService } from 'src/app/shared/modal/services/modal.service';
 
 @Component({
@@ -14,12 +13,8 @@ export class HeaderLgComponent extends Header {
   @Output('modal') openingModal: EventEmitter<string> = new EventEmitter(false);
   hoveredItem = -1;
   nav: IMenuItem[] = new Array<IMenuItem>();
-  constructor(
-    navService: NavigationService,
-    platform: PlatformService,
-    private modal: ModalService
-  ) {
-    super(navService, platform);
+  constructor(navService: NavigationService, private modal: ModalService) {
+    super(navService);
   }
   onHover(index: number) {
     this.hoveredItem = index;

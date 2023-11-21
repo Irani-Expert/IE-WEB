@@ -26,7 +26,7 @@ export class StarRatingComponent {
   @Input('stars') stars: StarRating;
   @Input('captions') captions: string[];
   starsArray: Array<Stars> = new Array<Stars>();
-  // iconPathes = ['assets/images/star.svg', 'assets/images/star-filled.svg'];
+  // iconPathes = ['assets/icon/star.svg', 'assets/icon/star-filled.svg'];
   constructor() {}
   ngOnInit() {
     for (let i = 0; i < this.stars.rate; i++) {

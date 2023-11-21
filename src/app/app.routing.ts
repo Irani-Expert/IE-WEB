@@ -5,6 +5,11 @@ const routes: Routes = [
   // Here You Add Your Lazy Loading Modules
   // e.g
   {
+    path: 'home',
+    redirectTo: '',
+    pathMatch: 'prefix',
+  },
+  {
     path: '',
     title: 'Home',
     loadChildren: () =>
@@ -20,6 +25,7 @@ const routes: Routes = [
   {
     path: 'calendar',
     title: 'calendar',
+
     loadChildren: () =>
       import('./routes/calendar/module/calendar.module').then(
         (m) => m.CalendarModule

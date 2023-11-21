@@ -9,8 +9,8 @@ import { Component, EventEmitter, HostListener, Output } from '@angular/core';
 import { Header } from '../header';
 import { NavigationService } from 'src/app/classes/services/navigation.service';
 import { Utils } from 'src/app/classes/utils';
-import { PlatformService } from 'src/app/classes/services/platform.service';
 import { ModalService } from 'src/app/shared/modal/services/modal.service';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-header-sm',
@@ -39,12 +39,8 @@ import { ModalService } from 'src/app/shared/modal/services/modal.service';
 })
 export class HeaderSmComponent extends Header {
   @Output('modal') openingModal: EventEmitter<string> = new EventEmitter(false);
-  constructor(
-    navService: NavigationService,
-    platform: PlatformService,
-    private modal: ModalService
-  ) {
-    super(navService, platform);
+  constructor(navService: NavigationService, private modal: ModalService) {
+    super(navService);
   }
 
   link: number = 1;
@@ -67,7 +63,7 @@ export class HeaderSmComponent extends Header {
   }
 
   updateMenu() {
-    if (this.platform.isPlatformBrowser()) {
+    if (AppComponent.isBrowser.value) {
       if (!Utils.isLaptopSm()) {
         this.menuState = 'in';
       }

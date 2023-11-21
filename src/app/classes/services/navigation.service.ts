@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IMenuItem } from '../menu-item';
+import { IMenuItem } from '../interfaces/menu-item';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -13,14 +13,14 @@ export class NavigationService {
       name: 'خانه',
       title: 'Home',
       type: 'link',
-      path: '',
+      path: 'home',
     },
     {
       id: 2,
       name: 'فروشگاه',
       title: 'Store',
       type: 'dropdown',
-      path: 'store',
+      path: 'shop',
       sub: [
         {
           id: 1,
@@ -28,7 +28,7 @@ export class NavigationService {
           parentID: 2,
           title: 'ATM Expert',
           type: 'link',
-          path: 'atm/expert',
+          path: '/shop/atm',
         },
       ],
     },

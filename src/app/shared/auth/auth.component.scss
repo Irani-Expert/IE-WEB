@@ -2,8 +2,8 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: var(--flex-direction);
-  justify-content: flex-start;
-  align-items: stretch;
+  justify-content: space-around;
+  align-items: center;
   gap: 0.75rem;
 }
 .right-container {
@@ -16,4 +16,5 @@
 }
 .left-container {
   grid-column: auto;
+  display: flex;
 }

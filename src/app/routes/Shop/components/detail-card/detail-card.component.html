@@ -1,0 +1,64 @@
+<div class="flex pt-5 pb-6 px-4 bg-white rounded-2xl box-shadow-ac border h-80">
+  <img class="bg-[#f3f3f3]" src="../../../../../assets/img/hero.webp" />
+
+  <div class="flex flex-col p-2">
+    <h1 class="text-32 font-semibold">
+      {{ product.title }}
+    </h1>
+    <div class="flex flex-row items-center">
+      <span class="flex justify-center items-center">
+        <app-rating
+          rating
+          [config]="ratingConfig"
+          style="scale: 0.9"
+        ></app-rating>
+        <p class="text-20 text-gray-300 font-bold pt-3">{{ product.rate }}</p>
+      </span>
+      <span class="divider-custom-vertical mx-2"></span>
+      <p class="text-20 font-bold text-gray-300 pt-3">
+        بازدید ها {{ product.viewsCount }}
+      </p>
+      <span class="divider-custom-vertical mx-2"></span>
+      <p class="text-20 font-bold text-gray-300 pt-3">مشترک ها 232</p>
+    </div>
+    <p class="text-base">
+      {{ product.description }}
+    </p>
+    <div class="flex items-center">
+      <ng-container>
+        <div
+          *ngFor="let i of product.linkTag"
+          class="rounded-full bg-neutral-100 pe-4 ps-4 p-1 text-base font-bold m-1 items-center"
+          style="display: flex; align-items: flex-start"
+        >
+          <img class="w-4 pt-0.5" *ngIf="i.icon != ''" src="{{ i.icon }}" />
+          {{ i.name }}
+        </div>
+      </ng-container>
+
+      <div class="rounded-full bg-neutral-100 pe-4 ps-4 text-lg font-bold m-1">
+        فارکس
+      </div>
+      <div class="rounded-full bg-neutral-100 pe-4 ps-4 text-lg font-bold m-1">
+        اکسپرت
+      </div>
+      <div class="rounded-full bg-neutral-100 pe-4 ps-4 text-lg font-bold m-1">
+        ترید
+      </div>
+      <div class="rounded-full bg-neutral-100 pe-4 ps-4 text-lg font-bold m-1">
+        ترید
+      </div>
+    </div>
+    <div class="flex items-center justify-end border-t-[1px] pt-3 border-solid">
+      <p class="pt-2 font-black text-black text-xl">
+        شروع قیمت از {{ product.minPrice }}$
+      </p>
+      <button
+        [routerLink]="'atm'"
+        class="bg-[#3246d3] border-2 ms-2 relative border-[#3246d3] border-solid text-white p-1 w-1/4 rounded-full text-lg font-black"
+      >
+        بررسی پلن ها
+      </button>
+    </div>
+  </div>
+</div>
