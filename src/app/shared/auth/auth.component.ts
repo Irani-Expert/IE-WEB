@@ -4,6 +4,7 @@ import { smoothHeight } from 'src/app/classes/animation';
 import { AppComponent } from 'src/app/app.component';
 import { Utils } from 'src/app/classes/utils';
 import { SwitchComponent } from '../switch/switch.component';
+import { ILottieConfig } from '../lottie/lottie-config';
 enum View {
   Signup = 'sign-up',
   Login = 'login',
@@ -15,6 +16,12 @@ enum View {
   animations: [smoothHeight],
 })
 export class AuthComponent {
+  lottieConfig: ILottieConfig = {
+    width: '100%',
+    max_w: '320px',
+    height: 'auto',
+    path: 'assets/lottie/auth.json',
+  };
   @ViewChild(SwitchComponent, { static: false })
   switchComponent: SwitchComponent;
   changingPassword: boolean = false;

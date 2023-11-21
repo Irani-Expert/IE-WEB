@@ -76,7 +76,7 @@ export class LoginComponent {
   ];
   formMaker = new Input(this.formControlInit);
 
-  iconSrc = '../../../../assets/icon/email.svg';
+  iconSrc = 'assets/icon/eye-off.svg';
   state: 'default' | 'rotated' = 'default';
   showPass: boolean = false;
   form: FormGroup;

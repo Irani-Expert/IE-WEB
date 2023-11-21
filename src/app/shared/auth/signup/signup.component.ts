@@ -38,6 +38,7 @@ export class SignupComponent {
   @Output('changingView') changeView: EventEmitter<boolean> =
     new EventEmitter<boolean>(false);
   loading = false;
+  iconSrc = 'assets/icon/eye-off.svg';
   formsControlInit: InputInterface[] = [
     {
       id: 1,
@@ -175,7 +176,9 @@ export class SignupComponent {
       if (item.placement == 'left-icon') {
         this.formControls[index].type =
           this.formControls[index].type === 'password' ? 'text' : 'password';
-        item.src = '';
+        let x = item.src!;
+        item.src = this.iconSrc;
+        this.iconSrc = x;
         this.state = this.state === 'default' ? 'rotated' : 'default';
       }
     }, 200);
