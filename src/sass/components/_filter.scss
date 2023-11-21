@@ -18,7 +18,7 @@
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   @media (min-width: 768px) {
-    margin-top: 0.75rem;
+    margin-top: 0.5rem;
     margin-bottom: 0.75rem;
   }
 }
@@ -100,7 +100,7 @@ input.search-input {
           transition: transform 0.3s ease-in;
           aspect-ratio: 1/1;
           scale: 0.95;
-          content: url(../../assets/images/chevron.svg);
+          content: url(../../assets/icon/chevron.svg);
           display: block;
           &.rotated {
             transform: rotate(180deg);

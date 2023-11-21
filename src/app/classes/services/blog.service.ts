@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { BaseService } from './base.service';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, lastValueFrom, map } from 'rxjs';
-import { FilterBlog } from '../filter-blog.interface';
-import { Blog, SingleBlog } from '../blog.interface';
+import { FilterBlog } from '../interfaces/filter-blog.interface';
+import { Blog, SingleBlog } from '../interfaces/blog.interface';
 import { PageInterface } from '../page.model';
 
 @Injectable({

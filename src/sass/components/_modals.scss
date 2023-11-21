@@ -24,10 +24,9 @@ $xlg: 1270px;
   overflow: auto;
   @include absolute-center;
   z-index: 1001;
-  width: initial;
-  max-width: 97%;
+  max-width: 97vw;
   height: auto;
-  max-height: 97%;
+  max-height: 97vh;
   border: $dim-green 1px solid;
   background-color: $white;
   border-radius: 15px;
@@ -37,7 +36,6 @@ $xlg: 1270px;
     padding: 10px;
 
     flex-direction: row-reverse;
-    margin-bottom: 20px;
   }
 
   .modal-content {
@@ -54,7 +52,10 @@ $xlg: 1270px;
       border-radius: 10px;
     }
     overflow: var(--overflow);
+    width: var(--width);
+    max-width: inherit;
     margin-bottom: 20px;
+    min-width: 310px;
   }
 
   .modal-footer {

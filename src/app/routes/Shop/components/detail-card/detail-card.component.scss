@@ -1,0 +1,12 @@
+img {
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  width: auto;
+  height: 100%;
+  border-radius: 12px;
+}
+.divider-custom-vertical {
+  display: inline-block;
+  border: 1px solid #d1d1d1;
+  height: 25px;
+}

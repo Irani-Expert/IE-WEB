@@ -26,7 +26,7 @@
             "assets": [
               "./src/favicon.ico",
               "./src/assets/img",
-              "./src/assets/images",
+              "./src/assets/icon",
               "./src/assets/audio",
               "./src/assets/lottie"
             ],
@@ -34,7 +34,6 @@
             "stylePreprocessorOptions": {
               "includePaths": [
                 "node_modules/tailwindcss",
-                "node_modules/@fortawesome/fontawesome-free/css",
                 "node_modules/flag-icons/css"
               ]
             },

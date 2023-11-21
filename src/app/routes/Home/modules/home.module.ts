@@ -14,7 +14,6 @@ import { ConsultationFormComponent } from '../components/consultation-form/consu
 import { GiftFormComponent } from '../components/gift-form/gift-form.component';
 import { BannersComponent } from '../components/banners/banners.component';
 import { ProductsComponent } from '../components/products/products.component';
-import { DetailCardComponent } from '../components/detail-card/detail-card.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TypeFilterComponent } from '../components/type-filter/type-filter.component';
 import { NgxSliderModule } from 'ngx-slider-v2';
@@ -52,7 +51,6 @@ const components = [
   ProductCardComponent,
   GiftFormComponent,
   ProductsComponent,
-  DetailCardComponent,
   TypeFilterComponent,
   AboutUsComponent,
   OrderFilterComponent,

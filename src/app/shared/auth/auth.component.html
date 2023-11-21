@@ -1,10 +1,10 @@
 <section
-  class="custom-container p-5 md:p-7"
+  class="custom-container p-3 md:px-7"
   [ngStyle]="{ '--flex-direction': flexDirection }"
 >
   <div class="right-container">
     <img
-      class="w-32 aspect-video object-contain"
+      class="w-28 aspect-video object-contain"
       src="assets/img/logo.webp"
       alt="Irani-Expert"
     />
@@ -38,6 +38,6 @@
     </ng-container>
   </div>
   <div *ngIf="this.flexDirection == 'row'" class="left-container">
-    <img src="../../../assets/img/2Fa.png" alt="auth-modal-png" />
+    <app-lottie [config]="lottieConfig" />
   </div>
 </section>
