@@ -1,6 +1,5 @@
 import { Component , OnInit } from '@angular/core';
 import { RatingConfig, StarRating } from 'src/app/shared/rating/rating-config';
-import { Product, SingleProduct } from 'src/app/classes/interfaces/product.interface';
 import { ProductService } from '../product.service';
 
 @Component({
