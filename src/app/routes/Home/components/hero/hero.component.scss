@@ -20,7 +20,7 @@
 }
 .r-h {
   text-align: right;
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 .link {
   position: relative;
@@ -42,6 +42,7 @@
 .title-d {
   font-size: 15px;
   font-weight: 300;
+  margin-top: -12px;
 }
 .mizan-sod {
   text-align: center;
@@ -88,8 +89,11 @@
   font-style: oblique;
   word-spacing: 3px;
 }
+.part-right{
+  margin-top: -25px;
+}
 .header-paragraph {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: normal;
   text-align: justify;
 }
@@ -137,7 +141,7 @@
 }
 .hero2 {
   position: relative;
-  height: 559px;
+  height: 500px;
 }
 .hero-img2 {
   transform: translate(241px, -174px);
@@ -389,9 +393,15 @@
     height: 30px;
     top: calc(50% - 15px);
     left: 20px;
+    &.pre{
+      right: auto;
+      left: 20px;
+      scale: 2.1;
+    }
     &.next {
       left: auto;
       right: 20px;
+      scale: 2.1;
     }
   }
 }

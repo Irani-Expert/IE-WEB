@@ -41,18 +41,20 @@
     transition: all 0.4s ease;
   }
     
-  .accordion li i {
+  .accordion li img {
     position: absolute;
     top: 1.2rem;
     left: 1rem;
     color: #595959;
     transition: all 0.4s ease;
   }
-    
-  .accordion li.active i.fa-chevron-down {
-    transform: rotate(180deg);
-  }
-  
+  .accordion li span {
+    position: absolute;
+  left: 1.4rem;
+  color: #595959;
+  scale: 1.7;
+  font-weight: 300;
+  }  
   .accordion li.active .menu {
     color: #3246D3;
   }

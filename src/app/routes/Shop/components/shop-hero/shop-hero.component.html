@@ -30,7 +30,7 @@
           <div class="flex justify-around mb-10 ">
             <div *ngFor="let p of plan;let i = index" class="row-plan">
               <div class="flex flex-col" >
-                <button (click)="toggle(i)" ><p [ngClass]="plan[i].active ? 'activated' : ''" class="plan">{{p.title}}</p></button>
+                <button (click)="toggle(i)" ><p [ngClass]="plan[i].isActive ? 'activated' : ''" class="plan">{{p.title}}</p></button>
               </div>
             </div>
           </div>
@@ -75,3 +75,5 @@
     </div>
   </div> 
 </div>
+<app-question-shop></app-question-shop>
+<div *ngIf="loading">{{productService._product}}</div>

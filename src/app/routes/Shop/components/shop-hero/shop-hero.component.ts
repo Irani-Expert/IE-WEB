@@ -1,7 +1,7 @@
 import { Component , OnInit } from '@angular/core';
-import { planinterface } from './interfaces/plan-interface';
-import { PlanService } from './services/plan.service';
 import { RatingConfig, StarRating } from 'src/app/shared/rating/rating-config';
+import { Product, SingleProduct } from 'src/app/classes/interfaces/product.interface';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-shop-hero',
@@ -9,25 +9,26 @@ import { RatingConfig, StarRating } from 'src/app/shared/rating/rating-config';
   styleUrls: ['./shop-hero.component.scss']
 })
 export class ShopHeroComponent implements OnInit{
-
+  loading = true
   star : RatingConfig<StarRating> = {
     type:1,
     content:{readonly:true,currentRate:4,rate:5}
   } 
 
+  plan: any[];
 
-  plan : planinterface[];
+  constructor( public productService : ProductService ){}
 
-  constructor( private ps : PlanService ){}
-
-  ngOnInit(): void {
-    this.plan = this.ps.getPlan();
+  async ngOnInit() {
+    if(await this.productService.getProduct(1)) {
+      this.loading = false
+    }
   }
   // ==========={اکتیو}=========
   toggle(index : number){
-    this.plan[index].active = !this.plan[index].active;
-    this.plan.filter((plan , i)=> i !== index && plan.active)
-    .forEach(plan => plan.active = !plan.active);
+    this.plan[index].isActive = !this.plan[index].isActive;
+    this.plan.filter((plan , i)=> i !== index && plan.isActive)
+    .forEach(plan => plan.isActive = !plan.isActive);
     
   }
 }
