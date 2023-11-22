@@ -33,6 +33,7 @@ const footer = [FooterComponent];
   imports: [
     ModalComponent,
     AuthModule,
+
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,

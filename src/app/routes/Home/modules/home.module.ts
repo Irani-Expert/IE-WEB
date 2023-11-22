@@ -52,7 +52,6 @@ const components = [
   GiftFormComponent,
   ProductsComponent,
   TypeFilterComponent,
-
   AboutUsComponent,
   OrderFilterComponent,
   SearchFeildComponent,

@@ -19,7 +19,7 @@ const routes: Routes = [
     path: 'shop',
     title: 'Shop',
     loadChildren: () =>
-      import('./routes/Shop/modules/shop.module').then((m) => m.ShopModule),
+      import('./routes/Shop/module/shop.module').then((m) => m.ShopModule),
   },
 
   {
