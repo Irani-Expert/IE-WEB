@@ -65,7 +65,7 @@ export interface SingleProduct {
   platforms: number[];
   publishedBy: string;
   viewsCount: number;
-  plan: Plan[];
+  plans: Plan[];
   comments: Comment[];
   faQs: FAQ[];
   learns: Learn[];
