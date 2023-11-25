@@ -11,9 +11,9 @@ export class ProductCardComponent {
   productElement: HTMLElement; // Add the 'root' property
   test: any;
   constructor() {
-    // this.productElement != document.getElementById('product-card');
+    this.productElement != document.getElementById('product-card');
   }
   ngOnInit() {
-    // this.productElement.style.backgroundColor = '#f44336';
+    this.productElement.style.backgroundColor = '#f44336';
   }
 }
