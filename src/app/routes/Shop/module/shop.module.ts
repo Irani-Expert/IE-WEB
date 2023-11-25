@@ -12,6 +12,7 @@ import { FilterComponent } from 'src/app/shared/filter/filter.component';
 import { SearchComponent } from 'src/app/shared/filter/search-bar/search.component';
 import { BotOptionsComponent } from '../components/bot-options/bot-options.component';
 import { DescriptionComponent } from '../components/description/description.component';
+import { LandingProductComponent } from '../components/landing-product/landing-product.component';
 
 const components = [
   ShopHeroComponent,
@@ -19,7 +20,8 @@ const components = [
   LandingShopComponent,
   QuestionShopComponent,
   DetailCardComponent,
-  BotOptionsComponent
+  BotOptionsComponent,
+  LandingProductComponent
 ];
 
 @NgModule({
