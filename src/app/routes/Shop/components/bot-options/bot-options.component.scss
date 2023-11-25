@@ -1,32 +1,39 @@
+.row{
+    margin-right: 135px;
+  }
+  .divid-h{
+      font-weight: bold;
+      font-size: 15px;
+      color: #3246D3;
+      &::before {
+        content: "";
+       width: 26px;
+       height: 5px;
+       background-color: #3246D3;
+       border-radius: 6px;
+       display: inline-block;
+       margin: 0px 6px;
+      }
+    }
+    .l{
+      font-size: 50px;
+      font-weight: 900;
+    }
+    .faq-h{
+      color: black;
+          font-size: 25px;
+          font-weight: 700;
+        }
+// ============[faq]===============
 .box-shadow{
   padding-bottom: 30px;
 }
 .accordion {
     margin-top: 1rem;
-  
-    // width: 700px;
-    // background: none;
-    // box-shadow: 
-    // #F0F5FF 0px 1px 2px,
-    // #F0F5FF 0px 2px 4px,
-    // #F0F5FF 0px 4px 8px,
-    // #F0F5FF 0px 8px 16px,
-    // #F0F5FF 0px 16px 32px,
-    // #F0F5FF 0px 32px 64px;
-    li {
-      &:first-child{
-        box-shadow: 0px -11px 10px 9px rgb(50 69 211 / 3%);
-      }
-      &:last-child{
-        box-shadow: 0px 11px 10px 9px rgb(50 69 211 / 3%);
-      }
-
-    }
   }
   .border{
-    box-shadow: 0px 0px 10px 9px rgb(50 69 211 / 3%);
     border:  1px solid #ccc;
-    border-bottom: 2px solid #69686849;
+    border-top: 1px solid #69686849;
     border-radius: 10px;
     margin-bottom: 3px;
 
@@ -47,20 +54,9 @@
     left: 1rem;
     color: #595959;
     transition: all 0.4s ease;
-  }
-  .accordion li span {
-    position: absolute;
-  left: 1.4rem;
-  color: #595959;
-  scale: 1.7;
-  font-weight: 300;
   }  
-  .accordion li.active .menu {
-    color: #3246D3;
-  }
-  
-  .accordion li.active i {
-    color: #3246D3;
+  .accordion li.active img {
+    rotate: -90deg;
   }
     
   .submenu {

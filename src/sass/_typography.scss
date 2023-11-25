@@ -15,12 +15,6 @@ small {
   font-weight: 100;
 }
 
-@for $i from 10 through 70 {
-  .text-#{$i} {
-    font-size: #{$i}px;
-  }
-}
-
 .text-small {
   font-size: 0.82rem;
 }

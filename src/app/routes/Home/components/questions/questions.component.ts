@@ -10,13 +10,15 @@ import {lastValueFrom} from 'rxjs';
   styleUrls: ['./questions.component.scss']
 })
 export class QuestionsComponent {
+
+  constructor(private faq : FaqService){
+  }
+  
   questionFaq : FAQ[];
 
   async ngOnInit(){
    const res = this.faq.get('FAQ/GetByTableTypeAndRowID/1/6');
     this.questionFaq = (await lastValueFrom(res)).data!;
-  }
-  constructor(private faq : FaqService){
   }
   options: config = { multi: false };
   

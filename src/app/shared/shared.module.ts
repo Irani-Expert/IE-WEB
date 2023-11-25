@@ -4,15 +4,17 @@ import { AcordianComponent } from './acordian/acordian.component';
 import { CommonModule } from '@angular/common';
 import { CommentsComponent } from './comments/comments.component';
 import { Toggler } from './toggler/toggler.component';
+import { ScrollComponent } from './scroll/scroll.component';
+
 export function playerFactory(): any {
   return import('lottie-web');
 }
 
-const components = [TagsComponent, AcordianComponent, CommentsComponent];
+const components = [TagsComponent, AcordianComponent, CommentsComponent , ScrollComponent];
 @NgModule({
   imports: [CommonModule, Toggler],
   exports: [components],
-  declarations: [components],
+  declarations: [components, ScrollComponent],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

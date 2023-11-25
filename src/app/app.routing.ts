@@ -31,6 +31,11 @@ const routes: Routes = [
         (m) => m.CalendarModule
       ),
   },
+  // {
+  //   path: '**',
+  //   title: '404 - یافت نشد',
+  //   component: LandingPageComponent,
+  // },
 ];
 
 @NgModule({
