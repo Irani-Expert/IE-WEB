@@ -113,12 +113,12 @@
 }
 .price-1 {
   font-weight: 900;
-  font-size: 33px;
+  font-size: 2rem;
   color: black;
 }
 .price-2 {
   color: #6e6e6eb4;
-  font-size: 20px;
+  font-size: 1rem;
 }
 .price-3 {
   color: #6e6e6e;
@@ -158,4 +158,63 @@
 }
 .p-plan{
   margin-top: -10px;
+}
+// ====================[بنر]=============
+.all {
+  display: flex;
+  justify-content: center;
+}
+.baner-p {
+  font-size: 1rem;
+  font-weight: normal;
+  position: relative;
+}
+.baner-h {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.box-link {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.link {
+  color: white;
+  background-color: #098B41;
+  padding: 7px 19px 7px 19px;
+  border-radius: 2px 18px 18px 18px;
+  font-size: 14px;
+  margin-right: 15px;
+}
+.logo-i {
+  position: relative;
+  display: inline-flex;
+  justify-content: start;
+  padding: 0px 35px;
+}
+.logo {
+  position: absolute;
+  width: 80px;
+  aspect-ratio: 1/1;
+  bottom: 44px;
+  height: auto;
+  object-fit: contain;
+}
+.baner {
+  background-color: #F5F5F5;
+  height: 105px;
+  border-radius: 32px;
+  margin-left: 10px;
+  min-width: 490px;
+}
+.body {
+  color: black;
+  font-weight: 700;
+  padding-right: 24px;
+  font-size: 16px;
+}
+.box-body {
+  text-align: center;
+  display: flex;
+  align-items: center;
 }
