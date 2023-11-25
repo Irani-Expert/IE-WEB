@@ -72,7 +72,7 @@ input.search-input {
       background-color: transparent;
       cursor: pointer;
       font-weight: 500;
-      @extend .text-14;
+      font-size: 0.875rem;
     }
   }
   .content-container {
@@ -94,7 +94,7 @@ input.search-input {
         p {
           color: $dim-green !important;
           font-weight: 500;
-          @extend .text-13;
+          @extend .text-small;
         }
         span {
           transition: transform 0.3s ease-in;
