@@ -19,9 +19,5 @@ export class QuestionShopComponent {
   constructor(private faq : FaqService){
   }
   options: config = { multi: false };
-  // =========[اسکرول]=========
-  scroll(el: HTMLElement) {
-    el.scrollIntoView({behavior:"smooth"});
-  }
 
 }

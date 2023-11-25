@@ -25,14 +25,9 @@ export class ShopHeroComponent implements OnInit{
   // ============[سرویس ]==================
   selectedPlan: planInterface = planInit;
   plan : planInterface[] =new Array<planInterface>;
-  constructor ( private productService : ProductService , private optionService : ProductService){
+  constructor ( private productService : ProductService , ){
   }
 async ngOnInit() {
-  // ===============[]============
-  if(await this.optionService.getProduct(1)) {
-    this.faqOptions = this.optionService._product?.facilities!
-  }
-  // ======[]==========
   if(await this.productService.getProduct(1)) {
     this.productService._product?.plans.filter(it=> it.isActive == true).forEach((it,i)=> {
       if(i <=3) {

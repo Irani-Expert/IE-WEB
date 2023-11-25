@@ -1,0 +1,58 @@
+<!-- ==========[معرفی]=========== -->
+<app-scroll
+(scrollClick1)="scroll(description)"
+(scrollClick2)="scroll(option)"
+(scrollClick3)="scroll(backtest)"
+(scrollClick4)="scroll(question)"
+(scrollClick5)="scroll(comment)"
+></app-scroll>
+
+<div #description>
+</div>
+<!-- ==========[امکانات]=========== -->
+<app-scroll
+(scrollClick1)="scroll(description)"
+(scrollClick2)="scroll(option)"
+(scrollClick3)="scroll(backtest)"
+(scrollClick4)="scroll(question)"
+(scrollClick5)="scroll(comment)"
+></app-scroll>
+<div #option>
+    <app-bot-options [options]="options"
+    [faq]="faqOptions"
+    ></app-bot-options>    
+</div>
+<!-- ==========[بک تست]=========== -->
+<app-scroll
+(scrollClick1)="scroll(description)"
+(scrollClick2)="scroll(option)"
+(scrollClick3)="scroll(backtest)"
+(scrollClick4)="scroll(question)"
+(scrollClick5)="scroll(comment)"
+></app-scroll>
+
+<div #backtest>
+
+</div>
+<!-- ==========[سوالات]=========== -->
+<app-scroll
+(scrollClick1)="scroll(description)"
+(scrollClick2)="scroll(option)"
+(scrollClick3)="scroll(backtest)"
+(scrollClick4)="scroll(question)"
+(scrollClick5)="scroll(comment)"
+></app-scroll>
+<div #question>
+<app-question-shop></app-question-shop>
+</div>
+<!-- ==========[نظرات]=========== -->
+<app-scroll
+(scrollClick1)="scroll(description)"
+(scrollClick2)="scroll(option)"
+(scrollClick3)="scroll(backtest)"
+(scrollClick4)="scroll(question)"
+(scrollClick5)="scroll(comment)"
+></app-scroll>
+<div #comment>
+    
+</div>
