@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Subject, Subscription, debounceTime } from 'rxjs';
 
 @Component({
@@ -9,7 +9,7 @@ import { Subject, Subscription, debounceTime } from 'rxjs';
 })
 export class SearchComponent {
   @Output('result') inputValue = new EventEmitter<string>();
-
+  @Input('placeholder') placeholder: string;
   value: string | null = null;
   _searchInputSubscription: Subscription;
   _searchinput: Subject<string> = new Subject<string>();

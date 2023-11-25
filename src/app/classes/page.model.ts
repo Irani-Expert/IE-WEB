@@ -31,6 +31,9 @@ export class Page<T> {
   get _items() {
     return this.page.items;
   }
+  get totalPages() {
+    return this.page.totalPages;
+  }
   // next() {
   //   this.page.pageNumber;
   // }

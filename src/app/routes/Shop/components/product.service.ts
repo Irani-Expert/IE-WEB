@@ -36,7 +36,9 @@ export class ProductService extends BaseService<any> {
     const res = this.post(path, _filter).pipe(
       map((result) => {
         if (result.success) {
-          this.prdArray.next(result.data);
+          if (result.data.items.length == 0) this.prdArray.next(null);
+          else this.prdArray.next(result.data);
+
           return result.success;
         } else {
           return result.success;
