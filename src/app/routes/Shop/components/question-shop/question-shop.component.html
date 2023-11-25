@@ -1,10 +1,15 @@
-<div class="row">
+<app-scroll (scrollClick)="scroll(question)"
+></app-scroll>
+
+<div  class="row">
   <span class="divid-h">سوالات پرتکرار شما </span>
   <h6 class="faq-h mb-4">
     در ادامه تعدادی از پرتکرارترین سوالات را بررسی میکنیم
   </h6>
 </div>
-<app-acordian [options]="options" [faq]="questionFaq"></app-acordian>
+<div #question>
+  <app-acordian [options]="options" [faq]="questionFaq"></app-acordian>
+</div>
 <!-- <div class="mt-11">
   <app-comments></app-comments>
 </div> -->

@@ -6,11 +6,11 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./scroll.component.scss']
 })
 export class ScrollComponent {
+  @Output() scrollClick = new EventEmitter();
 
-@Output() scrollClick = new EventEmitter();
 
-onClick(event : any) {
-  this.scrollClick.emit();
-}
-
+  onClick(event : any ) {
+    console.log("child clieck");
+    this.scrollClick.emit();
+  }
 }
