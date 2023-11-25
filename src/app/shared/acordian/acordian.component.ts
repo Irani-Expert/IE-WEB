@@ -12,7 +12,6 @@ export class AcordianComponent implements OnInit {
   @Input() options : any;
   @Input() faq: FAQ[];
   config: config;
-  
   ngOnInit() {
 
     this.config = this.mergeConfig(this.options);
@@ -27,7 +26,7 @@ export class AcordianComponent implements OnInit {
     return { ...config, ...options };
   }
 
-  toggle(index: number) {
+  toggle(index: number , icon: boolean) {
     // ====================[submenu]========
     if (!this.config.multi) {
       this.faq.filter(
