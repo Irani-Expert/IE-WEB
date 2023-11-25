@@ -11,9 +11,11 @@ import { Checkbox } from 'src/app/shared/checkbox/checkbox.component';
 import { FilterComponent } from 'src/app/shared/filter/filter.component';
 import { SearchComponent } from 'src/app/shared/filter/search-bar/search.component';
 import { BotOptionsComponent } from '../components/bot-options/bot-options.component';
+import { DescriptionComponent } from '../components/description/description.component';
 
 const components = [
   ShopHeroComponent,
+  DescriptionComponent,
   LandingShopComponent,
   QuestionShopComponent,
   DetailCardComponent,
