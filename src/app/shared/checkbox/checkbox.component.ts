@@ -3,6 +3,7 @@ import {
   EventEmitter,
   CUSTOM_ELEMENTS_SCHEMA,
   Output,
+  Input,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -15,7 +16,7 @@ import { CommonModule } from '@angular/common';
 })
 export class Checkbox {
   @Output('checked') checked = new EventEmitter<boolean>();
-
+  @Input('fillOrNot') fillTheBox: boolean = false;
   inputStatus(value: boolean) {
     this.checked.emit(value);
   }
