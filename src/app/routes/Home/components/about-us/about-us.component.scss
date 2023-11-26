@@ -21,7 +21,7 @@ ul li::before {
   bottom: 14rem;
 }
 .open-item {
-  animation: myAnim 0.5s linear 0s 1 normal forwards;
+  animation: myAnim 0.35s linear 0s 1 normal forwards;
 }
 .video-bottom-Shadow {
   filter: blur(8px);
@@ -46,6 +46,6 @@ ul li::before {
   }
 
   100% {
-    top: 7.5rem;
+    transform: translateY(115px);
   }
 }

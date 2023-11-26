@@ -178,10 +178,11 @@
 }
 .link {
   color: white;
+  transform: translate(-250px, 0px);
   background-color: #098b41;
   padding: 7px 19px 7px 19px;
   border-radius: 2px 18px 18px 18px;
-  font-size: 14px;
+  font-size: 1.1rem;
   margin-right: 15px;
 }
 .logo-i {
@@ -192,7 +193,7 @@
 }
 .logo {
   position: absolute;
-  width: 80px;
+  width: 7rem;
   aspect-ratio: 1/1;
   bottom: 44px;
   height: auto;
@@ -208,11 +209,11 @@
 .body {
   color: black;
   font-weight: 700;
-  padding-right: 24px;
-  font-size: 16px;
+  margin-right: -190px;
+  margin-left: -179px;
+  font-size: 1.2rem;
 }
 .box-body {
-  text-align: center;
   display: flex;
   align-items: center;
 }

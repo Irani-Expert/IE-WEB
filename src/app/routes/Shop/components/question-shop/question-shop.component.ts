@@ -19,4 +19,5 @@ export class QuestionShopComponent {
   constructor(private faq : FaqService){
   }
   options: config = { multi: false };
+
 }

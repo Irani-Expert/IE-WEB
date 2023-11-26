@@ -8,6 +8,12 @@ import { IcardData } from './card-data';
 })
 export class ProductCardComponent {
   @Input() Data!: IcardData;
+  productElement: HTMLElement; // Add the 'root' property
   test: any;
-  ngOnInit() {}
+  constructor() {
+    // this.productElement != document.getElementById('product-card');
+  }
+  ngOnInit() {
+    // this.productElement.style.backgroundColor = '#f44336';
+  }
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 const routes: Routes = [
   // Here You Add Your Lazy Loading Modules
@@ -31,11 +32,11 @@ const routes: Routes = [
         (m) => m.CalendarModule
       ),
   },
-  // {
-  //   path: '**',
-  //   title: '404 - یافت نشد',
-  //   component: LandingPageComponent,
-  // },
+  {
+    path: '**',
+    title: '404 - یافت نشد',
+    component: NotFoundComponent,
+  },
 ];
 
 @NgModule({
