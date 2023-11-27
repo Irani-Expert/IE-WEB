@@ -1,0 +1,110 @@
+<section class="carousel" [ngStyle]="{ '--max-w-carousel': maxWidth }">
+  <div class="showing-img">
+    <picture [ngStyle]="{ '--translate-x': translateX }" class="relative"
+      ><img
+        [@move]="state"
+        width="345"
+        height="345"
+        [src]="selectedItem.src"
+        [alt]="selectedItem.id ? selectedItem.id : 'product-img'"
+      />
+      <span class="w-10 h-5 rounded-full counter-container">
+        <p>{{ _indexSelectedItem + 1 }}/{{ gallery.length }}</p>
+      </span>
+      <!-- <span class="w-7 h-7 rounded-full button-zoom">
+        <button
+          (click)="openGalleryModal()"
+          [ngStyle]="{ '--url': zoomUrl }"
+          class="w-full h-auto rounded-full zoom"
+        ></button>
+      </span> -->
+    </picture>
+    <!-- Button Right -->
+    <span class="w-7 h-7 rounded-full button-right">
+      <button
+        (click)="rightClick(_indexSelectedItem)"
+        class="w-full h-auto rounded-full right"
+      ></button>
+    </span>
+    <!-- Button Right -->
+
+    <!-- Button Left -->
+    <span class="w-7 h-7 rounded-full button-left">
+      <button
+        (click)="leftClick(_indexSelectedItem)"
+        class="w-full h-auto rounded-full left"
+      ></button>
+    </span>
+    <!-- Button Left -->
+  </div>
+  <div class="gallery-container">
+    <ng-container *ngFor="let picture of gallery; let i = index">
+      <picture
+        (click)="selectItem(picture)"
+        class="cursor-pointer"
+        [ngClass]="i == _indexSelectedItem ? 'active-item' : ''"
+        ><img
+          width="345"
+          height="345"
+          [src]="picture.src"
+          [alt]="picture.id ? picture.id : 'product-img'"
+      /></picture>
+    </ng-container>
+  </div>
+</section>
+<app-modal
+  [overflow]="'hidden'"
+  [width]="'716px'"
+  [header]="false"
+  *ngIf="showModal"
+>
+  <div content>
+    <section class="carousel" [ngStyle]="{ '--max-w-carousel': '800px' }">
+      <div class="showing-img">
+        <picture [ngStyle]="{ '--translate-x': translateX }" class="relative"
+          ><img
+            [@move]="state"
+            width="345"
+            height="345"
+            [src]="selectedItem.src"
+            [alt]="selectedItem.id ? selectedItem.id : 'product-img'"
+          />
+          <span class="w-10 h-5 rounded-full counter-container">
+            <p>{{ _indexSelectedItem + 1 }}/{{ gallery.length }}</p>
+          </span>
+        </picture>
+        <!-- Button Right -->
+        <span class="w-7 h-7 rounded-full button-right">
+          <button
+            (click)="rightClick(_indexSelectedItem)"
+            class="w-full h-auto rounded-full right"
+          ></button>
+        </span>
+        <!-- Button Right -->
+
+        <!-- Button Left -->
+        <span class="w-7 h-7 rounded-full button-left">
+          <button
+            (click)="leftClick(_indexSelectedItem)"
+            class="w-full h-auto rounded-full left"
+          ></button>
+        </span>
+        <!-- Button Left -->
+      </div>
+      <div class="gallery-container">
+        <ng-container *ngFor="let picture of gallery; let i = index">
+          <picture
+            (click)="selectItem(picture)"
+            class="cursor-pointer"
+            [ngClass]="i == _indexSelectedItem ? 'active-item' : ''"
+            ><img
+              width="345"
+              height="345"
+              [src]="picture.src"
+              [alt]="picture.id ? picture.id : 'product-img'"
+          /></picture>
+        </ng-container>
+      </div>
+    </section>
+  </div>
+</app-modal>

@@ -3,6 +3,7 @@ import { IMenuItem } from 'src/app/classes/interfaces/menu-item';
 import { NavigationService } from 'src/app/classes/services/navigation.service';
 import { Header } from '../header';
 import { ModalService } from 'src/app/shared/modal/services/modal.service';
+import { HeaderLayoutComponent } from '../header-layout.component';
 
 @Component({
   selector: 'app-header-lg',
@@ -24,8 +25,15 @@ export class HeaderLgComponent extends Header {
   }
   openModal(type: string) {
     this.openingModal.emit(type);
-    this.modal.open().subscribe((action) => {
-      console.log(action);
+
+    this.modal.open().subscribe({
+      next: (action) => {
+        console.log(action);
+      },
+      complete: () => {
+        HeaderLayoutComponent.modalStatus = false;
+      },
     });
+    HeaderLayoutComponent.modalStatus = true;
   }
 }

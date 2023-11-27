@@ -11,6 +11,7 @@ import { NavigationService } from 'src/app/classes/services/navigation.service';
 import { Utils } from 'src/app/classes/utils';
 import { ModalService } from 'src/app/shared/modal/services/modal.service';
 import { AppComponent } from 'src/app/app.component';
+import { HeaderLayoutComponent } from '../header-layout.component';
 
 @Component({
   selector: 'app-header-sm',
@@ -71,8 +72,14 @@ export class HeaderSmComponent extends Header {
   }
   openModal(type: string) {
     this.openingModal.emit(type);
-    this.modal.open().subscribe((action) => {
-      console.log(action);
+    this.modal.open().subscribe({
+      next: (action) => {
+        console.log(action);
+      },
+      complete: () => {
+        HeaderLayoutComponent.modalStatus = false;
+      },
     });
+    HeaderLayoutComponent.modalStatus = true;
   }
 }

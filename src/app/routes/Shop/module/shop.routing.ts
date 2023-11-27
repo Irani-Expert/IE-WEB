@@ -6,8 +6,8 @@ import { ShopHeroComponent } from '../components/shop-hero/shop-hero.component';
 const routes: Routes = [
   { path: '', redirectTo: 'page/1', pathMatch: 'full' },
   { path: 'page', redirectTo: 'page/1', pathMatch: 'full' },
-  { path: 'page/:id', pathMatch: 'prefix', component: LandingShopComponent },
-  { path: ':title', pathMatch: 'full', component: ShopHeroComponent },
+  { path: 'page/:id', pathMatch: 'full', component: LandingShopComponent },
+  { path: ':title', pathMatch: 'prefix', component: ShopHeroComponent },
 ];
 
 @NgModule({

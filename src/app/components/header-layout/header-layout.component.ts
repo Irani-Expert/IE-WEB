@@ -1,7 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { PlatformService } from 'src/app/classes/services/platform.service';
 import { Utils } from 'src/app/classes/utils';
-import { ModalService } from 'src/app/shared/modal/services/modal.service';
+// import { ModalService } from 'src/app/shared/modal/services/modal.service';
 
 enum Device {
   Mobile = 'sm',
@@ -15,9 +15,12 @@ enum Device {
 export class HeaderLayoutComponent {
   device = 'lg';
   modalView = '';
-  modalStatus;
-  constructor(private platform: PlatformService, private modal: ModalService) {
-    this.modalStatus = this.modal.modalStatusSubject;
+  static modalStatus: boolean = false;
+  get _modalStatus() {
+    return HeaderLayoutComponent.modalStatus;
+  }
+  constructor(private platform: PlatformService) {
+    // this.modalStatus = this.modal.modalStatusSubject;
   }
   ngOnInit() {
     this.updateDeviceValue();

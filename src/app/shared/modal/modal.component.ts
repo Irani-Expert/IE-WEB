@@ -29,6 +29,7 @@ import { CommonModule } from '@angular/common';
   ],
 })
 export class ModalComponent {
+  @Input('header') header: boolean = true;
   @Input('overflow') overflow!: string;
   @Input('width') width: string = 'auto';
   constructor(private el: ElementRef, private modal: ModalService) {}
