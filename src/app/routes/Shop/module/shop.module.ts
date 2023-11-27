@@ -14,8 +14,10 @@ import { BotOptionsComponent } from '../components/bot-options/bot-options.compo
 import { DescriptionComponent } from '../components/description/description.component';
 import { LandingProductComponent } from '../components/landing-product/landing-product.component';
 import { CarouselComponent } from 'src/app/shared/carousel/carousel.component';
+import { BackTestComponent } from '../components/back-test/back-test.component';
 
 const components = [
+  BackTestComponent,
   ShopHeroComponent,
   DescriptionComponent,
   LandingShopComponent,
@@ -37,6 +39,7 @@ const components = [
     RatingComponent,
     Checkbox,
     SearchComponent,
+    
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

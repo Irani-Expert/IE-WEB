@@ -9,7 +9,6 @@ import { SliderComponent } from '../components/slider/slider.component';
 import { BotFacilitiesComponent } from '../components/bot-facilities/bot-facilities.component';
 import { BotAdvantagesComponent } from '../components/bot-advantages/bot-advantages.component';
 import { LandingArticleComponent } from '../components/landing-article/landing-article.component';
-import { VideoPlayerComponent } from '../components/video-player/video-player.component';
 import { ConsultationFormComponent } from '../components/consultation-form/consultation-form.component';
 import { GiftFormComponent } from '../components/gift-form/gift-form.component';
 import { BannersComponent } from '../components/banners/banners.component';
@@ -44,7 +43,7 @@ const components = [
   BotFacilitiesComponent,
   BotAdvantagesComponent,
   LandingArticleComponent,
-  VideoPlayerComponent,
+
   ConsultationFormComponent,
   GiftFormComponent,
   BannersComponent,
