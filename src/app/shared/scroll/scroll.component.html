@@ -1,7 +1,14 @@
-<div class="scroll-nav flex justify-start ">
-    <button class="box-s"><a (click)="onClick1($event)" class="box-body">معرفی</a></button>
-    <button class="box-s"><a (click)="onClick2($event)" class="box-body">امکانات</a></button>
-    <button class="box-s"><a (click)="onClick3($event)" class="box-body">بک تست</a></button>
-    <button class="box-s"><a (click)="onClick4($event)" class="box-body">سوالات متداول</a></button>
-    <button class="box-s"><a (click)="onClick5($event)" class="box-body">نظرات</a></button>
+<div class="scroll-nav flex justify-start" >
+    <div *ngFor=" let s of scroll;let i = index" class="box-s">
+        <button class="box-body"
+        ><p
+        (click)="toggle(i , $event)"
+        [ngClass]="scroll[i].active ? 'active' : ''"
+        >{{s.name}}
+        </p>    
+       </button>
+       <div
+       [ngClass]="scroll[i].active ? 'border' : ''"
+       ></div>
+    </div>
 </div>
