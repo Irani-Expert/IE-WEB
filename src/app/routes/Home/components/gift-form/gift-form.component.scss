@@ -9,6 +9,20 @@ input[type="checkbox"] {
   width: 0;
   visibility: hidden;
 }
+.header-start {
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: #098b41;
+  &::before {
+    content: "";
+    width: 20px;
+    height: 5px;
+    background-color: #098b41;
+    border-radius: 6px;
+    display: inline-block;
+    margin: 2px 6px;
+  }
+}
 input {
   border: none !important;
   padding: 15px;

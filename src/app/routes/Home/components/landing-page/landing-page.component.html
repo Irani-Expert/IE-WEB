@@ -1,50 +1,145 @@
 <app-hero />
-<div class="bg-white mb-20 pb-6 rounded-b-[2.5rem] items-center">
-  <app-tags />
-  <app-service-baner />
-  <app-instagram-baner />
-  <app-trade-beginning />
-  <app-bot-showcase />
-  <app-gift-form></app-gift-form>
-  <div class="flex justify-center items-center">
-    <div class="w-[72%] mt-5">
-      <app-discount-banner></app-discount-banner>
-    </div>
-  </div>
-</div>
-<!-- 
-<div class="bg-white mb-20 pb-6 rounded-b-[2.5rem] items-center">
 
-
-
-  <div class="flex justify-center">
-    <div class="w-[72%]">
-      <app-card-title
-        [title]="'مدرسه ترید'"
-        [type]="'دوره اموزشی'"
-        [iconlink]="'../../../assets/img/Union 25.png'"
-      ></app-card-title>
-      <div class="flex justify-center">
-        <app-product-card
-          *ngFor="let data of card_data"
-          [Data]="data"
-        ></app-product-card>
+<div class="bg-[#F5F5F5]">
+  <div
+    class="bg-white flex flex-col mb-20 pb-6 rounded-b-[2.5rem] items-center"
+  >
+    <app-tags />
+    <app-service-baner />
+    <app-instagram-baner />
+    <app-trade-beginning />
+    <app-bot-showcase />
+    <app-gift-form></app-gift-form>
+    <!-- 
+  <div class="bg-white mb-20 pb-6 rounded-b-[2.5rem] items-center">
+  
+  
+  
+    <div class="flex justify-center">
+      <div class="w-[72%]">
+        <app-card-title
+          [title]="'مدرسه ترید'"
+          [type]="'دوره اموزشی'"
+          [iconlink]="'../../../assets/img/Union 25.png'"
+        ></app-card-title>
+        <div class="flex justify-center">
+          <app-product-card
+            *ngFor="let data of card_data"
+            [Data]="data"
+          ></app-product-card>
+        </div>
+        <app-card-link
+          [btnName]="'مدرسه ترید'"
+          [paragraph]="
+            'در مدرسه ترید ایرانی اکسپرت می توانید آخرین آموزش های مرتبط به بازار های مالی را مشاهده و بررسی کنید'
+          "
+        ></app-card-link>
       </div>
-      <app-card-link
-        [btnName]="'مدرسه ترید'"
-        [paragraph]="
-          'در مدرسه ترید ایرانی اکسپرت می توانید آخرین آموزش های مرتبط به بازار های مالی را مشاهده و بررسی کنید'
-        "
-      ></app-card-link>
+    </div>
+    <div class="flex justify-center">
+      <div class="w-[72%] mt-5">
+        <app-discount-banner></app-discount-banner>
+      </div>
+    </div>
+    <div class="flex justify-center">
+      <div class="w-[72%]">
+        <app-card-title
+          [title]="'فروشگاه محصولات'"
+          [type]="'محصولات ایرانی اکسپرت'"
+          [iconlink]="'../../../assets/img/Group 553.png '"
+        ></app-card-title>
+        <div class="flex justify-center">
+          <app-product-card
+            *ngFor="let data of card_data2"
+            [Data]="data"
+          ></app-product-card>
+        </div>
+        <app-card-link
+          [btnName]="'فروشگاه'"
+          [paragraph]="
+            '  لیست کامل محصولات ایرانی اکسپرت را در صفحه فروشگاه می توانید بررسی و خریداری کنید'
+          "
+        ></app-card-link>
+      </div>
+    </div>
+      <div class="w-[70%] mt-5">
+        <app-discount-banner></app-discount-banner>
+      </div>
     </div>
   </div>
-  <div class="flex justify-center">
-    <div class="w-[72%] mt-5">
-      <app-discount-banner></app-discount-banner>
+  
+  <div
+    class="bg-white mb-20 pb-6 sm:rounded-b-[2.5rem] flex flex-col items-center"
+  >
+    <div class="w-9/12 flex flex-col">
+      <app-landing-article></app-landing-article>
+      <app-banners></app-banners>
+      <div class="text-center">
+        <h2 class="text-2xl">ویدیو معرفی ربات معامله گر ایرانی اکسپرتATM</h2>
+        <p class="text-xl">
+          یرانی اکسپرت بر خلاف بسیاری از مجموعه ها که اکسپرت های خود را پس از
+          فروش، مشاوره و پشتیبانی نمیدهند، با افتخار اعلام می کند که پس از تحویل
+          اکسپرت، تازه شروع سرویس دهی، راهنمایی و خدمات است و متعهد می شود همواره
+          در کنار مشتریان خواهد بود. ضمن اینکه ایرانی اکسپرت آمادگی خود را اعلام
+          می کند جهت مشاوره و راهنمایی در خصوص انتخاب مناسب ترین بروکر، نقل و
+          انتقالات ارزی، نصب و راه اندازی اکسپرت ها، سرور مجازی VPS، انواع تحلیل،
+          ترید و....
+        </p>
+      </div>
+      <app-video-player [VideoId]="0" [homeScreen]="true"></app-video-player>
     </div>
   </div>
-  <div class="flex justify-center">
-    <div class="w-[72%]">
+  <div>
+    <h1 class="text-4xl text-green-800 text-center oblique">
+      یک ربات با چندین مزایا
+    </h1>
+    <p class="text-center text-black text-3xl">سود ما در راستای سود شماست</p>
+    <div class="flex justify-center">
+      <div class="w-9/12 bg-cover bgi-world-map1 sm:h-[37rem] flex items-center">
+        <app-bot-advantages />
+      </div>
+    </div>
+  
+    <h1 class="sm:text-4xl text-2xl text-green-800 text-center oblique mt-30">
+      درخواست مشاوره
+    </h1>
+    <p class="text-center text-black text-xl sm:text-3xl">
+      لطفا اطلاعات خود را ثبت کنید تا همکاران ما در ایرانی اکسپرت با شما تماس
+      بگیرند
+    </p>
+    <app-consultation-form></app-consultation-form>
+  </div>
+   -->
+    <!-- <div class="">
+    <h1 class="text-4xl text-green-800 text-center oblique">
+      یک ربات با چندین مزایا
+    </h1>
+    <p class="text-center text-black text-3xl">سود ما در راستای سود شماست</p>
+    <div class="flex justify-center">
+      <div class="w-9/12 bg-cover bgi-world-map1 h-[37rem] flex items-center">
+        <app-bot-advantages />
+      </div>
+    </div>
+  
+    <h1 class="text-4xl text-green-800 text-center oblique">درخواست مشاوره</h1>
+    <p class="text-center text-black text-3xl">
+      لطفا اطلاعات خود را ثبت کنید تا همکاران ما در ایرانی اکسپرت با شما تماس
+      بگیرند
+    </p>
+    <app-consultation-form></app-consultation-form>
+  </div> -->
+    <!-- <app-slider /> -->
+    <!-- <app-bot-advantages /> -->
+    <!-- <app-sell-info></app-sell-info> -->
+    <!-- <app-hero></app-hero>
+  <app-tags />
+  <app-service-baner></app-service-baner>
+  <app-instagram-baner></app-instagram-baner>
+  <app-bot-showcase></app-bot-showcase> -->
+    <!--  -->
+
+    <!-- Cards -->
+    <div class="w-[72%] mb-6 mt-4">
       <app-card-title
         [title]="'فروشگاه محصولات'"
         [type]="'محصولات ایرانی اکسپرت'"
@@ -63,150 +158,91 @@
         "
       ></app-card-link>
     </div>
-  </div>
-    <div class="w-[70%] mt-5">
-      <app-discount-banner></app-discount-banner>
-    </div>
-  </div>
-</div>
+    <app-discount-banner></app-discount-banner>
 
-<div
-  class="bg-white mb-20 pb-6 sm:rounded-b-[2.5rem] flex flex-col items-center"
->
-  <div class="w-9/12 flex flex-col">
-    <app-landing-article></app-landing-article>
-    <app-banners></app-banners>
-    <div class="text-center">
-      <h2 class="text-2xl">ویدیو معرفی ربات معامله گر ایرانی اکسپرتATM</h2>
-      <p class="text-xl">
-        یرانی اکسپرت بر خلاف بسیاری از مجموعه ها که اکسپرت های خود را پس از
-        فروش، مشاوره و پشتیبانی نمیدهند، با افتخار اعلام می کند که پس از تحویل
-        اکسپرت، تازه شروع سرویس دهی، راهنمایی و خدمات است و متعهد می شود همواره
-        در کنار مشتریان خواهد بود. ضمن اینکه ایرانی اکسپرت آمادگی خود را اعلام
-        می کند جهت مشاوره و راهنمایی در خصوص انتخاب مناسب ترین بروکر، نقل و
-        انتقالات ارزی، نصب و راه اندازی اکسپرت ها، سرور مجازی VPS، انواع تحلیل،
-        ترید و....
-      </p>
+    <div class="w-[72%] mb-4 mt-4">
+      <app-card-title
+        [title]="'مدرسه ترید'"
+        [type]="'دوره اموزشی'"
+        [iconlink]="'../../../assets/img/Union 25.png'"
+      ></app-card-title>
+      <div class="flex justify-center">
+        <app-product-card
+          *ngFor="let data of card_data"
+          [Data]="data"
+        ></app-product-card>
+      </div>
+      <app-card-link
+        [btnName]="'مدرسه ترید'"
+        [paragraph]="
+          'در مدرسه ترید ایرانی اکسپرت می توانید آخرین آموزش های مرتبط به بازار های مالی را مشاهده و بررسی کنید'
+        "
+      ></app-card-link>
+      <app-banners></app-banners>
+      <app-landing-article />
     </div>
+  </div>
+
+  <h1 class="text-4xl text-green-800 text-center oblique">
+    یک ربات با چندین مزایا
+  </h1>
+  <p class="text-center text-black text-3xl">سود ما در راستای سود شماست</p>
+  <div class="flex justify-center">
+    <div class="w-9/12 bg-cover bgi-world-map1 sm:h-[37rem] flex items-center">
+      <app-bot-advantages />
+    </div>
+  </div>
+
+  <h1 class="sm:text-4xl text-2xl text-green-800 text-center oblique mt-30">
+    درخواست مشاوره
+  </h1>
+  <p class="text-center text-black text-xl sm:text-3xl">
+    لطفا اطلاعات خود را ثبت کنید تا همکاران ما در ایرانی اکسپرت با شما تماس
+    بگیرند
+  </p>
+  <app-consultation-form></app-consultation-form>
+  <div class="bg-white pb-4 pt-2 rounded-b-[2.5rem] mb-2">
+    <app-questions></app-questions>
+    <div class="flex justify-center">
+      <div class="w-[64rem]">
+        <h2 class="text-3xl font-bold">مقدمه ای بر ایرانی اکسپرت</h2>
+        <p>
+          ایرانی اکسپرت، از ۱ فوریه سال ۲۰۲۱، با تحقیق و توسعه استراتژی‌ها و
+          ابزارهای مختلف معاملاتی بازار فارکس، به مقایسه مزایا ومعایب ربات‌های
+          معامله‌گرفارکس موجود .تولید کرد (Automated Trading Machine) ATM
+          پرداخت. که در نهایت، با بکارگیری قویترین استراتژی معاملاتی، دستیارترید
+          کاملا خودکار کم نظیر خود را با عنوان ربات همچنان بی نظیر بود و نه تنها
+          ضرر نکرد، بلکه با سود ATM باید بگیم که تنها ۲۴ روز بعد، در ۲۴ فوریه
+          ۲۰۲۲، جنگ روسیه و اوکراین شروع شد. در این زمان، عملکرد ربات .از
+          نوسانات وحشتناک دوران جنگ خارج شد ،
+          <br />
+          مجموعه‌ ایرانی اکسپرت، تصمیم به فروش ربات معامله‌گرفارکس خود گرفتATM.
+          <br />
+
+          پس از گذشت ۳ ماه، با اثبات عملکرد بی نظیر ربات ، مشخص شد که شامل این
+          موارد می باشدATM: ما، بزرگترین ایرادات ربات‌های معامله‌گررقبا نسبت به
+          ربات D&R با توجه به تحقیق و بررسی تیم  مدیریت سرمایه ندارند 
+          استراتژی قابل قبولی ندارند  اخبار فاندامنتال را تشخیص نمی‌دهند 
+          امکان مدیریت معاملات باز را ندارند در نتیجه، اکسپرت فارکس ما، ازلحظه
+          تولید تا به اکنون، اول نوامبر ۲۰۲۳، به صورت متداول در حال آپدیت می
+          باشد، که موفق به تولید ورژن ۸ از آن شده‌ایم و تمام نقاط .ضعف ذکر شده
+          را رفع کرده‌ایم . عزیزان می‌توانند جهت ثبت سفارش به صفحه فروشگاه سایت
+          ایرانی اکسپرت مراجعه نمایند . ایرانی اکسپرت، در کنار فروش ربات، در
+          زمینه آموزش ترید در فارکس، انواع تحلیل و برنامه نویسی بازارهای مالی
+          نیز، به صورت حضوری یا آنلاین، فعالیت دارد تیم ما همچنین، با توجه به
+          اهمیت تحلیل فاندامنتال در بحث ترید، اخبار اقتصادی سایت‌های معتبر و مهم
+          را گردآوری و به زبان فارسی ترجمه کرده است. این اخبار، در .دسترس همه
+          تریدرها، روی سایت ایرانی اکسپرت به نمایش گذاشته شده است ، همواره درحال
+          به‌روزرسانی بوده و یکی از افتخارات ما اینست که آغوش ما همیشه روی معایب
+          و انتقادات تریدرها، جهت استفاده از تجربه گرانبهای آن‌ها درATM ربات
+          .تقویت عملکرد ربات، بازاست
+        </p>
+      </div>
+    </div>
+
     <app-video-player [VideoId]="0" [homeScreen]="true"></app-video-player>
   </div>
 </div>
-<div>
-  <h1 class="text-4xl text-green-800 text-center oblique">
-    یک ربات با چندین مزایا
-  </h1>
-  <p class="text-center text-black text-3xl">سود ما در راستای سود شماست</p>
-  <div class="flex justify-center">
-    <div class="w-9/12 bg-cover bgi-world-map1 sm:h-[37rem] flex items-center">
-      <app-bot-advantages />
-    </div>
-  </div>
-
-  <h1 class="sm:text-4xl text-2xl text-green-800 text-center oblique mt-30">
-    درخواست مشاوره
-  </h1>
-  <p class="text-center text-black text-xl sm:text-3xl">
-    لطفا اطلاعات خود را ثبت کنید تا همکاران ما در ایرانی اکسپرت با شما تماس
-    بگیرند
-  </p>
-  <app-consultation-form></app-consultation-form>
-</div>
- -->
-<!-- <div class="">
-  <h1 class="text-4xl text-green-800 text-center oblique">
-    یک ربات با چندین مزایا
-  </h1>
-  <p class="text-center text-black text-3xl">سود ما در راستای سود شماست</p>
-  <div class="flex justify-center">
-    <div class="w-9/12 bg-cover bgi-world-map1 h-[37rem] flex items-center">
-      <app-bot-advantages />
-    </div>
-  </div>
-
-  <h1 class="text-4xl text-green-800 text-center oblique">درخواست مشاوره</h1>
-  <p class="text-center text-black text-3xl">
-    لطفا اطلاعات خود را ثبت کنید تا همکاران ما در ایرانی اکسپرت با شما تماس
-    بگیرند
-  </p>
-  <app-consultation-form></app-consultation-form>
-</div> -->
-<!-- <app-slider /> -->
-<!-- <app-bot-advantages /> -->
-<!-- <app-sell-info></app-sell-info> -->
-<!-- <app-hero></app-hero>
-<app-tags />
-<app-service-baner></app-service-baner>
-<app-instagram-baner></app-instagram-baner>
-<app-bot-showcase></app-bot-showcase> -->
-<!--  -->
-
-<!-- Cards -->
-<div class="flex justify-center">
-  <div class="w-[72%]">
-    <app-card-title
-      [title]="'فروشگاه محصولات'"
-      [type]="'محصولات ایرانی اکسپرت'"
-      [iconlink]="'../../../assets/img/Group 553.png '"
-    ></app-card-title>
-    <div class="flex justify-center">
-      <app-product-card
-        *ngFor="let data of card_data2"
-        [Data]="data"
-      ></app-product-card>
-    </div>
-    <app-card-link
-      [btnName]="'فروشگاه'"
-      [paragraph]="
-        '  لیست کامل محصولات ایرانی اکسپرت را در صفحه فروشگاه می توانید بررسی و خریداری کنید'
-      "
-    ></app-card-link>
-  </div>
-</div>
-<div class="flex justify-center">
-  <div class="w-[72%]">
-    <app-card-title
-      [title]="'مدرسه ترید'"
-      [type]="'دوره اموزشی'"
-      [iconlink]="'../../../assets/img/Union 25.png'"
-    ></app-card-title>
-    <div class="flex justify-center">
-      <app-product-card
-        *ngFor="let data of card_data"
-        [Data]="data"
-      ></app-product-card>
-    </div>
-    <app-card-link
-      [btnName]="'مدرسه ترید'"
-      [paragraph]="
-        'در مدرسه ترید ایرانی اکسپرت می توانید آخرین آموزش های مرتبط به بازار های مالی را مشاهده و بررسی کنید'
-      "
-    ></app-card-link>
-    <app-banners></app-banners>
-    <app-landing-article />
-  </div>
-</div>
-<div>
-  <h1 class="text-4xl text-green-800 text-center oblique">
-    یک ربات با چندین مزایا
-  </h1>
-  <p class="text-center text-black text-3xl">سود ما در راستای سود شماست</p>
-  <div class="flex justify-center">
-    <div class="w-9/12 bg-cover bgi-world-map1 sm:h-[37rem] flex items-center">
-      <app-bot-advantages />
-    </div>
-  </div>
-
-  <h1 class="sm:text-4xl text-2xl text-green-800 text-center oblique mt-30">
-    درخواست مشاوره
-  </h1>
-  <p class="text-center text-black text-xl sm:text-3xl">
-    لطفا اطلاعات خود را ثبت کنید تا همکاران ما در ایرانی اکسپرت با شما تماس
-    بگیرند
-  </p>
-  <app-consultation-form></app-consultation-form>
-</div>
-<app-questions></app-questions>
-<app-video-player [VideoId]="0" [homeScreen]="true"></app-video-player>
 
 <!-- Removed Designs -->
 
