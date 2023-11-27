@@ -9,26 +9,27 @@
 ></app-scroll>
 
 <div #description>
-
+<app-description></app-description>
 </div>
 <!-- ==========[امکانات]=========== -->
 
-<app-scroll
-[activeId]="1"
-(scrollClick1)="scroll(description)"
-(scrollClick2)="scroll(option)"
-(scrollClick3)="scroll(backtest)"
-(scrollClick4)="scroll(question)"
-(scrollClick5)="scroll(comment)"
-></app-scroll>
-
 <div #option>
-    <app-bot-options [options]="options"
-    [faq]="faqOptions"
-    ></app-bot-options>    
+    <app-scroll
+    [activeId]="1"
+    (scrollClick1)="scroll(description)"
+    (scrollClick2)="scroll(option)"
+    (scrollClick3)="scroll(backtest)"
+    (scrollClick4)="scroll(question)"
+    (scrollClick5)="scroll(comment)"
+    ></app-scroll>    
 </div>
-<!-- ==========[بک تست]=========== -->
 
+<app-bot-options [options]="options"
+[faq]="faqOptions"
+></app-bot-options>
+
+<!-- ==========[بک تست]=========== -->
+<div #backtest>
 <app-scroll
 [activeId]="2"
 (scrollClick1)="scroll(description)"
@@ -37,12 +38,12 @@
 (scrollClick4)="scroll(question)"
 (scrollClick5)="scroll(comment)"
 ></app-scroll>
-
-<div #backtest>
-
 </div>
-<!-- ==========[سوالات]=========== -->
 
+<app-back-test>
+
+<!-- ==========[سوالات]=========== -->
+<div #question>
 <app-scroll
 [activeId]="3"
 (scrollClick1)="scroll(description)"
@@ -51,11 +52,12 @@
 (scrollClick4)="scroll(question)"
 (scrollClick5)="scroll(comment)"
 ></app-scroll>
-
-<div #question>
-<app-question-shop></app-question-shop>
 </div>
+
+<app-question-shop></app-question-shop>
+
 <!-- ==========[نظرات]=========== -->
+<div #comment>
 <app-scroll
 [activeId]="4"
 (scrollClick1)="scroll(description)"
@@ -64,7 +66,6 @@
 (scrollClick4)="scroll(question)"
 (scrollClick5)="scroll(comment)"
 ></app-scroll>
-
-<div #comment>
-    <app-comments></app-comments>
 </div>
+
+<app-comments></app-comments>

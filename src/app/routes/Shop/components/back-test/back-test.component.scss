@@ -1,0 +1,47 @@
+.row{
+    margin-right: 135px;
+  }
+  .divid-h{
+      font-weight: 500;
+      font-size: 15px;
+      color: #3246D3;
+      &::before {
+        content: "";
+       width: 26px;
+       height: 5px;
+       background-color: #3246D3;
+       border-radius: 6px;
+       display: inline-block;
+       margin: 0px 6px;
+      }
+    }
+    .l{
+      font-size: 50px;
+      font-weight: 900;
+    }
+    .b-t-h{
+      color: black;
+      font-size: 25px;
+      font-weight: 500;
+    }
+    .row-body{
+        display: flex;
+        align-items: center;
+        padding-right: 14rem;
+        padding-left: 14rem;
+
+    }
+    .body{
+        width: 126rem;
+    }
+    .body-p{
+        color: black;
+        font-size: 0.9rem;
+    }
+    // ======================={ویدیو}======================
+    .video{
+        border: #BBBBBB 2px solid;
+        border-radius: 10px;
+        width: 100%;
+        aspect-ratio: 6/3;
+    }
