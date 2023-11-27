@@ -140,6 +140,20 @@ body {
 .color--blue {
   color: $blue;
 }
+
+@for $i from 1 through 2 {
+  .seperator-hz-#{$i} {
+    width: 100%;
+    display: block;
+    border-bottom: #{$i}px solid #d2d2d2;
+  }
+  .seperator-vc-#{$i} {
+    height: 100%;
+    display: block;
+    border-bottom: #{$i}px solid #d2d2d2;
+  }
+}
+
 //esmesh ro behtarok
 .box-shadow-ac:hover {
   animation: blueborder 0.4s ease forwards;

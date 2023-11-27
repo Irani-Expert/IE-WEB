@@ -22,7 +22,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('./routes/Shop/module/shop.module').then((m) => m.ShopModule),
   },
-
+  {
+    path: 'checkout',
+    title: 'ایرانی اکسپرت',
+    loadChildren: () =>
+      import('./routes/Checkout/checkout.module').then((m) => m.CheckoutModule),
+  },
   {
     path: 'calendar',
     title: 'calendar',
