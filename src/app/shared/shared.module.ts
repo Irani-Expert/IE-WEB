@@ -11,7 +11,12 @@ export function playerFactory(): any {
   return import('lottie-web');
 }
 
-const components = [TagsComponent, AcordianComponent, CommentsComponent , ScrollComponent];
+const components = [
+  TagsComponent,
+  AcordianComponent,
+  CommentsComponent,
+  ScrollComponent,
+];
 @NgModule({
   imports: [CommonModule, Toggler],
   exports: [components],

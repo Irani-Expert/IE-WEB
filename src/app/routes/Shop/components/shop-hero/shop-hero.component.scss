@@ -8,7 +8,7 @@
   margin-top: -3px;
   font-style: oblique;
 }
-.star-rating{
+.star-rating {
   position: relative;
   transform: translate(57px, 0px);
   display: block;
@@ -33,21 +33,20 @@
   transform: translate(-85px, -25px);
   font-size: 12px;
   font-weight: bold;
-
 }
 .product-left {
   margin-right: -215px;
   margin-left: 30px;
 }
-.click{
-    color: #6E6E6E;
-    font-weight: 500;
-    background-color: #F3F3F3;
-    border-radius: 15px;
-    padding: 4px 7.5px 4px 7.5px;
-    font-size: 10px;
+.click {
+  color: #6e6e6e;
+  font-weight: 500;
+  background-color: #f3f3f3;
+  border-radius: 15px;
+  padding: 4px 7.5px 4px 7.5px;
+  font-size: 10px;
 }
-.row-rating{
+.row-rating {
   position: relative;
   margin-top: -17px;
 }
@@ -70,7 +69,7 @@
 }
 .product-d {
   background-color: #f5f5f5;
-  border: #DCDCDC solid 2PX;
+  border: #dcdcdc solid 2px;
   border-radius: 15px;
   margin-top: 50px;
   margin-right: 78px;
@@ -94,7 +93,6 @@
   font-size: 14px;
   font-weight: 700;
   color: #535353;
-
 }
 .row-p-2 {
   font-size: 14px;
@@ -136,12 +134,12 @@
   margin-right: -14px;
   margin-left: -14px;
 }
-.btn{
-    border-radius: 10px;
-    padding: 10px 0px 10px 0px;
+.btn {
+  border-radius: 10px;
+  padding: 10px 0px 10px 0px;
 }
-.btn-cadr{
-  background-color: #3246D3;
+.btn-cadr {
+  background-color: #3246d3;
   aspect-ratio: 16/3;
   border-radius: 9px;
 }
@@ -150,13 +148,13 @@
   font-weight: 500;
   font-size: 16px;
 }
-.row-title{
+.row-title {
   margin-top: -22px;
   margin-bottom: 14px;
   font-size: 16px;
   font-weight: 600;
 }
-.p-plan{
+.p-plan {
   margin-top: -10px;
 }
 // ====================[بنر]=============
@@ -181,7 +179,7 @@
 .link {
   color: white;
   transform: translate(-250px, 0px);
-  background-color: #098B41;
+  background-color: #098b41;
   padding: 7px 19px 7px 19px;
   border-radius: 2px 18px 18px 18px;
   font-size: 1.1rem;
@@ -190,19 +188,19 @@
 .logo-i {
   position: relative;
   display: inline-flex;
-  justify-content: start;
+  justify-content: flex-start;
   padding: 0px 35px;
 }
 .logo {
   position: absolute;
   width: 7rem;
-    aspect-ratio: 1/1;
+  aspect-ratio: 1/1;
   bottom: 44px;
   height: auto;
   object-fit: contain;
 }
 .baner {
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
   height: 105px;
   border-radius: 32px;
   margin-left: 10px;

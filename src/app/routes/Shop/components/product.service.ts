@@ -32,12 +32,11 @@ export class ProductService extends BaseService<any> {
   ) {
     // let pageFilter = new Page<Blog[]>(page);
     // let filter = new FilterBlog(_filterModel);
-    // const params:
+    // const params:s
     const res = this.post(path, _filter).pipe(
       map((result) => {
         if (result.success) {
-          if (result.data.items.length == 0) this.prdArray.next(null);
-          else this.prdArray.next(result.data);
+          this.prdArray.next(result.data);
 
           return result.success;
         } else {

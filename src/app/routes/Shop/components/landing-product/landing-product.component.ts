@@ -22,6 +22,8 @@ export class LandingProductComponent {
   }
     // =========[اسکرول]=========
     scroll(el: HTMLElement) {
+      console.log(el);
+      
       el.scrollIntoView({behavior:"smooth"});
-    }  
-  }
+    }
+    }

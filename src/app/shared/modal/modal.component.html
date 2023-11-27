@@ -1,5 +1,5 @@
 <div @scaleIn [ngStyle]="{ '--overflow': overflow }" class="modal">
-  <div class="modal-header">
+  <div class="modal-header" *ngIf="header">
     <span class="modal-close" (click)="close()"><span>&times;</span></span>
     <ng-content select="[header]"></ng-content>
   </div>

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-scroll',
@@ -6,6 +6,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./scroll.component.scss']
 })
 export class ScrollComponent {
+  @Input () activeId : number;
   @Output() scrollClick1 = new EventEmitter();
   @Output() scrollClick2 = new EventEmitter();
   @Output() scrollClick3 = new EventEmitter();
@@ -13,20 +14,48 @@ export class ScrollComponent {
   @Output() scrollClick5 = new EventEmitter();
 
 
-  onClick1(event : any ) {
-    this.scrollClick1.emit();
+  scroll : Array<any>=[
+    {
+      id:1,
+      name:'معرفی',
+      active:false
+    },{
+    id:2,
+    name:'امکانات',
+    active:false
+  },{
+    id:3,
+    name:'بک تست',
+    active:false
+  },{
+    id:4,
+    name:'سوالات متداول',
+    active:false
+  },{
+    id:5,
+    name:'نظرات',
+    active:false
+  }]
+  ngOnInit(){
+    this.scroll[this.activeId].active = true;
   }
-  onClick2(event : any ) {
-    this.scrollClick2.emit();
-  }
-  onClick3(event : any ) {
-    this.scrollClick3.emit();
-  }
-  onClick4(event : any ) {
-    this.scrollClick4.emit();
-  }
-  onClick5(event : any ) {
-    this.scrollClick5.emit();
-  }
-
+  toggle(index: number , event : any) {
+    switch (index) {
+      case 0:
+        this.scrollClick1.emit(event)
+        break;
+        case 1:
+        this.scrollClick2.emit(event)
+        break;
+        case 2:
+        this.scrollClick3.emit(event)
+        break;
+        case 3:
+        this.scrollClick4.emit(event)
+        break;
+        case 4:
+        this.scrollClick5.emit(event)
+        break;
+    }
+    }
 }

@@ -13,6 +13,7 @@ import { SearchComponent } from 'src/app/shared/filter/search-bar/search.compone
 import { BotOptionsComponent } from '../components/bot-options/bot-options.component';
 import { DescriptionComponent } from '../components/description/description.component';
 import { LandingProductComponent } from '../components/landing-product/landing-product.component';
+import { CarouselComponent } from 'src/app/shared/carousel/carousel.component';
 
 const components = [
   ShopHeroComponent,
@@ -21,12 +22,13 @@ const components = [
   QuestionShopComponent,
   DetailCardComponent,
   BotOptionsComponent,
-  LandingProductComponent
+  LandingProductComponent,
 ];
 
 @NgModule({
   declarations: [components],
   imports: [
+    CarouselComponent,
     CommonModule,
     ShopRoutingModule,
     SharedModule,

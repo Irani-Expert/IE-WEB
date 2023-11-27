@@ -1,4 +1,4 @@
-<div class="p-9" *ngIf="device == 'lg'">
+<div class="p-9" [ngClass]="device == 'lg' ? 'block' : 'hidden'">
   <div class="flex flex-row flex-wrap hero">
     <div class="grid grid-cols-2 gap-2 matn-h mt-16 justify-items-center">
       <div class="space-y-3 part-right">
@@ -54,7 +54,7 @@
   </div>
 </div>
 <!-- ========================[رسپانسیو]================== -->
-<div class="responsive" *ngIf="device == 'sm'">
+<div class="responsive" [ngClass]="device == 'sm' ? 'block' : 'hidden'">
   <!-- ==================[بنر هیرو]================ -->
   <div class="hero2">
     <img class="hero-img2" src="assets/img/Hero-mobile.png" alt="h" />
@@ -81,15 +81,15 @@
       <div class="p-e-box2">
         <div class="p-e">
           <img class="emugi-h2" src="assets/img/emugi-3.svg" alt="l" />
-          <h6 class="h-box2">200+</h6>
+          <h6 class="h-box">200+</h6>
           <p class="p-box">بیش از 200 مشترک فعال</p>
         </div>
       </div>
     </div>
   </div>
   <!-- ==================[متن هیرو]================ -->
-  <div class="flex flex-row flex-wrap matn">
-    <div class="container box-matn">
+  <div class="flex flex-row flex-wrap mb-16">
+    <div class="container relative box-matn">
       <h1 class="hero-h1">ربات معامله گر فارکس</h1>
       <h6 class="hero-h2">بر مبنای هوش مصنوعی</h6>
       <p class="hero-p">
@@ -109,9 +109,7 @@
   <!-- ==================[کاروسل هیرو]================ -->
   <div class="carousel-box">
     <div class="carousel">
-      <button class="carousel-control pre" (click)="pre()">
-        >
-      </button>
+      <button class="carousel-control pre" (click)="pre()">&gt;</button>
       <div class="carousel-container">
         <div class="carousel-item" [class.active]="isActive == 1">
           <div class="box-body">
@@ -132,9 +130,7 @@
           </div>
         </div>
       </div>
-      <button class="carousel-control next" (click)="next()">
-        <
-      </button>
+      <button class="carousel-control next" (click)="next()">&lt;</button>
     </div>
     <div class="box-bg"></div>
   </div>

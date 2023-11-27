@@ -1,3 +1,5 @@
+$min-width-carousel: 300px;
+
 .hero {
   margin-bottom: 0;
 }
@@ -89,11 +91,13 @@
   font-style: oblique;
   word-spacing: 3px;
 }
-.part-right{
+.part-right {
+  z-index: 1;
   margin-top: -25px;
 }
 .header-paragraph {
   font-size: 1.25rem;
+  padding-left: 0.5rem;
   font-weight: normal;
   text-align: justify;
 }
@@ -144,15 +148,15 @@
   height: 500px;
 }
 .hero-img2 {
-  transform: translate(241px, -174px);
-  max-width: 784px;
+  transform: translate(195px, -117px);
+  max-width: 658px;
 }
 .box-1 {
   position: relative;
   background-color: white;
   border-radius: 10px;
   width: 111px;
-  transform: translate(-240px, -674px);
+  transform: translate(-191px, -565px);
 }
 .emugi {
   width: 35px;
@@ -187,14 +191,14 @@
   right: 16px;
 }
 .h-box {
-  font-size: 11px;
-  font-weight: 300;
+  font-size: 0.75rem;
+  font-weight: 500;
 }
 .p-box {
   color: black;
   margin-top: -3px;
-  font-size: 8px;
-  font-weight: 300;
+  font-size: 0.5rem;
+  font-weight: bold;
 }
 // ==================[باکس 2]===============
 .p-e-box2 {
@@ -208,7 +212,7 @@
   background-color: white;
   border-radius: 10px;
   width: 130px;
-  transform: translate(-86px, -434px);
+  transform: translate(-74px, -309px);
 }
 .emugi-box2 {
   background-color: #0075f8;
@@ -225,10 +229,7 @@
   right: 6px;
   top: 6px;
 }
-.h-box2 {
-  font-size: 10px;
-  font-weight: 300;
-}
+
 .emugi-h2 {
   width: 16px;
   position: absolute;
@@ -236,10 +237,7 @@
   bottom: 12px;
 }
 // ==================[متن هیرو]===============
-.matn {
-  position: relative;
-  height: 450px;
-}
+
 .hero-h1 {
   font-size: 35px;
   font-style: oblique;
@@ -289,7 +287,7 @@
   right: 7px;
 }
 .circle {
-  position: relative;
+  position: absolute;
   background: rgb(50, 70, 211);
   background: radial-gradient(
     circle,
@@ -298,11 +296,15 @@
     #f3f3f3 56%
   );
   width: 100%;
-  transform: translate(-219px, -196px);
+  transform: translate(-50%, -50%);
   aspect-ratio: 1/1;
 }
 // ==================[کاروسل هیرو]===============
 .carousel-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: relative;
 }
 .box-bg {
@@ -314,7 +316,7 @@
   margin-left: 30px;
   max-width: 360px;
   transform: translate(13px, -135px);
-  min-width: 262px;
+  min-width: calc($min-width-carousel + 10%);
 }
 .profit {
   color: #3246d3;
@@ -346,10 +348,9 @@
   position: relative;
   background-color: white;
   z-index: 100;
-  // border: 1px solid #F3F4F6;
+
   border-radius: 10px;
-  margin-right: 55px;
-  margin-left: 55px;
+  min-width: $min-width-carousel;
   max-width: 333px;
   margin-bottom: 21px;
   height: 126px;
@@ -393,7 +394,7 @@
     height: 30px;
     top: calc(50% - 15px);
     left: 20px;
-    &.pre{
+    &.pre {
       right: auto;
       left: 20px;
       scale: 2.1;

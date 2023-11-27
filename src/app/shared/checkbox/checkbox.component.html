@@ -1,6 +1,10 @@
 <div class="flex flex-row w-full items-center my-2">
   <label class="checkbox ml-2 mr-1">
-    <input (input)="inputStatus($any($event.target).checked)" type="checkbox" />
+    <input
+      (input)="inputStatus($any($event.target).checked)"
+      type="checkbox"
+      [checked]="fillTheBox"
+    />
     <span></span>
   </label>
   <ng-content select="[title]"></ng-content>
