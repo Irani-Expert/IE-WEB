@@ -1,4 +1,6 @@
+<!-- ==========[هیرو]=========== -->
 <app-shop-hero></app-shop-hero>
+
 <!-- ==========[معرفی]=========== -->
 <app-scroll
   [activeId]="0"
@@ -39,18 +41,19 @@
   ></app-scroll>
 </div>
 
-<app-back-test>
-  <!-- ==========[سوالات]=========== -->
-  <div #question>
-    <app-scroll
-      [activeId]="3"
-      (scrollClick1)="scroll(description)"
-      (scrollClick2)="scroll(option)"
-      (scrollClick3)="scroll(backtest)"
-      (scrollClick4)="scroll(question)"
-      (scrollClick5)="scroll(comment)"
-    ></app-scroll>
-  </div>
+<app-back-test></app-back-test>
+
+<!-- ==========[سوالات]=========== -->
+<div #question>
+<app-scroll
+[activeId]="3"
+(scrollClick1)="scroll(description)"
+(scrollClick2)="scroll(option)"
+(scrollClick3)="scroll(backtest)"
+(scrollClick4)="scroll(question)"
+(scrollClick5)="scroll(comment)"
+></app-scroll>
+</div>
 
   <app-question-shop></app-question-shop>
 
@@ -67,4 +70,3 @@
   </div>
 
   <app-comments></app-comments>
-</app-back-test>

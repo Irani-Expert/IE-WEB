@@ -9,17 +9,26 @@ import { ProductService } from '../product.service';
   styleUrls: ['./landing-product.component.scss']
 })
 export class LandingProductComponent {
-  // ===============[سرویس امکانات]=============
-  constructor (private optionService : ProductService) {}
+
+  constructor (private productService : ProductService) {}
+  // ===============[گت امکانات]=============
   options: config = { multi: false };
   faqOptions: Facility[];
-  
+  // ===============[گت هیرو]==============
+
+
+  // =======================[گت پروداکت]==========
+
   async ngOnInit() {
-    // ===============[]============
-    if(await this.optionService.getProduct(1)) {
-      this.faqOptions = this.optionService._product?.facilities!
+
+    if (await this.productService.getProduct(1)){
+      this.faqOptions = this.productService._product?.facilities!
     }
   }
+
+
+
+  
     // =========[اسکرول]=========
     scroll(el: HTMLElement) {
       console.log(el);

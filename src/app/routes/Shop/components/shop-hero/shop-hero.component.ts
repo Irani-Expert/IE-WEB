@@ -2,9 +2,6 @@ import { Component , OnInit } from '@angular/core';
 import { RatingConfig, StarRating } from 'src/app/shared/rating/rating-config';
 import { planInterface } from './interfaces/product-interface';
 import { ProductService } from '../product.service';
-import { config } from '../bot-options/types/config';
-import { Facility } from 'src/app/classes/interfaces/facility.interface';
-
 
 const planInit: planInterface = {
   active:false,
@@ -25,7 +22,7 @@ export class ShopHeroComponent implements OnInit{
   // ============[سرویس ]==================
   selectedPlan: planInterface = planInit;
   plan : planInterface[] =new Array<planInterface>;
-  constructor ( private productService : ProductService , ){
+  constructor ( private productService : ProductService){
   }
 async ngOnInit() {
   if(await this.productService.getProduct(1)) {
@@ -59,9 +56,5 @@ async ngOnInit() {
     this.selectedPlan = plan;
     this.plan.filter((plan , i)=> i !== index && plan.active)
     .forEach(plan => plan.active = !plan.active);    
-  }
-  // ===============[سرویس امکانات]=============
-  options: config = { multi: false };
-  faqOptions: Facility[];
-  
+  }  
 }

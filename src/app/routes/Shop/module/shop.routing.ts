@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingShopComponent } from '../components/landing-shop/landing-shop.component';
-
 import { LandingProductComponent } from '../components/landing-product/landing-product.component';
 
 const routes: Routes = [
