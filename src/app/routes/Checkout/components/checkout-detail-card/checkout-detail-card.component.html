@@ -1,4 +1,4 @@
-<div class="flex w-full mt-16 justify-center">
+<div class="flex w-full mt-10 justify-center">
   <div class="checkout-card">
     <img
       [ngStyle]="{ '--img-width': '100%' }"
@@ -9,33 +9,35 @@
       alt="product-img"
     />
     <div class="details-product">
-      <div class="pb-3 row">
-        <p class="mt-7 row-p">
-          <span
-            ><i class="fa-solid fa-star"></i>ایرانی اکسپرت<i
-              class="fa-solid fa-star"
-            ></i
-          ></span>
-        </p>
-        <p class="mt-2 row-p-2">
-          <span><i class="fa-solid fa-star"></i>4.5</span>
-          <span class="ml-3 mr-3"><i class="fa-solid fa-star"></i>EA</span>
-          <span><i class="fa-solid fa-star"></i>MQL5</span>
-        </p>
-      </div>
-      <div class="seperator-hz-1"></div>
-      <div class="pt-3 pb-3 row">
-        <p class="row-p-3">
-          <span
-            ><i class="fa-solid fa-star"></i>پشتیبانی دائمی تا زمان اشتراک
-          </span>
+      <properties [verified]="true" [guarantee]="true">
+        <p class="producer-name" producer>ایرانی اکسپرت</p>
+        <p rate class="product-rate">4.5</p>
+        <p category class="product-category">EA</p>
+        <p platform class="product-platform">MQL5</p>
+        <p guarantee class="product-guarantee">پشتیبانی دائمی تا زمان اشتراک</p>
+      </properties>
+      <div class="space-y-1 mt-2">
+        <p class="font-bold text-black text-base">ربات معامله گر فارکس</p>
+        <p class="font-bold text-black text-sm">
+          پلن اعتماد (اعتبار تا پرافیت 100 دلاری)
         </p>
       </div>
     </div>
+    <!-- Seperator-Ticket -->
     <div class="seperator-ticket">
       <span class="circle-right"></span>
       <span class="dashed"></span>
       <span class="circle-left"></span>
+    </div>
+    <!-- Seperator-Ticket -->
+    <div class="detail-price-container">
+      <div class="discount-content">
+        <span class="discount-percent">10%</span>
+        <span class="discount-price">$20</span>
+      </div>
+      <div class="price-content">
+        <span class="icon"></span><span class="price">$18</span>
+      </div>
     </div>
   </div>
 </div>

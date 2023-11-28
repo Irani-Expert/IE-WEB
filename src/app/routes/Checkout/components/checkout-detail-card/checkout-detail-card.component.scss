@@ -1,6 +1,6 @@
+$padding-container: 0.5rem 1.5rem;
 $min-width-card: 284px;
 .checkout-card {
-  border: 1px solid #cfcfcf;
   min-width: $min-width-card;
   max-width: 95%;
   margin-top: 4rem;
@@ -21,10 +21,44 @@ $min-width-card: 284px;
     position: absolute;
     transform: translateY(-46%);
   }
+
+  // Main Detail Component Holder
   .details-product {
     width: 100%;
-    padding: 0.5rem 1.5rem;
-    margin-top: 11rem;
+    padding: $padding-container;
+    margin-top: 10rem;
+    .producer-name {
+      text-align: justify;
+      padding: 0 0.25rem;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #535353;
+    }
+
+    .product {
+      $product-props-color: #606060;
+      &-guarantee {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #535353;
+      }
+      &-rate {
+        font-size: 0.95rem;
+        font-weight: 900;
+        color: $product-props-color;
+      }
+      &-category {
+        font-size: 0.95rem;
+        font-weight: 900;
+        color: $product-props-color;
+      }
+      &-platform {
+        padding-top: 3px;
+        font-size: 0.95rem;
+        font-weight: 900;
+        color: $product-props-color;
+      }
+    }
   }
   .seperator-ticket {
     .dashed {
@@ -52,12 +86,10 @@ $min-width-card: 284px;
       border-radius: 50%;
       transform: translate(-49%, -50%);
       left: 0;
-      border-right: 2px solid #cfcfcf;
       top: 0;
       box-shadow: 10px 0px 10px 0px #ebebeb;
     }
     .circle-right {
-      border-left: 2px solid #cfcfcf;
       position: absolute;
       width: 32px;
       height: 32px;
@@ -73,5 +105,62 @@ $min-width-card: 284px;
     display: flex;
     position: relative;
     flex-direction: row;
+    margin-top: 1.75rem;
+  }
+
+  // The End Piece of Component
+  .detail-price-container {
+    .discount-content {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-start;
+      gap: 0.25rem;
+      .discount-price {
+        font-size: 1.125rem;
+        color: #b7b7b7;
+        text-decoration-line: line-through;
+        text-decoration-thickness: 2px;
+        text-decoration-color: #929191;
+
+        // -moz-text-decoration-line: line-through;
+      }
+      .discount-percent {
+        display: inline-block;
+        border-radius: 12px;
+        padding: 0 0.225rem;
+        background-color: #17ee9d;
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: #707070;
+        &::before {
+          margin-left: 2px;
+          display: inline-block;
+          transform: translateY(15%);
+          content: url(../../../../../assets/icon/discount.svg);
+        }
+      }
+    }
+    .price-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      .icon {
+        &::after {
+          display: inline-block;
+          content: url(../../../../../assets/icon/checout-bottom-right.svg);
+          scale: 0.85;
+        }
+      }
+      .price {
+        font-weight: 900;
+        font-size: 2.5rem;
+        color: black;
+      }
+    }
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: $padding-container;
+    margin-top: 1rem;
   }
 }

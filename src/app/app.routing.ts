@@ -28,15 +28,15 @@ const routes: Routes = [
     loadChildren: () =>
       import('./routes/Checkout/checkout.module').then((m) => m.CheckoutModule),
   },
-  {
-    path: 'calendar',
-    title: 'calendar',
+  // {
+  //   path: 'calendar',
+  //   title: 'calendar',
 
-    loadChildren: () =>
-      import('./routes/calendar/module/calendar.module').then(
-        (m) => m.CalendarModule
-      ),
-  },
+  //   loadChildren: () =>
+  //     import('./routes/calendar/module/calendar.module').then(
+  //       (m) => m.CalendarModule
+  //     ),
+  // },
   {
     path: '**',
     title: '404 - یافت نشد',

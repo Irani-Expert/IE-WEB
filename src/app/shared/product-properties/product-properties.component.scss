@@ -1,0 +1,45 @@
+.producer-section {
+  .verified::after {
+    transform: translateY(15%);
+    scale: 1.1;
+  }
+  .producer-icon::after {
+    margin-left: 0.25rem;
+    scale: 0.95;
+  }
+  display: flex;
+  flex-direction: row;
+  gap: 0.25rem;
+}
+.producer-icon::after {
+  content: url(../../../assets/icon/producer.svg);
+  display: inline-block;
+}
+.verified::after {
+  content: url(../../../assets/icon/verified.svg);
+  display: inline-block;
+}
+.product-star-icon::after {
+  display: inline-block;
+  content: url(../../../assets/icon/star-alt.svg);
+}
+.properties-section {
+  align-items: center;
+  gap: 1rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.category-icon::after {
+  display: inline-block;
+  content: url(../../../assets/icon/genealogy.svg);
+}
+.platform-icon::after {
+  display: inline-block;
+  content: url(../../../assets/icon/platform.svg);
+}
+.guarantee-icon::after {
+  transform: translateY(10%);
+  display: inline-block;
+  content: url(../../../assets/icon/guarantee.svg);
+}
