@@ -1,7 +1,7 @@
 <div class="mr-3 ml-3">
   <div class="grid grid-cols-2">
-    <div> 
-      <h6 class="bot-h">Carusel</h6>  
+    <div>
+      <h6 class="bot-h">Carusel</h6>
     </div>
     <div class="flex flex-row flex-wrap product-left">
       <div class="container mx-auto grid grid-cols-2">
@@ -9,93 +9,129 @@
           <div class="mt-3">
             <button class="btn">
               <!-- <img class="icon-a" src="assets/img/icon-basket.svg" alt="i"> -->
-              <p class="click">اضافه کردن به سبد خرید</p></button>
-            <button class="btn-2"><p class="click mr-3">
-              <!-- <img class="icon-b" src="assets/img/icon-shayred.svg" alt="i"> -->
-            </p></button>
+              <p class="click">اضافه کردن به سبد خرید</p>
+            </button>
+            <button class="btn-2">
+              <p class="click mr-3">
+                <!-- <img class="icon-b" src="assets/img/icon-shayred.svg" alt="i"> -->
+              </p>
+            </button>
           </div>
           <h6 class="bot-h">ربات معامله گر فارکس ATM</h6>
           <div class="row-rating mb-3">
             <span class="star-rating">
-              <app-rating [config]="star"
-              ></app-rating>
+              <app-rating [config]="star"></app-rating>
             </span>
             <p class="p-rating">
-            <span class="moshtarak">4.5</span>
-            <span class="bazdid">بازدید ها 735</span>
-            <span class="moshtarak">مشترک ها 235</span>
+              <span class="moshtarak">4.5</span>
+              <span class="bazdid">بازدید ها 735</span>
+              <span class="moshtarak">مشترک ها 235</span>
             </p>
           </div>
           <h6 class="row-title">انتخاب پلن</h6>
-          <div class="flex justify-around mb-10 ">
+          <div class="flex justify-around mb-10">
             <!-- <ng-container *ngIf="!loading">
             </ng-container> -->
-            <div *ngFor="let p of plan;let i = index" class="row-plan">
-              <div class="flex flex-col" >
-                <button (click)="toggle(p , i)" >
-                  <p [ngClass]="plan[i].active ? 'activated' : ''" class="plan">{{p.title}}</p></button>
+            <div *ngFor="let p of plan; let i = index" class="row-plan">
+              <div class="flex flex-col">
+                <button (click)="toggle(p, i)">
+                  <p [ngClass]="plan[i].active ? 'activated' : ''" class="plan">
+                    {{ p.title }}
+                  </p>
+                </button>
               </div>
             </div>
           </div>
           <div>
-            <h6 class="row-title mb-4">پلن {{selectedPlan.title}}</h6>
-            <p class="p-plan">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum tempore dolorem eligendi, praesentium quia quasi corporis voluptas a,
-             vero expedita amet architecto corrupti debitis molestiae dolores. Dolor quisquam quos architecto!</p>     
+            <h6 class="row-title mb-4">پلن {{ selectedPlan.title }}</h6>
+            <p class="p-plan">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
+              tempore dolorem eligendi, praesentium quia quasi corporis voluptas
+              a, vero expedita amet architecto corrupti debitis molestiae
+              dolores. Dolor quisquam quos architecto!
+            </p>
           </div>
         </div>
         <div class="product-d flex-wrap">
           <div class="product-rows">
             <div class="pb-3 row">
               <h6 class="row-h">فروشنده</h6>
-              <P class="mt-7 row-p"><span><i class="fa-solid fa-star"></i>ایرانی اکسپرت<i class="fa-solid fa-star"></i></span></P>
+              <P class="mt-7 row-p"
+                ><span
+                  ><i class="fa-solid fa-star"></i>ایرانی اکسپرت<i
+                    class="fa-solid fa-star"
+                  ></i></span
+              ></P>
               <P class="mt-2 row-p-2">
                 <span><i class="fa-solid fa-star"></i>4.5</span>
-                <span class="ml-3 mr-3"><i class="fa-solid fa-star"></i>EA</span>
+                <span class="ml-3 mr-3"
+                  ><i class="fa-solid fa-star"></i>EA</span
+                >
                 <span><i class="fa-solid fa-star"></i>MQL5</span>
               </P>
             </div>
             <div class="pt-3 pb-3 row">
-              <P class="row-p-3"><span><i class="fa-solid fa-star"></i>پشتیبانی دائمی تا زمان اشتراک </span></P>
+              <P class="row-p-3"
+                ><span
+                  ><i class="fa-solid fa-star"></i>پشتیبانی دائمی تا زمان اشتراک
+                </span></P
+              >
             </div>
             <div class="pt-3 pb-3 row">
-              <P class="row-p-4"><span><i class="fa-solid fa-star"></i>دانلود رایگان دموی محصول </span></P>
+              <P class="row-p-4"
+                ><span
+                  ><i class="fa-solid fa-star"></i>دانلود رایگان دموی محصول
+                </span></P
+              >
             </div>
-            <div class="mb-4 pt-3" >
-              <P class="mt-2 float-left pl-2"><span class="price-1">{{selectedPlan.price 
-               | currency }}</span>
-              <del class="ml-4 mr-4 price-2">{{selectedPlan.price
-              | currency }}
-              </del>
+            <div class="mb-4 pt-3">
+              <P class="mt-2 float-left pl-2"
+                ><span class="price-1">{{
+                  selectedPlan.price | currency
+                }}</span>
+                <del class="ml-4 mr-4 price-2"
+                  >{{ selectedPlan.price | currency }}
+                </del>
+              </P>
             </div>
-            <br>
+
+            <br />
             <div class="row-btn">
-              <button class="btn-cadr w-full"><p class="btn-p">پرداخت</p></button>
+              <button class="btn-cadr w-full">
+                <p class="btn-p">پرداخت</p>
+              </button>
             </div>
           </div>
         </div>
       </div>
       <div class="flex flex-row flex-wrap">
         <h6 class="row-title">توضیخات</h6>
-        <p class="row-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, enim consequuntur nobis unde ipsum cupiditate ratione
-           asperiores incidunt atque numquam! Eos laborum et voluptates reprehenderit vel sequi possimus necessitatibus impedit?</p>
+        <p class="row-body">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, enim
+          consequuntur nobis unde ipsum cupiditate ratione asperiores incidunt
+          atque numquam! Eos laborum et voluptates reprehenderit vel sequi
+          possimus necessitatibus impedit?
+        </p>
       </div>
     </div>
-  </div> 
+  </div>
 </div>
 <!-- ===========================[بنر]============== -->
 <div class="all">
-    <div class="relative">
-      <div class="grid grid-cols-3 gap-3 baner">
-        <div class="logo-i">
-          <img class="logo" src="assets/img/logo-hero.svg" alt="logo" />
-        </div>
-        <div class="box-body">
-          <p class="body">برای انتخاب مناسب ترین بروکر برای استفاده از ربات هاب معامله گر و سرمایه گذاری میتوانید در صفحه 
-            بروکر های ایرانی اکسپرت مفایسه،انتخاب و ثبت نام کنید</p>
-        </div>
-        <div class="box-link">
-          <a href="#" class="link font-semibold"> مقایسه بروکرها  </a>
-        </div>
+  <div class="relative">
+    <div class="grid grid-cols-3 gap-3 baner">
+      <div class="logo-i">
+        <img class="logo" src="assets/img/logo-hero.svg" alt="logo" />
+      </div>
+      <div class="box-body">
+        <p class="body">
+          برای انتخاب مناسب ترین بروکر برای استفاده از ربات هاب معامله گر و
+          سرمایه گذاری میتوانید در صفحه بروکر های ایرانی اکسپرت مفایسه،انتخاب و
+          ثبت نام کنید
+        </p>
+      </div>
+      <div class="box-link">
+        <a href="#" class="link font-semibold"> مقایسه بروکرها </a>
       </div>
     </div>
 </div>

@@ -3,44 +3,42 @@
 
 <!-- ==========[معرفی]=========== -->
 <app-scroll
-[activeId]="0"
-(scrollClick1)="scroll(description)"
-(scrollClick2)="scroll(option)"
-(scrollClick3)="scroll(backtest)"
-(scrollClick4)="scroll(question)"
-(scrollClick5)="scroll(comment)"
+  [activeId]="0"
+  (scrollClick1)="scroll(description)"
+  (scrollClick2)="scroll(option)"
+  (scrollClick3)="scroll(backtest)"
+  (scrollClick4)="scroll(question)"
+  (scrollClick5)="scroll(comment)"
 ></app-scroll>
 
 <div #description>
-<app-description></app-description>
+  <app-description></app-description>
 </div>
 <!-- ==========[امکانات]=========== -->
 
 <div #option>
-    <app-scroll
+  <app-scroll
     [activeId]="1"
     (scrollClick1)="scroll(description)"
     (scrollClick2)="scroll(option)"
     (scrollClick3)="scroll(backtest)"
     (scrollClick4)="scroll(question)"
     (scrollClick5)="scroll(comment)"
-    ></app-scroll>    
+  ></app-scroll>
 </div>
 
-<app-bot-options [options]="options"
-[faq]="faqOptions"
-></app-bot-options>
+<app-bot-options [options]="options" [faq]="faqOptions"></app-bot-options>
 
 <!-- ==========[بک تست]=========== -->
 <div #backtest>
-<app-scroll
-[activeId]="2"
-(scrollClick1)="scroll(description)"
-(scrollClick2)="scroll(option)"
-(scrollClick3)="scroll(backtest)"
-(scrollClick4)="scroll(question)"
-(scrollClick5)="scroll(comment)"
-></app-scroll>
+  <app-scroll
+    [activeId]="2"
+    (scrollClick1)="scroll(description)"
+    (scrollClick2)="scroll(option)"
+    (scrollClick3)="scroll(backtest)"
+    (scrollClick4)="scroll(question)"
+    (scrollClick5)="scroll(comment)"
+  ></app-scroll>
 </div>
 
 <app-back-test></app-back-test>
@@ -57,18 +55,18 @@
 ></app-scroll>
 </div>
 
-<app-question-shop></app-question-shop>
+  <app-question-shop></app-question-shop>
 
-<!-- ==========[نظرات]=========== -->
-<div #comment>
-<app-scroll
-[activeId]="4"
-(scrollClick1)="scroll(description)"
-(scrollClick2)="scroll(option)"
-(scrollClick3)="scroll(backtest)"
-(scrollClick4)="scroll(question)"
-(scrollClick5)="scroll(comment)"
-></app-scroll>
-</div>
+  <!-- ==========[نظرات]=========== -->
+  <div #comment>
+    <app-scroll
+      [activeId]="4"
+      (scrollClick1)="scroll(description)"
+      (scrollClick2)="scroll(option)"
+      (scrollClick3)="scroll(backtest)"
+      (scrollClick4)="scroll(question)"
+      (scrollClick5)="scroll(comment)"
+    ></app-scroll>
+  </div>
 
-<app-comments></app-comments>
+  <app-comments></app-comments>
