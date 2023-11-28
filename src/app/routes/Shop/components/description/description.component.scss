@@ -24,6 +24,7 @@
   font-size: 25px;
   font-weight: 500;
  }
+//  <!-- ===================[باکس اعداد]=============== -->
  .row-box{
   margin-right: 12rem;
   margin-left: 12rem;
@@ -53,3 +54,56 @@
   top: 55px;
   right: 26px;
  }
+//  ============[پیش نیازها]============
+ .row-p{
+  display: inline-flex;;
+ }
+ .row-body{
+   margin-left: 5rem;
+   margin-right: 5rem;
+  }
+  .row-p{
+    margin-right: 6rem;
+    margin-bottom: 2rem;
+  }
+  .body-title{
+    color: black;
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  .body-p{
+    color: black;
+    font-size: 1.1rem;
+  }
+  .box-description-row{
+  justify-items: center;
+    margin-bottom: 3rem;
+  }
+.box-description {
+  display: flex;
+  justify-content: space-between;
+  display: inline-flex;;
+  position: relative;
+  padding: 16px 20px 16px 20px;
+  border: 1px solid #F6F6F6;
+  background-color: #FBFBFB;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border-radius: 18px;
+  min-width: 276px;
+}
+.b-d-title{
+  color: black;
+  font-weight: 600;
+  transform: translate(0px, 0px);
+}
+// <!-- ===================[ نکات]=============== -->
+.nokat-p{
+  color: black;
+}
+.row-nokat{
+  margin-right: 11rem;
+}
+.p-danger{
+  color: #FF0000;
+}
