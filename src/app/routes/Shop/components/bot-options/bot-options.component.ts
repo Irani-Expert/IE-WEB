@@ -22,9 +22,17 @@ config: config;
 
 async ngOnInit() {
 
+
+  
   this.config = this.mergeConfig(this.options);
 }
-
+ngAfterViewInit() {
+  debugger;
+  this.faq.forEach((it,i)=> {
+    if(i == 0) it.isActive =true
+    else it.isActive = false
+  })
+}
 mergeConfig(options: config) {
   const config = {
     // ========[selector: '#accordion']===========
