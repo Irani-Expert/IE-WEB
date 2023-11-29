@@ -16,6 +16,7 @@ const planInit: planInterface = {
   styleUrls: ['./shop-hero.component.scss'],
 })
 export class ShopHeroComponent implements OnInit {
+  animationState = false;
   @Input('data') product: SingleProduct;
   // ============[ستاره ها]==================
   star: RatingConfig<StarRating> = {
@@ -52,5 +53,12 @@ export class ShopHeroComponent implements OnInit {
     this.plans.forEach((item) => (item.active = false));
     plan.active = true;
     this.selectedPlan = plan;
+    this.fireAnimation();
+  }
+  fireAnimation(){
+    this.animationState = true
+    setTimeout(()=> {
+      this.animationState = false
+    },400)
   }
 }
