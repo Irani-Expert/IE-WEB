@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { RatingConfig, StarRating } from 'src/app/shared/rating/rating-config';
 import { planInterface } from './interfaces/product-interface';
 import { SingleProduct } from 'src/app/classes/interfaces/product.interface';
+import { smoothWidth } from 'src/app/classes/animation';
 
 const planInit: planInterface = {
   active: false,
@@ -10,10 +11,14 @@ const planInit: planInterface = {
   price: 0,
   title: '',
 };
+// ============[انیمیشن]=========
+
 @Component({
   selector: 'app-shop-hero',
   templateUrl: './shop-hero.component.html',
   styleUrls: ['./shop-hero.component.scss'],
+  animations : [smoothWidth],
+
 })
 export class ShopHeroComponent implements OnInit {
   animationState = false;
@@ -54,8 +59,14 @@ export class ShopHeroComponent implements OnInit {
     plan.active = true;
     this.selectedPlan = plan;
     this.fireAnimation();
+    
+
   }
+  // =================[انیمیشن]============
+  changed = false;
+
   fireAnimation(){
+    this.changed = !this.changed;
     this.animationState = true
     setTimeout(()=> {
       this.animationState = false

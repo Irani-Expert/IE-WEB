@@ -15,6 +15,7 @@ import { DescriptionComponent } from '../components/description/description.comp
 import { LandingProductComponent } from '../components/landing-product/landing-product.component';
 import { CarouselComponent } from 'src/app/shared/carousel/carousel.component';
 import { BackTestComponent } from '../components/back-test/back-test.component';
+import { SmoothWidthDirective } from 'src/app/classes/directives/smooth-width.directive';
 
 const components = [
   BackTestComponent,
@@ -30,6 +31,7 @@ const components = [
 @NgModule({
   declarations: [components],
   imports: [
+    SmoothWidthDirective,
     CarouselComponent,
     CommonModule,
     ShopRoutingModule,

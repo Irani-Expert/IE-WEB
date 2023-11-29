@@ -86,17 +86,20 @@
                 </span></P
               >
             </div>
-            <div class="price-box mb-4 pt-3">
+            <div  class="wrap"  class="price-box mt-2 pt-3">
+              <div [smoothWidth]="changed"  class="smooth">
+              </div>
               <p class="off-price">
                 10%
               </p>
-              <div class="smooth-width">
+              <div   class="smooth-width w-full">
                 <del [ngClass]="animationState ? 'price-animation': ''" class="price-2"
                   >{{ selectedPlan.price | currency }}
                 </del>
-                <p [ngClass]="animationState ? 'price-animation': ''" class="price-1">{{
+                <p  [ngClass]="animationState ? 'price-animation': ''" class="price-1">{{
                   selectedPlan.price | currency
                 }}</p>
+                
               </div>
             </div>
 
@@ -111,7 +114,7 @@
       </div>
       <div class="flex flex-row flex-wrap">
         <h6 class="row-title">توضیخات</h6>
-        <p class="row-body">
+        <p class="row-body ml-8">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, enim
           consequuntur nobis unde ipsum cupiditate ratione asperiores incidunt
           atque numquam! Eos laborum et voluptates reprehenderit vel sequi

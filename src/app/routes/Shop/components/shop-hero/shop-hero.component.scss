@@ -66,7 +66,7 @@
   background-color: #3246d3 !important;
   color: white;
   font-weight: 800;
-  font-size: 21px;
+  font-size: 20px;
   transition: all 0.2s ease-in-out;
 }
 .product-d {
@@ -77,7 +77,7 @@
   margin-right: 78px;
   min-width: 265px;
   max-width: 265px;
-  height: 384px;
+  height: 23rem;
 }
 .product-rows {
   margin-top: 22px;
@@ -113,26 +113,18 @@
 }
 .price-1 {
   font-weight: 900;
-  font-size: 1.7rem;
-  color: black;
+    font-size: 1.45rem;
+    color: black;
 }
 .price-2 {
-  color: #6e6e6eb4;
-  font-size: 1rem;
+  color: rgba(110, 110, 110, 0.7058823529);
+  font-size: 0.9rem;
   margin-right: 0.2rem;
   margin-left: 0.2rem;
   font-weight: 600;
 }
-.price-3 {
-  color: #6e6e6e;
-  border-radius: 15px;
-  padding: 1px 9.5px 0px 9.5px;
-  color: #6e6e6eb4;
-  background-color: #17ee9d;
-  font-size: 14px;
-  font-weight: bold;
-  position: relative;
-  bottom: 4px;
+.row-btn{
+  margin-top: -0.5rem
 }
 .btn {
   border-radius: 10px;
@@ -159,16 +151,17 @@
 }
 .price-box{
   display: flex;
-  margin-right: 1.8rem;
+  margin-right: 3.5rem;
   align-items: center;
 }
 .off-price{
   background-color: #17EE9D;
-  font-size: 0.8rem;
-  padding: 4px 12px 0px 12px;
-  border-radius: 30px;
-  font-weight: 600;
-  margin-bottom: 0.3rem;
+    font-size: 0.7rem;
+    padding: 4px 12px 0px 12px;
+    border-radius: 30px;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    scale: 0.9;
 }
 .smooth-width {
 display: flex;
@@ -235,7 +228,9 @@ align-items: center;
   align-items: center;
 }
 // =================[انیمیشن کارت]===============
-
+.smooth{
+  width: 100px;
+}
 .price-animation{
   animation: display 0.4s ease-in forwards;
 }
