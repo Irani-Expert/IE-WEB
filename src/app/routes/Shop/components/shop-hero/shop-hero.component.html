@@ -1,4 +1,4 @@
-<div class="mr-3 ml-3">
+<div class="mr-3 ml-3" [ngClass]="device == 'lg' ? 'block' : 'hidden'">
   <div class="grid grid-cols-2">
     <div>
       <h6 class="bot-h">Carusel</h6>
@@ -30,8 +30,6 @@
           </div>
           <h6 class="row-title">انتخاب پلن</h6>
           <div class="flex justify-around mb-10">
-            <!-- <ng-container *ngIf="!loading">
-            </ng-container> -->
             <div *ngFor="let p of plans; let i = index" class="row-plan">
               <div class="flex flex-col">
                 <button (click)="toggle(p)">
@@ -42,7 +40,6 @@
               </div>
             </div>
           </div>
-          <div>
             <h6 [ngClass]="animationState ? 'price-animation': ''" class="row-title mb-4">پلن {{ selectedPlan.title }}</h6>
             <p [ngClass]="animationState ? 'price-animation': ''" class="p-plan">
               {{selectedPlan.title}}
@@ -52,7 +49,6 @@
               a, vero expedita amet architecto corrupti debitis molestiae
               dolores. Dolor quisquam quos architecto!
             </p>
-          </div>
         </div>
         <div class="product-d flex-wrap">
           <div class="product-rows">
@@ -83,8 +79,7 @@
               <P class="row-p-4"
                 ><span
                   ><i class="fa-solid fa-star"></i>دانلود رایگان دموی محصول
-                </span></P
-              >
+                </span></P>
             </div>
             <div  class="wrap"  class="price-box mt-2 pt-3">
               <div [smoothWidth]="changed"  class="smooth">
@@ -123,23 +118,117 @@
       </div>
     </div>
   </div>
-</div>
-<!-- ===========================[بنر]============== -->
-<div class="all">
-  <div class="relative">
-    <div class="grid grid-cols-3 gap-3 baner">
-      <div class="logo-i">
-        <img class="logo" src="assets/img/logo-hero.svg" alt="logo" />
-      </div>
-      <div class="box-body">
-        <p class="body">
-          برای انتخاب مناسب ترین بروکر برای استفاده از ربات هاب معامله گر و
-          سرمایه گذاری میتوانید در صفحه بروکر های ایرانی اکسپرت مفایسه،انتخاب و
-          ثبت نام کنید
-        </p>
-      </div>
-      <div class="box-link">
-        <a href="#" class="link font-semibold"> مقایسه بروکرها </a>
-      </div>
+  <!-- ===========================[بنر]============== -->
+  <div class="all">
+    <div class="relative">
+      <div class="grid grid-cols-3 gap-3 baner">
+        <div class="logo-i">
+          <img class="logo" src="assets/img/logo-hero.svg" alt="logo" />
+        </div>
+        <div class="box-body">
+          <p class="body">
+            برای انتخاب مناسب ترین بروکر برای استفاده از ربات هاب معامله گر و
+            سرمایه گذاری میتوانید در صفحه بروکر های ایرانی اکسپرت مفایسه،انتخاب و
+            ثبت نام کنید
+          </p>
+        </div>
+        <div class="box-link">
+          <a href="#" class="link font-semibold"> مقایسه بروکرها </a>
+        </div>
+    </div>
   </div>
+</div>
+<!-- ===========================[رسپانسیو]============== -->
+<div class="hero-mobile" [ngClass]="device == 'sm' ? 'block' : 'hidden'">
+  <div class="mt-3">
+    <button class="btn">
+      <p class="click">اضافه کردن به سبد خرید</p>
+    </button>
+    <button class="btn-2">
+      <p class="click mr-3">
+      </p>
+    </button>
+  </div>
+  <img class="hero-img" src="assets/img/hero-product(re).svg" alt="hero">
+
+  <!-- ============[پلن]======= -->
+
+  <h6 class="bot-h">ربات معامله گر فارکس ATM</h6>
+  <div class="row-rating mb-3">
+    <span class="star-rating">
+      <app-rating [config]="star"></app-rating>
+    </span>
+    <p class="p-rating">
+      <span class="moshtarak">4.5</span>
+      <span class="bazdid">بازدید ها 735</span>
+      <span class="moshtarak">مشترک ها 235</span>
+    </p>
+  </div>
+  <h6 class="row-title">انتخاب پلن</h6>
+  <div class="flex justify-around mb-10">
+    <div *ngFor="let p of plans; let i = index" class="row-plan">
+      <div class="flex flex-col">
+        <button (click)="toggle(p)">
+          <p [ngClass]="p.active ? 'activated' : ''" class="plan">
+            {{ p.title }}
+          </p>
+        </button>
+      </div>
+    </div>
+  </div>
+  <h6 [ngClass]="animationState ? 'price-animation': ''" class="row-title mb-4">پلن {{ selectedPlan.title }}</h6>
+  <p [ngClass]="animationState ? 'price-animation': ''" class="p-plan">
+    {{selectedPlan.title}}
+
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
+    tempore dolorem eligendi, praesentium quia quasi corporis voluptas
+    a, vero expedita amet architecto corrupti debitis molestiae
+    dolores. Dolor quisquam quos architecto!
+  </p>
+  <!-- ================[فروشنده]============ -->
+  <div class="pb-3 row">
+    <h6 class="row-h">فروشنده</h6>
+    <P class="mt-7 row-p"
+      ><span
+        ><i class="fa-solid fa-star"></i>ایرانی اکسپرت<i
+          class="fa-solid fa-star"
+        ></i></span
+    ></P>
+    <P class="mt-2 row-p-2">
+      <span><i class="fa-solid fa-star"></i>4.5</span>
+      <span class="ml-3 mr-3"
+        ><i class="fa-solid fa-star"></i>EA</span
+      >
+      <span><i class="fa-solid fa-star"></i>MQL5</span>
+    </P>
+  </div>
+  <div class="pt-3 pb-3 row">
+    <P class="row-p-3"
+      ><span
+        ><i class="fa-solid fa-star"></i>پشتیبانی دائمی تا زمان اشتراک
+      </span></P
+    >
+  </div>
+  <div class="pt-3 pb-3 row">
+    <P class="row-p-4"
+      ><span
+        ><i class="fa-solid fa-star"></i>دانلود رایگان دموی محصول
+      </span></P>
+  </div>
+    <!-- ===========================[بنر]============== -->
+    <div class="all">
+      <div class="relative">
+        <div class="grid grid-cols-3 gap-3 baner">
+          <div class="logo-i">
+            <img class="logo" src="assets/img/logo-hero.svg" alt="logo" />
+          </div>
+          <div class="box-body">
+            <p class="body">
+              برای انتخاب مناسب ترین بروکر برای استفاده از ربات هاب معامله گر و
+              سرمایه گذاری میتوانید در صفحه بروکر های ایرانی اکسپرت مفایسه،انتخاب و
+              ثبت نام کنید
+            </p>
+          </div>
+      </div>
+    </div>
 </div>
