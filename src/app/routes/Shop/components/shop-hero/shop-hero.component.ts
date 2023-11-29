@@ -2,6 +2,7 @@ import { Component , OnInit } from '@angular/core';
 import { RatingConfig, StarRating } from 'src/app/shared/rating/rating-config';
 import { planInterface } from './interfaces/product-interface';
 import { ProductService } from '../product.service';
+// import { trigger, state, style, transition, animate } from '@angular/animations';
 
 const planInit: planInterface = {
   active:false,
@@ -10,9 +11,20 @@ const planInit: planInterface = {
 @Component({
   selector: 'app-shop-hero',
   templateUrl: './shop-hero.component.html',
-  styleUrls: ['./shop-hero.component.scss']
+  styleUrls: ['./shop-hero.component.scss'],
+  // animations:[ trigger('activeState', [
+  //   state('default', style(
+  //     { opacity:1, }
+  //     )),
+  //   state('changed', style(
+  //     { opacity: 0.5 }
+  //     )),
+  //   transition('rotated => default', animate('200ms ease-out')),
+  //   transition('default => rotated', animate('200ms ease-in')),
+  // ]),]
 })
 export class ShopHeroComponent implements OnInit{
+  animationState: boolean =false
   // ============[ستاره ها]==================
   loading = true
   star : RatingConfig<StarRating> = {
@@ -56,5 +68,12 @@ async ngOnInit() {
     this.selectedPlan = plan;
     this.plan.filter((plan , i)=> i !== index && plan.active)
     .forEach(plan => plan.active = !plan.active);    
+    this.fireAnimation();
   }  
+  fireAnimation(){
+    this.animationState = true
+    setTimeout(()=> {
+      this.animationState = false
+    },400)
+  }
 }

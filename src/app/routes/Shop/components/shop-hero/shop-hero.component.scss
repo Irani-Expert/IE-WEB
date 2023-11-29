@@ -66,6 +66,8 @@
   background-color: #3246d3 !important;
   color: white;
   font-weight: 800;
+  font-size: 21px;
+  transition: all 0.2s ease-in-out;
 }
 .product-d {
   background-color: #f5f5f5;
@@ -79,8 +81,8 @@
 }
 .product-rows {
   margin-top: 22px;
-  margin-right: 29px;
-  margin-left: 29px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 .row {
   border-bottom: 1px solid #d2d2d2;
@@ -111,12 +113,15 @@
 }
 .price-1 {
   font-weight: 900;
-  font-size: 2rem;
+  font-size: 1.7rem;
   color: black;
 }
 .price-2 {
   color: #6e6e6eb4;
   font-size: 1rem;
+  margin-right: 0.2rem;
+  margin-left: 0.2rem;
+  font-weight: 600;
 }
 .price-3 {
   color: #6e6e6e;
@@ -128,11 +133,6 @@
   font-weight: bold;
   position: relative;
   bottom: 4px;
-}
-.row-btn {
-  margin-top: 30px;
-  margin-right: -14px;
-  margin-left: -14px;
 }
 .btn {
   border-radius: 10px;
@@ -156,6 +156,23 @@
 }
 .p-plan {
   margin-top: -10px;
+}
+.price-box{
+  display: flex;
+  margin-right: 1.8rem;
+  align-items: center;
+}
+.off-price{
+  background-color: #17EE9D;
+  font-size: 0.8rem;
+  padding: 4px 12px 0px 12px;
+  border-radius: 30px;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+.smooth-width {
+display: flex;
+align-items: center;
 }
 // ====================[بنر]=============
 .all {
@@ -216,4 +233,26 @@
 .box-body {
   display: flex;
   align-items: center;
+}
+// =================[انیمیشن کارت]===============
+
+.price-animation{
+  animation: display 0.4s ease-in forwards;
+}
+@keyframes display {
+  0% {
+    opacity: 0.15;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
 }
