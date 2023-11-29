@@ -1,11 +1,12 @@
 .row{
   margin-right: 3rem;
-  margin-left: 4rem
+  margin-left: 3rem
   }
   .divid-h{
       font-weight: bold;
-      font-size: 1.5rem;
       color: #3246D3;
+      font-size: 0.9rem;
+
       &::before {
         content: "";
        width: 26px;
@@ -22,7 +23,7 @@
     }
     .faq-h{
       color: black;
-          font-size: 25px;
+      font-size: 1.4rem;
           font-weight: 700;
         }
 // ============[faq]===============

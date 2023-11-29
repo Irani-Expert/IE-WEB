@@ -1,10 +1,12 @@
 .row{
-    margin-right: 135px;
+  margin-right: 3rem;
+  margin-left: 3rem
   }
   .divid-h{
       font-weight: 500;
-      font-size: 15px;
       color: #3246D3;
+      font-size: 0.9rem;
+
       &::before {
         content: "";
        width: 26px;
@@ -21,7 +23,7 @@
     }
     .b-t-h{
       color: black;
-      font-size: 25px;
+      font-size: 1.5rem;
       font-weight: 500;
     }
     .row-body{
@@ -30,9 +32,6 @@
         padding-right: 14rem;
         padding-left: 14rem;
 
-    }
-    .body{
-        width: 126rem;
     }
     .body-p{
         color: black;
