@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Comment } from 'src/app/classes/interfaces/comment.interface';
 
 @Component({
   selector: 'app-comments',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./comments.component.scss'],
 })
 export class CommentsComponent {
+  @Input('data') comments: Comment[] = new Array<Comment>();
   rateText: string = 'بد';
   rangeRate: number = 25;
   left: string = '72%';
@@ -18,6 +20,9 @@ export class CommentsComponent {
     this.left = String(24 * calNumber) + '%';
     this.rangeRate = (4 - calNumber) * 25;
     this.setRate(5 - calNumber);
+  }
+  ngOnInit() {
+    console.log(this.comments);
   }
   setRate(rate: number) {
     switch (rate) {

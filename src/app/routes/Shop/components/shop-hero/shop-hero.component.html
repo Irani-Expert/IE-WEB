@@ -32,10 +32,10 @@
           <div class="flex justify-around mb-10">
             <!-- <ng-container *ngIf="!loading">
             </ng-container> -->
-            <div *ngFor="let p of plan; let i = index" class="row-plan">
+            <div *ngFor="let p of plans; let i = index" class="row-plan">
               <div class="flex flex-col">
-                <button (click)="toggle(p, i)">
-                  <p [ngClass]="plan[i].active ? 'activated' : ''" class="plan">
+                <button (click)="toggle(p)">
+                  <p [ngClass]="p.active ? 'activated' : ''" class="plan">
                     {{ p.title }}
                   </p>
                 </button>
@@ -134,4 +134,5 @@
         <a href="#" class="link font-semibold"> مقایسه بروکرها </a>
       </div>
     </div>
+  </div>
 </div>
