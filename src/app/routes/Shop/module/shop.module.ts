@@ -14,8 +14,13 @@ import { BotOptionsComponent } from '../components/bot-options/bot-options.compo
 import { DescriptionComponent } from '../components/description/description.component';
 import { LandingProductComponent } from '../components/landing-product/landing-product.component';
 import { CarouselComponent } from 'src/app/shared/carousel/carousel.component';
+import { DiscountBannerComponent } from 'src/app/shared/discount-banner/discount-banner.component';
+import { SliderComponent } from '../../Home/components/slider/slider.component';
+import { ResponsiveFiltersComponent } from '../components/responsive-filters/responsive-filters.component';
 
 const components = [
+  ResponsiveFiltersComponent,
+  SliderComponent,
   ShopHeroComponent,
   DescriptionComponent,
   LandingShopComponent,
@@ -23,6 +28,7 @@ const components = [
   DetailCardComponent,
   BotOptionsComponent,
   LandingProductComponent,
+  DiscountBannerComponent,
 ];
 
 @NgModule({

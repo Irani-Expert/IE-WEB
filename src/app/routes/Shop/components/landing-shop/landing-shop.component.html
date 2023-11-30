@@ -5,25 +5,49 @@
     <app-detail-card [item]="item" />
   </ng-container>
 </div> -->
-<div class="m-0 px-14 py-10">
-  <div class="grid-cols-10 grid">
+<div class="m-0 sm:px-14 py-10">
+  <div class="flex flex-col m-3">
+    <div class="flex">
+      <div *ngIf="choosenSlide == 1">
+        <app-discount-banner [response]="true"></app-discount-banner>
+      </div>
+      <div *ngIf="choosenSlide == 2">
+        <div
+          class="text-white flex justify-around h-[7rem] sm:h-[6rem] m-3 me-0 ms-0 rounded-2xl p-4 bg-cover bg-black min-w-[18rem]"
+        >
+          <div class="flex flex-col justify-end">
+            <p class="text-white">بررسی بروکر</p>
+            <p class="text-white text-xl">Alpari - آلپاری</p>
+          </div>
+          <img src="assets/img/alpari-broker-forex.jpg" alt="alpari" />
+        </div>
+      </div>
+    </div>
+    <app-slider
+      [choosenSlide]="choosenSlide"
+      (changednum)="changeSlide($event)"
+    ></app-slider>
+    <div class="flex justify-evenly w-1/2">
+      <span class="font-bold text-lg text-gray-900" (click)="NavbarsStatus(1)"
+        >فیلتر ها</span
+      >
+      <span class="font-bold text-lg text-gray-900" (click)="NavbarsStatus(2)"
+        >مرتب سازی</span
+      >
+    </div>
+  </div>
+
+  <div class="grid-cols-10 grid p-3 bg-[#F6F6F6]">
     <div
       class="col-span-9 sm:col-span-8 md:col-span-4 lg:col-span-3 xl:col-span-2"
     >
-      <div class="w-full flex items-center flex-col justify-center">
+      <div class="w-full hidden items-center flex-col justify-center sm:flex">
         <img
           src="assets/img/alpari-broker-forex.jpg"
           class="custom-img-product"
           alt="alpari"
         />
-        <app-filter [search]="true" [filterModel]="filter">
-          <search-bar
-            (result)="search($event)"
-            searchBar
-            [placeholder]="
-              filterModel.productName ? filterModel.productName : 'جستجو'
-            "
-          ></search-bar>
+        <app-filter [filterModel]="filter">
           <ng-container category *ngFor="let item of checkboxes">
             <checkbox
               [fillOrNot]="item.checked"
@@ -40,7 +64,7 @@
       </div>
     </div>
     <div
-      class="col-span-9 sm:col-span-8 md:col-span-5 lg:col-span-6 xl:col-span-7"
+      class="col-span-12 sm:col-span-8 md:col-span-5 lg:col-span-6 xl:col-span-7"
     >
       <ng-container *ngIf="!loading && page">
         <ng-container *ngFor="let item of page?._items">
@@ -51,3 +75,46 @@
     </div>
   </div>
 </div>
+<div class="sidenav p-4 shadow-sm bg-white rounded-t-3xl" *ngIf="openNav != 0">
+  <a
+    class="closebtn flex flex-row-reverse justify-between w-11/12"
+    (click)="NavbarsStatus(0)"
+    >&times;
+    <p class="text-2xl text-black mt-8 ms-2">
+      {{ openNav === 1 ? "فیلتر ها" : "مرتب سازی" }}
+    </p></a
+  >
+  <div *ngIf="openNav == 1">
+    <app-filter [search]="false" [filterModel]="filter">
+      <ng-container category *ngFor="let item of checkboxes">
+        <checkbox
+          [fillOrNot]="item.checked"
+          (checked)="checkboxCategory($event, item.value)"
+          ><p class="text-small pt-1.5" title>{{ item.title }}</p></checkbox
+        >
+      </ng-container>
+      <checkbox producer
+        ><p class="text-small pt-1.5" title>ایرانی اکسپرت</p></checkbox
+      >
+      <app-rating rating [config]="ratingConfig"></app-rating>
+      <app-rating priceRange [config]="rangeConfig"></app-rating>
+    </app-filter>
+  </div>
+  <div *ngIf="openNav == 2">
+    <div *ngFor="let item of sortFilter">
+      <p
+        class="text-xl p-3.5 border-b border-solid border-gray-200"
+        (click)="changesort(item.id)"
+      >
+        {{ item.name }}
+        <span *ngIf="item.id === sorttype">&#10004;</span>
+      </p>
+    </div>
+  </div>
+</div>
+<div
+  (click)="NavbarsStatus(0)"
+  *ngIf="openNav != 0"
+  class="overlay3"
+  style="width: 100%; opacity: 0.8"
+></div>

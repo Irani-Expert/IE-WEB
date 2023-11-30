@@ -1,13 +1,16 @@
-<div class="flex pt-5 pb-6 px-4 bg-white rounded-2xl box-shadow-ac border h-80">
-  <img class="bg-[#f3f3f3]" src="../../../../../assets/img/hero.webp" />
+<div
+  class="flex sm:pt-5 sm:pb-6 p-3 sm:px-4 bg-white rounded-2xl box-shadow-ac border sm:h-80 min-h-[9rem] sm:max-w-max max-w-[450px]"
+>
+  <img class="bg-[#f3f3f3] w-[40%]" src="../../../../../assets/img/hero.webp" />
 
-  <div class="flex flex-col p-2">
+  <div class="flex flex-col sm:p-2 p-1">
     <h1 class="text-32 font-semibold">
       {{ product.title }}
     </h1>
-    <div class="flex flex-row items-center">
+    <div class="sm:flex flex-row hidden items-center">
       <span class="flex justify-center items-center">
         <app-rating
+          class="hidden sm:block"
           rating
           [config]="ratingConfig"
           style="scale: 0.9"
@@ -21,17 +24,47 @@
       <span class="divider-custom-vertical mx-2"></span>
       <p class="text-20 font-bold text-gray-300 pt-3">مشترک ها 232</p>
     </div>
-    <p class="text-base">
+    <p class="text-base sm:block hidden">
       {{ product.description }}
     </p>
-    <div class="flex items-center">
+    <p class="sm:text-base text-xs sm:hidden block">
+      {{ product.description | slice : 0 : 110 }}....
+    </p>
+    <div class="sm:hidden flex flex-row items-center mb-2">
+      <span class="flex justify-center items-center">
+        <svg
+          class="min-w-[10px]"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 23.932 22.239"
+        >
+          <path
+            d="M4919.279,3097.68l-5.25-3.909a.412.412,0,1,0-.822,0l-5.25,3.909a1.712,1.712,0,0,1-2.644-1.924l2.092-6.2c.014-.041.029-.082.045-.121l-5-3.17a1.714,1.714,0,0,1,.846-3.16l6.538-.27a1.737,1.737,0,0,1,.428.035l1.836-5.878a1.714,1.714,0,0,1,3.271,0l1.829,5.845a1.778,1.778,0,0,1,.2,0l6.538.27a1.714,1.714,0,0,1,.846,3.16l-5,3.169c.017.04.032.08.046.122l2.092,6.2a1.72,1.72,0,0,1-1.629,2.271A1.683,1.683,0,0,1,4919.279,3097.68Z"
+            transform="translate(-4901.652 -3075.788)"
+            fill="#FFD500"
+          />
+        </svg>
+        <p class="text-xs h-[9px] text-gray-300 font-bold text-[12px]">
+          {{ product.rate }}
+        </p>
+      </span>
+      <span class="divider-custom-vertical mx-1"></span>
+      <p class="text-xs font-bold mt-1 text-gray-300 text-[12px]">
+        بازدید ها {{ product.viewsCount }}
+      </p>
+      <span class="divider-custom-vertical mx-1"></span>
+      <p class="text-xs font-bold mt-1 text-gray-300 text-[12px]">
+        مشترک ها 232
+      </p>
+    </div>
+
+    <div class="items-center hidden sm:flex">
       <ng-container>
         <div
           *ngFor="let i of product.linkTag"
           class="rounded-full bg-neutral-100 pe-4 ps-4 p-1 text-base font-bold m-1 items-center"
           style="display: flex; align-items: flex-start"
         >
-          <img class="w-4 pt-0.5" *ngIf="i.icon != ''" src="{{ i.icon }}" />
+          <img class="sm:w-4 pt-0.5" *ngIf="i.icon != ''" src="{{ i.icon }}" />
           {{ i.name }}
         </div>
       </ng-container>
@@ -49,12 +82,14 @@
         ترید
       </div>
     </div>
-    <div class="flex items-center justify-end border-t-[1px] pt-3 border-solid">
-      <p class="pt-2 font-black text-black text-xl">
+    <div
+      class="flex items-center justify-end border-t-[1px] sm:pt-3 pt-1 border-solid"
+    >
+      <p class="sm:pt-2 sm:text-xl text-sm font-black text-black">
         شروع قیمت از {{ product.minPrice }}$
       </p>
       <button
-        class="bg-[#3246d3] border-2 ms-2 relative border-[#3246d3] border-solid text-white p-1 w-1/4 rounded-full text-lg font-black"
+        class="bg-[#3246d3] hidden sm:block border-2 ms-2 relative border-[#3246d3] border-solid text-white p-1 w-1/4 rounded-full text-lg font-black"
       >
         <a routerLink="../../{{ product.title.split(' ').join('_') }}">
           بررسی پلن ها

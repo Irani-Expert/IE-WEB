@@ -5,7 +5,7 @@ import { LandingPageComponent } from '../components/landing-page/landing-page.co
 import { SellInfoComponent } from '../components/sell-info/sell-info.component';
 import { HeroComponent } from '../components/hero/hero.component';
 // import { CounterNumberComponent } from '../components/counter-number/counter-number.component';
-import { SliderComponent } from '../components/slider/slider.component';
+// import { SliderComponent } from '../components/slider/slider.component';
 import { BotFacilitiesComponent } from '../components/bot-facilities/bot-facilities.component';
 import { BotAdvantagesComponent } from '../components/bot-advantages/bot-advantages.component';
 import { LandingArticleComponent } from '../components/landing-article/landing-article.component';
@@ -23,7 +23,7 @@ import { SearchFeildComponent } from 'src/app/shared/search-feild/search-feild.c
 import { TradeBeginningComponent } from '../components/trade-beginning/trade-beginning.component';
 import { CardTitleComponent } from 'src/app/shared/card-title/card-title.component';
 import { CardLinkComponent } from 'src/app/shared/card-link/card-link.component';
-import { DiscountBannerComponent } from 'src/app/shared/discount-banner/discount-banner.component';
+// import { DiscountBannerComponent } from 'src/app/shared/discount-banner/discount-banner.component';
 import { BotShowcaseComponent } from '../components/bot-showcase/bot-showcase.component';
 import { InstagramBanerComponent } from '../components/instagram-baner/instagram-baner.component';
 import { ServiceBanerComponent } from '../components/service-baner/service-baner.component';
@@ -40,7 +40,7 @@ const components = [
   SellInfoComponent,
   BotShowcaseComponent,
   // CounterNumberComponent,
-  SliderComponent,
+  // SliderComponent,
   BotFacilitiesComponent,
   BotAdvantagesComponent,
   LandingArticleComponent,
@@ -58,7 +58,7 @@ const components = [
   TradeBeginningComponent,
   CardTitleComponent,
   CardLinkComponent,
-  DiscountBannerComponent,
+  // DiscountBannerComponent,
 ];
 @NgModule({
   declarations: [components],
