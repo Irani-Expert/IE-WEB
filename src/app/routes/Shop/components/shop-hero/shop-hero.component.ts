@@ -1,8 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { RatingConfig, StarRating } from 'src/app/shared/rating/rating-config';
 import { planInterface } from './interfaces/product-interface';
 import { SingleProduct } from 'src/app/classes/interfaces/product.interface';
 import { smoothWidth } from 'src/app/classes/animation';
+import { Utils } from 'src/app/classes/utils';
+import { AppComponent } from 'src/app/app.component';
 
 const planInit: planInterface = {
   active: false,
@@ -11,16 +13,20 @@ const planInit: planInterface = {
   price: 0,
   title: '',
 };
-// ============[انیمیشن]=========
 
 @Component({
   selector: 'app-shop-hero',
   templateUrl: './shop-hero.component.html',
   styleUrls: ['./shop-hero.component.scss'],
   animations : [smoothWidth],
-
+  
 })
 export class ShopHeroComponent implements OnInit {
+
+  constructor() {
+   
+  }
+
   animationState = false;
   @Input('data') product: SingleProduct;
   // ============[ستاره ها]==================
@@ -31,8 +37,10 @@ export class ShopHeroComponent implements OnInit {
   // ============[سرویس ]==================
   selectedPlan: planInterface = planInit;
   plans: planInterface[] = new Array<planInterface>();
-  constructor() {}
-  async ngOnInit() {
+
+
+  async ngOnInit() { 
+    this.updateDeviceValue();
     this.product.plans
       .filter((it) => it.isActive == true)
       .forEach((it, i) => {
@@ -71,5 +79,21 @@ export class ShopHeroComponent implements OnInit {
     setTimeout(()=> {
       this.animationState = false
     },400)
+  }
+    // =================[رسپانسیو]============
+    device: 'sm' | 'lg' = 'lg';
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.updateDeviceValue();
+  }
+  updateDeviceValue() {
+    if (AppComponent.isBrowser.value) {
+      if (Utils.isTablet()) {
+        this.device = 'sm';
+      } else {
+        this.device = 'lg';
+      }
+    }
   }
 }

@@ -1,4 +1,4 @@
-<div class="flex justify-center">
+<div  class="flex justify-center" [ngClass]="device == 'lg' ? 'block' : 'hidden'">
   <div class="w-9/12 mb-7">
     <div class="mb-3">
       <div class="mb-20">
@@ -200,4 +200,8 @@
       </div>
     </div>
   </div>
+</div>
+<!-- ========================[رسپانسیو]================== -->
+<div class="comment-mobile" [ngClass]="device == 'sm' ? 'block' : 'hidden'">
+
 </div>

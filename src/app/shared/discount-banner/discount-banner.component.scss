@@ -1,4 +1,7 @@
 .bg-Img-t {
-  background-image: url(../../../assets/img/banner.png);
+  @media (min-width: 640px) {
+    background-image: url(../../../assets/img/banner.png);
+  }
+
   background-color: #3246d3;
 }

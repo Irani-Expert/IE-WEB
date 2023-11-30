@@ -16,8 +16,11 @@ import { LandingProductComponent } from '../components/landing-product/landing-p
 import { CarouselComponent } from 'src/app/shared/carousel/carousel.component';
 import { BackTestComponent } from '../components/back-test/back-test.component';
 import { SmoothWidthDirective } from 'src/app/classes/directives/smooth-width.directive';
+import { DiscountBannerComponent } from 'src/app/shared/discount-banner/discount-banner.component';
+import { SliderComponent } from '../../Home/components/slider/slider.component';
 
 const components = [
+  SliderComponent,
   BackTestComponent,
   ShopHeroComponent,
   DescriptionComponent,
@@ -26,6 +29,7 @@ const components = [
   DetailCardComponent,
   BotOptionsComponent,
   LandingProductComponent,
+  DiscountBannerComponent,
 ];
 
 @NgModule({
@@ -41,7 +45,6 @@ const components = [
     RatingComponent,
     Checkbox,
     SearchComponent,
-    
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

@@ -1,12 +1,13 @@
-
-   
-<div style="text-align:center">
-    <ng-container *ngFor="let item of arr;">
-        <span class="dot" (click)="changeSlide(item)" [ngClass]="choosenSlide==item?'active-tab':'deActive'"></span> 
-
-    </ng-container>
-  </div>
-  <!-- این بخش رو کپی کنید-->
+<div style="text-align: center">
+  <ng-container *ngFor="let item of arr">
+    <span
+      class="dot"
+      (click)="changeSlide(item)"
+      [ngClass]="choosenSlide == item ? 'active-tab' : 'deActive'"
+    ></span>
+  </ng-container>
+</div>
+<!-- این بخش رو کپی کنید-->
 <!-- 
     <div class="slide">
         <div *ngIf="choosenSlide==1">text 1</div>

@@ -36,6 +36,16 @@ import {
   styleUrls: ['./landing-shop.component.scss'],
 })
 export class LandingShopComponent {
+  sortFilter = [
+    { name: 'همه محصولات', id: 1 },
+    { name: 'محصولات غیر رایگان', id: 2 },
+    { name: 'محصولات رایگان', id: 3 },
+    { name: 'پربازدیدترین ها', id: 4 },
+    { name: 'پرفروش ترین ها', id: 5 },
+    { name: 'پیشنهاد خریداران', id: 6 },
+    { name: 'منتخب', id: 7 },
+  ];
+  choosenSlide: number = 1;
   savedParams: any;
   checkboxes = [
     {
@@ -54,6 +64,8 @@ export class LandingShopComponent {
       checked: false,
     },
   ];
+  openNav: number = 0;
+  sorttype: number = 1;
   //Route Configurattions-------<
   private routeSubject = new Subject();
   routerSubscriber: Subscription | undefined;
@@ -132,6 +144,9 @@ export class LandingShopComponent {
     this.routerSubscriber?.unsubscribe();
   }
 
+  NavbarsStatus(type: number) {
+    this.openNav = type;
+  }
   // Init Page Needs and Navigation --------------------------------------->
   async ngOnInit() {
     this.routerSubscriber = this._router.events
@@ -183,6 +198,10 @@ export class LandingShopComponent {
       }
     }
   }
+  changesort(id: number) {
+    this.sorttype = id;
+  }
+
   async getProductsFromApi() {
     return await lastValueFrom(
       await this.productService.getProducts(
@@ -236,7 +255,9 @@ export class LandingShopComponent {
   }
 
   // Method Which Gets Array String and return Array --------------------------------------->
-
+  changeSlide(slide: any) {
+    this.choosenSlide = slide;
+  }
   async setNumArr(value: string) {
     let arr: number[] = [];
     let x = value.slice(value.indexOf('[') + 1, value.indexOf(']')).split(',');
