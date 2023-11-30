@@ -1,5 +1,5 @@
 <div
-  class="flex-col gap-3"
+  class="flex-col gap-3 w-full"
   [ngClass]="classList !== '' ? classList : 'filter-default-container'"
 >
   <ng-container *ngIf="search">
@@ -11,9 +11,9 @@
   <div
     [ngClass]="filterBoxClass !== '' ? filterBoxClass : 'filter-box-default'"
   >
-    <div class="header-container">
-      <h3>فیلترها</h3>
-      <button>حذف فیلترها</button>
+    <div class="header-container hidden sm:block">
+      <h3 class="hidden sm:block">فیلترها</h3>
+      <button class="hidden sm:block">حذف فیلترها</button>
     </div>
     <div class="content-container">
       <ng-container *ngFor="let item of filterModel; let i = index">
