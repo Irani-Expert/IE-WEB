@@ -1,5 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
 import { Comment } from 'src/app/classes/interfaces/comment.interface';
+import { Utils } from 'src/app/classes/utils';
 
 @Component({
   selector: 'app-comments',
@@ -40,6 +42,26 @@ export class CommentsComponent {
         break;
       default:
         this.rateText = 'ماچ بهت';
+    }
+  }
+    // ===================[رسپانسیو ]==================
+    constructor(){
+      this.updateDeviceValue();
+    }
+    device: 'sm' | 'lg' = 'lg';
+
+
+    @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.updateDeviceValue();
+  }
+  updateDeviceValue() {
+    if (AppComponent.isBrowser.value) {
+      if (Utils.isTablet()) {
+        this.device = 'sm';
+      } else {
+        this.device = 'lg';
+      }
     }
   }
 }

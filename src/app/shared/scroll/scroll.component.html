@@ -1,6 +1,6 @@
 <div class="scroll-nav flex justify-start" >
     <div *ngFor=" let s of scroll;let i = index" class="box-s">
-        <button class="box-body"
+        <button class="box-body lg:!text-lg"
         ><p
         (click)="toggle(i , $event)"
         [ngClass]="scroll[i].active ? 'active' : ''"

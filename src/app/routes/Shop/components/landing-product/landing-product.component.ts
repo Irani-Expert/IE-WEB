@@ -7,7 +7,7 @@ import { ProductService } from '../product.service';
   styleUrls: ['./landing-product.component.scss'],
 })
 export class LandingProductComponent {
-  loading: boolean = true;
+  loading: boolean = false;
   constructor(public productService: ProductService) {}
   async ngOnInit() {
     if (await this.productService.getProduct(1)) {
