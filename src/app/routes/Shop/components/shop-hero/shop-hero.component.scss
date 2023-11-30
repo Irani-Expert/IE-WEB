@@ -94,16 +94,16 @@
 .row-p {
   font-size: 14px;
   font-weight: 700;
-  color: #535353;
+  color: black;
 }
 .row-p-2 {
   font-size: 14px;
   font-weight: 700;
-  color: #606060;
+  color: black;
 }
 .row-p-3 {
   font-size: 14px;
-  color: #535353;
+  color: black;
   font-weight: 700;
 }
 .row-p-4 {
@@ -255,7 +255,129 @@ align-items: center;
 .hero-mobile{
   position: relative;
 }
-.hero-img{
-  height: 100px;
-  width: 1000px;
+.row-click{
+  position: absolute;
+  margin-right: 2rem;
+  z-index: 20;
+
+}
+.btn-m{
+  padding: 5px 15px 5px 13px;
+  border-radius: 30px;
+  background-color: #E7E7E7;
+}
+.click-m{
+  font-size: 0.9rem;
+}
+.plan-mobile{
+  background-color: white;
+  border-radius: 49px 49px 0px 0px;
+    transform: translate(0px, -37px);
+}
+.bot-h-mobile{
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: black;
+}
+.row-rating-mobile{
+  scale: 0.7;
+  margin-right: -3.5rem;
+}
+.p-rating-m{
+  display: inline-flex;
+  color: #B6B6B6;
+}
+.titile{
+  padding-top: 1.5rem;
+  padding-right: 2rem;
+  margin-bottom: 2rem;
+}
+.bazdid-m{
+  padding: 0px 5px 0px 5px;
+  border-right: 1px solid;
+  border-left: 1px solid;
+  margin: 0px 7px 0px 7px;
+}
+.row-title-3{
+  margin: 4rem 1.5rem 1rem 1rem;
+  font-size: 16px;
+  font-weight: 600;
+}
+// <!-- ================[فروشنده]============ -->
+.row-p-mobile{
+  color: black;
+  font-weight: 700;
+}
+.row-p-mobile2 {
+  color: #0F9B66;
+  font-weight: 700;
+}
+.divider{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #D2D2D2;
+  width: 100%;
+}
+.all-mobile {
+  background-color: #F5F5F5;
+    margin: 0rem 2.5rem 0rem 2.5rem;
+    border: #E9E9E9 1px solid;
+    border-radius: 17px;
+}
+.logo-mobile{
+  position: absolute;
+    width: 5.5rem;
+    transform: translate(-3px, -16px);
+    aspect-ratio: 3/3;
+}
+.body-mobile{
+  font-size: 0.7rem;
+    color: black;
+    padding: 0.6rem;
+}
+.box-price-row-mobile{
+  background-color: #F6F6F6;
+  border-radius: 23px 23px 0px 0px;
+  position: fixed;
+    z-index: 100;
+    top: 0;
+    transform: translateY(calc(100vh - 92px));
+    width: 100vw;
+
+}.box-price-mobile{
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  margin-right: 1.5rem;
+}
+.box-price-btn-mobile{
+  display: flex;
+  align-items: center;
+}
+.btn-mobile{
+  background-color: #3246d3;
+  padding: 10px 35px 10px 35px;
+  color: white;
+  font-weight: 700;
+  margin-right: 0.5rem;
+  border-radius: 29px
+}
+.price-1-m{
+  background-color: #17EE9D;
+  padding: 3px 16px 0px 16px;
+  border-radius: 14px;
+  font-weight: 400;
+  margin-bottom: 8px
+}
+.price-2-m{
+color: #B7B7B7;
+font-size: 1.3rem;
+font-weight: 500;
+margin-left: 0.5rem;
+margin-right: 0.5rem;
+}
+.price-3-m{
+  font-size: 2.4rem;
+  color: black;
+  font-weight: 900;
 }

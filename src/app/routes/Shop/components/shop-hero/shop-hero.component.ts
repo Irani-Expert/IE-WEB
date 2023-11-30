@@ -24,7 +24,7 @@ const planInit: planInterface = {
 export class ShopHeroComponent implements OnInit {
 
   constructor() {
-    this.updateDeviceValue();
+   
   }
 
   animationState = false;
@@ -39,7 +39,8 @@ export class ShopHeroComponent implements OnInit {
   plans: planInterface[] = new Array<planInterface>();
 
 
-  async ngOnInit() {
+  async ngOnInit() { 
+    this.updateDeviceValue();
     this.product.plans
       .filter((it) => it.isActive == true)
       .forEach((it, i) => {
