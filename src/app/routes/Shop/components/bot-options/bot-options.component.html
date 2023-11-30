@@ -1,25 +1,28 @@
-<div class="row">
-    <span class="divid-h">امکانات ویژه ربات معامله گر ATM </span>
-    <h6 class="faq-h mb-4">
-      بخشی از مهمترین ویژگی ها و ربات معامله گر ATM
-    </h6>
+<div class="lg:!mr-14 row">
+  <span class="divid-h lg:!text-base">امکانات ویژه ربات معامله گر ATM </span>
+  <h6 class="faq-h mb-4 lg:!text-2xl">بخشی از مهمترین ویژگی ها و ربات معامله گر ATM</h6>
 </div>
 <!-- ===============[FAQ]=========== -->
-<div class="box-shadow flex justify-center" >
-    <ul id="accordion " class="accordion max-w-4xl mr-3 ml-3" >
-        <li class="border"
-         *ngFor="let menu of faq; let i = index"
-          [class.active]="menu.isActive">
-          <div class="menu" (click)="toggle( i , !menu.isActive)">
-              <img src="assets/icon/chevron.svg">
-            {{ menu.title }}
-          </div>
-          <ul class="submenu" #submenu
-            [style.height.px]="menu.isActive ? submenu.scrollHeight : 0">
-            <li>
-              <p>{{menu.description}}</p>
-            </li>
-          </ul>
+<div class="box-shadow flex justify-center">
+  <ul id="accordion " class="accordion max-w-4xl mr-3 ml-3">
+    <li
+      class="border"
+      *ngFor="let menu of data; let i = index"
+      [class.active]="menu.isActive"
+    >
+      <div class="menu" (click)="toggle(i, !menu.isActive)">
+        <img src="assets/icon/chevron.svg" />
+        {{ menu.title }}
+      </div>
+      <ul
+        class="submenu"
+        #submenu
+        [style.height.px]="menu.isActive ? submenu.scrollHeight : 0"
+      >
+        <li>
+          <p>{{ menu.description }}</p>
         </li>
+      </ul>
+    </li>
   </ul>
 </div>

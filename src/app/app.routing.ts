@@ -22,16 +22,21 @@ const routes: Routes = [
     loadChildren: () =>
       import('./routes/Shop/module/shop.module').then((m) => m.ShopModule),
   },
-
   {
-    path: 'calendar',
-    title: 'calendar',
-
+    path: 'checkout',
+    title: 'ایرانی اکسپرت',
     loadChildren: () =>
-      import('./routes/calendar/module/calendar.module').then(
-        (m) => m.CalendarModule
-      ),
+      import('./routes/Checkout/checkout.module').then((m) => m.CheckoutModule),
   },
+  // {
+  //   path: 'calendar',
+  //   title: 'calendar',
+
+  //   loadChildren: () =>
+  //     import('./routes/calendar/module/calendar.module').then(
+  //       (m) => m.CalendarModule
+  //     ),
+  // },
   {
     path: '**',
     title: '404 - یافت نشد',

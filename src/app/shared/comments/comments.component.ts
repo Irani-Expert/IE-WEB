@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
+import { Comment } from 'src/app/classes/interfaces/comment.interface';
+import { Utils } from 'src/app/classes/utils';
 
 @Component({
   selector: 'app-comments',
@@ -6,6 +9,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./comments.component.scss'],
 })
 export class CommentsComponent {
+  @Input('data') comments: Comment[] = new Array<Comment>();
   rateText: string = 'بد';
   rangeRate: number = 25;
   left: string = '72%';
@@ -18,6 +22,9 @@ export class CommentsComponent {
     this.left = String(24 * calNumber) + '%';
     this.rangeRate = (4 - calNumber) * 25;
     this.setRate(5 - calNumber);
+  }
+  ngOnInit() {
+    console.log(this.comments);
   }
   setRate(rate: number) {
     switch (rate) {
@@ -35,6 +42,26 @@ export class CommentsComponent {
         break;
       default:
         this.rateText = 'ماچ بهت';
+    }
+  }
+    // ===================[رسپانسیو ]==================
+    constructor(){
+      this.updateDeviceValue();
+    }
+    device: 'sm' | 'lg' = 'lg';
+
+
+    @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.updateDeviceValue();
+  }
+  updateDeviceValue() {
+    if (AppComponent.isBrowser.value) {
+      if (Utils.isTablet()) {
+        this.device = 'sm';
+      } else {
+        this.device = 'lg';
+      }
     }
   }
 }

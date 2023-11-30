@@ -1,67 +1,98 @@
-import { Component , OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { RatingConfig, StarRating } from 'src/app/shared/rating/rating-config';
 import { planInterface } from './interfaces/product-interface';
-import { ProductService } from '../product.service';
-import { config } from '../bot-options/types/config';
-import { Facility } from 'src/app/classes/interfaces/facility.interface';
-
+import { SingleProduct } from 'src/app/classes/interfaces/product.interface';
+import { smoothWidth } from 'src/app/classes/animation';
+import { Utils } from 'src/app/classes/utils';
+import { AppComponent } from 'src/app/app.component';
 
 const planInit: planInterface = {
-  active:false,
-  id:-1,offPrice:0,price:0,title:''
-}
+  active: false,
+  id: -1,
+  offPrice: 0,
+  price: 0,
+  title: '',
+};
+
 @Component({
   selector: 'app-shop-hero',
   templateUrl: './shop-hero.component.html',
-  styleUrls: ['./shop-hero.component.scss']
+  styleUrls: ['./shop-hero.component.scss'],
+  animations : [smoothWidth],
+  
 })
-export class ShopHeroComponent implements OnInit{
+export class ShopHeroComponent implements OnInit {
+
+  constructor() {
+    this.updateDeviceValue();
+  }
+
+  animationState = false;
+  @Input('data') product: SingleProduct;
   // ============[ستاره ها]==================
-  loading = true
-  star : RatingConfig<StarRating> = {
-    type:1,
-    content:{readonly:true,currentRate:4,rate:5}
-  } 
+  star: RatingConfig<StarRating> = {
+    type: 1,
+    content: { readonly: true, currentRate: 4, rate: 5 },
+  };
   // ============[سرویس ]==================
   selectedPlan: planInterface = planInit;
-  plan : planInterface[] =new Array<planInterface>;
-  constructor ( private productService : ProductService , ){
-  }
-async ngOnInit() {
-  if(await this.productService.getProduct(1)) {
-    this.productService._product?.plans.filter(it=> it.isActive == true).forEach((it,i)=> {
-      if(i <=3) {
-        this.plan.push({
-        
-        offPrice:0,
-          id: it.id,
-          active: false,
-          price: it.price,
-          title: it.title
-        })
-      }
-      else {
-        return
-      }
-    })
-   
-    
-    this.selectedPlan = this.plan[0]
-    this.selectedPlan.active = true
+  plans: planInterface[] = new Array<planInterface>();
 
-    this.loading = false
+
+  async ngOnInit() {
+    this.product.plans
+      .filter((it) => it.isActive == true)
+      .forEach((it, i) => {
+        if (i <= 3) {
+          this.plans.push({
+            offPrice: 0,
+            id: it.id,
+            active: false,
+            price: it.price,
+            title: it.title,
+          });
+        } else {
+          return;
+        }
+      });
+
+    this.selectedPlan = this.plans[0];
+    this.selectedPlan.active = true;
   }
-}
- 
+
   // ==========={اکتیو}=========
-  toggle(plan : planInterface , index : number){
+  toggle(plan: planInterface) {
+    this.plans.forEach((item) => (item.active = false));
     plan.active = true;
     this.selectedPlan = plan;
-    this.plan.filter((plan , i)=> i !== index && plan.active)
-    .forEach(plan => plan.active = !plan.active);    
+    this.fireAnimation();
+    
+
   }
-  // ===============[سرویس امکانات]=============
-  options: config = { multi: false };
-  faqOptions: Facility[];
-  
+  // =================[انیمیشن]============
+  changed = false;
+
+  fireAnimation(){
+    this.changed = !this.changed;
+    this.animationState = true
+    setTimeout(()=> {
+      this.animationState = false
+    },400)
+  }
+    // =================[رسپانسیو]============
+    device: 'sm' | 'lg' = 'lg';
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.updateDeviceValue();
+  }
+  updateDeviceValue() {
+    if (AppComponent.isBrowser.value) {
+      if (Utils.isTablet()) {
+        this.device = 'sm';
+      } else {
+        this.device = 'lg';
+      }
+    }
+  }
 }

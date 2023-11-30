@@ -6,6 +6,7 @@ import { CommentsComponent } from './comments/comments.component';
 import { Toggler } from './toggler/toggler.component';
 import { ScrollComponent } from './scroll/scroll.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { VideoPlayerComponent } from '../routes/Home/components/video-player/video-player.component';
 
 export function playerFactory(): any {
   return import('lottie-web');
@@ -16,6 +17,7 @@ const components = [
   AcordianComponent,
   CommentsComponent,
   ScrollComponent,
+  VideoPlayerComponent,
 ];
 @NgModule({
   imports: [CommonModule, Toggler],

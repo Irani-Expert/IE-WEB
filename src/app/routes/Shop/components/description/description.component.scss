@@ -1,26 +1,106 @@
 .row{
-    margin-right: 135px;
+  margin-right: 1rem;
+  margin-left: 2rem;
   }
   .divid-h{
-      font-weight: bold;
-      font-size: 15px;
+      font-weight: 600;
+      font-size: 0.8rem;
       color: #3246D3;
+      margin-bottom: 1rem;
       &::before {
         content: "";
-       width: 26px;
-       height: 5px;
+       width: 1rem;
+       height: 0.3rem;
        background-color: #3246D3;
        border-radius: 6px;
        display: inline-block;
        margin: 0px 6px;
       }
-    }
-    .l{
-      font-size: 50px;
-      font-weight: 900;
-    }
-    .faq-h{
-      color: black;
-          font-size: 25px;
-          font-weight: 700;
-        }
+   }
+.faq-h{
+  color: black;
+  font-size: 1rem;
+  font-weight: 600;
+ }
+//  <!-- ===================[باکس اعداد]=============== -->
+ .row-box{
+  margin-right: 3rem;
+  margin-left: 3rem;
+  max-width: 60rem;
+ }
+ .box{
+  position: relative;
+  padding: 16px 20px 16px 20px;
+  border: 2px solid #F6F6F6;
+  background-color: #FBFBFB;
+  text-align: center;
+  border-radius: 18px;
+ }
+ .box-body{
+  position: relative;
+  z-index: 10;
+  color: #4B4B4B;
+  font-size: 1.1rem;
+ }
+ .box-number{
+  position: absolute;
+  scale: 6;
+  color: #F6F6F6;
+  font-weight: 600;
+  top: 59px;
+  right: 26px;
+ }
+//  ============[پیش نیازها]============
+ .row-body{
+   margin-left: 1rem;
+   margin-right: 0.5rem;
+  }
+  .row-p{
+    display: inline-flex;;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+  .body-title{
+    color: black;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  .body-p{
+    color: black;
+    font-size: 0.9rem;
+  }
+  .box-description-row{
+  justify-items: center;
+    margin-bottom: 3rem;
+  }
+.box-description {
+  display: flex;
+  justify-content: space-between;
+  display: inline-flex;;
+  position: relative;
+  padding: 16px 20px 16px 20px;
+  border: 1px solid #F6F6F6;
+  background-color: #FBFBFB;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border-radius: 18px;
+  min-width: 276px;
+}
+.b-d-title{
+  color: black;
+  font-weight: 600;
+  transform: translate(0px, 0px);
+}
+// <!-- ===================[ نکات]=============== -->
+.nokat-p{
+  color: black;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+.row-nokat{
+  margin-right: 0.5rem;
+  margin-left: 1rem;
+}
+.p-danger{
+  color: #FF0000;
+}

@@ -14,13 +14,14 @@ import { BotOptionsComponent } from '../components/bot-options/bot-options.compo
 import { DescriptionComponent } from '../components/description/description.component';
 import { LandingProductComponent } from '../components/landing-product/landing-product.component';
 import { CarouselComponent } from 'src/app/shared/carousel/carousel.component';
+import { BackTestComponent } from '../components/back-test/back-test.component';
+import { SmoothWidthDirective } from 'src/app/classes/directives/smooth-width.directive';
 import { DiscountBannerComponent } from 'src/app/shared/discount-banner/discount-banner.component';
 import { SliderComponent } from '../../Home/components/slider/slider.component';
-import { ResponsiveFiltersComponent } from '../components/responsive-filters/responsive-filters.component';
 
 const components = [
-  ResponsiveFiltersComponent,
   SliderComponent,
+  BackTestComponent,
   ShopHeroComponent,
   DescriptionComponent,
   LandingShopComponent,
@@ -34,6 +35,7 @@ const components = [
 @NgModule({
   declarations: [components],
   imports: [
+    SmoothWidthDirective,
     CarouselComponent,
     CommonModule,
     ShopRoutingModule,

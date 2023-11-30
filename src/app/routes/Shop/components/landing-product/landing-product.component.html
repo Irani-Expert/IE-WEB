@@ -1,70 +1,79 @@
-<!-- ==========[معرفی]=========== -->
-<app-scroll
-[activeId]="0"
-(scrollClick1)="scroll(description)"
-(scrollClick2)="scroll(option)"
-(scrollClick3)="scroll(backtest)"
-(scrollClick4)="scroll(question)"
-(scrollClick5)="scroll(comment)"
-></app-scroll>
+<!-- ==========[هیرو]=========== -->
+<app-shop-hero
+  [data]="productService._product!"
+  *ngIf="!loading"
+></app-shop-hero>
 
-<div #description>
+<ng-container *ngIf="!loading">
+  <!-- ==========[معرفی]=========== -->
+  <app-scroll
+    [activeId]="0"
+    (scrollClick1)="scroll(description)"
+    (scrollClick2)="scroll(option)"
+    (scrollClick3)="scroll(backtest)"
+    (scrollClick4)="scroll(question)"
+    (scrollClick5)="scroll(comment)"
+  ></app-scroll>
 
-</div>
-<!-- ==========[امکانات]=========== -->
+  <div #description>
+    <app-description></app-description>
+  </div>
+  <!-- ==========[امکانات]=========== -->
 
-<app-scroll
-[activeId]="1"
-(scrollClick1)="scroll(description)"
-(scrollClick2)="scroll(option)"
-(scrollClick3)="scroll(backtest)"
-(scrollClick4)="scroll(question)"
-(scrollClick5)="scroll(comment)"
-></app-scroll>
+  <div #option>
+    <app-scroll
+      [activeId]="1"
+      (scrollClick1)="scroll(description)"
+      (scrollClick2)="scroll(option)"
+      (scrollClick3)="scroll(backtest)"
+      (scrollClick4)="scroll(question)"
+      (scrollClick5)="scroll(comment)"
+    ></app-scroll>
+  </div>
 
-<div #option>
-    <app-bot-options [options]="options"
-    [faq]="faqOptions"
-    ></app-bot-options>    
-</div>
-<!-- ==========[بک تست]=========== -->
+  <app-bot-options
+    [data]="productService._product?.facilities!"
+  ></app-bot-options>
 
-<app-scroll
-[activeId]="2"
-(scrollClick1)="scroll(description)"
-(scrollClick2)="scroll(option)"
-(scrollClick3)="scroll(backtest)"
-(scrollClick4)="scroll(question)"
-(scrollClick5)="scroll(comment)"
-></app-scroll>
+  <!-- ==========[بک تست]=========== -->
+  <div #backtest>
+    <app-scroll
+      [activeId]="2"
+      (scrollClick1)="scroll(description)"
+      (scrollClick2)="scroll(option)"
+      (scrollClick3)="scroll(backtest)"
+      (scrollClick4)="scroll(question)"
+      (scrollClick5)="scroll(comment)"
+    ></app-scroll>
+  </div>
 
-<div #backtest>
+  <app-back-test [data]="productService._product?.backTests!"></app-back-test>
 
-</div>
-<!-- ==========[سوالات]=========== -->
+  <!-- ==========[سوالات]=========== -->
+  <div #question>
+    <app-scroll
+      [activeId]="3"
+      (scrollClick1)="scroll(description)"
+      (scrollClick2)="scroll(option)"
+      (scrollClick3)="scroll(backtest)"
+      (scrollClick4)="scroll(question)"
+      (scrollClick5)="scroll(comment)"
+    ></app-scroll>
+  </div>
 
-<app-scroll
-[activeId]="3"
-(scrollClick1)="scroll(description)"
-(scrollClick2)="scroll(option)"
-(scrollClick3)="scroll(backtest)"
-(scrollClick4)="scroll(question)"
-(scrollClick5)="scroll(comment)"
-></app-scroll>
+  <app-question-shop></app-question-shop>
 
-<div #question>
-<app-question-shop></app-question-shop>
-</div>
-<!-- ==========[نظرات]=========== -->
-<app-scroll
-[activeId]="4"
-(scrollClick1)="scroll(description)"
-(scrollClick2)="scroll(option)"
-(scrollClick3)="scroll(backtest)"
-(scrollClick4)="scroll(question)"
-(scrollClick5)="scroll(comment)"
-></app-scroll>
+  <!-- ==========[نظرات]=========== -->
+  <div #comment>
+    <app-scroll
+      [activeId]="4"
+      (scrollClick1)="scroll(description)"
+      (scrollClick2)="scroll(option)"
+      (scrollClick3)="scroll(backtest)"
+      (scrollClick4)="scroll(question)"
+      (scrollClick5)="scroll(comment)"
+    ></app-scroll>
+  </div>
 
-<div #comment>
-    <app-comments></app-comments>
-</div>
+  <app-comments [data]="productService._product?.comments!"></app-comments>
+</ng-container>

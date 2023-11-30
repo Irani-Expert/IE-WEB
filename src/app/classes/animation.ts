@@ -17,3 +17,13 @@ export const fadeIn = trigger('fadeIn', [
   ]),
   transition(':leave', [animate('100ms ease-in-out', style({ opacity: 0 }))]),
 ]);
+export const smoothWidth = trigger('grow', [
+  transition('void <=> *', []),
+  transition(
+    '* <=> *',
+    [style({ width: '{{startWidth}}px' }), animate('.3s ease-in-out')],
+    {
+      params: { startWidth: 0 },
+    }
+  ),
+]);
