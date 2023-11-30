@@ -1,0 +1,110 @@
+.input-with-icon {
+  width: 100%;
+  padding-right: 0.5rem !important;
+  font-size: 1.125rem !important;
+  height: 4.125rem;
+  border-radius: 8px !important;
+}
+.form-control {
+  display: flex;
+  margin-top: 2.5rem;
+  &-lg {
+    flex-direction: row;
+    form {
+      gap: 1.5rem;
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      flex-basis: 100%;
+      .each-row {
+        label,
+        strong {
+          font-weight: 500;
+        }
+
+        flex-basis: 100%;
+        display: flex;
+        // flex: row;
+        gap: 2.725rem;
+      }
+    }
+  }
+  &-sm {
+    form {
+      gap: 0.5rem;
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+    }
+    flex-direction: column;
+  }
+}
+.input-discount {
+  height: 3.725rem;
+  border-radius: 8px;
+  font-size: 1.125rem !important;
+}
+.btn-discount {
+  height: 3.725rem;
+}
+.payment-method-container {
+  cursor: pointer;
+  &.disabled {
+    cursor: default;
+    user-select: none;
+    opacity: 0.7;
+    overflow: hidden;
+  }
+  max-height: 3.725rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: 2px solid #d2d2d2;
+  border-radius: 8px;
+  &.active {
+    border: 2px solid #0016b2;
+  }
+  .right-section {
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    b {
+      font-size: 1.5rem;
+      color: #6a6a6a;
+    }
+    small {
+      transform: translateY(-10px);
+      font-weight: bold;
+      font-size: 0.875rem;
+      color: #6a6a6a;
+    }
+  }
+  .left-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 50%;
+    img {
+      scale: 0.85;
+    }
+  }
+}
+.h-custom {
+  height: 3.725rem;
+}
+.tutorial-vid-container {
+  position: absolute;
+  margin: 0 !important;
+  object-fit: contain;
+  height: auto;
+  aspect-ratio: 16/9;
+  width: 12rem;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  transform: translate(17%, 30%);
+  padding: 0.25rem;
+  left: 0px;
+  z-index: 10;
+}
