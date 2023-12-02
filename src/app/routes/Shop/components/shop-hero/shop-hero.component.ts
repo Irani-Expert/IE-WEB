@@ -62,13 +62,14 @@ export class ShopHeroComponent implements OnInit {
   }
 
   // ==========={اکتیو}=========
-  toggle(plan: planInterface) {
+  toggle(plan: planInterface , index : number) {
+    if(this.selectedPlan.id == plan.id) {
+      return
+    }
     this.plans.forEach((item) => (item.active = false));
     plan.active = true;
     this.selectedPlan = plan;
     this.fireAnimation();
-    
-
   }
   // =================[انیمیشن]============
   changed = false;

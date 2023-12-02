@@ -32,7 +32,7 @@
           <div class="flex justify-around mb-10">
             <div *ngFor="let p of plans; let i = index" class="row-plan">
               <div class="flex flex-col">
-                <button (click)="toggle(p)">
+                <button (click)="toggle(p , i)">
                   <p [ngClass]="p.active ? 'activated' : ''" class="plan">
                     {{ p.title }}
                   </p>
@@ -171,7 +171,7 @@
       <drag-scroll>
         <div drag-scroll-item *ngFor="let p of plans; let i = index" class="row-plan">
           <div class="flex justify-start">
-            <button class="ml-3" (click)="toggle(p)">
+            <button class="ml-3" (click)="toggle(p , i)">
               <p [ngClass]="p.active ? 'activated' : ''" class="plan">
                 {{ p.title }}
               </p>
