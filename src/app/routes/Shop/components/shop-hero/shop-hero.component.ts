@@ -44,7 +44,7 @@ export class ShopHeroComponent implements OnInit {
     this.product.plans
       .filter((it) => it.isActive == true)
       .forEach((it, i) => {
-        if (i <= 3) {
+        if (i <= 4) {
           this.plans.push({
             offPrice: 0,
             id: it.id,

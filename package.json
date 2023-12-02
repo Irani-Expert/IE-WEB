@@ -31,6 +31,7 @@
     "howler": "^2.2.4",
     "lottie-web": "^5.12.2",
     "ng-otp-input": "^1.9.3",
+    "ngx-drag-scroll": "^16.0.0",
     "ngx-lottie": "^10.0.0",
     "ngx-slider-v2": "^16.0.2",
     "rxjs": "~7.8.0",
