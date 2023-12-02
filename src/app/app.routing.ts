@@ -28,6 +28,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('./routes/Checkout/checkout.module').then((m) => m.CheckoutModule),
   },
+  {
+    path: 'brokers',
+    title:'brokers',
+    loadChildren: () =>
+    import ('./routes/Brokers/module/broker.module').then((m) => m.BrokerModule )
+  },
   // {
   //   path: 'calendar',
   //   title: 'calendar',

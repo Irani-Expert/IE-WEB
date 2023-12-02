@@ -342,11 +342,6 @@ drag-scroll {
     transform: translate(-3px, -16px);
     aspect-ratio: 3/3;
 }
-.img-dolar{
-  position: absolute;
-  scale: 3;
-  transform: translate(37px, 12px);
-}
 .body-mobile{
   font-size: 0.7rem;
     color: black;
@@ -367,7 +362,6 @@ drag-scroll {
   display: inline-flex;
   align-items: center;
   margin-top: 0.5rem;
-  margin-right: 1.5rem;
 }
 .box-price-btn-mobile{
   display: flex;

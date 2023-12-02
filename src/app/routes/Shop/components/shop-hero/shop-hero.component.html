@@ -87,7 +87,7 @@
               <p class="off-price">
                 10%
               </p>
-              <div   class="smooth-width w-full">
+              <div class="smooth-width w-full">
                 <del [ngClass]="animationState ? 'price-animation': ''" class="price-2"
                   >{{ selectedPlan.price | currency }}
                 </del>
@@ -187,7 +187,7 @@
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
     </p>
     <h6 class="row-title-3">توضیخات</h6>
-    <p class="mr-7 ml-7 ml-8">
+    <p class="mr-7 ml-8">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, enim
       consequuntur nobis unde ipsum cupiditate ratione asperiores incidunt
       atque numquam! Eos laborum et voluptates reprehenderit vel sequi
@@ -256,8 +256,8 @@
       </div>
       <div class="box-price-mobile basis-2/3">
           <p class="price-1-m">10</p>
-          <del class="price-2-m">$2000</del>
-          <p class="price-3-m">$2700</p>
+          <del [ngClass]="animationState ? 'price-animation': ''" class="price-2-m">{{ selectedPlan.price | currency }}</del>
+          <p [ngClass]="animationState ? 'price-animation': ''" class="price-3-m">{{ selectedPlan.price | currency }}</p>
       </div>
     </div>
   </div>
