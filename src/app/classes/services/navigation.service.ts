@@ -104,7 +104,7 @@ export class NavigationService {
       sub: [
         {
           id: 1,
-          path: 'َarticles',
+          path: 'articles',
           name: 'مقالات',
           parentID: 6,
           title: 'َArticles',

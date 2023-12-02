@@ -34,6 +34,12 @@ const routes: Routes = [
     loadChildren: () =>
     import ('./routes/Brokers/module/broker.module').then((m) => m.BrokerModule )
   },
+  {
+    path: 'articles',
+    title:'articles',
+    loadChildren: () =>
+    import ('./routes/Blog/module/blog.module').then((m) => m.BlogModule )
+  },
   // {
   //   path: 'calendar',
   //   title: 'calendar',
