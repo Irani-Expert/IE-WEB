@@ -1,0 +1,40 @@
+<div
+  class="content-container"
+  [ngClass]="isMoblie ? 'content-container-sm' : 'content-container-lg'"
+>
+  <img
+    src="../../../../../assets/img/payment-result.png"
+    alt="payment-result"
+  />
+  <strong class="text-2xl sm:text-3xl mt-4 text-[#0540F2] font-fat"
+    >سفارش شما ثبت شد</strong
+  >
+  <div class="px-2 py-3 mt-3">
+    <p class="p-2 text-base sm:text-xl text-center">
+      در انتظار تایید پرداخت باشید. پس از تایید ؛ پیامکی برای شما ارسال می شود و
+      سپس می توانید به داشبورد مراجعه و از منوی سفارشات من، اقدام به دانلود
+      لایسنس نمائید
+    </p>
+  </div>
+  <strong class="text-base sm:text-xl text-black font-bold"
+    >کد پیگیری درخواست: 0927262</strong
+  >
+  <div
+    class="flex gap-4 flex-row sm:gap-10 lg:gap-20 mt-6 w-full justify-center transition-all"
+  >
+    <div class="basis-auto">
+      <button
+        class="min-w-[7.5rem] min-h-[2.75rem] sm:min-w-[10.5rem] sm:min-h-[3.25rem] bg-[#3246D3] rounded-lg text-white font-bold text-base sm:text-xl"
+      >
+        صفحه اصلی
+      </button>
+    </div>
+    <div class="basis-auto">
+      <button
+        class="min-w-[7.5rem] min-h-[2.75rem] sm:min-w-[10.5rem] sm:min-h-[3.25rem] bg-[#3246D3] rounded-lg text-white font-bold text-base sm:text-xl"
+      >
+        پنل کاربری
+      </button>
+    </div>
+  </div>
+</div>

@@ -5,6 +5,8 @@ import { SingleProduct } from 'src/app/classes/interfaces/product.interface';
 import { smoothWidth } from 'src/app/classes/animation';
 import { Utils } from 'src/app/classes/utils';
 import { AppComponent } from 'src/app/app.component';
+import { OrderService } from 'src/app/classes/services/order.service';
+// import { LocalStorageService } from 'src/app/classes/local-storage';
 
 const planInit: planInterface = {
   active: false,
@@ -18,13 +20,28 @@ const planInit: planInterface = {
   selector: 'app-shop-hero',
   templateUrl: './shop-hero.component.html',
   styleUrls: ['./shop-hero.component.scss'],
-  animations : [smoothWidth],
-  
+  animations: [smoothWidth],
 })
 export class ShopHeroComponent implements OnInit {
-
-  constructor() {
-   
+  constructor(
+    private _orderService: OrderService
+  ) // private localStorage: LocalStorageService
+  {
+    this._orderService.basket.subscribe((item) => {
+      item.basketItems = [];
+      item.basketItems.push({
+        count: 1,
+        price: 200,
+        rowID: 16,
+        tableType: 17,
+        id: 1,
+        title: 'اکسپرت ATM',
+      });
+      // this.localStorage.setItem(
+      //   'basketItems',
+      //   JSON.stringify(item.basketItems)
+      // );
+    });
   }
 
   animationState = false;
@@ -38,8 +55,7 @@ export class ShopHeroComponent implements OnInit {
   selectedPlan: planInterface = planInit;
   plans: planInterface[] = new Array<planInterface>();
 
-
-  async ngOnInit() { 
+  async ngOnInit() {
     this.updateDeviceValue();
     this.product.plans
       .filter((it) => it.isActive == true)
@@ -62,9 +78,9 @@ export class ShopHeroComponent implements OnInit {
   }
 
   // ==========={اکتیو}=========
-  toggle(plan: planInterface , index : number) {
-    if(this.selectedPlan.id == plan.id) {
-      return
+  toggle(plan: planInterface, index: number) {
+    if (this.selectedPlan.id == plan.id) {
+      return;
     }
     this.plans.forEach((item) => (item.active = false));
     plan.active = true;
@@ -74,15 +90,15 @@ export class ShopHeroComponent implements OnInit {
   // =================[انیمیشن]============
   changed = false;
 
-  fireAnimation(){
+  fireAnimation() {
     this.changed = !this.changed;
-    this.animationState = true
-    setTimeout(()=> {
-      this.animationState = false
-    },400)
+    this.animationState = true;
+    setTimeout(() => {
+      this.animationState = false;
+    }, 400);
   }
-    // =================[رسپانسیو]============
-    device: 'sm' | 'lg' = 'lg';
+  // =================[رسپانسیو]============
+  device: 'sm' | 'lg' = 'lg';
 
   @HostListener('window:resize', ['$event'])
   onResize() {
