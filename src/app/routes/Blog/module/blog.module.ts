@@ -11,9 +11,11 @@ import { ArticlesComponent } from '../components/articles/articles.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { BlogFilterComponent } from '../components/blog-filter/blog-filter.component';
 import { LandingBlogDetailComponent } from '../components/landing-blog-detail/landing-blog-detail.component';
+import { CarouselBlogComponent } from '../components/carousel-blog/carousel-blog.component';
 
 const components =[
   LandingBlogComponent,
+  CarouselBlogComponent,
   LandingBlogDetailComponent,
   BlogCartComponent,
   BlogHeroComponent,
