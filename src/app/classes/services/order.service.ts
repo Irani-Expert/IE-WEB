@@ -1,9 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { BaseService } from './base.service';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, map } from 'rxjs';
 import { Order } from 'src/app/routes/Checkout/interfaces/order.interface';
 import { Basket, BskItem } from '../interfaces/basket.interface';
+import { Result } from '../result';
+import { AuthService } from 'src/app/shared/auth/auth.service';
+import { environment } from 'src/environments/environment.dev';
 // import { LocalStorageService } from '../local-storage';
 const bskInit: Basket = {
   basketItems: new Array<BskItem>(),
@@ -18,13 +21,58 @@ export class OrderService extends BaseService<any> {
   basket$ = this.basket.asObservable();
   order: BehaviorSubject<Order>;
   constructor(
-    http: HttpClient
-    // , private localStorage: LocalStorageService
+    http: HttpClient,
+    private auth: AuthService //private localStorage: LocalStorageService
   ) {
     super(http);
     // if (this.localStorage.getItem('basketItems')) {
     //   this.fillBasket();
     // }
+  }
+  override post(path: string, body: any): Observable<Result<{}>> {
+    const token = this.auth._user.token;
+    return this.http
+      .post<Result<{}>>(`${environment.apiUrl + path}`, body, {
+        headers: {
+          accept: 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .pipe(
+        map((res) => {
+          return res;
+        })
+      );
+  }
+  pushToBSK(item: BskItem) {
+    let index = this.basket.value.basketItems.findIndex(
+      (it) => it.id == item.id
+    );
+    return this.basket$.pipe(
+      map((res) => {
+        if (index == -1) {
+          res.basketItems.push(item);
+        } else {
+          res.basketItems[index].count += 1;
+        }
+        return res;
+      })
+    );
+  }
+  removeFromBSK(item: BskItem) {
+    let index = this.basket.value.basketItems.findIndex(
+      (it) => it.id == item.id
+    );
+    return this.basket$.pipe(
+      map((res) => {
+        if (res.basketItems[index].count > 1) {
+          res.basketItems[index].count -= 1;
+        } else {
+          res.basketItems.splice(index, 1);
+        }
+        return res;
+      })
+    );
   }
   // fillBasket() {
   //   let item = JSON.parse(this.localStorage.getItem('basketItems')!);

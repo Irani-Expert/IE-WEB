@@ -5,6 +5,8 @@ import { OrderService } from 'src/app/classes/services/order.service';
 import { User } from 'src/app/shared/auth/user.interface';
 import { Order } from '../../interfaces/order.interface';
 import { AuthService } from 'src/app/shared/auth/auth.service';
+import { lastValueFrom } from 'rxjs';
+import { Router } from '@angular/router';
 interface PaymentMethod {
   id: number;
   title: string;
@@ -135,7 +137,8 @@ export class LandingCheckoutComponent {
 
   constructor(
     private _orderService: OrderService,
-    private _authService: AuthService
+    private _authService: AuthService,
+    private _router: Router
   ) {
     this.today = this.getToday();
     // Forms ------------->
@@ -212,6 +215,18 @@ export class LandingCheckoutComponent {
 
   trxCode(event: string) {
     this.orderModel.transactionCode = event;
+  }
+  async createOrder() {
+    this.orderModel.token = this._authService._user.token;
+    this.orderModel.totalPrice = 200;
+    const res = this._orderService.post(
+      'OrderNew/CreateOrder',
+      this.orderModel
+    );
+    const data = await lastValueFrom(res);
+    if (data.success) {
+      this._router.navigateByUrl(`checkout/payment-result/${data.data}`);
+    }
   }
 }
 

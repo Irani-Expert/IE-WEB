@@ -1,4 +1,5 @@
 export const environment = {
-  apiUrl: 'https://dev.iraniexpert.com/api/',
+  apiUrl: 'https://api.iraniexpert.com/api/',
+  contentUrl: 'https://dl.iraniexpert.com/',
   production: false,
 };
