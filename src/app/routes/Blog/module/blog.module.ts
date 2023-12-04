@@ -10,9 +10,11 @@ import { BlogPaginationComponent } from '../components/blog-pagination/blog-pagi
 import { ArticlesComponent } from '../components/articles/articles.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { BlogFilterComponent } from '../components/blog-filter/blog-filter.component';
+import { LandingBlogDetailComponent } from '../components/landing-blog-detail/landing-blog-detail.component';
 
 const components =[
   LandingBlogComponent,
+  LandingBlogDetailComponent,
   BlogCartComponent,
   BlogHeroComponent,
   OffersComponent,
