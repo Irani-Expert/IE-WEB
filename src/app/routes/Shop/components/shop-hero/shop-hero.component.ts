@@ -5,8 +5,7 @@ import { SingleProduct } from 'src/app/classes/interfaces/product.interface';
 import { smoothWidth } from 'src/app/classes/animation';
 import { Utils } from 'src/app/classes/utils';
 import { AppComponent } from 'src/app/app.component';
-import { OrderService } from 'src/app/classes/services/order.service';
-// import { LocalStorageService } from 'src/app/classes/local-storage';
+// import { OrderService } from 'src/app/classes/services/order.service';
 
 const planInit: planInterface = {
   active: false,
@@ -23,26 +22,9 @@ const planInit: planInterface = {
   animations: [smoothWidth],
 })
 export class ShopHeroComponent implements OnInit {
-  constructor(
-    private _orderService: OrderService
-  ) // private localStorage: LocalStorageService
-  {
-    this._orderService.basket.subscribe((item) => {
-      item.basketItems = [];
-      item.basketItems.push({
-        count: 1,
-        price: 200,
-        rowID: 16,
-        tableType: 17,
-        id: 1,
-        title: 'اکسپرت ATM',
-      });
-      // this.localStorage.setItem(
-      //   'basketItems',
-      //   JSON.stringify(item.basketItems)
-      // );
-    });
-  }
+  constructor() // private _orderService: OrderService
+  // private localStorage: LocalStorageService
+  {}
 
   animationState = false;
   @Input('data') product: SingleProduct;

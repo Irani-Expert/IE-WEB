@@ -5,21 +5,21 @@
       class="img-top"
       width="173"
       height="247"
-      src="assets/img/Box-checkout.png"
+      src="../../../../../assets/img/Box-checkout.png"
       alt="product-img"
     />
     <div class="details-product">
       <properties [verified]="true" [guarantee]="true">
-        <p class="producer-name" producer>ایرانی اکسپرت</p>
-        <p rate class="product-rate">4.5</p>
-        <p category class="product-category">EA</p>
-        <p platform class="product-platform">MQL5</p>
+        <p class="producer-name" producer>{{ data?.publishedBy }}</p>
+        <p rate class="product-rate">{{ data?.rate }}</p>
+        <p category class="product-category">{{ data?.typeTitle }}</p>
+        <p platform class="product-platform">{{ data?.platformTypeTitle }}</p>
         <p guarantee class="product-guarantee">پشتیبانی دائمی تا زمان اشتراک</p>
       </properties>
       <div class="space-y-1 mt-2">
-        <p class="font-bold text-black text-base">ربات معامله گر فارکس</p>
+        <p class="font-bold text-black text-base">{{ data?.title }}</p>
         <p class="font-bold text-black text-sm">
-          پلن اعتماد (اعتبار تا پرافیت 100 دلاری)
+          {{ basket.basketItems[1].title }}
         </p>
       </div>
     </div>
@@ -31,12 +31,13 @@
     </div>
     <!-- Seperator-Ticket -->
     <div class="detail-price-container">
-      <div class="discount-content">
-        <span class="discount-percent">10%</span>
-        <span class="discount-price">$20</span>
+      <div class="discount-content" *ngIf="discount">
+        <span class="discount-percent">{{ discountPrice }}</span>
+        <span class="discount-price">{{ basket.totalPrice }}</span>
       </div>
       <div class="price-content">
-        <span class="icon"></span><span class="price">$18</span>
+        <span class="icon"></span
+        ><span class="price">{{ basket.totalPrice | currency }}</span>
       </div>
     </div>
   </div>

@@ -16,7 +16,7 @@ export class BaseService<T> {
   headers = new HttpHeaders({
     accept: 'application/json',
   });
-  constructor(private http: HttpClient) {}
+  constructor(public http: HttpClient) {}
 
   //Method GET
   get(path: string, params?: HttpParams): Observable<Result<T>> {

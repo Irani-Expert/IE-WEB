@@ -257,7 +257,7 @@
           <button class="btn btn-prev-session" (click)="session = 0">
             مرحله قبل
           </button>
-          <button [routerLink]="'payment-result/1'" class="btn btn-submit">
+          <button (click)="createOrder()" class="btn btn-submit">
             ثبت سفارش
           </button>
         </div>

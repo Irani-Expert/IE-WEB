@@ -19,6 +19,7 @@ import { SmoothWidthDirective } from 'src/app/classes/directives/smooth-width.di
 import { DiscountBannerComponent } from 'src/app/shared/discount-banner/discount-banner.component';
 import { SliderComponent } from '../../Home/components/slider/slider.component';
 import { DragScrollModule } from 'ngx-drag-scroll';
+import { ProductProperties } from 'src/app/shared/product-properties/product-properties.component';
 
 const components = [
   SliderComponent,
@@ -37,6 +38,7 @@ const components = [
   declarations: [components],
   imports: [
     DragScrollModule,
+    ProductProperties,
     SmoothWidthDirective,
     CarouselComponent,
     CommonModule,

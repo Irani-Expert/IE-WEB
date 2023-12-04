@@ -1,97 +1,97 @@
 // <!-- ==============[پیشنهاد]================ -->
-.all-offer{
+.all-offer {
   background-color: white;
-  border-right: 2px solid #EAEAEA;
-  border-bottom: 2px solid #EAEAEA;
-  border-top: 2px solid #EAEAEA;
+  border-right: 2px solid #eaeaea;
+  border-bottom: 2px solid #eaeaea;
+  border-top: 2px solid #eaeaea;
   padding: 1rem 0.5rem 1rem 0.5rem;
   border-radius: 1px 20px 20px 0px;
 }
-.row-title{
+.row-title {
   display: flex;
   justify-content: space-between;
   max-width: 42rem;
   margin-bottom: -4rem;
 }
-.title{
-    color: black;
+.title {
+  color: black;
 }
-.link{
-  color: #006FFF;
-  border: 1px solid #006FFF;
+.link {
+  color: #006fff;
+  border: 1px solid #006fff;
   padding: 0.4rem 0.5rem 0.2rem 1.5rem;
   border-radius: 20px;
-  background-color: #E9F3FF;
+  background-color: #e9f3ff;
 }
-drag-scroll{
-    width: 70rem;
+drag-scroll {
+  width: 70rem;
 }
-.cart{
-    scale: 0.6;
-    margin-left: -8rem;
-    margin-bottom: -3rem;
+.cart {
+  scale: 0.6;
+  margin-left: -8rem;
+  margin-bottom: -3rem;
 }
 // <!-- ==============[جدیدترین]================ -->
 
-.row-p{
-    color: #098B41;
+.row-p {
+  color: #098b41;
 }
-.title2{
-    font-weight: 500;
+.title2 {
+  font-weight: 500;
 }
 .cart2 {
   scale: 0.7;
   // margin-right: -4rem;
 }
-.cart-row{
-    max-width: 826px;
-    margin-top: -33px;
+.cart-row {
+  max-width: 826px;
+  margin-top: -33px;
 }
-.divider-row{
-    margin-left: 7rem;
-    max-width: 784px;
+.divider-row {
+  margin-left: 7rem;
+  max-width: 784px;
 }
-.divider{
-border-bottom: #D4D4D4 solid 1px;
-width: 78.5%;
+.divider {
+  border-bottom: #d4d4d4 solid 1px;
+  width: 78.5%;
 }
-.box-link{
-    display: flex;
-    justify-content: end;
-    transform: translate(0px, -17px);
+.box-link {
+  display: flex;
+  justify-content: flex-end;
+  transform: translate(0px, -17px);
 }
 // <!-- ==============[بنر]================ -->
-.baner{
-  background-color: #D8E8FF;
+.baner {
+  background-color: #d8e8ff;
   max-width: 49rem;
   padding: 4rem 2rem 4rem 2rem;
   border-radius: 20px;
 }
-.titile-baner{
-    font-style: oblique;
+.titile-baner {
+  font-style: oblique;
 }
-.p-baner{
-    color: black;
+.p-baner {
+  color: black;
 }
-.email-p{
-    color: black;
+.email-p {
+  color: black;
 }
-.box-email{
-    margin-top: 1rem;
-    display: flex;
-    align-items: center;
+.box-email {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
 }
-.input-email{
+.input-email {
   background-color: white;
   height: 2.5rem;
 }
-.btn-email{
+.btn-email {
   margin-right: 1rem;
-  background-color: #06F;
+  background-color: #06f;
   padding: 0.5rem 1.2rem 0.5rem 1.2rem;
   border-radius: 10px;
 }
-.btn-p{
+.btn-p {
   color: white;
   font-weight: 700;
 }
