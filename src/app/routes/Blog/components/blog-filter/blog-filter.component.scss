@@ -1,0 +1,41 @@
+// <!-- ===================[دسته بندی]=================== -->
+.category-box{
+  background-color: white;
+  border: #EAEAEA solid 2px;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-radius: 20px;
+  width: 100%;
+}
+.title-box{
+    color: black;
+}
+.category-row{
+    display: inline-flex;
+    margin: 1rem;
+}
+// <!-- ===================[مدرسه فارکس ]=================== -->
+.school-box{
+  background-color: white;
+  border: #EAEAEA solid 2px;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-radius: 20px;
+}
+.box-video{
+  background-color: #FAFAFA;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border: 1px solid #EAEAEA;
+  border-radius: 20px;
+}
+.video{
+    background-color: white;
+}
+.time-video{
+  display: flex;
+  justify-content: end;
+}
+// // <!-- ============[تبلیغات]========= -->
+
+.add-blog{
+width: 100% ;
+object-fit: cover;
+}

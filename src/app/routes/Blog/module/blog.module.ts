@@ -9,6 +9,7 @@ import { DragScrollModule } from 'ngx-drag-scroll';
 import { BlogPaginationComponent } from '../components/blog-pagination/blog-pagination.component';
 import { ArticlesComponent } from '../components/articles/articles.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { BlogFilterComponent } from '../components/blog-filter/blog-filter.component';
 
 const components =[
   LandingBlogComponent,
@@ -17,6 +18,7 @@ const components =[
   OffersComponent,
   BlogPaginationComponent,
   ArticlesComponent,
+  BlogFilterComponent,
 ];
 
 @NgModule({
