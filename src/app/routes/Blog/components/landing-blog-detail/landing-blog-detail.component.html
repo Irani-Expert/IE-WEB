@@ -16,9 +16,14 @@
     <!-- =============[کامپوننت ها]========= -->
     <div class="grid grid-cols-3 gap-3">
         <div class="part-1">
-            <!-- <app-blog-filter></app-blog-filter> -->
+            <app-blog-filter
+            [categoryDetail]="category"
+            ></app-blog-filter>
         </div>
         <div class="col-span-2">
+            <!-- <app-table-contents
+            [options]="options" [faq]="table"
+            ></app-table-contents> -->
             <!-- <app-carousel-blog></app-carousel-blog> -->
         </div>
     </div>

@@ -1,9 +1,10 @@
 <!-- <div class="bg-all">
-    <app-blog-cart></app-blog-cart>
     <app-blog-hero></app-blog-hero>
     <div class="grid grid-cols-3 gap-3">
         <div class="part-1">
-            <app-blog-filter></app-blog-filter>
+            <app-blog-filter
+            [category]="category"
+            ></app-blog-filter>
         </div>
         <div class="col-span-2">
          <app-offers></app-offers>
