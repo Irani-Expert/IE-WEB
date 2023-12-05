@@ -12,6 +12,10 @@ import { SingleProduct } from 'src/app/classes/interfaces/product.interface';
 import { smoothWidth } from 'src/app/classes/animation';
 import { Utils } from 'src/app/classes/utils';
 import { AppComponent } from 'src/app/app.component';
+import { environment } from 'src/environments/environment.dev';
+import { OrderService } from 'src/app/classes/services/order.service';
+import { Basket, BskItem } from 'src/app/classes/interfaces/basket.interface';
+import { Router } from '@angular/router';
 // import { OrderService } from 'src/app/classes/services/order.service';
 
 const planInit: planInterface = {
@@ -29,7 +33,14 @@ const planInit: planInterface = {
   animations: [smoothWidth],
 })
 export class ShopHeroComponent implements OnInit {
-  constructor() {} // private localStorage: LocalStorageService // private _orderService: OrderService
+  contentUrl = environment.contentUrl;
+  constructor(private _orderService: OrderService, private router: Router) {
+    this._orderService.basket$.subscribe({
+      next: (it) => {
+        this._orderService.pushToBSK(it.basketItems[0]);
+      },
+    });
+  } // private localStorage: LocalStorageService //
   @ViewChild('scroll') scroll: ElementRef;
   animationState = false;
   @Input('data') product: SingleProduct;
@@ -72,7 +83,6 @@ export class ShopHeroComponent implements OnInit {
   }
   // =================[انیمیشن]============
   changed = false;
-
   fireAnimation() {
     this.changed = !this.changed;
     this.animationState = true;
@@ -95,5 +105,36 @@ export class ShopHeroComponent implements OnInit {
         this.device = 'lg';
       }
     }
+  }
+  get demoFile() {
+    let src = this.product.galleries.find((it) => it.stationID == 3)?.filePath;
+    return src;
+  }
+  async toCheckout(item: planInterface) {
+    // let product: BskItem = {
+    //   count: 1,
+    //   price: 0,
+    //   rowID: this.product.id,
+    //   tableType: 6,
+    //   title: this.product.title,
+    //   imgPath: this.product.cardImagePath,
+    //   id: this._orderService.basket.value.basketItems.length + 1,
+    // };
+    // console.log(this.router);
+    let itemForBsk: BskItem = {
+      count: 1,
+      price: item.price,
+      rowID: item.id,
+      tableType: 17,
+      title: item.title,
+      id: this._orderService.basket.value.basketItems.length + 1,
+    };
+    let basket: Basket = {
+      basketItems: [itemForBsk],
+      totalCount: 1,
+      totalPrice: itemForBsk.price,
+    };
+    this._orderService.basket.next(basket);
+    this.router.navigateByUrl('checkout');
   }
 }
