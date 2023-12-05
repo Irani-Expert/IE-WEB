@@ -54,35 +54,16 @@
   font-weight: 800;
   font-size: 15px;
 }
-.plan {
-  background-color: #f3f3f3;
-  color: black;
-  padding: 0.5rem;
-  border-radius: 18px;
-  font-weight: 500;
-  font-size: 1.25rem;
-}
-.activated {
-  background-color: #3246d3 !important;
-  color: white;
-  font-weight: 800;
-  font-size: 20px;
-  transition: all 0.2s ease-in-out;
-}
+
 .product-d {
   background-color: #f5f5f5;
   border: #dcdcdc solid 2px;
   border-radius: 15px;
-  margin-top: 50px;
-  margin-right: 78px;
-  min-width: 265px;
+  margin-top: 2rem;
+  width: 100%;
   max-width: 265px;
   height: 23rem;
-}
-.product-rows {
-  margin-top: 22px;
-  margin-right: 20px;
-  margin-left: 20px;
+  padding: 0 1.25rem;
 }
 
 .producer-h {
@@ -126,18 +107,19 @@
   font-size: 16px;
 }
 .row-title {
-  margin-top: -22px;
   margin-bottom: 14px;
   font-size: 16px;
   font-weight: 600;
 }
 .p-plan {
+  text-align: justify;
   margin-top: -10px;
 }
 .price-box {
   display: flex;
-  margin-right: 3.5rem;
+  margin-right: auto;
   align-items: center;
+  justify-content: flex-end;
 }
 .off-price {
   background-color: #17ee9d;
@@ -148,10 +130,7 @@
   margin-bottom: 0.3rem;
   scale: 0.9;
 }
-.smooth-width {
-  display: flex;
-  align-items: center;
-}
+
 // ====================[بنر]=============
 .all {
   display: flex;
@@ -301,7 +280,7 @@ drag-scroll {
 }
 .row-p-mobile2 {
   color: #0f9b66;
-  font-weight: 700;
+  font-weight: 900;
 }
 .divider {
   margin-top: 2rem;
@@ -338,8 +317,9 @@ drag-scroll {
   position: fixed;
   z-index: 100;
   top: 0;
+  left: 0;
   transform: translateY(calc(100vh - 92px));
-  width: 100vw;
+  width: 100%;
 }
 .box-price-mobile {
   display: inline-flex;
@@ -376,4 +356,14 @@ drag-scroll {
   font-size: 2.4rem;
   color: black;
   font-weight: 900;
+}
+.ie-download::after {
+  content: url(../../../../../assets/icon/Download-icon.svg);
+  display: inline-block;
+  margin-top: 2px;
+  width: fit-content;
+  aspect-ratio: 1/1;
+  height: auto;
+  vertical-align: sub;
+  scale: 0.9;
 }

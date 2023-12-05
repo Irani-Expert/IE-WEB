@@ -1,4 +1,11 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  Input,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { RatingConfig, StarRating } from 'src/app/shared/rating/rating-config';
 import { planInterface } from './interfaces/product-interface';
 import { SingleProduct } from 'src/app/classes/interfaces/product.interface';
@@ -22,10 +29,8 @@ const planInit: planInterface = {
   animations: [smoothWidth],
 })
 export class ShopHeroComponent implements OnInit {
-  constructor() // private _orderService: OrderService
-  // private localStorage: LocalStorageService
-  {}
-
+  constructor() {} // private localStorage: LocalStorageService // private _orderService: OrderService
+  @ViewChild('scroll') scroll: ElementRef;
   animationState = false;
   @Input('data') product: SingleProduct;
   // ============[ستاره ها]==================
@@ -41,18 +46,14 @@ export class ShopHeroComponent implements OnInit {
     this.updateDeviceValue();
     this.product.plans
       .filter((it) => it.isActive == true)
-      .forEach((it, i) => {
-        if (i <= 4) {
-          this.plans.push({
-            offPrice: 0,
-            id: it.id,
-            active: false,
-            price: it.price,
-            title: it.title,
-          });
-        } else {
-          return;
-        }
+      .forEach((it) => {
+        this.plans.push({
+          offPrice: 0,
+          id: it.id,
+          active: false,
+          price: it.price,
+          title: it.title,
+        });
       });
 
     this.selectedPlan = this.plans[0];
@@ -88,7 +89,7 @@ export class ShopHeroComponent implements OnInit {
   }
   updateDeviceValue() {
     if (AppComponent.isBrowser.value) {
-      if (Utils.isTablet()) {
+      if (Utils.isMobileL()) {
         this.device = 'sm';
       } else {
         this.device = 'lg';

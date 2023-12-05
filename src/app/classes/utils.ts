@@ -32,6 +32,13 @@ export class Utils {
   static scrollTracker() {
     return window && window.scrollY;
   }
+  static isScrolled() {
+    let scroll = false;
+    window.onscroll = function (e) {
+      scroll = true;
+    };
+    return scroll;
+  }
   static focusOnElement(id: any) {
     if (document) {
       <HTMLElement>(<unknown>document.getElementById(id)!.focus());
