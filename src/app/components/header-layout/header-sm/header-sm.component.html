@@ -21,7 +21,9 @@
         [ngClass]="item.id == link ? 'active-tab' : ''"
         (click)="choosenLink(item.id)"
       >
-        <a class="text-white no-underline font-medium">{{ item.name }} </a>
+        <a [routerLink]="item.path" class="text-white no-underline font-medium"
+          >{{ item.name }}
+        </a>
       </li>
     </ng-container>
 

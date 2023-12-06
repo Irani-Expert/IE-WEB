@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { BaseService } from './base.service';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, map } from 'rxjs';
+import { BehaviorSubject, Observable, lastValueFrom, map } from 'rxjs';
 import { Order } from 'src/app/routes/Checkout/interfaces/order.interface';
 import { Basket, BskItem } from '../interfaces/basket.interface';
 import { Result } from '../result';
@@ -48,7 +48,7 @@ export class OrderService extends BaseService<any> {
     let index = this.basket.value.basketItems.findIndex(
       (it) => it.id == item.id
     );
-    return this.basket$.pipe(
+    const res = this.basket$.pipe(
       map((res) => {
         if (index == -1) {
           res.basketItems.push(item);
@@ -58,6 +58,7 @@ export class OrderService extends BaseService<any> {
         return res;
       })
     );
+    return lastValueFrom(res);
   }
   removeFromBSK(item: BskItem) {
     let index = this.basket.value.basketItems.findIndex(
