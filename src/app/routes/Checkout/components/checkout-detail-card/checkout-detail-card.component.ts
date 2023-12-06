@@ -22,7 +22,5 @@ export class CheckoutDetailCardComponent {
       this.basket = it;
     });
   }
-  ngOnInit() {
-    console.log(this.data);
-  }
+  ngOnInit() {}
 }

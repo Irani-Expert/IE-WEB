@@ -4,6 +4,9 @@ import { NavigationService } from 'src/app/classes/services/navigation.service';
 import { Header } from '../header';
 import { ModalService } from 'src/app/shared/modal/services/modal.service';
 import { HeaderLayoutComponent } from '../header-layout.component';
+import { AuthService } from 'src/app/shared/auth/auth.service';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-header-lg',
@@ -14,7 +17,13 @@ export class HeaderLgComponent extends Header {
   @Output('modal') openingModal: EventEmitter<string> = new EventEmitter(false);
   hoveredItem = -1;
   nav: IMenuItem[] = new Array<IMenuItem>();
-  constructor(navService: NavigationService, private modal: ModalService) {
+  constructor(
+    navService: NavigationService,
+    private modal: ModalService,
+    private auth: AuthService,
+    private router: Router,
+    private location: Location
+  ) {
     super(navService);
   }
   onHover(index: number) {
@@ -35,5 +44,11 @@ export class HeaderLgComponent extends Header {
       },
     });
     HeaderLayoutComponent.modalStatus = true;
+  }
+  logout() {
+    this.auth.logOutUser();
+    if (this.router.url.includes('checkout')) {
+      this.location.back();
+    }
   }
 }

@@ -1,4 +1,4 @@
-<div @scaleIn [ngStyle]="{ '--overflow': overflow }" class="modal">
+<div @scaleIn #viewModal [ngStyle]="{ '--overflow': overflow }" class="modal">
   <div class="modal-header" *ngIf="header">
     <span class="modal-close" (click)="close()"><span>&times;</span></span>
     <ng-content select="[header]"></ng-content>
@@ -13,5 +13,4 @@
     <ng-content select="[footer]"></ng-content>
   </div>
 </div>
-
-<div @fadeIn class="modal-backdrop" (click)="close()"></div>
+<div class="modal-backdrop" tabindex="-1" (click)="close()"></div>

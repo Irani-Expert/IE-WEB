@@ -16,11 +16,24 @@
         <p platform class="product-platform">{{ data?.platformTypeTitle }}</p>
         <p guarantee class="product-guarantee">پشتیبانی دائمی تا زمان اشتراک</p>
       </properties>
-      <div class="space-y-1 mt-2">
-        <p class="font-bold text-black text-base">{{ data?.title }}</p>
-        <p class="font-bold text-black text-sm">
+      <div class="space-y-2 mt-2">
+        <p class="font-bold text-black text-base">
           {{ basket.basketItems[0].title }}
         </p>
+        <ng-container
+          *ngFor="
+            let item of basket.basketItems.slice(
+              1,
+              basket.basketItems.length + 1
+            );
+            let i = index
+          "
+        >
+          <p class="font-bold text-black text-sm">
+            {{ i + 1 }}&nbsp;-&nbsp;{{ item.title }}
+          </p>
+          <!-- <p class="font-bold text-black text-sm count">{{ item.count }}</p> -->
+        </ng-container>
       </div>
     </div>
     <!-- Seperator-Ticket -->

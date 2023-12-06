@@ -238,7 +238,7 @@
 }
 .plan-mobile {
   background-color: white;
-  border-radius: 49px 49px 0px 0px;
+  border-radius: 30px 30px 0px 0px;
   transform: translate(0px, -37px);
 }
 .bot-h-mobile {
@@ -253,6 +253,7 @@
 .p-rating-m {
   display: inline-flex;
   color: #b6b6b6;
+  font-size: 1.25rem;
 }
 .titile {
   padding-top: 1.5rem;
@@ -313,7 +314,7 @@ drag-scroll {
 
 .box-price-row-mobile {
   background-color: #f6f6f6;
-  border-radius: 23px 23px 0px 0px;
+  border-radius: 30px 30px 0px 0px;
   position: fixed;
   z-index: 100;
   top: 0;
@@ -347,13 +348,13 @@ drag-scroll {
 }
 .price-2-m {
   color: #b7b7b7;
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 500;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }
 .price-3-m {
-  font-size: 2.4rem;
+  font-size: 1.5rem;
   color: black;
   font-weight: 900;
 }
@@ -361,9 +362,16 @@ drag-scroll {
   content: url(../../../../../assets/icon/Download-icon.svg);
   display: inline-block;
   margin-top: 2px;
+  margin-left: 8px;
   width: fit-content;
   aspect-ratio: 1/1;
   height: auto;
   vertical-align: sub;
   scale: 0.9;
+}
+.ie-star::after {
+  display: inline-block;
+  vertical-align: sub;
+  scale: 1.2;
+  content: url(../../../../../assets/icon/star-alt.svg);
 }

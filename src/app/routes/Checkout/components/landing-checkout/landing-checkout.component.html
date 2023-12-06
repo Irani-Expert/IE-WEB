@@ -15,6 +15,34 @@
           لطفا اطلاعات خود را جهت تکمیل فرآیند خرید کامل کنید
         </p>
       </div>
+      <div class="seperator-hz-1 lg:hidden my-4"></div>
+
+      <div class="lg:hidden flex flex-row gap-4">
+        <div class="basis-full max-w-[6.25rem] rounded-xl">
+          <img
+            src="assets/img/Expert 1.png"
+            class="w-full rounded-xl"
+            alt="product-img"
+          />
+        </div>
+        <div class="basis-full flex flex-col px-1 py-2">
+          <strong> {{ basket[0].title }}</strong>
+          <small class="block mt-2 mb-1"> {{ basket[1].title }}</small>
+          <!-- <small class="block">{{ basket[1].title }}</small> -->
+          <div class="flex flex-row justify-between items-center mt-auto">
+            <p>
+              <b (click)="locateBack()" class="text-sm text-[#0088FF] font-bold"
+                >تغییر پلن</b
+              >
+            </p>
+            <strong class="text-3xl font-bold">{{
+              orderModel.totalPrice | currency
+            }}</strong>
+          </div>
+        </div>
+      </div>
+      <div class="seperator-hz-1 lg:hidden mt-4"></div>
+
       <div class="form-control form-control-lg">
         <form [formGroup]="formGroup" (ngSubmit)="nextSession()">
           <div class="each-row flex-col lg:flex-row">
@@ -152,7 +180,14 @@
                 </p>
               </checkbox>
             </div>
-            <div class="basis-1/2 h-custom">
+            <div class="basis-1/2 h-custom flex gap-2 flex-row-reverse">
+              <button
+                class="lg:hidden btn btn-prev-session"
+                (click)="locateBack()"
+                type="reset"
+              >
+                انصراف
+              </button>
               <button
                 [disabled]="formGroup.invalid"
                 (click)="nextSession()"
@@ -182,15 +217,45 @@
           تراکنش
         </p>
       </div>
-      <div class="flex flex-row mt-6">
-        <div class="basis-1/4 select-none inline-flex items-center">
+      <div class="seperator-hz-1 lg:hidden my-4"></div>
+
+      <div class="lg:hidden flex flex-row gap-4">
+        <div class="basis-full max-w-[6.25rem] rounded-xl">
+          <img
+            src="assets/img/Expert 1.png"
+            class="w-full rounded-xl"
+            alt="product-img"
+          />
+        </div>
+        <div class="basis-full flex flex-col px-1 py-2">
+          <strong> {{ basket[0].title }}</strong>
+          <small class="block mt-2 mb-1"> {{ basket[1].title }}</small>
+          <!-- <small class="block">{{ basket[1].title }}</small> -->
+          <div class="flex flex-row justify-between items-center mt-auto">
+            <p>
+              <b (click)="locateBack()" class="text-sm text-[#0088FF] font-bold"
+                >تغییر پلن</b
+              >
+            </p>
+            <strong class="text-3xl font-bold">{{
+              orderModel.totalPrice | currency
+            }}</strong>
+          </div>
+        </div>
+      </div>
+      <div class="seperator-hz-1 lg:hidden mt-4"></div>
+
+      <div class="flex flex-row mt-6 mb-2">
+        <div class="basis-1/4 hidden select-none lg:inline-flex items-center">
           <img
             class="mt-2 select-none"
             src="../../../../../assets/img/qr-code-fake.png"
             alt="fake-QR-code"
           />
         </div>
-        <div class="form-control form-control-lg !basis-3/4 !mt-0">
+        <div
+          class="form-control form-control-lg lg:!basis-3/4 !basis-full !mt-0"
+        >
           <form>
             <div class="each-row flex-col lg:flex-row">
               <div
@@ -201,7 +266,7 @@
                 <input
                   #wallet
                   type="text"
-                  class="input-with-icon custom-disabled"
+                  class="input-with-icon custom-disabled !text-xs lg:!text-lg"
                   disabled
                   value="TPpBFr6NfgtVCAaTqenzasahghgjk65cd2Ri8yLAEx4m93wE"
                 />
@@ -245,7 +310,7 @@
           placeholder="اگر نیاز به ارائه توضیح دارید در این قسمت قرار دهید"
         ></textarea>
       </div>
-      <div class="flex flex-row basis-full mt-4">
+      <div class="flex lg:flex-row flex-col basis-full mt-4">
         <div class="basis-1/2">
           <p class="text-sm font-normal pl-5 text-black text-justify">
             ایرانی اکسپـــرت هیچ مسئولیتـی نسبــت به واریزی هــای اشتبــاه شما
@@ -253,7 +318,7 @@
             فرمایید
           </p>
         </div>
-        <div class="basis-1/2 flex items-center h-14 gap-4">
+        <div class="basis-1/2 flex items-center h-14 gap-4 mt-2">
           <button class="btn btn-prev-session" (click)="session = 0">
             مرحله قبل
           </button>
