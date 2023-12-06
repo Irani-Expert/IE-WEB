@@ -42,9 +42,7 @@ export class CarouselBlogComponent {
   moveRight() {
     this.ds.moveRight();
   }
-  ngOnInit() {
-   
-  }
+
   isRightBoundary(event:any) {
     if(event) this.rightReached = true
     else this.rightReached = false

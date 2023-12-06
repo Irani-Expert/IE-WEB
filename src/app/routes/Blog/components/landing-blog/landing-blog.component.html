@@ -1,18 +1,24 @@
-<!-- <div class="bg-all">
-    <app-blog-hero></app-blog-hero>
-    <div class="grid grid-cols-3 gap-3">
-        <div class="part-1">
-            <app-blog-filter
-            [category]="category"
-            ></app-blog-filter>
+<div class="bg-all">
+    <div [ngClass]="device == 'lg' ? 'block' : 'hidden'">        
+        <app-blog-hero></app-blog-hero>
+        <div class="grid grid-cols-3 gap-3">
+            <div class="part-1">
+                <app-blog-filter
+                [category]="category"
+                ></app-blog-filter>
+            </div>
+            <div class="col-span-2">
+             <app-offers></app-offers>
+             <app-articles></app-articles>
+             <app-articles></app-articles>
+             <app-articles></app-articles>
+            </div>
+            <app-blog-pagination></app-blog-pagination>
         </div>
-        <div class="col-span-2">
-         <app-offers></app-offers>
-         <app-articles></app-articles>
-         <app-articles></app-articles>
-         <app-articles></app-articles>
-        </div>
-        <app-blog-pagination></app-blog-pagination>
     </div>
-</div> -->
-<app-landing-blog-detail></app-landing-blog-detail>
+    <!-- ==========[رسپانسیو]=========== -->
+    <div [ngClass]="device == 'sm' ? 'block' : 'hidden'">
+        <app-blog-hero></app-blog-hero>
+    </div>
+</div>
+<!-- <app-landing-blog-detail></app-landing-blog-detail> -->

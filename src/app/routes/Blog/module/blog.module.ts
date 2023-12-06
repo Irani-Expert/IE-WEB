@@ -13,8 +13,10 @@ import { BlogFilterComponent } from '../components/blog-filter/blog-filter.compo
 import { LandingBlogDetailComponent } from '../components/landing-blog-detail/landing-blog-detail.component';
 import { CarouselBlogComponent } from '../components/carousel-blog/carousel-blog.component';
 import { TableContentsComponent } from '../components/table-contents/table-contents.component';
+import { CardResponsiveComponent } from '../components/card-responsive/card-responsive.component';
 
 const components =[
+  CardResponsiveComponent,
   TableContentsComponent,
   LandingBlogComponent,
   CarouselBlogComponent,
