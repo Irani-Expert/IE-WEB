@@ -1,13 +1,13 @@
-<div class="bg-all">
+<div class="bg-all mt-6">
     <div [ngClass]="device == 'lg' ? 'block' : 'hidden'">        
         <app-blog-hero></app-blog-hero>
-        <div class="grid grid-cols-3 gap-3">
+        <div class="grid grid-cols-3 gap-3 mt-16">
             <div class="part-1">
                 <app-blog-filter
                 [category]="category"
                 ></app-blog-filter>
             </div>
-            <div class="col-span-2">
+            <div class="col-span-2 ml-8 -mr-2">
              <app-offers></app-offers>
              <app-articles></app-articles>
              <app-articles></app-articles>
@@ -19,6 +19,43 @@
     <!-- ==========[رسپانسیو]=========== -->
     <div [ngClass]="device == 'sm' ? 'block' : 'hidden'">
         <app-blog-hero></app-blog-hero>
+        <div class="mr-6 ml-6 mt-10">
+            <!-- ===========[پیشنهاد سردبیر]========== -->
+            <span class="flex title-offer">
+            <img class="mb-4 ml-1" src="assets/img/icon-offer.svg" alt="icon">پیشنهاد سردبیر</span>
+            <h6 class="title-offer2">برگزیده آخرین اخبار و مقالات</h6>
+            <app-blog-cart></app-blog-cart>
+            <!-- ===========[مدرسه فارکس]========== -->
+            <div class="flex justify-center mt-8">
+                <div class="school-box">
+                    <div class="flex justify-start">
+                        <div class="mb-4 mt-4">
+                            <p class="title1-row">مدرسه فارکس</p>
+                            <p class="title2-row">ویدیو گذشته</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-center">
+                        <div class="box-video grid grid-cols-2 gap-2">
+                            <div class="video">
+            
+                            </div>
+                            <div class="mr-2">
+                                <p class="video-title mb-12">ایرانی اکسپرت چیکار میکند؟ معرفی و اهداف تیم های ایرانی اکسپرت</p>
+                                <div class="flex justify-end">
+                                    <p class="time-video"> 11:00 </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ===========[ آرتیکلز ]========== -->
+        <app-offers></app-offers>
+        <!-- ===========[ تبلیغات ]========== -->
+        <div class="mr-6 ml-6 mt-4">
+            <img src="assets/img/add-blog(responsive).svg" alt="add">
+        </div>
     </div>
 </div>
 <!-- <app-landing-blog-detail></app-landing-blog-detail> -->

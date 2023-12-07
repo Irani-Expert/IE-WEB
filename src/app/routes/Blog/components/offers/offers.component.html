@@ -1,61 +1,102 @@
-<!-- ==============[پیشنهاد]================ -->
-<div class="all-offer"> 
-    <div class="row-title">
-        <p class="title">پیشنهاد سردبیر</p>
-        <a href="">
-        <p class="link">مشاهده مطالب بیشتر</p>
+<div [ngClass]="device == 'lg' ? 'block' : 'hidden'">
+       <!-- ==============[پیشنهاد]================ -->
+   <div class="all-offer"> 
+       <div class="row-title">
+           <p class="title">پیشنهاد سردبیر</p>
+           <a href="">
+               <span class="link flex items-center">مشاهده مطالب بیشتر<img class="mr-2" src="assets/img/Arrow-left-icon.svg" alt="icon"></span>
+           </a>
+       </div>
+       <!-- ////////////////[اسکرول کارت]////////////////// -->
+       <div class="flex flex-nowrap">
+           <drag-scroll>
+           <div class="cart" drag-scroll-item><app-blog-cart ></app-blog-cart></div>
+           <div class="cart" drag-scroll-item><app-blog-cart ></app-blog-cart></div>
+           <div class="cart" drag-scroll-item><app-blog-cart ></app-blog-cart></div>
+           <div class="cart" drag-scroll-item><app-blog-cart ></app-blog-cart></div>
+           <div class="cart" drag-scroll-item><app-blog-cart ></app-blog-cart></div>
+           <div class="cart" drag-scroll-item><app-blog-cart ></app-blog-cart></div>
+           <div class="cart" drag-scroll-item><app-blog-cart ></app-blog-cart></div>
+           </drag-scroll>
+       </div>
+   </div>
+   <!-- ==============[جدیدترین]================ -->
+   <div class="all-news mb-6">
+       <div class="flex justify-start">
+           <div class="mt-6">
+               <p class="row-p"> مقالات ایرانی اکسپرت</p>
+               <h6 class="font-semibold mt-1">جدیدترین و آخرین مقالات ایرانی اکسپرت</h6>
+           </div>
+       </div>
+       <div class="flex items-center">
+           <div class="cart2"><app-blog-cart></app-blog-cart></div>
+           <div class="cart2"><app-blog-cart></app-blog-cart></div>
+           <div class="cart2"><app-blog-cart></app-blog-cart></div>
+       </div>
+   </div>
+       <div class="divider"></div>
+       <div class="box-link">
+           <a href="">
+            <span class="link flex items-center">مشاهده مطالب بیشتر<img class="mr-2" src="assets/img/Arrow-left-icon.svg" alt="icon"></span>
         </a>
-    </div>
-    <!-- ////////////////[اسکرول کارت]////////////////// -->
-    <div class="flex flex-nowrap">
-        <drag-scroll>
-        <div class="cart" drag-scroll-item><app-blog-cart ></app-blog-cart></div>
-        <div class="cart" drag-scroll-item><app-blog-cart ></app-blog-cart></div>
-        <div class="cart" drag-scroll-item><app-blog-cart ></app-blog-cart></div>
-        <div class="cart" drag-scroll-item><app-blog-cart ></app-blog-cart></div>
-        <div class="cart" drag-scroll-item><app-blog-cart ></app-blog-cart></div>
-        <div class="cart" drag-scroll-item><app-blog-cart ></app-blog-cart></div>
-        <div class="cart" drag-scroll-item><app-blog-cart ></app-blog-cart></div>
-        </drag-scroll>
-    </div>
+       </div>
+       <!-- ==============[بنر]================ -->
+       <div class="flex">
+           <div class="grid grid-cols-2 gap-2 baner">
+               <div class="ml-">
+                   <h6 class="titile-baner">جهت دریافت آخرین اخبار و مقالات به خبرنامه بپیوندید</h6>
+                   <p class="p-baner">آخرین اخبار دنیای ارزهای دیجیتال،شبکه پرداخت ارزی،کسب درامد دلاری،
+                       تکنولوژی و دنیای بازارهای مالی در ایرانی اکسپرت
+                   </p>
+               </div>
+               <div class="flex justify-center">
+                   <div class="part-2">
+                       <p class="email-p">ایمیل خود را جهت عضویت وارد کنید</p>
+                       <div class="box-email">
+                       <input class="input-email">
+                       <button class="btn-email">
+                           <p class="btn-p">عضویت در خبرنامه</p>
+                       </button>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
 </div>
-<!-- ==============[جدیدترین]================ -->
-<div class="all-news">
-    <div class="flex justify-start">
-        <div class="row2-title">
-            <p class="row-p"> مقالات ایرانی اکسپرت</p>
-            <h6 class="title2">جدیدترین و آخرین مقالات ایرانی اکسپرت</h6>
-        </div>
-    </div>
-    <div class="cart-row flex items-center">
-        <div class="cart2"><app-blog-cart></app-blog-cart></div>
-        <div class="cart2"><app-blog-cart></app-blog-cart></div>
-        <div class="cart2"><app-blog-cart></app-blog-cart></div>
-    </div>
-</div>
-<div class="divider-row">
-    <div class="divider"></div>
-    <div class="box-link">
-        <a href="">
-        <p class="link">مشاهده مطالب بیشتر</p>
-        </a>
-    </div>
-</div>
-<!-- ==============[بنر]================ -->
-    <div class="grid grid-cols-2 gap-2 baner">
-        <div class="part-1">
-            <h6 class="titile-baner">جهت دریافت آخرین اخبار و مقالات به خبرنامه بپیوندید</h6>
-            <p class="p-baner">آخرین اخبار دنیای ارزهای دیجیتال،شبکه پرداخت ارزی،کسب درامد دلاری،
-                تکنولوژی و دنیای بازارهای مالی در ایرانی اکسپرت
-            </p>
-        </div>
-        <div class="part-2">
-            <p class="email-p">ایمیل خود را جهت عضویت وارد کنید</p>
-            <div class="box-email">
-            <input class="input-email">
-            <button class="btn-email">
-                <p class="btn-p">عضویت در خبرنامه</p>
-            </button>
+<!-- ====================[رسپانسیو========== -->
+<div [ngClass]="device == 'sm' ? 'block' : 'hidden'">
+    <div class="divier-mobile mt-4"></div>
+    <div class="mr-6 ml-6 mt-6">
+           <!-- ==============[جدیدترین]================ -->
+        <span class="flex title-offer">
+        <img class="mb-4 ml-1" src="assets/img/icon-offer.svg" alt="icon"> مقالات ایرانی اکسپرت </span>
+        <h6 class="title-offer2">جدیدترین و آخرین مقالات ایرانی اکسپرت</h6>
+        <app-blog-cart></app-blog-cart>
+        <div class="mt-10 mb-10">
+            <div class="divier-mobile2"></div>
+            <div class="box-link">
+                <a href="">
+                <span class="link-mobile flex items-center">مشاهده مطالب بیشتر<img class="mr-2" src="assets/img/Arrow-left-icon.svg" alt="icon"></span>
+                </a>
             </div>
         </div>
+            <!-- ==============[بنر]================ -->
+            <div class="baner-mobile">
+                <div>
+                    <h6 class="titile-baner-mobile">جهت دریافت آخرین اخبار و مقالات به خبرنامه بپیوندید</h6>
+                    <p class="p-baner mb-8">آخرین اخبار دنیای ارزهای دیجیتال،شبکه پرداخت ارزی،کسب درامد دلاری،
+                        تکنولوژی و دنیای بازارهای مالی در ایرانی اکسپرت
+                    </p>
+                </div>
+                <div>
+                    <p class="email-p-mobile">ایمیل خود را جهت عضویت وارد کنید</p>
+                    <div class="flex flex-row items-stretch mt-4">
+                    <input class="input-email-mobile">
+                    <button class="bnt-mobile">
+                        <p class="btn-p-mobile">عضویت در خبرنامه</p>
+                    </button>
+                    </div>
+                </div>
+            </div>
     </div>
+</div>

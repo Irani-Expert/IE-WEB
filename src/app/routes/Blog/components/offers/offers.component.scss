@@ -4,12 +4,13 @@
   border: 2px solid #eaeaea;
   padding: 1rem 0.5rem 1rem 0.5rem;
   border-radius: 20px;
+  width: 92%
 }
 .row-title {
   display: flex;
   justify-content: space-between;
-  max-width: 42rem;
-  margin-bottom: -4rem;
+  align-items: center;
+  margin-right: 1rem;
 }
 .title {
   color: black;
@@ -17,41 +18,30 @@
 .link {
   color: #006fff;
   border: 1px solid #006fff;
-  padding: 0.4rem 0.5rem 0.2rem 1.5rem;
+  padding: 0.2rem 1rem 0.2rem 1rem;;
   border-radius: 20px;
   background-color: #e9f3ff;
+  
+  font-weight: 500;
 }
 drag-scroll {
   width: 70rem;
 }
-.cart {
-  scale: 0.6;
-  margin-left: -8rem;
-  margin-bottom: -3rem;
+.cart{
+  scale: 0.8;
+  margin-left: -3rem;
 }
 // <!-- ==============[جدیدترین]================ -->
 
 .row-p {
   color: #098b41;
 }
-.title2 {
-  font-weight: 500;
-}
 .cart2 {
-  scale: 0.7;
-  // margin-right: -4rem;
-}
-.cart-row {
-  max-width: 826px;
-  margin-top: -33px;
-}
-.divider-row {
-  margin-left: 7rem;
-  max-width: 784px;
+  scale: 0.9;
 }
 .divider {
   border-bottom: #d4d4d4 solid 1px;
-  width: 78.5%;
+  width: 77.5%;
 }
 .box-link {
   display: flex;
@@ -61,35 +51,106 @@ drag-scroll {
 // <!-- ==============[بنر]================ -->
 .baner {
   background-color: #d8e8ff;
-  max-width: 49rem;
-  padding: 4rem 2rem 4rem 2rem;
+  padding: 3rem 1.5rem 3rem 1.5rem;
   border-radius: 20px;
 }
 .titile-baner {
   font-style: oblique;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
 }
 .p-baner {
   color: black;
 }
 .email-p {
   color: black;
+  margin-bottom: 1rem;
 }
-.box-email {
-  margin-top: 1rem;
-  display: flex;
-  align-items: center;
-}
+
 .input-email {
   background-color: white;
-  height: 2.5rem;
+  height: 3rem;
+  border-radius: 12px;
 }
 .btn-email {
   margin-right: 1rem;
   background-color: #06f;
-  padding: 0.5rem 1.2rem 0.5rem 1.2rem;
+  padding: 0.7rem 1.2rem 0.7rem 1.2rem;
   border-radius: 10px;
+}
+.part-2{
+  padding-top: 0.3rem;
 }
 .btn-p {
   color: white;
   font-weight: 700;
+}
+// <!-- ====================[رسپانسیو========== -->
+.title-offer{
+  color: #098B41;
+  font-weight: 600;
+}
+.title-offer2{
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: -.5rem;
+  margin-bottom: 1.5rem;
+}
+.divier-mobile{
+  border-top: 1px solid #B4B4B4;
+}
+.divier-mobile2{
+  border-bottom: #d4d4d4 solid 2px;
+  width: 45%;
+}
+.link-mobile{
+  color: #006fff;
+  border: 1px solid #006fff;
+  padding: 0.2rem 0.5rem 0.2rem 1rem;;
+  border-radius: 20px;
+  background-color: #e9f3ff;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+// <!-- ==============[بنر]================ -->
+
+.baner-mobile{
+  background-color: #d8e8ff;
+  padding: 2rem 1.5rem 2rem 1.5rem;;
+  border-radius: 20px;
+}
+.baner-mobile-mobile{
+  font-size: 1.3rem;
+  font-style: oblique;
+  margin-bottom: 2rem;
+}
+.bnt-mobile{
+  margin-right: 0.5rem;
+  flex-basis: 60%;
+  width: 100%;
+  height: 100%;
+}
+.btn-p-mobile{
+  background-color: #06f;
+  padding: 0.5rem 0;
+  border-radius: 10px;
+  color: white;
+  font-weight: 800;
+  font-size: 0.8rem;
+}
+.titile-baner-mobile{
+  font-style: oblique;
+  font-size: 1.3rem;
+  margin-bottom: 2.5rem;
+}
+.email-p-mobile {
+  color: black;
+  font-size: 0.9rem;
+}
+.input-email-mobile{
+  flex-basis: 100%;
+  background-color: white;
+  min-height: 100%;
+  width: 100%;
+  display: flex;
 }

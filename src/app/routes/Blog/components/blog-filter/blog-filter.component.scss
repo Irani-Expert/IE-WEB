@@ -29,16 +29,30 @@
 }
 .box-video{
   background-color: #FAFAFA;
-  padding: 0.5rem 1rem 0.5rem 1rem;
+  padding: 0.7rem 1rem 0.7rem 1rem;
   border: 1px solid #EAEAEA;
   border-radius: 20px;
 }
 .video{
     background-color: white;
 }
+.video-title{
+  font-weight: 500;
+  color: #7D7D7D;
+}
 .time-video{
-  display: flex;
-  justify-content: end;
+color: #7D7D7D;
+font-size: 0.8rem;
+background-color: #F5F5F5;
+padding: 0.2rem 0.8rem 0.2rem 0.8rem;
+border-radius: 22px;
+}
+.title1-row{
+  color: black;
+}
+.title2-row{
+  color: #098B41;
+  font-size: 1.2rem;
 }
 // // <!-- ============[تبلیغات]========= -->
 
