@@ -1,4 +1,7 @@
-<nav (mouseleave)="unHovered()" class="px-6 pb-2.5 pt-4 max-w-container">
+<nav
+  (mouseleave)="unHovered()"
+  class="px-6 pb-2.5 pt-4 max-w-[1536px] self-center w-full"
+>
   <div class="flex items-center mx-auto relative">
     <a href="https://iraniexpert.com" class="flex items-center">
       <span class="sr-only">ایرانی اکسپرت - Irani Expert</span>
@@ -71,6 +74,16 @@
         class="button-subscription rounded-lg px-1 text-white font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 mx-1"
       >
         عضویت
+      </button>
+    </div>
+    <div *ngIf="loggedIn" class="flex items-center">
+      <button
+        [disabled]="_btnDisabled"
+        type="button"
+        (click)="logout()"
+        class="button-logout rounded-lg px-1 text-white font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 mx-1"
+      >
+        خروج
       </button>
     </div>
     <app-search-header />

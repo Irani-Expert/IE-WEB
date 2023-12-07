@@ -1,6 +1,7 @@
 <header class="relative z-10 bg-white">
   <app-header-lg
     (modal)="openedModal($event)"
+    class="flex justify-center"
     [ngClass]="device == 'lg' ? 'block' : 'hidden'"
   />
   <app-header-sm
@@ -11,6 +12,6 @@
 </header>
 <app-modal [overflow]="'hidden'" [width]="'716px'" *ngIf="_modalStatus">
   <div content>
-    <app-auth [view]="modalView" />
+    <app-auth [view]="_modalView" />
   </div>
 </app-modal>

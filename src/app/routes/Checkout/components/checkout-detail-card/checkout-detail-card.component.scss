@@ -1,9 +1,10 @@
 $padding-container: 0.5rem 1.5rem;
-$min-width-card: 284px;
+$min-width-card: 222px;
 .checkout-card {
   min-width: $min-width-card;
-  max-width: 95%;
-  margin-top: 4rem;
+  width: 100%;
+  max-width: 284px;
+  margin-top: 6rem;
   position: relative;
   min-height: 26rem;
   border-radius: 0.9rem;
@@ -20,45 +21,6 @@ $min-width-card: 284px;
     object-fit: contain;
     position: absolute;
     transform: translateY(-46%);
-  }
-
-  // Main Detail Component Holder
-  .details-product {
-    width: 100%;
-    padding: $padding-container;
-    margin-top: 10rem;
-    .producer-name {
-      text-align: justify;
-      padding: 0 0.25rem;
-      font-size: 1rem;
-      font-weight: bold;
-      color: #535353;
-    }
-
-    .product {
-      $product-props-color: #606060;
-      &-guarantee {
-        font-size: 1rem;
-        font-weight: bold;
-        color: #535353;
-      }
-      &-rate {
-        font-size: 0.95rem;
-        font-weight: 900;
-        color: $product-props-color;
-      }
-      &-category {
-        font-size: 0.95rem;
-        font-weight: 900;
-        color: $product-props-color;
-      }
-      &-platform {
-        padding-top: 3px;
-        font-size: 0.95rem;
-        font-weight: 900;
-        color: $product-props-color;
-      }
-    }
   }
   .seperator-ticket {
     .dashed {
@@ -164,3 +126,8 @@ $min-width-card: 284px;
     margin-top: 1rem;
   }
 }
+// .count::after {
+//   display: inline-block;
+//   text-align: start;
+//   content: "عدد";
+// }

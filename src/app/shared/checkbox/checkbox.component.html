@@ -5,7 +5,9 @@
       type="checkbox"
       [checked]="fillTheBox"
     />
-    <span></span>
+    <span
+      [ngStyle]="{ '--checkbox-width': width, '--checkbox-height': height }"
+    ></span>
   </label>
   <ng-content select="[title]"></ng-content>
 </div>

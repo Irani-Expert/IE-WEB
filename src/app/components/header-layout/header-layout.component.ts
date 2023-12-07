@@ -14,7 +14,7 @@ enum Device {
 })
 export class HeaderLayoutComponent {
   device = 'lg';
-  modalView = '';
+  static modalView = '';
   static modalStatus: boolean = false;
   get _modalStatus() {
     return HeaderLayoutComponent.modalStatus;
@@ -31,7 +31,7 @@ export class HeaderLayoutComponent {
   }
   updateDeviceValue() {
     if (this.platform.isPlatformBrowser()) {
-      if (Utils.isLaptopSm()) {
+      if (Utils.isTablet()) {
         this.device = Device.Mobile;
       } else {
         this.device = Device.Laptop;
@@ -39,6 +39,9 @@ export class HeaderLayoutComponent {
     }
   }
   openedModal(event: any) {
-    this.modalView = event;
+    HeaderLayoutComponent.modalView = event;
+  }
+  get _modalView() {
+    return HeaderLayoutComponent.modalView;
   }
 }

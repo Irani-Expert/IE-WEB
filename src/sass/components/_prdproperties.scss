@@ -1,0 +1,38 @@
+$padding-container: 0.5rem 1.5rem;
+.details-product {
+  width: 100%;
+  padding: $padding-container;
+  margin-top: 10rem;
+}
+.producer-name {
+  text-align: justify;
+  padding: 0 0.25rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #535353;
+}
+
+.product {
+  $product-props-color: #606060;
+  &-guarantee {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #535353;
+  }
+  &-rate {
+    font-size: 0.95rem;
+    font-weight: 900;
+    color: $product-props-color;
+  }
+  &-category {
+    font-size: 0.95rem;
+    font-weight: 900;
+    color: $product-props-color;
+  }
+  &-platform {
+    padding-top: 3px;
+    font-size: 0.95rem;
+    font-weight: 900;
+    color: $product-props-color;
+  }
+}

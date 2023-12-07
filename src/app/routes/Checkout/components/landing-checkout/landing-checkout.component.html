@@ -1,9 +1,332 @@
 <div
-  class="flex flex-row max-w-screen-2xl justify-center py-9 px-6 items-center"
+  class="flex flex-row max-w-screen-2xl justify-center py-9 px-2 md:px-16 lg:px-20 items-start"
 >
-  <checkout-detail-card class="basis-1/4"></checkout-detail-card>
-  <div class="basis-3/4"></div>
-  <!-- <checkout-detail-card
-    class="basis-3/4 bg-slate-800 h-60"
-  ></checkout-detail-card> -->
+  <checkout-detail-card class="hidden lg:block basis-1/5" />
+
+  <!-- Session User Details -------------------------------------------------------------->
+
+  <div class="basis-full lg:basis-4/5" *ngIf="session == 0">
+    <div class="flex flex-col px-5">
+      <div class="space-y-2">
+        <strong class="text-base md:text-lg lg:text-2xl"
+          >کاربر گرامی {{ user.firstName }} {{ user.lastName }}</strong
+        >
+        <p class="text-black">
+          لطفا اطلاعات خود را جهت تکمیل فرآیند خرید کامل کنید
+        </p>
+      </div>
+      <div class="seperator-hz-1 lg:hidden my-4"></div>
+
+      <div class="lg:hidden flex flex-row gap-4">
+        <div class="basis-full max-w-[6.25rem] rounded-xl">
+          <img
+            src="assets/img/Expert 1.png"
+            class="w-full rounded-xl"
+            alt="product-img"
+          />
+        </div>
+        <div class="basis-full flex flex-col px-1 py-2">
+          <strong> {{ basket[0].title }}</strong>
+          <small class="block mt-2 mb-1"> {{ basket[1].title }}</small>
+          <!-- <small class="block">{{ basket[1].title }}</small> -->
+          <div class="flex flex-row justify-between items-center mt-auto">
+            <p>
+              <b (click)="locateBack()" class="text-sm text-[#0088FF] font-bold"
+                >تغییر پلن</b
+              >
+            </p>
+            <strong class="text-3xl font-bold">{{
+              orderModel.totalPrice | currency
+            }}</strong>
+          </div>
+        </div>
+      </div>
+      <div class="seperator-hz-1 lg:hidden mt-4"></div>
+
+      <div class="form-control form-control-lg">
+        <form [formGroup]="formGroup" (ngSubmit)="nextSession()">
+          <div class="each-row flex-col lg:flex-row">
+            <div
+              class="relative basis-full lg:basis1/2 space-y-2"
+              (mouseleave)="showDialog(false)"
+            >
+              <label [for]="formsControlInit[0].name">{{
+                formsControlInit[0].label
+              }}</label>
+              <input
+                [id]="formsControlInit[0].name"
+                [ngClass]="formsControlInit[0].hasErr ? 'has-error' : ''"
+                type="text"
+                formControlName="{{ formsControlInit[0].name }}"
+                [placeholder]="
+                  formsControlInit[0].placeholder
+                    ? formsControlInit[0].placeholder
+                    : ''
+                "
+                class="input-with-icon"
+              />
+              <span class="left-icon !top-4 !left-4">
+                <img
+                  (mouseenter)="showDialog(true)"
+                  src="assets/icon/info.svg"
+                  alt="info"
+                />
+              </span>
+              <span
+                *ngIf="isShowDialog"
+                (mouseleave)="showDialog(false)"
+                class="tutorial-vid-container"
+              >
+                <img src="assets/img/404-error.png" alt="tutorial-gif"
+              /></span>
+            </div>
+            <div class="relative basis-full lg:basis1/2 space-y-2">
+              <label [for]="formsControlInit[1].name">{{
+                formsControlInit[1].label
+              }}</label>
+              <input
+                [id]="formsControlInit[1].name"
+                type="date"
+                [min]="today"
+                (input)="OnChangeDate($any($event.target).value)"
+                formControlName="{{ formsControlInit[1].name }}"
+                [placeholder]="
+                  formsControlInit[1].placeholder
+                    ? formsControlInit[1].placeholder
+                    : ''
+                "
+                class="input-with-icon"
+              />
+            </div>
+          </div>
+          <div class="each-row flex-col lg:flex-row">
+            <div
+              class="basis-full lg:basis1/2 discount-container justify-around flex flex-col gap-4"
+            >
+              <strong>روش پرداخت خود را مشخص کنید</strong>
+              <div class="flex flex-row gap-5">
+                <ng-container *ngFor="let item of paymentMethods">
+                  <div
+                    (click)="changePaymentMethod(item)"
+                    [class.disabled]="item.disabled"
+                    [ngClass]="item.active ? 'active' : ''"
+                    class="basis-1/2 gap-2 px-5 py-1 payment-method-container"
+                  >
+                    <span class="right-section">
+                      <b [ngClass]="item.id == 2 ? 'translate-y-2' : ''">{{
+                        item.title
+                      }}</b>
+                      <small *ngIf="item.cap">{{ item.cap }}</small></span
+                    >
+                    <span class="left-section">
+                      <img
+                        [src]="item.img"
+                        [alt]="item.imgAlt ? item.imgAlt : ''"
+                      />
+                    </span>
+                  </div>
+                </ng-container>
+                <!-- <div
+                  class="basis-1/2 gap-2 px-5 py-1 payment-method-container disabled"
+                >
+                  <span class="right-section">
+                    <b class="translate-y-2">TC Pay</b>
+                  </span>
+                  <span class="left-section -z-10">
+                    <img src="assets/img/tcpay.svg" alt="TC-PAY" />
+                  </span>
+                </div> -->
+              </div>
+            </div>
+            <div
+              class="basis-full lg:basis1/2 discount-container flex flex-row gap-4 items-end"
+            >
+              <div class="relative basis-3/4 space-y-2">
+                <label [for]="formsControlInit[2].name">{{
+                  formsControlInit[2].label
+                }}</label>
+                <input
+                  type="text"
+                  [id]="formsControlInit[2].name"
+                  formControlName="{{ formsControlInit[2].name }}"
+                  [placeholder]="
+                    formsControlInit[2].placeholder
+                      ? formsControlInit[2].placeholder
+                      : ''
+                  "
+                  class="input-without-icon input-discount"
+                />
+              </div>
+              <button
+                [disabled]=""
+                type="button"
+                class="basis-1/4 bg-slate-300 rounded-lg text-lg btn-discount"
+              >
+                ثبت
+              </button>
+            </div>
+          </div>
+          <div class="each-row flex-col lg:flex-row">
+            <div class="basis-1/2 h-custom pt-2">
+              <checkbox [size]="'lg'" (checked)="changeCheckboxValue($event)">
+                <p class="text-lg pt-1.5 font-medium" title>
+                  خرید از سایت ایرانی اکسپرت به منزله قبول
+                  <button
+                    type="button"
+                    class="text-blue-800 p-0 m-0 bg-transparent cursor-pointer"
+                  >
+                    قوانین</button
+                  >میباشد
+                </p>
+              </checkbox>
+            </div>
+            <div class="basis-1/2 h-custom flex gap-2 flex-row-reverse">
+              <button
+                class="lg:hidden btn btn-prev-session"
+                (click)="locateBack()"
+                type="reset"
+              >
+                انصراف
+              </button>
+              <button
+                [disabled]="formGroup.invalid"
+                (click)="nextSession()"
+                type="submit"
+                class="w-full bg-blue-700 rounded-lg h-full text-2xl font-black disabled:opacity-50 text-white"
+              >
+                مرحله بعد
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Session User Details -------------------------------------------------------------->
+
+  <!-- Payment Details -------------------------------------------------------------->
+
+  <div class="basis-full lg:basis-4/5" *ngIf="session == 1">
+    <div class="flex flex-col px-5">
+      <div class="space-y-2">
+        <strong class="text-base md:text-lg lg:text-2xl"
+          >برای شماره حساب "{{ orderModel.accountNumber }}" ثبت شد</strong
+        >
+        <p class="text-black">
+          را وارد کنید TX مقدار 18 تتر به آدرس کیف پول زیر واریز کنید و کد تایید
+          تراکنش
+        </p>
+      </div>
+      <div class="seperator-hz-1 lg:hidden my-4"></div>
+
+      <div class="lg:hidden flex flex-row gap-4">
+        <div class="basis-full max-w-[6.25rem] rounded-xl">
+          <img
+            src="assets/img/Expert 1.png"
+            class="w-full rounded-xl"
+            alt="product-img"
+          />
+        </div>
+        <div class="basis-full flex flex-col px-1 py-2">
+          <strong> {{ basket[0].title }}</strong>
+          <small class="block mt-2 mb-1"> {{ basket[1].title }}</small>
+          <!-- <small class="block">{{ basket[1].title }}</small> -->
+          <div class="flex flex-row justify-between items-center mt-auto">
+            <p>
+              <b (click)="locateBack()" class="text-sm text-[#0088FF] font-bold"
+                >تغییر پلن</b
+              >
+            </p>
+            <strong class="text-3xl font-bold">{{
+              orderModel.totalPrice | currency
+            }}</strong>
+          </div>
+        </div>
+      </div>
+      <div class="seperator-hz-1 lg:hidden mt-4"></div>
+
+      <div class="flex flex-row mt-6 mb-2">
+        <div class="basis-1/4 hidden select-none lg:inline-flex items-center">
+          <img
+            class="mt-2 select-none"
+            src="../../../../../assets/img/qr-code-fake.png"
+            alt="fake-QR-code"
+          />
+        </div>
+        <div
+          class="form-control form-control-lg lg:!basis-3/4 !basis-full !mt-0"
+        >
+          <form>
+            <div class="each-row flex-col lg:flex-row">
+              <div
+                class="relative basis-full lg:basis1/2 space-y-2"
+                (mouseleave)="showDialog(false)"
+              >
+                <label for="">آدرس کیف پول</label>
+                <input
+                  #wallet
+                  type="text"
+                  class="input-with-icon custom-disabled !text-xs lg:!text-lg"
+                  disabled
+                  value="TPpBFr6NfgtVCAaTqenzasahghgjk65cd2Ri8yLAEx4m93wE"
+                />
+                <span class="left-icon !top-6 !left-4">
+                  <img
+                    (click)="copyToClipboard(wallet)"
+                    [src]="
+                      ticked
+                        ? 'assets/icon/copy-icon-ticked.svg'
+                        : 'assets/icon/copy-icon.svg'
+                    "
+                    alt="copy-icon"
+                  />
+                  <span
+                    (click)="showClipboardContent = false"
+                    [ngClass]="showClipboardContent ? 'ticked' : 'not-ticked'"
+                    class="absolute w-40 clipboard-toast"
+                  >
+                    <p>آدرس کیف پول کپی شد</p>
+                  </span>
+                </span>
+              </div>
+            </div>
+            <div class="each-row flex-col lg:flex-row">
+              <div class="relative basis-full lg:basis1/2 space-y-2">
+                <label for="">کد تایید تراکنش</label>
+                <input
+                  type="text"
+                  class="input-with-icon"
+                  (input)="trxCode($any($event.target).value)"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="h-52 space-y-2">
+        <strong class="block font-medium">توضیحات</strong>
+        <textarea
+          class="w-full h-full max-h-44 rounded-lg"
+          placeholder="اگر نیاز به ارائه توضیح دارید در این قسمت قرار دهید"
+        ></textarea>
+      </div>
+      <div class="flex lg:flex-row flex-col basis-full mt-4">
+        <div class="basis-1/2">
+          <p class="text-sm font-normal pl-5 text-black text-justify">
+            ایرانی اکسپـــرت هیچ مسئولیتـی نسبــت به واریزی هــای اشتبــاه شما
+            ندارد لـذا نسبـت به انتخاب ورژن درسـت انتقــال ارز اطمینان حاصل
+            فرمایید
+          </p>
+        </div>
+        <div class="basis-1/2 flex items-center h-14 gap-4 mt-2">
+          <button class="btn btn-prev-session" (click)="session = 0">
+            مرحله قبل
+          </button>
+          <button (click)="createOrder()" class="btn btn-submit">
+            ثبت سفارش
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,6 +1,7 @@
-import { NgModule } from '@angular/core';
+import { NgModule, inject } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { CanActivate } from './classes/can-activate';
 
 const routes: Routes = [
   // Here You Add Your Lazy Loading Modules
@@ -23,10 +24,25 @@ const routes: Routes = [
       import('./routes/Shop/module/shop.module').then((m) => m.ShopModule),
   },
   {
+    canActivate: [() => inject(CanActivate).canActivate()],
     path: 'checkout',
     title: 'ایرانی اکسپرت',
     loadChildren: () =>
       import('./routes/Checkout/checkout.module').then((m) => m.CheckoutModule),
+  },
+  {
+    path: 'brokers',
+    title: 'brokers',
+    loadChildren: () =>
+      import('./routes/Brokers/module/broker.module').then(
+        (m) => m.BrokerModule
+      ),
+  },
+  {
+    path: 'articles',
+    title: 'articles',
+    loadChildren: () =>
+      import('./routes/Blog/module/blog.module').then((m) => m.BlogModule),
   },
   // {
   //   path: 'calendar',

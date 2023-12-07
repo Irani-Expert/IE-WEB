@@ -6,16 +6,18 @@
 
 <ng-container *ngIf="!loading">
   <!-- ==========[معرفی]=========== -->
-  <app-scroll
-    [activeId]="0"
-    (scrollClick1)="scroll(description)"
-    (scrollClick2)="scroll(option)"
-    (scrollClick3)="scroll(backtest)"
-    (scrollClick4)="scroll(question)"
-    (scrollClick5)="scroll(comment)"
-  ></app-scroll>
-
   <div #description>
+    <app-scroll
+      [activeId]="0"
+      (scrollClick1)="scroll(description)"
+      (scrollClick2)="scroll(option)"
+      (scrollClick3)="scroll(backtest)"
+      (scrollClick4)="scroll(question)"
+      (scrollClick5)="scroll(comment)"
+    ></app-scroll>
+  </div>
+
+  <div>
     <app-description></app-description>
   </div>
   <!-- ==========[امکانات]=========== -->

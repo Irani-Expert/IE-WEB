@@ -1,0 +1,45 @@
+<!-- ===================[دسته بندی]=================== -->
+<div class="flex justify-center">
+    <div class="category-box">
+        <div class="flex justify-start">
+            <p class="title-box">
+            دسته بندی
+            </p>
+        </div>
+        <div *ngFor="let item of category">
+          <div class="category-row">
+              <img src="{{item.icon}}" alt="">
+              <a href=""><p class="link">{{item.name}}</p></a>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-1">
+            <p *ngFor="let item2 of categoryDetail" class="mb-6"><a class="link-detail" href="">{{item2}}</a></p>
+        </div>
+    </div>
+</div>
+<!-- ===================[مدرسه فارکس ]=================== -->
+<div class="flex justify-center">
+    <div class="school-box">
+        <div class="flex justify-start">
+            <div class="schhol-box-title">
+                <p class="title1-row">مدرسه فارکس</p>
+                <p class="title2-row">ویدیو گذشته</p>
+            </div>
+        </div>
+        <div class="flex justify-center">
+            <div class="box-video grid grid-cols-2 gap-2">
+                <div class="video">
+
+                </div>
+                <div class="video-title-row">
+                    <p class="video-title">ایرانی اکسپرت چیکار میکند؟ معرفی و اهداف تیم های ایرانی اکسپرت</p>
+                    <p class="time-video"> 11:00 </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ============[تبلیغات]========= -->
+<div class="box-add">
+    <img class="add-blog" src="assets/img/blog-add.svg" alt="add">
+</div>

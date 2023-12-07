@@ -1,26 +1,39 @@
-<div class="flex w-full mt-10 justify-center">
+<div class="flex w-full mt-6 justify-center">
   <div class="checkout-card">
     <img
       [ngStyle]="{ '--img-width': '100%' }"
       class="img-top"
       width="173"
       height="247"
-      src="assets/img/Box-checkout.png"
+      src="../../../../../assets/img/Box-checkout.png"
       alt="product-img"
     />
     <div class="details-product">
       <properties [verified]="true" [guarantee]="true">
-        <p class="producer-name" producer>ایرانی اکسپرت</p>
-        <p rate class="product-rate">4.5</p>
-        <p category class="product-category">EA</p>
-        <p platform class="product-platform">MQL5</p>
+        <p class="producer-name" producer>{{ data?.publishedBy }}</p>
+        <p rate class="product-rate">{{ data?.rate }}</p>
+        <p category class="product-category">{{ data?.typeTitle }}</p>
+        <p platform class="product-platform">{{ data?.platformTypeTitle }}</p>
         <p guarantee class="product-guarantee">پشتیبانی دائمی تا زمان اشتراک</p>
       </properties>
-      <div class="space-y-1 mt-2">
-        <p class="font-bold text-black text-base">ربات معامله گر فارکس</p>
-        <p class="font-bold text-black text-sm">
-          پلن اعتماد (اعتبار تا پرافیت 100 دلاری)
+      <div class="space-y-2 mt-2">
+        <p class="font-bold text-black text-base">
+          {{ basket.basketItems[0].title }}
         </p>
+        <ng-container
+          *ngFor="
+            let item of basket.basketItems.slice(
+              1,
+              basket.basketItems.length + 1
+            );
+            let i = index
+          "
+        >
+          <p class="font-bold text-black text-sm">
+            {{ i + 1 }}&nbsp;-&nbsp;{{ item.title }}
+          </p>
+          <!-- <p class="font-bold text-black text-sm count">{{ item.count }}</p> -->
+        </ng-container>
       </div>
     </div>
     <!-- Seperator-Ticket -->
@@ -31,12 +44,13 @@
     </div>
     <!-- Seperator-Ticket -->
     <div class="detail-price-container">
-      <div class="discount-content">
-        <span class="discount-percent">10%</span>
-        <span class="discount-price">$20</span>
+      <div class="discount-content" *ngIf="discount">
+        <span class="discount-percent">{{ discountPrice }}</span>
+        <span class="discount-price">{{ basket.totalPrice }}</span>
       </div>
       <div class="price-content">
-        <span class="icon"></span><span class="price">$18</span>
+        <span class="icon"></span
+        ><span class="price">{{ basket.totalPrice | currency }}</span>
       </div>
     </div>
   </div>

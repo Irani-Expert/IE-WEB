@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22.423" height="22.725" viewBox="0 0 22.423 22.725">
+  <g id="Group_789" data-name="Group 789" transform="translate(-1763.796 -1635.764)">
+    <g id="Ellipse_399" data-name="Ellipse 399" transform="translate(1764.139 1646.139)" fill="none" stroke="#707070" stroke-width="1">
+      <circle cx="6" cy="6" r="6" stroke="none"/>
+      <circle cx="6" cy="6" r="5.5" fill="none"/>
+    </g>
+    <g id="Ellipse_402" data-name="Ellipse 402" transform="translate(1774.139 1636.139)" fill="none" stroke="#707070" stroke-width="1">
+      <circle cx="6" cy="6" r="6" stroke="none"/>
+      <circle cx="6" cy="6" r="5.5" fill="none"/>
+    </g>
+    <g id="Ellipse_400" data-name="Ellipse 400" transform="translate(1766.139 1648.139)" fill="none" stroke="#707070" stroke-width="0.5">
+      <circle cx="4" cy="4" r="4" stroke="none"/>
+      <circle cx="4" cy="4" r="3.75" fill="none"/>
+    </g>
+    <g id="Ellipse_401" data-name="Ellipse 401" transform="translate(1776.139 1638.139)" fill="none" stroke="#707070" stroke-width="0.5">
+      <circle cx="4" cy="4" r="4" stroke="none"/>
+      <circle cx="4" cy="4" r="3.75" fill="none"/>
+    </g>
+    <text id="S" transform="translate(1782.139 1644.139)" fill="#717171" font-size="7" font-family="YekanBakh-Fat, Yekan Bakh Fat" font-weight="900"><tspan x="-3.549" y="0">S</tspan></text>
+    <text id="Y" transform="translate(1772.139 1654.139)" fill="#717171" font-size="6" font-family="YekanBakh-Fat, Yekan Bakh Fat" font-weight="900"><tspan x="-3.66" y="0">Y</tspan></text>
+    <path id="Union_26" data-name="Union 26" d="M.922,4.29A4.978,4.978,0,0,1,3.9,2.021V1.17A1,1,0,0,1,5.543.4L8.09,2.525a1,1,0,0,1,0,1.536L5.543,6.184A1,1,0,0,1,3.9,5.415V4.972C.507,5.665.162,9.952.162,9.952A8.951,8.951,0,0,1,.922,4.29Z" transform="translate(1764.354 1636.113)" fill="none" stroke="#707070" stroke-width="1"/>
+    <path id="Union_27" data-name="Union 27" d="M.922,4.289A4.978,4.978,0,0,1,3.9,2.021V1.17A1,1,0,0,1,5.544.4L8.091,2.525a1,1,0,0,1,0,1.536L5.544,6.183A1,1,0,0,1,3.9,5.415V4.972C.507,5.665.162,9.951.162,9.951A8.951,8.951,0,0,1,.922,4.289Z" transform="translate(1785.66 1658.139) rotate(180)" fill="none" stroke="#707070" stroke-width="1"/>
+  </g>
+</svg>

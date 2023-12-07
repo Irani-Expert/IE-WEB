@@ -43,6 +43,7 @@ input {
   transition: border 0.3s ease;
   &:focus {
     outline: none;
+    border: 2px solid $border-hover;
   }
   &:hover {
     border: 2px solid $border-hover;
@@ -66,6 +67,7 @@ input {
   transition: border 0.3s ease;
   &:focus {
     outline: none;
+    border: 2px solid $border-hover;
   }
   &:hover {
     border: 2px solid $border-hover;
@@ -123,20 +125,35 @@ input {
     content: "";
     display: inline-block;
     border-radius: 2px;
-    height: 10px;
-    width: 10px;
+    height: var(--checkbox-height);
+    width: var(--checkbox-width);
     border: 1px solid transparent;
   }
 
   span::after {
     content: "";
     display: inline-block;
-    height: 10px;
-    width: 10px;
+    height: var(--checkbox-height);
+    width: var(--checkbox-width);
     border-radius: 2px;
     background-color: transparent;
     right: 0;
     transform: translate(0);
     position: absolute;
+  }
+}
+textarea {
+  border: 2px solid $border-input;
+  resize: none;
+  padding: 0.5rem 0.75rem;
+  &:focus {
+    outline: none;
+    border: 2px solid $border-hover;
+  }
+  &:hover {
+    border: 2px solid $border-hover;
+  }
+  &:disabled {
+    background-color: $input-disabled !important;
   }
 }

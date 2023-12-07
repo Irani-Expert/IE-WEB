@@ -22,6 +22,9 @@ $xlg: 1270px;
     border-radius: 10px;
   }
   overflow: auto;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
   @include absolute-center;
   z-index: 1001;
   max-width: 97vw;

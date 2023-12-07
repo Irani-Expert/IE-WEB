@@ -1,0 +1,214 @@
+.input-with-icon {
+  width: 100%;
+  padding-right: 0.5rem !important;
+  font-size: 1.125rem !important;
+  height: 4.125rem;
+  border-radius: 8px !important;
+}
+.form-control {
+  display: flex;
+  margin-top: 2.5rem;
+  &-lg {
+    flex-direction: row;
+    form {
+      gap: 1.5rem;
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      flex-basis: 100%;
+      .each-row {
+        label,
+        strong {
+          font-weight: 500;
+        }
+
+        flex-basis: 100%;
+        display: flex;
+        // flex: row;
+        gap: 2.725rem;
+      }
+    }
+  }
+  &-sm {
+    form {
+      gap: 0.5rem;
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+    }
+    flex-direction: column;
+  }
+}
+.input-discount {
+  height: 3.725rem;
+  border-radius: 8px;
+  font-size: 1.125rem !important;
+}
+.btn-discount {
+  height: 3.725rem;
+}
+.payment-method-container {
+  cursor: pointer;
+  &.disabled {
+    cursor: default;
+    user-select: none;
+    opacity: 0.7;
+    overflow: hidden;
+  }
+  max-height: 3.725rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: 2px solid #d2d2d2;
+  border-radius: 8px;
+  &.active {
+    border: 2px solid #0016b2;
+  }
+  .right-section {
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    b {
+      font-size: 1.5rem;
+      color: #6a6a6a;
+    }
+    small {
+      transform: translateY(-10px);
+      font-weight: bold;
+      font-size: 0.875rem;
+      color: #6a6a6a;
+    }
+  }
+  .left-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 50%;
+    img {
+      scale: 0.85;
+    }
+  }
+}
+.h-custom {
+  height: 3.725rem;
+}
+.tutorial-vid-container {
+  position: absolute;
+  margin: 0 !important;
+  object-fit: contain;
+  height: auto;
+  aspect-ratio: 16/9;
+  width: 12rem;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  transform: translate(17%, 30%);
+  padding: 0.25rem;
+  left: 0px;
+  z-index: 10;
+}
+.btn {
+  height: 100%;
+  border-radius: 8px;
+  font-size: 1.25rem;
+
+  &.btn-submit {
+    font-weight: bold;
+    background-color: #3246d3;
+    color: white;
+    flex-basis: 100%;
+  }
+  &.btn-prev-session {
+    border: 1px solid #d2d2d2;
+    background-color: #fff;
+    font-weight: 400;
+    flex-basis: 75%;
+    color: #a5a4a4;
+  }
+}
+.custom-disabled {
+  &:disabled {
+    background-color: #fff !important;
+    font-weight: bold;
+  }
+}
+.ticked {
+  opacity: 1;
+  top: -100%;
+  animation: translateUp 0.5s ease 1 forwards;
+}
+.not-ticked {
+  opacity: 0;
+  animation: translateDown 0.5s ease 1 forwards;
+  top: -100%;
+  z-index: -1;
+}
+.clipboard-toast {
+  left: 0;
+  transition: opacity 0.2s ease;
+  width: 14rem;
+  padding: 0.75rem;
+  background-color: #00d18a;
+  border-radius: 8px;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 12px solid #00d18a;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    top: 46px;
+    left: 10%;
+    transform: translateX(-50%);
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 12px solid #00d18a;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    top: 47px;
+    left: 10%;
+    transform: translateX(-50%);
+  }
+  p {
+    &::before {
+      content: url("../../../../../assets/icon/tick.svg");
+      display: inline-block;
+      margin: 0 0 0 7px;
+      background-color: #fefefe;
+      padding: 0.185rem;
+      aspect-ratio: 1/1;
+      width: 21px;
+      border-radius: 50%;
+      vertical-align: middle;
+      height: 21px;
+      object-fit: scale-down;
+    }
+    color: #fefefe;
+    font-weight: bold;
+    text-align: center;
+  }
+}
+@keyframes translateUp {
+  0% {
+    transform: translateY(0%);
+  }
+
+  100% {
+    transform: translateY(-100%);
+  }
+}
+@keyframes translateDown {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}

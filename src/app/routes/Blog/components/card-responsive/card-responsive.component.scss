@@ -1,0 +1,39 @@
+.img-description-row{
+    position: absolute;
+    transform: translate(-16px, -85px);
+}
+.img-title{
+  color: white;
+  font-style: oblique;
+  font-size: 1.1rem;
+}
+.img-description{
+  color: white;
+  font-size: 0.6rem;
+}
+.title{
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+.icon-title{
+    color: #0080FF;
+    font-weight: 600;
+    margin-right: 0.4rem;
+    font-size: 1rem;
+}
+.icon{
+    scale: 0.9;
+    margin-bottom: 1.1rem;
+}
+.carousel-description{
+    columns: #7D7D7D;
+    display: -webkit-box;
+    max-width: 100%;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.date-carousel{
+    color: black;
+    font-size: 0.8rem;
+}
