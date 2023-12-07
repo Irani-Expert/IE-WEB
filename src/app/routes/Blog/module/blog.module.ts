@@ -14,6 +14,7 @@ import { LandingBlogDetailComponent } from '../components/landing-blog-detail/la
 import { CarouselBlogComponent } from '../components/carousel-blog/carousel-blog.component';
 import { TableContentsComponent } from '../components/table-contents/table-contents.component';
 import { CardResponsiveComponent } from '../components/card-responsive/card-responsive.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 const components =[
   CardResponsiveComponent,
@@ -32,6 +33,7 @@ const components =[
 @NgModule({
   declarations: [components],
   imports: [
+    SharedModule,
     NgxPaginationModule,
     CommonModule,
     BlogRoutingModule,

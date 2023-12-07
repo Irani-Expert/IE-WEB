@@ -4,3 +4,62 @@
 .title2{
     font-weight: 500;
 }
+.pagination-previous{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    height: 2rem;
+    background-color: #0088FF;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    font-weight: 900;
+    width: 2rem;
+}
+.page-btn{
+    color: #818181;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+.isavtive{
+    background-color: white;
+    color: #818181;
+
+}
+.icon{
+    font-weight: 700;
+}
+// <!-- ===================[مدرسه فارکس ]=================== -->
+.school-box{
+    background-color: white;
+    border: #EAEAEA solid 2px;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border-radius: 20px;
+  }
+  .box-video{
+    background-color: #FAFAFA;
+    padding: 0.7rem 1rem 0.7rem 1rem;
+    border: 1px solid #EAEAEA;
+    border-radius: 20px;
+  }
+  .video{
+      background-color: white;
+  }
+  .video-title{
+    font-weight: 500;
+    color: #7D7D7D;
+  }
+  .time-video{
+  color: #7D7D7D;
+  font-size: 0.8rem;
+  background-color: #F5F5F5;
+  padding: 0.2rem 0.8rem 0.2rem 0.8rem;
+  border-radius: 22px;
+  }
+  .title1-row{
+    color: black;
+  }
+  .title2-row{
+    color: #098B41;
+    font-size: 1.2rem;
+  }

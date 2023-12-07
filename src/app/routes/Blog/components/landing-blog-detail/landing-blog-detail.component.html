@@ -24,11 +24,13 @@
             <!-- <app-table-contents
             [options]="options" [faq]="table"
             ></app-table-contents> -->
-            <app-carousel-blog></app-carousel-blog>
+            <!-- <app-comments></app-comments>
+            <app-carousel-blog></app-carousel-blog> -->
+            <app-blog-pagination></app-blog-pagination>
         </div>
     </div>
 </div>
 <!-- ====================[رسپانسیو]========= -->
 <div [ngClass]="device == 'sm' ? 'block' : 'hidden'">
-
+<app-blog-pagination></app-blog-pagination>
 </div>
