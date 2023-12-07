@@ -76,6 +76,16 @@
         عضویت
       </button>
     </div>
+    <div *ngIf="loggedIn" class="flex items-center">
+      <button
+        [disabled]="_btnDisabled"
+        type="button"
+        (click)="logout()"
+        class="button-logout rounded-lg px-1 text-white font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 mx-1"
+      >
+        خروج
+      </button>
+    </div>
     <app-search-header />
   </div>
 </nav>

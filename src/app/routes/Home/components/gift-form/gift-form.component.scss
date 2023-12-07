@@ -1,3 +1,9 @@
+@media (min-width: 640px) {
+  input {
+    background-color: #f3f3f3;
+  }
+}
+
 input:focus {
   outline: 1.5px solid #3246d3 !important;
 }
@@ -26,7 +32,6 @@ input[type="checkbox"] {
 input {
   border: none !important;
   padding: 15px;
-  background-color: #f3f3f3;
 }
 label {
   cursor: pointer;

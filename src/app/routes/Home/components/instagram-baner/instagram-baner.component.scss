@@ -1,16 +1,29 @@
+@media (min-width: 640px) {
+  body {
+    font-size: 8px !important ;
+  }
+  .ins-baner {
+    max-width: 575px;
+    min-width: 490px;
+    min-height: 6rem;
+  }
+  .logo-i {
+    padding: 0px 32px;
+  }
+}
+@media (max-width: 640px) {
+  .ins-baner {
+    min-height: 5rem;
+  }
+  .logo-i {
+    padding: 0px 22px;
+  }
+}
 .all {
   display: flex;
   justify-content: center;
 }
-.baner-p {
-  font-size: 1rem;
-  font-weight: normal;
-  position: relative;
-}
-.baner-h {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
+
 .box-link {
   display: flex;
   align-items: center;
@@ -27,13 +40,13 @@
   position: relative;
   display: inline-flex;
   justify-content: flex-end;
-  padding: 0px 35px;
 }
 .logo {
   position: absolute;
-  width: 80px;
+  width: 70px;
   aspect-ratio: 1/1;
-  bottom: 44px;
+  bottom: 8px;
+  left: 10px;
   height: auto;
   object-fit: contain;
 }
@@ -45,11 +58,7 @@
     rgba(173, 62, 115, 1) 45%,
     rgba(240, 210, 20, 1) 82%
   );
-  height: 105px;
-  border-radius: 32px;
-  margin-left: 10px;
-  max-width: 575px;
-  min-width: 490px;
+  border-radius: 22px;
 }
 .body {
   color: white;

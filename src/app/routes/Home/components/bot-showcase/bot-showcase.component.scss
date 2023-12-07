@@ -1,63 +1,64 @@
-.all {
-  margin-right: 214px;
-  margin-left: 150px;
-}
 .button-styles {
-    color: white;
-    position: relative;
-    border-radius: 20px;
-    padding: 8px 15px 8px 21px;
-    background-color: #3246d3;
-    font-weight: 500;
+  color: white;
+  position: relative;
+  border-radius: 20px;
+  padding: 8px 15px 8px 21px;
+  background-color: #3246d3;
+  font-weight: 500;
+}
+.bot-h {
+  font-size: 30px;
+  font-weight: bold;
+}
+.title-b {
+  font-weight: bold;
+  color: #098b41;
+  &::before {
+    content: "";
+    width: 37px;
+    height: 5px;
+    background-color: #098b41;
+    border-radius: 6px;
+    display: inline-block;
+    margin: 2px 6px;
   }
-  .bot-h{
-    font-size: 30px;
-    font-weight: bold;
-  }
-  .title-b{
-    font-weight: bold;
-    color: #098B41;
-    &::before {
-      content: "";
-      width: 37px;
-      height: 5px;
-      background-color: #098b41;
-      border-radius: 6px;
-      display: inline-block;
-      margin: 2px 6px;
-    }
-  }
-  .link{
-    color: #707070;
-    position: relative;
-  }
-  .img-bot{
-    position: relative;
-    top: 44px;
-    height: 300px;
-    width: 170px;
-  }
-  .divider-c{
-    margin-top: -150px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(241,203,93,1) 1%, rgba(213,228,255,1) 19%, rgba(243,243,243,1) 46%); 
-  }
-  .l{
-    font-size: 50px;
-    font-weight: 900;
-  }
-  .btn-icon{
-    font-weight: 900;
-    position: relative;
-    top: 2px;
-    right: 7px;
-  }
-  .link-icon{
-    font-size: 13px;
-    position: relative;
-    padding-left: 4px;
-    top: 1px;
-  }
+}
+.link {
+  color: #707070;
+  position: relative;
+}
+.img-bot {
+  position: relative;
+  top: 44px;
+  height: 300px;
+  width: 170px;
+}
+.divider-c {
+  margin-top: -150px;
+  height: 300px;
+  background: radial-gradient(
+    circle,
+    rgba(241, 203, 93, 1) 1%,
+    rgba(213, 228, 255, 1) 19%,
+    rgba(243, 243, 243, 1) 46%
+  );
+}
+.l {
+  font-size: 50px;
+  font-weight: 900;
+}
+.btn-icon {
+  font-weight: 900;
+  position: relative;
+  top: 2px;
+  right: 7px;
+}
+.link-icon {
+  font-size: 13px;
+  position: relative;
+  padding-left: 4px;
+  top: 1px;
+}
 
 // ====================[colors]==============
 $white: #fff !default;

@@ -14,7 +14,7 @@ import { Utils } from 'src/app/classes/utils';
 import { AppComponent } from 'src/app/app.component';
 import { environment } from 'src/environments/environment.dev';
 import { OrderService } from 'src/app/classes/services/order.service';
-import { Basket, BskItem } from 'src/app/classes/interfaces/basket.interface';
+import { BskItem } from 'src/app/classes/interfaces/basket.interface';
 import { Router } from '@angular/router';
 // import { OrderService } from 'src/app/classes/services/order.service';
 
@@ -35,11 +35,7 @@ const planInit: planInterface = {
 export class ShopHeroComponent implements OnInit {
   contentUrl = environment.contentUrl;
   constructor(private _orderService: OrderService, private router: Router) {
-    this._orderService.basket$.subscribe({
-      next: (it) => {
-        this._orderService.pushToBSK(it.basketItems[0]);
-      },
-    });
+    this._orderService.basket.value.basketItems = [];
   } // private localStorage: LocalStorageService //
   @ViewChild('scroll') scroll: ElementRef;
   animationState = false;
@@ -54,6 +50,15 @@ export class ShopHeroComponent implements OnInit {
   plans: planInterface[] = new Array<planInterface>();
 
   async ngOnInit() {
+    let product: BskItem = {
+      count: 1,
+      price: 0,
+      rowID: this.product.id,
+      tableType: 17,
+      title: this.product.title,
+      id: this._orderService.basket.value.basketItems.length + 1,
+    };
+    this._orderService.pushToBSK(product);
     this.updateDeviceValue();
     this.product.plans
       .filter((it) => it.isActive == true)
@@ -111,16 +116,7 @@ export class ShopHeroComponent implements OnInit {
     return src;
   }
   async toCheckout(item: planInterface) {
-    // let product: BskItem = {
-    //   count: 1,
-    //   price: 0,
-    //   rowID: this.product.id,
-    //   tableType: 6,
-    //   title: this.product.title,
-    //   imgPath: this.product.cardImagePath,
-    //   id: this._orderService.basket.value.basketItems.length + 1,
-    // };
-    // console.log(this.router);
+    this._orderService.basket.subscribe();
     let itemForBsk: BskItem = {
       count: 1,
       price: item.price,
@@ -129,12 +125,14 @@ export class ShopHeroComponent implements OnInit {
       title: item.title,
       id: this._orderService.basket.value.basketItems.length + 1,
     };
-    let basket: Basket = {
-      basketItems: [itemForBsk],
-      totalCount: 1,
-      totalPrice: itemForBsk.price,
-    };
-    this._orderService.basket.next(basket);
+
+    // let basket: Basket = {
+    //   basketItems: [itemForBsk, product],
+    //   totalCount: 1,
+    //   totalPrice: itemForBsk.price,
+    // };
+    this._orderService.pushToBSK(itemForBsk);
+
     this.router.navigateByUrl('checkout');
   }
 }

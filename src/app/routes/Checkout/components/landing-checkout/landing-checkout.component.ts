@@ -7,6 +7,10 @@ import { Order } from '../../interfaces/order.interface';
 import { AuthService } from 'src/app/shared/auth/auth.service';
 import { lastValueFrom } from 'rxjs';
 import { Router } from '@angular/router';
+import { BskItem } from 'src/app/classes/interfaces/basket.interface';
+import { Location } from '@angular/common';
+import { AppComponent } from 'src/app/app.component';
+import { Utils } from 'src/app/classes/utils';
 interface PaymentMethod {
   id: number;
   title: string;
@@ -26,6 +30,7 @@ export class LandingCheckoutComponent {
   today = '';
   selectedDate: '';
   orderModel: Order = new Order();
+  basket: BskItem[] = new Array<BskItem>();
   // Order Model ------------------->
 
   // ClipBoard ------------------->
@@ -138,7 +143,8 @@ export class LandingCheckoutComponent {
   constructor(
     private _orderService: OrderService,
     private _authService: AuthService,
-    private _router: Router
+    private _router: Router,
+    private _location: Location
   ) {
     this.today = this.getToday();
     // Forms ------------->
@@ -153,8 +159,14 @@ export class LandingCheckoutComponent {
     this.user = this._authService._user;
   }
   ngOnInit() {
+    AppComponent.isBrowser.value
+      ? Utils.scrollTopWindow()
+      : console.log('Not-Browser');
+
     this._orderService.basket$.subscribe((item) => {
       this.orderModel.orderItems = item.basketItems;
+      this.orderModel.totalPrice = item.totalPrice;
+      this.basket = item.basketItems;
     });
   }
   formToOrderModel() {
@@ -168,7 +180,6 @@ export class LandingCheckoutComponent {
   }
   changeCheckboxValue(event: boolean) {
     this._formControls['acceptRules'].setValue(event);
-    console.log(event);
   }
   nextSession() {
     if (this.formGroup.valid && this.secondValidation()) {
@@ -218,7 +229,6 @@ export class LandingCheckoutComponent {
   }
   async createOrder() {
     this.orderModel.token = this._authService._user.token;
-    this.orderModel.totalPrice = 200;
     const res = this._orderService.post(
       'OrderNew/CreateOrder',
       this.orderModel
@@ -227,6 +237,9 @@ export class LandingCheckoutComponent {
     if (data.success) {
       this._router.navigateByUrl(`checkout/payment-result/${data.data}`);
     }
+  }
+  locateBack() {
+    this._location.back();
   }
 }
 

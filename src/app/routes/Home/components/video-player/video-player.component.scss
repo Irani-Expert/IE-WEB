@@ -26,11 +26,12 @@
     height: 20rem;
     width: 35rem;
   }
+  .home-height {
+    height: 35rem !important;
+    width: 66%;
+  }
 }
-.home-height {
-  height: 35rem !important;
-  width: 66%;
-}
+
 progress::-webkit-progress-bar {
   border: 0;
   border-radius: 20px;
@@ -67,10 +68,8 @@ progress:before {
   margin: 0;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  padding: 0 0.625rem;
   position: absolute;
   width: 100%;
-  bottom: 6px;
   z-index: 3;
 }
 video {

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { BaseService } from './base.service';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, lastValueFrom, map } from 'rxjs';
+import { BehaviorSubject, Observable, map } from 'rxjs';
 import { Order } from 'src/app/routes/Checkout/interfaces/order.interface';
 import { Basket, BskItem } from '../interfaces/basket.interface';
 import { Result } from '../result';
@@ -46,34 +46,27 @@ export class OrderService extends BaseService<any> {
   }
   pushToBSK(item: BskItem) {
     let index = this.basket.value.basketItems.findIndex(
-      (it) => it.id == item.id
+      (it) => it.rowID == item.rowID && item.tableType == it.tableType
     );
-    const res = this.basket$.pipe(
-      map((res) => {
-        if (index == -1) {
-          res.basketItems.push(item);
-        } else {
-          res.basketItems[index].count += 1;
-        }
-        return res;
-      })
-    );
-    return lastValueFrom(res);
+    if (index == -1) {
+      this.basket.value.basketItems.push(item);
+    } else {
+      return;
+      // this.basket.value.basketItems[index].count += 1;
+    }
+    this.basket.value.totalPrice = item.price;
   }
   removeFromBSK(item: BskItem) {
     let index = this.basket.value.basketItems.findIndex(
-      (it) => it.id == item.id
+      (it) => it.rowID == item.rowID && item.tableType == it.tableType
     );
-    return this.basket$.pipe(
-      map((res) => {
-        if (res.basketItems[index].count > 1) {
-          res.basketItems[index].count -= 1;
-        } else {
-          res.basketItems.splice(index, 1);
-        }
-        return res;
-      })
-    );
+
+    if (this.basket.value.basketItems[index].count > 1) {
+      this.basket.value.basketItems[index].count -= 1;
+    } else {
+      this.basket.value.basketItems.splice(index, 1);
+    }
+    this.basket.value.totalPrice -= item.price;
   }
   // fillBasket() {
   //   let item = JSON.parse(this.localStorage.getItem('basketItems')!);

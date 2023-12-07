@@ -12,6 +12,6 @@
 </header>
 <app-modal [overflow]="'hidden'" [width]="'716px'" *ngIf="_modalStatus">
   <div content>
-    <app-auth [view]="modalView" />
+    <app-auth [view]="_modalView" />
   </div>
 </app-modal>

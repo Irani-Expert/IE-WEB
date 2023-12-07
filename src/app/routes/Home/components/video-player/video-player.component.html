@@ -1,7 +1,7 @@
 <div class="flex justify-center">
   <div
     id="main-card"
-    class="p-4 box-shadow-ac"
+    class="p-4 box-shadow-ac sm:mx-0 mx-2"
     [ngClass]="homeScreen ? 'home-height' : ''"
   >
     <video
@@ -23,11 +23,10 @@
       />
     </video>
     <div
-      class="p-div p-2 text-2xl flex justify-center"
-      style="align-items: center; padding-left: 4rem; padding-right: 4rem"
+      class="p-div p-2 text-2xl flex justify-center top-28 sm:top-[28rem] items-center px-16"
     >
       <i
-        class="fa fa-expand me-3 text-white ms-2 flex items-center"
+        class="fa fa-expand me-3 text-base text-white ms-2 flex items-center"
         [ngClass]="{ 'fa-expand': !isFullScreen, 'fa-compress': isFullScreen }"
         (click)="fullScreen()"
       ></i>
@@ -47,34 +46,24 @@
       ></progress>
 
       <i
-        class="fa ms-3 text-white flex items-center"
+        class="fa ms-3 text-white flex items-center text-base"
         [ngClass]="{ 'fa-pause': pauseplay, 'fa-play': !pauseplay }"
         (click)="puasePaceVideo()"
       ></i>
     </div>
     <div
-      class="p-div d-flex justify-center align-middle btn-span"
-      style="bottom: 45%"
+      class="p-div d-flex justify-center align-middle btn-span sm:bottom-[45%] bottom-[6.3rem]"
     >
-      <!-- <span [@fade] *ngIf="!hidePuase">
-      <i class="fa fa-circle text-8xl" style="color: #3246d3; z-index: -10">
-        <i
-          class="fa text-2xl"
-          [ngClass]="{ 'fa-pause': pauseplay, 'fa-play': !pauseplay }"
-          (click)="puasePaceVideo()"
-        ></i
-      ></i>
-    </span> -->
       <span
-        class="fa-stack fa-4x"
-        style="opacity: 1"
+        class="fa-stack fa-4x opacity-100 flex justify-center items-center"
         [@fade]
         *ngIf="!hidePuase"
       >
-        <i class="fa fa-circle fa-stack-2x" style="color: #3246d3"></i>
         <i
-          class="fa fa-stack-1x text-white"
-          style="font-size: 46px"
+          class="fa fa-circle sm:fa-stack-2x sm:text-9xl text-7xl text-[#3246d3]"
+        ></i>
+        <i
+          class="fa fa-stack-1x text-white sm:text-[46px] text-3xl"
           [ngClass]="{
             'fa-pause': pauseplay,
             'fa-play left-[3px]': !pauseplay

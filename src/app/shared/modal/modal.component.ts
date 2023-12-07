@@ -13,8 +13,12 @@ import { CommonModule } from '@angular/common';
   animations: [
     trigger('scaleIn', [
       transition(':enter', [
-        style({ opacity: 0, scale: '0.7' }),
-        animate('350ms ease-out', style({ opacity: 1, scale: '1' })),
+        style({ scale: '0.7' }),
+        animate('350ms ease-out', style({ scale: '1' })),
+      ]),
+      transition(':leave', [
+        style({ scale: '1' }),
+        animate('350ms ease-out', style({ scale: '0' })),
       ]),
     ]),
     trigger('fadeIn', [
