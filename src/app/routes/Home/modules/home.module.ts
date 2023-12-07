@@ -6,6 +6,7 @@ import { SellInfoComponent } from '../components/sell-info/sell-info.component';
 import { HeroComponent } from '../components/hero/hero.component';
 // import { CounterNumberComponent } from '../components/counter-number/counter-number.component';
 // import { SliderComponent } from '../components/slider/slider.component';
+
 import { BotFacilitiesComponent } from '../components/bot-facilities/bot-facilities.component';
 import { BotAdvantagesComponent } from '../components/bot-advantages/bot-advantages.component';
 import { LandingArticleComponent } from '../components/landing-article/landing-article.component';
@@ -29,6 +30,7 @@ import { ServiceBanerComponent } from '../components/service-baner/service-baner
 import { QuestionsComponent } from '../components/questions/questions.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ProductCardComponent } from 'src/app/shared/product-card/product-card.component';
+import { LandingArticleResponsiveComponent } from '../components/landing-article-responsive/landing-article-responsive.component';
 
 const components = [
   ServiceBanerComponent,
@@ -41,6 +43,7 @@ const components = [
   // CounterNumberComponent,
   // SliderComponent,
   BotFacilitiesComponent,
+  LandingArticleResponsiveComponent,
   BotAdvantagesComponent,
   LandingArticleComponent,
 
