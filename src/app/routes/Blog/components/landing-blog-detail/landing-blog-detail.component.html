@@ -1,4 +1,4 @@
-<div class="bg-all">
+<div [ngClass]="device == 'lg' ? 'block' : 'hidden'" class="mt-8">
     <div class="flex justify-center">
         <div class="baner flex flex-row">
             <div class="basis-2/3 flex items-center">
@@ -24,7 +24,11 @@
             <!-- <app-table-contents
             [options]="options" [faq]="table"
             ></app-table-contents> -->
-            <!-- <app-carousel-blog></app-carousel-blog> -->
+            <app-carousel-blog></app-carousel-blog>
         </div>
     </div>
+</div>
+<!-- ====================[رسپانسیو]========= -->
+<div [ngClass]="device == 'sm' ? 'block' : 'hidden'">
+
 </div>

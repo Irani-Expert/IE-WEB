@@ -1,4 +1,4 @@
-<div class="bg-all mt-6">
+<!-- <div class="bg-all mt-6">
     <div [ngClass]="device == 'lg' ? 'block' : 'hidden'">        
         <app-blog-hero></app-blog-hero>
         <div class="grid grid-cols-3 gap-3 mt-16">
@@ -13,19 +13,18 @@
              <app-articles></app-articles>
              <app-articles></app-articles>
             </div>
-            <app-blog-pagination></app-blog-pagination>
         </div>
     </div>
-    <!-- ==========[رسپانسیو]=========== -->
+    ==========[رسپانسیو]===========
     <div [ngClass]="device == 'sm' ? 'block' : 'hidden'">
         <app-blog-hero></app-blog-hero>
         <div class="mr-6 ml-6 mt-10">
-            <!-- ===========[پیشنهاد سردبیر]========== -->
+            ===========[پیشنهاد سردبیر]==========
             <span class="flex title-offer">
             <img class="mb-4 ml-1" src="assets/img/icon-offer.svg" alt="icon">پیشنهاد سردبیر</span>
             <h6 class="title-offer2">برگزیده آخرین اخبار و مقالات</h6>
             <app-blog-cart></app-blog-cart>
-            <!-- ===========[مدرسه فارکس]========== -->
+            ===========[مدرسه فارکس]==========
             <div class="flex justify-center mt-8">
                 <div class="school-box">
                     <div class="flex justify-start">
@@ -50,12 +49,16 @@
                 </div>
             </div>
         </div>
-        <!-- ===========[ آرتیکلز ]========== -->
+        ===========[ پیشنهادات و مقالات ]==========
         <app-offers></app-offers>
-        <!-- ===========[ تبلیغات ]========== -->
+        ===========[ تبلیغات ]==========
         <div class="mr-6 ml-6 mt-4">
             <img src="assets/img/add-blog(responsive).svg" alt="add">
+            ===========[ آرتیکلز ]==========
+            <app-articles></app-articles>
+            <app-articles></app-articles>
+            <app-articles></app-articles>
         </div>
     </div>
-</div>
-<!-- <app-landing-blog-detail></app-landing-blog-detail> -->
+</div> -->
+<app-landing-blog-detail></app-landing-blog-detail>
