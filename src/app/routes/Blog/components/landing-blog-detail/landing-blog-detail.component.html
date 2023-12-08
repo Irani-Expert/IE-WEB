@@ -1,6 +1,6 @@
 <div [ngClass]="device == 'lg' ? 'block' : 'hidden'" class="mt-8">
     <div class="flex justify-center">
-        <div class="baner flex flex-row">
+        <div class="baner flex flex-row ml-4 mr-4">
             <div class="basis-2/3 flex items-center">
                 <div class="mr-12">
                     <span class="divid-h lg:!text-base">با ایرانی اکسپرت مطمئن و آسان ترید کن </span>
@@ -14,20 +14,18 @@
     </div>
     
     <!-- =============[کامپوننت ها]========= -->
-    <div class="grid grid-cols-3 gap-3">
-        <div class="part-1">
-            <app-blog-filter
-            [categoryDetail]="category"
-            ></app-blog-filter>
-        </div>
-        <div class="col-span-2">
-            <!-- <app-table-contents
-            [options]="options" [faq]="table"
-            ></app-table-contents> -->
-            <!-- <app-blog-pagination></app-blog-pagination> -->
-            <app-blog-detail></app-blog-detail>
-            <app-comments></app-comments>
-            <app-carousel-blog></app-carousel-blog>
+    <div class="flex justify-center mt-16 mr-4">
+        <div class="grid grid-cols-4">
+            <div class="part-1">
+                <app-blog-filter
+                [categoryDetail]="category"
+                ></app-blog-filter>
+            </div>
+            <div class="col-span-3 mr-4 ml-4">
+                <app-blog-detail></app-blog-detail>
+                <app-comments></app-comments>
+                <app-carousel-blog></app-carousel-blog>
+            </div>
         </div>
     </div>
 </div>
