@@ -55,7 +55,10 @@ border-radius: 22px;
   font-size: 1.2rem;
 }
 // // <!-- ============[تبلیغات]========= -->
-
+.add-box{
+  position: sticky;
+  top: 5px;
+}
 .add-blog{
 width: 100% ;
 object-fit: cover;

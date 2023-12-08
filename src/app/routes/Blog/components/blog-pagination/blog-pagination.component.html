@@ -37,9 +37,9 @@
 </div>
 <!-- =================[رسپانسیو]=========== -->
 <div [ngClass]="device == 'sm' ? 'block' : 'hidden'">
-    <div class="flex justify-start">
-        <div class="grid grid-cols-3 gap-3" >
-            <div class="cart" *ngFor="let meal of meals | paginate: config">
+    <div class="flex justify-start mt-5 mr-6 ml-6">
+        <div>
+            <div class="mb-4" *ngFor="let meal of meals | paginate: config">
               <app-blog-cart [item]="meal"></app-blog-cart>
             </div>
         </div>
