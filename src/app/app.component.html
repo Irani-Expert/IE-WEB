@@ -1,8 +1,9 @@
-<main class="overflow-x-hidden m-0 p-0 gap-0 flex flex-col">
+<main
+  class="m-0 p-0 gap-0 flex flex-col min-h-screen overflow-hidden md:overflow-auto"
+>
   <app-header-layout></app-header-layout>
   <span class="circle-on-top"></span>
-  <div class="self-auto max-w-[1536px]">
+  <div class="self-auto lg:self-center max-w-screen-2xl flex-grow w-full">
     <router-outlet></router-outlet>
   </div>
-  <!-- <app-footer></app-footer> -->
 </main>
