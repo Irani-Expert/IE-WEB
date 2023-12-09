@@ -7,12 +7,14 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { BrokerImgCardComponent } from '../components/broker-img-card/broker-img-card.component';
 import { BrokersHeroComponent } from '../components/brokers-hero/brokers-hero.component';
 import { TriangleComponent } from 'src/app/shared/triangle/triangle..component';
+import { SingleBrokerComponent } from '../components/single-broker/single-broker.component';
 
 const components = [
   LandingBrokerDetailComponent,
   TableBrokersComponent,
   BrokerImgCardComponent,
   BrokersHeroComponent,
+  SingleBrokerComponent,
 ];
 
 @NgModule({
