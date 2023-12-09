@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./card-responsive.component.scss']
 })
 export class CardResponsiveComponent {
-
+    // <!-- ========================[ایتم عکس]============== -->
+    color ='#1345db80'
 }

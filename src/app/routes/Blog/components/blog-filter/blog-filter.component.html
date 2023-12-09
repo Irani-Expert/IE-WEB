@@ -12,8 +12,10 @@
               <a href=""><p class="link">{{item.name}}</p></a>
           </div>
         </div>
-        <div class="grid grid-cols-2 mt-6 justify-items-center -ml-7">
-            <p *ngFor="let item2 of categoryDetail" class="mb-6 -mr-12"><a class="link-detail" href="">{{item2}}</a></p>
+        <div class="mt-5 flex flex-wrap mr-3">
+            <div *ngFor="let item2 of categoryDetail">
+                <p  class="mb-6 ml-4"><a class="link-detail" href="">{{item2}}</a></p>
+            </div>
         </div>
     </div>
 </div>
