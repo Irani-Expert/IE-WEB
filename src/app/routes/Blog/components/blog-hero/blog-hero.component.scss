@@ -4,7 +4,7 @@
     padding: 0rem 5rem 0rem 5rem;
     border-radius: 25px;
     position: relative;
-    width: 96%;
+    width: 100%;
     height: 7.5rem;
 }
     .divid-h{
@@ -53,14 +53,11 @@
 }
 // <!-- ========================[ایتم عکس]============== -->
 .title-item{
-  margin: 3rem 5rem -1rem 0rem;
   color: black;
   font-weight: 500;
   font-size: 1.2rem;
 }
-.all-item{
-    margin: 2rem 4rem 1rem 4rem;
-}
+
 .box-hover{
     width: 100%;
     height: 100%; 
@@ -118,7 +115,7 @@ font-size: 0.7rem;
   border-radius: 20px;
 }
 .item-2{
-  height: 100%;
+  width: 100%;
   object-fit: cover;
   border-radius: 20px;
 }

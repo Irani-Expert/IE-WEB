@@ -132,10 +132,7 @@
 }
 
 // ====================[بنر]=============
-.all {
-  display: flex;
-  justify-content: center;
-}
+
 .baner-p {
   font-size: 1rem;
   font-weight: normal;
@@ -145,36 +142,24 @@
   font-size: 1.5rem;
   font-weight: bold;
 }
-.box-link {
-  display: flex;
-  align-items: center;
-  text-align: center;
-}
+
 .link {
   color: white;
-  transform: translate(-250px, 0px);
   background-color: #098b41;
   padding: 7px 19px 7px 19px;
   border-radius: 2px 18px 18px 18px;
   font-size: 1.1rem;
-  margin-right: 15px;
+  margin-right: 56px;
 }
-.logo-i {
-  position: relative;
-  display: inline-flex;
-  justify-content: flex-start;
-  padding: 0px 35px;
-}
+
 .logo {
   position: absolute;
-  width: 8rem;
-  aspect-ratio: 1/1;
-  right: 6px;
-  bottom: -1px;
   object-fit: contain;
+  width: 8rem;
 }
 .baner {
   position: relative;
+  background-image: url(../../../../../assets/img/dolor.svg);
   background-color: #f5f5f5;
   height: 94px;
   border-radius: 32px;
@@ -183,17 +168,7 @@
 .body {
   color: black;
   font-weight: 700;
-  margin-right: -190px;
-  margin-left: -179px;
   font-size: 1.2rem;
-}
-.box-body {
-  display: flex;
-  align-items: center;
-}
-.img-dolar {
-  position: absolute;
-  transform: translate(86px, 3px);
 }
 // =================[انیمیشن کارت]===============
 .smooth {
@@ -326,6 +301,7 @@ drag-scroll {
   display: inline-flex;
   align-items: center;
   margin-top: 0.5rem;
+  justify-content: center;
 }
 .box-price-btn-mobile {
   display: flex;
