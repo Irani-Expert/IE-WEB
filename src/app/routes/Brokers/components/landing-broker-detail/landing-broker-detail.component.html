@@ -1,2 +1,87 @@
-<p>landing-broker-detail works!</p>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea necessitatibus maxime ipsa doloremque dolores fugiat, voluptatem unde at repellendus facere consectetur obcaecati reiciendis sunt officia tempora totam tenetur, quaerat repellat.</p>
+<div class="flex-col flex items-center">
+  <div class="px-6">
+    <brokers-hero />
+    <!-- Row Cards -->
+
+    <div
+      class="my-8 flex flex-row flex-wrap items-center justify-center gap-16"
+    >
+      <ng-container *ngFor="let i of [1, 2, 3]">
+        <broker-img-card [linkCard]="true" [data]="i" />
+      </ng-container>
+    </div>
+
+    <!-- Row Cards -->
+  </div>
+  <app-table-brokers class="hidden lg:block" [data]="tableItems" />
+
+  <!-- Alert Component -->
+  <div
+    class="bg-[#FFD5D5] mx-6 flex flex-row items-center min-h-[4.5rem] rounded-2xl border border-[#CC3A39]"
+  >
+    <triangle class="inline-block" [scale]="'0.7'" />
+
+    <div class="relative">
+      <div class="flex flex-col">
+        <b class="text-[#CC3A39] text-sm font-fat">هشدار&nbsp; !</b>
+        <p class="text-[#CC3A39] text-sm font-medium word-spacing-0 pl-2">
+          دقت کنید که در شرایط فعلی چیزی به عنوان "بهترین بروکر فارکس" وجود
+          ندارد و همه نواقصی دارند. ما هیچ بروکری را ۱۰۰ درصد تأیید نمی‌کنیم.
+          تأکید می‌کنیم که هیچ بروکر بی‌نقصی وجود نداردو تمام بروکرها اشکالاتی
+          دارند. مسئولیت معاملات شما به عهده خودتان است. متوجه ریسک‌های ذاتی
+          بازارهای مالی باشید
+        </p>
+      </div>
+      <span class="colse-btn">&times;</span>
+    </div>
+  </div>
+
+  <!-- Alert Component -->
+
+  <!-- Last Part of Landing -->
+
+  <div
+    class="flex flex-col gap-5 justify-center my-14 items-center max-w-6xl mx-6"
+  >
+    <h1 class="text-[#098B41] font-black text-3xl">
+      فاکتورهای مهم برای انتخاب بهترین بروکر فارکس
+    </h1>
+    <p class="text-[#646464] text-justify text-lg">
+      همیشه قبل از اینکه تصمیم بگیرید در کدام بروکر ثبت نام کرده و حساب مخصوص
+      ترید کردن ایجاد کنید، ببینید معیارهای زیر را به عنوان بروکری اصولی دارد<br />
+      نقل و انتقالات وجه در بروکر مذکور به چه شکلی صورت می گیرد؟ چه رگولاتوری
+      هایی بروکر انتخابی شما را تحت پوشش قرار می دهند؟ از لحاظ انواع حساب بروکر
+      فارکس و پلتفرم های معاملاتی، به چه شکلی است و چه نوع حساب هایی به کاربران
+      ارائه می دهد؟ پشتیبانی زبان فارسی را حتما داشته باشد. در غیر اینصورت باید
+      سرمایه گذاران حتما به زبان انگلیسی، به منظور برقراری ارتباط با کارگزاری
+      آشنا باشند
+    </p>
+  </div>
+  <div
+    class="flex flex-col gap-5 justify-center my-14 items-center max-w-6xl mx-6"
+  >
+    <h1 class="text-[#098B41] font-black text-3xl">
+      فاکتورهای مهم برای انتخاب بهترین بروکر فارکس
+    </h1>
+    <p class="text-[#646464] text-justify text-lg">
+      برای درک بیشتر مفهوم رگوله بهتر است ابتدا معنی «AFTF» را متوجه بشوید. در
+      حقیقت «ای اف تی اف» ارگانی در سطح جهانی است که به منظور مبارزه با اهداف
+      پول شویی طراحی و تاسیس شده است. تقریبا از 33 سال پیش این نهاد به بررسی
+      حرکت های مالی در کشورهای مختلف می پردازد تا موسساتی که در حال جمع آوری پول
+      های غیر قانونی هستند، یا اینکه می خواهند مسیر دستیابی به درآمدشان را مخفی
+      نگه دارند را شناسایی کند. برخی نهادها برای اینکه مسیر جابه جایی هزینه
+      هایشان مشخص نشود، آن را در جاهای مخفی جابه جا می کنند. ولی AFTF با بررسی
+      های دقیقی که انجام می دهد، شفافیت مالی را در آن مرکز مشخص می کند. حالا در
+      اینجا چون بروکرها با درآمد مستقیم معامله گران در ارتباط هستند و در حال
+      ورود و خروج انبوه زیادی پول به سر می برند، باید حتما بررسی شوند تا از کلاه
+      برداری در آنها جلوگیری شود. در اینجا چون خود کارگزاری در ارتباط مستقیم با
+      ای اف تی اف نیست، باید رگوله ها وارد عمل شوند. چطوری؟ به این شکل که رگوله
+      ها می توانند از بروکرها بخواهند که مسیری شفاف از مسیر مالی خود و طرز حفاظت
+      از سرمایه کاربرانشان را نشان دهند. رگوله در این شرایط می تواند برای
+      جلوگیری از نابود شدن پول مشتریان توسط بروکر، در شرایطی خاص مثل (ورشکستگی)
+      وارد عمل شده و بوسیله ایجاد برخی بیمه ها از آن محافظت کند.
+    </p>
+  </div>
+</div>
+
+<!-- Last Part of Landing -->
