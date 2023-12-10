@@ -44,6 +44,8 @@
     </div>
 </div>
 <!-- ============[تبلیغات]========= -->
-<div class="add-box mt-6">
-    <img class="add-blog" src="assets/img/blog-add.svg" alt="add">
+<div  #sticky>
+    <div [ngClass]="sticked ? 'sticky-custom': 'mt-6'">
+        <img class="add-blog" src="assets/img/blog-add.svg" alt="add">
+    </div>
 </div>
