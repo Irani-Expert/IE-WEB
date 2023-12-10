@@ -39,7 +39,7 @@ export class LandingBlogComponent {
     },
     {
       name:' آموزش ها',
-      icon :'assets/img/icon-filter(blog)-1.svg',
+      icon :'assets/img/icon-filter(blog)-7.svg',
     },
     {
       name:'معرفی کتاب ',
