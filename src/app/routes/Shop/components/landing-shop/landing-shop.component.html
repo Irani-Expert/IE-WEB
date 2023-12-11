@@ -38,35 +38,46 @@
     </div>
   </div>
 
-  <div class="grid-cols-10 grid p-3 sm:bg-white bg-[#F6F6F6]">
-    <div
-      class="col-span-9 sm:col-span-8 md:col-span-4 lg:col-span-3 xl:col-span-2"
-    >
+  <div
+    class="flex flex-row flex-wrap lg:flex-nowrap p-3 sm:bg-white bg-[#F6F6F6]"
+  >
+    <div class="basis-1/5 hidden md:block">
       <div class="w-full hidden items-center flex-col justify-center sm:flex">
         <img
           src="assets/img/alpari-broker-forex.jpg"
           class="custom-img-product"
           alt="alpari"
         />
-        <app-filter [filterModel]="filter">
+        <app-filter [filterModel]="filter" [search]="true">
+          <search-bar
+            searchBar
+            (result)="search($event)"
+            [placeholder]="
+              filterModel.productName ? filterModel.productName : 'جستجو'
+            "
+          ></search-bar>
           <ng-container category *ngFor="let item of checkboxes">
             <checkbox
               [fillOrNot]="item.checked"
               (checked)="checkboxCategory($event, item.value)"
-              ><p class="text-small pt-1.5" title>{{ item.title }}</p></checkbox
+              ><p class="text-lg md:text-sm pt-1.5" title>
+                {{ item.title }}
+              </p></checkbox
             >
           </ng-container>
-          <checkbox producer
-            ><p class="text-small pt-1.5" title>ایرانی اکسپرت</p></checkbox
-          >
-          <app-rating rating [config]="ratingConfig"></app-rating>
-          <app-rating priceRange [config]="rangeConfig"></app-rating>
+          <!-- <checkbox producer
+            ><p class="text-lg md:text-sm pt-1.5" title>ایرانی اکسپرت</p></checkbox
+          > -->
+          <app-rating
+            (output)="setRate($event)"
+            rating
+            [config]="ratingConfig"
+          ></app-rating>
+          <!-- <app-rating priceRange [config]="rangeConfig"></app-rating> -->
         </app-filter>
       </div>
     </div>
-    <div
-      class="col-span-12 sm:col-span-8 md:col-span-5 lg:col-span-6 xl:col-span-7"
-    >
+    <div class="basis-4/5">
       <ng-container *ngIf="!loading && page">
         <ng-container *ngFor="let item of page?._items">
           <app-detail-card [item]="item" />
@@ -94,11 +105,15 @@
           ><p class="text-small pt-1.5" title>{{ item.title }}</p></checkbox
         >
       </ng-container>
-      <checkbox producer
+      <!-- <checkbox producer
         ><p class="text-small pt-1.5" title>ایرانی اکسپرت</p></checkbox
-      >
-      <app-rating rating [config]="ratingConfig"></app-rating>
-      <app-rating priceRange [config]="rangeConfig"></app-rating>
+      > -->
+      <app-rating
+        (output)="setRate($event)"
+        rating
+        [config]="ratingConfig"
+      ></app-rating>
+      <!-- <app-rating priceRange [config]="rangeConfig"></app-rating> -->
     </app-filter>
   </div>
   <div *ngIf="openNav == 2">

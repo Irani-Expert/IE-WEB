@@ -23,9 +23,7 @@ export class CommentsComponent {
     this.rangeRate = (4 - calNumber) * 25;
     this.setRate(5 - calNumber);
   }
-  ngOnInit() {
-    console.log(this.comments);
-  }
+  ngOnInit() {}
   setRate(rate: number) {
     switch (rate) {
       case 1:
@@ -44,14 +42,13 @@ export class CommentsComponent {
         this.rateText = 'ماچ بهت';
     }
   }
-    // ===================[رسپانسیو ]==================
-    constructor(){
-      this.updateDeviceValue();
-    }
-    device: 'sm' | 'lg' = 'lg';
+  // ===================[رسپانسیو ]==================
+  constructor() {
+    this.updateDeviceValue();
+  }
+  device: 'sm' | 'lg' = 'lg';
 
-
-    @HostListener('window:resize', ['$event'])
+  @HostListener('window:resize', ['$event'])
   onResize() {
     this.updateDeviceValue();
   }

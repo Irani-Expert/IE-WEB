@@ -23,3 +23,15 @@
   content: url(../../../../../assets/icon/go-to-page.svg);
   display: inline;
 }
+.ie-star {
+  display: inline;
+  scale: 0.7;
+  mix-blend-mode: luminosity;
+  margin-left: -5px;
+  content: url(../../../../../assets/icon/star-filled.svg);
+}
+.text-rate {
+  user-select: none;
+  line-height: 2rem;
+  font-size: 1.875rem;
+}

@@ -89,9 +89,6 @@ input.search-input {
     }
   }
   .content-container {
-    p {
-      font-size: 1.2rem !important;
-    }
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -110,7 +107,12 @@ input.search-input {
         p {
           color: $dim-green !important;
           font-weight: 500;
-          @extend .text-small;
+          font-size: 0.875rem;
+        }
+        @media (max-width: 768px) {
+          p {
+            font-size: 1.25rem !important;
+          }
         }
         span {
           transition: transform 0.3s ease-in;

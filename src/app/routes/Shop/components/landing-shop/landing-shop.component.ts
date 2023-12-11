@@ -87,20 +87,6 @@ export class LandingShopComponent {
       title: 'امتیاز',
       type: Type.Rating,
     },
-    {
-      active: false,
-      chevronState: 'default',
-      id: 3,
-      title: 'محدوده قیمت',
-      type: Type.PriceRange,
-    },
-    {
-      active: false,
-      chevronState: 'default',
-      id: 4,
-      title: 'تولید کننده',
-      type: Type.Producer,
-    },
   ];
   ratingConfig: RatingConfig<StarRating> = {
     content: { currentRate: 0, rate: 5, readonly: false },
@@ -168,13 +154,13 @@ export class LandingShopComponent {
               if (arrayOfUrlSegments[3] == '0') {
                 this._router.navigateByUrl('shop');
               } else {
-                this._activatedRoute.queryParams.subscribe((item) => {
-                  this.fillFilterOnNav(item);
+                this._activatedRoute.queryParams.subscribe(async (item) => {
+                  await this.fillFilterOnNav(item);
                   this.savedParams = { ...item };
                 });
                 this.filterModel.pageIndex =
                   parseInt(arrayOfUrlSegments[3]) - 1;
-                await this.getProducts();
+                this.getProducts();
                 this._linkService.createLink(
                   `https://www.iraniexpert.com/shop/page/${arrayOfUrlSegments[3]}`
                 );
@@ -230,8 +216,9 @@ export class LandingShopComponent {
     if (item['pageOrder']) {
       this.filterModel.pageOrder = item['pageOrder'];
     }
+
     if (item['category']) {
-      this.filterModel.categories = await this.setNumArr(item['category']);
+      this.filterModel.categories = this.setNumArr(item['category']);
       this.filterModel.categories.forEach((it) => {
         for (let counter = 0; counter < this.checkboxes.length; counter++) {
           if (it == this.checkboxes[counter].value) {
@@ -240,25 +227,28 @@ export class LandingShopComponent {
         }
       });
     }
-    if (item['platforms']) {
-      this.filterModel.platForms = await this.setNumArr(item['platforms']);
-    }
     if (item['rates']) {
-      this.filterModel.rates = await this.setNumArr(item['rates']);
+      this.filterModel.rates = this.setNumArr(item['rates']);
+      this.ratingConfig.content.currentRate = this.filterModel.rates[0];
     }
+    if (item['platforms']) {
+      this.filterModel.platForms = this.setNumArr(item['platforms']);
+    }
+
     if (item['minPrice']) {
-      this.filterModel.platForms = await this.setNumArr(item['minPrice']);
+      this.filterModel.platForms = this.setNumArr(item['minPrice']);
     }
     if (item['maxPrice']) {
-      this.filterModel.platForms = await this.setNumArr(item['maxPrice']);
+      this.filterModel.platForms = this.setNumArr(item['maxPrice']);
     }
+    return true;
   }
 
   // Method Which Gets Array String and return Array --------------------------------------->
   changeSlide(slide: any) {
     this.choosenSlide = slide;
   }
-  async setNumArr(value: string) {
+  setNumArr(value: string) {
     let arr: number[] = [];
     let x = value.slice(value.indexOf('[') + 1, value.indexOf(']')).split(',');
     x.forEach((it) => {
@@ -350,5 +340,16 @@ export class LandingShopComponent {
     } else {
       return true;
     }
+  }
+  setRate(event: number[]) {
+    this.filterModel.rates = event;
+    this.productService.prdArray.next(null);
+    this.savedParams = {
+      ...this.savedParams,
+      ...{ rates: `[${event[0]}]` },
+    };
+    this._router.navigateByUrl(
+      `shop/page/${this.filterModel.pageIndex + 1}?${this._querystring}`
+    );
   }
 }
