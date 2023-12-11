@@ -1,0 +1,93 @@
+<div [ngClass]="device == 'lg' ? 'block' : 'hidden'" class="mt-8">
+    <div class="flex justify-between mt-6">
+        <div class="flex items-center w-44">
+            <img src="assets/img/icon-carousel-card.svg" alt="icon">
+            <p class="icon-title mr-3">ترید فارکس</p>
+        </div>
+        <a href="" class="flex items-center box-share">
+            <p class="icon-title ml-3">اشتراک گذاری</p>
+            <img class="icon" src="assets/img/shared-icon.svg" alt="icon">
+        </a>
+    </div>
+    <h6 class="title-blog">ربات های معامله گر در بازار فارکس</h6>
+    <div class="flex mt-3">
+        <p class="date ml-10">اننتشار : 25 آذر</p>
+        <p class="date">زمان مطالعه 25دقیقه</p>
+    </div>
+    <!-- ================[عکس شاخص]========== -->
+    <div class="flex relative mt-4">
+        <img class="img-blog" src="assets/img/img-blog-detail.svg" alt="icon">
+       <div class="absolute flex h-full w-full items-center">
+        <div class="mt-40 mr-12">
+            <div class="divider" [style]="'background-color:'+ color"></div>
+            <h6 class="title-blog-img">ربات های معامله گر در بازار فارکس</h6>
+        </div>
+       </div>
+    </div>
+    <p class="mt-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, tenetur
+        maiores soluta asperiores nostrum sunt impedit, nulla dolor, eligendi neque similique labore et vero. Numquam voluptates natus possimus officiis hic.</p>
+    <!-- =================[آرتیکلز]========= -->
+    <div class="mt-6">
+        <div class="mb-4">
+            <h5 class="title-1 mb-2">lorem lorem lorem</h5>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae veniam sint mollitia quibusdam quis rerum quae molestiae,
+                 reiciendis facilis natus recusandae nobis. Laudantium modi quia eius, dolorum iste voluptate velit?</p>
+        </div>
+        <div class="mb-4">
+            <h6 class="title-2 mb-2">lorem lorem lorem</h6>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae veniam sint mollitia quibusdam quis rerum quae molestiae,
+                reiciendis facilis natus recusandae nobis. Laudantium modi quia eius, dolorum iste voluptate velit?</p>
+        </div>
+    </div>
+    <div class="flex">
+        <img class="img-blog" src="assets/img/img-blog-detail.svg" alt="icon">
+    </div>    
+</div>
+
+<!-- ====================[رسپانسیو]========= -->
+<div [ngClass]="device == 'sm' ? 'block' : 'hidden'">
+    <div class="flex relative mt-4">
+        <img class="img-blog-mobile" src="assets/img/img-blog-detail.svg" alt="icon">
+       <div class="absolute flex h-full w-full items-center">
+        <div class="mt-40 mr-12">
+            <div class="divider-mobile" [style]="'background-color:'+ color"></div>
+            <h6 class="title-blog-img-mobile">ربات های معامله گر در بازار فارکس</h6>
+        </div>
+       </div>
+    </div>
+    <!-- ================[تایتل عکس]======= -->
+    <div class="flex justify-between mt-6">
+        <div class="flex items-center scale-90">
+            <img src="assets/img/icon-carousel-card.svg" alt="icon">
+            <p class="icon-title mr-3">ترید فارکس</p>
+        </div>
+        <a href="" class="flex items-center box-share-mobile">
+            <p class="icon-title ml-3">اشتراک گذاری</p>
+            <img class="icon" src="assets/img/shared-icon.svg" alt="icon">
+        </a>
+    </div>
+    <h6 class="title-blog-mobile mt-3">ربات های معامله گر در بازار فارکس</h6>
+    <div class="flex mt-3">
+        <p class="date-mobile ml-10">اننتشار : 25 آذر</p>
+        <p class="date-mobile">زمان مطالعه 25دقیقه</p>
+    </div>
+    <p class="mt-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, tenetur
+        maiores soluta asperiores nostrum sunt impedit, nulla dolor, eligendi neque similique labore et vero. Numquam voluptates natus possimus officiis hic.</p>
+            <!-- =================[آرتیکلز]========= -->
+    <div class="mt-6">
+        <div class="mb-4">
+            <h5 class="title-1 mb-2">lorem lorem lorem</h5>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae veniam sint mollitia quibusdam quis rerum quae molestiae,
+                 reiciendis facilis natus recusandae nobis. Laudantium modi quia eius, dolorum iste voluptate velit?</p>
+        </div>
+        <div class="mb-4">
+            <h6 class="title-2 mb-2">lorem lorem lorem</h6>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae veniam sint mollitia quibusdam quis rerum quae molestiae,
+                reiciendis facilis natus recusandae nobis. Laudantium modi quia eius, dolorum iste voluptate velit?</p>
+        </div>
+    </div>
+    <div class="flex">
+        <img class="img-blog-mobile" src="assets/img/img-blog-detail.svg" alt="icon">
+    </div>   
+</div>
+

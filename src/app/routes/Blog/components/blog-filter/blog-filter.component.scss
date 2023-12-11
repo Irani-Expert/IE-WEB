@@ -37,8 +37,9 @@
     background-color: white;
 }
 .video-title{
-  font-weight: 500;
+  font-weight: 600;
   color: #7D7D7D;
+  font-size: 0.9rem;
 }
 .time-video{
 color: #7D7D7D;
@@ -55,8 +56,16 @@ border-radius: 22px;
   font-size: 1.2rem;
 }
 // // <!-- ============[تبلیغات]========= -->
-
+.add-box{
+  position: sticky;
+  top: 5px;
+}
 .add-blog{
 width: 100% ;
 object-fit: cover;
+}
+.sticky-custom {
+  position: fixed;
+  top: 0;
+  width: 18.5%;
 }

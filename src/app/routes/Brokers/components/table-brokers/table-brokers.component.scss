@@ -1,0 +1,107 @@
+.custom-table-responsive {
+  padding: 20px;
+  border-radius: 10px;
+  overflow-x: auto;
+}
+.custom-table {
+  width: 100%;
+  max-width: 1536px;
+  min-width: 900px;
+  thead {
+    tr,
+    th {
+      font-weight: 500;
+      font-size: 1rem;
+    }
+    tr {
+      overflow: hidden;
+      border-radius: 15px;
+      th {
+        padding: 12px 5px;
+
+        background: #f3f3f3;
+        border: none;
+        vertical-align: middle;
+        &:first-child {
+          width: 100px;
+          border-top-right-radius: 15px;
+          border-bottom-right-radius: 15px;
+        }
+        &:last-child {
+          border-top-left-radius: 15px;
+          border-bottom-left-radius: 15px;
+        }
+      }
+    }
+  }
+  tbody {
+    th,
+    td {
+      vertical-align: middle;
+      color: #646464;
+      font-weight: 500;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      font-size: 0.95rem;
+      small {
+        color: darken(#ccc, 10%);
+        font-weight: 300;
+      }
+    }
+    tr {
+      border-radius: 15px;
+      overflow: hidden;
+      &:nth-child(even) {
+        background-color: #f3f3f3;
+      }
+      &:nth-child(odd) {
+        background-color: #fff;
+      }
+      th,
+      td {
+        &.td-logo-broker {
+          width: 100px;
+          img {
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            width: 100%;
+            border-radius: 15px;
+          }
+        }
+        &.td-deposit {
+          p {
+            padding: 0 1rem;
+          }
+          width: 270px;
+        }
+        &.td-platform {
+          p {
+            padding: 0 1rem;
+          }
+          width: 270px;
+        }
+        text-align: center;
+        border: none;
+        &:first-child {
+          border-top-right-radius: 15px;
+          border-bottom-right-radius: 15px;
+        }
+        &:last-child {
+          border-top-left-radius: 15px;
+          border-bottom-left-radius: 15px;
+        }
+        &.td-actions {
+          width: 150px;
+          padding: 0 1.5rem;
+          button {
+            font-size: 0.875rem;
+          }
+        }
+      }
+
+      &.active {
+        opacity: 0.4;
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { Utils } from 'src/app/classes/utils';
 
@@ -8,6 +8,7 @@ import { Utils } from 'src/app/classes/utils';
   styleUrls: ['./blog-cart.component.scss']
 })
 export class BlogCartComponent {
+  @Input('item') item:any
  // =======================[رسپانسیو]==========
   
  device: 'sm' | 'lg' = 'lg';

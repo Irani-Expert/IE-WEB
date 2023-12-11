@@ -1,0 +1,82 @@
+.icon-title{
+  color: #0080FF;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.icon{
+    scale: 0.9;
+}
+.box-share{
+  background-color: #EEE;
+  width: 10rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-radius: 25px;
+  scale: 0.9;
+}
+.title-blog{
+  font-weight: 800;
+  font-size: 2rem;
+}
+.date {
+  color: black;
+  font-size: 0.9rem;
+}
+.title-blog-img{
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: white;
+}
+.img-blog{
+  object-fit: cover;
+  border-radius: 10px;
+  height: 22rem;
+  width: 100%;
+}
+.divider{
+  height: 0.3rem;
+  width: 27%;
+  border-radius: 30px;
+  margin-bottom: 0.5rem;
+}
+.title-1{
+    font-size: 1.7rem;
+    font-weight: 700;
+}
+.title-2{
+    font-size: 1.4rem;
+    font-weight: 600;
+    display: flow-root list-item;
+    margin-right: 1.2rem;
+}
+// <!-- ====================[رسپانسیو]========= -->
+.divider-mobile{
+  height: 0.25rem;
+  width: 24%;
+  border-radius: 30px;
+  margin-bottom: 0.5rem;
+}
+.title-blog-img-mobile{
+  color: white;
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+.img-blog-mobile{
+  border-radius: 18px;
+}
+// <!-- ================[تایتل عکس]======= -->
+.box-share-mobile{
+  background-color: #EEE;
+  width: 10rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-radius: 25px;
+  scale: 0.7;
+}
+.title-blog-mobile{
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+.date-mobile {
+  color: black;
+  font-size: 0.8rem;
+}

@@ -1,28 +1,26 @@
-<div class="flex mt-60">
-    <div class="carousel-box">
-        <div class="flex justify-center">
-            <div class="text-center">
-                <h4 class="title">دیگر مقالات که شاید مورد علاقه شما باشد</h4>
-                <p class="title-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, ipsam</p>
-            </div>
-        </div>
-        <!-- ==============[کاروسل]============= -->
-        <div class="flex justify-center">
-            <div class="row-carousel">
-                <div class="row-btn">
-                    <button class="btn" [ngClass]="leftReached ? 'btn-disable': ''" (click)="moveLeft()" >
-                        <p class="icon-btn" [ngClass]="leftReached ? 'icon-disable': ''">&lt;</p>
-                    </button>
-                    <button class="btn mr-2"  [ngClass]="rightReached ? 'btn-disable': ''" (click)="moveRight()">
-                        <p class="icon-btn" [ngClass]="rightReached ? 'icon-disable': ''">&gt;</p>
-                    </button>
+    <div class="flex">
+        <div class="carousel-box">
+            <div class="flex justify-center mt-12 mb-10">
+                <div class="text-center">
+                    <h4 class="title">دیگر مقالات که شاید مورد علاقه شما باشد</h4>
+                    <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, ipsam</p>
                 </div>
-                <div class="scroll">
+            </div>
+            <!-- ==============[کاروسل]============= -->
+                <div class="flex justify-center">
+                    <div class="row-btn">
+                        <button class="btn" [ngClass]="leftReached ? 'btn-disable': ''" (click)="moveLeft()" >
+                            <p class="icon-btn" [ngClass]="leftReached ? 'icon-disable': ''">&lt;</p>
+                        </button>
+                        <button class="btn mr-6"  [ngClass]="rightReached ? 'btn-disable': ''" (click)="moveRight()">
+                            <p class="icon-btn" [ngClass]="rightReached ? 'icon-disable': ''">&gt;</p>
+                        </button>
+                    </div>
+                </div>
+                <div class="ml-4 mr-2">
                     <drag-scroll #nav (reachesRightBound)="isRightBoundary($event)" (reachesLeftBound)="isLeftBoundary($event)">
                         <div class="cart" drag-scroll-item *ngFor="let item of items"><app-blog-cart></app-blog-cart></div>
                     </drag-scroll>
                 </div>
-            </div>
         </div>
     </div>
-</div>

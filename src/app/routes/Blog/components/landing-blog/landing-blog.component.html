@@ -1,23 +1,47 @@
-<div class="bg-all mt-6">
-    <div [ngClass]="device == 'lg' ? 'block' : 'hidden'">        
+<div class="bg-all">
+    <div [ngClass]="device == 'lg' ? 'block' : 'hidden'" class="mr-8 ml-8 pt-9">        
         <app-blog-hero></app-blog-hero>
-        <div class="grid grid-cols-3 gap-3 mt-16">
+        <div class="grid grid-cols-4 mt-16">
             <div class="part-1">
                 <app-blog-filter
                 [category]="category"
                 ></app-blog-filter>
             </div>
-            <div class="col-span-2 ml-8 -mr-2">
+            <div class="col-span-3 mr-4">
              <app-offers></app-offers>
              <app-articles></app-articles>
              <app-articles></app-articles>
              <app-articles></app-articles>
             </div>
-            <app-blog-pagination></app-blog-pagination>
         </div>
     </div>
     <!-- ==========[رسپانسیو]=========== -->
-    <div [ngClass]="device == 'sm' ? 'block' : 'hidden'">
+    <div [ngClass]="device == 'sm' ? 'block' : 'hidden'" class="pt-12">
+                <!-- ========================[بنر]============== -->
+                <div class="flex justify-center mb-10">
+                    <div class="baner-mobile">
+                        <div class="flex flex-row">
+                            <div class="flex items-center mr-3 basis-2/2">
+                                <div>
+                                    <span class="dividr-title">با ایرانی اکسپرت مطمئن و آسان ترید کن </span>
+                                    <h6 class="title-baner">مقالات آموزشی فارکس</h6>
+                                </div>
+                            </div>
+                            <div class="relative basis-1/3 flex" >
+                                <img class="logo-mobile" src="assets/img/blog-baner-logo.svg" alt="logo">
+                            </div>
+                        </div>
+                        <div class="mr-12 ml-12">
+                            <div class="search-box">
+                                <input class="input-baner" type="text" placeholder="مقاله مورد نظر را جستجو کنید">
+                                <a href="">
+                                <img class="icon-search" src="assets/img/search-icon(blog).svg" alt="icon">
+                                </a>
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+                
         <app-blog-hero></app-blog-hero>
         <div class="mr-6 ml-6 mt-10">
             <!-- ===========[پیشنهاد سردبیر]========== -->
@@ -50,12 +74,15 @@
                 </div>
             </div>
         </div>
-        <!-- ===========[ آرتیکلز ]========== -->
+        <!-- ===========[ پیشنهادات و مقالات ]========== -->
         <app-offers></app-offers>
         <!-- ===========[ تبلیغات ]========== -->
         <div class="mr-6 ml-6 mt-4">
             <img src="assets/img/add-blog(responsive).svg" alt="add">
+            <!-- ===========[ آرتیکلز ]========== -->
+            <app-articles></app-articles>
+            <app-articles></app-articles>
+            <app-articles></app-articles>
         </div>
     </div>
 </div>
-<!-- <app-landing-blog-detail></app-landing-blog-detail> -->
