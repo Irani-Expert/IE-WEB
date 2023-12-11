@@ -187,12 +187,17 @@
   <div class="bg-[#F5F5F5] rounded-b-[2.5rem] pb-16 sm:hidden">
     <div class="flex overflow-y-scroll">
       <app-landing-article-responsive
-        *ngFor="let i of [0, 1, 2]"
+        *ngFor="let i of blogData"
+        [blogs]="i"
         class="block sm:hidden"
       />
     </div>
   </div>
-  <app-landing-article class="hidden sm:block" />
+  <app-landing-article
+    [blogs]="blogData"
+    *ngIf="isRecived"
+    class="hidden sm:block"
+  />
 </div>
 <div
   class="rounded-b-[3.5rem] w-full sm:h-[140px] h-[40px] sticky sm:bg-white bg-[#F5F5F5] sm:z-10"

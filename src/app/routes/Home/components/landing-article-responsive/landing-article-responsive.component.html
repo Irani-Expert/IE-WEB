@@ -6,8 +6,8 @@
       <div class="w-full flex rounded-t-lg bg-black sm:h-80">
         <img
           class="rounded-t-lg"
-          style="object-fit: contain; object-position: center"
-          src="../../../../../assets/img/alpari-broker-forex.jpg "
+          style="object-position: center; max-height: 11rem; min-width: 17.2rem"
+          [src]="'https://dl.iraniexpert.com' + blogs.cardImagePath"
         />
       </div>
       <div class="w-full rtl flex flex-col justify-between">
@@ -21,12 +21,12 @@
               class="mr-2 sm:text-sm text-[8px] font-medium justify-end flex flex-col color--blue"
               >دربررسی بروکر ها<small
                 class="sm:text-sm font-medium color--grey500"
-                >امرداد 1402</small
+                >{{ blogs.updateDate }}</small
               ></span
             >
           </div>
           <h1 class="sm:m-4 m-3 ms-0 sm:text-4xl font-semibold text-xl">
-            امارکت برسی بروکر aMarket
+            {{ blogs.title.slice(0, 30) }}
           </h1>
         </div>
         <div
@@ -39,8 +39,9 @@
             />
             <span
               class="flex-col flex mr-1 sm:text-sm text-[8px] justify-evenly color--blue font-medium"
-              >نویسنده ؛ ایرانی اکسپرت<small
-                class="sm:text-sm color--grey500 font-normal"
+              >نویسنده ؛ {{ blogs.updatedByFirstName }}
+              {{ blogs.updatedByLastName
+              }}<small class="sm:text-sm color--grey500 font-normal"
                 >زمان مطالعه 6 دقیقه</small
               ></span
             >
@@ -52,7 +53,7 @@
             </span>
             <span class="ltr"
               ><i class="fa fa-eye color--grey500 font-extralight"></i>
-              1253
+              {{ blogs.viewsCount }}
             </span>
           </div>
         </div>

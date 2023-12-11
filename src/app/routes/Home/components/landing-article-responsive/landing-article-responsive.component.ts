@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Blog } from 'src/app/classes/interfaces/blog.interface';
 
 @Component({
   selector: 'app-landing-article-responsive',
   templateUrl: './landing-article-responsive.component.html',
-  styleUrls: ['./landing-article-responsive.component.scss']
+  styleUrls: ['./landing-article-responsive.component.scss'],
 })
 export class LandingArticleResponsiveComponent {
-
+  @Input() blogs: Blog;
 }

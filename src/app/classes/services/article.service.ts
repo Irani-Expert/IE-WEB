@@ -6,12 +6,8 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
 })
-export class TagService extends BaseService<IArticle> {
+export class articleService extends BaseService<IArticle[]> {
   constructor(http: HttpClient) {
     super(http);
   }
-  // getTags = new BehaviorSubject<IArticle | null>(null);
-  // get _Tags() {
-  //   return this.getTags.value;
-  // }
 }

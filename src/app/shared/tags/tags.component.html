@@ -5,12 +5,12 @@
     </h5>
   </div>
   <div class="flex flex-wrap m-5">
-    <div class="min-w-fit m-2">
-      <a class="tag mr-3">آموزش رایگان</a>
+    <div class="min-w-fit m-2" *ngFor="let x of values?.linkTags">
+      <a class="tag mr-3"><span>#</span>{{ x.title | slice : 0 : -1 }}</a>
     </div>
-    <div class="min-w-fit m-2"><a class="tag mr-3">دمو رایگان</a></div>
+    <!-- <div class="min-w-fit m-2"><a class="tag mr-3">دمو رایگان</a></div>
     <div class="min-w-fit m-2"><a class="tag mr-3">ربات فارکس</a></div>
     <div class="min-w-fit m-2"><a class="tag mr-3">تقویم اقتصادی</a></div>
-    <div class="min-w-fit m-2"><a class="tag mr-3">مدرسه فارکس</a></div>
+    <div class="min-w-fit m-2"><a class="tag mr-3">مدرسه فارکس</a></div> -->
   </div>
 </div>
