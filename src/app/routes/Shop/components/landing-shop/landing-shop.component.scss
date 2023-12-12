@@ -53,3 +53,36 @@
   opacity: 0;
   transition: opacity 1s;
 }
+.part-seperator {
+  &::before {
+    content: "";
+    width: 28px;
+    height: 8px;
+    background-color: #3246d3;
+    border-radius: 6px;
+    display: inline-block;
+    margin: 0 0 -1px 2px;
+  }
+  margin-bottom: 0.875rem;
+}
+.list-numeric {
+  list-style: auto;
+  ::marker {
+    font-size: 1.25rem;
+    color: #3246d3;
+    font-weight: 700;
+  }
+  padding-right: 40px !important;
+}
+.list-tick {
+  list-style: auto;
+  ::marker {
+    content: url(../../../../../assets/icon/tick-blue.svg);
+  }
+  padding-right: 40px !important;
+}
+.content-static {
+  p:not(.part-seperator) {
+    color: #000;
+  }
+}
