@@ -27,13 +27,17 @@
 }
 drag-scroll {
   width: 70rem;
+  // overflow: inherit;
+  // height: 38rem;
 }
 .cart{
   scale: 0.8;
-  margin-left: -3rem;
+  margin-left: -2rem;
 }
 // <!-- ==============[جدیدترین]================ -->
+.row-cart{
 
+}
 .row-p {
   color: #098b41;
   font-size: 1.1rem;

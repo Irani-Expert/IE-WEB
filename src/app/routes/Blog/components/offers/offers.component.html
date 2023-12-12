@@ -10,13 +10,10 @@
        <!-- ////////////////[اسکرول کارت]////////////////// -->
        <div class="flex flex-nowrap">
            <drag-scroll>
-           <div class="cart" drag-scroll-item><app-blog-cart ></app-blog-cart></div>
-           <div class="cart" drag-scroll-item><app-blog-cart ></app-blog-cart></div>
-           <div class="cart" drag-scroll-item><app-blog-cart ></app-blog-cart></div>
-           <div class="cart" drag-scroll-item><app-blog-cart ></app-blog-cart></div>
-           <div class="cart" drag-scroll-item><app-blog-cart ></app-blog-cart></div>
-           <div class="cart" drag-scroll-item><app-blog-cart ></app-blog-cart></div>
-           <div class="cart" drag-scroll-item><app-blog-cart ></app-blog-cart></div>
+           <ng-container *ngFor="let item of itemOffers">
+               <div class="cart" drag-scroll-item><app-blog-cart [data]="item"></app-blog-cart></div>
+           </ng-container>
+         
            </drag-scroll>
        </div>
    </div>
@@ -31,10 +28,10 @@
                <h6 class="font-semibold mt-1">جدیدترین و آخرین مقالات ایرانی اکسپرت</h6>
            </div>
        </div>
-       <div class="flex items-center">
-           <div class="cart2"><app-blog-cart></app-blog-cart></div>
-           <div class="cart2"><app-blog-cart></app-blog-cart></div>
-           <div class="cart2"><app-blog-cart></app-blog-cart></div>
+       <div class="grid grid-cols-3 gap-1">
+        <ng-container *ngFor="let item of itemOffers">
+            <div class="cart2" drag-scroll-item><app-blog-cart [data]="item"></app-blog-cart></div>
+        </ng-container>
        </div>
    </div>
        <div class="divider"></div>
@@ -70,13 +67,16 @@
 </div>
 <!-- ====================[رسپانسیو========== -->
 <div [ngClass]="device == 'sm' ? 'block' : 'hidden'">
+<ng-container *ngIf="!loading">
     <div class="divier-mobile mt-4"></div>
     <div class="mr-6 ml-6 mt-6">
            <!-- ==============[جدیدترین]================ -->
         <span class="flex items-center title-offer mb-4">
         <img class="ml-1 scale-90 " src="assets/img/article-icon.svg" alt="icon"> مقالات ایرانی اکسپرت </span>
         <h6 class="title-offer2">جدیدترین و آخرین مقالات ایرانی اکسپرت</h6>
-        <app-blog-cart></app-blog-cart>
+        <ng-container *ngFor="let item of itemOffers">
+            <app-blog-cart [data]="item"></app-blog-cart>
+        </ng-container>
         <div class="mt-10 mb-10">
             <div class="divier-mobile2"></div>
             <div class="box-link">
@@ -104,4 +104,5 @@
                 </div>
             </div>
     </div>
+</ng-container>
 </div>

@@ -7,7 +7,11 @@ const routes: Routes = [
   { path: '', redirectTo: 'page/1', pathMatch: 'full' },
   { path: 'page', redirectTo: 'page/1', pathMatch: 'full' },
   { path: 'page/:id', pathMatch: 'full', component: LandingShopComponent },
-  { path: ':title', pathMatch: 'prefix', component: LandingProductComponent },
+  {
+    path: ':id/:title',
+    pathMatch: 'prefix',
+    component: LandingProductComponent,
+  },
 ];
 
 @NgModule({

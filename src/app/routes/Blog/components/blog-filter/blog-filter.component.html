@@ -2,9 +2,7 @@
 <div class="flex justify-center">
     <div class="category-box">
         <div class="flex justify-start">
-            <p class="title-box">
-            دسته بندی
-            </p>
+            <ng-content select="[header]"></ng-content>
         </div>
         <div *ngFor="let item of category">
           <div class="category-row">

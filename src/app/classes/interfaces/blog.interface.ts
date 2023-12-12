@@ -4,8 +4,11 @@ export interface Blog {
   updateDate: string;
   updatedByFirstName: string;
   updatedByLastName: string;
-  viewsCount: number;
   cardImagePath: string;
+  viewsCount: number;
+  authorIconPath : string;
+  studyTime : string;
+  publishDate : string;
 }
 export interface SingleBlog {
   id: number;

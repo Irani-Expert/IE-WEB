@@ -16,6 +16,7 @@ export class CanActivate {
     private router: Router,
     private modal: ModalService
   ) {}
+
   canActivate() {
     let item = this.orderService.basket.value;
     if (item.basketItems.length == 0) {

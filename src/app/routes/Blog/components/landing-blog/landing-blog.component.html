@@ -1,21 +1,22 @@
-<div class="bg-all">
+<div *ngIf="!loading" class="bg-all">
     <div [ngClass]="device == 'lg' ? 'block' : 'hidden'" class="mr-8 ml-8 pt-9">        
-        <app-blog-hero></app-blog-hero>
+        <app-blog-hero [data]="itemsBlog.slice(0,5)"></app-blog-hero>
         <div class="grid grid-cols-4 mt-16">
             <div class="part-1">
                 <app-blog-filter
                 [category]="category"
-                ></app-blog-filter>
+                >
+            <p header class="text-black">دسته بندی</p>
+        </app-blog-filter>
             </div>
             <div class="col-span-3 mr-4">
-             <app-offers></app-offers>
-             <app-articles></app-articles>
-             <app-articles></app-articles>
+             <app-offers [data]="itemsBlog.slice(0,5)"></app-offers>
              <app-articles></app-articles>
             </div>
         </div>
     </div>
     <!-- ==========[رسپانسیو]=========== -->
+</div>
     <div [ngClass]="device == 'sm' ? 'block' : 'hidden'" class="pt-12">
                 <!-- ========================[بنر]============== -->
                 <div class="flex justify-center mb-10">
@@ -41,15 +42,20 @@
                         </div>
                     </div>
                 </div>
-                
-        <app-blog-hero></app-blog-hero>
+        <ng-container *ngIf="!loading">
+        <app-blog-hero [data]="itemsBlog.slice(0,5)"></app-blog-hero>
+        </ng-container>
         <div class="mr-6 ml-6 mt-10">
             <!-- ===========[پیشنهاد سردبیر]========== -->
             <span class="flex title-offer">
             <img class="mb-4 ml-1" src="assets/img/icon-offer.svg" alt="icon">پیشنهاد سردبیر</span>
             <h6 class="title-offer2">برگزیده آخرین اخبار و مقالات</h6>
-            <app-blog-cart></app-blog-cart>
-            <!-- ===========[مدرسه فارکس]========== -->
+            <ng-container *ngIf="!loading">
+            <ng-container  *ngFor="let item of itemsBlog">
+                <app-blog-cart [data]="item"></app-blog-cart>
+            </ng-container>
+            </ng-container>           
+             <!-- ===========[مدرسه فارکس]========== -->
             <div class="flex justify-center mt-8">
                 <div class="school-box">
                     <div class="flex justify-start">
@@ -75,7 +81,9 @@
             </div>
         </div>
         <!-- ===========[ پیشنهادات و مقالات ]========== -->
-        <app-offers></app-offers>
+        <ng-container *ngIf="!loading">
+            <app-offers [data]="itemsBlog.slice(0,5)"></app-offers>
+        </ng-container>
         <!-- ===========[ تبلیغات ]========== -->
         <div class="mr-6 ml-6 mt-4">
             <img src="assets/img/add-blog(responsive).svg" alt="add">
@@ -85,4 +93,3 @@
             <app-articles></app-articles>
         </div>
     </div>
-</div>

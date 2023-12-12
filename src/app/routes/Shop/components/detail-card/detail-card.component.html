@@ -1,12 +1,19 @@
 <div
-  class="flex sm:pt-5 sm:pb-6 p-3 sm:px-4 bg-white rounded-2xl box-shadow-ac border sm:h-80 min-h-[9rem] sm:max-w-max max-w-[450px]"
+  class="flex sm:py-2 p-1 sm:p-2 items-stretch bg-white rounded-3xl md:rounded-2xl box-shadow-ac border sm:max-h-max sm:max-w-full max-w-[69rem]"
 >
-  <img class="bg-[#f3f3f3] w-[40%]" src="../../../../../assets/img/hero.webp" />
+  <div class="basis-full max-w-[240px]">
+    <img
+      class="rounded-3xl md:rounded-2xl"
+      src="../../../../../assets/img/Expert 1.png"
+      width="240"
+      height="240"
+    />
+  </div>
 
-  <div class="flex flex-col sm:p-2 p-1">
-    <h1 class="text-32 font-semibold">
+  <div class="flex flex-col p-2 w-full">
+    <h3 class="text-xl md:text-3xl font-black">
       {{ product.title }}
-    </h1>
+    </h3>
     <div class="sm:flex flex-row hidden items-center">
       <span class="flex justify-center items-center">
         <app-rating
@@ -15,23 +22,26 @@
           [config]="ratingConfig"
           style="scale: 0.9"
         ></app-rating>
-        <p class="text-20 text-gray-300 font-bold pt-3">{{ product.rate }}</p>
+        <p class="text-lg text-gray-300 font-bold pt-3">{{ product.rate }}</p>
       </span>
       <span class="divider-custom-vertical mx-2"></span>
-      <p class="text-20 font-bold text-gray-300 pt-3">
+      <p class="text-lg font-bold text-gray-300 pt-3">
         بازدید ها {{ product.viewsCount }}
       </p>
-      <span class="divider-custom-vertical mx-2"></span>
-      <p class="text-20 font-bold text-gray-300 pt-3">مشترک ها 232</p>
+      <span class="divider-custom-vertical mx-2 hidden sm:block"></span>
+      <p class="text-lg font-bold text-gray-300 pt-3">مشترک ها 232</p>
     </div>
-    <p class="text-base sm:block hidden">
-      {{ product.description }}
+    <p class="sm:text-base text-xs block md:hidden pl-3">
+      {{ product.description | slice : 0 : 100 }}....
     </p>
-    <p class="sm:text-base text-xs sm:hidden block">
-      {{ product.description | slice : 0 : 110 }}....
+    <p class="sm:text-base text-xs md:block hidden xl:hidden">
+      {{ product.description | slice : 0 : 150 }}....
     </p>
-    <div class="sm:hidden flex flex-row items-center mb-2">
-      <span class="flex justify-center items-center">
+    <p class="sm:text-base text-xs hidden xl:block mt-3">
+      {{ product.description | slice : 0 : 220 }}....
+    </p>
+    <div class="sm:hidden flex flex-row items-center my-2 gap-2">
+      <span class="flex justify-center items-baseline md:items-center">
         <svg
           class="min-w-[10px]"
           xmlns="http://www.w3.org/2000/svg"
@@ -47,11 +57,11 @@
           {{ product.rate }}
         </p>
       </span>
-      <span class="divider-custom-vertical mx-1"></span>
+      <span class="divider-custom-vertical mx-1 !hidden md:inline-block"></span>
       <p class="text-xs font-bold mt-1 text-gray-300 text-[12px]">
         بازدید ها {{ product.viewsCount }}
       </p>
-      <span class="divider-custom-vertical mx-1"></span>
+      <span class="divider-custom-vertical mx-1 !hidden md:inline-block"></span>
       <p class="text-xs font-bold mt-1 text-gray-300 text-[12px]">
         مشترک ها 232
       </p>
@@ -83,15 +93,24 @@
       </div>
     </div>
     <div
-      class="flex items-center justify-end border-t-[1px] sm:pt-3 pt-1 border-solid"
+      class="flex items-center h-full justify-end md:border-t-[1px] sm:pt-3 pt-1 md:border-solid"
     >
-      <p class="sm:pt-2 sm:text-xl text-sm font-black text-black">
-        شروع قیمت از {{ product.minPrice }}$
+      <p
+        routerLink="../../{{ product.id }}/{{
+          product.title.split(' ').join('_')
+        }}"
+        class="sm:pt-2 sm:text-xl text-sm font-black text-black"
+      >
+        شروع قیمت از {{ "50" | currency }}
       </p>
       <button
-        class="bg-[#3246d3] hidden sm:block border-2 ms-2 relative border-[#3246d3] border-solid text-white p-1 w-1/4 rounded-full text-lg font-black"
+        class="bg-[#3246d3] hidden sm:block border-2 ms-2 relative border-[#3246d3] border-solid text-white p-1 w-1/4 rounded-full text-lg font-black min-w-[147px]"
       >
-        <a routerLink="../../{{ product.title.split(' ').join('_') }}">
+        <a
+          routerLink="../../{{ product.id }}/{{
+            product.title.split(' ').join('_')
+          }}"
+        >
           بررسی پلن ها
         </a>
       </button>

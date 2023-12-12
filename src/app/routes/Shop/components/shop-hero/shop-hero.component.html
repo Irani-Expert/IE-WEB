@@ -106,13 +106,7 @@
                   >
                 </div>
                 <div class="price-box mt-2 pt-3">
-                  <p class="off-price">10%</p>
                   <div class="flex items-center">
-                    <del
-                      [ngClass]="animationState ? 'price-animation' : ''"
-                      class="price-2"
-                      >{{ selectedPlan.price | currency }}
-                    </del>
                     <p
                       [ngClass]="animationState ? 'price-animation' : ''"
                       class="price-1"
@@ -164,7 +158,9 @@
         </p>
       </div>
       <div class="flex items-center justify-center z-10">
-        <a href="#" class="link font-semibold"> مقایسه بروکرها </a>
+        <a [routerLink]="'../../../brokers'" class="link font-semibold">
+          مقایسه بروکرها
+        </a>
       </div>
     </div>
   </div>
@@ -278,23 +274,22 @@
   <div class="all-mobile">
     <div class="relative">
       <a href="">
-          <div class="flex flex-row baner-mobile">
-
-            <div class="logo-i-mobile basis-1/3">
-              <img
+        <div class="flex flex-row baner-mobile">
+          <div class="logo-i-mobile basis-1/3">
+            <img
               class="logo-mobile z-40"
               src="assets/img/logo-hero.svg"
               alt="logo"
-              />
-            </div>
-            <div class="box-body-mobile z-50 basis-2/3">
-              <p class="body-mobile">
-                برای انتخاب مناسب ترین بروکر برای استفاده از ربات هاب معامله گر و
-                سرمایه گذاری میتوانید در صفحه بروکر های ایرانی اکسپرت مفایسه،انتخاب
-                و ثبت نام کنید
-              </p>
-            </div>
-          </div>    
+            />
+          </div>
+          <div class="box-body-mobile z-50 basis-2/3">
+            <p class="body-mobile">
+              برای انتخاب مناسب ترین بروکر برای استفاده از ربات هاب معامله گر و
+              سرمایه گذاری میتوانید در صفحه بروکر های ایرانی اکسپرت
+              مفایسه،انتخاب و ثبت نام کنید
+            </p>
+          </div>
+        </div>
       </a>
     </div>
   </div>
@@ -308,12 +303,6 @@
         </button>
       </div>
       <div class="box-price-mobile basis-2/3">
-        <p class="price-1-m">10</p>
-        <del
-          [ngClass]="animationState ? 'price-animation' : ''"
-          class="price-2-m"
-          >{{ selectedPlan.price | currency }}</del
-        >
         <p
           [ngClass]="animationState ? 'price-animation' : ''"
           class="price-3-m"
