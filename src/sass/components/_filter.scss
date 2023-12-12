@@ -1,4 +1,4 @@
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .search-box-container {
     padding: 19px 24px;
   }
@@ -26,7 +26,7 @@
   padding: 1.25rem;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     margin-top: 0.5rem;
     margin-bottom: 0.75rem;
   }
@@ -55,7 +55,7 @@ input.search-input {
   transform: translate(50%, 50%);
 }
 .filter-box-default {
-  @media (min-width: 640px) {
+  @media (min-width: 1024px) {
     background-color: #f6f6f6;
     min-width: 240px !important;
     max-width: 320px !important;
@@ -109,7 +109,7 @@ input.search-input {
           font-weight: 500;
           font-size: 0.875rem;
         }
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
           p {
             font-size: 1.25rem !important;
           }

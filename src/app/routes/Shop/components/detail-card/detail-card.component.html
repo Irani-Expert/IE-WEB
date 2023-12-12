@@ -1,7 +1,7 @@
 <div
-  class="flex sm:pt-5 sm:pb-6 p-3 sm:px-4 items-end bg-white rounded-2xl box-shadow-ac border max-h-[9rem] sm:max-h-max max-w-[450px] sm:max-w-full"
+  class="flex sm:py-2 p-1 sm:p-2 items-stretch bg-white rounded-2xl box-shadow-ac border sm:max-h-max sm:max-w-full max-w-[69rem]"
 >
-  <div class="basis-full max-w-[240px]">
+  <div class="basis-[30%] sm:basis-full max-w-[240px] min-w-[115px]">
     <img
       class="bg-[#f3f3f3]"
       src="../../../../../assets/img/hero.webp"
@@ -10,8 +10,8 @@
     />
   </div>
 
-  <div class="flex flex-col sm:p-2 p-1">
-    <h3 class="text-3xl font-black">
+  <div class="flex flex-col p-2 w-full">
+    <h3 class="text-xl md:text-3xl font-black">
       {{ product.title }}
     </h3>
     <div class="sm:flex flex-row hidden items-center">
@@ -22,19 +22,22 @@
           [config]="ratingConfig"
           style="scale: 0.9"
         ></app-rating>
-        <p class="text-20 text-gray-300 font-bold pt-3">{{ product.rate }}</p>
+        <p class="text-lg text-gray-300 font-bold pt-3">{{ product.rate }}</p>
       </span>
       <span class="divider-custom-vertical mx-2"></span>
-      <p class="text-20 font-bold text-gray-300 pt-3">
+      <p class="text-lg font-bold text-gray-300 pt-3">
         بازدید ها {{ product.viewsCount }}
       </p>
-      <span class="divider-custom-vertical mx-2"></span>
-      <p class="text-20 font-bold text-gray-300 pt-3">مشترک ها 232</p>
+      <span class="divider-custom-vertical mx-2 hidden sm:block"></span>
+      <p class="text-lg font-bold text-gray-300 pt-3">مشترک ها 232</p>
     </div>
-    <p class="sm:text-base text-xs sm:hidden block">
-      {{ product.description | slice : 0 : 110 }}....
+    <p class="sm:text-base text-xs block md:hidden">
+      {{ product.description | slice : 0 : 50 }}....
     </p>
-    <p class="sm:text-base text-xs hidden sm:block mt-3">
+    <p class="sm:text-base text-xs md:block hidden xl:hidden">
+      {{ product.description | slice : 0 : 150 }}....
+    </p>
+    <p class="sm:text-base text-xs hidden xl:block mt-3">
       {{ product.description | slice : 0 : 220 }}....
     </p>
     <div class="sm:hidden flex flex-row items-center mb-2">
@@ -98,10 +101,10 @@
         }}"
         class="sm:pt-2 sm:text-xl text-sm font-black text-black"
       >
-        شروع قیمت از {{ product.minPrice }}$
+        شروع قیمت از {{ "50" | currency }}
       </p>
       <button
-        class="bg-[#3246d3] hidden sm:block border-2 ms-2 relative border-[#3246d3] border-solid text-white p-1 w-1/4 rounded-full text-lg font-black"
+        class="bg-[#3246d3] hidden sm:block border-2 ms-2 relative border-[#3246d3] border-solid text-white p-1 w-1/4 rounded-full text-lg font-black min-w-[147px]"
       >
         <a
           routerLink="../../{{ product.id }}/{{
