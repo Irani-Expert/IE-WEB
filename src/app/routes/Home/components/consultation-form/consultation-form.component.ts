@@ -28,15 +28,18 @@ export class ConsultationFormComponent {
       typeofVlaue: 'string',
       placeholder: 'نام',
       required: true,
+      hasErr: false,
     },
     {
       id: 2,
       label: 'شماره تماس',
       name: 'phoneNumber',
+      type: 'pattern',
       class: 'input-without-icon',
       typeofVlaue: 'string',
       placeholder: 'شماره تماس',
       required: true,
+      hasErr: false,
     },
     {
       id: 3,
@@ -46,16 +49,19 @@ export class ConsultationFormComponent {
       class: 'input-with-icon',
       required: true,
       placeholder: 'نام خانوادگی',
+      hasErr: false,
     },
 
     {
       id: 4,
       label: 'email',
       name: 'Email',
+      type: 'email',
       class: 'input-without-icon',
       typeofVlaue: 'string',
       placeholder: 'ایمیل',
       required: true,
+      hasErr: false,
     },
   ];
   formControls!: InputInterface[];
@@ -82,21 +88,62 @@ export class ConsultationFormComponent {
   get _Email(): string {
     return this.form.controls['Email'].value;
   }
-  async login() {
+  async consultationServices() {
     let formData = formDataInit;
     formData.firstName = this._firstName;
     formData.lastName = this._lastName;
     formData.phoneNumber = this._phoneNumber;
     formData.email = this._Email;
     if (await this.checkFormValidation(formData)) {
-      this.giftFormService.gift_req(formData);
+      this.giftFormService.consultation_req(formData);
     } else {
       console.log('Not Valid');
     }
   }
   async checkFormValidation(_formData: GiftInter) {
+    const formErrors: { [key: string]: string[] } = {};
+    for (const controlName in this.form.controls) {
+      const control = this.form.controls[controlName];
+
+      if (control.invalid) {
+        formErrors[controlName] = [];
+
+        if (control.errors!['required']) {
+          formErrors[controlName].push(`${controlName} is required.`);
+        }
+
+        if (control.errors!['email']) {
+          formErrors[controlName].push(`Invalid ${controlName} format.`);
+        }
+
+        if (control.errors!['pattern']) {
+          formErrors[controlName].push(
+            `${controlName} must be a valid number.`
+          );
+        }
+
+        if (control.errors!['min']) {
+          formErrors[controlName].push(`You must be at least 18 years old.`);
+        }
+      }
+    }
+    // console.log(formErrors);
+    let erorrKeyName = Object.keys(formErrors);
+    this.formControlInit.forEach((x) => {
+      if (erorrKeyName.indexOf(x.name) > -1) {
+        x.hasErr = true;
+      }
+      setInterval(() => {
+        x.hasErr = false;
+      }, 10000);
+    });
+
+    if (Object.keys(formErrors).length > 0) {
+      return false;
+    } else {
+      return true;
+    }
     // You Can Add Any Validation Here
     // But now We don't need any
-    return true;
   }
 }

@@ -24,7 +24,6 @@ input[type="checkbox"] {
   }
 }
 input {
-  border: none !important;
   padding: 15px;
 }
 label {
@@ -63,11 +62,18 @@ input:checked + label:after {
 label:active:after {
   width: 24px;
 }
+.hasError {
+  animation: border-red 1s ease-in-out;
+}
 
-// centering
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+@keyframes border-red {
+  0% {
+    border: 1px solid black;
+    border-color: black;
+  }
+
+  100% {
+    border: 1px solid black;
+    border-color: red;
+  }
 }

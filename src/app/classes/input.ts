@@ -32,6 +32,9 @@ export class Input {
   }
   validations(input: InputInterface) {
     let validators = [];
+    if (input.type == 'pattern') {
+      validators.push(Validators.pattern('[0-9]+'));
+    }
     if (input.required) {
       validators.push(Validators.required);
       if (input.minLength) {
@@ -44,6 +47,7 @@ export class Input {
     if (input.type == 'email') {
       validators.push(Validators.email);
     }
+
     return validators;
   }
 }
