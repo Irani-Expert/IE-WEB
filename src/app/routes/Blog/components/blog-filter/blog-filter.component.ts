@@ -17,9 +17,6 @@ export class BlogFilterComponent {
   onScroll() {
     
     if(AppComponent.isBrowser.value) {
-    console.log(this.myStickyElement.nativeElement.offsetTop);
-     console.log(Utils.scrollTracker());
-     
       
       if(Utils.scrollTracker() > this.myStickyElement.nativeElement.offsetTop) {
         this.sticked =true

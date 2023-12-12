@@ -1,6 +1,9 @@
 import { Component, HostListener } from '@angular/core';
 import { PaginationInstance } from 'ngx-pagination';
 import { AppComponent } from 'src/app/app.component';
+import { Blog } from 'src/app/classes/interfaces/blog.interface';
+import { FilterBlog } from 'src/app/classes/interfaces/filter-blog.interface';
+import { BlogService } from 'src/app/classes/services/blog.service';
 import { Utils } from 'src/app/classes/utils';
 
 @Component({
@@ -9,6 +12,36 @@ import { Utils } from 'src/app/classes/utils';
   styleUrls: ['./blog-pagination.component.scss']
 })
 export class BlogPaginationComponent {
+
+  
+    // ===========[سرویس ها]==========
+  itemsBlog : Blog[] = new Array<Blog>();
+  blogFilter : FilterBlog = new FilterBlog();
+  loading: boolean = true;
+
+  constructor ( private blogService : BlogService){}
+  async getItemBlogs(filters : FilterBlog) {
+    (
+      await this.blogService.getBlogsFromApi(
+        'Article/GetArticleByFilter',
+        filters
+      )
+    ).subscribe({
+      next: (x)=> {
+        if (this.blogService._paginatedBlogs?.items){
+          this.itemsBlog = this.blogService._paginatedBlogs?.items;
+          this.loading = false;
+        }
+      }
+    })
+  }
+
+  async ngOnInit(){
+  
+    this.updateDeviceValue();
+    this.getItemBlogs(this.blogFilter)
+  }
+
   meals = [1,2,3,4,5,6,4,7,98,9,5,64,64,,6514,654,48,984,984,894,948,984,984,984,]
   config: PaginationInstance = {
       id: 'custom',
@@ -21,10 +54,6 @@ export class BlogPaginationComponent {
   // =======================[رسپانسیو]==========
   
   device: 'sm' | 'lg' = 'lg';
-  ngOnInit(){
-    this.updateDeviceValue();
-
-  }
   
   @HostListener('window:resize', ['$event'])
   onResize() {

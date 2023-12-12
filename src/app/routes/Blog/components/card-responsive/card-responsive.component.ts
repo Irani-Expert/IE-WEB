@@ -8,4 +8,9 @@ import { Component } from '@angular/core';
 export class CardResponsiveComponent {
     // <!-- ========================[ایتم عکس]============== -->
     color ='#1345db80'
+    red ='#ff0000c2';
+    yellow = '#ffd700a3';
+    blue = '#0000ff91';
+    aqua = '#00ffffb2';
+    green = '#2bdb2bba';
 }
