@@ -17,7 +17,12 @@
   </div>
   <div class="flex justify-center sm:h-[36rem]">
     <div class="hidden sm:flex ml-9 flex-col justify-between">
-      <div class="flex justify-center mt-3">
+      <div
+        class="flex justify-center mt-3 cursor-pointer"
+        [routerLink]="
+          'blog/' + '/' + blogs[0].browserTitle.split(' ').join('_')
+        "
+      >
         <div
           class="border-separate border rounded-2xl p-4 ltr box-shadow-ac hidden sm:block"
         >
@@ -81,7 +86,12 @@
           </div>
         </div>
       </div>
-      <div class="flex justify-center mt-3">
+      <div
+        class="flex justify-center mt-3 cursor-pointer"
+        [routerLink]="
+          'blog/' + '/' + blogs[1].browserTitle.split(' ').join('_')
+        "
+      >
         <div
           class="border-separate border rounded-2xl p-4 ltr box-shadow-ac hidden sm:block"
         >
@@ -148,7 +158,10 @@
     </div>
     <div class="flex mt-3 justify-center w-9/12 sm:w-8/12">
       <div
-        class="border-separate border rounded-3xl sm:rounded-2xl p-3 sm:p-4 ltr box-shadow-ac w-9/ w-full"
+        class="border-separate border rounded-3xl sm:rounded-2xl p-3 sm:p-4 ltr box-shadow-ac w-9/ w-full cursor-pointer"
+        [routerLink]="
+          'blog/' + '/' + blogs[2].browserTitle.split(' ').join('_')
+        "
       >
         <div class="h-full flex flex-col">
           <div class="w-full flex rounded-t-lg bg-[#D2EFBE] sm:h-80">
@@ -173,7 +186,7 @@
                   ></span
                 >
               </div>
-              <h1 class="sm:m-4 m-3 ms-0 sm:text-4xl font-semibold text-xl">
+              <h1 class="m-3 ms-0 sm:text-4xl font-semibold text-xl">
                 {{ blogs[2].title }}
               </h1>
             </div>
