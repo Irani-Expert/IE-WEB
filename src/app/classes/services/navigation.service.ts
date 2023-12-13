@@ -20,15 +20,15 @@ export class NavigationService {
       name: 'فروشگاه',
       title: 'Store',
       type: 'dropdown',
-      path: 'shop',
+      path: 'products',
       sub: [
         {
           id: 1,
-          name: 'ربات معامله‌گر اکسپرت',
+          name: 'ربات معامله‌گر ATM',
           parentID: 2,
           title: 'ATM Expert',
           type: 'link',
-          path: `/shop/1/اکسپرت_ATM`,
+          path: `/products/1/اکسپرت_ATM`,
         },
       ],
     },
@@ -104,7 +104,7 @@ export class NavigationService {
       sub: [
         {
           id: 1,
-          path: 'articles',
+          path: 'blogs',
           name: 'مقالات',
           parentID: 6,
           title: 'َArticles',

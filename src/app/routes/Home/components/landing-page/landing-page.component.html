@@ -116,7 +116,7 @@
 </div> -->
 <div class="sm:bg-white bg-[#F5F5F5] sm:px-24">
   <div>
-    <app-hero />
+    <app-hero (scroll)="scroll($event)"/>
     <app-tags />
     <app-service-baner />
     <app-instagram-baner />
@@ -129,7 +129,7 @@
   ></div>
 
   <div class="bg-white">
-    <app-bot-showcase class="relative bottom-[5rem] z-20" />
+    <app-bot-showcase (scroll)="scroll($event)" class="relative bottom-[5rem] z-20" />
   </div>
   <div>
     <app-gift-form></app-gift-form>
@@ -210,14 +210,17 @@
   <div class="bg-cover bgi-world-map1 sm:mx-32 mx-12 pb-16">
     <app-bot-advantages />
   </div>
-  <h1 class="sm:text-4xl text-2xl text-green-800 text-center oblique mt-8">
+  <h1 id="form-consulting"  class="sm:text-4xl text-2xl text-green-800 text-center oblique mt-8">
     درخواست مشاوره
   </h1>
   <p class="text-center text-black text-xl sm:text-3xl">
     لطفا اطلاعات خود را ثبت کنید تا همکاران ما در ایرانی اکسپرت با شما تماس
     بگیرند
   </p>
-  <app-consultation-form></app-consultation-form>
+  <!-- =================[اسکرول]======= -->
+  <div>
+    <app-consultation-form></app-consultation-form>
+  </div>
 </div>
 <div class="pb-4 pt-2 mb-2">
   <app-questions></app-questions>
