@@ -4,6 +4,7 @@ import { Blog } from 'src/app/classes/interfaces/blog.interface';
 import { Utils } from 'src/app/classes/utils';
 import { environment } from 'src/environments/environment.dev';
 class BlogModel implements Blog {
+  isRTL: boolean = false;
   id: number = 0;
   title: string = '';
   updateDate: string = '';
@@ -23,6 +24,7 @@ class BlogModel implements Blog {
 })
 export class BlogCartComponent {
   contentUrl = environment.contentUrl;
+  url = '';
   @Input('data') item: Blog = new BlogModel();
   @Input('item') items: any;
 
@@ -31,6 +33,8 @@ export class BlogCartComponent {
   device: 'sm' | 'lg' = 'lg';
   ngOnInit() {
     this.updateDeviceValue();
+    let language = this.item.isRTL ? 'FA' : 'EN';
+    this.url = this.item.browserTitle.split(' ').join('_') + '/' + language;
   }
 
   @HostListener('window:resize', ['$event'])

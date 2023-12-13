@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { AuthService } from '../shared/auth/auth.service';
 import { ModalService } from '../shared/modal/services/modal.service';
 import { HeaderLayoutComponent } from '../components/header-layout/header-layout.component';
-import { Utils } from './utils';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +23,6 @@ export class CanActivate {
       return false;
     }
     if (!AuthService.loggedIn.value) {
-      Utils.scrollTopWindow();
       this.modal.open().subscribe({
         complete: () => {
           HeaderLayoutComponent.modalStatus = false;

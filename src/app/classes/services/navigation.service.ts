@@ -86,7 +86,7 @@ export class NavigationService {
       sub: [
         {
           id: 1,
-          path: 'blogs',
+          path: 'blog',
           name: 'مقالات',
           parentID: 6,
           title: 'َArticles',

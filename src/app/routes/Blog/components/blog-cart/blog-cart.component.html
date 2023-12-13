@@ -1,56 +1,78 @@
 <div [ngClass]="device == 'lg' ? 'flex' : 'hidden'">
   <div class="cart">
-          <a class="flex justify-center mr-4 mt-4 mb-4 ml-4" routerLink="AMarkets/FA">
-              <img class="img-card" [src]="contentUrl + item.cardImagePath" alt="cart">
-          </a>
-      <!-- ==========[پارت 1]========== -->
-      <div class="mr-4 mt-4 mb-4 ml-4">
-          <div class="flex justify-start">
-                  <a class="title-cart flex-wrap whitespace-normal" routerLink="AMarkets">
-                     {{item.title}}
-                  </a>
-          </div>
-          <div class="justify-end flex">
-              <p class="date">
-                  زمان انتشار: {{item.publishDate | date}}
-              </p>
-          </div>
+    <a class="flex justify-center mr-4 mt-4 mb-4 ml-4" [routerLink]="this.url">
+      <img
+        class="img-card"
+        [src]="contentUrl + item.cardImagePath"
+        alt="cart"
+      />
+    </a>
+    <!-- ==========[پارت 1]========== -->
+    <div class="mr-4 mt-4 mb-4 ml-4">
+      <div class="flex justify-start">
+        <a
+          class="title-cart flex-wrap whitespace-normal"
+          [routerLink]="this.url"
+        >
+          {{ item.title }}
+        </a>
       </div>
-      <div class="divider"></div>
-      <!-- ==========[پارت 2]========== -->
-      <div class="flex items-center flex-row mr-4 mt-4 mb-4 ml-4">
-          <div class="basis-2/3 flex items-center">
-              <img class="w-12" src="assets/img/30.png" alt="avatar">
-              <div class="mr-2">                    
-                  <p class="row2-title">نویسنده: {{item.updatedByFirstName}}{{item.updatedByLastName}}</p>
-                  <p class="row2-body">زمان مطالعه: {{item.viewsCount%25}} دقیقه</p>
-              </div>
-          </div>
-          <div class="basis-1/3 flex justify-end">
-              <div class="box-like">
-                  <span class="flex ml-2"><p class="like">{{item.viewsCount}}</p><img class="mr-1 mb-1" src="assets/img/eye-icon.svg" alt="icon"></span>
-                  <span class="flex"><p class="like">{{item.viewsCount-24}}</p><img class="mr-1 mb-1" src="assets/img/favorite-icon.svg" alt="icon"></span>
-              </div>
-          </div>
+      <div class="justify-end flex">
+        <p class="date">زمان انتشار: {{ item.publishDate | date }}</p>
       </div>
+    </div>
+    <div class="divider"></div>
+    <!-- ==========[پارت 2]========== -->
+    <div class="flex items-center flex-row mr-4 mt-4 mb-4 ml-4">
+      <div class="basis-2/3 flex items-center">
+        <img class="w-12" src="assets/img/30.png" alt="avatar" />
+        <div class="mr-2">
+          <p class="row2-title">
+            نویسنده: {{ item.updatedByFirstName }} {{ item.updatedByLastName }}
+          </p>
+          <p class="row2-body">زمان مطالعه: {{ item.viewsCount % 25 }} دقیقه</p>
+        </div>
+      </div>
+      <div class="basis-1/3 flex justify-end">
+        <div class="box-like">
+          <span class="flex ml-2"
+            ><p class="like">{{ item.viewsCount }}</p>
+            <img class="mr-1 mb-1" src="assets/img/eye-icon.svg" alt="icon"
+          /></span>
+          <span class="flex"
+            ><p class="like">{{ item.viewsCount - 24 }}</p>
+            <img
+              class="mr-1 mb-1"
+              src="assets/img/favorite-icon.svg"
+              alt="icon"
+          /></span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <!-- ======================[رسپانسیو}======== -->
-  <div [ngClass]="device == 'sm' ? 'flex' : 'hidden'">
-      <div class="grid grid-cols-4 mb-8">
-          <div class="w-28">
-              <a routerLink="AMarkets">
-                  <img class="img-card2" [src]="contentUrl + item.cardImagePath" alt="cart">
-              </a>
-          </div>
-          <div class="col-span-3 mr-12 flex items-center">
-              <div>
-                  <a routerLink="AMarkets">{{item.title}}</a>
-                  <div class="flex mt-6 flex-wrap">
-                      <p class="date-card ml-8">زمان انتشار: {{item.publishDate | date}}</p>
-                      <p class="date-card">زمان مطالعه: {{item.viewsCount%25}} دقیقه</p>
-                  </div>
-              </div>
-          </div>
+<div [ngClass]="device == 'sm' ? 'flex' : 'hidden'">
+  <div class="grid grid-cols-4 mb-8">
+    <div class="w-28">
+      <a [routerLink]="this.url">
+        <img
+          class="img-card2"
+          [src]="contentUrl + item.cardImagePath"
+          alt="cart"
+        />
+      </a>
+    </div>
+    <div class="col-span-3 mr-12 flex items-center">
+      <div>
+        <a [routerLink]="this.url">{{ item.title }}</a>
+        <div class="flex mt-6 flex-wrap">
+          <p class="date-card ml-8">
+            زمان انتشار: {{ item.publishDate | date }}
+          </p>
+          <p class="date-card">زمان مطالعه: {{ item.viewsCount % 25 }} دقیقه</p>
+        </div>
       </div>
+    </div>
   </div>
+</div>

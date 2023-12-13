@@ -42,10 +42,9 @@ export class BlogPaginationComponent {
     this.getItemBlogs(this.blogFilter)
   }
 
-  meals = [1,2,3,4,5,6,4,7,98,9,5,64,64,,6514,654,48,984,984,894,948,984,984,984,]
   config: PaginationInstance = {
       id: 'custom',
-      itemsPerPage: 10,
+      itemsPerPage: 9,
       currentPage: 1
   };
   idActive(event:any){ 

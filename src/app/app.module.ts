@@ -10,15 +10,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderSearchComponent } from './components/header-layout/header-lg/search/search.component';
 import { SharedModule } from './shared/shared.module';
 import { BaseService } from './classes/services/base.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ModalComponent } from './shared/modal/modal.component';
 import { AuthModule } from './shared/auth/auth.module';
 import { RatingComponent } from './shared/rating/rating.component';
 import { Checkbox } from './shared/checkbox/checkbox.component';
 import { FilterComponent } from './shared/filter/filter.component';
 import { SearchComponent } from './shared/filter/search-bar/search.component';
-// import { RetryHttpErrorsInterceptor } from './classes/error.interceptor';
-
+import { LoaderInterceptor } from './classes/loader.interceptor';
+import { LottieModule } from 'ngx-lottie';
+import { LoaderComponent } from './components/loader/loader.component';
+export function playerFactory(): any {
+  return import('lottie-web');
+}
+const lottieModule = LottieModule.forRoot({ player: playerFactory });
 // Headeer Comps
 const header = [
   HeaderLayoutComponent,
@@ -33,7 +38,6 @@ const footer = [FooterComponent];
   imports: [
     ModalComponent,
     AuthModule,
-
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
@@ -43,15 +47,17 @@ const footer = [FooterComponent];
     RatingComponent,
     Checkbox,
     SearchComponent,
+    LoaderComponent,
+    lottieModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     BaseService,
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: RetryHttpErrorsInterceptor,
-    //   multi: true,
-    // },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })

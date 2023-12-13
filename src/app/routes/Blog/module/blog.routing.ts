@@ -9,17 +9,11 @@ const routes: Routes = [
   { path: 'page', redirectTo: 'page/1', pathMatch: 'full' },
   { path: 'page/:id', pathMatch: 'full', component: BlogPaginationComponent },
   {
-    path: ':title/:language',
-    redirectTo: 'details/:title/:language',
-    pathMatch: 'full',
-  },
-
-  {
     path: 'page/:id/:title/:language',
-    redirectTo: 'details/:title/:language',
+    redirectTo: ':title/:language',
     pathMatch: 'full',
   },
-  { path: 'details/:title/:language', component: LandingBlogDetailComponent },
+  { path: ':title/:language', component: LandingBlogDetailComponent },
 ];
 
 @NgModule({

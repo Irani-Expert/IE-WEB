@@ -40,7 +40,6 @@ export class ModalComponent {
   ngOnInit() {
     if (AppComponent.isBrowser.value) {
       document.body.appendChild(this.el.nativeElement);
-      document.body.style.overflow = 'hidden';
     }
   }
   close() {
@@ -49,6 +48,5 @@ export class ModalComponent {
   }
   ngOnDestroy() {
     this.close();
-    document.body.style.overflow = 'auto';
   }
 }
