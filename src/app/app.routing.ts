@@ -18,7 +18,7 @@ const routes: Routes = [
       import('./routes/Home/modules/home.module').then((m) => m.HomeModule),
   },
   {
-    path: 'shop',
+    path: 'products',
     title: 'Shop',
     loadChildren: () =>
       import('./routes/Shop/module/shop.module').then((m) => m.ShopModule),
@@ -39,7 +39,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'articles',
+    path: 'blogs',
     title: 'articles',
     loadChildren: () =>
       import('./routes/Blog/module/blog.module').then((m) => m.BlogModule),

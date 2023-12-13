@@ -95,4 +95,23 @@ export class BlogHeroComponent {
   blue = '#0000ff91';
   aqua = '#00ffffb2';
   green = '#2bdb2bba';
+  x = [
+  {
+    color: '#ff0000c2',
+    img: 'assets/img/blog(hover)-2.svg'
+  },
+  {
+    color: '#ffd700a3',
+    img: 'assets/img/blog(hover)-1.svg'
+  },  {
+    color: '#0000ff91',
+    img: 'assets/img/blog(hover)-3.svg'
+  },  {
+    color: '#00ffffb2',
+    img: 'assets/img/blog(hover)-4.svg'
+  },  {
+    color: '#2bdb2bba',
+    img: 'assets/img/blog(hover)-5.svg'
+  },
+]
 }

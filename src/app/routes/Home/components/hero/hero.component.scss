@@ -62,15 +62,14 @@ $min-width-carousel: 300px;
   color: white;
   position: relative;
   border-radius: 37px;
-  padding: 10px 18px 10px 29px;
+  padding: 10px 18px 10px 15px;
   background-color: #3246d3;
   font-weight: 700;
 }
-.btn-icon {
-  font-weight: 900;
-  position: relative;
-  top: 2px;
-  right: 7px;
+.icon-btn {
+  scale: 0.7;
+  margin-bottom: 0.2rem;
+  margin-right: 0.4rem;
 }
 .header-start {
   font-weight: 900;
@@ -267,7 +266,7 @@ $min-width-carousel: 300px;
   color: white;
   position: relative;
   border-radius: 35px;
-  padding: 8px 18px 6px 25px;
+  padding: 8px 18px 6px 18px;
   background-color: #3246d3;
   font-weight: 700;
   margin-left: 15px;
@@ -279,12 +278,6 @@ $min-width-carousel: 300px;
   padding: 8px 18px 6px 18px;
   background-color: white;
   font-weight: 500;
-}
-.icon-btn {
-  font-weight: 900;
-  position: relative;
-  top: 2px;
-  right: 7px;
 }
 .circle {
   position: absolute;

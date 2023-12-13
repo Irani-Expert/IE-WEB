@@ -30,7 +30,7 @@
     <div class="flex justify-center">
         <div class="mt-8 mb-4 grid grid-cols-2 gap-2">
             <div class="relative">
-                <div class="box-hover pt-24" [style]="'background-color:'+ red" >
+                <a href="" class="box-hover pt-24" [style]="'background-color:'+ red" >
                     <div class="row-hover flex gap-24 items-center">
                         <p class="row-p1">نویسنده : {{itemHero[0].updatedByFirstName}}</p>
                         <p class="row-p2">
@@ -38,24 +38,26 @@
                         </p>                    
                     </div>
                     <h6 class="title-hover">{{itemHero[0].title}}</h6>
-                </div>
+                </a>
                 <img class="item-1" src="assets/img/blog(hover)-2.svg" alt="blog">
             </div>
             <div class="grid grid-cols-2 gap-2">
                 <div class="relative">
-                    <div class="box-hover pt-8" [style]="'background-color:'+ yellow" >
+                    <a href="" class="box-hover pt-8" [style]="'background-color:'+ yellow" >
                         <div class="row-hover flex gap-8 items-center">
-                            <p class="row-p1">نویسنده : {{itemHero[1].updatedByFirstName}}</p>
+                            <p class="row-p1">
+                                نویسنده : {{itemHero[1].updatedByFirstName}}
+                            </p>
                             <p class="row-p4">
                                 زمان انتشار: {{itemHero[1].publishDate | date}}
                             </p>
                         </div>
                         <h6 class="title-hover2">{{itemHero[1].title}}</h6>
-                    </div>
+                    </a>
                     <img class="item-2" src="assets/img/blog(hover)-1.svg" alt="blog">
                 </div>
                 <div class="relative">
-                    <div class="box-hover pt-8" [style]="'background-color:'+ blue" >
+                    <a href="" class="box-hover pt-8" [style]="'background-color:'+ blue" >
                         <div class="row-hover flex gap-8 items-center">
                             <p class="row-p1">نویسنده : {{itemHero[2].updatedByFirstName}}</p>
                             <p class="row-p4">
@@ -63,11 +65,11 @@
                             </p>
                         </div>
                         <h6 class="title-hover2">{{itemHero[2].title}}</h6>
-                    </div>
+                    </a>
                     <img class="item-2" src="assets/img/blog(hover)-3.svg" alt="blog">
                 </div>
                 <div class="relative">
-                    <div class="box-hover pt-8" [style]="'background-color:'+ aqua" >
+                    <a href="" class="box-hover pt-8" [style]="'background-color:'+ aqua" >
                         <div class="row-hover flex gap-8 items-center">
                             <p class="row-p1">نویسنده : {{itemHero[3].updatedByFirstName}}</p>
                             <p class="row-p4">
@@ -75,11 +77,11 @@
                             </p>                        
                         </div>
                         <h6 class="title-hover2">{{itemHero[3].title}}</h6>
-                    </div>
+                    </a>
                     <img class="item-2" src="assets/img/blog(hover)-4.svg" alt="blog">
                 </div>
                 <div class="relative">
-                    <div class="box-hover pt-8" [style]="'background-color:'+ green" >
+                    <a href="" class="box-hover pt-8" [style]="'background-color:'+ green" >
                         <div class="row-hover flex gap-8 items-center">
                             <p class="row-p1">نویسنده : {{itemHero[4].updatedByFirstName}}</p>
                             <p class="row-p4">
@@ -87,7 +89,7 @@
                             </p>                        
                         </div>
                         <h6 class="title-hover2">{{itemHero[4].title}}</h6>
-                    </div>
+                    </a>
                     <img class="item-2" src="assets/img/blog(hover)-5.svg" alt="blog">
                 </div>                
             </div>
@@ -117,7 +119,66 @@
                 </div>
                 <div class="-mt-9">
                     <drag-scroll #nav (reachesRightBound)="isRightBoundary($event)" (reachesLeftBound)="isLeftBoundary($event)">
-                        <div class="cart" drag-scroll-item *ngFor="let item of items"><app-card-responsive></app-card-responsive></div>
+
+                        <!-- <div class="cart" drag-scroll-item *ngFor="let item of items">
+                            <app-card-responsive [data]="itemHero"></app-card-responsive>
+                        </div> -->
+                        
+                        
+                        <!-- =================[کارت هایی که بعد از درست شدن دیتا باید پاک شود]============ -->
+                        <ng-container *ngFor="let item of itemHero; let i = index">
+                        <div class="cart" drag-scroll-item>
+                            <div class="flex mt-16">
+                                <div class="w-72">
+                                    <div class="flex justify-center">
+                                        <div class="relative overflow-hidden">
+                                            <a href="">
+                                                <img [src]="x[i].img" alt="card">
+                                            </a>
+                                            <div class="box-shadow" [style]="'box-shadow: 0px -20px 36px 66px'+ x[i].color"></div>
+                                            <div class="img-description-row">
+                                                <div class="divider-mobile" [style]="'background-color:'+ x[i].color"></div>
+                                                <a href="">
+                                                    <h6 class="img-title">{{item.title}}</h6>
+                                                </a>
+                                                <div class="flex gap-8 mt-4">
+                                                    <p class="img-description">
+                                                        نویسنده : {{item.updatedByFirstName}}
+                                                    </p>
+                                                    <p class="img-description">
+                                                        4 ساعت پیش
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-start">
+                                        <div class="mt-4">
+                                            <h6 class="title"> {{item.title}} </h6>
+                                            <div class="flex mt-2">
+                                            <img class="icon" src="assets/img/icon-carousel-card.svg" alt="card">
+                                            <p class="icon-title">ترید فارکس</p></div>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-start mt-3">
+                                        <p class="pl-3 carousel-description">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum ipsum excepturi molestiae
+                                             id autem, enim ab aperiam esse nihil officiis incidunt delectus. Veniam est, unde et aut animi dolorem explicabo.
+                                        </p>
+                                    </div>
+                                    <div class="flex justify-start mt-5">
+                                        <p class="date-carousel">
+                                         انتشار: {{item.publishDate | date}}
+                                        </p>
+                                        <p class="date-carousel mr-4">
+                                            زمان مطالعه: {{item.viewsCount%25}} دقیقه  
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                     </ng-container>
+
                     </drag-scroll>
                 </div>
             </div>

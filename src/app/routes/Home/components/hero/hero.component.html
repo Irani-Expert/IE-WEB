@@ -24,14 +24,15 @@
   </div>
 
   <div class="flex flex-col gap-3 lg:flex-row lg:justify-between r-h">
-    <span>
-      <button>
-        <span class="btn"
-          >خرید ربات معامله گر <i class="fa-solid fa-arrow-left btn-icon"></i
-        ></span>
-      </button>
-      <a class="link"><i class="fa-solid fa-phone"></i> رایگان مشاوره بگیرید</a>
-    </span>
+    <div class="flex items-center">
+      <a
+       routerLink="products/1/اکسپرت_ATM"
+       class="btn flex">
+          خرید ربات معامله گر 
+          <img class="icon-btn" src="assets/img/Arrow-left-icon(white).svg" alt="icon">
+      </a>
+      <a class="link flex items-center mb-2"><img class="scale-75 ml-2" src="assets/img/call-icon.svg" alt="icon"> رایگان مشاوره بگیرید</a>
+    </div>
     <div class="sod">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-3 sood">
         <div class="mizan-sod">
@@ -99,7 +100,7 @@
       </p>
       <div class="row-btn mt-7">
         <button class="btn1 sm:w-auto w-5/12">
-          فروشگاه <i class="fa-solid fa-arrow-left icon-btn"></i>
+          فروشگاه 
         </button>
         <button class="btn2 w-5/12">رضایت مشتری</button>
       </div>
