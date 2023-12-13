@@ -14,36 +14,36 @@ class BlogModel implements Blog {
   authorIconPath: string = '';
   studyTime: string = '';
   publishDate: string = '';
+  browserTitle: string = '';
 }
 @Component({
   selector: 'app-blog-cart',
   templateUrl: './blog-cart.component.html',
-  styleUrls: ['./blog-cart.component.scss']
+  styleUrls: ['./blog-cart.component.scss'],
 })
 export class BlogCartComponent {
-  contentUrl = environment.contentUrl
-  @Input('data') item:Blog =  new BlogModel()
-  @Input('item') items:any
+  contentUrl = environment.contentUrl;
+  @Input('data') item: Blog = new BlogModel();
+  @Input('item') items: any;
 
- // =======================[رسپانسیو]==========
-  
- device: 'sm' | 'lg' = 'lg';
- ngOnInit(){
-   this.updateDeviceValue();
+  // =======================[رسپانسیو]==========
 
- }
- 
- @HostListener('window:resize', ['$event'])
- onResize() {
-   this.updateDeviceValue();
- }
- updateDeviceValue() {
-   if (AppComponent.isBrowser.value) {
-     if (Utils.isMobileL()) {
-       this.device = 'sm';
-     } else {
-       this.device = 'lg';
-     }
-   }
- }
+  device: 'sm' | 'lg' = 'lg';
+  ngOnInit() {
+    this.updateDeviceValue();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.updateDeviceValue();
+  }
+  updateDeviceValue() {
+    if (AppComponent.isBrowser.value) {
+      if (Utils.isMobileL()) {
+        this.device = 'sm';
+      } else {
+        this.device = 'lg';
+      }
+    }
+  }
 }

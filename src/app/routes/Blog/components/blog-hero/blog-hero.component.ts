@@ -14,23 +14,23 @@ class BlogModel implements Blog {
   authorIconPath: string = '';
   studyTime: string = '';
   publishDate: string = '';
+  browserTitle: string = '';
 }
 @Component({
   selector: 'app-blog-hero',
   templateUrl: './blog-hero.component.html',
-  styleUrls: ['./blog-hero.component.scss']
+  styleUrls: ['./blog-hero.component.scss'],
 })
 export class BlogHeroComponent {
-  @Input('data') itemHero = new Array<BlogModel>
+  @Input('data') itemHero = new Array<BlogModel>();
 
   // =======================[رسپانسیو]==========
-  
-  device: 'sm' | 'lg' = 'lg';
-  ngOnInit(){
-    this.updateDeviceValue();
 
+  device: 'sm' | 'lg' = 'lg';
+  ngOnInit() {
+    this.updateDeviceValue();
   }
-  
+
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.updateDeviceValue();
@@ -47,50 +47,51 @@ export class BlogHeroComponent {
   // ================================[کاروسل رسپانسیو]===============
   rightReached = false;
   leftReached = false;
-  @ViewChild('nav', {read: DragScrollComponent}) ds: DragScrollComponent;
-  items = [{
-    id:0,
-    title:'s'
-  },
-  {
-    id:0,
-    title:'s'
-  },
-  {
-    id:0,
-    title:'s'
-  },
-  {
-    id:0,
-    title:'s'
-  },
-  {
-    id:0,
-    title:'s'
-  },
-  {
-    id:1,
-    title:'d'
-  }]
+  @ViewChild('nav', { read: DragScrollComponent }) ds: DragScrollComponent;
+  items = [
+    {
+      id: 0,
+      title: 's',
+    },
+    {
+      id: 0,
+      title: 's',
+    },
+    {
+      id: 0,
+      title: 's',
+    },
+    {
+      id: 0,
+      title: 's',
+    },
+    {
+      id: 0,
+      title: 's',
+    },
+    {
+      id: 1,
+      title: 'd',
+    },
+  ];
   moveLeft() {
     this.ds.moveLeft();
-
   }
 
   moveRight() {
     this.ds.moveRight();
   }
-  isRightBoundary(event:any) {
-    if(event) this.rightReached = true
-    else this.rightReached = false
+  isRightBoundary(event: any) {
+    if (event) this.rightReached = true;
+    else this.rightReached = false;
   }
-  isLeftBoundary(event:any) {
-    if(event) this.leftReached = true
-    else this.leftReached = false
+  isLeftBoundary(event: any) {
+    if (event) this.leftReached = true;
+    else this.leftReached = false;
   }
 
   // <!-- ========================[ایتم عکس]============== -->
-  red ='#ff0000c2';
+  red = '#ff0000c2';
   yellow = '#ffd700a3';
   blue = '#0000ff91';
   aqua = '#00ffffb2';

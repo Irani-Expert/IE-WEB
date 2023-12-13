@@ -6,9 +6,10 @@ export interface Blog {
   updatedByLastName: string;
   cardImagePath: string;
   viewsCount: number;
-  authorIconPath : string;
-  studyTime : string;
-  publishDate : string;
+  authorIconPath: string;
+  studyTime: string;
+  publishDate: string;
+  browserTitle: string;
 }
 export interface SingleBlog {
   id: number;
