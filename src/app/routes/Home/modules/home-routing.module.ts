@@ -4,8 +4,8 @@ import { LandingPageComponent } from '../components/landing-page/landing-page.co
 import { AboutUsComponent } from '../components/about-us/about-us.component';
 
 const routes: Routes = [
-  { path: '', component: LandingPageComponent },
-  { path: 'ab', component: AboutUsComponent },
+  { path: '', title: 'ایرانی اکسپرت - خانه', component: LandingPageComponent },
+  { path: 'about-us', title: 'چرا ما؟ ', component: AboutUsComponent },
 ];
 
 @NgModule({
