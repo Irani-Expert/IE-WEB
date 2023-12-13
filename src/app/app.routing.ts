@@ -13,34 +13,33 @@ const routes: Routes = [
   },
   {
     path: '',
-    title: 'Home',
+    title: 'ابرانی اکسپرت',
     loadChildren: () =>
       import('./routes/Home/modules/home.module').then((m) => m.HomeModule),
   },
   {
     path: 'products',
-    title: 'Shop',
+    title: 'فروشگاه ایرانی اکسپرت',
     loadChildren: () =>
       import('./routes/Shop/module/shop.module').then((m) => m.ShopModule),
   },
   {
     canActivate: [() => inject(CanActivate).canActivate()],
     path: 'checkout',
-    title: 'ایرانی اکسپرت',
     loadChildren: () =>
       import('./routes/Checkout/checkout.module').then((m) => m.CheckoutModule),
   },
   {
     path: 'brokers',
-    title: 'brokers',
+    title: 'مقایسه بروکر ها در ایرانی اکسپرت',
     loadChildren: () =>
       import('./routes/Brokers/module/broker.module').then(
         (m) => m.BrokerModule
       ),
   },
   {
-    path: 'blogs',
-    title: 'articles',
+    path: 'blog',
+    title: 'مقالات ایرانی اکسپرت',
     loadChildren: () =>
       import('./routes/Blog/module/blog.module').then((m) => m.BlogModule),
   },

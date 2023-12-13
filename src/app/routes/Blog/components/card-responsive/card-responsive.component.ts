@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Blog } from 'src/app/classes/interfaces/blog.interface';
 class BlogModel implements Blog {
+  isRTL: boolean = false;
   browserTitle: string = '';
   id: number = 0;
   title: string = '';

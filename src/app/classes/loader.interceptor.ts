@@ -19,7 +19,7 @@ export class LoaderInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     AppComponent.loaderSubject.next(true);
     return next.handle(req).pipe(
-      delay(500),
+      delay(200),
       finalize(() => AppComponent.loaderSubject.next(false))
     );
   }
