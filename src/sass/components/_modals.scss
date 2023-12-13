@@ -6,6 +6,7 @@ $xlg: 1270px;
   @include justify-align-center;
   @include full-backdrop;
   z-index: 1000;
+  position: fixed !important;
 }
 
 .modal {
@@ -26,6 +27,7 @@ $xlg: 1270px;
   display: flex;
   flex-direction: column;
   @include absolute-center;
+  position: fixed !important;
   z-index: 1001;
   max-width: 97vw;
   height: auto;

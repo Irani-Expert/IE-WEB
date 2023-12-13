@@ -10,11 +10,12 @@ import { Toggler } from '../toggler/toggler.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { Spinner } from '../spinner/spinner.component';
 import { NgOtpInputModule } from 'ng-otp-input';
+import { SharedModule } from '../shared.module';
 import { LottieModule } from 'ngx-lottie';
-import { LottieComponent } from '../lottie/lottie.component';
 export function playerFactory(): any {
   return import('lottie-web');
 }
+const lottieModule = LottieModule.forRoot({ player: playerFactory });
 const components = [
   AuthComponent,
   SignupComponent,
@@ -29,9 +30,10 @@ const components = [
     Toggler,
     Spinner,
     NgOtpInputModule,
-    LottieModule.forRoot({ player: playerFactory }),
+    SharedModule,
+    lottieModule,
   ],
-  declarations: [components, SwitchComponent, LottieComponent],
+  declarations: [components, SwitchComponent],
   exports: [components],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

@@ -1,0 +1,15 @@
+.loader-backdrop {
+  @include justify-align-center;
+  @include full-backdrop;
+  z-index: 1002;
+  position: fixed !important;
+}
+.loader {
+  z-index: 1003;
+  overflow: hidden;
+  display: flex;
+  position: fixed !important;
+
+  justify-content: center;
+  @include absolute-center;
+}

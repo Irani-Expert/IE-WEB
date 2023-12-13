@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { PlatformService } from './classes/services/platform.service';
-// import { ModalService } from './shared/modal/services/modal.service';
+
 import { AuthService } from './shared/auth/auth.service';
 import { Header } from './components/header-layout/header';
 
@@ -11,15 +11,17 @@ import { Header } from './components/header-layout/header';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  lottieConfig = {
+    width: '50vw',
+    height: 'auto',
+    path: 'assets/lottie/loader.json',
+  };
+  static loaderSubject = new BehaviorSubject(false);
+
   // modalStatus;
   static isBrowser = new BehaviorSubject<boolean>(false);
   title = 'IE-WEB';
-  constructor(
-    private platform: PlatformService,
-    // private modal: ModalService,
-    private auth: AuthService
-  ) {
-    // this.modalStatus = this.modal.modalStatusSubject;
+  constructor(private platform: PlatformService, private auth: AuthService) {
     if (this.platform.isPlatformBrowser()) {
       AppComponent.isBrowser.next(true);
     }
@@ -36,6 +38,9 @@ export class AppComponent {
         this.auth.logOutUser();
       }
     }
+  }
+  get httpLoader() {
+    return AppComponent.loaderSubject.value;
   }
 }
 
