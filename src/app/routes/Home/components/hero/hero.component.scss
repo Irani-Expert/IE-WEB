@@ -248,6 +248,8 @@ $min-width-carousel: 300px;
   font-size: 22px;
   color: #757575;
   margin-bottom: 12px;
+  position: relative;
+  z-index: 2;
 }
 .hero-p {
   font-size: 15px;
@@ -266,10 +268,15 @@ $min-width-carousel: 300px;
   color: white;
   position: relative;
   border-radius: 35px;
-  padding: 8px 18px 6px 18px;
+  padding: 8px 18px 6px 16px;
   background-color: #3246d3;
   font-weight: 700;
   margin-left: 15px;
+}
+.icon-mobile{
+  scale: 0.6;
+  margin-bottom: 0.2rem;
+  margin-right: 0.4rem;
 }
 .btn2 {
   color: black;
