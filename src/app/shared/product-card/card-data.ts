@@ -8,6 +8,7 @@ export interface IcardData {
   bgColorCode: string;
   hours: string | null;
   session: number | null;
+  link: string | null;
   writer: string | null;
   isOrigin: boolean | null;
 }

@@ -34,6 +34,7 @@ export class LandingPageComponent {
       session: 2,
       writer: null,
       isOrigin: null,
+      link: null,
     },
     {
       id: 0,
@@ -43,7 +44,7 @@ export class LandingPageComponent {
       type: 1,
       colorCode: '#ED912A',
       bgColorCode: 'rgb(245 179 104)',
-
+      link: null,
       hours: '2:14',
       session: 2,
       writer: null,
@@ -57,7 +58,7 @@ export class LandingPageComponent {
       type: 1,
       colorCode: '#ED912A',
       bgColorCode: 'rgb(245 179 104)',
-
+      link: null,
       hours: '2:14',
       session: 2,
       writer: null,
@@ -103,6 +104,7 @@ export class LandingPageComponent {
             session: null,
             writer: null,
             isOrigin: null,
+            link: null,
           };
           this.card_data2.push(dataKeeper);
         });
