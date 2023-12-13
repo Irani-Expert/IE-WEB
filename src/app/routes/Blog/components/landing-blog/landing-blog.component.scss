@@ -22,7 +22,8 @@
   border-radius: 25px;
   position: relative;
   height: 8.2rem;
-  width: 100%
+  width: 100%;
+  max-width: 450px;
 }
 .logo-mobile{
   transform: translate(-14px, -17px);
@@ -53,6 +54,7 @@
   justify-content: space-between;
   padding: 0px 10px 0px 10px;
   align-items: center;
+  max-width: 350px;
 }
 .input-baner{
   outline: white;
