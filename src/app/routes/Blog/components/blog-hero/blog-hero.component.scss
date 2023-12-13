@@ -180,6 +180,13 @@ drag-scroll{
   font-size: 1.5rem;
   font-style: oblique;
 }
+.img-carousel{
+  max-height: 14rem;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  height: 14rem;
+}
 // <!-- =================[کارت هایی که بعد از درست شدن دیتا باید پاک شود]============ -->
 .img-description-row{
   position: absolute;
