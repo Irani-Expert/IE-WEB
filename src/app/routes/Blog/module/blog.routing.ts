@@ -5,14 +5,25 @@ import { BlogPaginationComponent } from '../components/blog-pagination/blog-pagi
 import { LandingBlogDetailComponent } from '../components/landing-blog-detail/landing-blog-detail.component';
 
 const routes: Routes = [
-    { path: '', component: LandingBlogComponent },
-    {path: 'blogs', component: BlogPaginationComponent},
-    {path:'blogs/:title', redirectTo:':title',pathMatch:'full'},
-    {path: ':title', component: LandingBlogDetailComponent }
-  ];
+  { path: '', component: LandingBlogComponent },
+  { path: 'page', redirectTo: 'page/1', pathMatch: 'full' },
+  { path: 'page/:id', pathMatch: 'full', component: BlogPaginationComponent },
+  {
+    path: ':title/:language',
+    redirectTo: 'details/:title/:language',
+    pathMatch: 'full',
+  },
 
-  @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule],
-  })
-  export class BlogRoutingModule {}
+  {
+    path: 'page/:id/:title/:language',
+    redirectTo: 'details/:title/:language',
+    pathMatch: 'full',
+  },
+  { path: 'details/:title/:language', component: LandingBlogDetailComponent },
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
+})
+export class BlogRoutingModule {}

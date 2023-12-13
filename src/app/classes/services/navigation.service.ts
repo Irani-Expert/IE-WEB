@@ -43,26 +43,8 @@ export class NavigationService {
       id: 4,
       name: 'بروکر ها',
       title: 'Brokers',
-      type: 'dropdown',
+      type: 'link',
       path: 'brokers',
-      sub: [
-        {
-          id: 1,
-          path: 'AMarkets',
-          name: 'AMarkets',
-          parentID: 4,
-          title: 'AMarkets',
-          type: 'link',
-        },
-        {
-          id: 2,
-          path: 'OpoFn',
-          name: 'OpoFn',
-          parentID: 4,
-          title: 'OpoFn',
-          type: 'link',
-        },
-      ],
     },
     // {
     //   id: 5,
@@ -123,42 +105,9 @@ export class NavigationService {
     {
       id: 7,
       name: 'چرا ما؟',
-      title: 'Why Us?',
-      type: 'dropdown',
-      sub: [
-        {
-          id: 1,
-          path: 'about-us?customer-satisfaction',
-          name: 'رضایت مشتریان',
-          parentID: 7,
-          title: 'Customer Satisfaction',
-          type: 'link',
-        },
-        {
-          id: 2,
-          path: 'about-us?contact-us',
-          name: 'تماس با ما',
-          parentID: 7,
-          title: 'Contact Us',
-          type: 'link',
-        },
-        {
-          id: 3,
-          path: 'about-us',
-          name: 'درباره ما',
-          parentID: 7,
-          title: 'About Us',
-          type: 'link',
-        },
-        {
-          id: 4,
-          path: 'about-us?consulting',
-          name: 'مشاوره رایگان',
-          parentID: 7,
-          title: 'Free Consulting',
-          type: 'link',
-        },
-      ],
+      title: 'about-us',
+      path: 'about-us',
+      type: 'link',
     },
   ];
 
