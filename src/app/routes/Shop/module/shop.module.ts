@@ -20,6 +20,7 @@ import { DiscountBannerComponent } from 'src/app/shared/discount-banner/discount
 import { SliderComponent } from '../../Home/components/slider/slider.component';
 import { DragScrollModule } from 'ngx-drag-scroll';
 import { ProductProperties } from 'src/app/shared/product-properties/product-properties.component';
+import { TableCompareComponent } from '../components/table-compare/table-compare.component';
 
 const components = [
   SliderComponent,
@@ -32,6 +33,7 @@ const components = [
   BotOptionsComponent,
   LandingProductComponent,
   DiscountBannerComponent,
+  TableCompareComponent,
 ];
 
 @NgModule({
