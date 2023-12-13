@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IcardData } from 'src/app/shared/product-card/card-data';
 import { FilterBlog } from 'src/app/classes/interfaces/filter-blog.interface';
 import { BlogService } from 'src/app/classes/services/blog.service';
@@ -8,6 +8,7 @@ import { Page } from 'src/app/classes/page.model';
 import { lastValueFrom } from 'rxjs';
 import { Product } from 'src/app/classes/interfaces/product.interface';
 import { FilterProduct } from 'src/app/classes/interfaces/filter-product.interface';
+import { ConsultationFormComponent } from '../consultation-form/consultation-form.component';
 
 @Component({
   selector: 'app-landing-page',
@@ -15,6 +16,7 @@ import { FilterProduct } from 'src/app/classes/interfaces/filter-product.interfa
   styleUrls: ['./landing-page.component.scss'],
 })
 export class LandingPageComponent {
+  @ViewChild(ConsultationFormComponent,{static: false}) appConsulting: ConsultationFormComponent
   isRecived: boolean = false;
   page: Page<Product[]>;
 
@@ -124,5 +126,8 @@ export class LandingPageComponent {
     this.getProducts();
 
     this.filters.pageSize = 3;
+  }
+  scroll(event:boolean) {
+    this.appConsulting.scroll()
   }
 }

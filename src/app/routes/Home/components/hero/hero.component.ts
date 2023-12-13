@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, EventEmitter, HostListener, Output } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { Utils } from 'src/app/classes/utils';
 @Component({
@@ -8,7 +8,7 @@ import { Utils } from 'src/app/classes/utils';
 })
 export class HeroComponent {
   device: 'sm' | 'lg' = 'lg';
-
+  @Output('scroll') isEmited = new EventEmitter<boolean>
   constructor() {
     this.updateDeviceValue();
   }
@@ -35,5 +35,8 @@ export class HeroComponent {
         this.device = 'lg';
       }
     }
+  }
+  scrollToView() {
+    this.isEmited.emit(true)
   }
 }
