@@ -1,5 +1,21 @@
 $min-width-carousel: 300px;
 
+@media (min-width: 640px) {
+  .btn1 {
+    .btn1 {
+      padding: 8px 18px 6px 16px;
+      margin-left: 15px;
+    }
+  }
+}
+
+.btn1 {
+  color: white;
+  position: relative;
+  border-radius: 35px;
+  background-color: #3246d3;
+  font-weight: 700;
+}
 .hero {
   margin-bottom: 0;
 }
@@ -264,16 +280,8 @@ $min-width-carousel: 300px;
   margin-right: 22px;
   margin-left: 22px;
 }
-.btn1 {
-  color: white;
-  position: relative;
-  border-radius: 35px;
-  padding: 8px 18px 6px 16px;
-  background-color: #3246d3;
-  font-weight: 700;
-  margin-left: 15px;
-}
-.icon-mobile{
+
+.icon-mobile {
   scale: 0.6;
   margin-bottom: 0.2rem;
   margin-right: 0.4rem;
