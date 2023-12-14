@@ -11,4 +11,5 @@ export interface IcardData {
   link: string | null;
   writer: string | null;
   isOrigin: boolean | null;
+  publishedBy: string;
 }

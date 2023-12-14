@@ -86,8 +86,9 @@
         <img
           class="w-4"
           src="../../../../../assets/img/icons8-instagram-verification-badge-144.png"
+          *ngIf="Data.publishedBy == 'IRaniExpert'"
         />
-        <p class="mt-1">iraniExpert</p>
+        <p class="mt-1">{{ Data.publishedBy }}</p>
       </div>
     </div>
   </div>
