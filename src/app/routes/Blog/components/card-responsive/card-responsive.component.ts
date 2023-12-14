@@ -13,6 +13,8 @@ class BlogModel implements Blog {
   authorIconPath: string = '';
   studyTime: string = '';
   publishDate: string = '';
+  brief : string ='';
+
 }
 
 @Component({

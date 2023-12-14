@@ -4,7 +4,7 @@
         <div class="baner flex">
             <div class="basis-1/3 flex items-center">
                 <div class="flex items-center">
-                    <div>
+                    <div class="lg:pt-0 pt-4">
                         <span class="divid-h lg:!text-base">با ایرانی اکسپرت مطمئن و آسان ترید کن </span>
                         <h6 class="faq-h mb-4 lg:!text-2xl">مقالات آموزشی فارکس</h6>
                     </div>
@@ -32,7 +32,7 @@
             <div class="relative">
                 <a href="" class="box-hover pt-24" [style]="'background-color:'+ red" >
                     <div class="row-hover flex gap-24 items-center">
-                        <p class="row-p1">نویسنده : {{itemHero[0].updatedByFirstName}}{{itemHero[0].updatedByLastName}}</p>
+                        <p class="row-p1">نویسنده : {{itemHero[0].updatedByFirstName}} {{itemHero[0].updatedByLastName}}</p>
                         <p class="row-p2">
                             زمان انتشار: {{itemHero[0].publishDate | date}}
                         </p>                    
@@ -46,7 +46,7 @@
                     <a href="" class="box-hover pt-8" [style]="'background-color:'+ yellow" >
                         <div class="row-hover flex gap-8 items-center">
                             <p class="row-p1">
-                                نویسنده : {{itemHero[1].updatedByFirstName}}{{itemHero[1].updatedByLastName}}
+                                نویسنده : {{itemHero[1].updatedByFirstName}} {{itemHero[1].updatedByLastName}}
                             </p>
                             <p class="row-p4">
                                 زمان انتشار: {{itemHero[1].publishDate | date}}
@@ -59,7 +59,7 @@
                 <div class="relative">
                     <a href="" class="box-hover pt-8" [style]="'background-color:'+ blue" >
                         <div class="row-hover flex gap-8 items-center">
-                            <p class="row-p1">نویسنده : {{itemHero[2].updatedByFirstName}}{{itemHero[2].updatedByLastName}}</p>
+                            <p class="row-p1">نویسنده : {{itemHero[2].updatedByFirstName}} {{itemHero[2].updatedByLastName}}</p>
                             <p class="row-p4">
                                 زمان انتشار: {{itemHero[2].publishDate | date}}
                             </p>
@@ -71,7 +71,7 @@
                 <div class="relative">
                     <a href="" class="box-hover pt-8" [style]="'background-color:'+ aqua" >
                         <div class="row-hover flex gap-8 items-center">
-                            <p class="row-p1">نویسنده : {{itemHero[3].updatedByFirstName}}{{itemHero[3].updatedByLastName}}</p>
+                            <p class="row-p1">نویسنده : {{itemHero[3].updatedByFirstName}} {{itemHero[3].updatedByLastName}}</p>
                             <p class="row-p4">
                                 زمان انتشار: {{itemHero[3].publishDate | date}}
                             </p>                        
@@ -83,7 +83,7 @@
                 <div class="relative">
                     <a href="" class="box-hover pt-8" [style]="'background-color:'+ green" >
                         <div class="row-hover flex gap-8 items-center">
-                            <p class="row-p1">نویسنده : {{itemHero[4].updatedByFirstName}}{{itemHero[4].updatedByLastName}}</p>
+                            <p class="row-p1">نویسنده : {{itemHero[4].updatedByFirstName}} {{itemHero[4].updatedByLastName}}</p>
                             <p class="row-p4">
                                 زمان انتشار: {{itemHero[4].publishDate | date}}
                             </p>                        
@@ -102,22 +102,22 @@
 <div [ngClass]="device == 'sm' ? 'block' : 'hidden'">
 
         <!-- ==============[کاروسل]============= -->
+        <div class="mt-10 flex justify-between me-4 ml-4">
+            <div class="flex items-center">
+                <p class="divid-carousel">پرطرفدارترین مطالب </p>
+            </div>
+            <div class="flex justify-center">
+                <button class="btn" [ngClass]="leftReached ? 'btn-disable': ''" (click)="moveLeft()" >
+                    <p class="icon-btn" [ngClass]="leftReached ? 'icon-disable': ''">&lt;</p>
+                </button>
+                <button class="btn mr-6"  [ngClass]="rightReached ? 'btn-disable': ''" (click)="moveRight()">
+                    <p class="icon-btn" [ngClass]="rightReached ? 'icon-disable': ''">&gt;</p>
+                </button>
+            </div>
+        </div>
         <div class="flex justify-center">
             <div class="row-carousel">
-                <div class="mt-6 flex justify-between">
-                    <div class="flex items-center">
-                        <p class="divid-carousel">پرطرفدارترین مطالب </p>
-                    </div>
-                    <div class="flex justify-center">
-                        <button class="btn" [ngClass]="leftReached ? 'btn-disable': ''" (click)="moveLeft()" >
-                            <p class="icon-btn" [ngClass]="leftReached ? 'icon-disable': ''">&lt;</p>
-                        </button>
-                        <button class="btn mr-6"  [ngClass]="rightReached ? 'btn-disable': ''" (click)="moveRight()">
-                            <p class="icon-btn" [ngClass]="rightReached ? 'icon-disable': ''">&gt;</p>
-                        </button>
-                    </div>
-                </div>
-                <div class="-mt-9">
+                <div class="flex justify-center">
                     <drag-scroll #nav (reachesRightBound)="isRightBoundary($event)" (reachesLeftBound)="isLeftBoundary($event)">
 
                         <!-- <div class="cart" drag-scroll-item *ngFor="let item of items">
@@ -128,8 +128,7 @@
                         <!-- =================[کارت هایی که بعد از درست شدن دیتا باید پاک شود]============ -->
                         <ng-container *ngFor="let item of itemHero; let i = index">
                         <div class="cart" drag-scroll-item>
-                            <div class="flex mt-16">
-                                <div class="w-72">
+                            <div class="flex flex-col justify-between w-72 mt-16">
                                     <div class="flex justify-center">
                                         <div class="relative overflow-hidden">
                                             <a href="">
@@ -162,8 +161,7 @@
                                     </div>
                                     <div class="flex justify-start mt-3">
                                         <p class="pl-3 carousel-description">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum ipsum excepturi molestiae
-                                             id autem, enim ab aperiam esse nihil officiis incidunt delectus. Veniam est, unde et aut animi dolorem explicabo.
+                                            {{item.brief}}
                                         </p>
                                     </div>
                                     <div class="flex justify-start mt-5">
@@ -174,7 +172,6 @@
                                             زمان مطالعه: {{item.viewsCount%25}} دقیقه  
                                         </p>
                                     </div>
-                                </div>
                             </div>
                         </div> 
                      </ng-container>
