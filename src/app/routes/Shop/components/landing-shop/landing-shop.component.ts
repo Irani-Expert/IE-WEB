@@ -161,8 +161,9 @@ export class LandingShopComponent {
                 this.filterModel.pageIndex =
                   parseInt(arrayOfUrlSegments[3]) - 1;
                 this.getProducts();
+                this.openNav = 0;
                 this._linkService.createLink(
-                  `https://www.iraniexpert.com/shop/page/${arrayOfUrlSegments[3]}`
+                  `https://www.iraniexpert.com/products/page/${arrayOfUrlSegments[3]}`
                 );
               }
             }
@@ -201,7 +202,9 @@ export class LandingShopComponent {
 
   setPage(pageNumber: number) {
     this.productService.prdArray.next(null);
-    this._router.navigateByUrl(`shop/page/${pageNumber}?${this._querystring}`);
+    this._router.navigateByUrl(
+      `products/page/${pageNumber}?${this._querystring}`
+    );
   }
 
   // Fill The Filter On Reloads or Navigations  --------------------------------------->
@@ -265,12 +268,12 @@ export class LandingShopComponent {
     if (event !== '') {
       this.savedParams = { ...this.savedParams, ...{ productName: event } };
       this._router.navigateByUrl(
-        `shop/page/${this.filterModel.pageIndex + 1}?${this._querystring}`
+        `products/page/${this.filterModel.pageIndex + 1}?${this._querystring}`
       );
     } else {
       delete this.savedParams['productName'];
       this._router.navigateByUrl(
-        `shop/page/${this.filterModel.pageIndex + 1}?${this._querystring}`
+        `products/page/${this.filterModel.pageIndex + 1}?${this._querystring}`
       );
     }
   }
@@ -305,7 +308,7 @@ export class LandingShopComponent {
         ...{ category: `[${categoryString}]` },
       };
       this._router.navigateByUrl(
-        `shop/page/${this.filterModel.pageIndex + 1}?${this._querystring}`
+        `products/page/${this.filterModel.pageIndex + 1}?${this._querystring}`
       );
     } else {
       let index = this.filterModel.categories.findIndex((it) => it == type);
@@ -326,7 +329,7 @@ export class LandingShopComponent {
         };
       }
       this._router.navigateByUrl(
-        `shop/page/${this.filterModel.pageIndex + 1}?${this._querystring}`
+        `products/page/${this.filterModel.pageIndex + 1}?${this._querystring}`
       );
     }
   }
@@ -349,7 +352,16 @@ export class LandingShopComponent {
       ...{ rates: `[${event[0]}]` },
     };
     this._router.navigateByUrl(
-      `shop/page/${this.filterModel.pageIndex + 1}?${this._querystring}`
+      `products/page/${this.filterModel.pageIndex + 1}?${this._querystring}`
     );
+  }
+  deleteFilters(event: boolean) {
+    if (event) {
+      this.checkboxes.forEach((it) => (it.checked = false));
+      this.ratingConfig.content.currentRate = 0;
+      this.productService.prdArray.next(null);
+      this.filterModel = new FilterProduct();
+      this._router.navigateByUrl(`products/page`);
+    }
   }
 }

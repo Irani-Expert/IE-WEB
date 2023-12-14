@@ -23,7 +23,8 @@
       />
     </video>
     <div
-      class="items-center p-div flex justify-center text-2xl sm:p-2 sm:px-16 px-4 pb-2 top-28 sm:top-[13rem]"
+      class="items-center p-div flex justify-center text-2xl sm:p-2 sm:px-16 px-4 pb-2 top-28"
+      [ngClass]="homeScreen != true ? 'sm:top-[13rem]' : 'sm:top-[27rem]'"
     >
       <i
         class="fa fa-expand me-3 text-base text-white ms-2 flex items-center"

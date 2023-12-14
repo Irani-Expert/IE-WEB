@@ -13,7 +13,9 @@
   >
     <div class="header-container hidden sm:block">
       <h3 class="hidden sm:block">فیلترها</h3>
-      <button class="hidden sm:block">حذف فیلترها</button>
+      <button class="hidden sm:block" (click)="deleteFilters()">
+        حذف فیلترها
+      </button>
     </div>
     <div class="content-container">
       <ng-container *ngFor="let item of filterModel; let i = index">

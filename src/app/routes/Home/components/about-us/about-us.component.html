@@ -32,7 +32,7 @@
       </div>
     </div>
     <div class="sm:mt-16">
-      <h4 class="sm:text-4xl color--green oblique">
+      <h4 class="sm:text-4xl color--green oblique" id="userSatisfaction">
         رضایتمندی ؛ مصاحبه با
         <span class="hidden sm:inline">بخشی از</span>
         مشتریان ایرانی اکسپرت
@@ -66,7 +66,10 @@
               >
             </div>
             <div class="sm:w-8/12 mt-4">
-              <app-video-player [VideoId]="0"></app-video-player>
+              <app-video-player
+                [VideoId]="0"
+                [homeScreen]="false"
+              ></app-video-player>
             </div>
           </div>
           <div
@@ -92,7 +95,10 @@
                   >
                 </div>
                 <div class="sm:w-8/12 mt-4">
-                  <app-video-player [VideoId]="index"></app-video-player>
+                  <app-video-player
+                    [VideoId]="index"
+                    [homeScreen]="false"
+                  ></app-video-player>
                 </div>
               </div>
             </ng-container>

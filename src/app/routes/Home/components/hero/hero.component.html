@@ -25,13 +25,18 @@
 
   <div class="flex flex-col gap-3 lg:flex-row lg:justify-between r-h">
     <div class="flex items-center">
-      <a
-       routerLink="products/1/اکسپرت_ATM"
-       class="btn flex">
-          خرید ربات معامله گر 
-          <img class="icon-btn" src="assets/img/Arrow-left-icon(white).svg" alt="icon">
+      <a routerLink="products/1/اکسپرت_ATM" class="btn flex">
+        خرید ربات معامله گر
+        <img
+          class="icon-btn"
+          src="assets/img/Arrow-left-icon(white).svg"
+          alt="icon"
+        />
       </a>
-      <button (click)="scrollToView()" class="link flex items-center mb-2"><img class="scale-75 ml-2" src="assets/img/call-icon.svg" alt="icon" > رایگان مشاوره بگیرید</button>
+      <button (click)="scrollToView()" class="link flex items-center mb-2">
+        <img class="scale-75 ml-2" src="assets/img/call-icon.svg" alt="icon" />
+        رایگان مشاوره بگیرید
+      </button>
     </div>
     <div class="sod">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-3 sood">
@@ -99,11 +104,22 @@
         ورودی زیاد و نظارت انسانی دارد
       </p>
       <div class="row-btn flex items-center mt-7">
-        <a routerLink="products/page/1" class="flex items-center btn1 sm:w-auto">
-          فروشگاه 
-          <img class="icon-mobile" src="assets/img/Arrow-left-icon(white).svg" alt="icon">
+        <a
+          routerLink="products/1/اکسپرت_ATM"
+          class="flex items-center btn1 sm:w-auto py-1.5 px-1"
+        >
+          خرید ربات معامله گر
+          <img
+            class="icon-mobile"
+            src="assets/img/Arrow-left-icon(white).svg"
+            alt="icon"
+          />
         </a>
-        <a routerLink="/about-us%3Fcustomer-satisfaction" class="btn2">رضایت مشتری</a>
+        <a
+          [routerLink]="['/about-us', { location: 'userSatisfaction' }]"
+          class="btn2 ms-2"
+          >رضایت مشتری</a
+        >
       </div>
       <div class="circle"></div>
     </div>

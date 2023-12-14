@@ -6,6 +6,7 @@ import {
   trigger,
 } from '@angular/animations';
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-about-us',
@@ -21,6 +22,15 @@ import { Component } from '@angular/core';
   ],
 })
 export class AboutUsComponent {
+  constructor(private activatedRoute: ActivatedRoute) {}
+  ngOnInit() {
+    var location = this.activatedRoute.snapshot.queryParams['location'];
+    if (location == 'userSatisfaction') {
+      let element = document.getElementById('userSatisfaction');
+      element?.scrollIntoView({ behavior: 'smooth' });
+    }
+    debugger;
+  }
   buttonText = 'باز کردن لیست پخش';
   isVideoOpend: boolean = false;
   openVideoList() {
