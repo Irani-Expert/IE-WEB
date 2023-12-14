@@ -16,7 +16,8 @@ import { ConsultationFormComponent } from '../consultation-form/consultation-for
   styleUrls: ['./landing-page.component.scss'],
 })
 export class LandingPageComponent {
-  @ViewChild(ConsultationFormComponent,{static: false}) appConsulting: ConsultationFormComponent
+  @ViewChild(ConsultationFormComponent, { static: false })
+  appConsulting: ConsultationFormComponent;
   isRecived: boolean = false;
   page: Page<Product[]>;
 
@@ -37,6 +38,7 @@ export class LandingPageComponent {
       writer: null,
       isOrigin: null,
       link: null,
+      publishedBy: '',
     },
     {
       id: 0,
@@ -51,6 +53,7 @@ export class LandingPageComponent {
       session: 2,
       writer: null,
       isOrigin: null,
+      publishedBy: '',
     },
     {
       id: 0,
@@ -65,6 +68,7 @@ export class LandingPageComponent {
       session: 2,
       writer: null,
       isOrigin: null,
+      publishedBy: '',
     },
   ];
   card_data2: IcardData[] = [];
@@ -107,6 +111,7 @@ export class LandingPageComponent {
             writer: null,
             isOrigin: null,
             link: null,
+            publishedBy: x.publishedBy,
           };
           this.card_data2.push(dataKeeper);
         });
@@ -127,7 +132,7 @@ export class LandingPageComponent {
 
     this.filters.pageSize = 3;
   }
-  scroll(event:boolean) {
-    this.appConsulting.scroll()
+  scroll(event: boolean) {
+    this.appConsulting.scroll();
   }
 }

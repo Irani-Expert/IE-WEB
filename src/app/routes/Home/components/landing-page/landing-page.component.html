@@ -116,7 +116,7 @@
 </div> -->
 <div class="sm:bg-white bg-[#F5F5F5] sm:px-24">
   <div>
-    <app-hero (scroll)="scroll($event)"/>
+    <app-hero (scroll)="scroll($event)" />
     <app-tags />
     <app-service-baner />
     <app-instagram-baner />
@@ -129,7 +129,10 @@
   ></div>
 
   <div class="bg-white">
-    <app-bot-showcase (scroll)="scroll($event)" class="relative bottom-[5rem] z-20" />
+    <app-bot-showcase
+      (scroll)="scroll($event)"
+      class="relative bottom-[5rem] z-20"
+    />
   </div>
   <div>
     <app-gift-form></app-gift-form>
@@ -174,7 +177,6 @@
       src="../../../../../assets/img/Trade-School-Coming-Soon.png"
       class="h-72"
     />
-
   </div>
   <div
     class="rounded-[3.5rem] w-full h-[50px] sm:hidden relative top-[27px] bg-[#F5F5F5] z-10"
@@ -212,7 +214,10 @@
   <div class="bg-cover bgi-world-map1 sm:mx-32 mx-12 pb-16">
     <app-bot-advantages />
   </div>
-  <h1 id="form-consulting"  class="sm:text-4xl text-2xl text-green-800 text-center oblique mt-8">
+  <h1
+    id="form-consulting"
+    class="sm:text-4xl text-2xl text-green-800 text-center oblique mt-8"
+  >
     درخواست مشاوره
   </h1>
   <p class="text-center text-black text-xl sm:text-3xl">
@@ -405,6 +410,13 @@
           سرمایه‌گذاری اعلام می‌دارد. خرسندیم اعلام کنیم آغوش ما به روی متخصصین
           این حوزه باز است، جهت استخدام تریدر رزومه خود را ارسال نمایید
         </p>
+        <div class="flex max-sm:justify-center m-2 sm:ms-0">
+          <button
+            class="bg-main-blue border-2 relative border-[#3246d3] border-solid hover:bg-white hover:text-[#3246d3] text-white sm:px-2 px-6 p-1.5 sm:w-40 rounded-full font-semibold sm:text-base text-sm"
+          >
+            ارسال رزومه
+          </button>
+        </div>
       </div>
     </div>
   </div>
