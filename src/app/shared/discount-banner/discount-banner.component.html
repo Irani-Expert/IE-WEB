@@ -1,28 +1,30 @@
 <div
-  class="text-white flex justify-around h-[7rem] sm:h-[6rem] m-3 me-0 ms-0 rounded-2xl p-3 bg-cover bg-Img-t"
+  class="text-white flex justify-around h-[7rem] sm:h-[8rem] m-3 me-0 ms-0 rounded-2xl p-5 bg-cover bg-Img-t cursor-pointer"
 >
-  <div class="sm:w-8/12 sm:flex">
-    <span
-      class="p-1 sm:text-[4.5rem] text-4xl text-[#ffee00] oblique contents pt-2"
-      >20%</span
-    >
+  <div class="sm:w-8/12 sm:flex items-center">
+    <div class="pt-6 me-3">
+      <span class="p-1 sm:text-[6rem] text-4xl text-[#ffee00] oblique contents"
+        >20%</span
+      >
+    </div>
+
     <p
-      class="sm:text-2xl text-[0.6rem] text-white font-semibold text-justify pt-1"
+      class="sm:text-4xl text-[0.6rem] text-white font-semibold text-justify pt-1"
     >
       تخفیف ویژه اشتراک پلن های سه ماهه و شش ماهه به مناسبات یک سالگـــــی ربات
       معامله گـری
     </p>
   </div>
-  <div class="w-3/12 h-20 sm:flex justify-end hidden">
+  <!-- <div class="w-3/12 h-20 sm:flex justify-end hidden">
     <img
       *ngIf="!response"
       src="../../../../../assets/img/bot.png"
       class="relative h-[8rem] bottom-11"
     />
-  </div>
+  </div> -->
   <img
     *ngIf="response"
     src="../../../assets/img/Mask Group 31.png"
-    class="relative h-[7rem] bottom-6"
+    class="relative h-[11rem] bottom-16"
   />
 </div>
