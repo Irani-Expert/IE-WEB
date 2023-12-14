@@ -19,5 +19,7 @@ export class LottieComponent {
     };
     this.loading = false;
   }
-  ngAfterViewInit() {}
+  // ngOnDestroy() {
+  // }
+  // ngAfterViewInit() {}
 }

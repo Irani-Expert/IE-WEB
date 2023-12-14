@@ -29,9 +29,10 @@
       <div class="col-span-3 mr-4 ml-4">
         <ng-container *ngIf="sendDataToChild">
           <app-blog-detail [data]="blogService._blog!"></app-blog-detail>
+
+          <app-comments></app-comments>
+          <app-carousel-blog [data]="itemsBlog.slice(0, 5)"></app-carousel-blog>
         </ng-container>
-        <app-comments></app-comments>
-        <app-carousel-blog [data]="itemsBlog.slice(0,5)"></app-carousel-blog>
       </div>
     </div>
   </div>

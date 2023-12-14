@@ -9,10 +9,6 @@ import { VideoPlayerComponent } from '../routes/Home/components/video-player/vid
 import { TagsComponent } from './tags/tags.component';
 import { LottieComponent } from './lottie/lottie.component';
 import { LottieModule } from 'ngx-lottie';
-export function playerFactory(): any {
-  return import('lottie-web');
-}
-const lottieModule = LottieModule.forRoot({ player: playerFactory });
 const components = [
   AcordianComponent,
   CommentsComponent,
@@ -22,8 +18,8 @@ const components = [
   LottieComponent,
 ];
 @NgModule({
-  imports: [CommonModule, Toggler, lottieModule],
-  exports: [components],
+  imports: [CommonModule, Toggler, LottieModule],
+  exports: [components, LottieModule],
   declarations: [components, ScrollComponent, NotFoundComponent],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
