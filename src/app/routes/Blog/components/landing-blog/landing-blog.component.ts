@@ -13,7 +13,6 @@ import { Utils } from 'src/app/classes/utils';
 export class LandingBlogComponent {
 
   // ===========[سرویس ها]==========
-  // itemOffers:Blog[] = new  Array<Blog>();
   itemsBlog : Blog[] = new Array<Blog>();
   blogFilter : FilterBlog = new FilterBlog();
   loading: boolean = true;

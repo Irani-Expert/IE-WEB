@@ -1,5 +1,6 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { DragScrollComponent } from 'ngx-drag-scroll';
+import { Blog } from 'src/app/classes/interfaces/blog.interface';
 
 @Component({
   selector: 'app-carousel-blog',
@@ -7,6 +8,9 @@ import { DragScrollComponent } from 'ngx-drag-scroll';
   styleUrls: ['./carousel-blog.component.scss']
 })
 export class CarouselBlogComponent {
+  loading: boolean = true;
+  @Input('data') itemOffers : Blog[];
+
   rightReached = false;
   leftReached = false;
   @ViewChild('nav', {read: DragScrollComponent}) ds: DragScrollComponent;

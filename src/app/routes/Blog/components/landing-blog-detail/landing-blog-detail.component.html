@@ -31,7 +31,7 @@
           <app-blog-detail [data]="blogService._blog!"></app-blog-detail>
         </ng-container>
         <app-comments></app-comments>
-        <app-carousel-blog></app-carousel-blog>
+        <app-carousel-blog [data]="itemsBlog.slice(0,5)"></app-carousel-blog>
       </div>
     </div>
   </div>

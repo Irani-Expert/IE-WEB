@@ -7,6 +7,8 @@ import { Subject, Subscription, takeUntil } from 'rxjs';
 import { HttpUrlEncodingCodec } from '@angular/common/http';
 import { NavigationEnd, Router, Scroll } from '@angular/router';
 import { BlogService } from 'src/app/classes/services/blog.service';
+import { Blog } from 'src/app/classes/interfaces/blog.interface';
+import { FilterBlog } from 'src/app/classes/interfaces/filter-blog.interface';
 
 @Component({
   selector: 'app-landing-blog-detail',
@@ -14,6 +16,29 @@ import { BlogService } from 'src/app/classes/services/blog.service';
   styleUrls: ['./landing-blog-detail.component.scss'],
 })
 export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
+  // ===========[سرویس ها]==========
+  itemsBlog : Blog[] = new Array<Blog>();
+  blogFilter : FilterBlog = new FilterBlog();
+  loading: boolean = true;
+
+  async getItemBlogs(filters : FilterBlog) {
+    (
+      await this.blogService.getBlogsFromApi(
+        'Article/GetArticleByFilter',
+        filters
+      )
+    ).subscribe({
+      next: (x)=> {
+        if (this.blogService._paginatedBlogs?.items){
+          this.itemsBlog = this.blogService._paginatedBlogs?.items;
+          this.loading = false;
+        }
+      }
+    })
+  }
+
+
+
   //Logic Get Data
   private destroyed$ = new Subject();
   routeSubscriber: Subscription | undefined;
@@ -55,6 +80,8 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
   }
   async ngOnInit() {
     this.updateDeviceValue();
+    this.getItemBlogs(this.blogFilter)
+
     this.routeSubscriber = this.router.events
       .pipe(takeUntil(this.destroyed$))
       .subscribe({
