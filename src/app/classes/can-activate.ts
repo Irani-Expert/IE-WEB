@@ -19,7 +19,7 @@ export class CanActivate {
   canActivate() {
     let item = this.orderService.basket.value;
     if (item.basketItems.length == 0) {
-      this.router.navigateByUrl('shop/atm');
+      this.router.navigateByUrl('');
       return false;
     }
     if (!AuthService.loggedIn.value) {
@@ -30,9 +30,6 @@ export class CanActivate {
       });
       HeaderLayoutComponent.modalStatus = true;
       HeaderLayoutComponent.modalView = 'login';
-
-      // HeaderLayoutComponent.modalView = 'login';
-      // HeaderLayoutComponent.modalStatus = true;
       return false;
     } else {
       return true;
