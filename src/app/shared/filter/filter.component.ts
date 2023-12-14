@@ -1,4 +1,10 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, Input } from '@angular/core';
+import {
+  CUSTOM_ELEMENTS_SCHEMA,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IFilterGroup } from './models/filter.interface';
 import { FilterService } from './filter.service';
@@ -17,6 +23,7 @@ import { SmoothHeightDirective } from 'src/app/classes/directives/smooth-height.
 export class FilterComponent {
   activeId: number = -1;
   changed = false;
+  @Output('deleteFilters') deleteEmitter = new EventEmitter<boolean>();
   @Input('classList') classList: string = '';
   @Input('search') search: boolean = false;
   @Input('filterBoxClass') filterBoxClass: string = '';
@@ -47,5 +54,8 @@ export class FilterComponent {
       item.chevronState = 'rotated';
       item.active = true;
     }
+  }
+  deleteFilters() {
+    this.deleteEmitter.emit(true);
   }
 }

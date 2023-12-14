@@ -48,14 +48,18 @@
           class="custom-img-product"
           alt="alpari"
         />
-        <app-filter [filterModel]="filter" [search]="true">
-          <!-- <search-bar
-              searchBar
-              (result)="search($event)"
-              [placeholder]="
-                filterModel.productName ? filterModel.productName : 'جستجو'
-              "
-            ></search-bar> -->
+        <app-filter
+          (deleteFilters)="deleteFilters($event)"
+          [filterModel]="filter"
+          [search]="true"
+        >
+          <search-bar
+            searchBar
+            (result)="search($event)"
+            [placeholder]="
+              filterModel.productName ? filterModel.productName : 'جستجو'
+            "
+          ></search-bar>
           <ng-container category *ngFor="let item of checkboxes">
             <checkbox
               [fillOrNot]="item.checked"
