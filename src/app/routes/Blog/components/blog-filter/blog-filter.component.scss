@@ -35,6 +35,8 @@
 }
 .video{
     background-color: white;
+    height: 160px;
+    width: 100%;
 }
 .video-title{
   font-weight: 600;
@@ -67,5 +69,6 @@ object-fit: cover;
 .sticky-custom {
   position: fixed;
   top: 0;
-  width: 18.5%;
+  width: 352px;
+  max-width: 23.5%;
 }

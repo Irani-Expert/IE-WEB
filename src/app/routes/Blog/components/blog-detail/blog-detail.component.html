@@ -4,14 +4,14 @@
       <img src="assets/img/icon-carousel-card.svg" alt="icon" />
       <p class="icon-title mr-3">{{ articleModel.group }}</p>
     </div>
-    <a href="" class="flex items-center box-share">
+    <button disabled class="flex items-center box-share">
       <p class="icon-title ml-3">اشتراک گذاری</p>
       <img class="icon" src="assets/img/shared-icon.svg" alt="icon" />
-    </a>
+    </button>
   </div>
   <h6 class="title-blog">{{ articleModel.title }}</h6>
   <div class="flex mt-3">
-    <p class="date ml-10">اننتشار :{{ articleModel.publishDate | date }}</p>
+    <p class="date ml-10">اننتشار :{{ articleModel.createDate | date }}</p>
     <p class="date">زمان مطالعه {{ articleModel.viewsCount % 25 }}دقیقه</p>
   </div>
   <!-- ================[عکس شاخص]========== -->

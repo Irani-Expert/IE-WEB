@@ -16,6 +16,8 @@ class BlogModel implements Blog {
   studyTime: string = '';
   publishDate: string = '';
   browserTitle: string = '';
+  brief : string ='';
+
 }
 @Component({
   selector: 'app-blog-hero',

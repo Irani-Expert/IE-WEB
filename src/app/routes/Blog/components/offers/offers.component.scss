@@ -142,6 +142,7 @@ drag-scroll {
   color: white;
   font-weight: 800;
   font-size: 0.8rem;
+  max-width: 8rem;
 }
 .titile-baner-mobile{
   font-style: oblique;
@@ -153,6 +154,7 @@ drag-scroll {
   font-size: 0.9rem;
 }
 .input-email-mobile{
+  max-width: 16rem;
   flex-basis: 100%;
   background-color: white;
   min-height: 100%;

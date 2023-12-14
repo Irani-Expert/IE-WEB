@@ -13,6 +13,7 @@ export interface Blog {
   publishDate: string;
   browserTitle: string;
   isRTL: boolean;
+  brief : string;
 }
 export interface SingleBlog {
   createDate: string;
