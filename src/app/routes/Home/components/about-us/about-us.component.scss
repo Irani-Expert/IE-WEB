@@ -1,6 +1,18 @@
+@media (min-width: 640px) {
+  .close-btn {
+    bottom: 14rem !important;
+  }
+  .open-item {
+    animation: myAnim 0.35s linear 0s 1 normal forwards;
+  }
+}
+.close-btn {
+  position: relative;
+  left: 20%;
+  bottom: 7rem;
+}
 ul {
   list-style-type: none; /* Removes the default dot */
-  padding-left: 20px; /* Adjust the left indentation */
   position: relative; /* Enable relative positioning */
 }
 
@@ -15,14 +27,7 @@ ul li::before {
   background-color: blue; /* Change the color of the bullet */
   border-radius: 50%; /* Make the bullet round */
 }
-.close-btn {
-  position: relative;
-  left: 20%;
-  bottom: 14rem;
-}
-.open-item {
-  animation: myAnim 0.35s linear 0s 1 normal forwards;
-}
+
 .video-bottom-Shadow {
   filter: blur(8px);
   height: 7rem;

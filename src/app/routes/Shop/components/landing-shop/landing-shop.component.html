@@ -8,10 +8,10 @@
 <div class="m-0 lg:px-4 py-10">
   <div class="flex flex-col m-3">
     <div class="flex">
-      <div *ngIf="choosenSlide == 1">
+      <div [ngClass]="choosenSlide == 1 ? '' : 'hidden'">
         <app-discount-banner [response]="true"></app-discount-banner>
       </div>
-      <div *ngIf="choosenSlide == 2">
+      <div [ngClass]="choosenSlide == 2 ? '' : 'hidden'">
         <div
           class="text-white flex justify-around h-[7rem] sm:h-[6rem] m-3 me-0 ms-0 rounded-2xl p-4 bg-cover bg-black min-w-[18rem]"
         >
@@ -87,7 +87,10 @@
     </div>
   </div>
 </div>
-<div class="sidenav p-4 shadow-sm bg-white rounded-t-3xl" *ngIf="openNav != 0">
+<div
+  class="sidenav p-4 shadow-sm bg-white rounded-t-3xl slide-top"
+  *ngIf="openNav != 0"
+>
   <a
     class="closebtn flex flex-row-reverse justify-between w-11/12"
     (click)="NavbarsStatus(0)"

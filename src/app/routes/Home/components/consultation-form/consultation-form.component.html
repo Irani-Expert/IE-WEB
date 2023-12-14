@@ -1,5 +1,5 @@
 <form [formGroup]="form" (ngSubmit)="consultationServices()">
-  <div class="flex flex-col flex-wrap content-center sm:h-[187px] px-4">
+  <div class="flex flex-col flex-wrap content-center sm:h-[187px] sm:px-4">
     <ng-container *ngFor="let control of formControls; let i = index">
       <div
         class="input-container m-2 w-96"
@@ -24,7 +24,7 @@
         class="border-solid bg-[#d8d8d8] border-01"
         >Toggle</label
       >
-      <p class="ms-2 sm:text-lg" style="font-weight: 500">
+      <p class="ms-2 sm:text-lg text-xs font-medium">
         میخواهم از امکانات مشارکت در سود استفاده کنم
       </p>
     </div>
@@ -32,7 +32,7 @@
 
   <div class="flex justify-center ms-2">
     <button
-      class="bg-main-blue border-2 relative border-[#3246d3] border-solid hover:bg-white hover:text-[#3246d3] text-white sm:px-2 px-4 p-1.5 sm:w-40 rounded-full font-semibold sm:text-base text-lg"
+      class="bg-main-blue border-2 relative border-[#3246d3] border-solid hover:bg-white hover:text-[#3246d3] text-white sm:px-2 px-4 p-1.5 sm:w-40 rounded-full font-semibold sm:text-base text-sm"
     >
       ثبت درخواست
     </button>
