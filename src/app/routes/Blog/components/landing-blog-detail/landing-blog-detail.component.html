@@ -34,9 +34,9 @@
           <app-carousel-blog [data]="itemsBlog.slice(0, 5)"></app-carousel-blog>
         </ng-container>
         <app-comments></app-comments>
-        <div *ngIf="!loading">
+        <ng-container *ngIf="!loading">
         <app-carousel-blog [data]="itemsBlog.slice(0,5)"></app-carousel-blog>
-        </div>
+        </ng-container>
       </div>
     </div>
   </div>
@@ -44,8 +44,10 @@
 <!-- ====================[رسپانسیو]========= -->
 <div [ngClass]="device == 'sm' ? 'block' : 'hidden'">
   <div class="mt-6 mr-4 ml-4">
+    <ng-container *ngIf="!loading">
     <ng-container *ngIf="sendDataToChild">
       <app-blog-detail [data]="blogService._blog!"></app-blog-detail>
+    </ng-container>
     </ng-container>
     <div class="flex justify-center mt-12">
       <div class="baner flex flex-row">
