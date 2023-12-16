@@ -11,11 +11,7 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 import { Spinner } from '../spinner/spinner.component';
 import { NgOtpInputModule } from 'ng-otp-input';
 import { SharedModule } from '../shared.module';
-import { LottieModule } from 'ngx-lottie';
-export function playerFactory(): any {
-  return import('lottie-web');
-}
-const lottieModule = LottieModule.forRoot({ player: playerFactory });
+
 const components = [
   AuthComponent,
   SignupComponent,
@@ -31,7 +27,6 @@ const components = [
     Spinner,
     NgOtpInputModule,
     SharedModule,
-    lottieModule,
   ],
   declarations: [components, SwitchComponent],
   exports: [components],

@@ -17,27 +17,25 @@ import { FilterBlog } from 'src/app/classes/interfaces/filter-blog.interface';
 })
 export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
   // ===========[سرویس ها]==========
-  itemsBlog : Blog[] = new Array<Blog>();
-  blogFilter : FilterBlog = new FilterBlog();
+  itemsBlog: Blog[] = new Array<Blog>();
+  blogFilter: FilterBlog = new FilterBlog();
   loading: boolean = true;
 
-  async getItemBlogs(filters : FilterBlog) {
+  async getItemBlogs(filters: FilterBlog) {
     (
       await this.blogService.getBlogsFromApi(
         'Article/GetArticleByFilter',
         filters
       )
     ).subscribe({
-      next: (x)=> {
-        if (this.blogService._paginatedBlogs?.items){
+      next: (x) => {
+        if (this.blogService._paginatedBlogs?.items) {
           this.itemsBlog = this.blogService._paginatedBlogs?.items;
           this.loading = false;
         }
-      }
-    })
+      },
+    });
   }
-
-
 
   //Logic Get Data
   private destroyed$ = new Subject();
@@ -80,7 +78,7 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
   }
   async ngOnInit() {
     this.updateDeviceValue();
-    this.getItemBlogs(this.blogFilter)
+    // this.getItemBlogs(this.blogFilter)
 
     this.routeSubscriber = this.router.events
       .pipe(takeUntil(this.destroyed$))

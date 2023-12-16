@@ -1,18 +1,16 @@
-<ng-container *ngIf="!loading">
-  <div>
-    <ng-content select="before"></ng-content>
-    <ng-lottie
-      containerClass="lottie-container"
-      [options]="options"
-      [ngStyle]="{
+<div>
+  <ng-content select="before"></ng-content>
+  <ng-lottie
+    containerClass="lottie-container"
+    [options]="options"
+    [ngStyle]="{
       '--width': config.width ? lottie.width : 'unset',
       '--opacity': config.opacity ? lottie.opacity : 'unset',
       '--max-width': config.max_w ? lottie.maxWidth : 'unset',
       '--min-width': config.min_w ? lottie.minWidth : 'unset',
       '--height': config.height ? lottie.height : 'unset',
     }"
-    >
-    </ng-lottie>
-    <ng-content select="after"></ng-content>
-  </div>
-</ng-container>
+  >
+  </ng-lottie>
+  <ng-content select="after"></ng-content>
+</div>

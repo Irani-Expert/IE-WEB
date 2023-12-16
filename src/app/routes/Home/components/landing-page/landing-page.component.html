@@ -162,21 +162,34 @@
     ></app-card-link>
   </div>
 
-  <app-card-title
-    [title]="'مدرسه ترید'"
-    [type]="'دوره اموزشی'"
-    [iconlink]="'../../../assets/img/Union 25.png'"
-  ></app-card-title>
+  <div class="mt-10">
+    <app-card-title
+      [title]="'مدرسه ترید'"
+      [type]="'دوره اموزشی'"
+      [iconlink]="'../../../assets/img/Union 25.png'"
+    ></app-card-title>
+  </div>
   <!-- ================[به زودی]============== -->
-  <div class="flex justify-center sm:overflow-y-visible overflow-y-auto">
-    <!-- <app-product-card
-      *ngFor="let data of card_data"
-      [Data]="data"
-    ></app-product-card> -->
-    <img
-      src="../../../../../assets/img/Trade-School-Coming-Soon.png"
-      class="h-72"
-    />
+  <div class="flex justify-center flex-col relative">
+    <div
+      class="flex justify-center sm:overflow-y-hidden overflow-y-auto opacity-40"
+    >
+      <app-product-card
+        *ngFor="let data of card_data"
+        [Data]="data"
+      ></app-product-card>
+    </div>
+    <div
+      class="absolute -translate-x-1/2 left-1/2 w-full bg-opacity-50 bg-black flex flex-col justify-center py-12 rounded-3xl"
+    >
+      <img
+        src="../../../../../assets/img/Trade-School-Coming-Soon.png"
+        class="max-h-[414px] aspect-[3/4] object-contain w-auto"
+      />
+      <p class="text-center text-3xl font-bold text-black">
+        صفحه مدرسه ترید در حال به‌روز‌رسانی میباشد
+      </p>
+    </div>
   </div>
   <div
     class="rounded-[3.5rem] w-full h-[50px] sm:hidden relative top-[27px] bg-[#F5F5F5] z-10"
@@ -191,7 +204,7 @@
     ></app-card-link> -->
   </div>
 
-  <app-banners></app-banners>
+  <app-banners> </app-banners>
   <div class="bg-[#F5F5F5] rounded-b-[2.5rem] pb-16 sm:hidden">
     <div class="flex overflow-y-scroll">
       <app-landing-article-responsive

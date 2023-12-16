@@ -27,7 +27,7 @@ export class LandingPageComponent {
     {
       id: 0,
       title: 'تست',
-      imgUrl: '../../../assets/img/coinInfo.png',
+      imgUrl: '../../../assets/img/Trade-School-Coming-Soon.png',
       price: 0,
       type: 1,
       colorCode: '#ED912A',
@@ -43,7 +43,7 @@ export class LandingPageComponent {
     {
       id: 0,
       title: 'تست',
-      imgUrl: '../../../assets/img/coinInfo.png',
+      imgUrl: '../../../assets/img/Trade-School-Coming-Soon.png',
       price: 0,
       type: 1,
       colorCode: '#ED912A',
@@ -58,7 +58,7 @@ export class LandingPageComponent {
     {
       id: 0,
       title: 'تست',
-      imgUrl: '../../../assets/img/coinInfo.png',
+      imgUrl: '../../../assets/img/Trade-School-Coming-Soon.png',
       price: 0,
       type: 1,
       colorCode: '#ED912A',
