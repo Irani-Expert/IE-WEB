@@ -132,6 +132,9 @@ body {
 .grey-filter {
   filter: grayscale(7);
 }
+.bg--dimGreen {
+  background-color: $dim-green;
+}
 .bg--blue {
   background-color: #3246d3;
 }

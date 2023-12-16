@@ -1,5 +1,6 @@
-<ng-container *ngIf="!loading">
     <div [ngClass]="device == 'lg' ? 'block' : 'hidden'" class="mt-8 mb-4 bg-all">
+        <ng-container *ngIf="!loading">
+
         <!-- =======================[بنر]========== -->
         <div class="flex justify-center mr-5 ml-5">
             <div class="baner flex">
@@ -76,13 +77,49 @@
                  </div>
              </div>
         </div>
+        </ng-container>
     </div>
     <!-- =================[رسپانسیو]=========== -->
+
     <div [ngClass]="device == 'sm' ? 'block' : 'hidden'">
+                        <!-- ========================[بنر]============== -->
+                        <div class="flex justify-center mt-14 mb-10">
+                            <div class="baner-mobile">
+                                <div class="flex flex-row">
+                                    <div class="flex items-center mr-3 basis-2/2">
+                                        <div>
+                                            <span class="dividr-title">با ایرانی اکسپرت مطمئن و آسان ترید کن </span>
+                                            <h6 class="title-baner">مقالات آموزشی فارکس</h6>
+                                        </div>
+                                    </div>
+                                    <div class="relative basis-1/3 flex" >
+                                        <img class="logo-mobile" src="assets/img/blog-baner-logo.svg" alt="logo">
+                                    </div>
+                                </div>
+                                <div class="mr-12 ml-12">
+                                    <div class="search-box">
+                                        <input class="input-baner" type="text" placeholder="مقاله مورد نظر را جستجو کنید">
+                                        <a href="">
+                                        <img class="icon-search" src="assets/img/search-icon(blog).svg" alt="icon">
+                                        </a>
+                                    </div>  
+                                </div>
+                            </div>
+                        </div>
+                  <!-- =========[دسته بندی]====== -->
+                  <app-filter-responsive
+                  [categoryHeader]="categoryHeader"
+                  [categoryIcon]="categoryIcon"
+                  [category]="category">
+                    <p header class="text-black w-28">دسته بندی</p>
+                  </app-filter-responsive>
+                  <div class="divider mt-4 mb-7"></div>
+
+        <ng-container *ngIf="!loading">
         <div class="flex justify-start mt-5 mr-6 ml-6">
             <div>
                 <div class="mb-4" *ngFor="let meal of itemsBlog | paginate: config">
-                  <app-blog-cart [item]="meal"></app-blog-cart>
+                  <app-blog-cart [data]="meal"></app-blog-cart>
                 </div>
             </div>
         </div>
@@ -134,7 +171,7 @@
                </div>
            </div>
            <!-- ===========[ تبلیغات ]========== -->
-           <img src="assets/img/add-blog(responsive).svg" alt="add">
+           <img class="w-full" src="assets/img/add-blog(responsive).svg" alt="add">
         </div>
+    </ng-container>
     </div>
-</ng-container>

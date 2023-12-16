@@ -19,36 +19,15 @@
     padding: 0px 22px;
   }
 }
-.all {
-  display: flex;
-  justify-content: center;
-}
 
-.box-link {
-  display: flex;
-  align-items: center;
-  text-align: center;
-}
 .link {
   background-color: white;
-  padding: 7px 19px 7px 19px;
+  padding: 7px 0px 7px 0px;
   border-radius: 30px;
   font-size: 14px;
-  margin-right: 15px;
-}
-.logo-i {
-  position: relative;
-  display: inline-flex;
-  justify-content: flex-end;
 }
 .logo {
-  position: absolute;
-  width: 70px;
-  aspect-ratio: 1/1;
-  bottom: 8px;
-  left: 10px;
-  height: auto;
-  object-fit: contain;
+  transform: translate(0px, -26px);
 }
 .ins-baner {
   background: rgb(93, 0, 255);
@@ -65,9 +44,4 @@
   font-weight: 700;
   padding-right: 24px;
   font-size: 16px;
-}
-.box-body {
-  text-align: center;
-  display: flex;
-  align-items: center;
 }

@@ -22,7 +22,7 @@
   <div class="flex justify-center mt-16 mr-4">
     <div class="grid grid-cols-4">
       <div class="part-1">
-        <app-blog-filter [categoryDetail]="category">
+        <app-blog-filter [categoryDetail]="categoryDetail">
           <p header class="text-black">دسترسی سریع</p>
         </app-blog-filter>
       </div>
@@ -33,15 +33,21 @@
           <app-comments></app-comments>
           <app-carousel-blog [data]="itemsBlog.slice(0, 5)"></app-carousel-blog>
         </ng-container>
+        <app-comments></app-comments>
+        <ng-container *ngIf="!loading">
+        <app-carousel-blog [data]="itemsBlog.slice(0,5)"></app-carousel-blog>
+        </ng-container>
       </div>
     </div>
   </div>
 </div>
 <!-- ====================[رسپانسیو]========= -->
 <div [ngClass]="device == 'sm' ? 'block' : 'hidden'">
-  <div class="mt-6 mr-4 ml-4">
+  <div class="mt-20 mr-4 ml-4">
+    <ng-container *ngIf="!loading">
     <ng-container *ngIf="sendDataToChild">
       <app-blog-detail [data]="blogService._blog!"></app-blog-detail>
+    </ng-container>
     </ng-container>
     <div class="flex justify-center mt-12">
       <div class="baner flex flex-row">
@@ -62,7 +68,15 @@
     </div>
   </div>
   <!-- =========[دسته بندی]====== -->
-  <div class="divider mt-7 mb-7"></div>
+  <app-filter-responsive
+  [categoryDetailHeader]="categoryDetailHeader"
+  [categoryDetailIcon]="categoryDetailIcon"
+  [categoryDetail]="categoryDetail">
+    <p header class="text-black w-28">دسته بندی</p>
+  </app-filter-responsive>
+  
+  <div class="divider mt-4 mb-7"></div>
+
   <div class="mr-6 ml-6">
     <!-- ===========[مدرسه فارکس]========== -->
     <div class="flex justify-center mb-8">
@@ -89,7 +103,7 @@
       </div>
     </div>
     <!-- ===========[ تبلیغات ]========== -->
-    <img src="assets/img/add-blog(responsive).svg" alt="add" />
+    <img class="w-full" src="assets/img/add-blog(responsive).svg" alt="add" />
     <!-- ======[مطالب پیشنهادی]======== -->
     <div class="mt-6 mb-6">
       <span class="flex title-offer">
@@ -101,9 +115,9 @@
         مقالات ایرانی اکسپرت
       </span>
       <h6 class="title-offer2">جدیدترین و آخرین مقالات ایرانی اکسپرت</h6>
-      <app-blog-cart></app-blog-cart>
+      <app-blog-cart ></app-blog-cart>
     </div>
-    <img src="assets/img/add-blog(responsive).svg" alt="add" />
+    <img class="w-full" src="assets/img/add-blog(responsive).svg" alt="add" />
 
     <!-- =============[کاروسل]========= -->
     <app-blog-hero></app-blog-hero>
