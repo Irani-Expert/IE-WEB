@@ -1,4 +1,6 @@
 <div [ngClass]="device == 'lg' ? 'flex' : 'hidden'">
+  <ng-container *ngIf="!loading">
+
   <div class="cart flex-col flex justify-between">
     <a class="flex justify-center mr-4 mt-4 mb-4 ml-4" [routerLink]="this.url">
       <img
@@ -52,9 +54,12 @@
       </div>
     </div>
   </div>
+  </ng-container>
 </div>
 <!-- ======================[رسپانسیو}======== -->
 <div [ngClass]="device == 'sm' ? 'flex' : 'hidden'">
+  <ng-container *ngIf="!loading">
+
   <div class="grid grid-cols-4 mb-8">
     <div class="w-28">
       <a [routerLink]="this.url">
@@ -77,4 +82,5 @@
       </div>
     </div>
   </div>
+  </ng-container>
 </div>

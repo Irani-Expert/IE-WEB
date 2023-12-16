@@ -66,6 +66,7 @@ const components = [
   declarations: [components],
   imports: [
     CommonModule,
+
     HomeRoutingModule,
     FormsModule,
     NgxSliderModule,

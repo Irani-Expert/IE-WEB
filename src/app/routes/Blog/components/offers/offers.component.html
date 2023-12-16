@@ -1,4 +1,5 @@
 <div [ngClass]="device == 'lg' ? 'block' : 'hidden'">
+  <ng-container *ngIf="!loading">
   <!-- ==============[پیشنهاد]================ -->
   <div class="all-offer">
     <div class="row-title">
@@ -86,6 +87,7 @@
       </div>
     </div>
   </div>
+  </ng-container>
 </div>
 <!-- ====================[رسپانسیو========== -->
 <div [ngClass]="device == 'sm' ? 'block' : 'hidden'">

@@ -23,7 +23,6 @@ import { LoaderComponent } from './components/loader/loader.component';
 export function playerFactory(): any {
   return import('lottie-web');
 }
-const lottieModule = LottieModule.forRoot({ player: playerFactory });
 // Headeer Comps
 const header = [
   HeaderLayoutComponent,
@@ -48,7 +47,7 @@ const footer = [FooterComponent];
     Checkbox,
     SearchComponent,
     LoaderComponent,
-    lottieModule,
+    LottieModule.forRoot({ player: playerFactory }),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [

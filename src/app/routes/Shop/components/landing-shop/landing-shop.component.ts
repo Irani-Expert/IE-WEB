@@ -81,8 +81,8 @@ export class LandingShopComponent {
       type: Type.Category,
     },
     {
-      active: false,
-      chevronState: 'default',
+      active: true,
+      chevronState: 'rotated',
       id: 2,
       title: 'امتیاز',
       type: Type.Rating,
@@ -141,6 +141,8 @@ export class LandingShopComponent {
         next: async (event) => {
           if (event instanceof Scroll) {
             if (event.routerEvent instanceof NavigationEnd) {
+              this.openNav = 0;
+
               let indexOfStartingQueries =
                 event.routerEvent.urlAfterRedirects.indexOf('?');
               const arrayOfUrlSegments = event.routerEvent.urlAfterRedirects
@@ -161,7 +163,7 @@ export class LandingShopComponent {
                 this.filterModel.pageIndex =
                   parseInt(arrayOfUrlSegments[3]) - 1;
                 this.getProducts();
-                this.openNav = 0;
+
                 this._linkService.createLink(
                   `https://www.iraniexpert.com/products/page/${arrayOfUrlSegments[3]}`
                 );

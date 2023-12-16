@@ -30,9 +30,7 @@ export class FilterComponent {
   @Input('filterModel') filterModel: IFilterGroup[];
   constructor() {}
   ngOnInit() {
-    this.filterModel[0].chevronState = 'rotated';
-    this.filterModel[0].active = true;
-    this.activeId = this.filterModel[0].id;
+    this.activeId = this.filterModel.filter((it) => it.active)[0].id;
   }
   changeActiveMenu(item: IFilterGroup) {
     this.changed = !this.changed;

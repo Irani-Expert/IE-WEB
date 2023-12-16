@@ -14,7 +14,7 @@ export class AppComponent {
   lottieConfig = {
     width: '50vw',
     height: 'auto',
-    path: 'assets/lottie/loader.json',
+    path: './assets/lottie/loader.json',
   };
   static loaderSubject = new BehaviorSubject(false);
 

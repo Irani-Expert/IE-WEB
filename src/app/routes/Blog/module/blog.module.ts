@@ -16,6 +16,7 @@ import { TableContentsComponent } from '../components/table-contents/table-conte
 import { CardResponsiveComponent } from '../components/card-responsive/card-responsive.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { BlogDetailComponent } from '../components/blog-detail/blog-detail.component';
+import { FilterResponsiveComponent } from '../components/filter-responsive/filter-responsive.component';
 
 const components =[
   CardResponsiveComponent,
@@ -29,7 +30,8 @@ const components =[
   BlogPaginationComponent,
   ArticlesComponent,
   BlogFilterComponent,
-  BlogDetailComponent
+  BlogDetailComponent,
+  FilterResponsiveComponent
 ];
 
 @NgModule({

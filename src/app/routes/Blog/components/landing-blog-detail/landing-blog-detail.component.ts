@@ -17,27 +17,25 @@ import { FilterBlog } from 'src/app/classes/interfaces/filter-blog.interface';
 })
 export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
   // ===========[سرویس ها]==========
-  itemsBlog : Blog[] = new Array<Blog>();
-  blogFilter : FilterBlog = new FilterBlog();
+  itemsBlog: Blog[] = new Array<Blog>();
+  blogFilter: FilterBlog = new FilterBlog();
   loading: boolean = true;
 
-  async getItemBlogs(filters : FilterBlog) {
+  async getItemBlogs(filters: FilterBlog) {
     (
       await this.blogService.getBlogsFromApi(
         'Article/GetArticleByFilter',
         filters
       )
     ).subscribe({
-      next: (x)=> {
-        if (this.blogService._paginatedBlogs?.items){
+      next: (x) => {
+        if (this.blogService._paginatedBlogs?.items) {
           this.itemsBlog = this.blogService._paginatedBlogs?.items;
           this.loading = false;
         }
-      }
-    })
+      },
+    });
   }
-
-
 
   //Logic Get Data
   private destroyed$ = new Subject();
@@ -64,13 +62,38 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
   options: config = { multi: false };
 
   // =================[فیلتر]=============
-  category: Array<string> = [
-    'درامد دلاری',
-    'ربات معامله گر atm',
-    'lorem1',
-    'lorem2',
-    'lorem3',
-    'lorem4',
+  categoryDetailIcon : string = 'assets/img/filter-icon-blog(detail).svg';
+  categoryDetailHeader : string= 'دسترسی سریع';
+
+  categoryDetail: Array<any> = [
+    {
+      name : 'درامد دلاری',
+      id : 1
+    },
+    {
+      name : 'ربات معامله گر ATM',
+      id : 2
+    },
+    {
+      name : 'آموزش فارکس',
+      id : 3
+    },
+    {
+      name : 'آموزش ارز دیجیتال',
+      id : 4
+    },
+    {
+      name : 'ترید چیست',
+      id : 5
+    },
+    {
+      name : 'انتخاب بهترین بروکر',
+      id : 6
+    },
+    {
+      name : 'اصول انتخاب بروکر',
+      id : 7
+    },
   ];
   // =======================[رسپانسیو]==========
 
@@ -80,7 +103,7 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
   }
   async ngOnInit() {
     this.updateDeviceValue();
-    this.getItemBlogs(this.blogFilter)
+    // this.getItemBlogs(this.blogFilter)
 
     this.routeSubscriber = this.router.events
       .pipe(takeUntil(this.destroyed$))

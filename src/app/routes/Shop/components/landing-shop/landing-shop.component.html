@@ -93,7 +93,7 @@
 </div>
 <div
   class="sidenav p-4 shadow-sm bg-white rounded-t-3xl slide-top"
-  *ngIf="openNav != 0"
+  [ngClass]="openNav != 0 ? 'block' : 'hidden'"
 >
   <a
     class="closebtn flex flex-row-reverse justify-between w-11/12"
@@ -103,8 +103,12 @@
       {{ openNav === 1 ? "فیلتر ها" : "مرتب سازی" }}
     </p></a
   >
-  <div *ngIf="openNav == 1">
-    <app-filter [search]="false" [filterModel]="filter">
+  <div [ngClass]="openNav == 1 ? 'block' : 'hidden'">
+    <app-filter
+      (deleteFilters)="deleteFilters($event)"
+      [search]="false"
+      [filterModel]="filter"
+    >
       <ng-container category *ngFor="let item of checkboxes">
         <checkbox
           [fillOrNot]="item.checked"
@@ -123,7 +127,7 @@
       <!-- <app-rating priceRange [config]="rangeConfig"></app-rating> -->
     </app-filter>
   </div>
-  <div *ngIf="openNav == 2">
+  <div [ngClass]="openNav == 2 ? 'block' : 'hidden'">
     <div *ngFor="let item of sortFilter">
       <p
         class="text-xl p-3.5 border-b border-solid border-gray-200"
