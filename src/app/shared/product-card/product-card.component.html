@@ -5,7 +5,8 @@
   <div class="h-[57%] overflow-hidden">
     <img
       class="aspect-square w-full object-contain h-full"
-      [src]="Data.imgUrl"
+      [src]="contentUrl + Data.imgUrl"
+      (error)="contentUrl = ''"
     />
     <!-- src="https://dl.iraniexpert.com{{ Data.imgUrl }}" -->
   </div>
@@ -14,19 +15,8 @@
       <p class="text-[22px] text-black font-extrabold">
         {{ Data.title }}
       </p>
-      <p
-        class="text-xl font-medium"
-        [style.color]="Data.colorCode"
-        *ngIf="Data.price == 0"
-      >
-        رایگان
-      </p>
-      <p
-        class="text-xl font-medium"
-        [style.color]="Data.colorCode"
-        *ngIf="Data.price != 0"
-      >
-        {{ Data.price }} میلیون تومان
+      <p class="text-xl font-medium" [style.color]="Data.colorCode">
+        {{ Data.price | currency }}
       </p>
     </div>
     <div
@@ -60,7 +50,7 @@
           />
         </svg>
 
-        <p class="text-base font-normal text-gray-600 mt-1 ms-1">3 جلسه</p>
+        <p class="text-base font-normal text-gray-600 mt-1 ms-1"></p>
       </span>
       <span class="flex flex-row items-center justify-center w-24 m-1">
         <svg
@@ -75,7 +65,7 @@
             transform="translate(15,0)"
           />
         </svg>
-        <p class="text-base font-normal text-gray-600 mt-1 ms-1">2:36 ساعت</p>
+        <p class="text-base font-normal text-gray-600 mt-1 ms-1"></p>
       </span>
     </div>
     <div

@@ -26,7 +26,7 @@ export class LandingPageComponent {
   card_data: IcardData[] = [
     {
       id: 0,
-      title: 'تست',
+      title: 'در حال بروزرسانی',
       imgUrl: '../../../assets/img/Trade-School-Coming-Soon.png',
       price: 0,
       type: 1,
@@ -42,7 +42,7 @@ export class LandingPageComponent {
     },
     {
       id: 0,
-      title: 'تست',
+      title: 'در حال بروزرسانی',
       imgUrl: '../../../assets/img/Trade-School-Coming-Soon.png',
       price: 0,
       type: 1,
@@ -57,7 +57,7 @@ export class LandingPageComponent {
     },
     {
       id: 0,
-      title: 'تست',
+      title: 'در حال بروزرسانی',
       imgUrl: '../../../assets/img/Trade-School-Coming-Soon.png',
       price: 0,
       type: 1,

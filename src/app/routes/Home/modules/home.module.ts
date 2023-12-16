@@ -11,7 +11,6 @@ import { BotFacilitiesComponent } from '../components/bot-facilities/bot-facilit
 import { BotAdvantagesComponent } from '../components/bot-advantages/bot-advantages.component';
 import { LandingArticleComponent } from '../components/landing-article/landing-article.component';
 import { ConsultationFormComponent } from '../components/consultation-form/consultation-form.component';
-import { GiftFormComponent } from '../components/gift-form/gift-form.component';
 import { BannersComponent } from '../components/banners/banners.component';
 import { ProductsComponent } from '../components/products/products.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -23,7 +22,6 @@ import { SearchFeildComponent } from 'src/app/shared/search-feild/search-feild.c
 import { TradeBeginningComponent } from '../components/trade-beginning/trade-beginning.component';
 import { CardTitleComponent } from 'src/app/shared/card-title/card-title.component';
 import { CardLinkComponent } from 'src/app/shared/card-link/card-link.component';
-// import { DiscountBannerComponent } from 'src/app/shared/discount-banner/discount-banner.component';
 import { BotShowcaseComponent } from '../components/bot-showcase/bot-showcase.component';
 import { InstagramBanerComponent } from '../components/instagram-baner/instagram-baner.component';
 import { ServiceBanerComponent } from '../components/service-baner/service-baner.component';
@@ -40,18 +38,14 @@ const components = [
   HeroComponent,
   SellInfoComponent,
   BotShowcaseComponent,
-  // CounterNumberComponent,
-  // SliderComponent,
   BotFacilitiesComponent,
   LandingArticleResponsiveComponent,
   BotAdvantagesComponent,
   LandingArticleComponent,
 
   ConsultationFormComponent,
-  GiftFormComponent,
   BannersComponent,
   ProductCardComponent,
-  GiftFormComponent,
   ProductsComponent,
   TypeFilterComponent,
   AboutUsComponent,
@@ -66,7 +60,6 @@ const components = [
   declarations: [components],
   imports: [
     CommonModule,
-
     HomeRoutingModule,
     FormsModule,
     NgxSliderModule,

@@ -6,6 +6,7 @@
 @import "./colors";
 @import "./mixins";
 @import "./typography";
+@import "./icons";
 @import "./components/loader";
 @import "./forms";
 @import "./components/prdproperties";
@@ -130,6 +131,9 @@ body {
 }
 .grey-filter {
   filter: grayscale(7);
+}
+.bg--dimGreen {
+  background-color: $dim-green;
 }
 .bg--blue {
   background-color: #3246d3;

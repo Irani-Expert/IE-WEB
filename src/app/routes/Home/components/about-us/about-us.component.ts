@@ -29,7 +29,6 @@ export class AboutUsComponent {
       let element = document.getElementById('userSatisfaction');
       element?.scrollIntoView({ behavior: 'smooth' });
     }
-    debugger;
   }
   buttonText = 'باز کردن لیست پخش';
   isVideoOpend: boolean = false;
