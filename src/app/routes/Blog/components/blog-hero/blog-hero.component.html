@@ -1,183 +1,263 @@
 <div [ngClass]="device == 'lg' ? 'block' : 'hidden'">
-    <!-- ========================[بنر]============== -->
-    <div class="flex justify-center">
-        <div class="baner flex">
-            <div class="basis-1/3 flex items-center">
-                <div class="flex items-center">
-                    <div class="lg:pt-0 pt-4">
-                        <span class="divid-h lg:!text-base">با ایرانی اکسپرت مطمئن و آسان ترید کن </span>
-                        <h6 class="faq-h mb-4 lg:!text-2xl">مقالات آموزشی فارکس</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="basis-1/3 flex items-center">
-                <div class="search-box">
-                    <input class="input-baner" type="text" placeholder="مقاله مورد نظر را جستجو کنید">
-                    <a href="">
-                    <img src="assets/img/search-icon(blog).svg" alt="icon">
-                    </a>
-                </div>
-            </div>
-            <div class="basis-1/3 relative flex justify-end" >
-                <img class="logo" src="assets/img/blog-baner-logo.svg" alt="logo">
-            </div>
+  <!-- ========================[بنر]============== -->
+  <div class="flex justify-center">
+    <div class="baner flex">
+      <div class="basis-1/3 flex items-center">
+        <div class="flex items-center">
+          <div class="lg:pt-0 pt-4">
+            <span class="divid-h lg:!text-base"
+              >با ایرانی اکسپرت مطمئن و آسان ترید کن
+            </span>
+            <h6 class="faq-h mb-4 lg:!text-2xl">مقالات آموزشی فارکس</h6>
+          </div>
         </div>
-    </div>
-    <!-- ========================[ایتم عکس]============== -->
-    <div class="flex justify-start mt-8">
-        <p class="title-item">پر طرفدارترین مطالب</p>
-    </div>
-    <div class="flex justify-center">
-        <div class="mt-8 mb-4 grid grid-cols-2 gap-2">
-            <div class="relative">
-                <a href="" class="box-hover pt-24" [style]="'background-color:'+ red" >
-                    <div class="row-hover flex gap-24 items-center">
-                        <p class="row-p1">نویسنده : {{itemHero[0].updatedByFirstName}} {{itemHero[0].updatedByLastName}}</p>
-                        <p class="row-p2">
-                            زمان انتشار: {{itemHero[0].publishDate | date}}
-                        </p>                    
-                    </div>
-                    <h6 class="title-hover">{{itemHero[0].title}}</h6>
-                </a>
-                <img class="item-1" src="assets/img/blog(hover)-2.svg" alt="blog">
-            </div>
-            <div class="grid grid-cols-2 gap-2">
-                <div class="relative overflow-clip">
-                    <a href="" class="box-hover pt-8" [style]="'background-color:'+ yellow" >
-                        <div class="row-hover flex gap-8 items-center">
-                            <p class="row-p3">
-                                نویسنده : {{itemHero[1].updatedByFirstName}} {{itemHero[1].updatedByLastName}}
-                            </p>
-                            <p class="row-p4">
-                                زمان انتشار: {{itemHero[1].publishDate | date}}
-                            </p>
-                        </div>
-                        <h6 class="title-hover2">{{itemHero[1].title}}</h6>
-                    </a>
-                    <img class="item-2" src="assets/img/blog(hover)-1.svg" alt="blog">
-                </div>
-                <div class="relative overflow-clip">
-                    <a href="" class="box-hover pt-8" [style]="'background-color:'+ blue" >
-                        <div class="row-hover flex gap-8 items-center">
-                            <p class="row-p3">نویسنده : {{itemHero[2].updatedByFirstName}} {{itemHero[2].updatedByLastName}}</p>
-                            <p class="row-p4">
-                                زمان انتشار: {{itemHero[2].publishDate | date}}
-                            </p>
-                        </div>
-                        <h6 class="title-hover2">{{itemHero[2].title}}</h6>
-                    </a>
-                    <img class="item-2" src="assets/img/blog(hover)-3.svg" alt="blog">
-                </div>
-                <div class="relative overflow-clip">
-                    <a href="" class="box-hover pt-8" [style]="'background-color:'+ aqua" >
-                        <div class="row-hover flex gap-8 items-center">
-                            <p class="row-p3">نویسنده : {{itemHero[3].updatedByFirstName}} {{itemHero[3].updatedByLastName}}</p>
-                            <p class="row-p4">
-                                زمان انتشار: {{itemHero[3].publishDate | date}}
-                            </p>                        
-                        </div>
-                        <h6 class="title-hover2">{{itemHero[3].title}}</h6>
-                    </a>
-                    <img class="item-2" src="assets/img/blog(hover)-4.svg" alt="blog">
-                </div>
-                <div class="relative overflow-clip">
-                    <a href="" class="box-hover pt-8" [style]="'background-color:'+ green" >
-                        <div class="row-hover flex gap-8 items-center">
-                            <p class="row-p3">نویسنده : {{itemHero[4].updatedByFirstName}} {{itemHero[4].updatedByLastName}}</p>
-                            <p class="row-p4">
-                                زمان انتشار: {{itemHero[4].publishDate | date}}
-                            </p>                        
-                        </div>
-                        <h6 class="title-hover2">{{itemHero[4].title}}</h6>
-                    </a>
-                    <img class="item-2" src="assets/img/blog(hover)-5.svg" alt="blog">
-                </div>                
-            </div>
+      </div>
+      <div class="basis-1/3 flex items-center">
+        <div class="search-box">
+          <input
+            class="input-baner"
+            type="text"
+            placeholder="مقاله مورد نظر را جستجو کنید"
+          />
+          <a href="">
+            <img src="assets/img/search-icon(blog).svg" alt="icon" />
+          </a>
         </div>
+      </div>
+      <div class="basis-1/3 relative flex justify-end">
+        <img class="logo" src="assets/img/blog-baner-logo.svg" alt="logo" />
+      </div>
     </div>
+  </div>
+  <!-- ========================[ایتم عکس]============== -->
+  <div class="flex justify-start mt-8">
+    <p class="title-item">پر طرفدارترین مطالب</p>
+  </div>
+  <div class="flex justify-center">
+    <div class="mt-8 mb-4 grid grid-cols-2 gap-2">
+      <div class="relative cursor-pointer">
+        <a
+          [routerLink]="
+            itemHero[0].browserTitle.split(' ').join('_') +
+            '/' +
+            itemHero[0].language
+          "
+          class="box-hover pt-24"
+          [style]="'background-color:' + red"
+        >
+          <div class="row-hover flex gap-24 items-center">
+            <p class="row-p1">
+              نویسنده : {{ itemHero[0].updatedByFirstName }}
+              {{ itemHero[0].updatedByLastName }}
+            </p>
+            <p class="row-p2">
+              زمان انتشار: {{ itemHero[0].createDate | date }}
+            </p>
+          </div>
+          <h6 class="title-hover">{{ itemHero[0].title }}</h6>
+        </a>
+        <img class="item-1" src="assets/img/blog(hover)-2.svg" alt="blog" />
+      </div>
+      <div class="grid grid-cols-2 gap-2">
+        <ng-container *ngFor="let item of itemHero.slice(1); let i = index">
+          <div class="relative overflow-clip cursor-pointer">
+            <a
+              [routerLink]="
+                item.browserTitle.split(' ').join('_') + '/' + item.language
+              "
+              class="box-hover pt-8"
+              [style]="'background-color:' + x[i + 1].color"
+            >
+              <div class="row-hover flex gap-8 items-center">
+                <p class="row-p3">
+                  نویسنده : {{ item.updatedByFirstName }}
+                  {{ item.updatedByLastName }}
+                </p>
+                <p class="row-p4">زمان انتشار: {{ item.createDate | date }}</p>
+              </div>
+              <h6 class="title-hover2">{{ item.title }}</h6>
+            </a>
+            <img class="item-2" [src]="x[i + 1].img" alt="blog" />
+          </div>
+        </ng-container>
+        <!-- <div class="relative overflow-clip">
+          <a
+            href=""
+            class="box-hover pt-8"
+            [style]="'background-color:' + blue"
+          >
+            <div class="row-hover flex gap-8 items-center">
+              <p class="row-p3">
+                نویسنده : {{ itemHero[2].updatedByFirstName }} &nbsp;
+                {{ itemHero[2].updatedByLastName }}
+              </p>
+              <p class="row-p4">
+                زمان انتشار: {{ itemHero[2].publishDate | date }}
+              </p>
+            </div>
+            <h6 class="title-hover2">{{ itemHero[2].title }}</h6>
+          </a>
+          <img class="item-2" src="assets/img/blog(hover)-3.svg" alt="blog" />
+        </div> -->
+        <!-- <div class="relative overflow-clip">
+          <a
+            href=""
+            class="box-hover pt-8"
+            [style]="'background-color:' + aqua"
+          >
+            <div class="row-hover flex gap-8 items-center">
+              <p class="row-p3">
+                نویسنده : {{ itemHero[3].updatedByFirstName }}
+                {{ itemHero[3].updatedByLastName }}
+              </p>
+              <p class="row-p4">
+                زمان انتشار: {{ itemHero[3].publishDate | date }}
+              </p>
+            </div>
+            <h6 class="title-hover2">{{ itemHero[3].title }}</h6>
+          </a>
+          <img class="item-2" src="assets/img/blog(hover)-4.svg" alt="blog" />
+        </div> -->
+        <!-- <div class="relative overflow-clip">
+          <a
+            href=""
+            class="box-hover pt-8"
+            [style]="'background-color:' + green"
+          >
+            <div class="row-hover flex gap-8 items-center">
+              <p class="row-p3">
+                نویسنده : {{ itemHero[4].updatedByFirstName }}
+                {{ itemHero[4].updatedByLastName }}
+              </p>
+              <p class="row-p4">
+                زمان انتشار: {{ itemHero[4].publishDate | date }}
+              </p>
+            </div>
+            <h6 class="title-hover2">{{ itemHero[4].title }}</h6>
+          </a>
+          <img class="item-2" src="assets/img/blog(hover)-5.svg" alt="blog" />
+        </div> -->
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ==========[رسپانسیو]=========== -->
 
 <div [ngClass]="device == 'sm' ? 'block' : 'hidden'">
-
-        <!-- ==============[کاروسل]============= -->
-        <div class="mt-10 flex justify-between me-4 ml-4">
-            <div class="flex items-center">
-                <p class="divid-carousel">پرطرفدارترین مطالب </p>
-            </div>
-            <div class="flex justify-center">
-                <button class="btn" [ngClass]="leftReached ? 'btn-disable': ''" (click)="moveLeft()" >
-                    <p class="icon-btn" [ngClass]="leftReached ? 'icon-disable': ''">&lt;</p>
-                </button>
-                <button class="btn mr-6"  [ngClass]="rightReached ? 'btn-disable': ''" (click)="moveRight()">
-                    <p class="icon-btn" [ngClass]="rightReached ? 'icon-disable': ''">&gt;</p>
-                </button>
-            </div>
-        </div>
-        <div class="flex justify-center">
-            <div class="row-carousel">
-                <div class="flex justify-center">
-                    <drag-scroll #nav (reachesRightBound)="isRightBoundary($event)" (reachesLeftBound)="isLeftBoundary($event)">
-
-                        <!-- <div class="cart" drag-scroll-item *ngFor="let item of items">
+  <!-- ==============[کاروسل]============= -->
+  <div class="mt-10 flex justify-between me-4 ml-4">
+    <div class="flex items-center">
+      <p class="divid-carousel">پرطرفدارترین مطالب</p>
+    </div>
+    <div class="flex justify-center">
+      <button
+        class="btn"
+        [ngClass]="leftReached ? 'btn-disable' : ''"
+        (click)="moveLeft()"
+      >
+        <p class="icon-btn" [ngClass]="leftReached ? 'icon-disable' : ''">
+          &lt;
+        </p>
+      </button>
+      <button
+        class="btn mr-6"
+        [ngClass]="rightReached ? 'btn-disable' : ''"
+        (click)="moveRight()"
+      >
+        <p class="icon-btn" [ngClass]="rightReached ? 'icon-disable' : ''">
+          &gt;
+        </p>
+      </button>
+    </div>
+  </div>
+  <div class="flex justify-center">
+    <div class="row-carousel">
+      <div class="flex justify-center">
+        <drag-scroll
+          #nav
+          (reachesRightBound)="isRightBoundary($event)"
+          (reachesLeftBound)="isLeftBoundary($event)"
+        >
+          <!-- <div class="cart" drag-scroll-item *ngFor="let item of items">
                             <app-card-responsive [data]="itemHero"></app-card-responsive>
                         </div> -->
-                        
-                        
-                        <!-- =================[کارت هایی که بعد از درست شدن دیتا باید پاک شود]============ -->
-                        <ng-container *ngFor="let item of itemHero; let i = index">
-                        <div class="cart" drag-scroll-item>
-                            <div class="flex flex-col justify-between w-72 mt-16">
-                                    <div class="flex justify-center">
-                                        <div class="relative overflow-hidden">
-                                            <a href="">
-                                                <img class="img-carousel" [src]="x[i].img" alt="card">
-                                            </a>
-                                            <div class="box-shadow" [style]="'box-shadow: 0px -20px 36px 66px'+ x[i].color"></div>
-                                            <div class="img-description-row">
-                                                <div class="divider-mobile" [style]="'background-color:'+ x[i].color"></div>
-                                                <a href="">
-                                                    <h6 class="img-title">{{item.title}}</h6>
-                                                </a>
-                                                <div class="flex gap-8 mt-4">
-                                                    <p class="img-description">
-                                                        نویسنده : {{item.updatedByFirstName}}{{item.updatedByLastName}}
-                                                    </p>
-                                                    <p class="img-description">
-                                                        4 ساعت پیش
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex justify-start">
-                                        <div class="mt-4">
-                                            <h6 class="title"> {{item.title}} </h6>
-                                            <div class="flex mt-2">
-                                            <img class="icon" src="assets/img/icon-carousel-card.svg" alt="card">
-                                            <p class="icon-title">ترید فارکس</p></div>
-                                        </div>
-                                    </div>
-                                    <div class="flex justify-start mt-3">
-                                        <p class="pl-3 carousel-description">
-                                            {{item.brief}}
-                                        </p>
-                                    </div>
-                                    <div class="flex justify-start mt-5">
-                                        <p class="date-carousel">
-                                         انتشار: {{item.publishDate | date}}
-                                        </p>
-                                        <p class="date-carousel mr-4">
-                                            زمان مطالعه: {{item.viewsCount%25}} دقیقه  
-                                        </p>
-                                    </div>
-                            </div>
-                        </div> 
-                     </ng-container>
 
-                    </drag-scroll>
+          <!-- =================[کارت هایی که بعد از درست شدن دیتا باید پاک شود]============ -->
+          <ng-container *ngFor="let item of itemHero; let i = index">
+            <div class="cart" drag-scroll-item>
+              <div class="flex flex-col justify-between w-72 mt-16">
+                <div class="flex justify-center">
+                  <div class="relative overflow-hidden rounded-[20px]">
+                    <a
+                      [routerLink]="
+                        item.browserTitle.split(' ').join('_') +
+                        '/' +
+                        item.language
+                      "
+                    >
+                      <img class="img-carousel" [src]="x[i].img" alt="card" />
+                    </a>
+                    <div
+                      class="box-shadow"
+                      [style]="'box-shadow: 0px -20px 46px 66px' + x[i].color"
+                    ></div>
+                    <div class="img-description-row">
+                      <div
+                        class="divider-mobile"
+                        [style]="'background-color:' + x[i].color"
+                      ></div>
+                      <a
+                        [routerLink]="
+                          item.browserTitle.split(' ').join('_') +
+                          '/' +
+                          item.language
+                        "
+                      >
+                        <h6 class="img-title">{{ item.title }}</h6>
+                      </a>
+                      <div class="flex gap-8 mt-4">
+                        <p class="img-description">
+                          نویسنده : {{ item.updatedByFirstName }}&nbsp;{{
+                            item.updatedByLastName
+                          }}
+                        </p>
+                        <!-- <p class="img-description"></p> -->
+                      </div>
+                    </div>
+                  </div>
                 </div>
+                <div class="flex justify-start">
+                  <div class="mt-4">
+                    <h6 class="title">{{ item.title }}</h6>
+                    <div class="flex mt-2">
+                      <img
+                        class="icon"
+                        src="assets/img/icon-carousel-card.svg"
+                        alt="card"
+                      />
+                      <p class="icon-title">ترید فارکس</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex justify-start mt-3">
+                  <p class="pl-3 carousel-description">
+                    {{ item.brief }}
+                  </p>
+                </div>
+                <div class="flex justify-start mt-5">
+                  <p class="date-carousel">
+                    انتشار: {{ item.publishDate | date }}
+                  </p>
+                  <p class="date-carousel mr-4">
+                    زمان مطالعه: {{ item.viewsCount % 25 }} دقیقه
+                  </p>
+                </div>
+              </div>
             </div>
-        </div>
+          </ng-container>
+        </drag-scroll>
+      </div>
     </div>
+  </div>
+</div>

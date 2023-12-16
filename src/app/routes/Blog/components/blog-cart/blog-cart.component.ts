@@ -4,6 +4,7 @@ import { Blog } from 'src/app/classes/interfaces/blog.interface';
 import { Utils } from 'src/app/classes/utils';
 import { environment } from 'src/environments/environment.dev';
 class BlogModel implements Blog {
+  createDate: string = '';
   isRTL: boolean = false;
   id: number = 0;
   title: string = '';
@@ -16,8 +17,7 @@ class BlogModel implements Blog {
   studyTime: string = '';
   publishDate: string = '';
   browserTitle: string = '';
-  brief : string ='';
-
+  brief: string = '';
 }
 @Component({
   selector: 'app-blog-cart',
@@ -39,7 +39,6 @@ export class BlogCartComponent {
     let language = this.item.isRTL ? 'FA' : 'EN';
     this.url = this.item.browserTitle.split(' ').join('_') + '/' + language;
     this.loading = false;
-
   }
 
   @HostListener('window:resize', ['$event'])

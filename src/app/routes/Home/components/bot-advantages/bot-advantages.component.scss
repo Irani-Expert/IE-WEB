@@ -72,3 +72,11 @@
     height: 60%;
   }
 }
+.img-bot {
+  width: 100%;
+  max-width: 230px;
+  margin-right: auto;
+  margin-left: auto;
+  aspect-ratio: 7/9;
+  object-fit: contain;
+}

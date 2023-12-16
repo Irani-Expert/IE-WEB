@@ -1,4 +1,8 @@
-<form [formGroup]="form" (ngSubmit)="consultationServices()">
+<form
+  [formGroup]="form"
+  class="sm:scale-90 xl:scale-100"
+  (ngSubmit)="consultationServices()"
+>
   <div class="flex flex-col flex-wrap content-center sm:h-[187px] sm:px-4">
     <ng-container *ngFor="let control of formControls; let i = index">
       <div

@@ -35,21 +35,21 @@
         </ng-container>
         <app-comments></app-comments>
         <ng-container *ngIf="!loading">
-        <app-carousel-blog [data]="itemsBlog.slice(0,5)"></app-carousel-blog>
+          <app-carousel-blog [data]="itemsBlog.slice(0, 5)"></app-carousel-blog>
         </ng-container>
       </div>
     </div>
   </div>
 </div>
 <!-- ====================[رسپانسیو]========= -->
-<div [ngClass]="device == 'sm' ? 'block' : 'hidden'">
+<div [ngClass]="device == 'sm' ? 'block px-1' : 'hidden'">
   <div class="mt-20 mr-4 ml-4">
     <ng-container *ngIf="!loading">
-    <ng-container *ngIf="sendDataToChild">
-      <app-blog-detail [data]="blogService._blog!"></app-blog-detail>
+      <ng-container *ngIf="sendDataToChild">
+        <app-blog-detail [data]="blogService._blog!"></app-blog-detail>
+      </ng-container>
     </ng-container>
-    </ng-container>
-    <div class="flex justify-center mt-12">
+    <!-- <div class="flex justify-center mt-12">
       <div class="baner flex flex-row">
         <div class="basis-1/2 flex items-center">
           <div class="mr-6">
@@ -65,21 +65,22 @@
           />
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
   <!-- =========[دسته بندی]====== -->
-  <app-filter-responsive
-  [categoryDetailHeader]="categoryDetailHeader"
-  [categoryDetailIcon]="categoryDetailIcon"
-  [categoryDetail]="categoryDetail">
-    <p header class="text-black w-28">دسته بندی</p>
-  </app-filter-responsive>
-  
-  <div class="divider mt-4 mb-7"></div>
+  <!-- <app-filter-responsive
+    [categoryDetailHeader]="categoryDetailHeader"
+    [categoryDetailIcon]="categoryDetailIcon"
+    [categoryDetail]="categoryDetail"
+  >
+    <p header class="text-black w-28">دسترسی سریع</p>
+  </app-filter-responsive> -->
 
-  <div class="mr-6 ml-6">
-    <!-- ===========[مدرسه فارکس]========== -->
-    <div class="flex justify-center mb-8">
+  <!-- <div class="divider mt-4 mb-7"></div>
+
+  <div class="mr-6 ml-6"> -->
+  <!-- ===========[مدرسه فارکس]========== -->
+  <!-- <div class="flex justify-center mb-8">
       <div class="school-box">
         <div class="flex justify-start">
           <div class="mb-4 mt-4">
@@ -101,25 +102,18 @@
           </div>
         </div>
       </div>
-    </div>
-    <!-- ===========[ تبلیغات ]========== -->
-    <img class="w-full" src="assets/img/add-blog(responsive).svg" alt="add" />
-    <!-- ======[مطالب پیشنهادی]======== -->
-    <div class="mt-6 mb-6">
-      <span class="flex title-offer">
-        <img
-          class="mb-4 ml-1"
-          src="assets/img/icon-blog(detail)-share.svg"
-          alt="icon"
-        />
-        مقالات ایرانی اکسپرت
-      </span>
+    </div> -->
+  <!-- ===========[ تبلیغات ]========== -->
+  <!-- <img class="w-full" src="assets/img/add-blog(responsive).svg" alt="add" /> -->
+  <!-- ======[مطالب پیشنهادی]======== -->
+  <!-- <div class="mt-6 mb-6">
+     
       <h6 class="title-offer2">جدیدترین و آخرین مقالات ایرانی اکسپرت</h6>
-      <app-blog-cart ></app-blog-cart>
+      <app-blog-cart></app-blog-cart>
     </div>
-    <img class="w-full" src="assets/img/add-blog(responsive).svg" alt="add" />
+    <img class="w-full" src="assets/img/add-blog(responsive).svg" alt="add" /> -->
 
-    <!-- =============[کاروسل]========= -->
-    <app-blog-hero></app-blog-hero>
-  </div>
+  <!-- =============[کاروسل]========= -->
+  <!-- <app-blog-hero></app-blog-hero> -->
+  <!-- </div> -->
 </div>

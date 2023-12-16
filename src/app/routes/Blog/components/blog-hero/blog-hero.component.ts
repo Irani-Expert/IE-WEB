@@ -4,6 +4,8 @@ import { AppComponent } from 'src/app/app.component';
 import { Blog } from 'src/app/classes/interfaces/blog.interface';
 import { Utils } from 'src/app/classes/utils';
 class BlogModel implements Blog {
+  createDate: string = '';
+
   isRTL: boolean = false;
   id: number = 0;
   title: string = '';
@@ -16,8 +18,8 @@ class BlogModel implements Blog {
   studyTime: string = '';
   publishDate: string = '';
   browserTitle: string = '';
-  brief : string ='';
-
+  brief: string = '';
+  language?: string = '';
 }
 @Component({
   selector: 'app-blog-hero',
@@ -32,6 +34,7 @@ export class BlogHeroComponent {
   device: 'sm' | 'lg' = 'lg';
   ngOnInit() {
     this.updateDeviceValue();
+    this.setLanguage();
   }
 
   @HostListener('window:resize', ['$event'])
@@ -94,31 +97,36 @@ export class BlogHeroComponent {
   }
 
   // <!-- ========================[ایتم عکس]============== -->
-  red = '#ff0000c2';
-  yellow = '#ffd700a3';
-  blue = '#0000ff91';
-  aqua = '#00ffffb2';
-  green = '#2bdb2bba';
+  red = '#ff000087';
+  yellow = '#44f76a99';
+  blue = '#008dff66';
+  aqua = '#00ffff80';
+  green = '#2bdb2b82';
   x = [
     {
-      color: '#ff0000c2',
+      color: this.red,
       img: 'assets/img/blog(hover)-2.svg',
     },
     {
-      color: '#ffd700a3',
+      color: this.green,
       img: 'assets/img/blog(hover)-1.svg',
     },
     {
-      color: '#0000ff91',
+      color: this.blue,
       img: 'assets/img/blog(hover)-3.svg',
     },
     {
-      color: '#00ffffb2',
+      color: this.aqua,
       img: 'assets/img/blog(hover)-4.svg',
     },
     {
-      color: '#2bdb2bba',
+      color: this.yellow,
       img: 'assets/img/blog(hover)-5.svg',
     },
   ];
+  setLanguage() {
+    this.itemHero.forEach((it) =>
+      it.isRTL ? (it.language = 'FA') : (it.language = 'EN')
+    );
+  }
 }

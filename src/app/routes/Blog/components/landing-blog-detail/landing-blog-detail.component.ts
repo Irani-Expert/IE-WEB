@@ -62,37 +62,37 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
   options: config = { multi: false };
 
   // =================[فیلتر]=============
-  categoryDetailIcon : string = 'assets/img/filter-icon-blog(detail).svg';
-  categoryDetailHeader : string= 'دسترسی سریع';
+  categoryDetailIcon: string = 'assets/img/filter-icon-blog(detail).svg';
+  categoryDetailHeader: string = 'دسترسی سریع';
 
   categoryDetail: Array<any> = [
     {
-      name : 'درامد دلاری',
-      id : 1
+      name: 'درامد دلاری',
+      id: 1,
     },
     {
-      name : 'ربات معامله گر ATM',
-      id : 2
+      name: 'ربات معامله گر ATM',
+      id: 2,
     },
     {
-      name : 'آموزش فارکس',
-      id : 3
+      name: 'آموزش فارکس',
+      id: 3,
     },
     {
-      name : 'آموزش ارز دیجیتال',
-      id : 4
+      name: 'آموزش ارز دیجیتال',
+      id: 4,
     },
     {
-      name : 'ترید چیست',
-      id : 5
+      name: 'ترید چیست',
+      id: 5,
     },
     {
-      name : 'انتخاب بهترین بروکر',
-      id : 6
+      name: 'انتخاب بهترین بروکر',
+      id: 6,
     },
     {
-      name : 'اصول انتخاب بروکر',
-      id : 7
+      name: 'اصول انتخاب بروکر',
+      id: 7,
     },
   ];
   // =======================[رسپانسیو]==========
@@ -103,7 +103,7 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
   }
   async ngOnInit() {
     this.updateDeviceValue();
-    // this.getItemBlogs(this.blogFilter)
+    this.getItemBlogs(this.blogFilter);
 
     this.routeSubscriber = this.router.events
       .pipe(takeUntil(this.destroyed$))
@@ -122,13 +122,14 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
   ngOnDestroy() {
     this.routeSubscriber?.unsubscribe();
   }
+
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.updateDeviceValue();
   }
   updateDeviceValue() {
     if (AppComponent.isBrowser.value) {
-      if (Utils.isMobileL()) {
+      if (Utils.isTablet()) {
         this.device = 'sm';
       } else {
         this.device = 'lg';
