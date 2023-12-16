@@ -22,7 +22,7 @@
   <div class="flex justify-center mt-16 mr-4">
     <div class="grid grid-cols-4">
       <div class="part-1">
-        <app-blog-filter [categoryDetail]="category">
+        <app-blog-filter [categoryDetail]="categoryDetail">
           <p header class="text-black">دسترسی سریع</p>
         </app-blog-filter>
       </div>
@@ -43,7 +43,7 @@
 </div>
 <!-- ====================[رسپانسیو]========= -->
 <div [ngClass]="device == 'sm' ? 'block' : 'hidden'">
-  <div class="mt-6 mr-4 ml-4">
+  <div class="mt-20 mr-4 ml-4">
     <ng-container *ngIf="!loading">
     <ng-container *ngIf="sendDataToChild">
       <app-blog-detail [data]="blogService._blog!"></app-blog-detail>
@@ -68,7 +68,15 @@
     </div>
   </div>
   <!-- =========[دسته بندی]====== -->
-  <div class="divider mt-7 mb-7"></div>
+  <app-filter-responsive
+  [categoryDetailHeader]="categoryDetailHeader"
+  [categoryDetailIcon]="categoryDetailIcon"
+  [categoryDetail]="categoryDetail">
+    <p header class="text-black w-28">دسته بندی</p>
+  </app-filter-responsive>
+  
+  <div class="divider mt-4 mb-7"></div>
+
   <div class="mr-6 ml-6">
     <!-- ===========[مدرسه فارکس]========== -->
     <div class="flex justify-center mb-8">

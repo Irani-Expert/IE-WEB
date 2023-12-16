@@ -82,6 +82,13 @@
                 </div>
             </div>
         </div>
+          <!-- =========[دسته بندی]====== -->
+          <app-filter-responsive
+          [categoryHeader]="categoryHeader"
+          [categoryIcon]="categoryIcon"
+          [category]="category">
+            <p header class="text-black w-28">دسته بندی</p>
+          </app-filter-responsive>
         <!-- ===========[ پیشنهادات و مقالات ]========== -->
         <ng-container *ngIf="!loading">
             <app-offers [data]="itemsBlog.slice(0,5)"></app-offers>
@@ -89,7 +96,6 @@
         <!-- ===========[ تبلیغات ]========== -->
         <div class="mr-6 ml-6 mt-4">
             <img class="w-full" src="assets/img/add-blog(responsive).svg" alt="add">
-            <app-filter-responsive></app-filter-responsive>
             <!-- ===========[ آرتیکلز ]========== -->
             <app-articles></app-articles>
             <app-articles></app-articles>

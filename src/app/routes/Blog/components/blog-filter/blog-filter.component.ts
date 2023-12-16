@@ -10,6 +10,8 @@ import { Utils } from 'src/app/classes/utils';
 export class BlogFilterComponent {
   @Input() category : Array<any> ;
   @Input() categoryDetail : Array<any> ;
+
+  
   @ViewChild('sticky') myStickyElement: ElementRef
   sticked:boolean = false
 
