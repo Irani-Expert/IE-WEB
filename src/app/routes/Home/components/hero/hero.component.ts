@@ -29,7 +29,7 @@ export class HeroComponent {
   }
   updateDeviceValue() {
     if (AppComponent.isBrowser.value) {
-      if (Utils.isTablet()) {
+      if (Utils.isMobileL()) {
         this.device = 'sm';
       } else {
         this.device = 'lg';

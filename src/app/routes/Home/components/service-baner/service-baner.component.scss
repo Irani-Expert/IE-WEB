@@ -43,9 +43,6 @@
 .all {
   position: relative;
   margin-top: 70px;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1290px;
 }
 .baner-1 {
   position: absolute;
@@ -67,11 +64,14 @@
   z-index: -7;
   height: auto;
   width: 1400px;
+  max-height: 301px;
 }
 .divider-baner {
   margin-bottom: 7px;
-  border-bottom: #96f900 2px solid;
+  background-color: #96f900;
   width: 70px;
+  height: 0.25rem;
+  border-radius: 40px;
 }
 .baner-title {
   color: white;

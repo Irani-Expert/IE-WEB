@@ -16,9 +16,6 @@ $min-width-carousel: 300px;
   background-color: #3246d3;
   font-weight: 700;
 }
-.hero {
-  margin-bottom: 0;
-}
 .hero-f {
   position: relative;
 }
@@ -51,7 +48,6 @@ $min-width-carousel: 300px;
   min-width: 600px;
   max-width: 730px;
   transform: translate(109px, -302px);
-  z-index: -31;
 }
 .darsad {
   font-style: oblique;
@@ -64,15 +60,6 @@ $min-width-carousel: 300px;
 }
 .mizan-sod {
   text-align: center;
-}
-.sood {
-  position: relative;
-  left: 123px;
-  bottom: 8px;
-}
-.sod {
-  position: relative;
-  margin-right: -200px;
 }
 .btn {
   color: white;
@@ -114,7 +101,6 @@ $min-width-carousel: 300px;
   font-size: 1.25rem;
   padding-left: 0.5rem;
   font-weight: normal;
-  text-align: justify;
 }
 .header-text-end {
   color: #098b41;
@@ -163,19 +149,17 @@ $min-width-carousel: 300px;
   height: 500px;
 }
 .hero-img2 {
-  transform: translate(195px, -117px);
-  max-width: 658px;
+  max-width: 44rem;
+  // transform: translate(195px, -117px);
 }
 .box-1 {
   position: relative;
   background-color: white;
   border-radius: 10px;
-  width: 111px;
-  transform: translate(-191px, -565px);
+  width: 118px;
+  transform: translate(-402px, -471px);
 }
-.emugi {
-  width: 35px;
-}
+
 .emugi-box {
   background-color: #0075f8;
   border-radius: 34px;
@@ -226,8 +210,8 @@ $min-width-carousel: 300px;
   position: relative;
   background-color: white;
   border-radius: 10px;
-  width: 130px;
-  transform: translate(-74px, -309px);
+  width: 136px;
+  transform: translate(-296px, -227px);
 }
 .emugi-box2 {
   background-color: #0075f8;
