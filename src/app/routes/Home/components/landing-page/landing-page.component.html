@@ -114,7 +114,7 @@
     <app-video-player [VideoId]="0" [homeScreen]="true"></app-video-player>
   </div>
 </div> -->
-<div class="sm:bg-white bg-[#F5F5F5] sm:px-24">
+<div class="sm:bg-white bg-[#F5F5F5]">
   <div>
     <app-hero (scroll)="scroll($event)" />
     <app-tags />
@@ -135,7 +135,7 @@
     />
   </div>
   <div>
-    <app-gift-form></app-gift-form>
+    <!-- <app-gift-form></app-gift-form> -->
     <app-card-title
       [title]="'فروشگاه محصولات'"
       [type]="'محصولات ایرانی اکسپرت'"
@@ -165,12 +165,12 @@
   <div class="mt-10">
     <app-card-title
       [title]="'مدرسه ترید'"
-      [type]="'دوره اموزشی'"
+      [type]="'دوره آموزشی'"
       [iconlink]="'../../../assets/img/Union 25.png'"
     ></app-card-title>
   </div>
   <!-- ================[به زودی]============== -->
-  <div class="flex justify-center flex-col relative">
+  <div class="flex justify-center flex-col relative mt-32">
     <div
       class="flex justify-center sm:overflow-y-hidden overflow-y-auto opacity-40"
     >
@@ -180,7 +180,7 @@
       ></app-product-card>
     </div>
     <div
-      class="absolute -translate-x-1/2 left-1/2 w-full bg-opacity-50 bg-black flex flex-col justify-center py-12 rounded-3xl"
+      class="absolute -translate-x-1/2 left-1/2 bg-opacity-50 bg-black flex flex-col justify-center py-12 gap-5 w-[100vw] px-4"
     >
       <img
         src="../../../../../assets/img/Trade-School-Coming-Soon.png"
@@ -192,17 +192,8 @@
     </div>
   </div>
   <div
-    class="rounded-[3.5rem] w-full h-[50px] sm:hidden relative top-[27px] bg-[#F5F5F5] z-10"
-    style="position: relative; top: 27px"
+    class="rounded-[3.5rem] w-full h-[50px] sm:hidden relative top-[99px] bg-[#F5F5F5] z-10"
   ></div>
-  <div class="bg-white z-20 pt-5">
-    <!-- <app-card-link
-      [btnName]="'مدرسه ترید'"
-      [paragraph]="
-        'در مدرسه ترید ایرانی اکسپرت می توانید آخرین آموزش های مرتبط به بازار های مالی را مشاهده و بررسی کنید'
-      "
-    ></app-card-link> -->
-  </div>
 
   <app-banners> </app-banners>
   <div class="bg-[#F5F5F5] rounded-b-[2.5rem] pb-16 sm:hidden">
@@ -244,10 +235,10 @@
 </div>
 <div class="pb-4 pt-2 mb-2">
   <app-questions></app-questions>
-  <div class="flex justify-center">
+  <div class="flex justify-center my-3">
     <div class="w-[64rem]">
       <h2 class="text-3xl font-bold">مقدمه ای بر ایرانی اکسپرت</h2>
-      <p>
+      <p class="mt-5 font-medium text-justify">
         ایرانی اکسپرت، از ۱ فوریه سال ۲۰۲۱، با تحقیق و توسعه استراتژی‌ها و
         ابزارهای مختلف معاملاتی بازار فارکس، به مقایسه مزایا ومعایب ربات‌های
         معامله‌گرفارکس موجود .تولید کرد (Automated Trading Machine) ATM پرداخت.
@@ -281,12 +272,12 @@
   </div>
 
   <app-video-player [VideoId]="0" [homeScreen]="true"></app-video-player>
-  <div class="flex justify-center">
+  <div class="flex justify-center mt-10 mb-5">
     <div class="w-[64rem]">
       <h2 class="text-3xl font-bold">
         چگونه معامله کنم؟ نقطه شروع ترید کجاست؟
       </h2>
-      <p>
+      <p class="mt-5 font-medium text-justify">
         نقطه شروع ترید در بازار فارکس، می‌تواند برای اکثریت یک مسئله گیج‌کننده
         باشد. اما با رعایت کردن مواردی که ایرانی اکسپرت لیست کرده است، می‌توانید
         به عنوان مبتدی شروع به معامله کنید:
@@ -301,12 +292,12 @@
       </p>
     </div>
   </div>
-  <div class="flex justify-center mt-3">
+  <div class="flex justify-center my-3">
     <div class="w-[64rem]">
       <h2 class="text-3xl font-bold">
         به عنوان نمونه، روش‌های معاملاتی و تحلیلی را به صورت کلی شرح می دهیم:
       </h2>
-      <div>
+      <div class="mt-5 space-y-2 container-text text-justify">
         <p>روش‌های معاملاتی مرسوم، شامل پنج روش است:</p>
         <p>۱. معامله دستی</p>
         <p>۲. استفاده از اکسپرت‌ها ربات‌های معامله‌گر</p>
@@ -370,10 +361,10 @@
       </div>
     </div>
   </div>
-  <div class="flex justify-center mt-3">
+  <div class="flex justify-center my-3">
     <div class="w-[64rem]">
       <h2 class="text-3xl font-bold">چرا ایرانی اکسپرت؟</h2>
-      <div>
+      <div class="mt-5 space-y-3 container-text text-justify">
         <p>
           تجربه و تخصص: ما با بیش از یک دهه تجربه در بازار فارکس و هوش مصنوعی و
           دارا بودن افراد مدرس در سطح کشوری و بین المللی در معتبرترین
@@ -414,29 +405,29 @@
       </div>
     </div>
   </div>
-  <div class="flex justify-center mt-3">
+  <div class="flex justify-center my-3">
     <div class="w-[64rem]">
       <h2 class="text-3xl font-bold">همکاری با ایرانی اکسپرت</h2>
-      <div>
+      <div class="mt-5 container-text text-justify">
         <p>
           ایرانی اکسپرت آمادگی خود را جهت همکاری با موسسات آموزشی و شرکت‌های
           سرمایه‌گذاری اعلام می‌دارد. خرسندیم اعلام کنیم آغوش ما به روی متخصصین
           این حوزه باز است، جهت استخدام تریدر رزومه خود را ارسال نمایید
         </p>
-        <div class="flex max-sm:justify-center m-2 sm:ms-0">
+        <!-- <div class="flex max-sm:justify-center m-2 sm:ms-0">
           <button
             class="bg-main-blue border-2 relative border-[#3246d3] border-solid hover:bg-white hover:text-[#3246d3] text-white sm:px-2 px-6 p-1.5 sm:w-40 rounded-full font-semibold sm:text-base text-sm"
           >
             ارسال رزومه
           </button>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
-  <div class="flex justify-center mt-3">
+  <div class="flex justify-center my-3">
     <div class="w-[64rem]">
       <h2 class="text-3xl font-bold">آخرین اخبار فارکس</h2>
-      <div>
+      <div class="mt-5 space-y-3 container-text text-justify">
         <p>
           یکی‌از مهمترین چالش‌های معامله‌گران و تریدرهایی که استراتژی شخصی دارند
           یا از استراتژی‌های مرسوم بازار استفاده می‌کنند، اخبار فاندامنتال یا
@@ -481,12 +472,12 @@
       </div>
     </div>
   </div>
-  <div class="flex justify-center mt-3">
+  <div class="flex justify-center my-3">
     <div class="w-[64rem]">
       <h2 class="text-3xl font-bold">
         مسیر آموزشی در ایرانی اکسپرت از مدسه ترید می گذرد!!
       </h2>
-      <div>
+      <div class="mt-5 space-y-3 container-text text-justify">
         <p>تمرکز اصلی آموزشی ما در ایرانی اکسپرت، روی آموزش فارکس است.</p>
         <p>
           سرفصل‌های آموزشی ما عبارتند از: بازارفارکس، آموزش کار با متاتریدر،
@@ -517,9 +508,6 @@
           محتوای پادکست‌ها توسط مختصصین این حوزه تولید شده و به زبان عامیانه،
           توسط گوینده‌های به نام، ضبط و روی سایت منتشر می‌شود.
         </p>
-        <p></p>
-        <p></p>
-        <p></p>
       </div>
     </div>
   </div>
