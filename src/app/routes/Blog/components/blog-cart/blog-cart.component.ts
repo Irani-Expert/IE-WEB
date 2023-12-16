@@ -25,10 +25,11 @@ class BlogModel implements Blog {
   styleUrls: ['./blog-cart.component.scss'],
 })
 export class BlogCartComponent {
+  loading: boolean = true;
+
   contentUrl = environment.contentUrl;
   url = '';
   @Input('data') item: Blog = new BlogModel();
-  @Input('item') items: any;
 
   // =======================[رسپانسیو]==========
 
@@ -37,6 +38,8 @@ export class BlogCartComponent {
     this.updateDeviceValue();
     let language = this.item.isRTL ? 'FA' : 'EN';
     this.url = this.item.browserTitle.split(' ').join('_') + '/' + language;
+    this.loading = false;
+
   }
 
   @HostListener('window:resize', ['$event'])

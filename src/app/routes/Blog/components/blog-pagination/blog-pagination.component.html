@@ -1,5 +1,6 @@
-<ng-container *ngIf="!loading">
     <div [ngClass]="device == 'lg' ? 'block' : 'hidden'" class="mt-8 mb-4 bg-all">
+        <ng-container *ngIf="!loading">
+
         <!-- =======================[بنر]========== -->
         <div class="flex justify-center mr-5 ml-5">
             <div class="baner flex">
@@ -76,13 +77,16 @@
                  </div>
              </div>
         </div>
+        </ng-container>
     </div>
     <!-- =================[رسپانسیو]=========== -->
+
     <div [ngClass]="device == 'sm' ? 'block' : 'hidden'">
+        <ng-container *ngIf="!loading">
         <div class="flex justify-start mt-5 mr-6 ml-6">
             <div>
                 <div class="mb-4" *ngFor="let meal of itemsBlog | paginate: config">
-                  <app-blog-cart [item]="meal"></app-blog-cart>
+                  <app-blog-cart [data]="meal"></app-blog-cart>
                 </div>
             </div>
         </div>
@@ -134,7 +138,7 @@
                </div>
            </div>
            <!-- ===========[ تبلیغات ]========== -->
-           <img src="assets/img/add-blog(responsive).svg" alt="add">
+           <img class="w-full" src="assets/img/add-blog(responsive).svg" alt="add">
         </div>
+    </ng-container>
     </div>
-</ng-container>

@@ -31,7 +31,9 @@
           <app-blog-detail [data]="blogService._blog!"></app-blog-detail>
         </ng-container>
         <app-comments></app-comments>
+        <div *ngIf="!loading">
         <app-carousel-blog [data]="itemsBlog.slice(0,5)"></app-carousel-blog>
+        </div>
       </div>
     </div>
   </div>
@@ -88,7 +90,7 @@
       </div>
     </div>
     <!-- ===========[ تبلیغات ]========== -->
-    <img src="assets/img/add-blog(responsive).svg" alt="add" />
+    <img class="w-full" src="assets/img/add-blog(responsive).svg" alt="add" />
     <!-- ======[مطالب پیشنهادی]======== -->
     <div class="mt-6 mb-6">
       <span class="flex title-offer">
@@ -100,9 +102,9 @@
         مقالات ایرانی اکسپرت
       </span>
       <h6 class="title-offer2">جدیدترین و آخرین مقالات ایرانی اکسپرت</h6>
-      <app-blog-cart></app-blog-cart>
+      <app-blog-cart ></app-blog-cart>
     </div>
-    <img src="assets/img/add-blog(responsive).svg" alt="add" />
+    <img class="w-full" src="assets/img/add-blog(responsive).svg" alt="add" />
 
     <!-- =============[کاروسل]========= -->
     <app-blog-hero></app-blog-hero>

@@ -1,4 +1,5 @@
-<div *ngIf="!loading" class="bg-all">
+<ng-container *ngIf="!loading">
+<div class="bg-all">
     <div [ngClass]="device == 'lg' ? 'block' : 'hidden'" class="mr-8 ml-8 pt-9">        
         <app-blog-hero [data]="itemsBlog.slice(0,5)"></app-blog-hero>
         <div class="grid grid-cols-4 mt-16">
@@ -15,8 +16,9 @@
             </div>
         </div>
     </div>
-    <!-- ==========[رسپانسیو]=========== -->
 </div>
+</ng-container>
+<!-- ==========[رسپانسیو]=========== -->
     <div [ngClass]="device == 'sm' ? 'block' : 'hidden'" class="pt-12">
                 <!-- ========================[بنر]============== -->
                 <div class="flex justify-center mb-10">
@@ -87,6 +89,7 @@
         <!-- ===========[ تبلیغات ]========== -->
         <div class="mr-6 ml-6 mt-4">
             <img class="w-full" src="assets/img/add-blog(responsive).svg" alt="add">
+            <app-filter-responsive></app-filter-responsive>
             <!-- ===========[ آرتیکلز ]========== -->
             <app-articles></app-articles>
             <app-articles></app-articles>
