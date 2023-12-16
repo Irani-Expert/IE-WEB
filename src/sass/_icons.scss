@@ -1,0 +1,24 @@
+.ie-icon {
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-rendering: auto;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+}
+.ie-chevron {
+  &.right {
+    transform: rotate(-90deg);
+  }
+  &.left {
+    transform: rotate(90deg);
+  }
+  &.up {
+    transform: rotate(180deg);
+  }
+  &::before {
+    content: url(../assets/icon/chevron.svg);
+  }
+  transition: transform 0.3s ease;
+}
