@@ -1,7 +1,5 @@
-import { Component, HostListener, Input } from '@angular/core';
-import { AppComponent } from 'src/app/app.component';
+import { Component, Input } from '@angular/core';
 import { Comment } from 'src/app/classes/interfaces/comment.interface';
-import { Utils } from 'src/app/classes/utils';
 
 @Component({
   selector: 'app-comments',
@@ -43,22 +41,20 @@ export class CommentsComponent {
     }
   }
   // ===================[رسپانسیو ]==================
-  constructor() {
-    this.updateDeviceValue();
-  }
+  constructor() {}
   device: 'sm' | 'lg' = 'lg';
 
-  @HostListener('window:resize', ['$event'])
-  onResize() {
-    this.updateDeviceValue();
-  }
-  updateDeviceValue() {
-    if (AppComponent.isBrowser.value) {
-      if (Utils.isTablet()) {
-        this.device = 'sm';
-      } else {
-        this.device = 'lg';
-      }
-    }
-  }
+  // @HostListener('window:resize', ['$event'])
+  // onResize() {
+  //   this.updateDeviceValue();
+  // }
+  // updateDeviceValue() {
+  //   if (AppComponent.isBrowser.value) {
+  //     if (Utils.isTablet()) {
+  //       this.device = 'sm';
+  //     } else {
+  //       this.device = 'lg';
+  //     }
+  //   }
+  // }
 }

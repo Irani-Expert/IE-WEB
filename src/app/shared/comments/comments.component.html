@@ -1,30 +1,27 @@
-<div
-  class="flex justify-center"
-  [ngClass]="device == 'lg' ? 'block' : 'hidden'"
->
-  <div class="w-9/12 mb-7">
+<div class="flex justify-center">
+  <div class="sm:w-9/12 mb-7">
     <div class="mb-3">
-      <div class="mb-20">
+      <div class="sm:mb-20 mb-2">
         <div class="flex items-center text-base font-semibold text-[#3246D3]">
           <div
             class="me-2 w-[24px] h-[6px] inline-block bg--blue rounded-[5px]"
           ></div>
           <p class="mt-1.5 text-[#3246D3]">ATM نظرات خریداران ربات</p>
         </div>
-        <p class="text-[27px] font-bold mt-1 text-black">
+        <p class="sm:text-[27px] text-xl font-bold mt-1 text-black">
           لطفا نظرات خود را جهت راهنمایی دیگر خریداران ثبت کنید
         </p>
       </div>
       <div class="flex flex-col items-center">
-        <div class="w-10/12">
+        <div class="sm:w-10/12 w-11/12">
           <span class="text-xl font-medium">متن دیدگاه شما </span>
           <textarea
             placeholder="نظر خود را درباره بروکر معرفی شده ثبت کنید"
           ></textarea>
         </div>
-        <div class="flex w-10/12">
-          <div class="flex items-center w-full">
-            <span class="w-[7.5rem]">امتیاز دهید:{{ rateText }}</span>
+        <div class="flex sm:w-10/12 max-sm:flex-col">
+          <div class="flex items-center w-full justify-center">
+            <span class="sm:w-[7.5rem]">امتیاز دهید:{{ rateText }}</span>
             <div
               class="p-div w-[18rem] flex flex-col p-2 text-2xl mb-[24px] justify-center"
             >
@@ -50,23 +47,29 @@
               ></progress>
             </div>
           </div>
-          <div class="flex w-full items-center justify-end">
+          <div class="flex w-full items-center justify-end mb-4">
             ثبت نظر به صورت ناشناس <app-toggle></app-toggle>
-            <button class="bg--blue rounded-xl text-white w-[13.5rem] mr-2 p-4">
+            <button
+              class="bg--blue rounded-xl text-white sm:w-[13.5rem] w-[12rem] mr-2 p-4"
+            >
               ثبت دیدگاه
             </button>
           </div>
         </div>
       </div>
 
-      <div class="border-solid border-2 border-gray-300 h-[13rem] rounded-lg">
+      <div class="border-solid border-2 border-gray-300 rounded-lg">
         <div
-          class="flex justify-between border-b-2 m-2 me-8 ms-8 border-gray-300"
+          class="flex justify-between border-b-2 m-2 py-2 mx-8 border-gray-300"
         >
-          <div class="flex justify-around w-[28%] text-xs">
+          <div class="flex justify-around sm:w-[28%] text-xs">
             <div class="point-card font-extrabold">5</div>
-            <p class="font-bold leading-[42px] text-[#847b7b]">3 شهریور 1400</p>
-            <p class="font-bold leading-[40px] text-[#847b7b]">سعید عبداللهی</p>
+            <p class="font-bold sm:leading-[42px] mx-2 pt-2 text-[#847b7b]">
+              3 شهریور 1400
+            </p>
+            <p class="font-bold sm:leading-[40px] mx-2 pt-2 text-[#847b7b]">
+              سعید عبداللهی
+            </p>
             <p
               class="rounded-full flex text-[#17ee9d] text-base bg-gray-100 pe-4 ms-1 mt-2 pt-0 ps-4 p-1 font-bold items-center h-[50%]"
               style="align-items: flex-start"
@@ -80,17 +83,17 @@
             ></i>
           </div>
         </div>
-        <div class="h-[48%] flex m-2 me-8 ms-8 border-b-2 pt-2">
+        <div class="sm:h-[48%] flex m-2 me-8 ms-8 border-b-2 pt-2">
           <img
             src="../../../assets/img/Mask Group 131.png"
             class="ms-8 h-12 w-12 bg-[#e8e8e8] rounded-full"
           />
-          <p class="leading-[3.4rem] ms-2">
+          <p class="sm:leading-[3.4rem] ms-2">
             سلام ... ابتدا یکماهه و سپس یکساله گرفتم و روی تمام جفت ارزهای ماژور
             کار میکنم ... خدا بهتون برکت بده و ممنون از محصول بی نظیرتون
           </p>
         </div>
-        <div class="h-1/4 m-2 me-8 ms-8">
+        <div class="h-1/4 sm:m-2 mx-8">
           <span class="text-[#0f9260]"
             ><i class="fa fa-thumbs-up text-lg cursor-pointer"></i> 27+</span
           >
@@ -104,20 +107,20 @@
           ></div>
         </div>
         <div
-          class="border-solid border-2 border-gray-300 h-[85%] w-full rounded-lg bg-[#E9F6FF]"
+          class="border-solid border-2 border-gray-300 w-full rounded-lg bg-[#E9F6FF]"
         >
           <div
-            class="flex justify-between border-b-2 m-4 me-8 ms-8 border-gray-300"
+            class="flex justify-between border-b-2 py-2 mx-8 border-gray-300"
           >
-            <div class="flex justify-around w-[26%] text-xs">
-              <p class="font-bold leading-[42px] text-[#847b7b]">
+            <div class="flex justify-around sm:w-[26%] text-xs">
+              <p class="font-bold sm:leading-[42px] text-[#847b7b] pt-2.5">
                 3 شهریور 1400
               </p>
-              <p class="font-bold leading-[40px] text-[#847b7b]">
+              <p class="font-bold sm:leading-[40px] text-[#847b7b] pt-2.5">
                 سعید عبداللهی
               </p>
               <div
-                class="rounded-full flex text-white text-base bg-[#17C9EE] pe-4 ms-1 mt-2 pt-0 ps-4 p-1 font-bold items-center h-[50%]"
+                class="rounded-full flex text-white text-base bg-[#17C9EE] px-4 ms-1 sm:mt-2 p-1 font-bold items-center sm:h-[50%]"
                 style="align-items: flex-start"
               >
                 فروشنده
@@ -129,16 +132,16 @@
               ></i>
             </div>
           </div>
-          <div class="h-[44%] flex m-2 me-8 ms-8 border-b-2 pt-2">
+          <div class="flex m-2 mx-8 border-b-2 pt-2">
             <img
               src="../../../assets/img/Mask Group 74.png"
-              class="ms-8 h-12 w-12 rounded-full bg-white"
+              class="ms-8 mb-3 h-12 w-12 rounded-full bg-white"
             />
-            <p class="leading-[3.4rem] ms-2">
+            <p class="ms-2 mx-2">
               سلام و عرض ادب ... خیلی ممنون لطف دارید همیشه پر سود باشید
             </p>
           </div>
-          <div class="h-1/4 m-2 me-8 ms-8">
+          <div class="h-1/4 sm:m-2 mx-8">
             <span class="text-[#0f9260]"
               ><i class="fa fa-thumbs-up text-lg cursor-pointer"></i> 27+</span
             >
