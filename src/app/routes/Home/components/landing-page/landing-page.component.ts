@@ -9,6 +9,7 @@ import { lastValueFrom } from 'rxjs';
 import { Product } from 'src/app/classes/interfaces/product.interface';
 import { FilterProduct } from 'src/app/classes/interfaces/filter-product.interface';
 import { ConsultationFormComponent } from '../consultation-form/consultation-form.component';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-landing-page',
@@ -16,6 +17,12 @@ import { ConsultationFormComponent } from '../consultation-form/consultation-for
   styleUrls: ['./landing-page.component.scss'],
 })
 export class LandingPageComponent {
+  constructor(
+    private meta : Meta ,
+    private _articleServices: BlogService,
+    public productService: ProductService
+  ) {}
+
   @ViewChild(ConsultationFormComponent, { static: false })
   appConsulting: ConsultationFormComponent;
   isRecived: boolean = false;
@@ -72,10 +79,7 @@ export class LandingPageComponent {
     },
   ];
   card_data2: IcardData[] = [];
-  constructor(
-    private _articleServices: BlogService,
-    public productService: ProductService
-  ) {}
+
   async getBlogs(filter: FilterBlog) {
     (
       await this._articleServices.getBlogsFromApi(
@@ -134,5 +138,18 @@ export class LandingPageComponent {
   }
   scroll(event: boolean) {
     this.appConsulting.scroll();
+      // =================[متاتگ ها]==========
+      this.meta.addTag({
+        name: 'description',
+        content: 'فروشگاه ایرانی اکسپرت متمرکز روی ربات ها و اکسپرت های هوشمند معامله گر و آموزش برنامه نویسی بازارهای مالی با هوش مصنوعی',
+      });
+      this.meta.addTag({
+        name: 'author',
+        content: 'ایرانی اکسپرت',
+      });
+      this.meta.addTag({
+        name: 'keywords',
+        content: 'فروشگاه_اکسپرت,ربات,ربات_تریدر,ربات_معامله_گر,ربات_مدیریت_سرمایه,سودآورترین_ربات',
+      });
   }
 }
