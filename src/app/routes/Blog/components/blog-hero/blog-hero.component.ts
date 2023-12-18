@@ -1,5 +1,7 @@
 import { Component, HostListener, Input, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { DragScrollComponent } from 'ngx-drag-scroll';
+import { Subject, Subscription, debounceTime } from 'rxjs';
 import { AppComponent } from 'src/app/app.component';
 import { Blog } from 'src/app/classes/interfaces/blog.interface';
 import { Utils } from 'src/app/classes/utils';
@@ -27,6 +29,12 @@ class BlogModel implements Blog {
   styleUrls: ['./blog-hero.component.scss'],
 })
 export class BlogHeroComponent {
+  // Search Blog
+  value: string | null = null;
+  _searchInputSubscription: Subscription;
+  _searchinput: Subject<string> = new Subject<string>();
+
+  // Search Blog
   @Input('data') itemHero = new Array<BlogModel>();
 
   // =======================[رسپانسیو]==========
@@ -35,8 +43,14 @@ export class BlogHeroComponent {
   ngOnInit() {
     this.updateDeviceValue();
     this.setLanguage();
+    this._searchInputSubscription = this._searchinput
+      .pipe(debounceTime(700))
+      .subscribe((value) => {
+        this.searchFilterName(value);
+      });
   }
 
+  constructor(private router: Router) {}
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.updateDeviceValue();
@@ -128,5 +142,11 @@ export class BlogHeroComponent {
     this.itemHero.forEach((it) =>
       it.isRTL ? (it.language = 'FA') : (it.language = 'EN')
     );
+  }
+  fillValue(value: string) {
+    this._searchinput.next(value);
+  }
+  searchFilterName(value: string) {
+    this.router.navigateByUrl(`blog/page/1?blogName=${value}`);
   }
 }

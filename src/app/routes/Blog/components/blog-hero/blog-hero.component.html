@@ -17,6 +17,7 @@
           <input
             class="input-baner"
             type="text"
+            (input)="fillValue($any($event.target).value)"
             placeholder="مقاله مورد نظر را جستجو کنید"
           />
           <a href="">
