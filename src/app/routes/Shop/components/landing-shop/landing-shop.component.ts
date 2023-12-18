@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 import {
   ActivatedRoute,
   NavigationEnd,
@@ -102,7 +103,8 @@ export class LandingShopComponent {
     private _router: Router,
     private _filterService: FilterService<FilterProduct>,
     private _linkService: LinkService,
-    private _activatedRoute: ActivatedRoute
+    private _activatedRoute: ActivatedRoute,
+    private meta : Meta
   ) {
     this._filterService.filterModelSubject = new BehaviorSubject(
       this.filterModel
@@ -172,6 +174,19 @@ export class LandingShopComponent {
           }
         },
       });
+            // =================[متاتگ ها]==========
+            this.meta.updateTag({
+              name: 'description',
+              content: '&hearts; مقالات ایرانی اکسپرت مناسب تریدرهای حرفه ای، معامله گران بلندمدت و نیز تازه کاران که قصد ورود به بازارمالی را دارند مناسب است. لطفا به دقت مطالعه کنید و از تجربیات تیم تحلیلگر و تیم برنامه نویس هوش مصنوعی ما استفاده کنید تا گام های حرفه ای در بازارمالی بردارید&hearts;',
+            });
+            this.meta.updateTag({
+              name: 'author',
+              content: 'ایرانی اکسپرت',
+            });
+            this.meta.updateTag({
+              name: 'keywords',
+              content: 'آموزش_صفر_تا_صد_فارکس,باید_و_نبایدهای_فارکس,فارکس_به_زبان_ساده,فارکس_یا_رمزارز,رگوله_بروکر,مدیریت_سرمایه,ربات_استیتمنت_دار,ربات_مدیریت_سرمایه,ربات_ایرانی_فارکس',
+            });
   }
 
   // Call From Api Or Use Latest Value on Saved Subject --------------------------------------->
