@@ -56,7 +56,7 @@ export class BlogDetailComponent {
   }
   updateDeviceValue() {
     if (AppComponent.isBrowser.value) {
-      if (Utils.isMobileL()) {
+      if (Utils.isTablet()) {
         this.device = 'sm';
       } else {
         this.device = 'lg';
@@ -72,11 +72,17 @@ export class BlogDetailComponent {
   ) {}
 
   ngOnInit() {
-    this.updateDeviceValue();
-  }
-  ngAfterViewInit() {
+    this.setPage();
+
     this.setArticleDetail();
   }
+  setPage() {
+    if (AppComponent.isBrowser.value) {
+      this.updateDeviceValue();
+      Utils.scrollTopWindow();
+    }
+  }
+  ngAfterViewInit() {}
   // ngOnDestroy() {}
   // ngOnInit() {}
   // ngDoCheck() {}

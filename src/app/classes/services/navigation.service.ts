@@ -83,6 +83,7 @@ export class NavigationService {
       name: 'مجله ایرانی اکسپرت',
       title: 'Irani Expert Magazine',
       type: 'dropdown',
+      path: 'blog',
       sub: [
         {
           id: 1,

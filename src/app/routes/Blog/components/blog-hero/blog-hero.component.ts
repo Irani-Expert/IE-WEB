@@ -1,9 +1,13 @@
 import { Component, HostListener, Input, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { DragScrollComponent } from 'ngx-drag-scroll';
+import { Subject, Subscription, debounceTime } from 'rxjs';
 import { AppComponent } from 'src/app/app.component';
 import { Blog } from 'src/app/classes/interfaces/blog.interface';
 import { Utils } from 'src/app/classes/utils';
 class BlogModel implements Blog {
+  createDate: string = '';
+
   isRTL: boolean = false;
   id: number = 0;
   title: string = '';
@@ -16,8 +20,8 @@ class BlogModel implements Blog {
   studyTime: string = '';
   publishDate: string = '';
   browserTitle: string = '';
-  brief : string ='';
-
+  brief: string = '';
+  language?: string = '';
 }
 @Component({
   selector: 'app-blog-hero',
@@ -25,6 +29,12 @@ class BlogModel implements Blog {
   styleUrls: ['./blog-hero.component.scss'],
 })
 export class BlogHeroComponent {
+  // Search Blog
+  value: string | null = null;
+  _searchInputSubscription: Subscription;
+  _searchinput: Subject<string> = new Subject<string>();
+
+  // Search Blog
   @Input('data') itemHero = new Array<BlogModel>();
 
   // =======================[رسپانسیو]==========
@@ -32,8 +42,15 @@ export class BlogHeroComponent {
   device: 'sm' | 'lg' = 'lg';
   ngOnInit() {
     this.updateDeviceValue();
+    this.setLanguage();
+    this._searchInputSubscription = this._searchinput
+      .pipe(debounceTime(700))
+      .subscribe((value) => {
+        this.searchFilterName(value);
+      });
   }
 
+  constructor(private router: Router) {}
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.updateDeviceValue();
@@ -94,31 +111,42 @@ export class BlogHeroComponent {
   }
 
   // <!-- ========================[ایتم عکس]============== -->
-  red = '#ff0000c2';
-  yellow = '#ffd700a3';
-  blue = '#0000ff91';
-  aqua = '#00ffffb2';
-  green = '#2bdb2bba';
+  red = '#ff000087';
+  yellow = '#44f76a99';
+  blue = '#008dff66';
+  aqua = '#00ffff80';
+  green = '#2bdb2b82';
   x = [
     {
-      color: '#ff0000c2',
+      color: this.red,
       img: 'assets/img/blog(hover)-2.svg',
     },
     {
-      color: '#ffd700a3',
+      color: this.green,
       img: 'assets/img/blog(hover)-1.svg',
     },
     {
-      color: '#0000ff91',
+      color: this.blue,
       img: 'assets/img/blog(hover)-3.svg',
     },
     {
-      color: '#00ffffb2',
+      color: this.aqua,
       img: 'assets/img/blog(hover)-4.svg',
     },
     {
-      color: '#2bdb2bba',
+      color: this.yellow,
       img: 'assets/img/blog(hover)-5.svg',
     },
   ];
+  setLanguage() {
+    this.itemHero.forEach((it) =>
+      it.isRTL ? (it.language = 'FA') : (it.language = 'EN')
+    );
+  }
+  fillValue(value: string) {
+    this._searchinput.next(value);
+  }
+  searchFilterName(value: string) {
+    this.router.navigateByUrl(`blog/page/1?blogName=${value}`);
+  }
 }

@@ -1,8 +1,8 @@
 <nav dir="ltr" class="pl-3.5">
   <div class="top-6 left-5 absolute">
-    <a (click)="openandClose()" class="w-1/4 colors.red cursor-pointer"
-      ><img class="w-[25px]" src="../../../../assets/img/Artbd – 1.png" />
-    </a>
+    <span (click)="openandClose()" class="w-1/4 colors.red cursor-pointer">
+      <img class="w-[25px]" src="../../../../assets/img/Artbd – 1.png" />
+    </span>
   </div>
   <ul
     style="max-width: 596px !important"
@@ -10,9 +10,9 @@
     class="fixed text-1.5xl top-0 left-0 h-full max-[480px]:right-[20%] min-[481px]:right-[55%] bg-main-blue z-50"
   >
     <li class="mb-12 mt-4 ms-4">
-      <a (click)="openandClose()" class="w-1/4 bg-black" href="#"
+      <span (click)="openandClose()" class="w-1/4 bg-black" href="#"
         ><img class="w-[26px]" src="../../../../assets/img/Artbod – 1.png" />
-      </a>
+      </span>
     </li>
 
     <ng-container style="margin-top: 50%" *ngFor="let item of items">

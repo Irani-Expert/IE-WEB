@@ -1,104 +1,123 @@
 <ng-container *ngIf="!loading">
-<div class="bg-all">
-    <div [ngClass]="device == 'lg' ? 'block' : 'hidden'" class="mr-8 ml-8 pt-9">        
-        <app-blog-hero [data]="itemsBlog.slice(0,5)"></app-blog-hero>
-        <div class="grid grid-cols-4 mt-16">
-            <div class="part-1">
-                <app-blog-filter
-                [category]="category"
-                >
+  <div class="bg-all">
+    <div [ngClass]="device == 'lg' ? 'block' : 'hidden'" class="mr-8 ml-8 pt-9">
+      <app-blog-hero [data]="itemsBlog.slice(0, 5)"></app-blog-hero>
+      <div class="grid grid-cols-4 mt-16">
+        <div class="part-1">
+          <app-blog-filter [category]="category">
             <p header class="text-black">دسته بندی</p>
-        </app-blog-filter>
-            </div>
-            <div class="col-span-3 mr-4">
-             <app-offers [data]="itemsBlog.slice(0,5)"></app-offers>
-             <app-articles></app-articles>
-            </div>
+          </app-blog-filter>
         </div>
+        <div class="col-span-3 mr-4">
+          <app-offers [data]="itemsBlog"></app-offers>
+          <app-articles></app-articles>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 </ng-container>
 <!-- ==========[رسپانسیو]=========== -->
-    <div [ngClass]="device == 'sm' ? 'block' : 'hidden'" class="pt-12">
-                <!-- ========================[بنر]============== -->
-                <div class="flex justify-center mb-10">
-                    <div class="baner-mobile">
-                        <div class="flex flex-row">
-                            <div class="flex items-center mr-3 basis-2/2">
-                                <div>
-                                    <span class="dividr-title">با ایرانی اکسپرت مطمئن و آسان ترید کن </span>
-                                    <h6 class="title-baner">مقالات آموزشی فارکس</h6>
-                                </div>
-                            </div>
-                            <div class="relative basis-1/3 flex" >
-                                <img class="logo-mobile" src="assets/img/blog-baner-logo.svg" alt="logo">
-                            </div>
-                        </div>
-                        <div class="mr-12 ml-12">
-                            <div class="search-box">
-                                <input class="input-baner" type="text" placeholder="مقاله مورد نظر را جستجو کنید">
-                                <a href="">
-                                <img class="icon-search" src="assets/img/search-icon(blog).svg" alt="icon">
-                                </a>
-                            </div>  
-                        </div>
-                    </div>
-                </div>
-        <ng-container *ngIf="!loading">
-        <app-blog-hero [data]="itemsBlog.slice(0,5)"></app-blog-hero>
-        </ng-container>
-        <div class="mr-6 ml-6 mt-10">
-            <!-- ===========[پیشنهاد سردبیر]========== -->
-            <span class="flex title-offer">
-            <img class="mb-4 ml-1" src="assets/img/icon-offer.svg" alt="icon">پیشنهاد سردبیر</span>
-            <h6 class="title-offer2">برگزیده آخرین اخبار و مقالات</h6>
-            <ng-container *ngIf="!loading">
-            <ng-container  *ngFor="let item of itemsBlog">
-                <app-blog-cart [data]="item"></app-blog-cart>
-            </ng-container>
-            </ng-container>           
-             <!-- ===========[مدرسه فارکس]========== -->
-            <div class="flex justify-center mt-8">
-                <div class="school-box">
-                    <div class="flex justify-start">
-                        <div class="mb-4 mt-4">
-                            <p class="title1-row">مدرسه فارکس</p>
-                            <p class="title2-row">ویدیو گذشته</p>
-                        </div>
-                    </div>
-                    <div class="flex justify-center">
-                        <div class="box-video grid grid-cols-2 gap-2">
-                            <div class="video">
-            
-                            </div>
-                            <div class="mr-2">
-                                <p class="video-title mb-12">ایرانی اکسپرت چیکار میکند؟ معرفی و اهداف تیم های ایرانی اکسپرت</p>
-                                <div class="flex justify-end">
-                                    <p class="time-video"> 11:00 </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div [ngClass]="device == 'sm' ? 'block' : 'hidden'" class="pt-12">
+  <!-- ========================[بنر]============== -->
+  <div class="flex justify-center mb-10">
+    <div class="baner-mobile">
+      <div class="flex flex-row">
+        <div class="flex items-center mr-3 basis-2/2">
+          <div>
+            <span class="dividr-title"
+              >با ایرانی اکسپرت مطمئن و آسان ترید کن
+            </span>
+            <h6 class="title-baner">مقالات آموزشی فارکس</h6>
+          </div>
         </div>
-          <!-- =========[دسته بندی]====== -->
-          <app-filter-responsive
-          [categoryHeader]="categoryHeader"
-          [categoryIcon]="categoryIcon"
-          [category]="category">
-            <p header class="text-black w-28">دسته بندی</p>
-          </app-filter-responsive>
-        <!-- ===========[ پیشنهادات و مقالات ]========== -->
-        <ng-container *ngIf="!loading">
-            <app-offers [data]="itemsBlog.slice(0,5)"></app-offers>
-        </ng-container>
-        <!-- ===========[ تبلیغات ]========== -->
-        <div class="mr-6 ml-6 mt-4">
-            <img class="w-full" src="assets/img/add-blog(responsive).svg" alt="add">
-            <!-- ===========[ آرتیکلز ]========== -->
-            <app-articles></app-articles>
-            <app-articles></app-articles>
-            <app-articles></app-articles>
+        <div class="relative basis-1/3 flex">
+          <img
+            class="logo-mobile"
+            src="assets/img/blog-baner-logo.svg"
+            alt="logo"
+          />
         </div>
+      </div>
+      <div class="mr-12 ml-12">
+        <div class="search-box">
+          <input
+            (input)="fillValue($any($event.target).value)"
+            class="input-baner"
+            type="text"
+            placeholder="مقاله مورد نظر را جستجو کنید"
+          />
+          <a href="">
+            <img
+              class="icon-search"
+              src="assets/img/search-icon(blog).svg"
+              alt="icon"
+            />
+          </a>
+        </div>
+      </div>
     </div>
+  </div>
+  <ng-container *ngIf="!loading">
+    <app-blog-hero [data]="itemsBlog.slice(0, 5)"></app-blog-hero>
+  </ng-container>
+  <div class="mr-6 ml-6 mt-10">
+    <!-- ===========[پیشنهاد سردبیر]========== -->
+    <span class="flex title-offer">
+      <img
+        class="mb-4 ml-1"
+        src="assets/img/icon-offer.svg"
+        alt="icon"
+      />پیشنهاد سردبیر</span
+    >
+    <h6 class="title-offer2">برگزیده آخرین اخبار و مقالات</h6>
+    <ng-container *ngIf="!loading">
+      <ng-container *ngFor="let item of itemsBlog">
+        <app-blog-cart [data]="item"></app-blog-cart>
+      </ng-container>
+    </ng-container>
+    <!-- ===========[مدرسه فارکس]========== -->
+    <div class="flex justify-center mt-8">
+      <div class="school-box">
+        <div class="flex justify-start">
+          <div class="mb-4 mt-4">
+            <p class="title1-row">مدرسه فارکس</p>
+            <p class="title2-row">ویدیو گذشته</p>
+          </div>
+        </div>
+        <div class="flex justify-center">
+          <div class="box-video grid grid-cols-2 gap-2">
+            <div class="video"></div>
+            <div class="mr-2">
+              <p class="video-title mb-12">
+                ایرانی اکسپرت چیکار میکند؟ معرفی و اهداف تیم های ایرانی اکسپرت
+              </p>
+              <div class="flex justify-end">
+                <p class="time-video">11:00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- =========[دسته بندی]====== -->
+  <app-filter-responsive
+    [categoryHeader]="categoryHeader"
+    [categoryIcon]="categoryIcon"
+    [category]="category"
+  >
+    <p header class="text-black w-28">دسته بندی</p>
+  </app-filter-responsive>
+  <!-- ===========[ پیشنهادات و مقالات ]========== -->
+  <ng-container *ngIf="!loading">
+    <app-offers [data]="itemsBlog.slice(0, 5)"></app-offers>
+  </ng-container>
+  <!-- ===========[ تبلیغات ]========== -->
+  <div class="mr-6 ml-6 mt-4">
+    <img class="w-full" src="assets/img/add-blog(responsive).svg" alt="add" />
+    <!-- ===========[ آرتیکلز ]========== -->
+    <app-articles></app-articles>
+    <app-articles></app-articles>
+    <app-articles></app-articles>
+  </div>
+</div>

@@ -1,33 +1,33 @@
 // <!-- ========================[بنر]============== -->
-.baner{
-    background-color: #D8E8FF;
-    padding: 0rem 5rem 0rem 5rem;
-    border-radius: 25px;
-    position: relative;
-    width: 100%;
-    height: 7.5rem;
+.baner {
+  background-color: #d8e8ff;
+  padding: 0rem 5rem 0rem 5rem;
+  border-radius: 25px;
+  position: relative;
+  width: 100%;
+  height: 7.5rem;
 }
-    .divid-h{
-      font-weight: 600;
-      font-size: 0.7rem;
-      color: #0088FF;
-      margin-bottom: 1rem;
-      &::before {
-        content: "";
-       width: 1rem;
-       height: 0.3rem;
-       background-color: #0088FF;
-       border-radius: 6px;
-       display: inline-block;
-       margin: 0px 6px;
-      }
-      }
-      .faq-h{
-        color: black;
-        font-size: 1.5rem;
-        font-style: oblique;
-        }
-.search-box{
+.divid-h {
+  font-weight: 600;
+  font-size: 0.7rem;
+  color: #0088ff;
+  margin-bottom: 1rem;
+  &::before {
+    content: "";
+    width: 1rem;
+    height: 0.3rem;
+    background-color: #0088ff;
+    border-radius: 6px;
+    display: inline-block;
+    margin: 0px 6px;
+  }
+}
+.faq-h {
+  color: black;
+  font-size: 1.5rem;
+  font-style: oblique;
+}
+.search-box {
   background-color: white;
   justify-content: space-between;
   display: inline-flex;
@@ -38,13 +38,13 @@
   position: relative;
   width: 100%;
 }
-.input-baner{
+.input-baner {
   flex-grow: 1;
   outline: 0;
   background-color: white;
   font-weight: 300;
 }
-.logo{
+.logo {
   position: absolute;
   width: 11rem;
   aspect-ratio: 1/1;
@@ -52,57 +52,56 @@
   max-width: 11rem;
 }
 // <!-- ========================[ایتم عکس]============== -->
-.title-item{
+.title-item {
   color: black;
   font-weight: 500;
   font-size: 1.2rem;
 }
 
-.box-hover{
-    width: 100%;
-    height: 100%; 
-    border-radius: 20px;
-    opacity: 0;
-    z-index: 10;
-    position: absolute;
+.box-hover {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  opacity: 0;
+  z-index: 10;
+  position: absolute;
 }
 .box-hover:hover {
-    opacity: 1;
-    transition: all 0.2s ease-in-out;
+  opacity: 1;
+  transition: all 0.2s ease-in-out;
 }
-.row-hover{
+.row-hover {
   position: relative;
   width: 76%;
   margin-right: 2rem;
 }
-.row-p1{
+.row-p1 {
   color: white;
   font-weight: 600;
 }
-.row-p2{
-font-size: 0.7rem;
+.row-p2 {
+  font-size: 0.7rem;
   color: white;
   font-weight: 600;
 }
-.row-p3{
+.row-p3 {
   color: white;
   font-weight: 600;
-  font-size: 0.8rem
+  font-size: 0.8rem;
 }
-.row-p4{
+.row-p4 {
   font-size: 0.6rem;
   color: white;
   font-weight: 600;
 }
-.title-hover{
-    margin-right: 2rem;
-    font-style: oblique;
-    font-size: 2.1rem;
-    color: white;
-    margin-left: 2rem;
-
+.title-hover {
+  margin-right: 2rem;
+  font-style: oblique;
+  font-size: 2.1rem;
+  color: white;
+  margin-left: 2rem;
 }
-.title-hover2{
+.title-hover2 {
   margin-right: 2rem;
   font-style: oblique;
   font-size: 1.3rem;
@@ -110,12 +109,12 @@ font-size: 0.7rem;
   margin-left: 2rem;
   margin-top: 0.5rem;
 }
-.item-1{
+.item-1 {
   height: 100%;
   object-fit: cover;
   border-radius: 20px;
 }
-.item-2{
+.item-2 {
   width: 100%;
   object-fit: cover;
   border-radius: 20px;
@@ -123,31 +122,31 @@ font-size: 0.7rem;
 // <!-- ==========[رسپانسیو]=========== -->
 
 // <!-- ==============[کاروسل]============= -->
-drag-scroll{
-  width: 50%;
+drag-scroll {
+  width: 90vw;
 }
-.btn{
-  border: #0080FF solid 2.5px;
+.btn {
+  border: #0080ff solid 2.5px;
   border-radius: 41px;
   width: 2rem;
   height: 2rem;
   position: relative;
 }
-.icon-btn{
+.icon-btn {
   font-family: monospace;
-  color: #0080FF;
+  color: #0080ff;
   font-size: 2rem;
   font-weight: 900;
   position: absolute;
   bottom: -8px;
   right: 5px;
 }
-.cart{
+.cart {
   white-space: normal;
   margin-left: 2rem;
 }
-.icon-disable{
-  color: #8D8D8D;
+.icon-disable {
+  color: #8d8d8d;
   font-family: monospace;
   font-size: 2rem;
   font-weight: 900;
@@ -155,33 +154,33 @@ drag-scroll{
   bottom: -8px;
   right: 5px;
 }
-.btn-disable{
-  border: #8D8D8D solid 2.5px;
+.btn-disable {
+  border: #8d8d8d solid 2.5px;
   border-radius: 41px;
   width: 2rem;
   height: 2rem;
   position: relative;
 }
-.divid-carousel{
+.divid-carousel {
   font-weight: 700;
-  color: #098B41;
+  color: #098b41;
   font-size: 1.2rem;
   &::before {
     content: "";
-   width: 1rem;
-   height: 0.3rem;
-   background-color: #098B41;
-   border-radius: 6px;
-   display: inline-block;
-   margin: 0px 6px;
+    width: 1rem;
+    height: 0.3rem;
+    background-color: #098b41;
+    border-radius: 6px;
+    display: inline-block;
+    margin: 0px 6px;
   }
 }
-.carousel-h{
+.carousel-h {
   color: black;
   font-size: 1.5rem;
   font-style: oblique;
 }
-.img-carousel{
+.img-carousel {
   max-height: 14rem;
   width: 100%;
   object-fit: cover;
@@ -189,52 +188,53 @@ drag-scroll{
   height: 14rem;
 }
 // <!-- =================[کارت هایی که بعد از درست شدن دیتا باید پاک شود]============ -->
-.img-description-row{
+.img-description-row {
   position: absolute;
-  transform: translate(-16px, -141px);
+  transform: translate(-16px, -50%);
+  bottom: -10%;
 }
-.img-title{
-color: white;
-font-style: oblique;
-font-size: 1.1rem;
+.img-title {
+  color: white;
+  font-style: oblique;
+  font-size: 1.1rem;
 }
-.img-description{
-color: white;
-font-size: 0.6rem;
+.img-description {
+  color: white;
+  font-size: 0.6rem;
 }
-.title{
+.title {
   font-size: 1.2rem;
   font-weight: 900;
 }
-.icon-title{
-  color: #0080FF;
+.icon-title {
+  color: #0080ff;
   font-weight: 600;
   margin-right: 0.4rem;
   font-size: 1rem;
 }
-.icon{
+.icon {
   scale: 0.9;
   margin-bottom: 1.1rem;
 }
-.carousel-description{
-  columns: #7D7D7D;
+.carousel-description {
+  columns: #7d7d7d;
   display: -webkit-box;
   max-width: 100%;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.date-carousel{
+.date-carousel {
   color: black;
   font-size: 0.8rem;
 }
-.divider-mobile{
+.divider-mobile {
   height: 0.35rem;
   width: 24%;
   border-radius: 30px;
   margin-bottom: 0.5rem;
 }
-.box-shadow{
+.box-shadow {
   width: 100%;
   position: absolute;
   transform: translate(15px, 3px);

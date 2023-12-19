@@ -1,9 +1,56 @@
 <div [ngClass]="device == 'lg' ? 'block' : 'hidden'">
   <ng-container *ngIf="!loading">
-  <!-- ==============[پیشنهاد]================ -->
-  <div class="all-offer">
-    <div class="row-title">
-      <p class="title">پیشنهاد سردبیر</p>
+    <!-- ==============[پیشنهاد]================ -->
+    <div class="all-offer">
+      <div class="row-title">
+        <p class="title">پیشنهاد سردبیر</p>
+        <a routerLink="page/1">
+          <span class="link flex items-center"
+            >مشاهده مطالب بیشتر<img
+              class="mr-2"
+              src="assets/img/Arrow-left-icon.svg"
+              alt="icon"
+          /></span>
+        </a>
+      </div>
+      <!-- ////////////////[اسکرول کارت]////////////////// -->
+      <div class="flex flex-nowrap items-center">
+        <drag-scroll>
+          <ng-container *ngFor="let item of popularBlog">
+            <div class="cart" drag-scroll-item>
+              <app-blog-cart [data]="item"></app-blog-cart>
+            </div>
+          </ng-container>
+        </drag-scroll>
+      </div>
+    </div>
+    <!-- ==============[جدیدترین]================ -->
+    <div class="all-news mb-6">
+      <div class="flex justify-start">
+        <div class="mt-6">
+          <div class="flex items-center">
+            <img
+              class="scale-90 ml-1"
+              src="assets/img/article-icon.svg"
+              alt="icon"
+            />
+            <p class="row-p">مقالات ایرانی اکسپرت</p>
+          </div>
+          <h6 class="font-semibold mt-1">
+            جدیدترین و آخرین مقالات ایرانی اکسپرت
+          </h6>
+        </div>
+      </div>
+      <div class="grid xl:grid-cols-3 grid-cols-2 gap-1">
+        <ng-container *ngFor="let item of items.slice(0, 6)">
+          <div class="cart2" drag-scroll-item>
+            <app-blog-cart [data]="item"></app-blog-cart>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="box-link">
       <a routerLink="page/1">
         <span class="link flex items-center"
           >مشاهده مطالب بیشتر<img
@@ -13,55 +60,8 @@
         /></span>
       </a>
     </div>
-    <!-- ////////////////[اسکرول کارت]////////////////// -->
-    <div class="flex flex-nowrap items-center">
-      <drag-scroll>
-        <ng-container *ngFor="let item of itemOffers">
-          <div class="cart" drag-scroll-item>
-            <app-blog-cart [data]="item"></app-blog-cart>
-          </div>
-        </ng-container>
-      </drag-scroll>
-    </div>
-  </div>
-  <!-- ==============[جدیدترین]================ -->
-  <div class="all-news mb-6">
-    <div class="flex justify-start">
-      <div class="mt-6">
-        <div class="flex items-center">
-          <img
-            class="scale-90 ml-1"
-            src="assets/img/article-icon.svg"
-            alt="icon"
-          />
-          <p class="row-p">مقالات ایرانی اکسپرت</p>
-        </div>
-        <h6 class="font-semibold mt-1">
-          جدیدترین و آخرین مقالات ایرانی اکسپرت
-        </h6>
-      </div>
-    </div>
-    <div class="grid xl:grid-cols-3 grid-cols-2 gap-1">
-      <ng-container *ngFor="let item of itemOffers">
-        <div class="cart2" drag-scroll-item>
-          <app-blog-cart [data]="item"></app-blog-cart>
-        </div>
-      </ng-container>
-    </div>
-  </div>
-  <div class="divider"></div>
-  <div class="box-link">
-    <a routerLink="page/1">
-      <span class="link flex items-center"
-        >مشاهده مطالب بیشتر<img
-          class="mr-2"
-          src="assets/img/Arrow-left-icon.svg"
-          alt="icon"
-      /></span>
-    </a>
-  </div>
-  <!-- ==============[بنر]================ -->
-  <div class="flex justify-center">
+    <!-- ==============[بنر]================ -->
+    <!-- <div class="flex justify-center">
     <div class="flex flex-row baner">
       <div class="flex items-center basis-1/2">
         <div class="mr-8">
@@ -86,7 +86,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   </ng-container>
 </div>
 <!-- ====================[رسپانسیو========== -->
@@ -104,7 +104,7 @@
         مقالات ایرانی اکسپرت
       </span>
       <h6 class="title-offer2">جدیدترین و آخرین مقالات ایرانی اکسپرت</h6>
-      <ng-container *ngFor="let item of itemOffers">
+      <ng-container *ngFor="let item of items.slice(0, 6)">
         <app-blog-cart [data]="item"></app-blog-cart>
       </ng-container>
       <div class="mt-10 mb-10">
@@ -121,7 +121,7 @@
         </div>
       </div>
       <!-- ==============[بنر]================ -->
-      <div class="baner-mobile">
+      <!-- <div class="baner-mobile">
         <div>
           <h6 class="titile-baner-mobile">
             جهت دریافت آخرین اخبار و مقالات به خبرنامه بپیوندید
@@ -140,7 +140,7 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </ng-container>
 </div>

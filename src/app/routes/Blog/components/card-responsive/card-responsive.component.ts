@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Blog } from 'src/app/classes/interfaces/blog.interface';
 class BlogModel implements Blog {
+  createDate: string = '';
   isRTL: boolean = false;
   browserTitle: string = '';
   id: number = 0;
@@ -13,8 +14,7 @@ class BlogModel implements Blog {
   authorIconPath: string = '';
   studyTime: string = '';
   publishDate: string = '';
-  brief : string ='';
-
+  brief: string = '';
 }
 
 @Component({

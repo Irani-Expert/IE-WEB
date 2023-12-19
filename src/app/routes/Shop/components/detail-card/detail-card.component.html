@@ -2,15 +2,17 @@
   class="flex sm:py-2 p-1 sm:p-2 items-stretch bg-white rounded-3xl md:rounded-2xl box-shadow-ac border sm:max-h-max sm:max-w-full max-w-[69rem]"
 >
   <div class="basis-full max-w-[240px]">
-    <a routerLink="../../{{ product.id }}/{{
-      product.title.split(' ').join('_')
-    }}">
-    <img
-      class="rounded-3xl md:rounded-2xl"
-      src="../../../../../assets/img/Expert 1.png"
-      width="240"
-      height="240"
-    />
+    <a
+      routerLink="../../{{ product.id }}/{{
+        product.title.split(' ').join('_')
+      }}"
+    >
+      <img
+        class="rounded-3xl md:rounded-2xl"
+        src="../../../../../assets/img/Expert 1.png"
+        width="240"
+        height="240"
+      />
     </a>
   </div>
 
@@ -99,14 +101,14 @@
     <div
       class="flex items-center h-full justify-end md:border-t-[1px] sm:pt-3 pt-1 md:border-solid"
     >
-      <a routerLink="../../{{ product.id }}/{{
-        product.title.split(' ').join('_')
-      }}">
-      <p
-        class="sm:pt-2 sm:text-xl text-sm font-black text-black"
+      <a
+        routerLink="../../{{ product.id }}/{{
+          product.title.split(' ').join('_')
+        }}"
       >
-        شروع قیمت از {{ "50" | currency }}
-      </p>
+        <p class="sm:pt-2 sm:text-xl text-sm font-black text-black">
+          شروع قیمت از {{ product.minPrice || "50" | currency }}
+        </p>
       </a>
       <button
         class="bg-[#3246d3] hidden sm:block border-2 ms-2 relative border-[#3246d3] border-solid text-white p-1 w-1/4 rounded-full text-lg font-black min-w-[147px]"

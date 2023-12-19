@@ -11,8 +11,7 @@
 
   <app-footer></app-footer>
 </main>
-<ng-container *ngIf="httpLoader">
-  <app-loader>
-    <app-lottie [config]="lottieConfig"></app-lottie>
-  </app-loader>
-</ng-container>
+
+<app-loader [ngClass]="httpLoader ? 'block' : 'hidden'">
+  <app-lottie [config]="lottieConfig"></app-lottie>
+</app-loader>
