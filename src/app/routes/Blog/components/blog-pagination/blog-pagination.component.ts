@@ -229,11 +229,8 @@ export class BlogPaginationComponent {
     return true;
   }
   setNumArr(value: string) {
-    let arr: number[] = [];
-    let x = value.slice(value.indexOf('[') + 1, value.indexOf(']')).split(',');
-    x.forEach((it) => {
-      arr.push(parseInt(it));
-    });
+    let arr: number[] = [parseInt(value)];
+
     return arr;
   }
   fillValue(value: string) {
@@ -241,7 +238,6 @@ export class BlogPaginationComponent {
   }
   searchFilterName(value: string) {
     this.blogService.blogsArray.next(null);
-    this.blogFilter.blogName = value;
     if (value.trim().length > 0) {
       this.savedParams = { ...this.savedParams, ...{ blogName: value } };
       this.router.navigateByUrl(`blog/page/1?${this._querystring}`);
@@ -250,5 +246,15 @@ export class BlogPaginationComponent {
       delete this.savedParams['blogName'];
       this.router.navigateByUrl(`blog/page/1?${this._querystring}`);
     }
+  }
+  filterCategory(id: number) {
+    this.blogService.blogsArray.next(null);
+    this.savedParams = {
+      ...this.savedParams,
+      ...{ category: `${id}` },
+    };
+    this.router.navigateByUrl(
+      `blog/page/${this.blogFilter.pageIndex + 1}?${this._querystring}`
+    );
   }
 }

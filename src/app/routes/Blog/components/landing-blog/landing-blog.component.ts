@@ -7,6 +7,7 @@ import { FilterBlog } from 'src/app/classes/interfaces/filter-blog.interface';
 import { BlogService } from 'src/app/classes/services/blog.service';
 import { Utils } from 'src/app/classes/utils';
 import { BlogHeroComponent } from '../blog-hero/blog-hero.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-blog',
@@ -22,7 +23,11 @@ export class LandingBlogComponent {
 
   loading: boolean = true;
 
-  constructor(private blogService: BlogService, private meta: Meta) {}
+  constructor(
+    private blogService: BlogService,
+    private meta: Meta,
+    private router: Router
+  ) {}
   async getItemBlogs(filters: FilterBlog) {
     return await lastValueFrom(
       await this.blogService.getBlogsFromApi(
@@ -119,5 +124,8 @@ export class LandingBlogComponent {
   ];
   fillValue(event: string) {
     this.appBlogHero._searchinput.next(event);
+  }
+  filterCategory(id: number) {
+    this.router.navigateByUrl(`blog/page/1?category=${id}`);
   }
 }

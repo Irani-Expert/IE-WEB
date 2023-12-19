@@ -4,7 +4,10 @@
       <app-blog-hero [data]="itemsBlog.slice(0, 5)"></app-blog-hero>
       <div class="grid grid-cols-4 mt-16">
         <div class="part-1">
-          <app-blog-filter [category]="category">
+          <app-blog-filter
+            (result)="filterCategory($event)"
+            [category]="category"
+          >
             <p header class="text-black">دسته بندی</p>
           </app-blog-filter>
         </div>
