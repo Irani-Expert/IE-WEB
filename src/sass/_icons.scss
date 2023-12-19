@@ -22,3 +22,50 @@
   }
   transition: transform 0.3s ease;
 }
+.ie-Polygon {
+  &.small::before {
+    width: 21px !important;
+  }
+  &::before {
+    width: 66px;
+    display: block;
+    content: url(../assets/icon/Polygon.svg);
+  }
+  transition: transform 0.3s ease;
+}
+.ie-expand {
+  &::before {
+    transform: rotate(-90deg);
+    content: url(../assets/icon/expand.svg);
+  }
+  transition: transform 0.3s ease;
+}
+.ie-puase {
+  &.small::before {
+    width: 21px !important;
+  }
+  &::before {
+    width: 66px;
+    display: block;
+    content: url(../assets/icon/puase.svg);
+  }
+  transition: transform 0.3s ease;
+}
+.ie-thick {
+  &::before {
+    content: url(../assets/icon/thick.svg);
+  }
+  transition: transform 0.3s ease;
+}
+.ie-target {
+  &::before {
+    content: url(../assets/icon/target.svg);
+  }
+  transition: transform 0.3s ease;
+}
+.ie-Rectangle {
+  &::before {
+    content: url(../assets/icon/Rectangle.svg);
+  }
+  transition: transform 0.3s ease;
+}

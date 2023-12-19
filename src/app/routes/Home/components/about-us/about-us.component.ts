@@ -6,7 +6,7 @@ import {
   trigger,
 } from '@angular/animations';
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+// import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-about-us',
@@ -22,17 +22,18 @@ import { ActivatedRoute } from '@angular/router';
   ],
 })
 export class AboutUsComponent {
-  constructor(private activatedRoute: ActivatedRoute) {}
+  // private activatedRoute: ActivatedRoute
+  constructor() {}
   ngOnInit() {
-    var location = this.activatedRoute.snapshot.queryParams['location'];
-    if (location == 'userSatisfaction') {
-      let element = document.getElementById('userSatisfaction');
-      element?.scrollIntoView({ behavior: 'smooth' });
-    }
+    // var location = this.activatedRoute.snapshot.queryParams['location'];
+    // if (location == 'userSatisfaction') {
+    //   let element = document.getElementById('userSatisfaction');
+    //   element?.scrollIntoView({ behavior: 'smooth' });
+    // }
   }
-  buttonText = 'باز کردن لیست پخش';
-  isVideoOpend: boolean = false;
-  openVideoList() {
-    this.isVideoOpend = !this.isVideoOpend;
-  }
+  // buttonText = 'باز کردن لیست پخش';
+  // isVideoOpend: boolean = false;
+  // openVideoList() {
+  //   this.isVideoOpend = !this.isVideoOpend;
+  // }
 }

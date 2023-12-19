@@ -1,56 +1,68 @@
-@media (min-width: 640px) {
-  .close-btn {
-    bottom: 14rem !important;
-  }
-  .open-item {
-    animation: myAnim 0.35s linear 0s 1 normal forwards;
-  }
-}
-.close-btn {
-  position: relative;
-  left: 20%;
-  bottom: 7rem;
-}
-ul {
-  list-style-type: none; /* Removes the default dot */
-  position: relative; /* Enable relative positioning */
-}
+// @media (min-width: 640px) {
+//   .close-btn {
+//     bottom: 14rem !important;
+//   }
+//   .open-item {
+//     animation: myAnim 0.35s linear 0s 1 normal forwards;
+//   }
+// }
+// .close-btn {
+//   position: relative;
+//   left: 20%;
+//   bottom: 7rem;
+// }
+// ul {
+//   list-style-type: none; /* Removes the default dot */
+//   position: relative; /* Enable relative positioning */
+// }
 
-ul li::before {
-  content: "";
-  vertical-align: middle;
-  position: absolute; /* Enable absolute positioning */
-  right: -15px; /* Adjust the horizontal position of the bullet */
-  transform: translateY(23px); /* Center the bullet vertically */
-  width: 12px;
-  height: 12px;
-  background-color: blue; /* Change the color of the bullet */
-  border-radius: 50%; /* Make the bullet round */
-}
+// ul li::before {
+//   content: "";
+//   vertical-align: middle;
+//   position: absolute; /* Enable absolute positioning */
+//   right: -15px; /* Adjust the horizontal position of the bullet */
+//   transform: translateY(23px); /* Center the bullet vertically */
+//   width: 12px;
+//   height: 12px;
+//   background-color: blue; /* Change the color of the bullet */
+//   border-radius: 50%; /* Make the bullet round */
+// }
 
-.video-bottom-Shadow {
-  filter: blur(8px);
-  height: 7rem;
-  transform: translatey(-104px);
-  position: absolute;
-  width: 76rem;
-  background-image: linear-gradient(
-    to top,
-    #ffffffa3,
-    #ffffff,
-    #ffffffba,
-    rgba(255, 255, 255, 0.568627451),
-    rgba(255, 255, 255, 0.3607843137)
-  );
+// .video-bottom-Shadow {
+//   filter: blur(8px);
+//   height: 7rem;
+//   transform: translatey(-104px);
+//   position: absolute;
+//   width: 76rem;
+//   background-image: linear-gradient(
+//     to top,
+//     #ffffffa3,
+//     #ffffff,
+//     #ffffffba,
+//     rgba(255, 255, 255, 0.568627451),
+//     rgba(255, 255, 255, 0.3607843137)
+//   );
 
-  z-index: 1000;
-}
-@keyframes myAnim {
-  0% {
-    top: 0px;
-  }
+//   z-index: 1000;
+// }
+// @keyframes myAnim {
+//   0% {
+//     top: 0px;
+//   }
 
-  100% {
-    transform: translateY(115px);
+//   100% {
+//     transform: translateY(115px);
+//   }
+// }
+.whyUs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 10px; /* Adjust as needed */
+  .item {
+    width: 48%; /* Adjust as needed, considering margins and paddings */
+    margin-bottom: 10px; /* Adjust as needed */
+    box-sizing: border-box;
+    padding: 10px; /* Optional: Add padding for spacing */
   }
 }
