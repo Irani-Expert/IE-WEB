@@ -156,7 +156,7 @@ export class LandingShopComponent {
                 )
                 .split('/');
               if (arrayOfUrlSegments[3] == '0') {
-                this._router.navigateByUrl('shop');
+                this._router.navigateByUrl('products');
               } else {
                 this._activatedRoute.queryParams.subscribe(async (item) => {
                   await this.fillFilterOnNav(item);

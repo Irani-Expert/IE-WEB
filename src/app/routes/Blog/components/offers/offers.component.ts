@@ -6,20 +6,20 @@ import { Utils } from 'src/app/classes/utils';
 @Component({
   selector: 'app-offers',
   templateUrl: './offers.component.html',
-  styleUrls: ['./offers.component.scss']
+  styleUrls: ['./offers.component.scss'],
 })
 export class OffersComponent {
   loading: boolean = true;
-  @Input('data') itemOffers : Blog[];
-
+  @Input('data') items: Blog[];
+  popularBlog = new Array<Blog>();
   // =======================[رسپانسیو]==========
   device: 'sm' | 'lg' = 'lg';
-  ngOnInit(){
+  ngOnInit() {
     this.updateDeviceValue();
+    this.fillPopularItems(this.items);
     this.loading = false;
-
   }
-  
+
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.updateDeviceValue();
@@ -34,6 +34,16 @@ export class OffersComponent {
     }
   }
 
+  fillPopularItems(items: Blog[]) {
+    let normalArr = [...items];
+
+    let sortedArr = normalArr
+      .slice()
+      .sort((a, b) => {
+        return a.viewsCount - b.viewsCount;
+      })
+      .reverse();
+
+    this.popularBlog = sortedArr.slice(0, 5);
+  }
 }
-
-

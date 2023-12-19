@@ -1,0 +1,93 @@
+<div class="mx-8 h-[24rem]">
+  <div class="flex items-center">
+    <ng-content></ng-content>
+  </div>
+  <div>
+    <div class="mx-10 flex">
+      <div
+        class="mx-2 p-6 pt-4 text-2xl cursor-pointer"
+        [ngClass]="isActive(0) ? 'active-target-tab' : 'unActive'"
+        (click)="selectedTab(0)"
+        style="filter: grayscale(100%)"
+      >
+        <div class="h-active">
+          <img src="../../../../../assets/img/Ai.png" />
+          <h3 class="color--green font-bold ms-2 pt-1">
+            استفاده از هوش مصنوعی در معاملات فارکس
+          </h3>
+        </div>
+
+        <p class="hidden text-justify text-lg pt-6 font-normal">
+          هوش مصنوعی در عین حال که فرصت است، می تواند تهدید هم باشد. لذا باید در
+          طی مسیر، به معیارها و پارامترهای زیادی توجه شود تا ضرر به حداقل برسد و
+          سوددهی و امنیت سرمایه افزایش یابد. ما با بهره‌گیری از الگوریتم‌ها و
+          هوش مصنوعی، ربات‌های معاملاتی ایجاد می‌کنیم که به شما کمک می‌کنند تا
+          تصمیمات درست و بهینه‌تری در بازار فارکس بگیرید و با کمترین دانش،
+          موفقیت در فارکس را تجربه کنید.
+        </p>
+      </div>
+      <div
+        class="mx-2 pt-2 text-2xl cursor-pointer"
+        [ngClass]="isActive(1) ? 'active-target-tab' : ''"
+        (click)="selectedTab(1)"
+        style="filter: grayscale(100%)"
+      >
+        <div class="h-active">
+          <img src="../../../../../assets/img/money.png" />
+          <h3 class="color--green font-bold ms-2 pt-1">
+            سهولت در معاملات و کسب سود ثابت از فارکس
+          </h3>
+        </div>
+
+        <p class="hidden text-justify pt-6 text-lg font-normal">
+          هدف ما این است که فرآیند معاملات تجاری را برای شما ساده‌تر و کارآمدتر
+          کنیم. اولویت امنیت سرمایه و سپس سوددهی است. پس با خرید ربات سفارشی
+          قطعا سودده ما، برای بهبود کارکرد و سهولت در معاملات خود بهره ببرید.
+          این یعنی ارز آوری.
+        </p>
+      </div>
+      <div
+        class="mx-2 pt-2 text-2xl cursor-pointer"
+        [ngClass]="isActive(2) ? 'active-target-tab' : ''"
+        (click)="selectedTab(2)"
+        style="filter: grayscale(100%)"
+      >
+        <div class="h-active pt-4">
+          <img src="../../../../../assets/img/Mql.png" />
+          <h3 class="color--green font-bold ms-2 pt-1">
+            تبدیل شدن به نسخه‌ای از MQL
+          </h3>
+        </div>
+
+        <p class="hidden text-justify pt-6 text-lg font-normal">
+          هدف ما تبدیل شدن به نسخه‌ای از MQL برای ایرانیان است که بتوانیم مرجع
+          قابل اعتمادی برای تریدرها در ایران‌ باشیم که بتوانند هر آنچه مربوط به
+          بازارهای مالی می باشد اعم از آموزش، ربات های معامله گر، اندیکاتورها،
+          سیستم کپی ترید و غیره را در ایرانی اکسپرت دسترسی داشته باشند
+        </p>
+      </div>
+      <div
+        class="mx-2 p-6 pt-3 text-2xl cursor-pointer"
+        [ngClass]="isActive(3) ? 'active-target-tab' : ''"
+        (click)="selectedTab(3)"
+        style="filter: grayscale(100%)"
+      >
+        <div class="h-active">
+          <img src="../../../../../assets/img/tradeCourse.png" />
+          <h3 class="color--green font-bold ms-2 pt-1">
+            استفاده از هوش مصنوعی در معاملات فارکس
+          </h3>
+        </div>
+
+        <p class="hidden text-justify text-lg pt-6 font-normal">
+          هوش مصنوعی در عین حال که فرصت است، می تواند تهدید هم باشد. لذا باید در
+          طی مسیر، به معیارها و پارامترهای زیادی توجه شود تا ضرر به حداقل برسد و
+          سوددهی و امنیت سرمایه افزایش یابد. ما با بهره‌گیری از الگوریتم‌ها و
+          هوش مصنوعی، ربات‌های معاملاتی ایجاد می‌کنیم که به شما کمک می‌کنند تا
+          تصمیمات درست و بهینه‌تری در بازار فارکس بگیرید و با کمترین دانش،
+          موفقیت در فارکس را تجربه کنید.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

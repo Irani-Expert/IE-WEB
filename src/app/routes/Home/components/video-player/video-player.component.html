@@ -23,12 +23,11 @@
       />
     </video>
     <div
-      class="items-center p-div flex justify-center text-2xl sm:p-2 sm:px-16 px-4 pb-2 top-28"
-      [ngClass]="homeScreen != true ? 'sm:top-[13rem]' : 'sm:top-[27rem]'"
+      class="items-center p-div flex justify-center text-2xl sm:p-2 sm:px-16 px-4 pb-2 top-28 sm:top-[75%]"
     >
       <i
-        class="fa fa-expand me-3 text-base text-white ms-2 flex items-center"
-        [ngClass]="{ 'fa-expand': !isFullScreen, 'fa-compress': isFullScreen }"
+        class="fa fa-expand ie-icon me-3 text-base text-white ms-2 flex items-center"
+        [ngClass]="{ 'ie-expand': !isFullScreen, 'fa-compress': isFullScreen }"
         (click)="fullScreen()"
       ></i>
 
@@ -47,8 +46,11 @@
       ></progress>
 
       <i
-        class="fa ms-3 text-white flex items-center text-base"
-        [ngClass]="{ 'fa-pause': pauseplay, 'fa-play': !pauseplay }"
+        class="ms-3 ie-icon text-white flex items-center text-base"
+        [ngClass]="{
+          'ie-puase small': pauseplay,
+          'ie-Polygon small': !pauseplay
+        }"
         (click)="puasePaceVideo()"
       ></i>
     </div>
@@ -60,17 +62,21 @@
         [@fade]
         *ngIf="!hidePuase"
       >
-        <i
+        <!-- <i
           class="fa fa-circle sm:fa-stack-2x sm:text-9xl text-7xl text-[#3246d3]"
-        ></i>
-        <i
-          class="fa fa-stack-1x text-white sm:text-[46px] text-3xl"
-          [ngClass]="{
-            'fa-pause': pauseplay,
-            'fa-play left-[3px]': !pauseplay
-          }"
-          (click)="puasePaceVideo()"
-        ></i>
+        ></i> -->
+        <div
+          class="flex justify-center items-center bg-[#3246d3] pt-2.5 w-28 h-28 rounded-full"
+        >
+          <i
+            class="fa ie-icon"
+            [ngClass]="{
+              'ie-puase pe-1': pauseplay,
+              'ie-Polygon   pl-4': !pauseplay
+            }"
+            (click)="puasePaceVideo()"
+          ></i>
+        </div>
       </span>
     </div>
   </div>
