@@ -16,7 +16,7 @@ export class AppComponent {
     height: 'auto',
     path: './assets/lottie/loader.json',
   };
-  static loaderSubject = new BehaviorSubject(false);
+  static loaderSubject = new BehaviorSubject(true);
 
   // modalStatus;
   static isBrowser = new BehaviorSubject<boolean>(false);

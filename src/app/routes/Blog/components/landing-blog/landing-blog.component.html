@@ -1,24 +1,24 @@
-<ng-container *ngIf="!loading">
-  <div class="bg-all">
-    <div [ngClass]="device == 'lg' ? 'block' : 'hidden'" class="mr-8 ml-8 pt-9">
+<div class="bg-all">
+  <div [ngClass]="device == 'lg' ? 'block' : 'hidden'" class="mr-8 ml-8 pt-9">
+    <ng-container *ngIf="!loading">
       <app-blog-hero [data]="itemsBlog.slice(0, 5)"></app-blog-hero>
-      <div class="grid grid-cols-4 mt-16">
-        <div class="part-1">
-          <app-blog-filter
-            (result)="filterCategory($event)"
-            [category]="category"
-          >
-            <p header class="text-black">دسته بندی</p>
-          </app-blog-filter>
-        </div>
-        <div class="col-span-3 mr-4">
+    </ng-container>
+    <div class="grid grid-cols-4 mt-16">
+      <div class="part-1">
+        <app-blog-filter (result)="filterCategory($event)">
+          <p header class="text-black">دسته بندی</p>
+        </app-blog-filter>
+      </div>
+      <div class="col-span-3 mr-4">
+        <ng-container *ngIf="!loading">
           <app-offers [data]="itemsBlog"></app-offers>
           <app-articles></app-articles>
-        </div>
+        </ng-container>
       </div>
     </div>
   </div>
-</ng-container>
+</div>
+
 <!-- ==========[رسپانسیو]=========== -->
 <div [ngClass]="device == 'sm' ? 'block' : 'hidden'" class="pt-12">
   <!-- ========================[بنر]============== -->
@@ -105,9 +105,8 @@
   </div>
   <!-- =========[دسته بندی]====== -->
   <app-filter-responsive
-    [categoryHeader]="categoryHeader"
+    (result)="filterCategory($event)"
     [categoryIcon]="categoryIcon"
-    [category]="category"
   >
     <p header class="text-black w-28">دسته بندی</p>
   </app-filter-responsive>
@@ -119,8 +118,6 @@
   <div class="mr-6 ml-6 mt-4">
     <img class="w-full" src="assets/img/add-blog(responsive).svg" alt="add" />
     <!-- ===========[ آرتیکلز ]========== -->
-    <app-articles></app-articles>
-    <app-articles></app-articles>
     <app-articles></app-articles>
   </div>
 </div>

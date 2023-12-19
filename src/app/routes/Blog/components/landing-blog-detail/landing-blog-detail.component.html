@@ -22,7 +22,7 @@
   <div class="flex justify-center mt-16 mr-4">
     <div class="grid grid-cols-4">
       <div class="part-1">
-        <app-blog-filter [categoryDetail]="categoryDetail">
+        <app-blog-filter>
           <p header class="text-black">دسترسی سریع</p>
         </app-blog-filter>
       </div>
@@ -31,10 +31,6 @@
           <app-blog-detail [data]="blogService._blog!"></app-blog-detail>
 
           <app-comments></app-comments>
-          <app-carousel-blog [data]="itemsBlog.slice(0, 5)"></app-carousel-blog>
-        </ng-container>
-        <app-comments></app-comments>
-        <ng-container *ngIf="!loading">
           <app-carousel-blog [data]="itemsBlog.slice(0, 5)"></app-carousel-blog>
         </ng-container>
       </div>
@@ -69,9 +65,7 @@
   </div>
   <!-- =========[دسته بندی]====== -->
   <!-- <app-filter-responsive
-    [categoryDetailHeader]="categoryDetailHeader"
     [categoryDetailIcon]="categoryDetailIcon"
-    [categoryDetail]="categoryDetail"
   >
     <p header class="text-black w-28">دسترسی سریع</p>
   </app-filter-responsive> -->

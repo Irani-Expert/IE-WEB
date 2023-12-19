@@ -16,10 +16,10 @@
         >
       </div>
     </div>
-    <div class="mt-5 flex flex-wrap mr-3">
-      <div *ngFor="let item2 of categoryDetail">
+    <div *ngIf="false" class="mt-5 flex flex-wrap mr-3">
+      <div *ngFor="let item of categoryDetail">
         <p class="mb-6 ml-4">
-          <span class="link-detail">{{ item2.name }}</span>
+          <span class="link-detail">{{ item.name }}</span>
         </p>
       </div>
     </div>
