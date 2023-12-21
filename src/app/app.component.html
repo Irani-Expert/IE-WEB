@@ -4,7 +4,7 @@
   <app-header-layout></app-header-layout>
   <span class="circle-on-top"></span>
   <div
-    class="self-auto lg:self-center max-w-screen-2xl flex-grow w-full relative rounded-b-[2rem] bg-white"
+    class="self-auto lg:self-center max-w-screen-2xl flex-grow w-full relative rounded-b-[2rem] bg-white z-0"
   >
     <router-outlet></router-outlet>
   </div>
@@ -12,6 +12,6 @@
   <app-footer></app-footer>
 </main>
 
-<app-loader [ngClass]="httpLoader ? 'block' : 'hidden'">
+<app-loader class="block" [ngClass]="httpLoader ? '' : 'hidden'">
   <app-lottie [config]="lottieConfig"></app-lottie>
 </app-loader>

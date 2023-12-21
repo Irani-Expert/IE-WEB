@@ -7,6 +7,7 @@ import { FilterBlog } from 'src/app/classes/interfaces/filter-blog.interface';
 import { BlogService } from 'src/app/classes/services/blog.service';
 import { Utils } from 'src/app/classes/utils';
 import { BlogHeroComponent } from '../blog-hero/blog-hero.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-blog',
@@ -22,7 +23,11 @@ export class LandingBlogComponent {
 
   loading: boolean = true;
 
-  constructor(private blogService: BlogService, private meta: Meta) {}
+  constructor(
+    private blogService: BlogService,
+    private meta: Meta,
+    private router: Router
+  ) {}
   async getItemBlogs(filters: FilterBlog) {
     return await lastValueFrom(
       await this.blogService.getBlogsFromApi(
@@ -74,50 +79,10 @@ export class LandingBlogComponent {
 
   // =================[فیلتر]=============
   categoryIcon: string = 'assets/img/filter-icon-blog.svg';
-  categoryHeader: string = 'دسته بندی';
-  category: Array<any> = [
-    {
-      name: 'جدیدترین مطالب',
-      icon: 'assets/img/icon-filter(blog)-1.svg',
-      id: 1,
-    },
-    {
-      name: ' آموزش ها',
-      icon: 'assets/img/icon-filter(blog)-7.svg',
-      id: 2,
-    },
-    {
-      name: 'معرفی کتاب ',
-      icon: 'assets/img/icon-filter(blog)-2.svg',
-      id: 3,
-    },
-    {
-      name: ' معرفی بروکرها',
-      icon: 'assets/img/icon-filter(blog)-3.svg',
-      id: 4,
-    },
-    {
-      name: ' پادکست های ایرانی اکسپرت',
-      icon: 'assets/img/icon-filter(blog)-4.svg',
-      id: 5,
-    },
-    {
-      name: 'فارکس ',
-      icon: 'assets/img/icon-filter(blog)-5.svg',
-      id: 6,
-    },
-    {
-      name: 'ارز دیجیتال ',
-      icon: 'assets/img/icon-filter(blog)-5.svg',
-      id: 7,
-    },
-    {
-      name: 'ربات معامله گر ',
-      icon: 'assets/img/icon-filter(blog)-6.svg',
-      id: 8,
-    },
-  ];
   fillValue(event: string) {
     this.appBlogHero._searchinput.next(event);
+  }
+  filterCategory(id: number) {
+    this.router.navigateByUrl(`blog/page/1?category=${id}`);
   }
 }

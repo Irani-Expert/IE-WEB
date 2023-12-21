@@ -18,7 +18,11 @@
             (input)="fillValue($any($event.target).value)"
             class="input-baner"
             type="text"
-            placeholder="مقاله مورد نظر را جستجو کنید"
+            [placeholder]="
+              blogFilter.blogName
+                ? blogFilter.blogName
+                : 'مقاله مورد نظر را جستجو کنید'
+            "
           />
           <a href="">
             <img src="assets/img/search-icon(blog).svg" alt="icon" />
@@ -34,7 +38,7 @@
   <div class="grid grid-cols-4 mt-16 mr-5 ml-5">
     <!-- =======================[فیلتر]========== -->
     <div class="part-1">
-      <app-blog-filter [category]="category">
+      <app-blog-filter (result)="filterCategory($event)">
         <p header class="text-black">دسته بندی</p>
       </app-blog-filter>
     </div>
@@ -153,7 +157,11 @@
             (input)="fillValue($any($event.target).value)"
             class="input-baner"
             type="text"
-            placeholder="مقاله مورد نظر را جستجو کنید"
+            [placeholder]="
+              blogFilter.blogName
+                ? blogFilter.blogName
+                : 'مقاله مورد نظر را جستجو کنید'
+            "
           />
           <a href="">
             <img
@@ -167,11 +175,7 @@
     </div>
   </div>
   <!-- =========[دسته بندی]====== -->
-  <app-filter-responsive
-    [categoryHeader]="categoryHeader"
-    [categoryIcon]="categoryIcon"
-    [category]="category"
-  >
+  <app-filter-responsive (result)="filterCategory($event)" [categoryIcon]="categoryIcon">
     <p header class="text-black w-28">دسته بندی</p>
   </app-filter-responsive>
   <div class="divider mt-4 mb-7"></div>

@@ -65,36 +65,6 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
   categoryDetailIcon: string = 'assets/img/filter-icon-blog(detail).svg';
   categoryDetailHeader: string = 'دسترسی سریع';
 
-  categoryDetail: Array<any> = [
-    {
-      name: 'درامد دلاری',
-      id: 1,
-    },
-    {
-      name: 'ربات معامله گر ATM',
-      id: 2,
-    },
-    {
-      name: 'آموزش فارکس',
-      id: 3,
-    },
-    {
-      name: 'آموزش ارز دیجیتال',
-      id: 4,
-    },
-    {
-      name: 'ترید چیست',
-      id: 5,
-    },
-    {
-      name: 'انتخاب بهترین بروکر',
-      id: 6,
-    },
-    {
-      name: 'اصول انتخاب بروکر',
-      id: 7,
-    },
-  ];
   // =======================[رسپانسیو]==========
 
   device: 'sm' | 'lg' = 'lg';

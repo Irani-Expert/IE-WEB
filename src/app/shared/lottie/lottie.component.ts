@@ -6,7 +6,6 @@ import { ILottieConfig, LottieConfigModel } from './lottie-config';
   templateUrl: './lottie.component.html',
 })
 export class LottieComponent {
-  loading: boolean;
   @Input('config') config: ILottieConfig;
   lottie: LottieConfigModel;
   options: AnimationOptions;
@@ -17,7 +16,6 @@ export class LottieComponent {
       path: this.config.path,
       loop: this.config.loop ? this.config.loop : true,
     };
-    this.loading = false;
   }
   // ngOnDestroy() {
   // }
