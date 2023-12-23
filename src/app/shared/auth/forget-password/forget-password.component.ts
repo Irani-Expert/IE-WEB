@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { NgOtpInputComponent, NgOtpInputConfig } from 'ng-otp-input';
-import { Input, InputInterface } from 'src/app/classes/input';
+import { InputForm, InputInterface } from 'src/app/classes/input';
 import { AuthService } from '../auth.service';
 import { FormGroup } from '@angular/forms';
 enum Session {
@@ -37,7 +37,7 @@ export class ForgetPasswordComponent {
       required: true,
     },
   ];
-  formMaker = new Input(this.formControlInit);
+  formMaker = new InputForm(this.formControlInit);
   form: FormGroup;
   formControls: InputInterface[];
   codeValidation: boolean = false;

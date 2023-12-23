@@ -7,14 +7,12 @@ import { ItemsSearchComponent } from '../components/items-search/items-search.co
 const components = [
   LandingSearchComponent,
   HeroSearchComponent,
-  ItemsSearchComponent
-]
+  ItemsSearchComponent,
+];
 
 @NgModule({
   declarations: [components],
-
-  imports: [
-    CommonModule,
-  ]
+  exports: [components],
+  imports: [CommonModule],
 })
-export class SearchModule { }
+export class SearchModule {}

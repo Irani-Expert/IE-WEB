@@ -20,7 +20,6 @@ import { SearchComponent } from './shared/filter/search-bar/search.component';
 import { LoaderInterceptor } from './classes/loader.interceptor';
 import { LottieModule } from 'ngx-lottie';
 import { LoaderComponent } from './components/loader/loader.component';
-import { SearchModule } from './routes/Search/module/search.module';
 
 export function playerFactory(): any {
   return import('lottie-web');
@@ -37,7 +36,6 @@ const footer = [FooterComponent];
 @NgModule({
   declarations: [AppComponent, header, footer],
   imports: [
-    SearchModule,
     ModalComponent,
     AuthModule,
     HttpClientModule,
