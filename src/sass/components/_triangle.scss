@@ -11,8 +11,8 @@
 .triangle,
 // .triangle:after 
 .triangle:before {
-  width: 6rem;
-  height: 6rem;
+  width: 5rem;
+  height: 5rem;
   border-top-right-radius: 30%;
 }
 
@@ -23,8 +23,8 @@
   transform: rotate(-135deg) skewX(-45deg) scale(1.414, 0.707)
     translate(0, -50%);
   border-color: #d1d1d1;
-  border-top-width: 2px;
-  border-right-width: 2px;
+  border-top-width: 1px;
+  border-right-width: 1px;
 }
 // .triangle:after {
 //   transform: rotate(135deg) skewY(-45deg) scale(0.707, 1.414) translate(50%);

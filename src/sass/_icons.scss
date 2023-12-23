@@ -72,11 +72,23 @@
 .ie-dir {
   &::before {
     content: url(../assets/icon/direction.svg);
+    fill: white;
+  }
+  &.ab::before {
+    width: 10px;
+    height: 28px;
   }
   &.left {
     transform: rotate(180deg);
     position: relative;
     bottom: 5px;
   }
+  transition: transform 0.3s ease;
+}
+.ie-handshake {
+  &::before {
+    content: url(../assets/icon/handshake.svg);
+  }
+
   transition: transform 0.3s ease;
 }
