@@ -1,153 +1,3 @@
-<!-- <div class="bg--darken--white">
-  <div class="bg-white sm:p-28 rounded-b-[4rem] WSP">
-    <div class="flex justify-center sm:flex-row flex-col">
-      <div class="sm:w-1/2 sm:ps-8 p-4">
-        <h2 class="text-4xl oblique">چرا ایرانی اکسپرت؟</h2>
-        <ul
-          class="text-xl flex flex-col pt-6 h-[76%] justify-between font-medium"
-        >
-          <li class="text-justify pb-8 sm:pb-0">
-            ما تیمی از برنامه‌نویسان و تحلیل‌گران بازارهای مالی هستیم که بر
-            توسعه اکسپرت‌ها، ربات‌ها و آموزش تمرکز کـردیم
-          </li>
-          <li class="text-justify pb-8 sm:pb-0">
-            درحال حاضر با توانایی تیم خود و کمک و حمایت خالصانه‌ی شرکای خود در
-            ایران و جهان، در ارائه استراتژی‌ها و اکسپرت‌ها موفق عمل کردیم
-          </li>
-          <li class="text-justify">
-            و قول می‌دهیم برای معامله‌گران و فعالین بازارهای مالی جذاب باشد. ما
-            را در اینستاگرام و تلگرام به نشانی IRani_Expert فالو کنید
-          </li>
-        </ul>
-      </div>
-      <div class="sm:w-1/2 flex items-center justify-end">
-        <div
-          class="bg-[#F3F3F3] absolute left-0 w-[500px] h-[400px] p-2 rounded-3xl rounded-e-none hidden sm:block"
-        ></div>
-        <img
-          class="z-10 mt-4"
-          src="../../../../../assets/img/about-us.png"
-          alt="about-us"
-        />
-      </div>
-    </div>
-    <div class="sm:mt-16">
-      <h4 class="sm:text-4xl color--green oblique" id="userSatisfaction">
-        رضایتمندی ؛ مصاحبه با
-        <span class="hidden sm:inline">بخشی از</span>
-        مشتریان ایرانی اکسپرت
-      </h4>
-      <div class="flex flex-col sm:m-12">
-        <div class="sm:w-6/12 flex items-center">
-          <div
-            class="bg-[#F3F3F3] absolute right-[-20px] sm:w-[55rem] h-36 p-2 rounded-3xl"
-          ></div>
-          <ul class="sm:m-10 mb-10">
-            <li class="sm:text-xl font-medium">
-              در سری ویدیو های ایرانی پادکست مصاحبه با برخی از مشتریان ایرانی
-              اکسپرت را بررسی کنید
-            </li>
-          </ul>
-        </div>
-        <div class="mt-6">
-          <div
-            class="flex sm:flex-row flex-col-reverse pb-3 pt-3 relative bottom-20"
-            [ngClass]="isVideoOpend ? ' border-b-2' : ''"
-          >
-            <div
-              class="sm:m-9 m-3 sm:w-5/12 flex flex-col sm:items-end justify-center relative"
-              [ngClass]="isVideoOpend ? 'open-item ' : ''"
-            >
-              <h2 class="sm:text-2xl text-xl font-bold">
-                ایرانی پادکست شماره یک
-              </h2>
-              <span class="sm:text-xl text-xs sm:text-end"
-                >مصاحبه با جناب محمودی ؛ اکانت 10.000 دلاری</span
-              >
-            </div>
-            <div class="sm:w-8/12 mt-4">
-              <app-video-player
-                [VideoId]="0"
-                [homeScreen]="false"
-              ></app-video-player>
-            </div>
-          </div>
-          <div
-            class="relative top-[-59px]"
-            [@fadeInAnimation]="isVideoOpend ? 'show' : 'hide'"
-          >
-            <ng-container *ngFor="let index of [1, 2, 3, 4]" class="opacity-0">
-              <div
-                class="flex sm:flex-row flex-col-reverse pb-3 pt-3"
-                [ngClass]="
-                  !(index == 4) ? 'border-b-2  border-b-black-100' : ''
-                "
-              >
-                <div
-                  class="sm:m-9 m-3 sm:w-5/12 flex flex-col sm:items-end justify-center relative"
-                  [ngClass]="isVideoOpend ? 'open-item ' : ''"
-                >
-                  <h2 class="sm:text-2xl text-xl font-bold">
-                    ایرانی پادکست شماره یک
-                  </h2>
-                  <span class="sm:text-xl text-xs sm:text-end"
-                    >مصاحبه با جناب محمودی ؛ اکانت 10.000 دلاری</span
-                  >
-                </div>
-                <div class="sm:w-8/12 mt-4">
-                  <app-video-player
-                    [VideoId]="index"
-                    [homeScreen]="false"
-                  ></app-video-player>
-                </div>
-              </div>
-            </ng-container>
-            <div class="video-bottom-Shadow"></div>
-          </div>
-
-          <div
-            class="flex justify-center mt-4"
-            [ngClass]="isVideoOpend ? '' : 'close-btn'"
-          >
-            <button
-              (click)="openVideoList()"
-              class="hover:bg-[#3246d3] border-2 border-[#3246d3] border-solid hover:text-white text-[#3246d3] p-2 sm:w-1/5 rounded-full font-semibold sm:text-lg text-xs"
-            >
-              {{ isVideoOpend ? "بستن لیست پخش" : "باز کردن لیست پخش" }}
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div
-  class="sm:p-16 p-4 flex justify-center sm:flex-row flex-col font-medium bg-[#F3F3F3]"
->
-  <div class="w-3/12">image Place</div>
-  <div class="max-w-2xl">
-    <h1 class="color--blue sm:text-3xl text-2xl font-bold">دعوت به همکاری</h1>
-    <p class="sm:text-[22px] text-base text-justify text-black">
-      از تمامی برنامه نویسان و تریدرها جهت همکاری دعوت بعمل می آید همچنین از
-      همکاران گرامی دعوت می شود اگر اکسپرت قابل ارائه دارند جهت فروش آن محـصول
-      در ایرانی اکسپرت، با پشتیبانی در ارتباط باشند
-    </p>
-  </div>
-</div>
-<div class="bg-white sm:p-12 p-4 flex items-center flex-col rounded-b-[4rem]">
-  <div class="max-w-2xl">
-    <p
-      class="sm:text-2xl text-base sm:text-center text-justify font-medium text-black"
-    >
-      ایرانی اکسپرت از مجموعه های تابعه فن آوران دنا به شماره ثبت 60136 می باشد
-      ضمناً برای ارتباط بیشتر با ما در شبکه های اجتماعی ایرانی اکسپرت را دنبال
-      کنید یا اینکه از طریق کادر زیر جهت مشاوره اقدام کنید
-    </p>
-  </div>
-
-  <app-consultation-form class="w-full"></app-consultation-form>
-</div> -->
 <div class="flex m-6">
   <div class="w-1/2 p-8">
     <h1 class="text-4xl font-bold m-6 mt-9">درباره ایرانی اکسپرت</h1>
@@ -233,4 +83,83 @@
     </p>
   </div>
   <div class="item"><img src="../../../../../assets/img/whyUs.png" /></div>
+</div>
+<app-comment-slider></app-comment-slider>
+<div class="flex flex-col items-center">
+  <h2 class="max-w-[80rem] font-bold text-2xl relative left-[15%]">
+    سود ما در راستای سود شماست
+  </h2>
+  <div
+    class="flex border-solid border-2 rounded-2xl border-[#707070] mx-8 my-4 max-h-[8rem] max-w-[80rem]"
+  >
+    <div>
+      <img
+        class="relative bottom-16"
+        style="width: 26rem; height: 12rem"
+        src="../../../../../assets/img/btcFlower.png"
+      />
+    </div>
+    <p class="py-10 px-8 font-xl font-bold">
+      ما با افتخار توجه به تجربیات مشتریانمان از ربات معامله‌گر ATMداریم و به
+      دنبال بهبود مداوم خدمات خود هستیم. اگر شما هم تجربیات یا نظراتی دارید،
+      خوشحال می‌شویم که این اطلاعات را با ما به اشتراک بگذارید
+    </p>
+  </div>
+</div>
+<div class="flex flex-col items-center">
+  <h2 class="font-bold text-2xl">ATM ویدیو نتایج شما از ربات معامله گر</h2>
+  <span class="text-base"
+    >را به نمایش می گزارد ATM ویدیو هایی که شما از حساب های ریل خود ارسال کردید
+    و نتایج معاملات ربات معامله گر</span
+  >
+</div>
+<app-video-slider></app-video-slider>
+<!-- <div class="item">
+  <h2 class="font-bold text-3xl mt-4">شامل معیارهای استاندارد</h2>
+  <p class="mx-6 font-medium text-lg my-4">
+    ما تمامی معیارهای استاندارد برای نوشتن بهترین ربات هوش مصنوعی برای ترید رو
+    داریم. مانند، استیتمنت بلندمدت، دارا بودن چندین حساب روی سایت‌های معتبر و
+    مرجع مثل MQL و Myfxbook، ارایه حساب دمو، مدیریت سرمایه، همراه با پشتیبانی که
+    تلاش ما برای ارایه تمامی این موارد موجب تفاوت ما با بقیه رقبا شده...
+  </p>
+</div>
+<div class="item"><img src="../../../../../assets/img/whyUs.png" /></div> -->
+<div class="mx-8">
+  <div cl>
+    <div class="flex">
+      <i class="ie-icon ie-handshake"></i>
+      <h3 class="font-bold text-3xl">دعوت به همکاری</h3>
+    </div>
+    <p>فرصت های شغلی در ایرانی اکسپرت</p>
+  </div>
+  <div class="flex justify-center">
+    <div class="w-5/12 flex flex-col justify-evenly">
+      <p>
+        ما به ایده‌های نوآورانه پایبندیم و پیشرفت پایدار را برای تجارت‌ها فراهم
+        می‌کنیم. بنابراین
+      </p>
+      <p>
+        <i class="ie-icon ie-Rectangle"></i>
+        از تمامی برنامه‌نویسان (هوش مصنوعی و وب) و تریدرها، جهت همکاریف دعوت
+        به‌عمل می‌آید
+        <br />
+
+        <i class="ie-icon ie-Rectangle"></i>
+        همچنین از همـــکاران گرامی دعـوت می شود، اگر اکسپرت قابل ارائه دارنـد،
+        جهت فروش آن محصول در ایرانی اکسپرت، با پشتیبانی در ارتباط باشند
+        <br />
+        با ما همراه شوید تا به همراه یکدیگر به آینده تجارت الکترونیکی پیش برویم
+      </p>
+      <div class="flex">
+        <button
+          class="bg-main-blue border-2 flex items-center justify-evenly relative border-[#3246d3] border-solid hover:bg-white hover:text-[#3246d3] text-white sm:px-2 px-6 p-3 sm:w-40 rounded-full font-semibold sm:text-base text-sm"
+        >
+          ارسال رزومه
+          <i class="flex items-center ab justify-evenlyie-icon ie-dir left"></i>
+        </button>
+        <button class="ms-3 text-gray-500">درخواست همکاری</button>
+      </div>
+    </div>
+    <div class="w-5/12"><img src="../../../../../assets/img/whyUs.png" /></div>
+  </div>
 </div>

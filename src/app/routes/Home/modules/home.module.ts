@@ -30,6 +30,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { ProductCardComponent } from 'src/app/shared/product-card/product-card.component';
 import { LandingArticleResponsiveComponent } from '../components/landing-article-responsive/landing-article-responsive.component';
 import { AboutusTargetsComponent } from '../components/aboutus-targets/aboutus-targets.component';
+import { CommentSliderComponent } from '../components/comment-slider/comment-slider.component';
+import { VideoSliderComponent } from '../components/video-slider/video-slider.component';
 
 const components = [
   ServiceBanerComponent,
@@ -39,11 +41,12 @@ const components = [
   HeroComponent,
   SellInfoComponent,
   BotShowcaseComponent,
+  CommentSliderComponent,
   BotFacilitiesComponent,
   LandingArticleResponsiveComponent,
   BotAdvantagesComponent,
   LandingArticleComponent,
-
+  VideoSliderComponent,
   ConsultationFormComponent,
   BannersComponent,
   ProductCardComponent,

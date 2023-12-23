@@ -1,0 +1,46 @@
+.bg-suggestion {
+  background-color: #d4d4d4;
+}
+.active-btn {
+  background-color: #0066ff;
+  cursor: pointer;
+  i {
+    filter: invert(1);
+  }
+}
+
+.entry-title {
+  padding-bottom: 70px;
+  background-image: url(http://placehold.it/350x65);
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
+.slide-right {
+  animation: slide-right 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+@keyframes slide-right {
+  0% {
+    transform: translateX(0);
+  }
+  80% {
+    transform: translateX(+35px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.slide-left {
+  animation: slide-left 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+@keyframes slide-left {
+  0% {
+    transform: translateX(0);
+  }
+  80% {
+    transform: translateX(-120px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

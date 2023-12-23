@@ -1,29 +1,31 @@
 .triangle {
   position: relative;
-  background-color: #f89a99;
   text-align: right;
 }
-.triangle:before,
-.triangle:after {
+.triangle:after,
+.triangle:before {
   content: "";
   position: absolute;
   background-color: inherit;
 }
 .triangle,
-.triangle:before,
-.triangle:after {
-  width: 3rem;
-  height: 3rem;
+// .triangle:after 
+.triangle:before {
+  width: 5rem;
+  height: 5rem;
   border-top-right-radius: 30%;
 }
 
 .triangle {
-  transform: rotate(-60deg) skewX(-30deg) scale(1, 0.866);
+  transform: rotate(210deg) skewX(-30deg) scale(1, 0.866);
 }
 .triangle:before {
   transform: rotate(-135deg) skewX(-45deg) scale(1.414, 0.707)
     translate(0, -50%);
+  border-color: #d1d1d1;
+  border-top-width: 1px;
+  border-right-width: 1px;
 }
-.triangle:after {
-  transform: rotate(135deg) skewY(-45deg) scale(0.707, 1.414) translate(50%);
-}
+// .triangle:after {
+//   transform: rotate(135deg) skewY(-45deg) scale(0.707, 1.414) translate(50%);
+// }
