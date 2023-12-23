@@ -45,7 +45,7 @@ const routes: Routes = [
   },
   {
     path: 'search',
-    title: 'مقالات ایرانی اکسپرت',
+    title: 'جست و جو ایرانی اکسپرت',
     loadChildren: () =>
       import('./routes/Search/module/search.module').then((m) => m.SearchModule),
   },
