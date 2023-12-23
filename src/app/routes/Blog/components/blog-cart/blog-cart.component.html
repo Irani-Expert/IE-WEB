@@ -2,7 +2,7 @@
   <ng-container *ngIf="!loading">
 
   <div class="cart flex-col flex justify-between">
-    <a class="flex justify-center mr-4 mt-4 mb-4 ml-4" [routerLink]="this.url">
+    <a class="img-box flex justify-center mr-4 mt-4 mb-4 ml-4" [routerLink]="this.url">
       <img
         class="img-card"
         [src]="contentUrl + item.cardImagePath"
@@ -10,7 +10,7 @@
       />
     </a>
     <!-- ==========[پارت 1]========== -->
-    <div class="mr-4 ml-4 -mt-4">
+    <div class="mr-4 ml-4 -mt-4 part-1">
       <div class="flex justify-start">
         <a
           class="title-cart flex-wrap whitespace-normal"

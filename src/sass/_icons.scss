@@ -69,6 +69,14 @@
   }
   transition: transform 0.3s ease;
 }
+.ie-search-page {
+  content: url(../assets/icon/search-icon-page.svg);
+  display: block;
+}
+.ie-drop-down {
+  display: block;
+  content: url(../assets/icon/drop-down-icon-search.svg);
+}
 .ie-dir {
   &::before {
     content: url(../assets/icon/direction.svg);
