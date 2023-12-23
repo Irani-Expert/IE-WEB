@@ -1,0 +1,26 @@
+.bg-suggestion {
+  background-color: #d4d4d4;
+}
+.active-btn {
+  background-color: #0066ff;
+  cursor: pointer;
+  i {
+    filter: invert(1);
+  }
+}
+// .triangle {
+//   display: inline-block;
+//   width: 150px;
+//   filter: url(#goo);
+// }
+// .triangle.type2::before {
+//   padding-top: 70%;
+//   clip-path: polygon(0 0, 100% 100%, 0 100%);
+// }
+// .triangle::before {
+//   content: "";
+//   display: block;
+//   padding-top: 86%;
+//   background: var(--b, orange);
+//   clip-path: polygon(50% 0, 100% 100%, 0 100%);
+// }

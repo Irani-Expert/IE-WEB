@@ -137,50 +137,6 @@ export class BlogPaginationComponent {
   }
   // =================[فیلتر]=============
   categoryIcon: string = 'assets/img/filter-icon-blog.svg';
-  categoryHeader: string = 'دسته بندی';
-
-  category: Array<any> = [
-    {
-      name: 'جدیدترین مطالب',
-      icon: 'assets/img/icon-filter(blog)-1.svg',
-      id: 1,
-    },
-    {
-      name: ' آموزش ها',
-      icon: 'assets/img/icon-filter(blog)-7.svg',
-      id: 2,
-    },
-    {
-      name: 'معرفی کتاب ',
-      icon: 'assets/img/icon-filter(blog)-2.svg',
-      id: 3,
-    },
-    {
-      name: ' معرفی بروکرها',
-      icon: 'assets/img/icon-filter(blog)-3.svg',
-      id: 4,
-    },
-    {
-      name: ' پادکست های ایرانی اکسپرت',
-      icon: 'assets/img/icon-filter(blog)-4.svg',
-      id: 5,
-    },
-    {
-      name: 'فارکس ',
-      icon: 'assets/img/icon-filter(blog)-5.svg',
-      id: 6,
-    },
-    {
-      name: 'ارز دیجیتال ',
-      icon: 'assets/img/icon-filter(blog)-5.svg',
-      id: 7,
-    },
-    {
-      name: 'ربات معامله گر ',
-      icon: 'assets/img/icon-filter(blog)-6.svg',
-      id: 8,
-    },
-  ];
 
   // Method Get Query Strings
 
@@ -229,11 +185,8 @@ export class BlogPaginationComponent {
     return true;
   }
   setNumArr(value: string) {
-    let arr: number[] = [];
-    let x = value.slice(value.indexOf('[') + 1, value.indexOf(']')).split(',');
-    x.forEach((it) => {
-      arr.push(parseInt(it));
-    });
+    let arr: number[] = [parseInt(value)];
+
     return arr;
   }
   fillValue(value: string) {
@@ -241,7 +194,6 @@ export class BlogPaginationComponent {
   }
   searchFilterName(value: string) {
     this.blogService.blogsArray.next(null);
-    this.blogFilter.blogName = value;
     if (value.trim().length > 0) {
       this.savedParams = { ...this.savedParams, ...{ blogName: value } };
       this.router.navigateByUrl(`blog/page/1?${this._querystring}`);
@@ -250,5 +202,15 @@ export class BlogPaginationComponent {
       delete this.savedParams['blogName'];
       this.router.navigateByUrl(`blog/page/1?${this._querystring}`);
     }
+  }
+  filterCategory(id: number) {
+    this.blogService.blogsArray.next(null);
+    this.savedParams = {
+      ...this.savedParams,
+      ...{ category: `${id}` },
+    };
+    this.router.navigateByUrl(
+      `blog/page/${this.blogFilter.pageIndex + 1}?${this._querystring}`
+    );
   }
 }

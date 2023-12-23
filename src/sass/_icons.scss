@@ -77,3 +77,14 @@
   display: block;
   content: url(../assets/icon/drop-down-icon-search.svg);
 }
+.ie-dir {
+  &::before {
+    content: url(../assets/icon/direction.svg);
+  }
+  &.left {
+    transform: rotate(180deg);
+    position: relative;
+    bottom: 5px;
+  }
+  transition: transform 0.3s ease;
+}

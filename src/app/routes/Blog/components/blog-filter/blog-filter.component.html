@@ -1,21 +1,29 @@
 <!-- ===================[دسته بندی]=================== -->
 <div class="flex justify-center">
-    <div class="category-box">
-        <div class="flex justify-start">
-            <ng-content select="[header]"></ng-content>
-        </div>
-        <div *ngFor="let item of category">
-          <div class="category-row">
-              <img class="ml-3" src="{{item.icon}}" alt="">
-              <a href=""><p class="link">{{item.name}}</p></a>
-          </div>
-        </div>
-        <div class="mt-5 flex flex-wrap mr-3">
-            <div *ngFor="let item2 of categoryDetail">
-                <p  class="mb-6 ml-4"><a class="link-detail" href="">{{item2.name}}</a></p>
-            </div>
-        </div>
+  <div class="category-box">
+    <div class="flex justify-start">
+      <ng-content select="[header]"></ng-content>
     </div>
+    <div
+      class="hover:bg-gray-200 transition-colors rounded-lg cursor-pointer"
+      *ngFor="let item of category"
+      (click)="selectCategroy(item)"
+    >
+      <div class="category-row">
+        <img class="ml-3" src="{{ item.icon }}" alt="" />
+        <span
+          ><p class="link">{{ item.name }}</p></span
+        >
+      </div>
+    </div>
+    <div *ngIf="false" class="mt-5 flex flex-wrap mr-3">
+      <div *ngFor="let item of categoryDetail">
+        <p class="mb-6 ml-4">
+          <span class="link-detail">{{ item.name }}</span>
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
 <!-- ===================[مدرسه فارکس ]=================== -->
 <div class="flex justify-center mt-8">
@@ -42,8 +50,8 @@
     </div>
 </div>
 <!-- ============[تبلیغات]========= -->
-<div  #sticky>
-    <div class="" [ngClass]="sticked ? 'sticky-custom': 'mt-6'">
-        <img class="add-blog" src="assets/img/blog-add.svg" alt="add">
-    </div>
+<div #sticky>
+  <div class="" [ngClass]="sticked ? 'sticky-custom' : 'mt-6'">
+    <img class="add-blog" src="assets/img/blog-add.svg" alt="add" />
+  </div>
 </div>
