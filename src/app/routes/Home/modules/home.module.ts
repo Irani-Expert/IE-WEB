@@ -33,12 +33,14 @@ import { AboutusTargetsComponent } from '../components/aboutus-targets/aboutus-t
 import { CommentSliderComponent } from '../components/comment-slider/comment-slider.component';
 import { VideoSliderComponent } from '../components/video-slider/video-slider.component';
 import { SearchModule } from '../../Search/module/search.module';
+import { FreeAdviceComponent } from '../free-advice/free-advice.component';
 
 const components = [
   ServiceBanerComponent,
   QuestionsComponent,
   InstagramBanerComponent,
   LandingPageComponent,
+  FreeAdviceComponent,
   HeroComponent,
   SellInfoComponent,
   BotShowcaseComponent,

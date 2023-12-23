@@ -9,7 +9,7 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { Input, InputIcon, InputInterface } from 'src/app/classes/input';
+import { InputForm, InputIcon, InputInterface } from 'src/app/classes/input';
 const formDataInit: ILogin = { password: '', username: '' };
 @Component({
   selector: 'app-login',
@@ -74,7 +74,7 @@ export class LoginComponent {
       placeholder: '*******',
     },
   ];
-  formMaker = new Input(this.formControlInit);
+  formMaker = new InputForm(this.formControlInit);
 
   iconSrc = 'assets/icon/eye-off.svg';
   state: 'default' | 'rotated' = 'default';

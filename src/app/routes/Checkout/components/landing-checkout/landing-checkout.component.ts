@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Input, InputInterface } from 'src/app/classes/input';
+import { InputForm, InputInterface } from 'src/app/classes/input';
 import { OrderService } from 'src/app/classes/services/order.service';
 import { User } from 'src/app/shared/auth/user.interface';
 import { Order } from '../../interfaces/order.interface';
@@ -133,7 +133,7 @@ export class LandingCheckoutComponent {
     },
   ];
   formGroup: FormGroup;
-  formMaker = new Input(this.formsControlInit);
+  formMaker = new InputForm(this.formsControlInit);
 
   get _formControls() {
     return this.formGroup.controls;

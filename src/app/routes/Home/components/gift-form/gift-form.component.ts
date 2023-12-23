@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Input, InputInterface } from 'src/app/classes/input';
+import { InputForm, InputInterface } from 'src/app/classes/input';
 import { GiftInter } from './gift-Inter';
 // import { UserNeedService } from 'src/app/classes/services/user-need.service';
 const formDataInit: GiftInter = {
@@ -62,7 +62,7 @@ export class GiftFormComponent {
   formControls!: InputInterface[];
   form: FormGroup;
 
-  formMaker = new Input(this.formControlInit);
+  formMaker = new InputForm(this.formControlInit);
   //private giftFormService: UserNeedService
   constructor() {
     this.form = new FormGroup({});
