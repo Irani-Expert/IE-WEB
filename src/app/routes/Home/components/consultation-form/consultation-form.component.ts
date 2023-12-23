@@ -1,9 +1,10 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, Input } from '@angular/core';
 import { GiftInter } from '../gift-form/gift-Inter';
 import { FormGroup } from '@angular/forms';
-import { Input, InputInterface } from 'src/app/classes/input';
+import { InputForm, InputInterface } from 'src/app/classes/input';
 import { UserNeedService } from 'src/app/classes/services/user-need.service';
 import { AppComponent } from 'src/app/app.component';
+
 const formDataInit: GiftInter = {
   id: 0,
   firstName: '',
@@ -20,7 +21,9 @@ const formDataInit: GiftInter = {
   styleUrls: ['./consultation-form.component.scss'],
 })
 export class ConsultationFormComponent {
-  @ViewChild('scrollHere') elementScroll:HTMLElement;
+  @Input('isGreen') GreenStyles = '';
+
+  @ViewChild('scrollHere') elementScroll: HTMLElement;
   formControlInit: InputInterface[] = [
     {
       id: 1,
@@ -69,7 +72,7 @@ export class ConsultationFormComponent {
   formControls!: InputInterface[];
   form: FormGroup;
 
-  formMaker = new Input(this.formControlInit);
+  formMaker = new InputForm(this.formControlInit);
   constructor(private giftFormService: UserNeedService) {
     this.form = new FormGroup({});
     this.formMaker.inputs.forEach((item) => {
@@ -149,12 +152,11 @@ export class ConsultationFormComponent {
     // But now We don't need any
   }
   scroll() {
-   if(AppComponent.isBrowser.value) {
-    let element = document.getElementById('form-consulting') 
-    element?.scrollIntoView({behavior: 'smooth'})
-   }
-   else {
-    return
-   }
+    if (AppComponent.isBrowser.value) {
+      let element = document.getElementById('form-consulting');
+      element?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      return;
+    }
   }
 }

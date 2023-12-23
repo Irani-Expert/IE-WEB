@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Input, InputIcon, InputInterface } from 'src/app/classes/input';
+import { InputForm, InputIcon, InputInterface } from 'src/app/classes/input';
 import {
   trigger,
   state,
@@ -113,7 +113,7 @@ export class SignupComponent {
     },
   ];
   state: 'default' | 'rotated' = 'default';
-  formMaker = new Input(this.formsControlInit);
+  formMaker = new InputForm(this.formsControlInit);
   showPass: boolean = false;
   form: FormGroup;
   formControls: InputInterface[];

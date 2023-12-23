@@ -21,7 +21,7 @@ export interface InputIcon {
   className?: string;
   alt: string;
 }
-export class Input {
+export class InputForm {
   constructor(public inputs: InputInterface[]) {}
   createControl(input: InputInterface) {
     let formControl = new FormControl<typeof input.typeofVlaue | null>(

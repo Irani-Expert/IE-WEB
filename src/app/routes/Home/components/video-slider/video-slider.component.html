@@ -25,14 +25,14 @@
         [ngClass]="lowwerSlide >= 2 ? 'active-btn' : ''"
         class="flex justify-center items-center rounded-xl mx-2 h-16 w-16 pt-1 bg-[#ebebeb] cursor-context-menu"
       >
-        <i class="ie-icon ie-dir"></i>
+        <i class="ie-icon ie-dir w-3.5"></i>
       </button>
       <button
         (click)="sliderMovement(true)"
         [ngClass]="upperSlide < lenCommentModel.length ? 'active-btn' : ''"
         class="flex justify-center items-center rounded-xl mx-2 h-16 w-16 pt-1 bg-[#ebebeb] cursor-context-menu"
       >
-        <i class="ie-icon ie-dir left"></i>
+        <i class="ie-icon ie-dir left w-3.5"></i>
       </button>
     </div>
   </div>
