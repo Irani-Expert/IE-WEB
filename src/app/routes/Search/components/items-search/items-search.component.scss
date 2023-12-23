@@ -1,0 +1,183 @@
+//   <!-- ==============[سرچ آیتم]=============== -->
+
+.box-item{
+    max-width: 875px;
+    padding: 1rem;
+    border: 1px solid #d7d6d6;
+    border-radius: 28px;
+    height: 12rem;
+  }
+  .details{
+      color: #004CFF;
+  }
+  .title-item{
+    font-size: 1.7rem;
+    font-weight: 500;
+    color: #004CFF;
+  }
+  .item-img{
+    object-fit: cover;
+    height: 100%;
+    border-radius: 20px;
+    width: 100%;
+  }
+  // <!-- ==============[ رسپانسیو سرچ آیتم]=============== -->
+  .box-item-mobile{
+    width: 90%;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    padding: 1rem;
+    border: 1px solid #d7d6d6;
+    border-radius: 28px;
+    height: 12rem;
+  }
+  .title-item-mobile{
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #004CFF;
+  }
+  .item-img-mobile{
+    object-fit: cover;
+    height: 100%;
+    border-radius: 20px;
+    width: 100%;
+  }
+  
+  // ==============[باکس هاور]==========
+  .box-hover{
+    width: 20%;
+    padding: 1rem;
+    border: solid 1px #d7d6d6;
+    border-radius: 25px;
+  }
+  .img-hvr-item{
+    object-fit: cover;
+    height: 100%;
+    border-radius: 20px;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .title-hover{
+    color: #004CFF;
+    font-size: 1.7rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  #dropdown-item {
+    position: relative;
+    .selected {
+      position: relative;
+      z-index: 10;
+      max-width: 900px;
+      cursor: pointer;
+      span:first-child {
+        margin-right: 10px;
+      }
+      span:last-child {
+        float: right;
+        transition: transform 0.2s;
+      }
+    }
+    .menu-wrapper {
+      overflow: hidden;
+      margin-top: 3px;
+      position: absolute;
+      width: 100%;
+      ul {
+        overflow: hidden;
+        transition: transform 0.2s;
+        transform: translate(-57rem, 0rem);
+      }
+    }
+    .menu-wrapper-down{
+      overflow: hidden;
+      margin-top: 3px;
+      position: absolute;
+      width: 100%;
+      ul {
+        overflow: hidden;
+        transition: transform 0.2s;
+        transform: translate(0rem, 13rem);
+      }
+    }
+  
+    .show-menu {
+      display: block !important;
+      animation: display 0.4s ease-in forwards;
+  
+    }
+    .hide-menu {
+      display: block !important;
+      animation: displayOut 0.25s ease-in forwards;
+    }
+    // <!-- ============[هاور به پایین]======================== -->
+    .show-menu-down{
+      transform: translate(0rem, 13rem);
+      display: block !important;
+      animation: display 0.25s ease-in forwards;
+      z-index: 50;
+      position: relative;
+    }
+    .hide-menu-down{
+      transform: translate(0rem, 13rem);
+      display: block !important;
+      animation: displayOut 0.25s ease-in forwards;
+      
+    }
+  }
+  .box-hover-down{
+  background-color: white;
+  width: 100%;
+  border: solid 1px #d7d6d6;
+  border-radius: 25px;
+  padding: 1rem;
+  }
+  .img-hvr-item-down{
+    object-fit: cover;
+    height: 100%;
+    border-radius: 20px;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .title-hover-down{
+    color: #004CFF;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  @keyframes display {
+    0% {
+      opacity: 0;
+    }
+    25% {
+      opacity: 0.25;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    75% {
+      opacity: 0.75;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes displayOut {
+    0% {
+      opacity: 1;
+    }
+    25% {
+      opacity: 0.75;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    75% {
+      opacity: 0.25;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  

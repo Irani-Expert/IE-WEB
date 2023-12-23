@@ -1,0 +1,91 @@
+<div class="h-full overflow-scroll" id="dropdown-item">
+    <ng-container *ngFor="let hvr of searchBox;let i = index">        
+    <!-- ============[هاور به پایین]======================== -->
+    <div class="h-full menu-wrapper-down block 2xl:hidden">
+        <ul [ngClass]="hvr.active ? 'show-menu-down' : 'hide-menu-down'" >
+            <div class="box-hover-down">
+                <div class="flex flex-row">
+                    <div class="basis-1/3">
+                        <img class="img-hvr-item-down" src="{{hvr.img}}" alt="img-item">
+                    </div>
+                    <div class="basis-2/3 mr-4">
+                        <h6 class="title-hover-down">{{hvr.name}}</h6>
+                        <p>
+                            AMarkets، یک کارگزار جهانی فارکس است که از سال 2007 خدمات بی عیب و نقصی ارائه 
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio, voluptates? Veritatis eius,
+                            consectetur unde quidem neque rem impedit. Veritatis dolore quidem minima asperiores consequatur omnis ipsa corrupti? Cupiditate, facere eos.
+                            <br>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, blanditiis. Maiores doloremque quae id culpa aut 
+                            repudiandae rem, recusandae, quas repellendus dolorum laudantium vitae. Quam corrupti placeat deserunt vel sapiente?
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </ul>
+    </div>
+        <!-- ============[هاور به چپ]======================== -->
+    <div  class="menu-wrapper hidden 2xl:block">
+        <ul [ngClass]="hvr.active ? 'show-menu' : 'hide-menu'" >
+            <div class="box-hover">
+                  <div class="flex flex-col">
+                      <h6 class="title-hover">{{hvr.name}}</h6>
+                      <img class="img-hvr-item" src="{{hvr.img}}" alt="img-item">
+                      <p>
+                          AMarkets، یک کارگزار جهانی فارکس است که از سال 2007 خدمات بی عیب و نقصی ارائه 
+                          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio, voluptates? Veritatis eius,
+                          consectetur unde quidem neque rem impedit. Veritatis dolore quidem minima asperiores consequatur omnis ipsa corrupti? Cupiditate, facere eos.
+                          <br>
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, blanditiis. Maiores doloremque quae id culpa aut 
+                          repudiandae rem, recusandae, quas repellendus dolorum laudantium vitae. Quam corrupti placeat deserunt vel sapiente?
+                      </p>
+                  </div>
+              </div>
+        </ul>
+    </div>
+            <!-- ==============[سرچ آیتم]=============== -->
+    <div class="selected mb-4" (mouseenter)="changesort(i)" (mouseleave)="toggleMenuLeave(i)">
+        <div class="hidden lg:block">
+            <div class="flex box-item">
+                <div class="flex flex-row">
+                    <div class="basis-2/6 flex items-center justify-center max-w-[10rem]">
+                        <img class="item-img" src="{{hvr.img}}" alt="item">
+                    </div>
+                    <div class=" basis-full flex flex-col justify-center mr-6">
+                        <h5 class="title-item">{{hvr.name}}</h5>
+                        <p class="mt-4 mb-4 text-lg">
+                            AMarkets، یک کارگزار جهانی فارکس است که از سال 2007 خدمات بی عیب و نقصی ارائه می‌دهد. تمرکز این شرکت بر توسعه خدمات و محصولات جدید و معرفی فن‌آوری‌های نوآورانه است.
+                        </p>
+                        <div class="flex flex-row">
+                            <p class="details ml-8">مدرسه ترید</p>
+                            <p class="details ml-8">مدرس:حامد زارع</p>
+                            <p class="details ml-8">امتیاز:5</p>
+                            <p class="details ml-8">رایگان</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    </ng-container>
+    <!-- ==============[ رسپانسیو سرچ آیتم]=============== -->
+    <div class="flex justify-center lg:hidden mt-4">
+        <div class="flex box-item-mobile">
+            <div class="flex w-full flex-row">
+                <div class="basis-2/5 flex items-center justify-center max-w-[240px]">
+                    <img class="item-img-mobile" src="assets/img/blog-cart.svg" alt="item">
+                </div>
+                <div class="basis-3/5 flex flex-col justify-center mr-6">
+                    <h5 class="title-item-mobile sm:!text-2xl">AMarkets - بررسی بروکر آمارکتس</h5>
+                    <p class="text-sm sm:text-lg mt-4 mb-4">
+                        AMarkets، یک کارگزار جهانی فارکس است که از سال 2007 خدمات بی عیب و نقصی ارائه 
+                    </p>
+                    <div class="flex flex-row">
+                        <p class="text-black text-sm sm:text-lg ml-4">مدرسه ترید</p>
+                        <p class="text-black text-sm sm:text-lg">مدرس:حامد زارع</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

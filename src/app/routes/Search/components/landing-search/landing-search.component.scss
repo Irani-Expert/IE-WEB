@@ -1,31 +1,51 @@
-.baner{
-    object-fit: cover;
-    width: 90%;
-    border-radius: 30px;
-    aspect-ratio: 6/1;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    max-width: 1730px;
-    height: 230px;
-}
-.baner-titile{
-    font-size: 2em;
-    font-style: oblique;
-    color: white;
-    margin-bottom: 3rem;
-    max-width: 934px;
-}
-.box-search{
+
+// <!-- ===================[مدرسه فارکس ]=================== -->
+.school-box{
+    background-color: white;
+    border: #EAEAEA solid 2px;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border-radius: 20px;
+  }
+  .box-video{
+    background-color: #FAFAFA;
+    padding: 0.7rem 1rem 0.7rem 1rem;
+    border: 1px solid #EAEAEA;
+    border-radius: 20px;
+  }
+  .video{
+      background-color: white;
+      height: 160px;
+      width: 100%;
+  }
+  .video-title{
+    font-weight: 600;
+    color: #7D7D7D;
+    font-size: 0.9rem;
+  }
+  .time-video{
+  color: #7D7D7D;
+  font-size: 0.8rem;
   background-color: white;
-  border-radius: 10px;
-  height: 5rem;
-//   border: 1px #959595 solid;
-}
-.box{
-    width: 820px;
-}
-// .search-input{
-//     width: 70%;
-//     color: black;
-//     font-weight: 500;
-// }
+  padding: 0.2rem 0.8rem 0.2rem 0.8rem;
+  border-radius: 22px;
+  }
+  .title1-row{
+    color: black;
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+  .title2-row{
+    color: #098B41;
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  // // <!-- ============[تبلیغات]========= -->
+  .add-box{
+    position: sticky;
+    top: 5px;
+  }
+  .add-blog{
+  width: 100% ;
+  object-fit: cover;
+  }
+
