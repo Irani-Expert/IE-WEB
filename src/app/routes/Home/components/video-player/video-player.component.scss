@@ -46,7 +46,8 @@
   }
   .home-height {
     height: 35rem !important;
-    width: 66%;
+    min-width: 66%;
+    max-width: 80%;
   }
 }
 

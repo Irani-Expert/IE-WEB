@@ -1,92 +1,165 @@
-<ng-template>
-  <div class="flex m-6">
-    <div class="w-1/2 p-8">
-      <h1 class="text-4xl font-bold m-6 mt-9">درباره ایرانی اکسپرت</h1>
-      <span class="flex pt-3 text-3xl font-bold m-6">
-        <i
-          class="ms-3 ie-icon text-white flex items-center text-base ie-thick small"
-        ></i>
-        <p class="color--green pt-1.5 ps-2">آشنایی با تیم ما</p>
-      </span>
-      <p class="m-6 text-base text-justify font-medium">
-        هستیم، یک تیم نوآور و متخصص در ATM با سلام! ما تیم ربات خودکار فارکس .
-        حوزه معاملات ارزهای خارجی (فارکس) با استفاده از تکنولوژیهای هوش مصنوعی
-        از آغاز تأسیس ایرانی اکسپرت، 1 فوریه سال 2021 ، ماموریت ما این بوده که
-        بهترین اکسپرت معامله گری را ارائه دهیم که به معامله گران فارکس کمک کنند
-        به شکل هوشمندانه‌تر و موفق‌تر در بازار حضور یابند. بخشی از فعالیت ایرانی
-        اکسپرت .در حوزه فین تک است
-      </p>
-    </div>
-    <app-video-player
-      class="w-1/2"
-      [VideoId]="0"
-      [homeScreen]="false"
-    ></app-video-player>
+<div class="flex m-6">
+  <div class="w-1/2 p-8">
+    <h1 class="text-4xl font-bold m-6 mt-9">درباره ایرانی اکسپرت</h1>
+    <span class="flex pt-3 text-3xl font-bold m-6">
+      <i
+        class="ms-3 ie-icon text-white flex items-center text-base ie-thick small"
+      ></i>
+      <p class="color--green pt-1.5 ps-2">آشنایی با تیم ما</p>
+    </span>
+    <p class="m-6 text-base text-justify font-medium">
+      هستیم، یک تیم نوآور و متخصص در ATM با سلام! ما تیم ربات خودکار فارکس .
+      حوزه معاملات ارزهای خارجی (فارکس) با استفاده از تکنولوژیهای هوش مصنوعی از
+      آغاز تأسیس ایرانی اکسپرت، 1 فوریه سال 2021 ، ماموریت ما این بوده که بهترین
+      اکسپرت معامله گری را ارائه دهیم که به معامله گران فارکس کمک کنند به شکل
+      هوشمندانه‌تر و موفق‌تر در بازار حضور یابند. بخشی از فعالیت ایرانی اکسپرت
+      .در حوزه فین تک است
+    </p>
   </div>
-  <app-aboutus-targets>
-    <i
-      class="ms-3 ie-icon text-white flex items-center text-base ie-target small"
-    ></i>
-    <span class="text-3xl font-bold pt-2 ps-2">اهداف ما</span>
-  </app-aboutus-targets>
-  <div class="mx-8">
-    <h2 class="text-3xl">
-      <i class="ie-icon ie-Rectangle"></i>
-      چرا ما؟
-    </h2>
-    <div>چرا باید ایرانی اکسپرت رو انتخاب کنیم</div>
+  <app-video-player
+    class="w-1/2"
+    [VideoId]="0"
+    [homeScreen]="false"
+  ></app-video-player>
+</div>
+<app-aboutus-targets>
+  <i
+    class="ms-3 ie-icon text-white flex items-center text-base ie-target small"
+  ></i>
+  <span class="text-3xl font-bold pt-2 ps-2">اهداف ما</span>
+</app-aboutus-targets>
+<div class="mx-8">
+  <h2 class="text-3xl">
+    <i class="ie-icon ie-Rectangle"></i>
+    چرا ما؟
+  </h2>
+  <div>چرا باید ایرانی اکسپرت رو انتخاب کنیم</div>
+</div>
+<div class="whyUs">
+  <div class="item"><img src="../../../../../assets/img/whyUs.png" /></div>
+  <div class="item">
+    <h2 class="font-bold text-3xl">تخصص فنی :</h2>
+    <p class="mx-6 font-medium text-lg my-4">
+      تیم ما از متخصصین با رزومه آکادمیک قوی و با تجربه میانگین 5 ساله در حوزه
+      بازارهای مالی، هوش مصنوعی و برنامه نویسی تشکیل شده است.
+    </p>
+    <h2 class="font-bold text-3xl">اهداف تیم فنی :</h2>
+    <p class="mx-6 font-medium text-lg my-4">
+      تیم ما از متخصصین با رزومه آکادمیک قوی و با تجربه میانگین 5 ساله در حوزه
+      بازارهای مالی، هوش مصنوعی و برنامه نویسی تشکیل شده است.
+    </p>
   </div>
-  <div class="whyUs">
-    <div class="item"><img src="../../../../../assets/img/whyUs.png" /></div>
-    <div class="item">
-      <h2 class="font-bold text-3xl">تخصص فنی :</h2>
-      <p class="mx-6 font-medium text-lg my-4">
-        تیم ما از متخصصین با رزومه آکادمیک قوی و با تجربه میانگین 5 ساله در حوزه
-        بازارهای مالی، هوش مصنوعی و برنامه نویسی تشکیل شده است.
-      </p>
-      <h2 class="font-bold text-3xl">اهداف تیم فنی :</h2>
-      <p class="mx-6 font-medium text-lg my-4">
-        تیم ما از متخصصین با رزومه آکادمیک قوی و با تجربه میانگین 5 ساله در حوزه
-        بازارهای مالی، هوش مصنوعی و برنامه نویسی تشکیل شده است.
-      </p>
-    </div>
-    <div class="item">
-      <h2 class="font-bold text-3xl mt-4">شامل معیارهای استاندارد</h2>
-      <p class="mx-6 font-medium text-lg my-4">
-        ما تمامی معیارهای استاندارد برای نوشتن بهترین ربات هوش مصنوعی برای ترید
-        رو داریم. مانند، استیتمنت بلندمدت، دارا بودن چندین حساب روی سایت‌های
-        معتبر و مرجع مثل MQL و Myfxbook، ارایه حساب دمو، مدیریت سرمایه، همراه با
-        پشتیبانی که تلاش ما برای ارایه تمامی این موارد موجب تفاوت ما با بقیه
-        رقبا شده...
-      </p>
-    </div>
-    <div class="item"><img src="../../../../../assets/img/whyUs.png" /></div>
-    <div class="item"><img src="../../../../../assets/img/whyUs.png" /></div>
-    <div class="item">
-      <h2 class="font-bold text-3xl mt-4">خدمات نوآورانه</h2>
-      <p class="mx-6 font-medium text-lg my-4">
-        ما به طور دائم به دنبال نوآوری هستیم و خدماتی ارائه می‌دهیم که باعث
-        بهبود و سهولت در معاملالت فارکس و حفظ رضایت مشتریان می‌شوند. مثلا، سیستم
-        کپی ترید ارایه شده توسط ایرانی اکسپرت، در ایران بی نظیره، که میتوانید از
-        صفحه کپی ترید وب‌سایت، اطلاعات کامل را بدست آورید. منتظر نسخه دوم از
-        سیستم کپی ترید ما باشید، که دقیقا مانند MQL5.COM هست و حتی کسانی‌که
-        خدمات کپی ترید ارائه میدهند، می توانند خدمات خود را از طریق سایت ایرانی
-        اکسپرت ارائه دهند. یعنی، کپی ترید را راه‌اندازی کنند تا سرمایه گذاران
-        بهشون وصل شوند.
-      </p>
-    </div>
-    <div class="item">
-      <h2 class="font-bold text-3xl mt-4">تیم بین المللی</h2>
-      <p class="mx-6 font-medium text-lg my-4">
-        از دیگر مواردی که ایرانی اکسپرت را بی بدیل کرده همکاری با یک تیم بین
-        المللی است که از کشورهای مختلف با تیم مرکزی در ارتباطند. به‌عنوان مثال،
-        مدیر فنی -برنامه نویسی ایرانی اکسپرت، مدرس دانشگاه ژیان چین (شعبه
-        دانشگاه لیورپول انگلستان) است که با برگزاری ماهانه جلسات داخلی، تمامی
-        سیستم های نرم افزاری و هوش مصنوعی اعم از ربات و کپی ترید را آپدیت
-        می‌کنند.
-      </p>
-    </div>
-    <div class="item"><img src="../../../../../assets/img/whyUs.png" /></div>
+  <div class="item">
+    <h2 class="font-bold text-3xl mt-4">شامل معیارهای استاندارد</h2>
+    <p class="mx-6 font-medium text-lg my-4">
+      ما تمامی معیارهای استاندارد برای نوشتن بهترین ربات هوش مصنوعی برای ترید رو
+      داریم. مانند، استیتمنت بلندمدت، دارا بودن چندین حساب روی سایت‌های معتبر و
+      مرجع مثل MQL و Myfxbook، ارایه حساب دمو، مدیریت سرمایه، همراه با پشتیبانی
+      که تلاش ما برای ارایه تمامی این موارد موجب تفاوت ما با بقیه رقبا شده...
+    </p>
   </div>
-</ng-template>
+  <div class="item"><img src="../../../../../assets/img/whyUs.png" /></div>
+  <div class="item"><img src="../../../../../assets/img/whyUs.png" /></div>
+  <div class="item">
+    <h2 class="font-bold text-3xl mt-4">خدمات نوآورانه</h2>
+    <p class="mx-6 font-medium text-lg my-4">
+      ما به طور دائم به دنبال نوآوری هستیم و خدماتی ارائه می‌دهیم که باعث بهبود
+      و سهولت در معاملالت فارکس و حفظ رضایت مشتریان می‌شوند. مثلا، سیستم کپی
+      ترید ارایه شده توسط ایرانی اکسپرت، در ایران بی نظیره، که میتوانید از صفحه
+      کپی ترید وب‌سایت، اطلاعات کامل را بدست آورید. منتظر نسخه دوم از سیستم کپی
+      ترید ما باشید، که دقیقا مانند MQL5.COM هست و حتی کسانی‌که خدمات کپی ترید
+      ارائه میدهند، می توانند خدمات خود را از طریق سایت ایرانی اکسپرت ارائه
+      دهند. یعنی، کپی ترید را راه‌اندازی کنند تا سرمایه گذاران بهشون وصل شوند.
+    </p>
+  </div>
+  <div class="item">
+    <h2 class="font-bold text-3xl mt-4">تیم بین المللی</h2>
+    <p class="mx-6 font-medium text-lg my-4">
+      از دیگر مواردی که ایرانی اکسپرت را بی بدیل کرده همکاری با یک تیم بین
+      المللی است که از کشورهای مختلف با تیم مرکزی در ارتباطند. به‌عنوان مثال،
+      مدیر فنی -برنامه نویسی ایرانی اکسپرت، مدرس دانشگاه ژیان چین (شعبه دانشگاه
+      لیورپول انگلستان) است که با برگزاری ماهانه جلسات داخلی، تمامی سیستم های
+      نرم افزاری و هوش مصنوعی اعم از ربات و کپی ترید را آپدیت می‌کنند.
+    </p>
+  </div>
+  <div class="item"><img src="../../../../../assets/img/whyUs.png" /></div>
+</div>
 <app-comment-slider></app-comment-slider>
+<div class="flex flex-col items-center">
+  <h2 class="max-w-[80rem] font-bold text-2xl relative left-[15%]">
+    سود ما در راستای سود شماست
+  </h2>
+  <div
+    class="flex border-solid border-2 rounded-2xl border-[#707070] mx-8 my-4 max-h-[8rem] max-w-[80rem]"
+  >
+    <div>
+      <img
+        class="relative bottom-16"
+        style="width: 26rem; height: 12rem"
+        src="../../../../../assets/img/btcFlower.png"
+      />
+    </div>
+    <p class="py-10 px-8 font-xl font-bold">
+      ما با افتخار توجه به تجربیات مشتریانمان از ربات معامله‌گر ATMداریم و به
+      دنبال بهبود مداوم خدمات خود هستیم. اگر شما هم تجربیات یا نظراتی دارید،
+      خوشحال می‌شویم که این اطلاعات را با ما به اشتراک بگذارید
+    </p>
+  </div>
+</div>
+<div class="flex flex-col items-center">
+  <h2 class="font-bold text-2xl">ATM ویدیو نتایج شما از ربات معامله گر</h2>
+  <span class="text-base"
+    >را به نمایش می گزارد ATM ویدیو هایی که شما از حساب های ریل خود ارسال کردید
+    و نتایج معاملات ربات معامله گر</span
+  >
+</div>
+<app-video-slider></app-video-slider>
+<!-- <div class="item">
+  <h2 class="font-bold text-3xl mt-4">شامل معیارهای استاندارد</h2>
+  <p class="mx-6 font-medium text-lg my-4">
+    ما تمامی معیارهای استاندارد برای نوشتن بهترین ربات هوش مصنوعی برای ترید رو
+    داریم. مانند، استیتمنت بلندمدت، دارا بودن چندین حساب روی سایت‌های معتبر و
+    مرجع مثل MQL و Myfxbook، ارایه حساب دمو، مدیریت سرمایه، همراه با پشتیبانی که
+    تلاش ما برای ارایه تمامی این موارد موجب تفاوت ما با بقیه رقبا شده...
+  </p>
+</div>
+<div class="item"><img src="../../../../../assets/img/whyUs.png" /></div> -->
+<div class="mx-8">
+  <div cl>
+    <div class="flex">
+      <i class="ie-icon ie-handshake"></i>
+      <h3 class="font-bold text-3xl">دعوت به همکاری</h3>
+    </div>
+    <p>فرصت های شغلی در ایرانی اکسپرت</p>
+  </div>
+  <div class="flex justify-center">
+    <div class="w-5/12 flex flex-col justify-evenly">
+      <p>
+        ما به ایده‌های نوآورانه پایبندیم و پیشرفت پایدار را برای تجارت‌ها فراهم
+        می‌کنیم. بنابراین
+      </p>
+      <p>
+        <i class="ie-icon ie-Rectangle"></i>
+        از تمامی برنامه‌نویسان (هوش مصنوعی و وب) و تریدرها، جهت همکاریف دعوت
+        به‌عمل می‌آید
+        <br />
+
+        <i class="ie-icon ie-Rectangle"></i>
+        همچنین از همـــکاران گرامی دعـوت می شود، اگر اکسپرت قابل ارائه دارنـد،
+        جهت فروش آن محصول در ایرانی اکسپرت، با پشتیبانی در ارتباط باشند
+        <br />
+        با ما همراه شوید تا به همراه یکدیگر به آینده تجارت الکترونیکی پیش برویم
+      </p>
+      <div class="flex">
+        <button
+          class="bg-main-blue border-2 flex items-center justify-evenly relative border-[#3246d3] border-solid hover:bg-white hover:text-[#3246d3] text-white sm:px-2 px-6 p-3 sm:w-40 rounded-full font-semibold sm:text-base text-sm"
+        >
+          ارسال رزومه
+          <i class="flex items-center ab justify-evenlyie-icon ie-dir left"></i>
+        </button>
+        <button class="ms-3 text-gray-500">درخواست همکاری</button>
+      </div>
+    </div>
+    <div class="w-5/12"><img src="../../../../../assets/img/whyUs.png" /></div>
+  </div>
+</div>

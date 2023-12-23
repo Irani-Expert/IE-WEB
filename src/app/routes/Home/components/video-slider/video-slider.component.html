@@ -1,17 +1,24 @@
-<div class="flex max-h-[23rem] m-12">
-  <div class="w-[23rem] bg-suggestion rounded-2xl">
-    <div class="flex pt-6 px-4">
-      <img
-        class="w-24 max-h-[6rem] relative bottom-12"
-        src="../../../../../assets/img/virgol.png"
-      />
-      <h2 class="px-3 text-4xl font-extrabold">نظرات کاربران ایرانی اکسپرت</h2>
+<div class="flex m-12">
+  <div
+    class="flex flex-col pb-10 justify-between w-[25rem] bg-suggestion rounded-2xl"
+  >
+    <div>
+      <div class="flex pt-6 px-4">
+        <img
+          class="w-24 max-h-[6rem] relative bottom-12"
+          src="../../../../../assets/img/virgol.png"
+        />
+        <h2 class="px-3 text-4xl font-extrabold">
+          ویدیوهایی که شما ارسال کردین
+        </h2>
+      </div>
+
+      <p class="p-6 text-justify">
+        عملکرد ربات معامله گر ایرانی اکسپرت روی حساب ریل شما که به صورت ویدیویی
+        برای ما ارسال کردید
+      </p>
     </div>
 
-    <p class="p-6 text-justify">
-      کاربرانی که از ربات های معامله گر ایرانـــی اکسپرت استفاده کرده اند تجربه
-      ی کاربری خــــود را از استفاده از ربات ها به اشتــــراک گذاشتـــــــه اند
-    </p>
     <div class="flex justify-end px-4">
       <button
         (click)="sliderMovement(false)"
@@ -31,11 +38,16 @@
   </div>
 
   <div
-    class="w-[32%] mx-9 mt-7"
+    class="w-[32%] flex flex-col items-center"
     [ngClass]="slidDirection ? 'slide-right' : 'slide-left'"
     *ngFor="let x of lenCommentModel | slice : lowwerSlide : upperSlide"
   >
-    <div
+    <app-video-player [VideoId]="0" [homeScreen]="true"></app-video-player>
+    <div class="max-w-[84%] min-w-[60%] px-4">
+      <p>نتیجه عملکرد یک هفته کاری 5درصد سود حساب 2000 دلاری</p>
+      <span>حساب مشتری عزیز :جناب محمد</span>
+    </div>
+    <!-- <div
       class="flex min-h-[15rem] flex-col justify-end border-solid bg-white z-50 border-[#d1d1d1] relative border-[1px] z rounded-xl rounded-br-none"
     >
       <p class="p-8 text-justify">
@@ -45,7 +57,7 @@
         class="relative mt-10 w-[7.9rem] h-[0.07rem] top-px bg-[#ffffff]"
       ></div>
     </div>
-
+    
     <div class="triangle !relative right-[6.5%] bottom-[3rem] border-t-2"></div>
     <div class="relative bottom-[4rem] ms-32 flex">
       <img
@@ -58,6 +70,6 @@
         >
         <span class="text-sm font-extralight">رضایت مشتریان ایرانی اکسپرت</span>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
