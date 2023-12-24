@@ -86,7 +86,6 @@
       ul {
         overflow: hidden;
         transition: transform 0.2s;
-        transform: translate(-56rem, 0rem);
       }
     }
     .menu-wrapper-down{
@@ -103,8 +102,10 @@
   
     .show-menu {
       display: block !important;
-      animation: display 0.4s ease-in forwards;
-  
+      animation: display 0.85s ease-in forwards;
+      transition: transform 0.2s;
+      transform: translate(-56rem, 0rem);
+
     }
     .hide-menu {
       display: block !important;
