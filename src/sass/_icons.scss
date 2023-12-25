@@ -100,3 +100,10 @@
 
   transition: transform 0.3s ease;
 }
+.ie-comments {
+  &::before {
+    content: url(../assets/icon/comment.svg);
+  }
+
+  transition: transform 0.3s ease;
+}

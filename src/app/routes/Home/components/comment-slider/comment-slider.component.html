@@ -1,4 +1,4 @@
-<div class="flex max-h-[23rem] m-12">
+<div class="flex sm:flex-row flex-col sm:max-h-[23rem] m-12">
   <div class="w-[23rem] bg-suggestion rounded-2xl">
     <div class="flex pt-6 px-4">
       <img
@@ -31,12 +31,12 @@
   </div>
 
   <div
-    class="w-[32%] mx-9 mt-7"
+    class="sm:w-[32%] mx-9 mt-7"
     [ngClass]="slidDirection ? 'slide-right' : 'slide-left'"
     *ngFor="let x of lenCommentModel | slice : lowwerSlide : upperSlide"
   >
     <div
-      class="flex min-h-[15rem] flex-col justify-end border-solid bg-white z-50 border-[#d1d1d1] relative border-[1px] z rounded-xl rounded-br-none"
+      class="flex sm:min-h-[15rem] flex-col justify-end border-solid bg-white z-50 border-[#d1d1d1] relative border-[1px] z rounded-xl rounded-br-none"
     >
       <p class="p-8 text-justify">
         {{ commentModel.text }}

@@ -1,0 +1,18 @@
+.num-card {
+  direction: ltr;
+  margin: 10px;
+  padding-top: 5px;
+  font-weight: 400;
+  border-radius: 5px;
+  padding-right: 12px;
+  padding-left: 12px;
+  font-size: 24px;
+  outline: 1.5px solid #00ffa8 !important;
+  background: rgb(243, 248, 246);
+  background: linear-gradient(
+    90deg,
+    rgba(243, 248, 246, 0.4683123249) 0%,
+    rgba(0, 255, 168, 0.2862394958) 86%,
+    rgba(0, 255, 168, 0.3226540616) 100%
+  );
+}

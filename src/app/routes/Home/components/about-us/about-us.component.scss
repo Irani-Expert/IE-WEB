@@ -54,13 +54,21 @@
 //     transform: translateY(115px);
 //   }
 // }
+@media (min-width: 640px) {
+  .whyUs {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .item {
+      width: 48%; /* Adjust as needed, considering margins and paddings */
+    }
+  }
+}
+
 .whyUs {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+
   margin-top: 10px; /* Adjust as needed */
   .item {
-    width: 48%; /* Adjust as needed, considering margins and paddings */
     margin-bottom: 10px; /* Adjust as needed */
     box-sizing: border-box;
     padding: 10px; /* Optional: Add padding for spacing */
