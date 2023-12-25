@@ -120,11 +120,3 @@
   content: url(../assets/icon/content-menu-icon.svg);
   display: block;
 }
-
-.ie-comments {
-  &::before {
-    content: url(../assets/icon/comment.svg);
-  }
-
-  transition: transform 0.3s ease;
-}
