@@ -1,0 +1,37 @@
+<div class="flex justify-center mt-8 mb-8">
+  <div id="dropdown-component">
+    <div class="selected flex justify-between" (click)="toggleMenu()">
+      <div class="flex w-52 mt-4 mb-4 mr-4">
+        <i class="ie-content-menu-icon"></i>
+        <p class="text-xl font-medium mr-4">فهرست محتوا</p>
+      </div>
+      <div class="flex ml-4 mt-4 mb-4">
+        <i class="ie-content-menu-open" *ngIf="!iconActive"></i>
+        <i class="ie-content-menu-close" *ngIf="iconActive"></i>
+      </div>
+    </div>
+    <div class="menu-wrapper">
+      <ul #listElem #listElemHide>
+        <li *ngFor="let item of listElems" (click)="clickHandler(item)">
+          <div class="divider"></div>
+          <div class="flex flex-col justify-around">
+          <button>
+              <p class="flex title-menu">{{ item.tittle }}</p>
+          </button>
+          <button>
+            <p class="flex title2-menu">{{item.name1}}</p>
+          </button>
+         <button>
+           <p class="flex title2-menu">{{item.name2}}</p>
+         </button>
+          <button>
+            <p class="flex title2-menu">{{item.name3}}</p>
+          </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+

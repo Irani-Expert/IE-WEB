@@ -100,3 +100,16 @@
 
   transition: transform 0.3s ease;
 }
+
+.ie-content-menu-close{
+  content: url(../assets/icon/content-menu-close.svg);
+  display: block;
+}
+.ie-content-menu-open{
+  content: url(../assets/icon/content-menu-open.svg);
+  display: block;
+}
+.ie-content-menu-icon{
+  content: url(../assets/icon/content-menu-icon.svg);
+  display: block;
+}
