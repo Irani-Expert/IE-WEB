@@ -1,6 +1,6 @@
-<div class="flex m-12">
+<div class="flex max-sm:flex-col m-12">
   <div
-    class="flex flex-col pb-10 justify-between w-[25rem] bg-suggestion rounded-2xl"
+    class="sm:min-w-[25%] sm:max-w-[25%] flex flex-col pb-10 justify-between bg-suggestion rounded-2xl"
   >
     <div>
       <div class="flex pt-6 px-4">
@@ -38,38 +38,16 @@
   </div>
 
   <div
-    class="w-[32%] flex flex-col items-center"
+    class="flex flex-col items-center"
     [ngClass]="slidDirection ? 'slide-right' : 'slide-left'"
     *ngFor="let x of lenCommentModel | slice : lowwerSlide : upperSlide"
   >
-    <app-video-player [VideoId]="0" [homeScreen]="true"></app-video-player>
-    <div class="max-w-[84%] min-w-[60%] px-4">
-      <p>نتیجه عملکرد یک هفته کاری 5درصد سود حساب 2000 دلاری</p>
-      <span>حساب مشتری عزیز :جناب محمد</span>
-    </div>
-    <!-- <div
-      class="flex min-h-[15rem] flex-col justify-end border-solid bg-white z-50 border-[#d1d1d1] relative border-[1px] z rounded-xl rounded-br-none"
-    >
-      <p class="p-8 text-justify">
-        {{ commentModel.text }}
-      </p>
-      <div
-        class="relative mt-10 w-[7.9rem] h-[0.07rem] top-px bg-[#ffffff]"
-      ></div>
-    </div>
-    
-    <div class="triangle !relative right-[6.5%] bottom-[3rem] border-t-2"></div>
-    <div class="relative bottom-[4rem] ms-32 flex">
-      <img
-        src="../../../../../assets/img/maleComment.png"
-        class="max-w-[58px]"
-      />
-      <div class="flex flex-col justify-around">
-        <span class="text-lg font-bold"
-          >آقای {{ this.commentModel.firstname }}</span
-        >
-        <span class="text-sm font-extralight">رضایت مشتریان ایرانی اکسپرت</span>
+    <div class="min-w-[32%] max-sm:mt-3">
+      <app-video-player [VideoId]="0" [homeScreen]="true"></app-video-player>
+      <div class="max-w-[84%] min-w-[60%] px-4">
+        <p>نتیجه عملکرد یک هفته کاری 5درصد سود حساب 2000 دلاری</p>
+        <span>حساب مشتری عزیز :جناب محمد</span>
       </div>
-    </div> -->
+    </div>
   </div>
 </div>

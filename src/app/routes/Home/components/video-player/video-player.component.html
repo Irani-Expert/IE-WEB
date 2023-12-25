@@ -23,7 +23,7 @@
       />
     </video>
     <div
-      class="items-center p-div flex justify-center text-2xl sm:p-2 sm:px-16 px-4 pb-2 top-28 sm:top-[75%]"
+      class="items-center p-div flex justify-center text-2xl sm:p-2 sm:px-16 px-4 pb-2 top-24 sm:top-[75%]"
     >
       <i
         class="fa fa-expand ie-icon me-3 text-base text-white ms-2 flex items-center"
@@ -46,10 +46,10 @@
       ></progress>
 
       <i
-        class="ms-3 ie-icon text-white flex items-center text-base"
+        class="ms-3 ie-icon text-white flex items-center text-base small"
         [ngClass]="{
-          'ie-puase small': pauseplay,
-          'ie-Polygon small': !pauseplay
+          'ie-puase ': pauseplay,
+          'ie-Polygon ': !pauseplay
         }"
         (click)="puasePaceVideo()"
       ></i>
@@ -66,13 +66,13 @@
           class="fa fa-circle sm:fa-stack-2x sm:text-9xl text-7xl text-[#3246d3]"
         ></i> -->
         <div
-          class="flex justify-center items-center bg-[#3246d3] pt-2.5 sm:w-28 sm:h-28 rounded-full"
+          class="flex justify-center items-center bg-[#3246d3] sm:pt-2.5 sm:w-28 sm:h-28 w-12 h-12 rounded-full"
         >
           <i
             class="fa ie-icon"
             [ngClass]="{
-              'ie-puase pe-1': pauseplay,
-              'ie-Polygon   pl-4': !pauseplay
+              'ie-puase sm:pe-1 sm:pb-0 pb-4': pauseplay,
+              'ie-Polygon   sm:pl-4 sm:pb-0 pl-2  pb-2': !pauseplay
             }"
             (click)="puasePaceVideo()"
           ></i>

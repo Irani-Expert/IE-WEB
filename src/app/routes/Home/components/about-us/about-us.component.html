@@ -4,21 +4,22 @@
     [VideoId]="0"
     [homeScreen]="false"
   ></app-video-player>
-  <div class="sm:w-1/2 p-8">
-    <h1 class="text-4xl font-bold m-6 mt-9">درباره ایرانی اکسپرت</h1>
-    <span class="flex pt-3 text-3xl font-bold m-6">
+  <div class="sm:w-1/2 sm:p-8">
+    <h1 class="sm:text-4xl text-2xl font-bold m-6 mt-9">
+      درباره ایرانی اکسپرت
+    </h1>
+    <span class="flex pt-3 sm:text-3xl text-xl font-bold m-6">
       <i
         class="ms-3 ie-icon text-white flex items-center text-base ie-thick small"
       ></i>
       <p class="color--green pt-1.5 ps-2">آشنایی با تیم ما</p>
     </span>
-    <p class="m-6 text-base text-justify font-medium">
-      هستیم، یک تیم نوآور و متخصص در ATM با سلام! ما تیم ربات خودکار فارکس .
-      حوزه معاملات ارزهای خارجی (فارکس) با استفاده از تکنولوژیهای هوش مصنوعی از
-      آغاز تأسیس ایرانی اکسپرت، 1 فوریه سال 2021 ، ماموریت ما این بوده که بهترین
-      اکسپرت معامله گری را ارائه دهیم که به معامله گران فارکس کمک کنند به شکل
-      هوشمندانه‌تر و موفق‌تر در بازار حضور یابند. بخشی از فعالیت ایرانی اکسپرت
-      .در حوزه فین تک است
+    <p class="m-6 text-lg text-justify font-medium">
+      با سلام ما تیم ربات ATM هستیم یک تیم نواور حوزه معاملات ارزهای خارجی
+      (فارکس) با استفاده از تکنولوژیهای هوش مصنوعی از آغاز تأسیس ایرانی اکسپرت،
+      1 فوریه سال 2021 ، ماموریت ما این بوده که بهترین اکسپرت معامله گری را
+      ارائه دهیم که به معامله گران فارکس کمک کنند به شکل هوشمندانه‌تر و موفق‌تر
+      در بازار حضور یابند. بخشی از فعالیت ایرانی اکسپرت در .حوزه فین تک است
     </p>
   </div>
 </div>
@@ -28,6 +29,9 @@
   ></i>
   <span class="text-3xl font-bold pt-2 ps-2">اهداف ما</span>
 </app-aboutus-targets>
+<app-aboutus-targets-responsive class="sm:hidden block">
+</app-aboutus-targets-responsive>
+
 <div class="mx-8">
   <h2 class="text-3xl">
     <i class="ie-icon ie-Rectangle"></i>
@@ -36,7 +40,9 @@
   <div>چرا باید ایرانی اکسپرت رو انتخاب کنیم</div>
 </div>
 <div class="whyUs sm:flex-row flex-col">
-  <div class="item"><img src="../../../../../assets/img/whyUs.png" /></div>
+  <div class="item">
+    <img src="../../../../../assets/img/whyUs.png" />
+  </div>
   <div class="item">
     <h2 class="font-bold text-3xl">تخصص فنی :</h2>
     <p class="mx-6 font-medium text-lg my-4">
@@ -49,6 +55,10 @@
       بازارهای مالی، هوش مصنوعی و برنامه نویسی تشکیل شده است.
     </p>
   </div>
+  <div class="item sm:hidden block">
+    <img src="../../../../../assets/img/whyUs.png" />
+  </div>
+
   <div class="item">
     <h2 class="font-bold text-3xl mt-4">شامل معیارهای استاندارد</h2>
     <p class="mx-6 font-medium text-lg my-4">
@@ -58,7 +68,9 @@
       که تلاش ما برای ارایه تمامی این موارد موجب تفاوت ما با بقیه رقبا شده...
     </p>
   </div>
-  <div class="item"><img src="../../../../../assets/img/whyUs.png" /></div>
+  <div class="item sm:block hidden">
+    <img src="../../../../../assets/img/whyUs.png" />
+  </div>
   <div class="item"><img src="../../../../../assets/img/whyUs.png" /></div>
   <div class="item">
     <h2 class="font-bold text-3xl mt-4">خدمات نوآورانه</h2>
@@ -72,6 +84,10 @@
       دهند. یعنی، کپی ترید را راه‌اندازی کنند تا سرمایه گذاران بهشون وصل شوند.
     </p>
   </div>
+  <div class="item block sm:hidden">
+    <img src="../../../../../assets/img/whyUs.png" />
+  </div>
+
   <div class="item">
     <h2 class="font-bold text-3xl mt-4">تیم بین المللی</h2>
     <p class="mx-6 font-medium text-lg my-4">
@@ -82,32 +98,51 @@
       نرم افزاری و هوش مصنوعی اعم از ربات و کپی ترید را آپدیت می‌کنند.
     </p>
   </div>
-  <div class="item"><img src="../../../../../assets/img/whyUs.png" /></div>
+  <div class="item hidden sm:block">
+    <img src="../../../../../assets/img/whyUs.png" />
+  </div>
 </div>
-<app-comment-slider></app-comment-slider>
+<app-comment-slider>
+  <div class="m-12">
+    <h2 class="flex items-center text-3xl font-bold">
+      <i class="ie-icon ie-starUser me-2"></i> رضایت مشتریان
+    </h2>
+    <span class="text-base">چرا مشتریان از خرید ربات Atm رضایت دارند؟</span>
+  </div>
+  <div class="flex flex-col items-center">
+    <h3 class="text-2xl font-bold">تجربه‌ای جذاب و سودآور !</h3>
+    <span class="sm:w-5/12 text-justify"
+      >زمانی که با ربات معامله گر فارکس کار کردم تجربه معاملاتم به شدت بهبود
+      یافته است. ربات با الگوریتم‌های هوش مصنوعی پیشرفته خود، تصمیمات
+      هوشمندانه‌ای را انجام داده و به من کمک کرده است تا سود بیشتری در بازار
+      فارکس داشته باشم</span
+    >
+  </div>
+</app-comment-slider>
 <div class="flex flex-col items-center">
   <h2 class="max-w-[80rem] font-bold text-2xl relative left-[15%]">
     سود ما در راستای سود شماست
   </h2>
   <div
-    class="flex border-solid border-2 rounded-2xl border-[#707070] mx-8 my-4 max-h-[8rem] max-w-[80rem]"
+    class="flex sm:flex-row flex-col-reverse border-solid border-2 rounded-2xl border-[#707070] mx-8 my-4 sm:max-h-[8rem] sm:max-w-[80rem]"
   >
-    <div>
+    <div class="flex justify-end">
       <img
-        class="relative bottom-16"
-        style="width: 26rem; height: 12rem"
+        class="sm:relative sm:bottom-16 sm:w-[26rem] h-[6.5rem] sm:h-[12rem]"
         src="../../../../../assets/img/btcFlower.png"
       />
     </div>
     <p class="py-10 px-8 font-xl font-bold">
       ما با افتخار توجه به تجربیات مشتریانمان از ربات معامله‌گر ATMداریم و به
       دنبال بهبود مداوم خدمات خود هستیم. اگر شما هم تجربیات یا نظراتی دارید،
-      خوشحال می‌شویم که این اطلاعات را با ما به اشتراک بگذارید
+      خوشحال می‌شویم که این اطلاعات را با ما به اشتراک بگذارید .
     </p>
   </div>
 </div>
 <div class="flex flex-col items-center">
-  <h2 class="font-bold text-2xl">ATM ویدیو نتایج شما از ربات معامله گر</h2>
+  <h2 class="font-bold text-2xl">
+    ATM ویدیو نتایج شما از ربات معامله گر <i></i>
+  </h2>
   <span class="text-base"
     >را به نمایش می گزارد ATM ویدیو هایی که شما از حساب های ریل خود ارسال کردید
     و نتایج معاملات ربات معامله گر</span
@@ -125,15 +160,15 @@
 </div>
 <div class="item"><img src="../../../../../assets/img/whyUs.png" /></div> -->
 <div class="mx-8">
-  <div cl>
+  <div class="sm:mx-20 mb-4">
     <div class="flex">
       <i class="ie-icon ie-handshake"></i>
       <h3 class="font-bold text-3xl">دعوت به همکاری</h3>
     </div>
     <p>فرصت های شغلی در ایرانی اکسپرت</p>
   </div>
-  <div class="flex justify-center">
-    <div class="w-5/12 flex flex-col justify-evenly">
+  <div class="flex sm:flex-row flex-col justify-center">
+    <div class="sm:w-5/12 flex flex-col justify-evenly">
       <p>
         ما به ایده‌های نوآورانه پایبندیم و پیشرفت پایدار را برای تجارت‌ها فراهم
         می‌کنیم. بنابراین
@@ -152,7 +187,7 @@
       </p>
       <div class="flex">
         <button
-          class="bg-main-blue border-2 flex items-center justify-evenly relative border-[#3246d3] border-solid hover:bg-white hover:text-[#3246d3] text-white sm:px-2 px-6 p-3 sm:w-40 rounded-full font-semibold sm:text-base text-sm"
+          class="bg-main-blue border-2 flex items-center justify-evenly relative border-[#3246d3] border-solid hover:bg-white hover:text-[#3246d3] text-white sm:px-2 px-6 p-3 w-40 rounded-full font-semibold sm:text-base text-sm"
         >
           ارسال رزومه
           <i
@@ -162,7 +197,9 @@
         <button class="ms-3 text-gray-500">درخواست همکاری</button>
       </div>
     </div>
-    <div class="w-5/12"><img src="../../../../../assets/img/whyUs.png" /></div>
+    <div class="sm:w-5/12 mt-4">
+      <img src="../../../../../assets/img/whyUs.png" />
+    </div>
   </div>
 </div>
 <app-free-advice></app-free-advice>
