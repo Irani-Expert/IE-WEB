@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { SearchModel } from 'src/app/classes/interfaces/search.interface';
 
 @Component({
   selector: 'app-items-search',
@@ -7,18 +8,33 @@ import { Component } from '@angular/core';
 })
 export class ItemsSearchComponent {
 
+
+  @Input() searchModel : SearchModel;
+
+
   // ==========[هاور]=====
 sorttype: number = 1;
+  timer:any;
+  loading: boolean = true;
+
+
+  ngOnInit(){
+    this.loading = false;
+  }
 
 changesort(id: number) {
+  clearTimeout(this.timer)
   this.sorttype = id;
   this.searchBox.filter(
     (tags , i) => i !== id && tags.active
   ).forEach(item => item.active = !item.active);
   this.searchBox[id].active = true;
+
 }
 toggleMenuLeave(id : number){
-  this.searchBox[id].active = false;
+   this.timer = setTimeout(()=>{
+    this.searchBox[id].active = false;
+  }, 1000);
 }
 
 searchBox : Array<any> = [

@@ -24,7 +24,7 @@
         </ul>
     </div>
         <!-- ============[هاور به چپ]======================== -->
-    <div  class="menu-wrapper hidden 2xl:block">
+    <div (mouseenter)="changesort(i)" class="menu-wrapper hidden 2xl:block">
         <ul [ngClass]="hvr.active ? 'show-menu' : 'hide-menu'" >
             <div class="box-hover">
                   <div class="flex flex-col">
@@ -43,9 +43,9 @@
         </ul>
     </div>
             <!-- ==============[سرچ آیتم]=============== -->
-    <div class="selected mb-4" (mouseenter)="changesort(i)" (mouseleave)="toggleMenuLeave(i)">
+    <div class="selected mb-4">
         <div class="hidden lg:block">
-            <div class="flex box-item">
+            <div class="flex box-item" (mouseenter)="changesort(i)" (mouseleave)="toggleMenuLeave(i)">
                 <div class="flex flex-row">
                     <div class="basis-2/6 flex items-center justify-center max-w-[10rem]">
                         <img class="item-img" src="{{hvr.img}}" alt="item">

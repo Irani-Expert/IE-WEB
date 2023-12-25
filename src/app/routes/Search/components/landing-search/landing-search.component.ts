@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import {lastValueFrom} from 'rxjs';
+import { SearchModel } from 'src/app/classes/interfaces/search.interface';
+import { searchServices } from 'src/app/classes/services/search.services';
+
 
 @Component({
   selector: 'app-landing-search',
@@ -6,24 +10,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./landing-search.component.scss']
 })
 export class LandingSearchComponent {
-    
-  // @ViewChild('sticky') myStickyElement: ElementRef
-  // sticked:boolean = false
+  loading: boolean = true;
 
-  // @HostListener('window:scroll', ['$event'])
-  // onScroll() {
-    
-  //   if(AppComponent.isBrowser.value) {
-      
-  //     if(Utils.scrollTracker() > this.myStickyElement.nativeElement.offsetTop) {
-  //       this.sticked =true
-  //     }
-  //     else {
-  //       this.sticked = false
+  searchModel : SearchModel;
+  constructor( private searchServices : searchServices ){
 
-  //     }
-  //   }
-  // }
+    }
+    async ngOnInit(){
+      const resualt = this.searchServices.get('Search');
+      this.searchModel = (await lastValueFrom(resualt)).data!;
+      this.loading = false;
 
-
+    }
 }

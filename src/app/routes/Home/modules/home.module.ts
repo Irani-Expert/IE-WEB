@@ -32,6 +32,7 @@ import { LandingArticleResponsiveComponent } from '../components/landing-article
 import { AboutusTargetsComponent } from '../components/aboutus-targets/aboutus-targets.component';
 import { CommentSliderComponent } from '../components/comment-slider/comment-slider.component';
 import { VideoSliderComponent } from '../components/video-slider/video-slider.component';
+import { SearchModule } from '../../Search/module/search.module';
 import { FreeAdviceComponent } from '../free-advice/free-advice.component';
 
 const components = [
@@ -72,6 +73,7 @@ const components = [
     NgxSliderModule,
     ReactiveFormsModule,
     SharedModule,
+    SearchModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
