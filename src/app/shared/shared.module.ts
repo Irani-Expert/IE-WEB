@@ -9,6 +9,7 @@ import { VideoPlayerComponent } from '../routes/Home/components/video-player/vid
 import { TagsComponent } from './tags/tags.component';
 import { LottieComponent } from './lottie/lottie.component';
 import { LottieModule } from 'ngx-lottie';
+import { ContentMenuComponent } from './content-menu/content-menu.component';
 const components = [
   AcordianComponent,
   CommentsComponent,
@@ -16,11 +17,12 @@ const components = [
   ScrollComponent,
   VideoPlayerComponent,
   LottieComponent,
+  ContentMenuComponent
 ];
 @NgModule({
   imports: [CommonModule, Toggler, LottieModule],
   exports: [components, LottieModule],
-  declarations: [components, ScrollComponent, NotFoundComponent],
+  declarations: [components, ScrollComponent, NotFoundComponent, ContentMenuComponent],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

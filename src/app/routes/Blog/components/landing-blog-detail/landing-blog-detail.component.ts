@@ -1,5 +1,4 @@
 import { Component, HostListener } from '@angular/core';
-import { TableInterFace } from '../table-contents/interface/table-interface';
 import { config } from 'src/app/shared/acordian/types';
 import { AppComponent } from 'src/app/app.component';
 import { Utils } from 'src/app/classes/utils';
@@ -42,23 +41,6 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
   routeSubscriber: Subscription | undefined;
   sendDataToChild = false;
 
-  table: TableInterFace[] = [
-    {
-      active: false,
-      title: 'تیتر1',
-      content: 'زیرتیتر1',
-    },
-    {
-      active: false,
-      title: 'تیتر2',
-      content: 'زیرتیتر2',
-    },
-    {
-      active: false,
-      title: 'تیتر3',
-      content: 'زیرتیتر3',
-    },
-  ];
   options: config = { multi: false };
 
   // =================[فیلتر]=============

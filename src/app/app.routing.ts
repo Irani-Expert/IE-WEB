@@ -43,6 +43,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('./routes/Blog/module/blog.module').then((m) => m.BlogModule),
   },
+  {
+    path: 'money-m',
+    title: 'مقالات ایرانی اکسپرت',
+    loadChildren: () =>
+      import('./routes/Money-Management/module/money-m.module').then((m) => m.MoneymModule),
+  },
   // {
   //   path: 'calendar',
   //   title: 'calendar',
