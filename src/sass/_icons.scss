@@ -100,6 +100,13 @@
 
   transition: transform 0.3s ease;
 }
+.ie-comments {
+  &::before {
+    content: url(../assets/icon/comment.svg);
+  }
+
+  transition: transform 0.3s ease;
+}
 
 .ie-content-menu-close{
   content: url(../assets/icon/content-menu-close.svg);
@@ -112,4 +119,12 @@
 .ie-content-menu-icon{
   content: url(../assets/icon/content-menu-icon.svg);
   display: block;
+}
+
+.ie-comments {
+  &::before {
+    content: url(../assets/icon/comment.svg);
+  }
+
+  transition: transform 0.3s ease;
 }

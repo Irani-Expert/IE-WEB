@@ -1,5 +1,10 @@
-<div class="flex m-6">
-  <div class="w-1/2 p-8">
+<div class="flex sm:flex-row-reverse flex-col m-6">
+  <app-video-player
+    class="sm:w-1/2"
+    [VideoId]="0"
+    [homeScreen]="false"
+  ></app-video-player>
+  <div class="sm:w-1/2 p-8">
     <h1 class="text-4xl font-bold m-6 mt-9">درباره ایرانی اکسپرت</h1>
     <span class="flex pt-3 text-3xl font-bold m-6">
       <i
@@ -16,13 +21,8 @@
       .در حوزه فین تک است
     </p>
   </div>
-  <app-video-player
-    class="w-1/2"
-    [VideoId]="0"
-    [homeScreen]="false"
-  ></app-video-player>
 </div>
-<app-aboutus-targets>
+<app-aboutus-targets class="sm:block hidden">
   <i
     class="ms-3 ie-icon text-white flex items-center text-base ie-target small"
   ></i>
@@ -35,7 +35,7 @@
   </h2>
   <div>چرا باید ایرانی اکسپرت رو انتخاب کنیم</div>
 </div>
-<div class="whyUs">
+<div class="whyUs sm:flex-row flex-col">
   <div class="item"><img src="../../../../../assets/img/whyUs.png" /></div>
   <div class="item">
     <h2 class="font-bold text-3xl">تخصص فنی :</h2>

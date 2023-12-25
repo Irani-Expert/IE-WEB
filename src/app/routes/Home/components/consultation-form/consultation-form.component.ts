@@ -21,7 +21,7 @@ const formDataInit: GiftInter = {
   styleUrls: ['./consultation-form.component.scss'],
 })
 export class ConsultationFormComponent {
-  @Input('isGreen') GreenStyles = '';
+  @Input('isGreen') GreenStyles: boolean = false;
 
   @ViewChild('scrollHere') elementScroll: HTMLElement;
   formControlInit: InputInterface[] = [

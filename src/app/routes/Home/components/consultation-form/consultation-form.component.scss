@@ -1,8 +1,8 @@
 input:focus {
-  outline: 1.5px solid #3246d3 !important;
+  outline: 1.5px solid #3246d3;
 }
 input:hover {
-  outline: 1.5px solid #3246d3 !important;
+  outline: 1.5px solid #3246d3;
 }
 input[type="checkbox"] {
   height: 0;
@@ -76,4 +76,43 @@ label:active:after {
     border: 1px solid black;
     border-color: red;
   }
+}
+.bg-green-form {
+  input:hover {
+    outline: 1.5px solid #00ffa8 !important;
+  }
+  input:focus {
+    outline: 1.5px solid #00ffa8 !important;
+  }
+  label::after {
+    background: #00ffa8 !important;
+  }
+  label {
+    background: white;
+  }
+  button {
+    border-color: #098b41 !important;
+    background-color: #098b41;
+    position: relative;
+    top: 13px;
+  }
+  input:checked + label {
+    background: white !important;
+  }
+  button:hover {
+    color: white;
+  }
+  outline: 1.5px solid #00ffa8 !important;
+
+  width: 26rem;
+  background: rgb(243, 248, 246);
+  background: linear-gradient(
+    0deg,
+    rgba(243, 248, 246, 0.468312324929972) 0%,
+    rgba(0, 255, 168, 0.2862394957983193) 86%,
+    rgba(0, 255, 168, 0.3226540616246498) 100%
+  );
+  margin: 15px;
+  padding-top: 30px;
+  border-radius: 25px;
 }

@@ -1,13 +1,17 @@
 <form
   [formGroup]="form"
   class="sm:scale-90 xl:scale-100"
+  [ngClass]="GreenStyles ? 'bg-green-form' : ''"
   (ngSubmit)="consultationServices()"
 >
-  <div class="flex flex-col flex-wrap content-center sm:h-[187px] sm:px-4">
+  <div
+    class="flex flex-col flex-wrap content-center sm:px-4"
+    [ngClass]="!GreenStyles ? 'sm:h-[187px]' : ''"
+  >
     <ng-container *ngFor="let control of formControls; let i = index">
       <div
         class="input-container m-2 w-96"
-        [ngClass]="i >= 2 ? 'sm:order-2' : ''"
+        [ngClass]="i >= 2 && !GreenStyles ? 'sm:order-2' : ''"
       >
         <div class="relative">
           <input
@@ -28,7 +32,10 @@
         class="border-solid bg-[#d8d8d8] border-01"
         >Toggle</label
       >
-      <p class="ms-2 sm:text-lg text-xs font-medium">
+      <p
+        class="ms-2 text-xs font-medium"
+        [ngClass]="!GreenStyles ? 'sm:text-lg' : 'sm:text-base'"
+      >
         میخواهم از امکانات مشارکت در سود استفاده کنم
       </p>
     </div>
