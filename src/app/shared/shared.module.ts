@@ -10,6 +10,8 @@ import { TagsComponent } from './tags/tags.component';
 import { LottieComponent } from './lottie/lottie.component';
 import { LottieModule } from 'ngx-lottie';
 import { ContentMenuComponent } from './content-menu/content-menu.component';
+import { InstagramBanerComponent } from '../routes/Home/components/instagram-baner/instagram-baner.component';
+
 const components = [
   AcordianComponent,
   CommentsComponent,
@@ -17,7 +19,8 @@ const components = [
   ScrollComponent,
   VideoPlayerComponent,
   LottieComponent,
-  ContentMenuComponent
+  ContentMenuComponent,
+  InstagramBanerComponent
 ];
 @NgModule({
   imports: [CommonModule, Toggler, LottieModule],

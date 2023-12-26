@@ -12,21 +12,17 @@
     </div>
     <div class="menu-wrapper">
       <ul #listElem #listElemHide>
-        <li *ngFor="let item of listElems" (click)="clickHandler(item)">
+        <li *ngFor="let item of listElems">
           <div class="divider"></div>
           <div class="flex flex-col justify-around">
           <button>
-              <p class="flex title-menu">{{ item.tittle }}</p>
+              <p class="flex title-menu">{{ item.title }}</p>
           </button>
-          <button>
-            <p class="flex title2-menu">{{item.name1}}</p>
-          </button>
-         <button>
-           <p class="flex title2-menu">{{item.name2}}</p>
-         </button>
-          <button>
-            <p class="flex title2-menu">{{item.name3}}</p>
-          </button>
+          <ng-container *ngFor="let item of item.sub">
+            <button>
+              <p class="flex title2-menu">{{item.title}}</p>
+            </button>
+          </ng-container>
           </div>
         </li>
       </ul>
