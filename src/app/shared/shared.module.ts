@@ -17,12 +17,17 @@ const components = [
   ScrollComponent,
   VideoPlayerComponent,
   LottieComponent,
-  ContentMenuComponent
+  ContentMenuComponent,
 ];
 @NgModule({
   imports: [CommonModule, Toggler, LottieModule],
   exports: [components, LottieModule],
-  declarations: [components, ScrollComponent, NotFoundComponent, ContentMenuComponent],
+  declarations: [
+    components,
+    ScrollComponent,
+    NotFoundComponent,
+    ContentMenuComponent,
+  ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

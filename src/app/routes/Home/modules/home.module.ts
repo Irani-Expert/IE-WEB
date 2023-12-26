@@ -35,8 +35,10 @@ import { VideoSliderComponent } from '../components/video-slider/video-slider.co
 import { SearchModule } from '../../Search/module/search.module';
 import { FreeAdviceComponent } from '../free-advice/free-advice.component';
 import { AboutusTargetsResponsiveComponent } from '../components/aboutus-targets-responsive/aboutus-targets-responsive.component';
+import { RobotTraderComponent } from 'src/app/shared/robot-trader/robot-trader.component';
 
 const components = [
+  RobotTraderComponent,
   ServiceBanerComponent,
   AboutusTargetsResponsiveComponent,
   QuestionsComponent,
