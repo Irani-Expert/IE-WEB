@@ -33,9 +33,11 @@ import { CommentSliderComponent } from '../components/comment-slider/comment-sli
 import { VideoSliderComponent } from '../components/video-slider/video-slider.component';
 import { SearchModule } from '../../Search/module/search.module';
 import { FreeAdviceComponent } from '../free-advice/free-advice.component';
+import { AboutusTargetsResponsiveComponent } from '../components/aboutus-targets-responsive/aboutus-targets-responsive.component';
 
 const components = [
   ServiceBanerComponent,
+  AboutusTargetsResponsiveComponent,
   QuestionsComponent,
   LandingPageComponent,
   FreeAdviceComponent,

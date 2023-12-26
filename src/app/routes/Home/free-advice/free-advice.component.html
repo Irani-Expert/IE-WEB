@@ -1,5 +1,5 @@
-<div class="flex mx-8 justify-center">
-  <div class="w-1/2">
+<div class="flex sm:flex-row flex-col justify-center">
+  <div class="sm:w-1/2 mx-2">
     <div class="flex items-center">
       <i class="ie-icon ie-comments me-2"></i>
       <h1 class="text-2xl font-bold">مشاوره رایگان</h1>
@@ -18,11 +18,13 @@
     </p>
     <div>
       <p>برای مشاوره رایگان تلفنی می توانید با شماره های زیر تماس بگیرید</p>
-      <div class="flex">
+      <div class="flex sm:flex-row flex-col items-center">
         <div class="num-card">0901 727 2018</div>
         <div class="num-card">0915 050 2018</div>
       </div>
     </div>
   </div>
-  <app-consultation-form [isGreen]="true"></app-consultation-form>
+  <div class="flex justify-center">
+    <app-consultation-form [isGreen]="true"></app-consultation-form>
+  </div>
 </div>

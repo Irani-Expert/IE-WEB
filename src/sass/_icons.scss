@@ -24,10 +24,13 @@
 }
 .ie-Polygon {
   &.small::before {
-    width: 21px !important;
+    width: 17px !important;
   }
   &::before {
-    width: 66px;
+    @media (min-width: 640px) {
+      width: 66px !important;
+    }
+    width: 33px;
     display: block;
     content: url(../assets/icon/Polygon.svg);
   }
@@ -42,10 +45,14 @@
 }
 .ie-puase {
   &.small::before {
-    width: 21px !important;
+    width: 16px !important;
   }
   &::before {
-    width: 66px;
+    @media (min-width: 640px) {
+      width: 66px !important;
+    }
+    width: 26px;
+
     display: block;
     content: url(../assets/icon/puase.svg);
   }
@@ -107,16 +114,23 @@
 
   transition: transform 0.3s ease;
 }
+.ie-starUser {
+  &::before {
+    content: url(../assets/icon/starUser.svg);
+  }
 
-.ie-content-menu-close{
+  transition: transform 0.3s ease;
+}
+
+.ie-content-menu-close {
   content: url(../assets/icon/content-menu-close.svg);
   display: block;
 }
-.ie-content-menu-open{
+.ie-content-menu-open {
   content: url(../assets/icon/content-menu-open.svg);
   display: block;
 }
-.ie-content-menu-icon{
+.ie-content-menu-icon {
   content: url(../assets/icon/content-menu-icon.svg);
   display: block;
 }

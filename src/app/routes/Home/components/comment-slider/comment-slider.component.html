@@ -1,4 +1,7 @@
-<div class="flex sm:flex-row flex-col sm:max-h-[23rem] m-12">
+<ng-content></ng-content>
+<div
+  class="flex items-center sm:flex-row flex-col sm:max-h-[23rem] sm:m-12 m-3"
+>
   <div class="w-[23rem] bg-suggestion rounded-2xl">
     <div class="flex pt-6 px-4">
       <img
@@ -29,34 +32,41 @@
       </button>
     </div>
   </div>
-
   <div
-    class="sm:w-[32%] mx-9 mt-7"
-    [ngClass]="slidDirection ? 'slide-right' : 'slide-left'"
-    *ngFor="let x of lenCommentModel | slice : lowwerSlide : upperSlide"
+    class="flex flex-row sm:w-[70rem] max-sm:flex-col max-sm:overflow-hidden max-sm:h-[24rem]"
   >
     <div
-      class="flex sm:min-h-[15rem] flex-col justify-end border-solid bg-white z-50 border-[#d1d1d1] relative border-[1px] z rounded-xl rounded-br-none"
+      class="sm:w-[32%] sm:mx-9 mt-7"
+      [ngClass]="slidDirection ? 'slide-right' : 'slide-left'"
+      *ngFor="let x of lenCommentModel | slice : lowwerSlide : upperSlide"
     >
-      <p class="p-8 text-justify">
-        {{ commentModel.text }}
-      </p>
       <div
-        class="relative mt-10 w-[7.9rem] h-[0.07rem] top-px bg-[#ffffff]"
-      ></div>
-    </div>
+        class="flex sm:min-h-[15rem] flex-col justify-end border-solid bg-white z-50 border-[#d1d1d1] relative border-[1px] z rounded-xl rounded-br-none"
+      >
+        <p class="p-8 text-justify">
+          {{ commentModel.text }}
+        </p>
+        <div
+          class="relative mt-10 w-[7.9rem] sm:h-[0.07rem] h-[1.5rem] top-[1px] bg-[#ffffff]"
+        ></div>
+      </div>
 
-    <div class="triangle !relative right-[6.5%] bottom-[3rem] border-t-2"></div>
-    <div class="relative bottom-[4rem] ms-32 flex">
-      <img
-        src="../../../../../assets/img/maleComment.png"
-        class="max-w-[58px]"
-      />
-      <div class="flex flex-col justify-around">
-        <span class="text-lg font-bold"
-          >آقای {{ this.commentModel.firstname }}</span
-        >
-        <span class="text-sm font-extralight">رضایت مشتریان ایرانی اکسپرت</span>
+      <div
+        class="triangle !relative sm:right-[8.5%] right-[7.5%] bottom-[3rem] border-t-2"
+      ></div>
+      <div class="relative bottom-[4rem] ms-32 flex">
+        <img
+          src="../../../../../assets/img/maleComment.png"
+          class="max-w-[58px]"
+        />
+        <div class="flex flex-col justify-around">
+          <span class="text-lg font-bold"
+            >آقای {{ this.commentModel.firstname }}</span
+          >
+          <span class="text-sm font-extralight"
+            >رضایت مشتریان ایرانی اکسپرت</span
+          >
+        </div>
       </div>
     </div>
   </div>
