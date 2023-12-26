@@ -1,4 +1,4 @@
-<div class="hidden lg:block">
+<div class="hidden lg:block land-bg">
   <!-- =========[بنر]===== -->
   <div class="flex justify-center mt-12">
       <div class="baner flex flex-row ml-4 mr-4">
@@ -23,7 +23,8 @@
      </div>
      <div class="col-span-3">
        <app-hero-m></app-hero-m>
-       <app-content-menu></app-content-menu>
+       <app-content-menu [data]="listElems"></app-content-menu>
+       <app-articles-money></app-articles-money>
      </div>
   </div>
 </div>

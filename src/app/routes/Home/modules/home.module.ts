@@ -23,7 +23,6 @@ import { TradeBeginningComponent } from '../components/trade-beginning/trade-beg
 import { CardTitleComponent } from 'src/app/shared/card-title/card-title.component';
 import { CardLinkComponent } from 'src/app/shared/card-link/card-link.component';
 import { BotShowcaseComponent } from '../components/bot-showcase/bot-showcase.component';
-import { InstagramBanerComponent } from '../components/instagram-baner/instagram-baner.component';
 import { ServiceBanerComponent } from '../components/service-baner/service-baner.component';
 import { QuestionsComponent } from '../components/questions/questions.component';
 import { SharedModule } from 'src/app/shared/shared.module';
@@ -42,7 +41,6 @@ const components = [
   ServiceBanerComponent,
   AboutusTargetsResponsiveComponent,
   QuestionsComponent,
-  InstagramBanerComponent,
   LandingPageComponent,
   FreeAdviceComponent,
   HeroComponent,
