@@ -1,0 +1,15 @@
+<svg id="Group_835" data-name="Group 835" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="37.48" height="37.48" viewBox="0 0 37.48 37.48">
+  <defs>
+    <clipPath id="clip-path">
+      <circle id="SVGID" cx="18.74" cy="18.74" r="18.74" fill="none"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="1.087" y1="0.842" x2="-0.154" y2="0.119" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#f27c00"/>
+      <stop offset="1" stop-color="#ffe400"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_834" data-name="Group 834" clip-path="url(#clip-path)">
+    <circle id="Ellipse_441" data-name="Ellipse 441" cx="18.74" cy="18.74" r="18.74" fill="url(#linear-gradient)"/>
+    <path id="Path_279" data-name="Path 279" d="M261.347,284.016s-1.723-26.389,23.745-27.642l-9.217-3.645-20.885,9.182,3.787,22.78Z" transform="translate(-259.077 -255.696)" fill="#ffec6d"/>
+  </g>
+</svg>

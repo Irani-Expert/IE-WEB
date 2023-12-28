@@ -8,38 +8,14 @@ import { Comment } from 'src/app/classes/interfaces/comment.interface';
 })
 export class CommentsComponent {
   @Input('data') comments: Comment[] = new Array<Comment>();
-  rateText: string = 'بد';
-  rangeRate: number = 25;
-  left: string = '72%';
-  handleClick(event: any) {
-    var clickedM = event.offsetX;
-    var totalWidth = event.target.clientWidth;
-    var calNumber = Math.round((clickedM * 4) / totalWidth);
-    console.log(calNumber);
-
-    this.left = String(24 * calNumber) + '%';
-    this.rangeRate = (4 - calNumber) * 25;
-    this.setRate(5 - calNumber);
+  rateText: string = 'عالی';
+  leftNum: number = -2.8;
+  putStyle(n: number, text: string) {
+    this.leftNum = n;
+    this.rateText = text;
   }
   ngOnInit() {}
-  setRate(rate: number) {
-    switch (rate) {
-      case 1:
-        this.rateText = 'خیلی بد';
-        break;
-      case 2:
-        this.rateText = 'بد';
-        break;
-      case 3:
-        this.rateText = 'خوب';
-        break;
-      case 4:
-        this.rateText = 'عالی';
-        break;
-      default:
-        this.rateText = 'ماچ بهت';
-    }
-  }
+
   // ===================[رسپانسیو ]==================
   constructor() {}
   device: 'sm' | 'lg' = 'lg';
