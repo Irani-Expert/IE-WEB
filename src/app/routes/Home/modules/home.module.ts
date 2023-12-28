@@ -35,6 +35,10 @@ import { SearchModule } from '../../Search/module/search.module';
 import { FreeAdviceComponent } from '../free-advice/free-advice.component';
 import { AboutusTargetsResponsiveComponent } from '../components/aboutus-targets-responsive/aboutus-targets-responsive.component';
 import { RobotTraderComponent } from 'src/app/shared/robot-trader/robot-trader.component';
+import { BlueCardsComponent } from 'src/app/shared/blue-cards/blue-cards.component';
+import { QAComponent } from 'src/app/shared/qa/qa.component';
+import { VoteComponent } from 'src/app/shared/vote/vote.component';
+import { QuickAccessComponent } from 'src/app/shared/quick-access/quick-access.component';
 
 const components = [
   RobotTraderComponent,
@@ -63,8 +67,12 @@ const components = [
   TradeBeginningComponent,
   CardTitleComponent,
   CardLinkComponent,
+  QuickAccessComponent,
   AboutusTargetsComponent,
   // DiscountBannerComponent,
+  BlueCardsComponent,
+  QAComponent,
+  VoteComponent,
 ];
 @NgModule({
   declarations: [components],

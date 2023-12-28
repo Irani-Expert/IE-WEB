@@ -8,15 +8,16 @@ import { OffersComponent } from '../components/offers/offers.component';
 import { DragScrollModule } from 'ngx-drag-scroll';
 import { BlogPaginationComponent } from '../components/blog-pagination/blog-pagination.component';
 import { ArticlesComponent } from '../components/articles/articles.component';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { BlogFilterComponent } from '../components/blog-filter/blog-filter.component';
 import { LandingBlogDetailComponent } from '../components/landing-blog-detail/landing-blog-detail.component';
 import { CarouselBlogComponent } from '../components/carousel-blog/carousel-blog.component';
 import { CardResponsiveComponent } from '../components/card-responsive/card-responsive.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { BlogDetailComponent } from '../components/blog-detail/blog-detail.component';
+import { FilterResponsiveComponent } from '../components/filter-responsive/filter-responsive.component';
 
-const components =[
+const components = [
   CardResponsiveComponent,
   LandingBlogComponent,
   CarouselBlogComponent,
@@ -28,6 +29,7 @@ const components =[
   ArticlesComponent,
   BlogFilterComponent,
   BlogDetailComponent,
+  FilterResponsiveComponent,
 ];
 
 @NgModule({
@@ -38,6 +40,6 @@ const components =[
     CommonModule,
     BlogRoutingModule,
     DragScrollModule,
-  ]
+  ],
 })
-export class BlogModule { }
+export class BlogModule {}

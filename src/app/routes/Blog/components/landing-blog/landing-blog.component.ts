@@ -15,6 +15,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./landing-blog.component.scss'],
 })
 export class LandingBlogComponent {
+  mainClass =
+    'm-0 p-0 gap-0 flex flex-col min-h-screen overflow-hidden lg:overflow-y-hidden lg:overflow-x-auto';
+  main: HTMLElement;
   @ViewChild(BlogHeroComponent, { static: false })
   appBlogHero: BlogHeroComponent;
   // ===========[سرویس ها]==========
@@ -27,7 +30,12 @@ export class LandingBlogComponent {
     private blogService: BlogService,
     private meta: Meta,
     private router: Router
-  ) {}
+  ) {
+    if (AppComponent.isBrowser.value) {
+      this.main = document.body.getElementsByTagName('main')[0];
+      this.main.className = `bg-[#FAFAFA] ${this.mainClass}`;
+    }
+  }
   async getItemBlogs(filters: FilterBlog) {
     return await lastValueFrom(
       await this.blogService.getBlogsFromApi(
@@ -86,5 +94,8 @@ export class LandingBlogComponent {
   }
   filterCategory(id: number) {
     this.router.navigateByUrl(`blog/page/1?category=${id}`);
+  }
+  ngOnDestroy() {
+    this.main.className = this.mainClass;
   }
 }

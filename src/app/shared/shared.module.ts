@@ -11,7 +11,7 @@ import { LottieComponent } from './lottie/lottie.component';
 import { LottieModule } from 'ngx-lottie';
 import { ContentMenuComponent } from './content-menu/content-menu.component';
 import { InstagramBanerComponent } from '../routes/Home/components/instagram-baner/instagram-baner.component';
-import { FilterResponsiveComponent } from '../routes/Blog/components/filter-responsive/filter-responsive.component';
+import { DragScrollModule } from 'ngx-drag-scroll';
 
 const components = [
   AcordianComponent,
@@ -22,11 +22,10 @@ const components = [
   LottieComponent,
   ContentMenuComponent,
   InstagramBanerComponent,
-  FilterResponsiveComponent
 ];
 @NgModule({
-  imports: [CommonModule, Toggler, LottieModule],
-  exports: [components, LottieModule],
+  imports: [CommonModule, Toggler, LottieModule, DragScrollModule],
+  exports: [components, LottieModule, DragScrollModule],
   declarations: [
     components,
     ScrollComponent,

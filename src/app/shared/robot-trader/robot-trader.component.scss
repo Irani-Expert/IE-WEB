@@ -13,19 +13,90 @@
 .blue-font {
   color: #0080ff;
 }
-
-.divider {
+.blue-back {
   background-color: #0066ff;
-  height: 0.3rem;
-  width: 27%;
+}
+.green-back {
+  background-color: #098b41;
+}
+.divider {
   border-radius: 30px;
   margin-bottom: 0.5rem;
 }
 .title-blog-img {
   font-weight: 800;
   font-size: 1.8rem;
-  color: white;
 }
 .inside-box-shadow {
   box-shadow: inset -14px -27px 130px 19px rgba(0, 0, 0, 0.63);
+}
+::-webkit-scrollbar {
+  display: none;
+}
+.baner-bot {
+  background: rgb(0, 22, 178);
+  background: linear-gradient(
+    270deg,
+    rgb(0, 22, 178) 28%,
+    rgb(102, 146, 215) 76%
+  );
+  width: 100%;
+  align-items: center;
+  padding: 0.5rem 2.5rem 0.5rem 2.5rem;
+  border-radius: 35px;
+  height: 8rem;
+}
+.of-number {
+  font-size: 5rem;
+  color: #fe0;
+  font-style: oblique;
+}
+.box-articles {
+  background-color: white;
+  height: auto;
+  border: #eaeaea 1px solid;
+  border-radius: 20px;
+  padding: 1.5rem;
+}
+.box-articles h5 {
+  font-size: 1.4rem;
+  color: #0080ff;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+.school-box {
+  background-color: white;
+  border: #eaeaea solid 2px;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-radius: 20px;
+}
+.box-video {
+  background-color: #fafafa;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  border: 1px solid #eaeaea;
+  border-radius: 20px;
+}
+.video {
+  background-color: white;
+  height: 160px;
+  width: 100%;
+}
+.video-title {
+  font-weight: 600;
+  color: #7d7d7d;
+  font-size: 0.9rem;
+}
+.time-video {
+  color: #7d7d7d;
+  font-size: 0.8rem;
+  background-color: #f5f5f5;
+  padding: 0.2rem 0.8rem 0.2rem 0.8rem;
+  border-radius: 22px;
+}
+.title1-row {
+  color: black;
+}
+.title2-row {
+  color: #098b41;
+  font-size: 1.2rem;
 }
