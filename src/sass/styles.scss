@@ -68,7 +68,9 @@ body {
 .bg--gray300 {
   background-color: $gray-300;
 }
-
+.drag-scroll-content::-webkit-scrollbar {
+  display: none !important;
+}
 .mainCards-design {
   border-bottom-left-radius: 5rem;
   border-bottom-right-radius: 5rem;
