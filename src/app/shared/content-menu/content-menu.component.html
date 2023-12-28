@@ -63,7 +63,7 @@
          *ngFor="let item of listElems">
          <div class="divider"></div>
          <div class="flex flex-col justify-around">
-         <button class="text-right mb-4" (click)="scrollToView()">
+         <button class="text-right" (click)="scrollToView()">
              <p class="flex title-menu">{{ item.title }}</p>
          </button>
          <ng-container *ngFor="let item of item.sub">

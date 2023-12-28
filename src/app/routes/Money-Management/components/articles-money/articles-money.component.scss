@@ -8,6 +8,13 @@
   padding: 0.5rem 1rem 0.5rem 1rem;
   border-radius: 20px;
   margin-top: 1rem;
+  text-align: end;
+}
+.amalgar{
+  color: #0086FF;
+  margin-right: 0.25rem;
+  margin-left: 0.25rem;
+  font-size: 1.4rem;
 }
 // <!-- =================[بنر تخفیف]========== -->
 
@@ -31,4 +38,11 @@ font-size: 5rem;
     object-fit: cover;
     width: 99%;
     transform: translate(0px, -8px);
+}
+.bot-baner-img-mobile{
+  object-fit: cover;
+  width: 50%;
+  transform: translate(25px, -8px);
+  position: absolute;
+  max-width: 11rem;
 }
