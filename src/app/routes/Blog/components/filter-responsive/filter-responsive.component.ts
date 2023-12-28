@@ -83,9 +83,7 @@ export class FilterResponsiveComponent {
   }
   sorttype: number = 1;
 
-
-
   // ==========[مدیریت سرمایه]===
-  @Input('data') categoryMoneylIcon : string;
-  @Input('data') color : string;
+  @Input('data') categoryMoneylIcon: string;
+  @Input('data') color: string;
 }
