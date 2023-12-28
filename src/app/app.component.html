@@ -6,7 +6,7 @@
   <div
     class="self-auto transition-all lg:self-center max-w-screen-2xl flex-grow w-full relative rounded-b-[2rem] bg-white z-0"
   >
-    <router-outlet></router-outlet>
+    <router-outlet (activate)="onActivate($event)"></router-outlet>
   </div>
 
   <app-footer></app-footer>

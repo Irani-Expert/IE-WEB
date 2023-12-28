@@ -42,6 +42,15 @@ export class AppComponent {
   get httpLoader() {
     return AppComponent.loaderSubject.value;
   }
+
+  onActivate(_event: any) {
+    if (AppComponent.isBrowser.value)
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+      });
+  }
 }
 
 // Get Blogs

@@ -47,7 +47,9 @@ const routes: Routes = [
     path: 'money-m',
     title: 'مقالات ایرانی اکسپرت',
     loadChildren: () =>
-      import('./routes/Money-Management/module/money-m.module').then((m) => m.MoneymModule),
+      import('./routes/Money-Management/module/money-m.module').then(
+        (m) => m.MoneymModule
+      ),
   },
   // {
   //   path: 'calendar',
