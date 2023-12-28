@@ -23,8 +23,7 @@ export class LandingPageComponent {
     public productService: ProductService
   ) {}
 
-  @ViewChild(ConsultationFormComponent, { static: false })
-  appConsulting: ConsultationFormComponent;
+
   isRecived: boolean = false;
   page: Page<Product[]>;
 
@@ -136,6 +135,10 @@ export class LandingPageComponent {
 
     this.filters.pageSize = 3;
   }
+  // ==========[اسکرول]==========
+  @ViewChild(ConsultationFormComponent, { static: false })
+  appConsulting: ConsultationFormComponent;
+  
   scroll(event: boolean) {
     this.appConsulting.scroll();
       // =================[متاتگ ها]==========

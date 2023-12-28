@@ -82,4 +82,10 @@ export class FilterResponsiveComponent {
     this.emitter.emit(id);
   }
   sorttype: number = 1;
+
+
+
+  // ==========[مدیریت سرمایه]===
+  @Input('data') categoryMoneylIcon : string;
+  @Input('data') color : string;
 }

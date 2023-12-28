@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-content-menu',
@@ -20,5 +20,19 @@ export class ContentMenuComponent {
     // this.listElemHide.nativeElement.classList.toggle('hide-menu');
 
   }
+// =======[اسکرول]======
+@Output('scroll') isEmited = new EventEmitter<boolean>
+
+
+scrollToView() {
+  this.isEmited.emit(true);
+}
+// ======[رسپانسیو]====
+@Input('data2') color : string;
+
+NavbarsStatus(type: number) {
+  this.openNav = type;
+}
+openNav: number = 0;
 
 }

@@ -79,6 +79,8 @@ export class LandingBlogComponent {
 
   // =================[فیلتر]=============
   categoryIcon: string = 'assets/img/filter-icon-blog.svg';
+  color = 'white';
+
   fillValue(event: string) {
     this.appBlogHero._searchinput.next(event);
   }
