@@ -1,0 +1,31 @@
+@import "../../../sass/colors";
+.header-start {
+  &::before {
+    content: "";
+    width: 20px;
+    height: 5px;
+    background-color: $blue;
+    border-radius: 6px;
+    display: inline-block;
+    margin: 2px 6px;
+  }
+}
+.blue-font {
+  color: #0080ff;
+}
+
+.divider {
+  background-color: #0066ff;
+  height: 0.3rem;
+  width: 27%;
+  border-radius: 30px;
+  margin-bottom: 0.5rem;
+}
+.title-blog-img {
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: white;
+}
+.inside-box-shadow {
+  box-shadow: inset -14px -27px 130px 19px rgba(0, 0, 0, 0.63);
+}
