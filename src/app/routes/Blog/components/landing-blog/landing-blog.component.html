@@ -104,12 +104,15 @@
     </div>
   </div>
   <!-- =========[دسته بندی]====== -->
+
   <app-filter-responsive
     (result)="filterCategory($event)"
     [categoryIcon]="categoryIcon"
+    [data]="color"
   >
     <p header class="text-black w-28">دسته بندی</p>
   </app-filter-responsive>
+
   <!-- ===========[ پیشنهادات و مقالات ]========== -->
   <ng-container *ngIf="!loading">
     <app-offers [data]="itemsBlog.slice(0, 5)"></app-offers>

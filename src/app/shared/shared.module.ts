@@ -11,6 +11,7 @@ import { LottieComponent } from './lottie/lottie.component';
 import { LottieModule } from 'ngx-lottie';
 import { ContentMenuComponent } from './content-menu/content-menu.component';
 import { InstagramBanerComponent } from '../routes/Home/components/instagram-baner/instagram-baner.component';
+import { FilterResponsiveComponent } from '../routes/Blog/components/filter-responsive/filter-responsive.component';
 
 const components = [
   AcordianComponent,
@@ -20,7 +21,8 @@ const components = [
   VideoPlayerComponent,
   LottieComponent,
   ContentMenuComponent,
-  InstagramBanerComponent
+  InstagramBanerComponent,
+  FilterResponsiveComponent
 ];
 @NgModule({
   imports: [CommonModule, Toggler, LottieModule],
