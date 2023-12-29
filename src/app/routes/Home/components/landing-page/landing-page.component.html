@@ -222,7 +222,7 @@
   </div>
   <h1
     id="form-consulting"
-    class="sm:text-4xl text-2xl text-green-800 text-center oblique mt-8"
+    class="sm:text-4xl text-2xl text-green-800 text-center oblique sm:mt-8"
   >
     درخواست مشاوره
   </h1>
@@ -273,7 +273,11 @@
     </div>
   </div>
 
-  <app-video-player [VideoId]="0" [homeScreen]="true"></app-video-player>
+  <app-video-player
+    [VideoId]="0"
+    [homeScreen]="true"
+    [Link]="'https://www.w3schools.com/html/mov_bbb.ogg'"
+  ></app-video-player>
   <div class="flex justify-center mt-10 mb-5">
     <div class="w-[64rem]">
       <h2 class="text-3xl font-bold">

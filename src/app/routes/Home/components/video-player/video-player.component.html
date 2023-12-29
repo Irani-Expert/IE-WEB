@@ -17,13 +17,10 @@
       playsinline
       type="video/mp4"
     >
-      <source
-        src="https://www.w3schools.com/html/mov_bbb.ogg"
-        type="video/mp4"
-      />
+      <source src="{{ videoLink }}" type="video/mp4" />
     </video>
     <div
-      class="items-center p-div flex justify-center text-2xl sm:p-2 sm:px-16 px-4 pb-2 top-24 sm:top-[75%]"
+      class="items-center p-div flex justify-center text-2xl sm:p-2 sm:px-16 px-4 pb-2 top-24 md:top-[75%] sm:top-[55%]"
     >
       <i
         class="fa fa-expand ie-icon me-3 text-base text-white ms-2 flex items-center"
@@ -55,7 +52,7 @@
       ></i>
     </div>
     <div
-      class="p-div d-flex justify-center align-middle btn-span sm:bottom-[45%] bottom-[5rem]"
+      class="p-div d-flex justify-center align-middle btn-span sm:bottom-[48%] bottom-[5rem]"
     >
       <span
         class="fa-stack fa-4x opacity-100 flex justify-center items-center"
@@ -66,12 +63,12 @@
           class="fa fa-circle sm:fa-stack-2x sm:text-9xl text-7xl text-[#3246d3]"
         ></i> -->
         <div
-          class="flex justify-center items-center bg-[#3246d3] sm:pt-2.5 sm:w-28 sm:h-28 w-12 h-12 rounded-full"
+          class="flex justify-center items-center bg-[#3246d3] sm:pt-2.5 md:w-28 md:h-28 sm:w-20 sm:h-20 w-12 h-12 rounded-full"
         >
           <i
             class="fa ie-icon"
             [ngClass]="{
-              'ie-puase sm:pe-1 sm:pb-0 pb-4': pauseplay,
+              'ie-puase sm:pe-1 sm:pb-0 ': pauseplay,
               'ie-Polygon   sm:pl-4 sm:pb-0 pl-2  pb-2': !pauseplay
             }"
             (click)="puasePaceVideo()"
@@ -79,5 +76,6 @@
         </div>
       </span>
     </div>
+    <ng-content></ng-content>
   </div>
 </div>

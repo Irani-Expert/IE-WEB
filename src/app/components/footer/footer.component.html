@@ -11,26 +11,30 @@
             <span class="text-lg font-bold">در ارتباط باشید</span>
           </div>
           <div class="flex sm:m-5 max-sm:justify-center">
-            <img
-              class="w-11 h-11 ico-res m-1"
-              src="../../../assets/../assets/img/01.png"
-            />
-            <img
-              class="w-11 h-11 ico-res m-1"
-              src="../../../assets/../assets/img/02.png"
-            />
-            <img
-              class="w-11 h-11 ico-res m-1"
-              src="../../../assets/../assets/img/03.png"
-            />
+            <a href="https://www.telegram.me/irani_expert">
+              <img
+                class="w-11 h-11 ico-res m-1"
+                src="../../../assets/../assets/img/01.png"
+            /></a>
+            <a href="https://www.linkedin.com/in/irani-expert-5b7600239/">
+              <img
+                class="w-11 h-11 ico-res m-1"
+                src="../../../assets/../assets/img/02.png"
+            /></a>
+            <a href="https://www.facebook.com/iraniexpert"
+              ><img
+                class="w-11 h-11 ico-res m-1"
+                src="../../../assets/../assets/img/03.png"
+            /></a>
             <img
               class="w-11 h-11 ico-res m-1"
               src="../../../assets/../assets/img/04.png"
             />
-            <img
-              class="w-11 h-11 ico-res m-1"
-              src="../../../assets/../assets/img/05.png"
-            />
+            <a href="https://www.instagram.com/irani_expert/">
+              <img
+                class="w-11 h-11 ico-res m-1"
+                src="../../../assets/../assets/img/05.png"
+            /></a>
             <img
               class="w-11 h-11 ico-res m-1"
               src="../../../assets/../assets/img/06.png"
@@ -56,11 +60,11 @@
               </h3>
               <ul class="max-sm:flex flex-col items-center cursor-pointer">
                 <li><a href="">خانه</a></li>
-                <li [routerLink]="">فروشگاه</li>
-                <li [routerLink]="">مجله ایرانی اکسپرت</li>
-                <li [routerLink]="">بروکر ها</li>
-                <li [routerLink]="">تقویم اقتصادی</li>
-                <li [routerLink]="">تماس با ما</li>
+                <li [routerLink]="'/products/page/1'">فروشگاه</li>
+                <li [routerLink]="'/blog'">مجله ایرانی اکسپرت</li>
+                <li [routerLink]="'/brokers'">بروکر ها</li>
+                <!-- <li [routerLink]="">تقویم اقتصادی</li> -->
+                <li [routerLink]="'/about-us'">تماس با ما</li>
               </ul>
             </div>
             <div class="sm:w-7/12 max-sm:flex items-center flex-col">

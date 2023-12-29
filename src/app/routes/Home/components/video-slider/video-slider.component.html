@@ -43,11 +43,18 @@
     *ngFor="let x of lenCommentModel | slice : lowwerSlide : upperSlide"
   >
     <div class="min-w-[32%] max-sm:mt-3">
-      <app-video-player [VideoId]="0" [homeScreen]="true"></app-video-player>
-      <div class="max-w-[84%] min-w-[60%] px-4">
-        <p>نتیجه عملکرد یک هفته کاری 5درصد سود حساب 2000 دلاری</p>
-        <span>حساب مشتری عزیز :جناب محمد</span>
-      </div>
+      <app-video-player
+        [VideoId]="x"
+        [homeScreen]="true"
+        [Link]="'https://www.w3schools.com/html/mov_bbb.ogg'"
+      >
+        <div class="md:mt-6">
+          <p class="md:text-xl text-black font-semibold">
+            نتیجه عملکرد یک هفته کاری 5درصد سود حساب 2000 دلاری
+          </p>
+          <span class="font-medium">حساب مشتری عزیز :جناب محمد</span>
+        </div>
+      </app-video-player>
     </div>
   </div>
 </div>

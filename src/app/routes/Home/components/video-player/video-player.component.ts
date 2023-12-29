@@ -17,6 +17,7 @@ import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 export class VideoPlayerComponent implements OnInit, AfterViewInit {
   @Input({ required: true }) VideoId!: number;
   @Input() homeScreen: boolean = false;
+  @Input('Link') videoLink: string;
 
   constructor() {}
   video: any;
@@ -31,7 +32,8 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit {
   progressbarLeft: string = 'calc(0%);';
   ngAfterViewInit() {}
   ngOnInit(): void {
-    console.log(this.homeScreen);
+    console.log('video Link is : ' + this.videoLink);
+    console.log(this.VideoId);
 
     this.vId = 'vId' + this.VideoId;
 

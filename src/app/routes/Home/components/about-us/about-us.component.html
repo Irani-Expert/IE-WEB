@@ -1,14 +1,15 @@
 <div class="flex sm:flex-row-reverse flex-col m-6">
   <app-video-player
     class="sm:w-1/2"
-    [VideoId]="0"
+    [VideoId]="100"
     [homeScreen]="false"
+    [Link]="'https://www.w3schools.com/html/mov_bbb.ogg'"
   ></app-video-player>
-  <div class="sm:w-1/2 sm:p-8">
-    <h1 class="sm:text-4xl text-2xl font-bold m-6 mt-9">
+  <div class="sm:w-1/2 md:p-8">
+    <h1 class="sm:text-4xl text-2xl font-extrabold md:m-6 md:ms-0 ms-3 md:mt-9">
       درباره ایرانی اکسپرت
     </h1>
-    <span class="flex pt-3 sm:text-3xl text-xl font-bold m-6">
+    <span class="flex md:pt-3 sm:text-3xl text-xl font-bold md:m-6 md:ms-0">
       <i
         class="ms-3 ie-icon text-white flex items-center text-base ie-thick small"
       ></i>
@@ -23,16 +24,16 @@
     </p>
   </div>
 </div>
-<app-aboutus-targets class="sm:block hidden">
+<app-aboutus-targets class="md:block hidden">
   <i
     class="ms-3 ie-icon text-white flex items-center text-base ie-target small"
   ></i>
   <span class="text-3xl font-bold pt-2 ps-2">اهداف ما</span>
 </app-aboutus-targets>
-<app-aboutus-targets-responsive class="sm:hidden block">
+<app-aboutus-targets-responsive class="md:hidden block">
 </app-aboutus-targets-responsive>
 
-<div class="mx-8">
+<div class="sm:mx-8">
   <h2 class="text-3xl">
     <i class="ie-icon ie-Rectangle"></i>
     چرا ما؟
@@ -119,7 +120,7 @@
     >
   </div>
 </app-comment-slider>
-<div class="flex flex-col items-center">
+<div class="flex flex-col items-center max-sm:mt-10">
   <h2 class="max-w-[80rem] font-bold text-2xl relative left-[15%]">
     سود ما در راستای سود شماست
   </h2>
@@ -165,15 +166,16 @@
       <i class="ie-icon ie-handshake"></i>
       <h3 class="font-bold text-3xl">دعوت به همکاری</h3>
     </div>
-    <p>فرصت های شغلی در ایرانی اکسپرت</p>
+    <p class="font-semibold text-sm">فرصت های شغلی در ایرانی اکسپرت</p>
   </div>
   <div class="flex sm:flex-row flex-col justify-center">
     <div class="sm:w-5/12 flex flex-col justify-evenly">
-      <p>
-        ما به ایده‌های نوآورانه پایبندیم و پیشرفت پایدار را برای تجارت‌ها فراهم
-        می‌کنیم. بنابراین
-      </p>
-      <p>
+      <p class="font-medium text-sm text-black">
+        <span class="font-normal">
+          ما به ایده‌های نوآورانه پایبندیم و پیشرفت پایدار را برای تجارت‌ها
+          فراهم می‌کنیم. بنابراین
+        </span>
+        <br />
         <i class="ie-icon ie-Rectangle"></i>
         از تمامی برنامه‌نویسان (هوش مصنوعی و وب) و تریدرها، جهت همکاریف دعوت
         به‌عمل می‌آید

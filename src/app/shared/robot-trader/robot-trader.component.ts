@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-robot-trader',
@@ -6,6 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./robot-trader.component.scss'],
 })
 export class RobotTraderComponent {
+  constructor(private _meta: Meta) {
+    this._meta.addTag({
+      name: 'description',
+      content: '',
+    });
+    this._meta.addTag({
+      name: 'author',
+      content: '',
+    });
+    this._meta.addTag({
+      name: 'keywords',
+      content: '',
+    });
+  }
   qA = [
     'ATM ربات معامله گر ',
     'درآمد دلاری',

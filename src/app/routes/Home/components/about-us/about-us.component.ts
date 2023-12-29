@@ -6,6 +6,7 @@ import {
   trigger,
 } from '@angular/animations';
 import { Component } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 // import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -23,7 +24,20 @@ import { Component } from '@angular/core';
 })
 export class AboutUsComponent {
   // private activatedRoute: ActivatedRoute
-  constructor() {}
+  constructor(private _meta: Meta) {
+    this._meta.addTag({
+      name: 'description',
+      content: '',
+    });
+    this._meta.addTag({
+      name: 'author',
+      content: '',
+    });
+    this._meta.addTag({
+      name: 'keywords',
+      content: '',
+    });
+  }
   ngOnInit() {
     // var location = this.activatedRoute.snapshot.queryParams['location'];
     // if (location == 'userSatisfaction') {

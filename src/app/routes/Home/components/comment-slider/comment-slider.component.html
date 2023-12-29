@@ -15,18 +15,18 @@
       کاربرانی که از ربات های معامله گر ایرانـــی اکسپرت استفاده کرده اند تجربه
       ی کاربری خــــود را از استفاده از ربات ها به اشتــــراک گذاشتـــــــه اند
     </p>
-    <div class="flex justify-end px-4">
+    <div class="flex justify-end px-4 mb-4">
       <button
         (click)="sliderMovement(false)"
         [ngClass]="lowwerSlide >= 2 ? 'active-btn' : ''"
-        class="flex justify-center items-center rounded-xl mx-2 h-16 w-16 pt-1 bg-[#ebebeb] cursor-context-menu"
+        class="flex justify-center items-center rounded-xl mx-2 h-14 w-14 pt-1 bg-[#ebebeb] cursor-context-menu"
       >
         <i class="ie-icon ie-dir w-3.5"></i>
       </button>
       <button
         (click)="sliderMovement(true)"
         [ngClass]="upperSlide < lenCommentModel.length ? 'active-btn' : ''"
-        class="flex justify-center items-center rounded-xl mx-2 h-16 w-16 pt-1 bg-[#ebebeb] cursor-context-menu"
+        class="flex justify-center items-center rounded-xl mx-2 h-14 w-14 pt-1 bg-[#ebebeb] cursor-context-menu"
       >
         <i class="ie-icon ie-dir left w-3.5"></i>
       </button>
@@ -36,7 +36,7 @@
     class="flex flex-row sm:w-[70rem] max-sm:flex-col max-sm:overflow-hidden max-sm:h-[24rem]"
   >
     <div
-      class="sm:w-[32%] sm:mx-9 mt-7"
+      class="sm:w-[44%] sm:mx-9 mt-7"
       [ngClass]="slidDirection ? 'slide-right' : 'slide-left'"
       *ngFor="let x of lenCommentModel | slice : lowwerSlide : upperSlide"
     >
@@ -47,12 +47,12 @@
           {{ commentModel.text }}
         </p>
         <div
-          class="relative mt-10 w-[7.9rem] sm:h-[0.07rem] h-[1.5rem] top-[1px] bg-[#ffffff]"
+          class="relative mt-10 w-[7.67rem] sm:h-[0.07rem] h-[1.5rem] top-[1px] bg-[#ffffff]"
         ></div>
       </div>
 
       <div
-        class="triangle !relative sm:right-[8.5%] right-[7.5%] bottom-[3rem] border-t-2"
+        class="triangle !relative sm:right-[6.5%] right-[7.5%] bottom-[3rem] border-t-2"
       ></div>
       <div class="relative bottom-[4rem] ms-32 flex">
         <img
