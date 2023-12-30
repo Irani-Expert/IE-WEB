@@ -9,7 +9,7 @@ import { DragScrollModule } from 'ngx-drag-scroll';
 import { BlogPaginationComponent } from '../components/blog-pagination/blog-pagination.component';
 import { ArticlesComponent } from '../components/articles/articles.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { BlogFilterComponent } from '../components/blog-filter/blog-filter.component';
+// import { BlogFilterComponent } from '../components/blog-filter/blog-filter.component';
 import { LandingBlogDetailComponent } from '../components/landing-blog-detail/landing-blog-detail.component';
 import { CarouselBlogComponent } from '../components/carousel-blog/carousel-blog.component';
 import { CardResponsiveComponent } from '../components/card-responsive/card-responsive.component';
@@ -27,7 +27,7 @@ const components = [
   OffersComponent,
   BlogPaginationComponent,
   ArticlesComponent,
-  BlogFilterComponent,
+  // BlogFilterComponent,
   BlogDetailComponent,
   FilterResponsiveComponent,
 ];

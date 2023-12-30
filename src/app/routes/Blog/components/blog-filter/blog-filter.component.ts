@@ -16,14 +16,18 @@ import { Utils } from 'src/app/classes/utils';
 })
 export class BlogFilterComponent {
   @Output('result') emitter = new EventEmitter<number>();
+
   @ViewChild('sticky') myStickyElement: ElementRef;
+  @ViewChild('stickyoff') myStickyElement2: ElementRef;
+  
+
   sticked: boolean = false;
 
   @HostListener('window:scroll', ['$event'])
   onScroll() {
     if (AppComponent.isBrowser.value) {
       if (
-        Utils.scrollTracker() > this.myStickyElement.nativeElement.offsetTop
+        Utils.scrollTracker() > this.myStickyElement.nativeElement.offsetTop && Utils.scrollTracker() < this.myStickyElement2.nativeElement.offsetTop
       ) {
         this.sticked = true;
       } else {
@@ -31,6 +35,7 @@ export class BlogFilterComponent {
       }
     }
   }
+
   selectCategroy(it: any) {
     this.emitter.emit(it.id);
   }

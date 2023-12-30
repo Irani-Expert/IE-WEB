@@ -8,7 +8,6 @@ import { Utils } from 'src/app/classes/utils';
 })
 export class HeroComponent {
   device: 'sm' | 'lg' = 'lg';
-  @Output('scroll') isEmited = new EventEmitter<boolean>
   constructor() {
     this.updateDeviceValue();
   }
@@ -36,6 +35,8 @@ export class HeroComponent {
       }
     }
   }
+  
+  @Output('scroll') isEmited = new EventEmitter<boolean>
   scrollToView() {
     this.isEmited.emit(true)
   }

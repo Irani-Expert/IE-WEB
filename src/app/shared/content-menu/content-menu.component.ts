@@ -1,4 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { ScrollService } from './service/scroll.service';
 
 @Component({
   selector: 'app-content-menu',
@@ -18,9 +19,15 @@ export class ContentMenuComponent {
     this.listElem.nativeElement.classList.toggle('show-menu');
     this.iconActive = !this.iconActive;
     // this.listElemHide.nativeElement.classList.toggle('hide-menu');
-
   }
+  
 // =======[اسکرول]======
+constructor(private scrollService: ScrollService) {}
+
+scrollToId(id: string) {
+  this.scrollService.scrollToElementById(id);
+}
+
 @Output('scroll') isEmited = new EventEmitter<boolean>
 
 

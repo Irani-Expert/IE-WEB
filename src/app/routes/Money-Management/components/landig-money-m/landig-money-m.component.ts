@@ -7,6 +7,7 @@ import { Meta } from '@angular/platform-browser';
   styleUrls: ['./landig-money-m.component.scss'],
 })
 export class LandigMoneyMComponent {
+
   constructor(private _meta: Meta) {
     this._meta.addTag({
       name: 'description',

@@ -33,3 +33,25 @@
       font-style: oblique;
       font-size: 1.5rem;
       }
+
+      // // <!-- ============[تبلیغات]========= -->
+.add-box{
+  position: sticky;
+  top: 5px;
+}
+.add-blog{
+width: 100% ;
+object-fit: cover;
+}
+.sticky-custom {
+  position: fixed;
+  top: 0;
+  width: 352px;
+  max-width: 23.5%;
+}
+.sticky-custom2{
+top: -10rem !important;
+position: fixed;
+width: 352px;
+max-width: 23.5%;
+}

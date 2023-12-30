@@ -16,11 +16,11 @@
           <li *ngFor="let item of listElems">
             <div class="divider"></div>
             <div class="flex flex-col justify-around">
-            <button (click)="scrollToView()">
+            <button (click)="scrollToId('textId3')">
                 <p class="flex title-menu text-xl">{{ item.title }}</p>
             </button>
             <ng-container *ngFor="let item of item.sub">
-              <button (click)="scrollToView()">
+              <button (click)="scrollToId('textId3')">
                 <p class="flex title2-menu text-base">{{item.title}}</p>
               </button>
             </ng-container>
@@ -58,16 +58,16 @@
         <p class="text-xl font-medium mr-4">فهرست محتوا</p>
       </a>
      <div [ngClass]="openNav == 2 ? 'block' : 'hidden'">
-       <!-- =========[فیلتر بلاگ]======= -->
+       <!-- =========[]======= -->
        <div
          *ngFor="let item of listElems">
          <div class="divider"></div>
          <div class="flex flex-col justify-around">
-         <button class="text-right" (click)="scrollToView()">
+         <button class="text-right"  (click)="scrollToId('textId3')">
              <p class="flex title-menu">{{ item.title }}</p>
          </button>
          <ng-container *ngFor="let item of item.sub">
-           <button class="text-right" (click)="scrollToView()">
+           <button class="text-right" (click)="scrollToId('textId3')">
              <p class="flex title2-menu">{{item.title}}</p>
            </button>
          </ng-container>
@@ -76,4 +76,3 @@
      </div>
   </div>
 </div>
-

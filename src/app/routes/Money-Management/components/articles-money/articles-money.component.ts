@@ -105,9 +105,6 @@ export class ArticlesMoneyComponent {
   ];
 
 
-  scroll(event: boolean) {
-  }
-
 
 // ===============[باکس ها]=======
 

@@ -1,6 +1,6 @@
 #dropdown-component {
-  width: 100%;
-  background-color: #ececec;
+  width: 70%;
+  background-color: #ECECEC;
   border-radius: 20px;
   position: relative;
   .selected {
@@ -17,7 +17,7 @@
   .menu-wrapper {
     overflow: hidden;
     width: 100%;
-    background-color: #ececec;
+    background-color: #ECECEC;
     border-radius: 20px;
 
     ul {
@@ -26,7 +26,7 @@
       transform: translateY(-37rem);
       height: 0;
       transition: height 0.4s ease;
-
+      
       li {
         overflow: hidden;
         button {
@@ -48,44 +48,23 @@
     animation: displayIn 0.25s ease-in forwards;
   }
 }
-.divider {
+.divider{
   width: 95%;
-  background-color: #ECECEC;
-  border-radius: 45px;
-  position: relative;
-}
-.slide-top {
-  animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-.sidenav {
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  z-index: 1;
-  top: 9rem;
-  left: 0;
-  overflow: auto;
-  padding-bottom: 4rem;
-  transition: 0.5s;
-  padding-top: 60px;
-  z-index: 100;
-}
-.sidenav .closebtn {
-  position: absolute;
-  top: 15px;
-  left: 25px;
-  font-size: 64px;
-  margin-right: 50px;
+  margin-right: 1rem;
+  background-color: #A1A1A1;
+  height: 1px;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
-.title-menu {
-  color: #4d4d4d;
-  font-size: 1.2rem;
+.title-menu{
+  color: #4D4D4D;
   font-weight: 500;
 }
-.title2-menu {
-  color: #4d4d4d;
+.title2-menu{
+  color: #4D4D4D;
   margin-right: 1.5rem;
+  font-size: 0.9rem;
 }
 
 @keyframes displayOut {
@@ -94,15 +73,65 @@
   }
 
   100% {
-    height: 1160px;
+   height: 1160px;
   }
 }
 @keyframes displayIn {
   0% {
     height: 1100px;
   }
-
+  
   100% {
     height: 0;
   }
+}
+// =========[رسپانسیو]======  
+#dropdown-component-mobile{
+width: 95%;
+background-color: #ECECEC;
+border-radius: 45px;
+position: relative;
+}
+.slide-top {
+animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+.sidenav {
+height: 100%;
+width: 100%;
+position: fixed;
+z-index: 1;
+top: 9rem;
+left: 0;
+overflow: auto;
+padding-bottom: 3rem;
+transition: 0.5s;
+padding-top: 60px;
+z-index: 100;
+}
+.sidenav .closebtn {
+position: absolute;
+top: 15px;
+left: 25px;
+font-size: 64px;
+margin-right: 50px;
+}
+
+@keyframes slide-top {
+0% {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+100% {
+  -webkit-transform: translateY(-100px);
+  transform: translateY(-100px);
+}
+}
+
+@media screen and (max-height: 450px) {
+.sidenav {
+  padding-top: 15px;
+}
+.sidenav a {
+  font-size: 18px;
+}
 }
