@@ -42,7 +42,9 @@ export class AppComponent {
   get httpLoader() {
     return AppComponent.loaderSubject.value;
   }
-
+  get _platformValue() {
+    return AppComponent.isBrowser.value;
+  }
   onActivate(_event: any) {
     if (AppComponent.isBrowser.value)
       window.scroll({
