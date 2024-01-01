@@ -9,31 +9,35 @@ import { SearchModel } from 'src/app/classes/interfaces/search.interface';
 export class ItemsSearchComponent {
 
 
-  @Input() searchModel : SearchModel;
-
+  @Input('data') searchModel : SearchModel;
 
   // ==========[هاور]=====
-sorttype: number = 1;
   timer:any;
   loading: boolean = true;
 
 
   ngOnInit(){
     this.loading = false;
+    this.toggle(0);
   }
 
-changesort(id: number) {
+changesort(item:any) {
   clearTimeout(this.timer)
-  this.sorttype = id;
-  this.searchBox.filter(
-    (tags , i) => i !== id && tags.active
-  ).forEach(item => item.active = !item.active);
-  this.searchBox[id].active = true;
+  this.searchModel.products
+  .forEach(item => item.active = false);
+
+  this.searchModel.brokers
+  .forEach(item => item.active = false);
+
+  this.searchModel.articles
+  .forEach(item => item.active = false);
+  
+  item.active = true;
 
 }
-toggleMenuLeave(id : number){
+toggleMenuLeave(item : any){
    this.timer = setTimeout(()=>{
-    this.searchBox[id].active = false;
+    item.active = false;
   }, 1000);
 }
 
@@ -47,6 +51,7 @@ searchBox : Array<any> = [
     img : 'assets/img/blog-cart.svg',
     id : 1,
     active: false,
+    groupname: ['maghalat' , 'akhbar']
   },
   {
     name :'ATM ربات معامله گر',
@@ -57,7 +62,59 @@ searchBox : Array<any> = [
     img : 'assets/img/img-blog-detail.svg',
     id : 2,
     active: false,
+    groupname: ['robate']
+  },
+  {
+    name :'معرفی بارار فارکس از ابتدا',
+    name2 : 'lorem',
+    name3 : 'lorem 1',
+    name4 : 'lorem 2',
+    name5 : 'lorem 3',
+    img : 'assets/img/Robot1.png',
+    id : 3,
+    active: false,
+    groupname: ['akhbar']
   },
 ];
-
+  // ===========[تگ ها]======
+  
+  tags : Array<any> = [
+    {
+      name :'همه',
+      id : 1,
+      active: false,
+    },
+    {
+      name :'مقالات',
+      id : 2,
+      active: false,
+    },
+    {
+      name :'محصولات',
+      id : 3,
+      active: false,
+    },
+    {
+      name :'بروکرها',
+      id : 4,
+      active: false,
+    },
+    {
+      name :'رویداد اقتصادی',
+      id : 5,
+      active: false,
+    },
+    {
+      name :'پادکست ها',
+      id : 6,
+      active: false,
+    }
+  ];
+  // =======[اکتیو]====
+  toggle(index : number){
+    this.tags.filter(
+      (tags , i) => i !== index && tags.active
+    ).forEach(btn => btn.active = !btn.active);
+    this.tags[index].active = true;
+  }
 }

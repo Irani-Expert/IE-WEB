@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { SearchModel } from 'src/app/classes/interfaces/search.interface';
+import { Router } from '@angular/router';
+import { Subject, Subscription, debounceTime } from 'rxjs';
 
 @Component({
   selector: 'app-hero-search',
@@ -6,53 +9,29 @@ import { Component } from '@angular/core';
   styleUrls: ['./hero-search.component.scss']
 })
 export class HeroSearchComponent {
-  // ===========[تگ ها]======
+  @Input('data') searchModel : SearchModel;
+  constructor(private router: Router) {}
+  
   ngOnInit(){
-    this.toggle(0);
+    this.loading = false;
+    this._searchInputSubscription = this._searchinput
+    .pipe(debounceTime(700))
+    .subscribe((value) => {
+      this.searchFilterName(value);
+    });
+  }
+
+  _searchInputSubscription: Subscription;
+  _searchinput: Subject<string> = new Subject<string>();
+  loading: boolean = true;
+
+  fillValue(value: string) {
+    this._searchinput.next(value);
   }
   
-  tags : Array<any> = [
-    {
-      name :'همه',
-      id : 1,
-      active: false,
-    },
-    {
-      name :'مقالات',
-      id : 2,
-      active: false,
-    },
-    {
-      name :'محصولات',
-      id : 3,
-      active: false,
-    },
-    {
-      name :'بروکرها',
-      id : 4,
-      active: false,
-    },
-    {
-      name :'رویداد اقتصادی',
-      id : 5,
-      active: false,
-    },
-    {
-      name :'مقالات',
-      id : 6,
-      active: false,
-    },
-    {
-      name :'مقالات',
-      id : 7,
-      active: false,
-    }
-  ];
-  // =======[اکتیو]====
-  toggle(index : number){
-    this.tags.filter(
-      (tags , i) => i !== index && tags.active
-    ).forEach(btn => btn.active = !btn.active);
-    this.tags[index].active = true;
+  searchFilterName(value: string) {
+    this.router.navigateByUrl(`search?someThing=${value}`);
   }
+
+
 }

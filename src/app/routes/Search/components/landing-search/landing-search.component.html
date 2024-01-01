@@ -1,5 +1,4 @@
-<ng-container *ngIf="!loading">
-<app-hero-search></app-hero-search>
+<app-hero-search [data]="searchModel"></app-hero-search>
 <div class="mt-4 lg:grid lg:gap-2 lg:grid-cols-4 flex justify-center">
     <div class="ml-4 mr-8 lg:block hidden part-1">
         <!-- ===================[مدرسه فارکس ]=================== -->
@@ -32,9 +31,9 @@
             </div>
     </div>
     <!-- ==============[کامپوننت ها]============ -->
-    <div class="lg:col-span-3">       
-        <app-items-search [searchModel]="searchModel"></app-items-search>
+    <div class="lg:col-span-3">
+        <ng-container *ngIf="!loading">       
+        <app-items-search [data]="searchModel"></app-items-search>
+        </ng-container>
     </div>
 </div>
-</ng-container>
-<!-- transform: translate(109px, -302px); -->
