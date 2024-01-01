@@ -1,4 +1,4 @@
-<div class="flex max-sm:flex-col m-12">
+<div class="flex max-sm:flex-col" style="max-height: 36rem; overflow: hidden">
   <div
     class="sm:min-w-[25%] sm:max-w-[25%] flex flex-col pb-10 justify-between bg-suggestion rounded-2xl"
   >
@@ -44,6 +44,7 @@
   >
     <div class="min-w-[32%] max-sm:mt-3">
       <app-video-player
+        class="max-sm:h-[12rem] max-sm:flex"
         [VideoId]="x"
         [homeScreen]="true"
         [Link]="'https://www.w3schools.com/html/mov_bbb.ogg'"
