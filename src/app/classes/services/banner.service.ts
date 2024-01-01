@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, map } from 'rxjs';
 import { BannerInterface } from '../interfaces/banner.model';
 import { PageInterface } from '../page.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
@@ -13,8 +14,8 @@ export class BannerService extends BaseService<
 > {
   _paginatedBanner: BehaviorSubject<PageInterface<BannerInterface[]> | null> =
     new BehaviorSubject<PageInterface<BannerInterface[]> | null>(null);
-  constructor(http: HttpClient) {
-    super(http);
+  constructor(http: HttpClient, toastr: ToastrService) {
+    super(http, toastr);
   }
   get _pageModel() {
     return this._paginatedBanner.value;

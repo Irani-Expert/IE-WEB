@@ -8,13 +8,18 @@ import {
   Router,
   RouterStateSnapshot,
 } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 const decoder = new HttpUrlEncodingCodec();
 @Injectable({
   providedIn: 'root',
 })
 export class RedirectResolver extends BaseService<any> implements Resolve<any> {
-  constructor(http: HttpClient, private _router: Router) {
-    super(http);
+  constructor(
+    http: HttpClient,
+    private _router: Router,
+    toastr: ToastrService
+  ) {
+    super(http, toastr);
   }
 
   async resolve(_route: ActivatedRouteSnapshot, _state: RouterStateSnapshot) {
@@ -43,5 +48,11 @@ export class RedirectResolver extends BaseService<any> implements Resolve<any> {
   async getDetail(title: string) {
     const apiRes = this.get(`Article/details?title=${title}`);
     return lastValueFrom(apiRes);
+  }
+  override toastSuccess(message: string): void {
+    console.log(message);
+  }
+  override toastError(message: string): void {
+    console.log(message);
   }
 }

@@ -5,6 +5,7 @@ import { BehaviorSubject, lastValueFrom, map } from 'rxjs';
 import { FilterBlog } from '../interfaces/filter-blog.interface';
 import { Blog, SingleBlog } from '../interfaces/blog.interface';
 import { PageInterface } from '../page.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
@@ -12,8 +13,8 @@ import { PageInterface } from '../page.model';
 export class BlogService extends BaseService<any> {
   blogsArray = new BehaviorSubject<PageInterface<Blog[]> | null>(null);
   singleBlog = new BehaviorSubject<SingleBlog | null>(null);
-  constructor(http: HttpClient) {
-    super(http);
+  constructor(http: HttpClient, toastr: ToastrService) {
+    super(http, toastr);
   }
   get _paginatedBlogs() {
     return this.blogsArray.value;

@@ -4,6 +4,7 @@ import { BaseService } from './base.service';
 import { Page, PageInterface } from '../page.model';
 import { Comment } from '../interfaces/comment.interface';
 import { BehaviorSubject, map } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
@@ -11,8 +12,8 @@ import { BehaviorSubject, map } from 'rxjs';
 export class CommentService extends BaseService<PageInterface<Comment[]>> {
   _pageinatedComment: BehaviorSubject<PageInterface<Comment[]> | null> =
     new BehaviorSubject<PageInterface<Comment[]> | null>(null);
-  constructor(http: HttpClient) {
-    super(http);
+  constructor(http: HttpClient, toastr: ToastrService) {
+    super(http, toastr);
   }
   get _pageModel() {
     return this._pageinatedComment.value;

@@ -7,6 +7,7 @@ import { Basket, BskItem } from '../interfaces/basket.interface';
 import { Result } from '../result';
 import { AuthService } from 'src/app/shared/auth/auth.service';
 import { environment } from 'src/environments/environment.dev';
+import { ToastrService } from 'ngx-toastr';
 // import { LocalStorageService } from '../local-storage';
 const bskInit: Basket = {
   basketItems: new Array<BskItem>(),
@@ -22,9 +23,10 @@ export class OrderService extends BaseService<any> {
   order: BehaviorSubject<Order>;
   constructor(
     http: HttpClient,
+    toastr: ToastrService,
     private auth: AuthService //private localStorage: LocalStorageService
   ) {
-    super(http);
+    super(http, toastr);
     // if (this.localStorage.getItem('basketItems')) {
     //   this.fillBasket();
     // }

@@ -102,9 +102,13 @@ export class LoginComponent {
     formData.password = this._password;
     formData.username = this._userName;
     if (await this.checkFormValidation(formData)) {
-      this.authService.login(formData, this.rememberMe);
+      let res = this.authService.login(formData, this.rememberMe);
+      if ((await res) == false) {
+        this.loading = false;
+      }
     } else {
       console.log('Not Valid');
+      this.loading = false;
     }
   }
   async checkFormValidation(_formData: ILogin) {
