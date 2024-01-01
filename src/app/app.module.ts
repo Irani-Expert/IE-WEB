@@ -20,6 +20,7 @@ import { SearchComponent } from './shared/filter/search-bar/search.component';
 import { LoaderInterceptor } from './classes/loader.interceptor';
 import { LottieModule } from 'ngx-lottie';
 import { LoaderComponent } from './components/loader/loader.component';
+import { ToastrModule } from 'ngx-toastr';
 
 export function playerFactory(): any {
   return import('lottie-web');
@@ -49,6 +50,7 @@ const footer = [FooterComponent];
     SearchComponent,
     LoaderComponent,
     LottieModule.forRoot({ player: playerFactory }),
+    ToastrModule.forRoot(),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [

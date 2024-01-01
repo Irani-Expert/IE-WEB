@@ -5,6 +5,7 @@ import { BaseService } from 'src/app/classes/services/base.service';
 import { HttpClient } from '@angular/common/http';
 import { LocalStorageService } from 'src/app/classes/local-storage';
 import { ModalService } from '../modal/services/modal.service';
+import { ToastrService } from 'ngx-toastr';
 const userInit: User = {
   firstName: '',
   lastName: '',
@@ -21,9 +22,10 @@ export class AuthService extends BaseService<User | ILogin | IForgetPassword> {
   constructor(
     http: HttpClient,
     private localStorage: LocalStorageService,
-    private modal: ModalService
+    private modal: ModalService,
+    toastr: ToastrService
   ) {
-    super(http);
+    super(http, toastr);
   }
   public get _user() {
     return this.userSubject.value;
@@ -34,8 +36,10 @@ export class AuthService extends BaseService<User | ILogin | IForgetPassword> {
         if (res.success) {
           if (remember) this.rememberUser(res.data);
           else this.saveForOneSession(res.data);
-
+          this.toastSuccess(res.message, 'ورود موفق', 'toast-signed-in');
           this.modal.closeModal();
+        } else {
+          this.toastError(res.message);
         }
         return res.success;
       })
@@ -45,6 +49,11 @@ export class AuthService extends BaseService<User | ILogin | IForgetPassword> {
   async signup(formData: ISignUp) {
     const result = this.post('Auth/sign-up', formData).pipe(
       map((res) => {
+        if (res.success) {
+          this.toastSuccess(res.message, 'ثبت نام موفق');
+        } else {
+          this.toastError(res.message);
+        }
         return res.success;
       })
     );
@@ -55,6 +64,9 @@ export class AuthService extends BaseService<User | ILogin | IForgetPassword> {
     const result = this.post('Auth/forgot-password', formData).pipe(
       map((res) => {
         if (typeof res.data == 'number') idFromApi = res.data;
+        if (res.success == false) {
+          this.toastError(res.message);
+        }
         return [res.success, idFromApi];
       })
     );
@@ -63,6 +75,11 @@ export class AuthService extends BaseService<User | ILogin | IForgetPassword> {
   async setPassword(formData: IForgetPassword) {
     const result = this.post('Auth/set-password', formData).pipe(
       map((res) => {
+        if (res.success) {
+          this.toastSuccess(res.message);
+        } else {
+          this.toastError(res.message);
+        }
         return res.success;
       })
     );
@@ -119,5 +136,18 @@ export class AuthService extends BaseService<User | ILogin | IForgetPassword> {
     } else {
       return [false];
     }
+  }
+  override toastSuccess(
+    message: string,
+    title: string = 'موفق',
+    toastClass: string = 'toast-success'
+  ): void {
+    this.toastrService.show(message, title, {
+      closeButton: true,
+      progressBar: true,
+      timeOut: 2000,
+      positionClass: 'toast-top-left',
+      toastClass: `ngx-toastr ${toastClass}`,
+    });
   }
 }

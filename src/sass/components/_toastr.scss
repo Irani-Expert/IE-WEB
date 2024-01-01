@@ -1,0 +1,142 @@
+.toast-close-button {
+  position: relative;
+  right: 0.125em;
+  top: -0.5em;
+  float: left;
+  font-size: 27px;
+  color: #a4a4a4;
+  font-weight: 400;
+  text-shadow: none;
+}
+
+.toast-container .ngx-toastr {
+  position: relative;
+  overflow: hidden;
+  margin: 0 0 6px;
+  padding: 8px 70px 8px 10px;
+  width: 280px;
+  border-radius: 14px;
+  background-position: 100% center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  box-shadow: 0 3px 6px #d3cccc;
+  transition: all 0.3s ease;
+  color: #0c0b0b;
+  &:hover {
+    box-shadow: 0 3px 6px #8d8d8d;
+  }
+  .toast-message {
+    color: #a2a2a2;
+    font-weight: 400;
+    font-size: 0.875rem;
+  }
+}
+
+.toast-success {
+  background: rgb(255, 255, 255);
+  background: -moz-linear-gradient(
+    0deg,
+    rgb(255, 255, 255) 79%,
+    rgb(3, 217, 17) 0%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgb(255, 255, 255) 79%,
+    rgb(3, 217, 17) 0%
+  );
+  &::before {
+    content: "";
+    width: 30px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+
+    height: 30px;
+    right: 0;
+    top: 50%;
+    border-radius: 50%;
+    border: 2px solid #fff;
+  }
+  &::after {
+    position: absolute;
+    transform: translate(-46%, -31%);
+    right: 14px;
+    top: 50%;
+    content: url(../../assets/icon/tick-white.svg);
+  }
+}
+
+.toast-error {
+  background: rgb(255, 255, 255);
+  background: -moz-linear-gradient(
+    0deg,
+    rgb(255, 255, 255) 79%,
+    rgb(217, 3, 3) 0%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgb(255, 255, 255) 79%,
+    rgb(217, 3, 3) 0%
+  );
+  &::before {
+    content: "";
+    width: 30px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+
+    height: 30px;
+    right: 0;
+    top: 50%;
+    border-radius: 50%;
+    border: 2px solid #fff;
+  }
+  &::after {
+    position: absolute;
+    transform: translate(-54%, -31%);
+    right: 18px;
+    scale: 1.1;
+    top: 50%;
+    content: url(../../assets/icon/times.svg);
+  }
+}
+.toast-signed-in {
+  background: rgb(255, 255, 255);
+  background: -moz-linear-gradient(
+    0deg,
+    rgb(255, 255, 255) 79%,
+    rgb(3, 217, 17) 0%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgb(255, 255, 255) 79%,
+    rgb(3, 217, 17) 0%
+  );
+  &::after {
+    scale: 0.725;
+    position: absolute;
+    transform: translate(-36%, -57%);
+    right: 0;
+    top: 50%;
+    content: url(../../assets/icon/signed-in.svg);
+  }
+}
+.toast-logged-out {
+  background: rgb(255, 255, 255);
+  background: -moz-linear-gradient(
+    0deg,
+    rgb(255, 255, 255) 79%,
+    rgb(217, 3, 3) 0%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgb(255, 255, 255) 79%,
+    rgb(217, 3, 3) 0%
+  );
+  &::after {
+    scale: 0.675;
+    position: absolute;
+    transform: translate(-20%, -65%);
+    right: 0;
+    top: 50%;
+    content: url(../../assets/icon/logged-out.svg);
+  }
+}

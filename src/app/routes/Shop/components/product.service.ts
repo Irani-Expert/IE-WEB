@@ -8,6 +8,7 @@ import {
   SingleProduct,
 } from '../../../classes/interfaces/product.interface';
 import { PageInterface } from '../../../classes/page.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
@@ -15,8 +16,8 @@ import { PageInterface } from '../../../classes/page.model';
 export class ProductService extends BaseService<any> {
   singleProduct = new BehaviorSubject<SingleProduct | null>(null);
   prdArray = new BehaviorSubject<PageInterface<Product[]> | null>(null);
-  constructor(http: HttpClient) {
-    super(http);
+  constructor(http: HttpClient, toastr: ToastrService) {
+    super(http, toastr);
   }
   get _paginatedPrd() {
     return this.prdArray.value;
