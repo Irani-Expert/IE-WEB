@@ -6,7 +6,11 @@
     <div class="mx-10 flex">
       <div
         class="mx-2 p-6 pt-4 text-2xl cursor-pointer"
-        [ngClass]="isActive(0) ? 'active-target-tab' : 'unActive'"
+        [ngClass]="
+          isActive(0)
+            ? 'active-target-tab'
+            : 'unActive mx-2 p-6 pt-3 text-2xl cursor-pointer min-w-[10rem]'
+        "
         (click)="selectedTab(0)"
         style="filter: grayscale(100%)"
       >
@@ -28,7 +32,11 @@
       </div>
       <div
         class="mx-2 pt-2 text-2xl cursor-pointer"
-        [ngClass]="isActive(1) ? 'active-target-tab' : ''"
+        [ngClass]="
+          isActive(1)
+            ? 'active-target-tab'
+            : 'mx-2 p-6 pt-3 text-2xl cursor-pointer min-w-[10rem] unActive'
+        "
         (click)="selectedTab(1)"
         style="filter: grayscale(100%)"
       >
@@ -48,7 +56,11 @@
       </div>
       <div
         class="mx-2 pt-2 text-2xl cursor-pointer"
-        [ngClass]="isActive(2) ? 'active-target-tab' : ''"
+        [ngClass]="
+          isActive(2)
+            ? 'active-target-tab'
+            : 'mx-2 p-6 pt-3 text-2xl cursor-pointer min-w-[10rem] unActive'
+        "
         (click)="selectedTab(2)"
         style="filter: grayscale(100%)"
       >
@@ -68,7 +80,7 @@
       </div>
       <div
         class="mx-2 p-6 pt-3 text-2xl cursor-pointer"
-        [ngClass]="isActive(3) ? 'active-target-tab' : 'min-w-[10rem]'"
+        [ngClass]="isActive(3) ? 'active-target-tab' : 'min-w-[10rem] unActive'"
         (click)="selectedTab(3)"
         style="filter: grayscale(100%)"
       >
