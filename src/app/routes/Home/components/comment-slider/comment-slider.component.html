@@ -1,8 +1,8 @@
 <ng-content></ng-content>
 <div
-  class="flex items-center sm:flex-row flex-col sm:max-h-[23rem] sm:m-12 m-3"
+  class="flex items-center max-md:flex-col md:max-h-[23rem] md:m-12 max-sm:mt-12 m-3"
 >
-  <div class="w-[23rem] bg-suggestion rounded-2xl">
+  <div class="min-w-[22rem] max-w-[27rem] bg-suggestion rounded-2xl">
     <div class="flex pt-6 px-4">
       <img
         class="w-24 max-h-[6rem] relative bottom-12"
@@ -33,21 +33,21 @@
     </div>
   </div>
   <div
-    class="flex flex-row sm:w-[70rem] max-sm:flex-col max-sm:overflow-hidden max-sm:h-[24rem]"
+    class="flex flex-row md:w-[70rem] max-md:flex-col max-md:overflow-hidden max-md:h-[24rem]"
   >
     <div
-      class="sm:w-[44%] sm:mx-9 mt-7"
+      class="sm:min-w-[24rem] max-w-[27rem] sm:mx-9 mt-7"
       [ngClass]="slidDirection ? 'slide-right' : 'slide-left'"
       *ngFor="let x of lenCommentModel | slice : lowwerSlide : upperSlide"
     >
       <div
         class="flex sm:min-h-[15rem] flex-col justify-end border-solid bg-white z-50 border-[#d1d1d1] relative border-[1px] z rounded-xl rounded-br-none"
       >
-        <p class="p-8 text-justify">
+        <p class="sm:p-8 p-6 py-10 text-justify">
           {{ commentModel.text }}
         </p>
         <div
-          class="relative mt-10 w-[7.67rem] sm:h-[0.07rem] h-[1.5rem] top-[1px] bg-[#ffffff]"
+          class="relative w-[7.67rem] sm:h-[0.7rem] h-[1.5rem] top-[3px] bg-[#ffffff]"
         ></div>
       </div>
 
@@ -57,7 +57,7 @@
       <div class="relative bottom-[4rem] ms-32 flex">
         <img
           src="../../../../../assets/img/maleComment.png"
-          class="max-w-[58px]"
+          class="max-w-[58px] aspect-auto object-cover"
         />
         <div class="flex flex-col justify-around">
           <span class="text-lg font-bold"

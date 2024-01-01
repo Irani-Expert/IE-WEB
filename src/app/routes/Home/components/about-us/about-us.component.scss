@@ -74,8 +74,18 @@
     padding: 10px; /* Optional: Add padding for spacing */
   }
 }
-.bg-main-blue {
+.bg-main-blue:not(:hover) {
   i {
     filter: invert(1);
   }
+}
+.bg-main-blue:hover {
+  i {
+    filter: invert(20%) sepia(62%) saturate(6769%) hue-rotate(236deg)
+      brightness(89%) contrast(85%);
+  }
+}
+.ie-target {
+  filter: invert(26%) sepia(97%) saturate(1708%) hue-rotate(133deg)
+    brightness(95%) contrast(93%);
 }
