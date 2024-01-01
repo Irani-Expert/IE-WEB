@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {lastValueFrom} from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import {lastValueFrom, map} from 'rxjs';
 import { SearchModel } from 'src/app/classes/interfaces/search.interface';
 import { searchServices } from 'src/app/classes/services/search.services';
 
@@ -13,13 +14,17 @@ export class LandingSearchComponent {
   loading: boolean = true;
 
   searchModel : SearchModel;
-  constructor( private searchServices : searchServices ){
-
-    }
+  constructor( private searchServices : searchServices, private _activatedRoute: ActivatedRoute ){}
     async ngOnInit(){
-      const resualt = this.searchServices.get('Search');
-      this.searchModel = (await lastValueFrom(resualt)).data!;
-      this.loading = false;
-
+      this._activatedRoute.queryParams.subscribe(item=> this.getItems(item['someThing']))
+      
+    }
+    getItems(someThing:string) {
+      let res = this.searchServices.get(`Search?someThing=${someThing}`).pipe(map(data=> {
+        this.searchModel  = data.data!
+        this.loading = false
+        return data.success
+      }));
+      return lastValueFrom(res)
     }
 }
