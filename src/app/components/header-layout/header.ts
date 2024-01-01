@@ -14,22 +14,25 @@ export abstract class Header {
     });
     this.navService.menuItems$.subscribe((items) => {
       this.items = items;
-      this.setActiveFlag();
     });
   }
   get _btnDisabled() {
     return Header._btnDisabled;
   }
   setActiveMainItem(item: IMenuItem) {
-    this.items.forEach((i) => {
-      i.active = false;
-    });
-    item.active = true;
+    // this.items.forEach((i) => {
+    //   i.active = false;
+    // });
+    // item.active = true;
   }
   setActiveFlag() {
     if (AppComponent.isBrowser.value) {
       if (window && window.location) {
-        const activeRoute = window.location.hash || window.location.pathname;
+        let activeRoute = window.location.hash || window.location.pathname;
+        console.log(activeRoute);
+        if (activeRoute == '/') {
+          activeRoute = 'home';
+        }
         this.items.forEach((item) => {
           item.active = false;
           if (activeRoute.indexOf(item.path!) !== -1) {

@@ -130,6 +130,7 @@ export class SignupComponent {
     return this.form.controls;
   }
   async signup() {
+    this.loading = true;
     let formData = formDataInit;
     formData.password = this._formcontrol['password'].value;
     formData.accountNumber = this._formcontrol['accountNumber'].value;
@@ -144,12 +145,12 @@ export class SignupComponent {
     formData.userName = formData.email;
     if (await this.checkFormValidation(formData)) {
       if (await this.authService.signup(formData)) this.changeView.emit(true);
+      else this.loading = false;
     } else {
       console.log('Not Valid');
     }
   }
   async checkFormValidation(_formData: ISignUp) {
-    this.loading = true;
     var valid = true;
     let email = _formData.email.split('@');
 

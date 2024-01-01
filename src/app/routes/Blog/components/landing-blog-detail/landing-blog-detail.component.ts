@@ -2,9 +2,9 @@ import { Component, HostListener } from '@angular/core';
 import { config } from 'src/app/shared/acordian/types';
 import { AppComponent } from 'src/app/app.component';
 import { Utils } from 'src/app/classes/utils';
-import { Subject, Subscription, takeUntil } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { HttpUrlEncodingCodec } from '@angular/common/http';
-import { NavigationEnd, Router, Scroll } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { BlogService } from 'src/app/classes/services/blog.service';
 import { Blog } from 'src/app/classes/interfaces/blog.interface';
 import { FilterBlog } from 'src/app/classes/interfaces/filter-blog.interface';
@@ -37,7 +37,7 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
   }
 
   //Logic Get Data
-  private destroyed$ = new Subject();
+  // private destroyed$ = new Subject();
   routeSubscriber: Subscription | undefined;
   sendDataToChild = false;
 
@@ -50,26 +50,19 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
   // =======================[رسپانسیو]==========
 
   device: 'sm' | 'lg' = 'lg';
-  constructor(private router: Router, public blogService: BlogService) {
+  constructor(
+    public blogService: BlogService,
+    private activatedRoute: ActivatedRoute
+  ) {
     super();
   }
   async ngOnInit() {
     this.updateDeviceValue();
     this.getItemBlogs(this.blogFilter);
-
-    this.routeSubscriber = this.router.events
-      .pipe(takeUntil(this.destroyed$))
-      .subscribe({
-        next: async (event) => {
-          if (event instanceof Scroll) {
-            if (event.routerEvent instanceof NavigationEnd) {
-              let urlSegments = event.routerEvent.urlAfterRedirects.split('/');
-              let urlId = this.decodeValue(urlSegments[2].split('_').join(' '));
-              await this.getArticleDetail(urlId);
-            }
-          }
-        },
-      });
+    this.routeSubscriber = this.activatedRoute.data.subscribe(({ data }) => {
+      this.sendDataToChild = true;
+      this.blogService.singleBlog.next(data);
+    });
   }
   ngOnDestroy() {
     this.routeSubscriber?.unsubscribe();
@@ -86,12 +79,6 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
       } else {
         this.device = 'lg';
       }
-    }
-  }
-  async getArticleDetail(title: string) {
-    const apiRes = this.blogService.getBlog(title);
-    if (await apiRes) {
-      this.sendDataToChild = true;
     }
   }
 }

@@ -1,7 +1,8 @@
 <div class="p-9" [ngClass]="device == 'lg' ? 'block' : 'hidden'">
   <div class="flex">
-    <div class="lg:grid lg:grid-cols-2 lg:gap-2 matn-h mt-16 justify-items-center
-    flex">
+    <div
+      class="lg:grid lg:grid-cols-2 lg:gap-2 matn-h mt-16 justify-items-center flex"
+    >
       <div class="space-y-3 part-right">
         <p class="header-start">با ایرانی اکسپرت مطمئن و آسان ترید کن</p>
         <h1 class="header-title">
@@ -15,51 +16,60 @@
           ربات معامله گر یکی از محصولات ماست.در حوزه ارائه آموزش،مقالات مشاوره و
           نیز تحلیل اقتصادی،اخبارفارکس و پادکست ارائه خدمات میدهیم
         </p>
-        <p class="header-text-end md:hidden lg:block">سود ما در راستای سود شماست</p>
+        <p class="header-text-end md:hidden lg:block">
+          سود ما در راستای سود شماست
+        </p>
       </div>
       <div class="hero-f">
-        <img src="assets/img/mosalas.svg" class="mosalas" alt="m" />
+        <div id="triangleHome" class="absolute">
+          <span class="block triangle-home"></span>
+        </div>
+
         <img class="hero-image" src="assets/img/hero.webp" alt="hero" />
       </div>
     </div>
   </div>
 
-  <div class="flex w-full items-center flex-col gap-3 lg:flex-row lg:justify-between r-h">
+  <div
+    class="flex w-full items-center flex-col gap-3 lg:flex-row lg:justify-between r-h"
+  >
     <p class="header-text-end lg:hidden">سود ما در راستای سود شماست</p>
-      <div class="flex items-center mb-6 mt-6">
-        <a routerLink="products/1/اکسپرت_ATM" class="btn flex">
-          خرید ربات معامله گر
-          <img
-            class="icon-btn"
-            src="assets/img/Arrow-left-icon(white).svg"
-            alt="icon"
-          />
-        </a>
-        <button (click)="scrollToView()" class="link flex items-center mb-2">
-          <img class="scale-75 ml-2" src="assets/img/call-icon.svg" alt="icon" />
-          رایگان مشاوره بگیرید
-        </button>
-      </div>
-      
-      <div class="relative">
-        <div class="lg:grid md:flex lg:grid-cols-3 gap-3 relative lg:left-32 lg:bottom-2 mb-8 mt-8">
-          <div class="mizan-sod">
-            <span class="darsad">70%</span>
-            <br />
-            <p class="title-d">وین ریت</p>
-          </div>
-          <div class="mizan-sod mr-6 ml-6">
-            <span class="darsad">7%</span>
-            <br />
-            <p class="title-d">ماکسیموم درادون</p>
-          </div>
-          <div class="mizan-sod">
-            <span class="darsad">22%</span>
-            <br />
-            <p class="title-d">سود ماه قبل</p>
-          </div>
+    <div class="flex items-center mb-6 mt-6">
+      <a routerLink="products/1/اکسپرت_ATM" class="btn flex">
+        خرید ربات معامله گر
+        <img
+          class="icon-btn"
+          src="assets/img/Arrow-left-icon(white).svg"
+          alt="icon"
+        />
+      </a>
+      <button (click)="scrollToView()" class="link flex items-center mb-2">
+        <img class="scale-75 ml-2" src="assets/img/call-icon.svg" alt="icon" />
+        رایگان مشاوره بگیرید
+      </button>
+    </div>
+
+    <div class="relative">
+      <div
+        class="lg:grid md:flex lg:grid-cols-3 gap-3 relative lg:left-32 lg:bottom-2 mb-8 mt-8"
+      >
+        <div class="mizan-sod">
+          <span class="darsad">70%</span>
+          <br />
+          <p class="title-d">وین ریت</p>
+        </div>
+        <div class="mizan-sod mr-6 ml-6">
+          <span class="darsad">7%</span>
+          <br />
+          <p class="title-d">ماکسیموم درادون</p>
+        </div>
+        <div class="mizan-sod">
+          <span class="darsad">22%</span>
+          <br />
+          <p class="title-d">سود ماه قبل</p>
         </div>
       </div>
+    </div>
   </div>
 </div>
 <!-- ========================[رسپانسیو]================== -->

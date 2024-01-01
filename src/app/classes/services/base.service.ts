@@ -8,6 +8,7 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, map, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment.dev';
 import { Result } from '../result';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,7 @@ export class BaseService<T> {
   headers = new HttpHeaders({
     accept: 'application/json',
   });
-  constructor(public http: HttpClient) {}
+  constructor(public http: HttpClient, public toastrService: ToastrService) {}
 
   //Method GET
   get(path: string, params?: HttpParams): Observable<Result<T>> {
@@ -36,7 +37,6 @@ export class BaseService<T> {
       })
       .pipe(
         map((res) => {
-          console.log('POST');
           return res;
         })
       );
@@ -50,7 +50,6 @@ export class BaseService<T> {
       })
       .pipe(
         map((res) => {
-          console.log('POST');
           return res;
         })
       );
@@ -64,7 +63,6 @@ export class BaseService<T> {
       })
       .pipe(
         map((res) => {
-          console.log('POST');
           return res;
         })
       );
@@ -80,6 +78,21 @@ export class BaseService<T> {
     console.log(errorMessage);
     return throwError(() => {
       return errorMessage;
+    });
+  }
+  toastSuccess(message: string) {
+    this.toastrService.success(message, 'موفق', {
+      positionClass: 'toast-top-left',
+      closeButton: true,
+      progressBar: true,
+    });
+  }
+
+  toastError(message: string) {
+    this.toastrService.error(message, 'ناموفق', {
+      positionClass: 'toast-top-left',
+      closeButton: true,
+      progressBar: true,
     });
   }
 }

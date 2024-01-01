@@ -415,3 +415,44 @@ $min-width-carousel: 300px;
     opacity: 1;
   }
 }
+
+// Triangle
+.triangle-home {
+  position: relative;
+  background-color: #f0f0f9;
+  text-align: right;
+}
+.triangle-home:before,
+.triangle-home:after {
+  content: "";
+  position: absolute;
+  background-color: inherit;
+}
+.triangle-home,
+.triangle-home:before,
+.triangle-home:after {
+  width: 17rem;
+  height: 17rem;
+  border-top-right-radius: 30%;
+}
+
+.triangle-home {
+  transform: rotate(-60deg) skewX(-30deg) scale(1, 0.866);
+}
+.triangle-home:before {
+  transform: rotate(-135deg) skewX(-45deg) scale(1.414, 0.707)
+    translate(0, -50%);
+}
+.triangle-home:after {
+  transform: rotate(135deg) skewY(-45deg) scale(0.707, 1.414) translate(50%);
+}
+#triangleHome {
+  transform: translate(60%, 50%) rotate(23deg);
+  right: 50%;
+  bottom: 88%;
+}
+// #triangleHome2 {
+//   transform: translate(60%, 50%) rotate(180deg);
+//   right: 50%;
+//   bottom: 88%;
+// }

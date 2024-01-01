@@ -5,8 +5,10 @@ import { Header } from '../header';
 import { ModalService } from 'src/app/shared/modal/services/modal.service';
 import { HeaderLayoutComponent } from '../header-layout.component';
 import { AuthService } from 'src/app/shared/auth/auth.service';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-header-lg',
@@ -22,6 +24,7 @@ export class HeaderLgComponent extends Header {
     private modal: ModalService,
     private auth: AuthService,
     private router: Router,
+    private toastr: ToastrService,
     private location: Location
   ) {
     super(navService);
@@ -47,8 +50,21 @@ export class HeaderLgComponent extends Header {
   }
   logout() {
     this.auth.logOutUser();
+    this.toastr.show('از حساب کاربری با موفقیت خارج شدید', 'خروج موفق', {
+      positionClass: 'toast-top-left',
+      progressBar: true,
+      closeButton: true,
+      toastClass: 'ngx-toastr toast-logged-out',
+    });
     if (this.router.url.includes('checkout')) {
       this.location.back();
     }
+  }
+  ngOnInit() {
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe((item) => {
+        this.setActiveFlag();
+      });
   }
 }

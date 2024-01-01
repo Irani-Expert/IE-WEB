@@ -17,13 +17,12 @@
 
     <ng-container style="margin-top: 50%" *ngFor="let item of items">
       <li
+        [routerLink]="item.path"
         class="justify-end p-2.5 pr-8 flex cursor-pointer hover:bg-[#293dc8]"
-        [ngClass]="item.id == link ? 'active-tab' : ''"
+        [ngClass]="item.active ? 'active-tab' : ''"
         (click)="choosenLink(item.id)"
       >
-        <a [routerLink]="item.path" class="text-white no-underline font-medium"
-          >{{ item.name }}
-        </a>
+        <a class="text-white no-underline font-medium">{{ item.name }} </a>
       </li>
     </ng-container>
 

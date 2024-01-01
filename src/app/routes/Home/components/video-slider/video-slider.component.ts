@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 export class VideoSliderComponent {
   upperSlide: number = 2;
   lowwerSlide: number = 0;
-  lenCommentModel = [0, 1, 2, 3, 4];
+  lenCommentModel = [1, 2, 3, 4, 5];
   slidDirection: boolean | null;
 
   sliderMovement(direction: boolean | null) {

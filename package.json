@@ -1,6 +1,6 @@
 {
   "name": "ie-web",
-  "version": "0.0.0",
+  "version": "1.1.9",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -35,6 +35,7 @@
     "ngx-lottie": "^10.0.0",
     "ngx-pagination": "^6.0.3",
     "ngx-slider-v2": "^16.0.2",
+    "ngx-toastr": "^18.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"

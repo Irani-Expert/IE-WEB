@@ -6,13 +6,17 @@
     <div class="mx-10 flex">
       <div
         class="mx-2 p-6 pt-4 text-2xl cursor-pointer"
-        [ngClass]="isActive(0) ? 'active-target-tab' : 'unActive'"
+        [ngClass]="
+          isActive(0)
+            ? 'active-target-tab'
+            : 'unActive mx-2 p-6 pt-3 text-2xl cursor-pointer min-w-[10rem]'
+        "
         (click)="selectedTab(0)"
         style="filter: grayscale(100%)"
       >
         <div class="h-active">
           <img src="../../../../../assets/img/Ai.png" />
-          <h3 class="color--green font-bold ms-2 pt-1">
+          <h3 class="color--green font-medium ms-2 pt-1">
             استفاده از هوش مصنوعی در معاملات فارکس
           </h3>
         </div>
@@ -28,13 +32,17 @@
       </div>
       <div
         class="mx-2 pt-2 text-2xl cursor-pointer"
-        [ngClass]="isActive(1) ? 'active-target-tab' : ''"
+        [ngClass]="
+          isActive(1)
+            ? 'active-target-tab'
+            : 'mx-2 p-6 pt-3 text-2xl cursor-pointer min-w-[10rem] unActive'
+        "
         (click)="selectedTab(1)"
         style="filter: grayscale(100%)"
       >
         <div class="h-active">
           <img src="../../../../../assets/img/money.png" />
-          <h3 class="color--green font-bold ms-2 pt-1">
+          <h3 class="color--green font-medium ms-2 pt-1">
             سهولت در معاملات و کسب سود ثابت از فارکس
           </h3>
         </div>
@@ -48,13 +56,17 @@
       </div>
       <div
         class="mx-2 pt-2 text-2xl cursor-pointer"
-        [ngClass]="isActive(2) ? 'active-target-tab' : ''"
+        [ngClass]="
+          isActive(2)
+            ? 'active-target-tab'
+            : 'mx-2 p-6 pt-3 text-2xl cursor-pointer min-w-[10rem] unActive'
+        "
         (click)="selectedTab(2)"
         style="filter: grayscale(100%)"
       >
         <div class="h-active pt-4">
           <img src="../../../../../assets/img/Mql.png" />
-          <h3 class="color--green font-bold ms-2 pt-1">
+          <h3 class="color--green font-medium ms-2 pt-1">
             تبدیل شدن به نسخه‌ای از MQL
           </h3>
         </div>
@@ -68,13 +80,13 @@
       </div>
       <div
         class="mx-2 p-6 pt-3 text-2xl cursor-pointer"
-        [ngClass]="isActive(3) ? 'active-target-tab' : ''"
+        [ngClass]="isActive(3) ? 'active-target-tab' : 'min-w-[10rem] unActive'"
         (click)="selectedTab(3)"
         style="filter: grayscale(100%)"
       >
         <div class="h-active">
           <img src="../../../../../assets/img/tradeCourse.png" />
-          <h3 class="color--green font-bold ms-2 pt-1">
+          <h3 class="color--green font-medium ms-2 pt-1">
             استفاده از هوش مصنوعی در معاملات فارکس
           </h3>
         </div>

@@ -3,13 +3,14 @@ import { BaseService } from './base.service';
 import { HttpClient } from '@angular/common/http';
 import { lastValueFrom, map } from 'rxjs';
 import { UserNeed } from '../interfaces/user-need';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserNeedService extends BaseService<UserNeed | unknown> {
-  constructor(http: HttpClient) {
-    super(http);
+  constructor(http: HttpClient, toastr: ToastrService) {
+    super(http, toastr);
   }
   // async gift_req(formData: GiftInter) {
   //   const result = this.post('UserNeed', formData).pipe(
