@@ -1,16 +1,21 @@
 <div class="custom-table-responsive">
   <table class="table custom-table">
     <thead>
-      <tr>
+      <tr class="hidden lg:table-row">
         <ng-container *ngFor="let item of tableHeaders">
           <th>{{ item.engTitle | translateHeader }}</th>
         </ng-container>
+      </tr>
+      <tr class="table-row lg:hidden">
+        <th>{{ "logoSrc" | translateHeader }}</th>
+        <th>{{ "name" | translateHeader }}</th>
+        <th>{{ "بررسی و ثبت نام" | translateHeader }}</th>
       </tr>
     </thead>
     <tbody>
       <ng-container *ngFor="let item of items">
         <tr scope="row">
-          <td>
+          <td class="hidden lg:table-cell">
             <p>{{ item.rate }}</p>
           </td>
           <td class="td-logo-broker">
@@ -19,30 +24,30 @@
           <td>
             <p class="px-2">{{ item.name }}</p>
           </td>
-          <td>{{ item.establishedYear }}</td>
-          <td>{{ item.insurance }}</td>
-          <td>
+          <td class="hidden lg:table-cell">{{ item.establishedYear }}</td>
+          <td class="hidden lg:table-cell">{{ item.insurance }}</td>
+          <td class="hidden lg:table-cell">
             <p>
               <ng-container *ngFor="let requlate of item.regulate">
                 {{ requlate }},
               </ng-container>
             </p>
           </td>
-          <td>
+          <td class="hidden lg:table-cell">
             <p>{{ item.minimumDesposit }}</p>
           </td>
-          <td>
+          <td class="hidden lg:table-cell">
             <p>{{ item.leverage }}</p>
           </td>
 
-          <td class="td-deposit">
+          <td class="hidden lg:table-cell td-deposit">
             <p>
               <ng-container *ngFor="let deposit of item.deposit">
                 {{ deposit }},
               </ng-container>
             </p>
           </td>
-          <td class="td-platform">
+          <td class="hidden lg:table-cell td-platform">
             <p>
               <ng-container *ngFor="let platform of item.platform">
                 {{ platform }},

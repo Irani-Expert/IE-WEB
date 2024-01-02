@@ -3,6 +3,7 @@ import {
   ElementRef,
   EventEmitter,
   HostListener,
+  Input,
   Output,
   ViewChild,
 } from '@angular/core';
@@ -19,7 +20,7 @@ export class BlogFilterComponent {
 
   @ViewChild('sticky') myStickyElement: ElementRef;
   @ViewChild('stickyoff') myStickyElement2: ElementRef;
-  
+  @Input('type') type: 'category' | 'tags' = 'category';
 
   sticked: boolean = false;
 
@@ -27,7 +28,8 @@ export class BlogFilterComponent {
   onScroll() {
     if (AppComponent.isBrowser.value) {
       if (
-        Utils.scrollTracker() > this.myStickyElement.nativeElement.offsetTop && Utils.scrollTracker() < this.myStickyElement2.nativeElement.offsetTop
+        Utils.scrollTracker() > this.myStickyElement.nativeElement.offsetTop &&
+        Utils.scrollTracker() < this.myStickyElement2.nativeElement.offsetTop
       ) {
         this.sticked = true;
       } else {
