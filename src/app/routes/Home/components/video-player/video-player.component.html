@@ -1,11 +1,10 @@
 <div class="flex justify-center">
   <div
-    id="main-card"
+    id="main{{ this.vId }}"
     class="sm:p-4 box-shadow-ac"
     [ngClass]="homeScreen ? 'home-height' : ''"
   >
     <video
-      id="{{ this.vId }}"
       width="100%"
       height="20%"
       class="rounded-xl"
@@ -20,11 +19,14 @@
       <source src="{{ videoLink }}" type="video/mp4" />
     </video>
     <div
-      class="items-center p-div flex justify-center text-2xl sm:p-2 sm:px-16 px-4 pb-2 top-[7rem] md:top-[75%] sm:top-[55%]"
+      class="items-center p-div flex justify-center text-2xl sm:p-2 sm:px-16 px-4 pb-2"
+      [ngClass]="
+        isFullScreen ? 'bottom-0' : 'top-[7rem] md:top-[75%] sm:top-[55%]'
+      "
     >
       <i
         class="fa fa-expand ie-icon me-3 text-base text-white ms-2 flex items-center"
-        [ngClass]="{ 'ie-expand': !isFullScreen, 'fa-compress': isFullScreen }"
+        [ngClass]="!isFullScreen ? 'ie-expand' : 'fa-compress'"
         (click)="fullScreen()"
       ></i>
 

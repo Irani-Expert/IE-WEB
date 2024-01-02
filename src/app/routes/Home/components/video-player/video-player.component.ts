@@ -107,11 +107,15 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit {
   }
 
   fullScreen() {
+    var vid = <HTMLVideoElement>document.getElementById('main' + this.vId);
     if (!this.isFullScreen) {
-      this.element.requestFullscreen();
+      vid.requestFullscreen();
+      console.log('open');
+      this.isFullScreen = true;
     } else {
+      console.log('close');
       document.exitFullscreen();
+      this.isFullScreen = false;
     }
-    this.isFullScreen = !this.isFullScreen;
   }
 }
