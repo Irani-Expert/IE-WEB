@@ -54,7 +54,10 @@
       ></i>
     </div>
     <div
-      class="p-div d-flex justify-center align-middle btn-span sm:bottom-[48%] bottom-[6rem]"
+      class="p-div d-flex justify-center align-middle btn-span"
+      [ngClass]="
+        !isFullScreen ? 'sm:bottom-[48%] bottom-[6rem]' : 'bottom-[24rem]'
+      "
     >
       <span
         class="fa-stack fa-4x opacity-100 flex justify-center items-center"
