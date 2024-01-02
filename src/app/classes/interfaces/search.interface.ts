@@ -5,34 +5,44 @@ export interface SearchModel {
 }
 
 export interface SearchProducts{
-    id: 0,
+    id: number,
     title: string,
     brief: string,
-    productType: 0,
+    productType: number,
     productTypeTitle: string,
-    platformType: 0,
+    platformType: number,
     platformTypeTitle: string,
-    rate: 0
+    rate: number,
+    minPrice: number,
+    seller: string,
+    cardImagePath: string,
+    viewsCount: number,
+    ordersCount: number,
+    active : boolean
 }
 
 export interface SearchBrokers {
-    id: 0,
+    id: number,
     title: string,
     brief: string,
     cardImagePath: string,
     isRTL: true,
-    staticRate: 0,
+    staticRate: number,
     updateDate: "2023-12-24T09:54:11.914Z",
     isIRSupport: true,
-    commentCount: 0
+    commentCount: number,
+    active : boolean
+
 }
 
 export interface SearchArticles {
-    id: 0,
+    id: number,
     title: string,
     brief: string,
     cardImagePath: string,
     authorName: string,
     groupName: string,
-    rate: 0
+    rate: number,
+    active : boolean
+
 }

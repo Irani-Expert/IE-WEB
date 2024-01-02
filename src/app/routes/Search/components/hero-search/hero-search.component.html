@@ -10,7 +10,8 @@
         <div class="flex justify-center">
             <div class="flex justify-between items-center box-search h-16
             sm:!h-20 w-full lg:!w-[80%]">
-                <input class="h-full search-input-box" placeholder="جستجو" type="text">
+                <input (input)="fillValue($any($event.target).value)"
+                 class="h-full search-input-box" placeholder="جستجو" type="text">
                 <button>
                     <i class="scale-75 ie-search-page"></i>
                 </button>
@@ -18,23 +19,3 @@
         </div>
     </div>
 </div>
- <!-- ==================[فیلتر تگ ها]======== -->
- <div class="hidden sm:flex sm:justify-center items-center mr-4 lg:!-mr-2 mb-6 sm:mt-20 2xl:!-mr-20">
-     <div class="flex xl:flex-nowrap sm:flex-wrap">
-        <ng-container *ngFor="let item of tags;let i = index">
-            <button
-            (click)="toggle(i)"
-            [ngClass]="tags[i].active ? 'btn-tags-actived pt-1 pb-0 pr-6 pl-6 md:!text-lg' : 'btn-tags pt-1 pb-0 pr-6 pl-6 md:!text-lg'"
-            >{{item.name}}</button>
-        </ng-container>
-     </div>
- </div>
-     <!-- =========[فیلتر تگ ها رسپانسیو]========= -->
- <div class="sm:hidden overflow-scroll w-[98vw] flex flex-nowrap mr-4 items-center mt-7 pb-4">
-     <ng-container *ngFor="let item of tags;let i = index">
-         <button
-         (click)="toggle(i)"
-         [ngClass]="tags[i].active ? 'btn-tags-actived h-auto pr-4 pl-4' : 'btn-tags h-auto pr-4 pl-4'"
-         >{{item.name}}</button>
-     </ng-container>
- </div>

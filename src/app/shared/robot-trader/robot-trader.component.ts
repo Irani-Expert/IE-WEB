@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-robot-trader',
@@ -7,6 +8,9 @@ import { Meta } from '@angular/platform-browser';
   styleUrls: ['./robot-trader.component.scss'],
 })
 export class RobotTraderComponent {
+  mainClass =
+    'm-0 p-0 gap-0 flex flex-col min-h-screen overflow-hidden lg:overflow-y-hidden lg:overflow-x-auto';
+  main: HTMLElement;
   constructor(private _meta: Meta) {
     this._meta.addTag({
       name: 'description',
@@ -20,6 +24,10 @@ export class RobotTraderComponent {
       name: 'keywords',
       content: '',
     });
+    if (AppComponent.isBrowser.value) {
+      this.main = document.body.getElementsByTagName('main')[0];
+      this.main.className = `bg-[#FAFAFA] ${this.mainClass}`;
+    }
   }
   qA = [
     'ATM ربات معامله گر ',
@@ -191,6 +199,9 @@ export class RobotTraderComponent {
       text: 'در حالی که ربات‌ها می‌توانند معاملات را خودکار کنند و به طور بالقوه سود ایجاد کنند، داشتن انتظارات واقع بینانه بسیار مهم است. مراقب ربات‌هایی باشید که وعده سود نجومی را به شما می‌دهند یا سود ثابتی را تضمین می‌کنند. بازارهای مالی بسیار بی ثبات هستند و هیچ رباتی نمی تواند سود را در تمام شرایط بازار تضمین کند. به دنبال ربات‌هایی باشید که انتظارات سود معقولی را ارائه می‌کنند و بر مدیریت ریسک تأکید دارند.',
     },
   ];
+  ngOnDestroy() {
+    this.main.className = this.mainClass;
+  }
 }
 
 interface Icardlist {
