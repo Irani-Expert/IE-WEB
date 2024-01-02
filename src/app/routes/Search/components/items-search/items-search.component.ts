@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { SearchModel } from 'src/app/classes/interfaces/search.interface';
+import { environment } from 'src/environments/environment.dev';
 
 @Component({
   selector: 'app-items-search',
@@ -10,6 +11,7 @@ export class ItemsSearchComponent {
 
 
   @Input('data') searchModel : SearchModel;
+  contentUrl = environment.contentUrl;
 
   // ==========[هاور]=====
   timer:any;

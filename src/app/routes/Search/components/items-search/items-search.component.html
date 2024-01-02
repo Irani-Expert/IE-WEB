@@ -28,7 +28,8 @@
             <div class="box-hover-down">
                 <div class="flex flex-row">
                     <div class="basis-1/3">
-                        <img class="img-hvr-item-down" src="{{hvr.cardImagePath}}" alt="img-item">
+                        <img class="img-hvr-item-down"         
+                        [src]="contentUrl + hvr.cardImagePath" alt="img-item">
                     </div>
                     <div class="basis-2/3 mr-4">
                         <h6 class="title-hover-down">{{hvr.title}}</h6>
@@ -46,7 +47,8 @@
             <div class="box-hover">
                   <div class="flex flex-col">
                       <h6 class="title-hover">{{hvr.title}}</h6>
-                      <img class="img-hvr-item" src="{{hvr.cardImagePath}}" alt="img-item">
+                      <img class="img-hvr-item"         
+                      [src]="contentUrl + hvr.cardImagePath" alt="img-item">
                       <p>
                         {{hvr.brief}}
                       </p>
@@ -58,10 +60,11 @@
     <div class="selected mb-4">
         <div class="hidden lg:block">
             <a href="products/1/اکسپرت_ATM">
-                <div class="flex box-item" (mouseenter)="changesort(hvr)" (mouseleave)="toggleMenuLeave(i)">
+                <div class="flex box-item" (mouseenter)="changesort(hvr)" (mouseleave)="toggleMenuLeave(hvr)">
                     <div class="flex flex-row w-full">
                         <div class="basis-2/6 flex items-center justify-center max-w-[10rem]">
-                            <img class="item-img" src="{{hvr.cardImagePath}}" alt="item">
+                            <img class="item-img"         
+                            [src]="contentUrl + hvr.cardImagePath" alt="item">
                         </div>
                         <div class=" basis-full flex flex-col justify-center mr-6">
                             <h5 class="title-item">{{hvr.title}}</h5>
@@ -87,7 +90,8 @@
             <a href="products/1/اکسپرت_ATM">
             <div class="flex w-full flex-row">
                 <div class="basis-2/5 flex items-center justify-center max-w-[240px]">
-                    <img class="item-img-mobile" src="{{hvr.cardImagePath}}" alt="item">
+                    <img class="item-img-mobile"         
+                    [src]="contentUrl + hvr.cardImagePath" alt="item">
                 </div>
                 <div class="basis-3/5 flex flex-col justify-center mr-6">
                     <h5 class="title-item-mobile sm:!text-2xl">{{hvr.title}}</h5>
@@ -112,7 +116,8 @@
                 <div class="box-hover-down">
                     <div class="flex flex-row">
                         <div class="basis-1/3">
-                            <img class="img-hvr-item-down" src="{{hvr.cardImagePath}}" alt="img-item">
+                            <img class="img-hvr-item-down"         
+                            [src]="contentUrl + hvr.cardImagePath" alt="img-item">
                         </div>
                         <div class="basis-2/3 mr-4">
                             <h6 class="title-hover-down">{{hvr.title}}</h6>
@@ -130,7 +135,8 @@
                 <div class="box-hover">
                       <div class="flex flex-col">
                           <h6 class="title-hover">{{hvr.title}}</h6>
-                          <img class="img-hvr-item" src="{{hvr.cardImagePath}}" alt="img-item">
+                          <img class="img-hvr-item"         
+                          [src]="contentUrl + hvr.cardImagePath" alt="img-item">
                           <p>
                             {{hvr.brief}}
                           </p>
@@ -142,10 +148,11 @@
         <div class="selected mb-4">
             <div class="hidden lg:block">
                 <a href="products/1/اکسپرت_ATM">
-                    <div class="flex box-item" (mouseenter)="changesort(hvr)" (mouseleave)="toggleMenuLeave(i)">
+                    <div class="flex box-item" (mouseenter)="changesort(hvr)" (mouseleave)="toggleMenuLeave(hvr)">
                         <div class="flex flex-row w-full">
                             <div class="basis-2/6 flex items-center justify-center max-w-[10rem]">
-                                <img class="item-img" src="{{hvr.cardImagePath}}" alt="item">
+                                <img class="item-img"         
+                                [src]="contentUrl + hvr.cardImagePath" alt="item">
                             </div>
                             <div class=" basis-full flex flex-col justify-center mr-6">
                                 <h5 class="title-item">{{hvr.title}}</h5>
@@ -170,7 +177,8 @@
                 <a href="products/1/اکسپرت_ATM">
                 <div class="flex w-full flex-row">
                     <div class="basis-2/5 flex items-center justify-center max-w-[240px]">
-                        <img class="item-img-mobile" src="{{hvr.cardImagePath}}" alt="item">
+                        <img class="item-img-mobile"         
+                        [src]="contentUrl + hvr.cardImagePath" alt="item">
                     </div>
                     <div class="basis-3/5 flex flex-col justify-center mr-6">
                         <h5 class="title-item-mobile sm:!text-2xl">{{hvr.title}}</h5>
@@ -194,7 +202,8 @@
                     <div class="box-hover-down">
                         <div class="flex flex-row">
                             <div class="basis-1/3">
-                                <img class="img-hvr-item-down" src="{{hvr.cardImagePath}}" alt="img-item">
+                                <img class="img-hvr-item-down"         
+                                [src]="contentUrl + hvr.cardImagePath" alt="img-item">
                             </div>
                             <div class="basis-2/3 mr-4">
                                 <h6 class="title-hover-down">{{hvr.title}}</h6>
@@ -212,7 +221,8 @@
                     <div class="box-hover">
                           <div class="flex flex-col">
                               <h6 class="title-hover">{{hvr.title}}</h6>
-                              <img class="img-hvr-item" src="{{hvr.cardImagePath}}" alt="img-item">
+                              <img class="img-hvr-item"         
+                              [src]="contentUrl + hvr.cardImagePath" alt="img-item">
                               <p>
                                 {{hvr.brief}}
                               </p>
@@ -224,10 +234,11 @@
             <div class="selected mb-4">
                 <div class="hidden lg:block">
                     <a href="products/1/اکسپرت_ATM">
-                        <div class="flex box-item" (mouseenter)="changesort(hvr)" (mouseleave)="toggleMenuLeave(i)">
+                        <div class="flex box-item" (mouseenter)="changesort(hvr)" (mouseleave)="toggleMenuLeave(hvr)">
                             <div class="flex flex-row w-full">
                                 <div class="basis-2/6 flex items-center justify-center max-w-[10rem]">
-                                    <img class="item-img" src="{{hvr.cardImagePath}}" alt="item">
+                                    <img class="item-img"         
+                                    [src]="contentUrl + hvr.cardImagePath" alt="item">
                                 </div>
                                 <div class=" basis-full flex flex-col justify-center mr-6">
                                     <h5 class="title-item">{{hvr.title}}</h5>
@@ -252,7 +263,8 @@
                     <a href="products/1/اکسپرت_ATM">
                     <div class="flex w-full flex-row">
                         <div class="basis-2/5 flex items-center justify-center max-w-[240px]">
-                            <img class="item-img-mobile" src="{{hvr.cardImagePath}}" alt="item">
+                            <img class="item-img-mobile"         
+                            [src]="contentUrl + hvr.cardImagePath" alt="item">
                         </div>
                         <div class="basis-3/5 flex flex-col justify-center mr-6">
                             <h5 class="title-item-mobile sm:!text-2xl">{{hvr.title}}</h5>
