@@ -15,6 +15,9 @@ import { FilterBlog } from 'src/app/classes/interfaces/filter-blog.interface';
   styleUrls: ['./landing-blog-detail.component.scss'],
 })
 export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
+  mainClass =
+    'm-0 p-0 gap-0 flex flex-col min-h-screen overflow-hidden lg:overflow-y-hidden lg:overflow-x-auto';
+  main: HTMLElement;
   // ===========[سرویس ها]==========
   itemsBlog: Blog[] = new Array<Blog>();
   blogFilter: FilterBlog = new FilterBlog();
@@ -55,6 +58,10 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
     private activatedRoute: ActivatedRoute
   ) {
     super();
+    if (AppComponent.isBrowser.value) {
+      this.main = document.body.getElementsByTagName('main')[0];
+      this.main.className = `bg-[#FAFAFA] ${this.mainClass}`;
+    }
   }
   async ngOnInit() {
     this.updateDeviceValue();
@@ -65,6 +72,7 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
     });
   }
   ngOnDestroy() {
+    this.main.className = this.mainClass;
     this.routeSubscriber?.unsubscribe();
   }
 
