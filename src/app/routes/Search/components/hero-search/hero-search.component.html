@@ -11,7 +11,13 @@
             <div class="flex justify-between items-center box-search h-16
             sm:!h-20 w-full lg:!w-[80%]">
                 <input (input)="fillValue($any($event.target).value)"
-                 class="h-full search-input-box" placeholder="جستجو" type="text">
+                 class="h-full search-input-box" type="text"
+                 [placeholder]="
+                 savedItem.someThing
+                   ?  savedItem.someThing
+                   : 'جستجو'
+               "
+                 >
                 <button>
                     <i class="scale-75 ie-search-page"></i>
                 </button>
