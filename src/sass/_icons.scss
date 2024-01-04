@@ -1,0 +1,178 @@
+.ie-icon {
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-rendering: auto;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+}
+.ie-chevron {
+  &.right {
+    transform: rotate(-90deg);
+  }
+  &.left {
+    transform: rotate(90deg);
+  }
+  &.up {
+    transform: rotate(180deg);
+  }
+  &::before {
+    content: url(../assets/icon/chevron.svg);
+  }
+  transition: transform 0.3s ease;
+}
+.ie-Polygon {
+  &.small::before {
+    width: 17px !important;
+  }
+  &::before {
+    @media (min-width: 640px) {
+      width: 55px !important;
+    }
+    width: 33px;
+    display: block;
+    content: url(../assets/icon/Polygon.svg);
+  }
+  transition: transform 0.3s ease;
+}
+.ie-expand {
+  &::before {
+    transform: rotate(-90deg);
+    content: url(../assets/icon/expand.svg);
+  }
+  transition: transform 0.3s ease;
+}
+.ie-puase {
+  &.small::before {
+    width: 16px !important;
+  }
+  &::before {
+    @media (min-width: 640px) {
+      width: 66px !important;
+    }
+    width: 26px;
+
+    display: block;
+    content: url(../assets/icon/puase.svg);
+  }
+  transition: transform 0.3s ease;
+}
+.ie-thick {
+  &::before {
+    content: url(../assets/icon/thick.svg);
+  }
+  transition: transform 0.3s ease;
+}
+.ie-target {
+  &::before {
+    content: url(../assets/icon/target.svg);
+  }
+  transition: transform 0.3s ease;
+}
+.ie-Rectangle {
+  &::before {
+    content: url(../assets/icon/Rectangle.svg);
+  }
+  transition: transform 0.3s ease;
+}
+.ie-search-page {
+  content: url(../assets/icon/search-icon-page.svg);
+  display: block;
+}
+.ie-drop-down {
+  display: block;
+  content: url(../assets/icon/drop-down-icon-search.svg);
+}
+.ie-dir {
+  &::before {
+    content: url(../assets/icon/direction.svg);
+    fill: white;
+  }
+  &.ab::before {
+    width: 10px;
+    height: 28px;
+  }
+  &.left {
+    transform: rotate(180deg);
+    position: relative;
+  }
+
+  transition: transform 0.3s ease;
+}
+.ie-handshake {
+  &::before {
+    content: url(../assets/icon/handshake.svg);
+  }
+
+  transition: transform 0.3s ease;
+}
+.ie-comments {
+  &::before {
+    content: url(../assets/icon/comment.svg);
+  }
+
+  transition: transform 0.3s ease;
+}
+.ie-starUser {
+  &::before {
+    content: url(../assets/icon/starUser.svg);
+  }
+
+  transition: transform 0.3s ease;
+}
+
+.ie-content-menu-close {
+  content: url(../assets/icon/content-menu-close.svg);
+  display: block;
+}
+.ie-content-menu-open {
+  content: url(../assets/icon/content-menu-open.svg);
+  display: block;
+}
+.ie-content-menu-icon {
+  content: url(../assets/icon/content-menu-icon.svg);
+  display: block;
+}
+.ie-folder {
+  content: url(../assets/icon/folder.svg);
+  display: block;
+}
+.ie-meta-trader {
+  content: url(../assets/icon/meta-trader.svg);
+  display: block;
+  stroke: black;
+}
+.ie-laptop {
+  content: url(../assets/icon/laptop.svg);
+  display: block;
+}
+
+.ie-target-2 {
+  content: url(../assets/icon/target.svg);
+  display: block;
+}
+.ie-h1 {
+  content: url(../assets/icon/h-1.svg);
+  display: block;
+}
+.ie-h2 {
+  content: url(../assets/icon/h-2.svg);
+  display: block;
+}
+.ie-h3 {
+  content: url(../assets/icon/h-3.svg);
+  display: block;
+}
+.ie-h4 {
+  content: url(../assets/icon/h-4.svg);
+  display: block;
+}
+.ie-h5 {
+  content: url(../assets/icon/h-5.svg);
+  display: block;
+}
+.ie-bg-yellow {
+  content: url(../assets/icon/bg-yellow.svg);
+  display: block;
+}

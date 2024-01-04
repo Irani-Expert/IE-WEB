@@ -1,0 +1,23 @@
+<div
+  class="card-container"
+  style="
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+  "
+>
+  <div class="card" *ngFor="let item of items">
+    <div class="bg-[#efeded] m-5 p-3 rounded-2xl flex justify-center">
+      <div class="rounded-xl">
+        <i
+          class="fi fi-fr text-3xl"
+          style="transform: scaleX(1.1); border-radius: 22%; width: 40px"
+        ></i>
+      </div>
+      <div class="me-3 ms-3 w-20">
+        <div class="text-xs border-b border-b-stone-300">فرانسه</div>
+        <div class="text-sm text-left">USD</div>
+      </div>
+    </div>
+  </div>
+</div>

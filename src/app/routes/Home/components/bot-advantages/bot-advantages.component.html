@@ -1,0 +1,99 @@
+<div class="flex justify-center flex-col">
+  <div class="hidden sm:block">
+    <h1 class="text-2xl text-green-800 text-center oblique">
+      یک ربات با چندین مزایا
+    </h1>
+    <p class="text-center text-black text-xl">سود ما در راستای سود شماست</p>
+  </div>
+
+  <div class="sm:flex items-start">
+    <div class="relative bottom-12 flex mr-6">
+      <img class="img-bot" src="../../../../../assets/img/AX2 copy.png" />
+    </div>
+    <div class="block sm:hidden">
+      <h1 class="text-2xl text-green-800 text-center oblique">
+        یک ربات با چندین مزایا
+      </h1>
+      <p class="text-center text-black text-xl">سود ما در راستای سود شماست</p>
+    </div>
+
+    <ul class="sm:h-full sm:w-9/12" style="display: grid">
+      <li
+        class="flex"
+        [ngClass]="activeAdvantages == 0 ? 'active-adv' : 'deActive-adv'"
+      >
+        <div class="Icon-width">
+          <img
+            (click)="chooseAdvantage(0)"
+            class="rounded-full p-3 ms-auto me-auto object-contain aspect-square"
+            src="../../../../../assets/img/botAdvantageIcons-1.png"
+          />
+          <span class="mt-3 rounded-full inline-block"></span>
+        </div>
+        <div class="w-4/5 p-3">
+          <h3>امکانات</h3>
+          <p class="sm:text-[28px]">
+            مدیریت سرمایه،الگوریتم ژنتیک،پارامتر های ورودی گسترده،نظارت انسانی
+            پشتیبانی فنی،قابلیت چند اجرای همزمان،اجرا روی تمام جفت ارز ها تشخیص
+            اخبار
+          </p>
+          <div class="flex justify-end font-extrabold">
+            <button class="text-[22px] ps-6 pe-6 p-1.5 rounded-full btn-blue">
+              <a routerLink="products/1/اکسپرت_ATM"> بررسی امکانات </a>
+            </button>
+          </div>
+        </div>
+      </li>
+      <li
+        class="flex"
+        [ngClass]="activeAdvantages == 1 ? 'active-adv' : 'deActive-adv'"
+      >
+        <div class="Icon-width">
+          <img
+            (click)="chooseAdvantage(1)"
+            class="rounded-full p-3 ms-auto me-auto object-contain aspect-square"
+            src="../../../../../assets/img/botAdvantageIcons-2.png"
+          />
+          <span class="mt-3 rounded-full inline-block"></span>
+        </div>
+        <div class="w-4/5 p-3">
+          <h3>بک تست</h3>
+          <p class="sm:text-[28px]">
+            بک تست 6 ماهه، با بالانس 5000 دلاری فقط روی تک جفت ارز یورو و دلار
+            چند نکته درباره بک تست: 1 - در بک تست شما امکان استفاده از پنل
+            مانیتورینگ رو ندارید. 2 - اخبار در بک تست لحاظ نمیشه
+          </p>
+          <div class="flex justify-end font-extrabold">
+            <button class="text-[22px] ps-6 pe-6 p-1.5 rounded-full btn-blue">
+              <a routerLink="products/1/اکسپرت_ATM"> مشاهده و دانلود </a>
+            </button>
+          </div>
+        </div>
+      </li>
+      <li
+        class="flex"
+        [ngClass]="activeAdvantages == 2 ? 'active-adv' : 'deActive-adv'"
+      >
+        <div class="Icon-width">
+          <img
+            (click)="chooseAdvantage(2)"
+            class="rounded-full p-3 ms-auto me-auto object-contain aspect-square"
+            src="../../../../../assets/img/botAdvantageIcons-3.png"
+          />
+        </div>
+        <div class="w-4/5 p-3">
+          <h3>رضایت مندی</h3>
+          <p class="sm:text-[28px]">
+            مصاحبه و بررسی استیتمنت برخی از مشتریان عزیز ایرانی اکسپرت که نظر
+            دقیق خود را با ما به اشتراک گذاشته اند. اخبار
+          </p>
+          <div class="flex justify-end font-extrabold">
+            <button class="text-[22px] ps-6 pe-6 p-1.5 rounded-full btn-blue">
+              <a routerLink="products/1/اکسپرت_ATM"> مشاهده و دانلود </a>
+            </button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

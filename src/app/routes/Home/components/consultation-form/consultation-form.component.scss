@@ -1,0 +1,118 @@
+input:focus {
+  outline: 1.5px solid #3246d3;
+}
+input:hover {
+  outline: 1.5px solid #3246d3;
+}
+input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+.header-start {
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: #098b41;
+  &::before {
+    content: "";
+    width: 20px;
+    height: 5px;
+    background-color: #098b41;
+    border-radius: 6px;
+    display: inline-block;
+    margin: 2px 6px;
+  }
+}
+input {
+  padding: 15px;
+}
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 37px;
+  height: 19px;
+  background: #f8f8f8;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+
+label:after {
+  content: "";
+  position: absolute;
+  top: 1.2px;
+  left: 2px;
+  width: 15px;
+  height: 15px;
+  background: #d8d8d8;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+
+input:checked + label {
+  background: #3246d3;
+}
+
+input:checked + label:after {
+  background: #fff;
+  left: calc(100% - 1.25px);
+  transform: translateX(-100%);
+}
+
+label:active:after {
+  width: 24px;
+}
+.hasError {
+  animation: border-red 1s ease-in-out;
+}
+
+@keyframes border-red {
+  0% {
+    border: 1px solid black;
+    border-color: black;
+  }
+
+  100% {
+    border: 1px solid black;
+    border-color: red;
+  }
+}
+.bg-green-form {
+  input:hover {
+    outline: 1.5px solid #00ffa8 !important;
+  }
+  input:focus {
+    outline: 1.5px solid #00ffa8 !important;
+  }
+  label::after {
+    background: #00ffa8 !important;
+  }
+  label {
+    background: white;
+  }
+  button {
+    border-color: #098b41 !important;
+    background-color: #098b41;
+    position: relative;
+    top: 13px;
+  }
+  input:checked + label {
+    background: white !important;
+  }
+  button:hover {
+    color: white;
+  }
+  outline: 1.5px solid #00ffa8 !important;
+
+  width: 26rem;
+  background: rgb(243, 248, 246);
+  background: linear-gradient(
+    0deg,
+    rgba(243, 248, 246, 0.468312324929972) 0%,
+    rgba(0, 255, 168, 0.2862394957983193) 86%,
+    rgba(0, 255, 168, 0.3226540616246498) 100%
+  );
+  margin: 15px;
+  padding-top: 30px;
+  border-radius: 25px;
+}

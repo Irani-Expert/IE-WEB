@@ -20,32 +20,54 @@
             "outputPath": "dist/IE-WEB/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "allowedCommonJsDependencies": ["lottie-web"],
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "./src/favicon.ico",
+              "./src/assets/img",
+              "./src/assets/icon",
+              "./src/assets/audio",
+              "./src/assets/lottie"
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "styles": ["./src/sass/styles.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules/tailwindcss",
+                "node_modules/flag-icons/css"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
             "production": {
+              "optimization": {
+                "scripts": true,
+                "styles": {
+                  "minify": true,
+                  "inlineCritical": true
+                },
+                "fonts": true
+              },
+              "aot": true,
+              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "1.5mb",
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "6kb",
+                  "maximumError": "8kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.dev.ts",
+                  "with": "src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -82,19 +104,11 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["sass/styles.scss"],
             "scripts": []
           }
         },
@@ -108,7 +122,13 @@
           },
           "configurations": {
             "production": {
-              "outputHashing": "media"
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.dev.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
             },
             "development": {
               "buildOptimizer": false,
@@ -137,9 +157,7 @@
         "prerender": {
           "builder": "@nguniversal/builders:prerender",
           "options": {
-            "routes": [
-              "/"
-            ]
+            "routes": ["/"]
           },
           "configurations": {
             "production": {
@@ -157,6 +175,6 @@
     }
   },
   "cli": {
-    "analytics": false
+    "analytics": "f2279ba8-d35a-439d-8202-55b63e682149"
   }
 }

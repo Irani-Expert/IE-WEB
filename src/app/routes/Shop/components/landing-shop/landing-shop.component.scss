@@ -1,0 +1,100 @@
+.custom-img-product {
+  border-radius: 19px;
+  // padding: 27px 0px;
+  background: #000;
+  aspect-ratio: 9/11;
+  object-fit: contain;
+  max-width: 236px;
+  width: 100%;
+  height: auto;
+}
+.sidenav {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 9rem;
+  left: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  z-index: 100;
+}
+.slide-top {
+  animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+@keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-100px);
+    transform: translateY(-100px);
+  }
+}
+.sidenav .closebtn {
+  position: absolute;
+  top: -10px;
+  left: 25px;
+  font-size: 64px;
+  margin-right: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+.overlay3 {
+  width: 100%;
+  opacity: 0.8;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow-y: auto;
+  overflow-x: hidden;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 1s;
+}
+.part-seperator {
+  &::before {
+    content: "";
+    width: 28px;
+    height: 8px;
+    background-color: #3246d3;
+    border-radius: 6px;
+    display: inline-block;
+    margin: 0 0 -1px 2px;
+  }
+  margin-bottom: 0.875rem;
+}
+.list-numeric {
+  list-style: auto;
+  ::marker {
+    font-size: 1.25rem;
+    color: #3246d3;
+    font-weight: 700;
+  }
+  padding-right: 40px !important;
+}
+.list-tick {
+  list-style: auto;
+  ::marker {
+    content: url(../../../../../assets/icon/tick-blue.svg);
+  }
+  padding-right: 40px !important;
+}
+.content-static {
+  p:not(.part-seperator) {
+    color: #000;
+  }
+}

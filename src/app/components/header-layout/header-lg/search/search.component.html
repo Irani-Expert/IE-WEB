@@ -1,0 +1,111 @@
+<button
+  type="button"
+  class="flex items-center justify-center align-middle"
+  (click)="isSearchOpened()"
+>
+  <svg
+    id="Component_23_1"
+    data-name="Component 23 – 1"
+    xmlns="http://www.w3.org/2000/svg"
+    width="40"
+    height="40"
+    viewBox="0 0 58 55"
+    *ngIf="!isSearchClicked"
+  >
+    <g
+      id="Rectangle_141"
+      data-name="Rectangle 141"
+      fill="#fff"
+      stroke="#6e6e6e"
+      stroke-width="1"
+    >
+      <rect width="58" height="55" rx="10" stroke="none" />
+      <rect x="0.5" y="0.5" width="57" height="54" rx="9.5" fill="none" />
+    </g>
+    <g id="Group_56" data-name="Group 56" transform="translate(-297 -117)">
+      <g
+        id="Ellipse_96"
+        data-name="Ellipse 96"
+        transform="translate(314 130.25)"
+        fill="#fff"
+        stroke="#707070"
+        stroke-width="2"
+      >
+        <circle cx="11" cy="11" r="11" stroke="none" />
+        <circle cx="11" cy="11" r="10" fill="none" />
+      </g>
+      <line
+        id="Line_56"
+        data-name="Line 56"
+        x2="7.5"
+        y2="10.75"
+        transform="translate(330 149.75)"
+        fill="none"
+        stroke="#707070"
+        stroke-width="2"
+      />
+    </g>
+  </svg>
+  <div class="flex flex-col items-end" *ngIf="isSearchClicked">
+    <div class="relative">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="40"
+        height="40"
+        viewBox="0 0 58 55"
+      >
+        <rect
+          id="Rectangle_141"
+          data-name="Rectangle 141"
+          width="58"
+          height="55"
+          rx="10"
+          fill="#cc3a39"
+        />
+        <g id="Group_56" data-name="Group 56" transform="translate(-297 -117)">
+          <line
+            id="Line_56"
+            data-name="Line 56"
+            x2="15"
+            y2="15"
+            transform="translate(318.5 136.5)"
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-width="2"
+          />
+          <line
+            id="Line_57"
+            data-name="Line 57"
+            x1="15"
+            y2="15"
+            transform="translate(318.5 136.5)"
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-width="2"
+          />
+        </g>
+      </svg>
+    </div>
+
+    <div class="absolute top-12" (click)="onEvent($event)">
+      <label
+        for="search-bar"
+        class="block text-sm font-medium leading-6 text-gray-900"
+      ></label>
+      <div class="mt-2" style="width: 160px; z-index: 1001">
+        <ng-container *ngIf="!loading">       
+        <input
+        (input)="fillValue($any($event.target).value)"
+          type="text"
+          name="search-bar"
+          id="search-bar"
+          autocomplete="off"
+          class="block w-full text-sm rounded-md border-0 py-2.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-100 sm:text-sm sm:leading-6 bg-white"
+        />
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</button>

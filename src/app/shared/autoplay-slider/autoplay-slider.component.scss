@@ -1,0 +1,19 @@
+.card-container {
+  overflow: hidden;
+  height: 200px; /* Set the desired height for the card container */
+}
+
+.card {
+  height: 100%;
+  /* Add other desired styling for the card */
+  animation: scrollCards 5s linear infinite; /* Adjust the duration as needed */
+}
+
+@keyframes scrollCards {
+  0% {
+    transform: translatex(0);
+  }
+  100% {
+    transform: translatex(-100%);
+  } /* Adjust the percentage based on card height and number of cards */
+}

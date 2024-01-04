@@ -1,0 +1,38 @@
+.bg-Img {
+  background-image: url(../../../../../assets/img/mask.png);
+}
+.colorful-bg {
+  background-image: linear-gradient(
+    to right top,
+    #098b41,
+    #05a64c,
+    #00c257,
+    #00de61,
+    #00fb6c
+  );
+}
+.absolute-custom {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    text-align: center;
+    font-size: 2rem;
+    color: #ff0000;
+    padding: 0.25rem 2.25rem;
+    border-radius: 12px;
+    border: 5px solid #ff0000;
+    transform: rotate(-20deg);
+  }
+  border-radius: 12px;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  position: absolute;
+}
+.font-family-custom {
+  font-family: fantasy;
+  font-weight: 300;
+}

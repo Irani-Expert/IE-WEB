@@ -1,0 +1,25 @@
+.box-shadow-ac {
+  transition: box-shadow 0.2s linear, transform 0.2s linear,
+    border-color 0.2s linear;
+}
+// .box-shadow-ac:hover {
+//   box-shadow: -6px 5px 4px 0px #d8d8d8;
+//   transform: translate(2px, -2px);
+//   border-color: #3246d3;
+// }
+.circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1.5px solid #3246d3;
+  text-align: center;
+  line-height: 30px;
+  color: #3246d3;
+}
+.circle.full {
+  background-color: #3246d3;
+  color: #fff;
+}

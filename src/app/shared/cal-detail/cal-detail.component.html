@@ -1,0 +1,301 @@
+<div class="flex">
+  <div class="w-3/12 p-3">
+    <div class="bg-[#c7cefd7a] text-center rounded-xl">
+      <div
+        class="flex flex-col"
+        [ngClass]="
+          choosenlink == 0
+            ? 'rounded-xl bg-[#5b6ee9] text-white text-lg'
+            : 'text-base'
+        "
+      >
+        <a class="cursor-pointer p-4 active font-bold" (click)="selectLink(0)"
+          >توضیحات</a
+        >
+      </div>
+      <div
+        class="flex flex-col"
+        [ngClass]="
+          choosenlink == 1
+            ? 'rounded-xl bg-[#5b6ee9] text-white text-lg'
+            : 'text-base'
+        "
+      >
+        <a class="cursor-pointer p-4 active font-bold" (click)="selectLink(1)"
+          >یادداشت ایرانی اکسپرت</a
+        >
+      </div>
+      <div
+        class="flex flex-col"
+        [ngClass]="
+          choosenlink == 2
+            ? 'rounded-xl bg-[#5b6ee9] text-white text-lg'
+            : 'text-base'
+        "
+      >
+        <a class="cursor-pointer p-4 active font-bold" (click)="selectLink(2)"
+          >تاریخچه</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="w-9/12 p-2">
+    <div *ngIf="choosenlink == 0">
+      <div class="flex">
+        <i style="width: 37px" [ngClass]="'fi ms-1 fi-us'"> </i>
+        <div class="flex flex-col text-sm pt-3 ms-1" style="line-height: 8px">
+          8:10
+          <div class="Am-Pm text-xs">PM</div>
+        </div>
+        <div class="ms-2 mt-0.5">
+          <img class="w-8" src="../../../assets/img/Group 199.png" />
+        </div>
+        <div class="text-base font-bold flex items-center ms-2">
+          <h1>شاخص اصلاح قیمت در کالاها و سرویس های (به غیر از غذا و انرژی)</h1>
+        </div>
+        <div class="flex justify-end items-center w-1/4">
+          ico
+          <span
+            class="bg-[#ffee00] border-4 border-black p-0.5 font-bold rounded-lg w-20 text-base text-center"
+            >متوسط</span
+          >
+        </div>
+      </div>
+      <div class="h-[30rem]">
+        <div class="p-4 flex">
+          <i style="width: 37px" class="fi ms-1 fi-us text-3xl"></i>
+          <div class="font-medium text-sm ms-2">
+            <div class="">BoJ Trimmed Mean Core CPI y/y</div>
+            <div>
+              شاخص اصلاح قیمت در کالاها و سرویس های (به غیر از غذا و انرژی)
+            </div>
+          </div>
+        </div>
+        <div class="flex p-4">
+          <div class="w-1/2 m-2">
+            <h1 class="text-gray-400 text-sm">عنوان خبر</h1>
+            <p class="text-justify">
+              این رویداد بیانگر تغییر در قیمـــت کالاها و خدمات خریـــداری شده
+              توسط مصــــرف کنندگان، به استثنــــای مواد غذایـــی و انـرژی است
+            </p>
+          </div>
+          <div class="w-1/2 m-2">
+            <h1 class="text-gray-400 text-sm">انتشار</h1>
+            <p class="text-justify">
+              در زمان انتشــــــــار، اگر عـــدد منتشــــر شده از پیـــش بینی
+              بیشتـــــــر باشد اثر مثبت روی ارز مربوطه دارد زمان انتشار این
+              رویداد به صورت ماهیانه (معمــــــولا در آخرین جمعه ماه جاری) منتشر
+              می شود
+            </p>
+          </div>
+        </div>
+        <div class="flex p-4">
+          <div class="w-1/2 m-2">
+            <h1 class="text-gray-400 text-sm">اهمیت این داده در چیست؟</h1>
+            <p class="text-justify">
+              از آنجایی که قیمت های مصرف کننده اکثریت تورم کلی را تشکیل می
+              دهنـــد. تـــورم برای ارزش گـــذاری ارز مهــــم است زیرا افزایـــش
+              قیمــت ها باعث می شود بانک مرکـــزی به دلیل احترام به دستــور
+              مهـــــار تورم، نرخ های بهره را افـــــزایش دهـــــد. بنابرایـــن
+              این داده میتواند برای معامله گران مهم باشد
+            </p>
+          </div>
+          <div class="w-1/2 m-2">
+            <h1 class="text-gray-400 text-sm">بیشتر بدانید!</h1>
+            <p class="text-justify">
+              قیمت‌های مواد غذایی و انرژی حدود یک چهارم CPI را تشکیل می‌دهند اما
+              این قیمــــت‌ها بسیار نوســـان دارند و روند اصلی را مخــدوش
+              می‌کنند بانک ژاپن معمــــــــولاً به داده هـــای اصلــــــی توجه
+              بیشتــــــری می کنــــد معامله گران نیز همینطــــور. یک نسخه
+              اصـــلاح شده از این داده حـــــدود پنج روز بعد منتشر میشود
+            </p>
+          </div>
+        </div>
+        <hr class="mt-1 mb-1" />
+        <div class="font-extrabold flex">
+          <div class="w-1/5 text-center">
+            <div class="text-base text-green-400">3.3%</div>
+            <span class="text-gray-400 text-sm">مقدار واقعی</span>
+          </div>
+
+          <div class="w-1/5 text-center">
+            <div class="text-base">2.7%</div>
+            <span class="text-gray-400 text-sm">مقدار قبلی</span>
+          </div>
+          <div class="w-1/5 text-center">
+            <div class="text-base">3%</div>
+            <span class="text-gray-400 text-sm">مقدار پیش بینی</span>
+          </div>
+          <div class="w-1/5 text-center">
+            <div class="text-base text-green-400">0.3%</div>
+            <span class="text-gray-400 text-sm">مقدار تغییرات</span>
+          </div>
+          <div class="w-1/5 text-center">
+            <div class="text-base">05/09/2023</div>
+            <span class="text-gray-400 text-sm">تاریخ</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="choosenlink == 1">
+      <div class="flex">
+        <i style="font-size: 25px" [ngClass]="'fi ms-1 fi-us'"> </i>
+        <div class="flex flex-col text-sm pt-3 ms-1" style="line-height: 8px">
+          8:10
+          <div class="Am-Pm text-xs">PM</div>
+        </div>
+        <div class="ms-2 mt-0.5">
+          <img class="w-8" src="../../../assets/img/Group 199.png" />
+        </div>
+        <div class="text-base font-bold flex items-center ms-2">
+          <h1>شاخص اصلاح قیمت در کالاها و سرویس های (به غیر از غذا و انرژی)</h1>
+        </div>
+        <div class="flex justify-end items-center w-1/4">
+          ico
+          <span
+            class="bg-[#ffee00] border-4 border-black p-0.5 font-bold rounded-lg w-20 text-base text-center"
+            >متوسط</span
+          >
+        </div>
+      </div>
+      <div>
+        <div class="flex p-4">
+          <div class="w-1/2 m-2">
+            <h1 class="text-gray-400 text-sm">یادداشت ایرانی اکسپرت</h1>
+            <p class="text-justify">
+              با توجه به تحلیل فاندامنتال و داده های آماری احتمال مثبت شدن این
+              شاخص بیشتر است و در صورت مثبـــــت اعلام شــــدن این خبر روی ارز
+              ین ژاپن تاثیر مثبت خواهـــد گذاشت. توجه داشته باشید که شما بر اساس
+              اصـــول و تصمیمات خود وارد معامـــلاتتان باید بشــــوید و ایرانی
+              اکسپــــر ت در ســـود و زیان شما دخالتی ندارد و صرفا تحلیل خود را
+              بر اســـاس داده های آمـــــاری در اختیار جامعه تریـــدری می گذارد
+              به گــــزارش بیزنس، بانک مرکــــزی ژاپن (BoJ) روز جمعه
+              تصمیـــــــم گرفـــت نرخ بهـــره را روی منفی ۱/ ۰درصــــد نگه دارد
+              و مقـــــدار لازم اوراق قرضــــه دولتــــی را خریـــداری کند تا
+              بازدهی ۱۰ســــاله را حدود صفر درصد نگه دارد و به آنها اجازه دهـــد
+              در محدــــوده ۵/ ۰درصد از سطـح هدف نوســــان داشته باشـــند. این
+              بانک همچنیــــن گفت منحنی بازده را «با انعطاف‌پذیری بیشتـــــر» به
+              دلیـل «ابهامات بسیار بالا برای فعالیت‌های اقتصادی و قیمت‌ها»
+              کنتـــــــــرل می‌کند و در عین حال به تسهیل پولی ادامه خواهد داشت
+            </p>
+          </div>
+          <div class="w-1/2 m-2 flex justify-center">
+            <img
+              class="h-[21rem] w-[15rem]"
+              src="../../../assets/img/eco-cal-info.png"
+            />
+          </div>
+        </div>
+
+        <hr class="mt-1 mb-1" />
+        <div class="font-extrabold flex">
+          <div class="w-1/5 text-center">
+            <div class="text-base text-green-400">3.3%</div>
+            <span class="text-gray-400 text-sm">مقدار واقعی</span>
+          </div>
+
+          <div class="w-1/5 text-center">
+            <div class="text-base">2.7%</div>
+            <span class="text-gray-400 text-sm">مقدار قبلی</span>
+          </div>
+          <div class="w-1/5 text-center">
+            <div class="text-base">3%</div>
+            <span class="text-gray-400 text-sm">مقدار پیش بینی</span>
+          </div>
+          <div class="w-1/5 text-center">
+            <div class="text-base text-green-400">0.3%</div>
+            <span class="text-gray-400 text-sm">مقدار تغییرات</span>
+          </div>
+          <div class="w-1/5 text-center">
+            <div class="text-base">05/09/2023</div>
+            <span class="text-gray-400 text-sm">تاریخ</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="choosenlink == 2">
+      <table class="" dir="rtl">
+        <tr>
+          <th class="text-gray-500">تاریخ</th>
+          <th class="text-gray-500">مقدار قبلی</th>
+          <th class="text-gray-500">مقدار پیش بینی</th>
+          <th class="text-gray-500">مقدار واقعی</th>
+          <th class="text-gray-500">مقدار تغییرات</th>
+        </tr>
+        <tr class="sep">
+          <td colspan="3">
+            <hr />
+          </td>
+        </tr>
+        <tr>
+          <td>17 Aug 2023</td>
+          <td>2.5%</td>
+          <td>3.3%</td>
+          <td>3.3%</td>
+          <td>--</td>
+        </tr>
+        <tr>
+          <td>17 Aug 2023</td>
+          <td>2.5%</td>
+          <td>3.3%</td>
+          <td>3.3%</td>
+          <td>--</td>
+        </tr>
+        <tr>
+          <td>17 Aug 2023</td>
+          <td>2.5%</td>
+          <td>3.3%</td>
+          <td>3.3%</td>
+          <td>--</td>
+        </tr>
+        <tr>
+          <td>17 Aug 2023</td>
+          <td>2.5%</td>
+          <td>3.3%</td>
+          <td>3.3%</td>
+          <td>--</td>
+        </tr>
+        <tr>
+          <td>17 Aug 2023</td>
+          <td>2.5%</td>
+          <td>3.3%</td>
+          <td>3.3%</td>
+          <td>--</td>
+        </tr>
+        <tr>
+          <td>17 Aug 2023</td>
+          <td>2.5%</td>
+          <td>3.3%</td>
+          <td>3.3%</td>
+          <td>--</td>
+        </tr>
+        <tr>
+          <td>17 Aug 2023</td>
+          <td>2.5%</td>
+          <td>3.3%</td>
+          <td>3.3%</td>
+          <td>--</td>
+        </tr>
+        <tr>
+          <td>17 Aug 2023</td>
+          <td>2.5%</td>
+          <td>3.3%</td>
+          <td>3.3%</td>
+          <td>--</td>
+        </tr>
+      </table>
+      <div class="flex justify-center items-center p-2 m-2">
+        <ul class="flex">
+          <li class="selected-page">1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>...</li>
+          <li>11</li>
+        </ul>
+        <span class="flex items-center me-4 ms-4"
+          >صفحه بعدی<i class="fa fa-angle-left text-sm ms-1"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

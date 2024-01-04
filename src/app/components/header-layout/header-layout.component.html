@@ -1,4 +1,17 @@
-<p>header-layout works!</p>
-<app-header-lg></app-header-lg>
-<app-header-sm></app-header-sm>
-<app-header-alt></app-header-alt>
+<header class="relative z-10 bg-white">
+  <app-header-lg
+    (modal)="openedModal($event)"
+    class="flex justify-center"
+    [ngClass]="device == 'lg' ? 'block' : 'hidden'"
+  />
+  <app-header-sm
+    (modal)="openedModal($event)"
+    [ngClass]="device == 'sm' ? 'block' : 'hidden'"
+  />
+  <!-- <app-header-alt /> -->
+</header>
+<app-modal [overflow]="'auto'" [width]="'716px'" *ngIf="_modalStatus">
+  <div content>
+    <app-auth [view]="_modalView" />
+  </div>
+</app-modal>

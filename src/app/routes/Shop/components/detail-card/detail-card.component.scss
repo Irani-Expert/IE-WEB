@@ -1,0 +1,13 @@
+img {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  height: 100%;
+  @media (min-width: 640px) {
+    width: auto;
+  }
+}
+.divider-custom-vertical {
+  display: inline-block;
+  border: 1px solid #d1d1d1;
+  height: 25px;
+}

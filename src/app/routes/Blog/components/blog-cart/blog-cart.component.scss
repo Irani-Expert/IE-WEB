@@ -1,0 +1,66 @@
+.cart {
+    border: 1px solid #EAEAEA;
+    border-radius: 30px;
+    background-color: white;
+    max-width: 22rem;
+    height: 41rem;
+}
+.img-card{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px; 
+}
+
+.date{
+    color: #9F9F9F;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+}
+.divider{
+    border-bottom: 1px solid #EAEAEA;
+}
+
+.row2-title{
+    color: #3246D3;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.row2-body{
+    color: #9F9F9F;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+.box-like{
+    display: block ruby;
+}
+.like{
+    color: #9F9F9F;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+.img-box{
+    height: 398px;
+}
+.title-cart{
+    display: -webkit-box;
+    max-width: 100%;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+.part-1{
+    height: 74px;
+}
+// <!-- ======================[رسپانسیو}======== -->
+.img-card2{
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.date-card{
+    color: #9F9F9F;
+    font-size: 0.8rem;
+    font-weight: 600;
+}

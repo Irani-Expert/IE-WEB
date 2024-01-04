@@ -1,0 +1,36 @@
+.ngx-slider .ngx-slider-pointer {
+  background-color: $blue !important;
+}
+.ngx-slider .ngx-slider-selection {
+  background-color: $blue !important;
+}
+
+.ngx-slider .ngx-slider-pointer {
+  width: 15px !important;
+  height: 15px !important;
+  top: -5px !important;
+}
+.ngx-slider .ngx-slider-pointer:after {
+  background-color: $blue !important;
+}
+.ngx-slider .ngx-slider-bubble {
+  display: none !important;
+}
+.ngx-slider {
+  height: 23px !important;
+}
+.ngx-slider .ngx-slider-pointer:after {
+  display: none !important;
+}
+.ngx-slider .ngx-slider-tick {
+  width: 1px !important;
+  height: 8px !important;
+  margin-left: 7px !important;
+  border-radius: 0 !important;
+  background: $dim-green !important;
+  top: 17px !important;
+}
+.ngx-slider-floor,
+.ngx-slider-ceil {
+  display: none !important;
+}

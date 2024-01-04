@@ -1,0 +1,67 @@
+<form [formGroup]="form" (ngSubmit)="signup()">
+  <div class="container-inputs gap-3">
+    <ng-container *ngFor="let control of formControls; let i = index">
+      <div class="input-container">
+        <div class="relative">
+          <label [for]="control.name"></label>
+          <input
+            [id]="control.name"
+            autocomplete="off"
+            [ngClass]="control?.hasErr ? 'has-error' : ''"
+            [class]="control.class ? control.class : 'input-without-icon'"
+            [type]="control?.type ? control.type : 'text'"
+            formControlName="{{ control.name }}"
+            [placeholder]="control?.placeholder ? control.placeholder : ''"
+          />
+          <ng-container *ngFor="let icon of control?.icon">
+            <span [class]="icon.placement">
+              <ng-container *ngIf="icon.placement == 'left-icon'">
+                <img
+                  (click)="showPassClick(icon, i)"
+                  [@rotatedState]="state"
+                  [src]="icon.src"
+                  [alt]="icon.alt"
+                />
+              </ng-container>
+              <ng-container *ngIf="icon.placement == 'right-icon'">
+                <img [src]="icon.src" [alt]="icon.alt" />
+              </ng-container>
+            </span>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+    <button
+      [disabled]="loading"
+      class="button-submit rounded-lg text-white font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 col-span-2"
+      type="submit"
+    >
+      عضویت
+    </button>
+  </div>
+</form>
+<p class="text-small font-black text-black mt-2">
+  حساب کاربری دارید؟<button
+    (click)="changeView.emit(true)"
+    class="text-blue-800 p-0 m-0 bg-transparent cursor-pointer"
+  >
+    وارد شوید
+  </button>
+</p>
+
+<div class="flex flex-row my-2 items-center">
+  <span class="flex-1 border-b-2 border-b-gray-400 mx-1"></span>
+  <div class="flex-initial">
+    <p class="text-xs font-semibold">یا از روش های زیر اقدام به ورود کنید</p>
+  </div>
+  <span class="flex-1 border-b-2 border-b-gray-400 mx-1"></span>
+</div>
+<div class="flex flex-row justify-center">
+  <span
+    class="flex p-2.5 mx-2 bg-slate-50 border border-gray-300 rounded-full hover:bg-slate-200 transition-colors cursor-pointer"
+    ><img src="assets/icon/google.svg" alt="Google-Icon"
+  /></span>
+  <span class="flex p-2.5 mx-2 facebook-icon border rounded-full cursor-pointer"
+    ><img src="assets/icon/facebook.svg" alt="Facebook-Icon"
+  /></span>
+</div>

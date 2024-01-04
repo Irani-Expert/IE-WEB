@@ -1,0 +1,458 @@
+$min-width-carousel: 300px;
+
+@media (min-width: 640px) {
+  .btn1 {
+    .btn1 {
+      padding: 8px 18px 6px 16px;
+      margin-left: 15px;
+    }
+  }
+}
+
+.btn1 {
+  color: white;
+  position: relative;
+  border-radius: 35px;
+  background-color: #3246d3;
+  font-weight: 700;
+}
+.hero-f {
+  position: relative;
+}
+.hero-image {
+  min-width: 489px;
+  aspect-ratio: 4/3;
+  object-fit: contain;
+  max-width: 500px;
+  position: relative;
+  bottom: 30px;
+  right: 30px;
+  animation: img-move 12s infinite;
+}
+.matn-h {
+  text-align: right;
+  position: relative;
+}
+.r-h {
+  text-align: right;
+  margin-top: 1rem;
+}
+.link {
+  position: relative;
+  top: 5px;
+  right: 30px;
+  color: #707070;
+}
+.mosalas {
+  position: absolute;
+  min-width: 600px;
+  max-width: 730px;
+  transform: translate(109px, -302px);
+}
+.darsad {
+  font-style: oblique;
+  font-size: 2rem;
+}
+.title-d {
+  font-size: 15px;
+  font-weight: 300;
+  margin-top: -12px;
+}
+.mizan-sod {
+  text-align: center;
+}
+.btn {
+  color: white;
+  position: relative;
+  border-radius: 37px;
+  padding: 10px 18px 10px 15px;
+  background-color: #3246d3;
+  font-weight: 700;
+}
+.icon-btn {
+  scale: 0.7;
+  margin-bottom: 0.2rem;
+  margin-right: 0.4rem;
+}
+.header-start {
+  font-weight: 900;
+  font-size: 1.55rem;
+  color: #098b41;
+  &::before {
+    content: "";
+    width: 37px;
+    height: 5px;
+    background-color: #098b41;
+    border-radius: 6px;
+    display: inline-block;
+    margin: 2px 6px;
+  }
+}
+.header-title {
+  font-size: 2.5rem;
+  font-style: oblique;
+  word-spacing: 3px;
+}
+.part-right {
+  z-index: 1;
+  margin-top: -25px;
+}
+.header-paragraph {
+  font-size: 1.25rem;
+  padding-left: 0.5rem;
+  font-weight: normal;
+}
+.header-text-end {
+  color: #098b41;
+  font-size: 2rem;
+  font-style: oblique;
+}
+@keyframes img-move {
+  0% {
+    transform: translateX(8px);
+  }
+  10% {
+    -webkit-transform: translateZ(8px);
+  }
+  20% {
+    transform: translateX(8px);
+  }
+  30% {
+    -webkit-transform: translateZ(8px);
+  }
+  40% {
+    transform: translateX(8px);
+  }
+  50% {
+    -webkit-transform: translateZ(8px);
+  }
+  60% {
+    transform: translateX(8px);
+  }
+  70% {
+    -webkit-transform: translateZ(8px);
+  }
+  80% {
+    transform: translateX(8px);
+  }
+  90%,
+  100% {
+    -webkit-transform: translateZ(8px);
+  }
+}
+// <!-- ========================[رسپانسیو]================== -->
+.responsive {
+  background: #f3f3f3;
+}
+.hero2 {
+  position: relative;
+  height: 500px;
+}
+.hero-img2 {
+  max-width: 44rem;
+  // transform: translate(195px, -117px);
+}
+.box-1 {
+  position: relative;
+  background-color: white;
+  border-radius: 10px;
+  width: 118px;
+  transform: translate(-402px, -471px);
+}
+
+.emugi-box {
+  background-color: #0075f8;
+  border-radius: 34px;
+  width: 23px;
+  height: 23px;
+  position: relative;
+  top: 10px;
+  right: 10px;
+}
+.emugi-i {
+  width: 16px;
+  position: relative;
+  right: 4px;
+  top: 4px;
+}
+.p-e-box {
+  position: relative;
+  margin-right: -15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.p-e {
+  position: relative;
+}
+.emugi-h {
+  width: 10px;
+  position: absolute;
+  right: 16px;
+}
+.h-box {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.p-box {
+  color: black;
+  margin-top: -3px;
+  font-size: 0.5rem;
+  font-weight: bold;
+}
+// ==================[باکس 2]===============
+.p-e-box2 {
+  position: relative;
+  margin-right: -26px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.box-2 {
+  position: relative;
+  background-color: white;
+  border-radius: 10px;
+  width: 136px;
+  transform: translate(-296px, -227px);
+}
+.emugi-box2 {
+  background-color: #0075f8;
+  border-radius: 34px;
+  width: 25px;
+  height: 25px;
+  position: relative;
+  top: 10px;
+  right: 10px;
+}
+.emugi-i2 {
+  width: 13px;
+  position: relative;
+  right: 6px;
+  top: 6px;
+}
+
+.emugi-h2 {
+  width: 16px;
+  position: absolute;
+  right: 22px;
+  bottom: 12px;
+}
+// ==================[متن هیرو]===============
+
+.hero-h1 {
+  font-size: 35px;
+  font-style: oblique;
+  position: relative;
+  z-index: 2;
+}
+.hero-h2 {
+  font-weight: 600;
+  font-size: 22px;
+  color: #757575;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 2;
+}
+.hero-p {
+  font-size: 15px;
+  position: relative;
+  z-index: 10;
+}
+.row-btn {
+  position: relative;
+  z-index: 5;
+}
+.box-matn {
+  margin-right: 22px;
+  margin-left: 22px;
+}
+
+.icon-mobile {
+  scale: 0.6;
+  margin-bottom: 0.2rem;
+  margin-right: 0.4rem;
+}
+.btn2 {
+  color: black;
+  position: relative;
+  border-radius: 35px;
+  padding: 8px 18px 6px 18px;
+  background-color: white;
+  font-weight: 500;
+}
+.circle {
+  position: absolute;
+  background: rgb(50, 70, 211);
+  background: radial-gradient(
+    circle,
+    rgba(50, 70, 211, 0.33) 0%,
+    rgb(193, 193, 255) 12%,
+    #f3f3f3 56%
+  );
+  width: 100%;
+  transform: translate(-50%, -50%);
+  aspect-ratio: 1/1;
+}
+// ==================[کاروسل هیرو]===============
+.carousel-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.box-bg {
+  background-color: rgba(255, 255, 255, 0.625);
+  position: relative;
+  border-radius: 10px;
+  height: 102px;
+  margin-right: 55px;
+  margin-left: 30px;
+  max-width: 360px;
+  transform: translate(13px, -135px);
+  min-width: calc($min-width-carousel + 10%);
+}
+.profit {
+  color: #3246d3;
+  font-size: 40px;
+  font-weight: 500;
+  position: relative;
+  right: 4px;
+}
+.profit-d {
+  color: #3246d3;
+  font-size: 27px;
+  padding-left: 4px;
+  font-weight: 500;
+}
+.period {
+  color: #a5a4a4;
+  font-size: 22px;
+  font-weight: 300;
+  position: relative;
+  left: 19px;
+  bottom: 11px;
+}
+.box-body {
+  position: absolute;
+  top: 55px;
+  right: 62px;
+}
+.carousel {
+  position: relative;
+  background-color: white;
+  z-index: 100;
+
+  border-radius: 10px;
+  min-width: $min-width-carousel;
+  max-width: 333px;
+  margin-bottom: 21px;
+  height: 126px;
+  &-container {
+    width: 200px;
+    min-height: 200px;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  &-item {
+    // &:first-child {
+    //   background-color: #3246d3;
+    // }
+    // &:nth-child(3) {
+    //   background-color: #65687e;
+    // }
+    width: 100%;
+    position: absolute;
+    left: -100%;
+    box-sizing: border-box;
+    background: #fff;
+    &.active {
+      animation: display 0.8s ease-in forwards;
+
+      left: 0;
+      & + .carousel-item {
+        left: 100%;
+      }
+    }
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) {
+        z-index: 4 - $i + 1;
+      }
+    }
+  }
+  &-control {
+    color: #e5e5e5;
+    position: absolute;
+    height: 30px;
+    top: calc(50% - 15px);
+    left: 20px;
+    &.pre {
+      right: auto;
+      left: 20px;
+      scale: 2.1;
+    }
+    &.next {
+      left: auto;
+      right: 20px;
+      scale: 2.1;
+    }
+  }
+}
+@keyframes display {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// Triangle
+.triangle-home {
+  position: relative;
+  background-color: #f0f0f9;
+  text-align: right;
+}
+.triangle-home:before,
+.triangle-home:after {
+  content: "";
+  position: absolute;
+  background-color: inherit;
+}
+.triangle-home,
+.triangle-home:before,
+.triangle-home:after {
+  width: 17rem;
+  height: 17rem;
+  border-top-right-radius: 30%;
+}
+
+.triangle-home {
+  transform: rotate(-60deg) skewX(-30deg) scale(1, 0.866);
+}
+.triangle-home:before {
+  transform: rotate(-135deg) skewX(-45deg) scale(1.414, 0.707)
+    translate(0, -50%);
+}
+.triangle-home:after {
+  transform: rotate(135deg) skewY(-45deg) scale(0.707, 1.414) translate(50%);
+}
+#triangleHome {
+  transform: translate(60%, 50%) rotate(23deg);
+  right: 50%;
+  bottom: 88%;
+}
+// #triangleHome2 {
+//   transform: translate(60%, 50%) rotate(180deg);
+//   right: 50%;
+//   bottom: 88%;
+// }

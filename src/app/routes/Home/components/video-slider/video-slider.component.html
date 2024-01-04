@@ -1,0 +1,62 @@
+<div class="flex max-sm:flex-col my-8">
+  <div
+    class="sm:min-w-[25%] sm:max-w-[25%] flex flex-col pb-10 justify-between bg-suggestion rounded-2xl"
+  >
+    <div>
+      <div class="flex pt-6 px-4">
+        <img
+          class="w-24 max-h-[6rem] relative bottom-12"
+          src="../../../../../assets/img/virgol.png"
+        />
+        <h2 class="px-3 text-4xl font-extrabold">
+          ویدیوهایی که شما ارسال کردین
+        </h2>
+      </div>
+
+      <p class="p-6 text-justify">
+        عملکرد ربات معامله گر ایرانی اکسپرت روی حساب ریل شما که به صورت ویدیویی
+        برای ما ارسال کردید
+      </p>
+    </div>
+
+    <div class="flex justify-end px-4">
+      <button
+        (click)="sliderMovement(false)"
+        [ngClass]="lowwerSlide >= 2 ? 'active-btn' : ''"
+        class="flex justify-center items-center rounded-xl mx-2 h-16 w-16 pt-1 bg-[#ebebeb] cursor-context-menu"
+      >
+        <i class="ie-icon ie-dir w-3.5"></i>
+      </button>
+      <button
+        (click)="sliderMovement(true)"
+        [ngClass]="upperSlide < lenCommentModel.length ? 'active-btn' : ''"
+        class="flex justify-center items-center rounded-xl mx-2 h-16 w-16 pt-1 bg-[#ebebeb] cursor-context-menu"
+      >
+        <i class="ie-icon ie-dir bottom-[5px] left w-3.5"></i>
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="flex flex-col items-center"
+    [ngClass]="slidDirection ? 'slide-right' : 'slide-left'"
+    *ngFor="let x of lenCommentModel | slice : lowwerSlide : upperSlide"
+  >
+    <div class="min-w-[32%] max-sm:mt-3">
+      <app-video-player
+        class="max-sm:h-[12rem] max-sm:flex"
+        [ngClass]="x % 2 == 0 ? 'max-sm:!hidden' : ''"
+        [VideoId]="x"
+        [homeScreen]="true"
+        [Link]="'https://www.w3schools.com/html/mov_bbb.ogg'"
+      >
+        <div class="md:mt-6">
+          <p class="md:text-xl text-black font-semibold">
+            نتیجه عملکرد یک هفته کاری 5درصد سود حساب 2000 دلاری
+          </p>
+          <span class="font-medium">حساب مشتری عزیز :جناب محمد</span>
+        </div>
+      </app-video-player>
+    </div>
+  </div>
+</div>

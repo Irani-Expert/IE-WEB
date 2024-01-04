@@ -1,0 +1,14 @@
+<div class="scroll-nav flex justify-start mt-6 mb-6" >
+    <div *ngFor=" let s of scroll;let i = index" class="box-s">
+        <button class="box-body lg:!text-lg"
+        ><p
+        (click)="toggle(i , $event)"
+        [ngClass]="scroll[i].active ? 'active' : ''"
+        >{{s.name}}
+        </p>    
+       </button>
+       <div
+       [ngClass]="scroll[i].active ? 'border' : ''"
+       ></div>
+    </div>
+</div>

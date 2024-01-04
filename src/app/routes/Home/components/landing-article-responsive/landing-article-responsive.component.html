@@ -1,0 +1,66 @@
+<div
+  class="flex mt-3 justify-center cursor-pointer"
+  [routerLink]="'blog/' + '/' + blogs.browserTitle.split(' ').join('_')"
+>
+  <div
+    class="border-separate border rounded-3xl sm:rounded-2xl p-3 sm:p-4 ltr box-shadow-ac w-[300px] m-4"
+  >
+    <div class="h-full flex flex-col">
+      <div class="w-full flex rounded-t-lg bg-black sm:h-80">
+        <img
+          class="rounded-t-lg"
+          style="object-position: center; max-height: 11rem; min-width: 17.2rem"
+          [src]="'https://dl.iraniexpert.com' + blogs.cardImagePath"
+        />
+      </div>
+      <div class="w-full rtl flex flex-col justify-between">
+        <div>
+          <div class="flex m-2">
+            <img
+              src="../../../../../assets/img/Group 132.png"
+              class="sm:h-11 h-[20px]"
+            />
+            <span
+              class="mr-2 sm:text-sm text-[8px] font-medium justify-end flex flex-col color--blue"
+              >دربررسی بروکر ها<small
+                class="sm:text-sm font-medium color--grey500"
+                >{{ blogs.updateDate }}</small
+              ></span
+            >
+          </div>
+          <h1 class="sm:m-4 m-3 ms-0 sm:text-4xl font-semibold text-xl">
+            {{ blogs.title.slice(0, 30) }}
+          </h1>
+        </div>
+        <div
+          class="border-t pl-0 pr-0 flex justify-between border-gray-300 items-center p-2"
+        >
+          <div style="display: flex">
+            <img
+              src="../../../../../assets/img/30.png"
+              class="sm:h-[30px] h-[20px]"
+            />
+            <span
+              class="flex-col flex mr-1 sm:text-sm text-[8px] justify-evenly color--blue font-medium"
+              >نویسنده ؛ {{ blogs.updatedByFirstName }}
+              {{ blogs.updatedByLastName
+              }}<small class="sm:text-sm color--grey500 font-normal"
+                >زمان مطالعه 6 دقیقه</small
+              ></span
+            >
+          </div>
+          <div class="sm:m-2 me-0 sm:text-xl text-[8px] color--grey500 ltr">
+            <span class="me-2"
+              ><i class="fa fa-heart-o color--grey500 font-extralight"></i>
+              386
+            </span>
+            <span class="ltr"
+              ><i class="fa fa-eye color--grey500 font-extralight"></i>
+              {{ blogs.viewsCount }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

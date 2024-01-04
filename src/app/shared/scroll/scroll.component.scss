@@ -1,0 +1,28 @@
+.scroll-nav{
+    border-bottom: 1px solid #C7C7C7;
+  }
+  .box-s{
+    margin: 0rem 0.8rem 0rem 0.8rem;
+  }
+  .box-body .active{
+  color: #3246D3;
+  font-weight: 600;
+  }
+  .border{
+    border: #3246D3;
+    background-color: #3246D3;
+    width: 100%;
+    height: 0.35rem;
+    border-radius: 7px 7px 0px 0px;
+  }
+  .box-body{
+    font-size: 0.9rem;
+    color: #9F9F9F;
+    font-weight: 500;
+  }
+  .box-body :hover{
+    color: #3246D3;
+    font-weight: 800;
+  }
+  
+  

@@ -1,0 +1,75 @@
+<form [formGroup]="form" (ngSubmit)="login()">
+  <div class="container-inputs gap-3">
+    <ng-container *ngFor="let control of formControls; let i = index">
+      <div class="input-container">
+        <div class="relative">
+          <label [for]="control.name"></label>
+          <input
+            [id]="control.name"
+            autocomplete="off"
+            class="input-with-icon"
+            [type]="control?.type ? control.type : 'text'"
+            formControlName="{{ control.name }}"
+            [placeholder]="control?.placeholder ? control.placeholder : ''"
+          />
+          <ng-container *ngFor="let icon of control?.icon">
+            <span [class]="icon.placement">
+              <ng-container *ngIf="icon.placement == 'left-icon'">
+                <img
+                  (click)="showPassClick(icon, i)"
+                  [@rotatedState]="state"
+                  [src]="icon.src"
+                  [alt]="icon.alt"
+                />
+              </ng-container>
+              <ng-container *ngIf="icon.placement == 'right-icon'">
+                <img [src]="icon.src" [alt]="icon.alt" />
+              </ng-container>
+            </span>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+    <div class="col-span-2">
+      <app-toggle (checked)="rememberMe = $event" [name]="'rememberme'">
+        <strong after class="mx-1.5 font-black">مرا به خاطر بسپار</strong>
+      </app-toggle>
+      <p class="text-xs mt-1 text-justify">
+        با فعال سازی این قسمت اطلاعات شما برای دفعات بعدی ذخیره میشود
+      </p>
+    </div>
+    <button
+      [disabled]="form.invalid || loading"
+      class="button-submit relative rounded-lg text-white font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 col-span-2"
+      type="submit"
+    >
+      ورود
+      <spin *ngIf="loading" />
+    </button>
+  </div>
+</form>
+<p class="text-small font-black text-black mt-2">
+  رمز عبور خود را فراموش کرد‌اید؟<button
+    class="text-blue-800 p-0 m-0 bg-transparent cursor-pointer"
+    (click)="forgetPass()"
+  >
+    بازیابی رمز عبور
+  </button>
+</p>
+
+<div class="flex flex-row my-2 items-center">
+  <span class="flex-1 border-b-2 border-b-gray-400 mx-1"></span>
+  <div class="flex-initial">
+    <p class="text-xs font-semibold">یا از روش های زیر اقدام به ورود کنید</p>
+  </div>
+  <span class="flex-1 border-b-2 border-b-gray-400 mx-1"></span>
+</div>
+<div class="flex flex-row justify-center">
+  <span
+    class="flex p-2.5 mx-2 bg-slate-50 border border-gray-300 rounded-full hover:bg-slate-200 transition-colors cursor-pointer"
+    ><img src="assets/icon/google.svg" alt="Google-Icon"
+  /></span>
+  <span class="flex p-2.5 mx-2 facebook-icon border rounded-full cursor-pointer"
+    ><img src="assets/icon/facebook.svg" alt="Facebook-Icon"
+  /></span>
+</div>

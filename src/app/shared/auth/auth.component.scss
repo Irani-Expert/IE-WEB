@@ -1,0 +1,20 @@
+.custom-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: var(--flex-direction);
+  justify-content: space-around;
+  align-items: center;
+  gap: 0.75rem;
+}
+.right-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.75rem;
+  grid-column: auto;
+}
+.left-container {
+  grid-column: auto;
+  display: flex;
+}

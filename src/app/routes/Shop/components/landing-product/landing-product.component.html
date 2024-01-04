@@ -1,0 +1,77 @@
+<!-- ==========[هیرو]=========== -->
+<app-shop-hero
+  [data]="productService._product!"
+  *ngIf="!loading"
+></app-shop-hero>
+
+<ng-container *ngIf="!loading">
+  <!-- ==========[معرفی]=========== -->
+  <div #description>
+    <app-scroll
+      [activeId]="0"
+      (scrollClick1)="scroll(description)"
+      (scrollClick2)="scroll(option)"
+      (scrollClick4)="scroll(question)"
+      (scrollClick5)="scroll(comment)"
+    ></app-scroll>
+  </div>
+
+  <div>
+    <app-description></app-description>
+  </div>
+  <!-- ==========[امکانات]=========== -->
+
+  <div #option>
+    <app-scroll
+      [activeId]="1"
+      (scrollClick1)="scroll(description)"
+      (scrollClick2)="scroll(option)"
+      (scrollClick4)="scroll(question)"
+      (scrollClick5)="scroll(comment)"
+    ></app-scroll>
+  </div>
+
+  <app-bot-options
+    [data]="productService._product?.facilities!"
+  ></app-bot-options>
+
+  <!-- ==========[بک تست]=========== -->
+  <!-- <div #backtest>
+    <app-scroll
+      [activeId]="2"
+      (scrollClick1)="scroll(description)"
+      (scrollClick2)="scroll(option)"
+      (scrollClick3)="scroll(backtest)"
+      (scrollClick4)="scroll(question)"
+      (scrollClick5)="scroll(comment)"
+    ></app-scroll>
+  </div> -->
+
+  <!-- <app-back-test [data]="productService._product?.backTests!"></app-back-test> -->
+
+  <!-- ==========[سوالات]=========== -->
+  <div #question>
+    <app-scroll
+      [activeId]="2"
+      (scrollClick1)="scroll(description)"
+      (scrollClick2)="scroll(option)"
+      (scrollClick4)="scroll(question)"
+      (scrollClick5)="scroll(comment)"
+    ></app-scroll>
+  </div>
+
+  <app-question-shop></app-question-shop>
+
+  <!-- ==========[نظرات]=========== -->
+  <div #comment>
+    <app-scroll
+      [activeId]="3"
+      (scrollClick1)="scroll(description)"
+      (scrollClick2)="scroll(option)"
+      (scrollClick4)="scroll(question)"
+      (scrollClick5)="scroll(comment)"
+    ></app-scroll>
+  </div>
+
+  <app-comments [data]="productService._product?.comments!"></app-comments>
+</ng-container>

@@ -1,0 +1,97 @@
+<div [ngClass]="device == 'lg' ? 'block' : 'hidden'" class="mt-8">
+  <div class="flex justify-between mt-6">
+    <div class="flex items-center w-44">
+      <img src="assets/img/icon-carousel-card.svg" alt="icon" />
+      <p class="icon-title mr-3">{{ articleModel.group }}</p>
+    </div>
+    <button disabled class="flex items-center box-share disabled:opacity-25">
+      <p class="icon-title ml-3">اشتراک گذاری</p>
+      <img class="icon" src="assets/img/shared-icon.svg" alt="icon" />
+    </button>
+  </div>
+  <h6 class="title-blog">{{ articleModel.title }}</h6>
+  <div class="flex mt-3">
+    <p class="date ml-10">اننتشار :{{ articleModel.createDate | date }}</p>
+    <p class="date">زمان مطالعه {{ articleModel.studyTime }}دقیقه</p>
+  </div>
+  <!-- ================[عکس شاخص]========== -->
+  <div class="flex relative mt-4">
+    <img
+      class="img-blog"
+      [src]="contentUrl + articleModel.cardImagePath"
+      alt="{{ articleModel.title }}"
+    />
+    <div class="absolute flex h-full w-full items-center">
+      <div class="mt-40 mr-12">
+        <div class="divider" [style]="'background-color:' + color"></div>
+        <h6 class="title-blog-img">{{ articleModel.title }}</h6>
+      </div>
+    </div>
+  </div>
+  <p class="mt-8">{{ articleModel.brief }}</p>
+  <!-- =================[آرتیکلز]========= -->
+  <div [innerHTML]="articleHtml" class="mt-6"></div>
+
+  <!-- ===============[سوالات متداول]==============     -->
+  <!-- ===============[ نویسنده]==============     -->
+  <div class="flex mt-8 items-center">
+    <img class="ml-4" src="assets/img/avatar.png" alt="avatar" />
+    <p class="ml-4 writer">
+      {{ articleModel.updatedByFirstName }}&nbsp;
+      {{ articleModel.updatedByLastName }}
+    </p>
+    <p class="writer-date">تعداد بازدید کل:{{ articleModel.viewsCount }}</p>
+  </div>
+</div>
+
+<!-- ====================[رسپانسیو]========= -->
+<div [ngClass]="device == 'sm' ? 'block mb-20' : 'hidden'">
+  <div class="flex relative mt-4">
+    <img
+      class="img-blog-mobile"
+      [src]="contentUrl + articleModel.cardImagePath"
+      alt="icon"
+    />
+    <div class="absolute flex h-full w-full items-end">
+      <div class="mr-12">
+        <div class="divider-mobile" [style]="'background-color:' + color"></div>
+        <h6 class="title-blog-img-mobile">{{ articleModel.title }}</h6>
+      </div>
+    </div>
+  </div>
+  <!-- ================[تایتل عکس]======= -->
+  <div class="flex justify-between mt-6">
+    <div class="flex items-center scale-90">
+      <img src="assets/img/icon-carousel-card.svg" alt="icon" />
+      <p class="icon-title mr-3">{{ articleModel.group }}</p>
+    </div>
+    <a href="" class="flex items-center box-share-mobile">
+      <p class="icon-title ml-3">اشتراک گذاری</p>
+      <img class="icon" src="assets/img/shared-icon.svg" alt="icon" />
+    </a>
+  </div>
+  <h6 class="title-blog-mobile mt-3">{{ articleModel.title }}</h6>
+  <div class="flex mt-3">
+    <p class="date-mobile ml-10">
+      اننتشار :{{ articleModel.createDate | date }}
+    </p>
+    <p class="date-mobile">
+      زمان مطالعه : {{ articleModel.studyTime || "0" }}دقیقه
+    </p>
+  </div>
+  <p class="mt-8">
+    {{ articleModel.brief }}
+  </p>
+  <!-- =================[آرتیکلز]========= -->
+  <div [innerHTML]="articleHtml" class="mt-6 article-desription"></div>
+  <div class="flex mt-8 items-center flex-wrap gap-2">
+    <img src="assets/img/avatar.png" alt="avatar" />
+    <div class="basis-3/4 flex flex-col gap-2">
+      <p class="ml-4 writer">
+        {{ articleModel.updatedByFirstName }}&nbsp;
+        {{ articleModel.updatedByLastName }}
+      </p>
+      <p class="writer-date">تعداد بازدید کل:{{ articleModel.viewsCount }}</p>
+    </div>
+  </div>
+</div>

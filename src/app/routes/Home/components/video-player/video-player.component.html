@@ -1,0 +1,86 @@
+<div class="flex justify-center">
+  <div
+    id="main{{ this.vId }}"
+    class="sm:p-4 box-shadow-ac"
+    [ngClass]="homeScreen ? 'home-height' : ''"
+  >
+    <video
+      width="100%"
+      height="20%"
+      class="rounded-xl"
+      [ngClass]="{ ' video-opa': !pauseplay }"
+      webkit-playsinline="true"
+      loop="true"
+      (timeupdate)="onTimeUpdate()"
+      webkit-playsinline="true"
+      playsinline
+      type="video/mp4"
+    >
+      <source src="{{ videoLink }}" type="video/mp4" />
+    </video>
+    <div
+      class="items-center p-div flex justify-center text-2xl sm:p-2 sm:px-16 px-4 pb-2"
+      [ngClass]="
+        isFullScreen ? 'bottom-0' : 'top-[7rem] md:top-[75%] sm:top-[55%]'
+      "
+    >
+      <i
+        class="fa fa-expand ie-icon me-3 text-base text-white ms-2 flex items-center"
+        [ngClass]="!isFullScreen ? 'ie-expand' : 'fa-compress'"
+        (click)="fullScreen()"
+      ></i>
+
+      <div class="me-3 mt-1 text-white flex items-center">
+        {{ videoCurrentTime }}
+      </div>
+      <progress
+        dir="ltr"
+        (drag)="dragFiunction($event)"
+        class="pr-Before w-full"
+        (click)="handleClick($event)"
+        [value]="progressValue"
+        min="0"
+        max="100"
+        [ngStyle]="{ '--movement': progressbarLeft }"
+      ></progress>
+
+      <i
+        class="ms-3 ie-icon text-white flex items-center text-base small"
+        [ngClass]="{
+          'ie-puase ': pauseplay,
+          'ie-Polygon ': !pauseplay
+        }"
+        (click)="puasePaceVideo()"
+      ></i>
+    </div>
+    <div
+      class="p-div d-flex justify-center align-middle btn-span"
+      [ngClass]="
+        !isFullScreen ? 'sm:bottom-[48%] bottom-[6rem]' : 'bottom-[24rem]'
+      "
+    >
+      <span
+        class="fa-stack fa-4x opacity-100 flex justify-center items-center"
+        [@fade]
+        *ngIf="!hidePuase"
+      >
+        <!-- <i
+          class="fa fa-circle sm:fa-stack-2x sm:text-9xl text-7xl text-[#3246d3]"
+        ></i> -->
+        <div
+          class="flex justify-center items-center bg-[#3246d3] sm:pt-2.5 md:w-28 md:h-28 sm:w-20 sm:h-20 w-12 h-12 rounded-full"
+        >
+          <i
+            class="fa ie-icon"
+            [ngClass]="{
+              'ie-puase sm:pe-1 sm:pb-0 ': pauseplay,
+              'ie-Polygon   sm:pl-4 sm:pb-0 pl-2  pb-2': !pauseplay
+            }"
+            (click)="puasePaceVideo()"
+          ></i>
+        </div>
+      </span>
+    </div>
+    <ng-content></ng-content>
+  </div>
+</div>

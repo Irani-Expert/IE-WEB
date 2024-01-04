@@ -1,0 +1,133 @@
+$padding-container: 0.5rem 1.5rem;
+$min-width-card: 222px;
+.checkout-card {
+  min-width: $min-width-card;
+  width: 100%;
+  max-width: 284px;
+  margin-top: 6rem;
+  position: relative;
+  min-height: 26rem;
+  border-radius: 0.9rem;
+  background-color: #f3f3f3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .img-top {
+    top: 20px;
+    width: calc(100% - 7rem);
+    aspect-ratio: 4/6;
+    height: auto;
+    object-fit: contain;
+    position: absolute;
+    transform: translateY(-46%);
+  }
+  .seperator-ticket {
+    .dashed {
+      // width: 100%;
+      // height: 1px;
+      // display: block;
+      // background-image: linear-gradient(
+      //   to right,
+      //   black 33%,
+      //   rgba(255, 255, 255, 0) 0%
+      // );
+      // background-position: bottom;
+      // background-size: 3px 1px;
+      // background-repeat: repeat-x;
+      overflow: hidden;
+      display: block;
+      width: 92%;
+      border-bottom: 2px dashed #cfcfcf;
+    }
+    .circle-left {
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      background-color: #fff;
+      border-radius: 50%;
+      transform: translate(-49%, -50%);
+      left: 0;
+      top: 0;
+      box-shadow: 10px 0px 10px 0px #ebebeb;
+    }
+    .circle-right {
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      background-color: #fff;
+      border-radius: 50%;
+      transform: translate(49%, -50%);
+      right: 0;
+      top: 0;
+      box-shadow: -10px 0px 10px 0px #ebebeb;
+    }
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    margin-top: 1.75rem;
+  }
+
+  // The End Piece of Component
+  .detail-price-container {
+    .discount-content {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-start;
+      gap: 0.25rem;
+      .discount-price {
+        font-size: 1.125rem;
+        color: #b7b7b7;
+        text-decoration-line: line-through;
+        text-decoration-thickness: 2px;
+        text-decoration-color: #929191;
+
+        // -moz-text-decoration-line: line-through;
+      }
+      .discount-percent {
+        display: inline-block;
+        border-radius: 12px;
+        padding: 0 0.225rem;
+        background-color: #17ee9d;
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: #707070;
+        &::before {
+          margin-left: 2px;
+          display: inline-block;
+          transform: translateY(15%);
+          content: url(../../../../../assets/icon/discount.svg);
+        }
+      }
+    }
+    .price-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      .icon {
+        &::after {
+          display: inline-block;
+          content: url(../../../../../assets/icon/checout-bottom-right.svg);
+          scale: 0.85;
+        }
+      }
+      .price {
+        font-weight: 900;
+        font-size: 2.5rem;
+        color: black;
+      }
+    }
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: $padding-container;
+    margin-top: 1rem;
+  }
+}
+// .count::after {
+//   display: inline-block;
+//   text-align: start;
+//   content: "عدد";
+// }

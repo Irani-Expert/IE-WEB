@@ -1,0 +1,59 @@
+.carousel-box{
+    background: rgb(223,237,255);
+    background: linear-gradient(180deg, rgba(223,237,255,1) 45%, rgba(255,255,255,1) 70%);  
+    width: 100%;
+    border-radius: 25px;
+}
+.title{
+    font-style: oblique;
+    color: #3246D3;
+    font-size: 1.7rem;
+}
+// <!-- ==============[کاروسل]============= -->
+.row-btn{
+    display: flex;
+    justify-content: center;
+}
+.cart{
+  scale: 0.8;
+  margin-left: -1rem;
+  margin-bottom: -2rem;
+  margin-right: -2.5rem;
+  margin-top: -2rem;
+}
+drag-scroll{
+  width: 100%;
+}
+.btn{
+  border: #0080FF solid 2.5px;
+  border-radius: 41px;
+  width: 2rem;
+  height: 2rem;
+  position: relative;
+
+}
+.icon-btn{
+  font-family: monospace;
+  color: #0080FF;
+  font-size: 2rem;
+  font-weight: 900;
+  position: absolute;
+  bottom: -8px;
+  right: 5px;
+}
+.icon-disable{
+    color: #8D8D8D;
+    font-family: monospace;
+    font-size: 2rem;
+    font-weight: 900;
+    position: absolute;
+    bottom: -8px;
+    right: 5px;
+}
+.btn-disable{
+  border: #8D8D8D solid 2.5px;
+  border-radius: 41px;
+  width: 2rem;
+  height: 2rem;
+  position: relative;
+}

@@ -1,0 +1,82 @@
+.active-adv {
+  h3 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #293dc8;
+  }
+  .Icon-width {
+    img {
+      height: 75px;
+      animation: selectImageAnimation 0.2s ease 0s 1 normal forwards;
+    }
+    span {
+      animation: selectspanAnimation 0.1s ease 0s 1 normal forwards;
+    }
+  }
+}
+
+.deActive-adv {
+  h3 {
+    font-size: 1.5rem;
+    color: #9f9f9f;
+    font-weight: 800;
+  }
+  min-height: 110px;
+  p {
+    display: none;
+  }
+  button {
+    display: none;
+  }
+  .Icon-width {
+    img {
+      background-color: #9f9f9f;
+      width: 60%;
+      height: 45px;
+    }
+    span {
+      background-color: #9f9f9f;
+      width: 4px;
+      height: 40%;
+    }
+  }
+}
+.Icon-width {
+  text-align: center;
+  width: 80px;
+}
+@keyframes selectImageAnimation {
+  0% {
+    background-color: #9f9f9f;
+    width: 75%;
+  }
+  30% {
+    height: 30%;
+    background-color: #293dc8;
+  }
+  100% {
+    max-height: 30%;
+    background-color: #293dc8;
+  }
+}
+@keyframes selectspanAnimation {
+  0% {
+    background-color: #9f9f9f;
+    width: 4px;
+    height: 40%;
+  }
+
+  100% {
+    background-color: #293dc8;
+    width: 6.5px;
+    height: 60%;
+  }
+}
+.img-bot {
+  width: 100%;
+  max-width: 230px;
+  margin-right: auto;
+  margin-left: auto;
+  aspect-ratio: 7/9;
+  object-fit: contain;
+}

@@ -1,0 +1,51 @@
+<form
+  [formGroup]="form"
+  class="sm:scale-90 xl:scale-100 sm:min-w-[28rem]"
+  [ngClass]="GreenStyles ? 'bg-green-form' : ''"
+  (ngSubmit)="consultationServices()"
+>
+  <div
+    class="flex flex-col flex-wrap content-center sm:px-4"
+    [ngClass]="!GreenStyles ? 'sm:h-[187px]' : ''"
+  >
+    <ng-container *ngFor="let control of formControls; let i = index">
+      <div
+        class="input-container m-2 w-96"
+        [ngClass]="i >= 2 && !GreenStyles ? 'sm:order-2' : ''"
+      >
+        <div class="relative">
+          <input
+            [id]="control.name"
+            autocomplete="off"
+            [ngClass]="control.hasErr == true ? '  hasError' : '!border-none'"
+            class="input-with-icon !text-lg font-semibold bg-[#f3f3f3]"
+            [type]="control?.type ? control.type : 'text'"
+            formControlName="{{ control.name }}"
+            [placeholder]="control?.placeholder ? control.placeholder : ''"
+          />
+        </div>
+      </div>
+    </ng-container>
+    <div class="flex m-2 mt-3 items-center order-1">
+      <input type="checkbox" id="switch" /><label
+        for="switch"
+        class="border-solid bg-[#d8d8d8] border-01"
+        >Toggle</label
+      >
+      <p
+        class="ms-2 text-xs font-medium"
+        [ngClass]="!GreenStyles ? 'sm:text-lg' : 'sm:text-base'"
+      >
+        میخواهم از امکانات مشارکت در سود استفاده کنم
+      </p>
+    </div>
+  </div>
+
+  <div class="flex justify-center ms-2">
+    <button
+      class="bg-main-blue border-2 relative border-[#3246d3] border-solid hover:bg-white hover:text-[#3246d3] text-white sm:px-2 px-4 p-1.5 sm:w-40 rounded-full font-semibold sm:text-base text-sm"
+    >
+      ثبت درخواست
+    </button>
+  </div>
+</form>

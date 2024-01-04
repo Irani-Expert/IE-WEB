@@ -1,0 +1,37 @@
+.img-container {
+  aspect-ratio: 16/9;
+  max-width: 290px;
+  min-width: 245px;
+  img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+}
+.ie-verified {
+  display: inline;
+  width: fit-content;
+  height: 16px;
+  &::after {
+    content: url(../../../../../assets/icon/verified.svg);
+    display: inline-block;
+    mix-blend-mode: luminosity;
+  }
+}
+.ie-go-to-page {
+  content: url(../../../../../assets/icon/go-to-page.svg);
+  display: inline;
+}
+.ie-star {
+  display: inline;
+  scale: 0.7;
+  mix-blend-mode: luminosity;
+  margin-left: -5px;
+  content: url(../../../../../assets/icon/star-filled.svg);
+}
+.text-rate {
+  user-select: none;
+  line-height: 2rem;
+  font-size: 1.875rem;
+}

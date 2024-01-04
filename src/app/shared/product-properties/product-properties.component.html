@@ -1,0 +1,25 @@
+<div class="flex flex-col gap-1">
+  <span class="producer-section">
+    <i class="producer-icon"></i><ng-content select="[producer]"></ng-content
+    ><i *ngIf="verified" class="verified"></i>
+  </span>
+  <span class="properties-section">
+    <span class="inline-flex gap-1"
+      ><ng-content select="[platform]"></ng-content><i class="platform-icon"></i
+    ></span>
+    <span class="inline-flex gap-1"
+      ><ng-content select="[category]"></ng-content><i class="category-icon"></i
+    ></span>
+    <span class="inline-flex gap-1"
+      ><ng-content select="[rate]"></ng-content><i class="product-star-icon"></i
+    ></span>
+  </span>
+</div>
+<div class="seperator-hz-1"></div>
+<div *ngIf="guarantee" class="pt-3 pb-3 row">
+  <span class="inline-flex items-center gap-2">
+    <i class="guarantee-icon"></i>
+    <ng-content select="[guarantee]"></ng-content>
+  </span>
+</div>
+<div *ngIf="guarantee" class="seperator-hz-1"></div>

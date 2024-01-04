@@ -1,0 +1,20 @@
+<div class="pb-8 flex justify-center" >
+        <ul id="accordion " class="accordion max-w-4xl mr-3 ml-3" >
+            <li class="border"
+             *ngFor="let menu of faq; let i = index"
+              [class.active]="menu.active">
+              <div class="menu" (click)="toggle( i , !menu.active)">
+                <!-- <i [class]="menu.iconClass"></i> -->
+                  <img *ngIf="!menu.active" src="assets/icon/chevron.svg">
+                  <span *ngIf="menu.active" >&times;</span>
+                {{ menu.question }}
+              </div>
+              <ul class="submenu" #submenu
+                [style.height.px]="menu.active ? submenu.scrollHeight : 0">
+                <li>
+                  <p>{{menu.answer}}</p>
+                </li>
+              </ul>
+            </li>
+      </ul>
+</div>

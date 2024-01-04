@@ -1,0 +1,44 @@
+.toggle {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.toggle-label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 37px;
+  height: 19px;
+  background: #f8f8f8;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 1.2px;
+    left: 2px;
+    width: 15px;
+    height: 15px;
+    background: #d8d8d8;
+    border-radius: 90px;
+    transition: 0.3s;
+  }
+}
+
+.toggle:checked + .toggle-label {
+  background: #3246d3;
+}
+
+.toggle:checked + .toggle-label::after {
+  background: #fff;
+  left: calc(100% - 1.25px);
+  transform: translateX(-100%);
+}
+
+.toggle-label:active::after {
+  width: 24px;
+}
+.toggle-container {
+  @include align-center;
+}
