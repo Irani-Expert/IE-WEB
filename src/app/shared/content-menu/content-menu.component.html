@@ -1,5 +1,5 @@
 <div class="flex justify-center mt-8 mb-8">
-  <div id="dropdown-component">
+  <div id="dropdown-component" [ngStyle]="{ 'width.%': wi }">
     <div class="selected flex justify-between" (click)="toggleMenu()">
       <div class="flex w-52 mt-4 mb-4 mr-4">
         <i class="ie-content-menu-icon"></i>
@@ -32,7 +32,7 @@
 <!-- <div class="hidden lg:block"> 
 </div> -->
 <!-- =======[رسپانسیو======= -->
-<!-- <div class="block lg:hidden">
+<div class="block lg:hidden">
 
   <div class="flex justify-center mt-8 mb-8">
     <div id="dropdown-component-mobile">
@@ -58,6 +58,7 @@
         <p class="text-xl font-medium mr-4">فهرست محتوا</p>
       </a>
      <div [ngClass]="openNav == 2 ? 'block' : 'hidden'">
+       <!-- =========[]======= -->
        <div
          *ngFor="let item of listElems">
          <div class="divider"></div>
@@ -74,4 +75,4 @@
        </div>
      </div>
   </div>
-</div> -->
+</div>

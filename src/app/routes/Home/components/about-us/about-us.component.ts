@@ -6,7 +6,7 @@ import {
   trigger,
 } from '@angular/animations';
 import { Component } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
+// import { Meta } from '@angular/platform-browser';
 // import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -24,19 +24,21 @@ import { Meta } from '@angular/platform-browser';
 })
 export class AboutUsComponent {
   // private activatedRoute: ActivatedRoute
-  constructor(private _meta: Meta) {
-    this._meta.addTag({
-      name: 'description',
-      content: '',
-    });
-    this._meta.addTag({
-      name: 'author',
-      content: '',
-    });
-    this._meta.addTag({
-      name: 'keywords',
-      content: '',
-    });
+  // private _meta: Meta
+  constructor() {
+    // // this._meta.addTag({
+    // //   name: 'description',
+    // //   content: '',
+    // // });
+    // // this._meta.addTag({
+    // //   name: 'author',
+    // //   content: '',
+    // // });
+    // this._meta.addTag({
+    //   name: 'keywords',
+    //   content:
+    //     'دستیار ترید,بهترین اکسپرت معامله گر,معامله با ربات کپی ترید, ربات هوش مصنوعی برای ترید, خرید اکسپرت ترید تضمینی, ربات سفارشی قطعا سودده, ربات تریدر رایگان,معامله گری خودکار, ربات خودکار,  بهترین ربات خودکار برای ایرانیان, ',
+    // });
   }
   ngOnInit() {
     // var location = this.activatedRoute.snapshot.queryParams['location'];

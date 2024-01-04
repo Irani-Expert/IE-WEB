@@ -18,15 +18,17 @@ export class LandigMoneyMComponent {
     }
     this._meta.addTag({
       name: 'description',
-      content: '',
+      content:
+        'مدیریت سرمایه(money management) در بازارهای مالی علمی است که در فعالیت های سرمایه گذاری میتوان ریسک را کنترل کرد و یک استراتژی معاملاتی برای سرمایه اولیه تولید کرد. ',
     });
     this._meta.addTag({
       name: 'author',
-      content: '',
+      content: 'آقای مهدی اکبر',
     });
     this._meta.addTag({
       name: 'keywords',
-      content: '',
+      content:
+        'مدیریت سرمایه گذاری پیشرفته,مدیریت سرمایه گذاری استراتژیک,مدیریت ریسک و سرمایه در ترید, فرمول مدیریت سرمایه در ترید, مدیریت سرمایه در ترید, مدیریت سرمایه فارکس, مدیریت ریسک و سرمایه گذاری ,مدیریت سرمایه به زبان ساده',
     });
   }
   ngOnDestroy() {

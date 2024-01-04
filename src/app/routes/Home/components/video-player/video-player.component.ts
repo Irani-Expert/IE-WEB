@@ -32,9 +32,6 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit {
   progressbarLeft: string = 'calc(0%);';
   ngAfterViewInit() {}
   ngOnInit(): void {
-    console.log('video Link is : ' + this.videoLink);
-    console.log(this.VideoId);
-
     this.vId = 'vId' + this.VideoId;
 
     this.element = document.getElementById('main-card');
@@ -107,11 +104,13 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit {
   }
 
   fullScreen() {
+    var vid = <HTMLVideoElement>document.getElementById('main' + this.vId);
     if (!this.isFullScreen) {
-      this.element.requestFullscreen();
+      vid.requestFullscreen();
+      this.isFullScreen = true;
     } else {
       document.exitFullscreen();
+      this.isFullScreen = false;
     }
-    this.isFullScreen = !this.isFullScreen;
   }
 }
