@@ -1,22 +1,19 @@
 @media (max-width: 640px) {
-  .cart-b {
+  .cart-box {
     min-height: 7rem !important;
     max-width: 18rem !important;
   }
   .cart-row {
     bottom: 60px;
   }
-  .all {
+  .box-baner {
     background-color: #3246d3;
     min-width: 110vh;
   }
 }
 @media (min-width: 640px) {
-  .cart-b {
+  .cart-box {
     width: 222px;
-  }
-  .cart-row {
-    bottom: 200px;
   }
   .baner-title2 {
     font-size: 15px !important;
@@ -34,16 +31,7 @@
     margin-left: 210px;
   }
 }
-.cart-row {
-  position: relative;
-  left: -4px;
-  margin-left: 30px;
-  margin-right: 30px;
-}
-.all {
-  position: relative;
-  margin-top: 70px;
-}
+
 .baner-1 {
   position: absolute;
   background-color: #eff0fc;
@@ -55,7 +43,6 @@
 .baner-2 {
   position: relative;
   background-color: #3246d3;
-
   box-shadow: rgb(50 69 211 / 14%) 32px 115px 212px;
 }
 
@@ -84,43 +71,10 @@
   font-size: 12px;
 }
 
-.cart-a {
-  margin-right: 10px;
-  margin-left: 35px;
-  padding: 25px 16px 0px 21px;
-  border-radius: 20px;
-  width: 222px;
-  background-color: white;
-  aspect-ratio: 2/1;
-}
-.cart-b {
+.cart-box {
   margin-right: 5px;
   padding: 25px 16px 0px 21px;
   border-radius: 20px;
   min-height: 204px;
   background-color: white;
-}
-.icon-image {
-  width: 58px;
-  height: 35px;
-}
-.icon-image2 {
-  width: 56px;
-  height: 56px;
-}
-.icon-titile {
-  font-weight: bolder;
-  font-size: 15px;
-}
-.icon-image3 {
-  width: 60px;
-  height: 60px;
-}
-.icon-body {
-  font-size: 13px;
-  font-weight: 300;
-}
-.icon-titile2 {
-  font-weight: bolder;
-  font-size: 14px;
 }
