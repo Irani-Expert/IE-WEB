@@ -6,7 +6,6 @@
 .custom-table {
   width: 100%;
   max-width: 1536px;
-  min-width: 900px;
   thead {
     tr,
     th {
@@ -92,7 +91,7 @@
         }
         &.td-actions {
           width: 150px;
-          padding: 0 1.5rem;
+          padding: 0;
           button {
             font-size: 0.875rem;
           }
@@ -103,5 +102,10 @@
         opacity: 0.4;
       }
     }
+  }
+}
+@media (min-width: 1024px) {
+  .td-actions {
+    padding: 0 1.5rem;
   }
 }

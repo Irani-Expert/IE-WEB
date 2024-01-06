@@ -4,19 +4,21 @@
     <div class="flex justify-start">
       <ng-content select="[header]"></ng-content>
     </div>
-    <div
-      class="hover:bg-gray-200 transition-colors rounded-lg cursor-pointer"
-      *ngFor="let item of category"
-      (click)="selectCategroy(item)"
-    >
-      <div class="category-row">
-        <img class="ml-3" src="{{ item.icon }}" alt="" />
-        <span
-          ><p class="link">{{ item.name }}</p></span
-        >
+    <ng-container *ngIf="type == 'category'">
+      <div
+        class="hover:bg-gray-200 transition-colors rounded-lg cursor-pointer"
+        *ngFor="let item of category"
+        (click)="selectCategroy(item)"
+      >
+        <div class="category-row">
+          <img class="ml-3" src="{{ item.icon }}" alt="" />
+          <span
+            ><p class="link">{{ item.name }}</p></span
+          >
+        </div>
       </div>
-    </div>
-    <div *ngIf="false" class="mt-5 flex flex-wrap mr-3">
+    </ng-container>
+    <div *ngIf="type == 'tags'" class="mt-5 flex flex-wrap mr-3">
       <div *ngFor="let item of categoryDetail">
         <p class="mb-6 ml-4">
           <span class="link-detail">{{ item.name }}</span>
@@ -27,33 +29,33 @@
 </div>
 <!-- ===================[مدرسه فارکس ]=================== -->
 <div class="flex justify-center mt-8">
-    <div class="school-box">
-        <div class="flex justify-start">
-            <div class="mb-4 mt-4">
-                <p class="title1-row">مدرسه فارکس</p>
-                <p class="title2-row">ویدیو گذشته</p>
-            </div>
-        </div>
-        <div class="flex justify-center ">
-            <div class="box-video flex-wrap xl:flex-nowrap flex flex-row">
-                <div class="video mb-4 xl:mb-0 xl:basis-1/2">
-
-                </div>
-                <div class="mr-2 xl:mr-4 xl:basis-1/2">
-                    <p class="video-title mb-12">ایرانی اکسپرت چیکار میکند؟ معرفی و اهداف تیم های ایرانی اکسپرت</p>
-                    <div class="flex justify-end">
-                        <p class="time-video"> 11:00 </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="school-box">
+    <div class="flex justify-start">
+      <div class="mb-4 mt-4">
+        <p class="title1-row">مدرسه فارکس</p>
+        <p class="title2-row">ویدیو گذشته</p>
+      </div>
     </div>
+    <div class="flex justify-center">
+      <div class="box-video flex-wrap xl:flex-nowrap flex flex-row">
+        <div class="video mb-4 xl:mb-0 xl:basis-1/2"></div>
+        <div class="mr-2 xl:mr-4 xl:basis-1/2">
+          <p class="video-title mb-12">
+            ایرانی اکسپرت چیکار میکند؟ معرفی و اهداف تیم های ایرانی اکسپرت
+          </p>
+          <div class="flex justify-end">
+            <p class="time-video">11:00</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <!-- ============[تبلیغات]========= -->
 <div #sticky>
-  <div class="" [ngClass]="sticked ? 'sticky-custom' : 'mt-6'">
+  <div class="" [ngClass]="sticked ? 'sticky-custom ' : 'mt-6 h-[85%] flex items-start'">
     <img class="add-blog" src="assets/img/blog-add.svg" alt="add" />
   </div>
 </div>
-<div #stickyoff class="absolute bottom-72"></div>
+<div #stickyoff class="absolute bottom-72 flex items-end"></div>
 

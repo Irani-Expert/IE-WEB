@@ -1,7 +1,11 @@
 export interface SearchModel {
     products: SearchProducts[],
     brokers : SearchBrokers[],
-    articles : SearchArticles[]
+    articles : SearchArticles[],
+    calendar : SearchCalendar[]
+    success: true,
+    message: string,
+    itemSearch : string | null
 }
 
 export interface SearchProducts{
@@ -45,4 +49,14 @@ export interface SearchArticles {
     rate: number,
     active : boolean
 
+}
+export interface SearchCalendar{
+    id: number,
+    date_: string,
+    secondName: string,
+    importance: number,
+    eventID: number,
+    brief: string,
+    code: string,
+    currencySymbol: string
 }
