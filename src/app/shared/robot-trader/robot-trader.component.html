@@ -1,4 +1,6 @@
-<div class="flex justify-between bg-lightBlue rounded-2xl w-full my-32">
+<div
+  class="flex justify-between bg-lightBlue rounded-2xl w-full my-32 max-lg:hidden"
+>
   <div class="p-10">
     <span class="text-xl font-semibold color--blue header-start"
       >ربات های معامله گری واقعا کار می کند؟</span
@@ -15,8 +17,21 @@
     />
   </div>
 </div>
-<div class="flex flex-row-reverse w-full p-5">
-  <div class="w-9/12">
+<div class="flex flex-row-reverse w-full sm:p-5 p-2">
+  <div class="lg:w-9/12 w-full">
+    <div
+      class="flex relative my-4 bg-[#CFCFCF] rounded-2xl inside-box-shadow md:hidden"
+    >
+      <img class="img-blog opacity-70" src="../../../assets/img/botTitle.png" />
+      <div class="absolute flex h-full w-full items-end">
+        <div class="mr-8">
+          <div class="divider blue-back w-1/4 h-1"></div>
+          <h6 class="text-2xl font-bold text-white">
+            ربات معامله گر چگونه کار می‌کند؟
+          </h6>
+        </div>
+      </div>
+    </div>
     <div class="flex justify-between">
       <div class="flex items-center blue-font font-semibold">
         <i class="ie-folder"></i>
@@ -30,14 +45,16 @@
         <img src="../../../assets/img/shared-icon.svg" alt="" />
       </div>
     </div>
-    <h1 class="text-black font-bold text-4xl mt-3 mb-1">
+    <h1 class="text-black font-bold text-4xl mt-3 mb-1 max-sm:text-2xl">
       ربات معامله گر چگونه کار می‌کند؟
     </h1>
     <div>
       <small class="font-light">انتشار : 01 دی 1402</small>
       <small class="ms-6 font-light">زمان مطالعه 7 دقیقه</small>
     </div>
-    <div class="flex relative my-4 bg-[#CFCFCF] rounded-2xl inside-box-shadow">
+    <div
+      class="flex relative my-4 bg-[#CFCFCF] rounded-2xl inside-box-shadow max-md:hidden"
+    >
       <img class="img-blog opacity-70" src="../../../assets/img/botTitle.png" />
       <div class="absolute flex h-full w-full items-center">
         <div class="mt-40 mr-12">
@@ -120,16 +137,18 @@
         کندلی و تفسیر سطوح حمایت/مقاومت .
       </p>
     </div>
-    <div class="flex flex-row items-end">
-      <div class="w-5/12 mb-32">
-        <div>
+    <div class="flex max-lg:flex-col-reverse items-start">
+      <div class="lg:w-5/12 lg:mb-32">
+        <div class="max-md:max-w-[20rem]">
           <div class="divider green-back w-1/12 h-2"></div>
-          <h6 class="title-blog-img !text-[2.7rem] text-black">
+          <h6 class="title-blog-img lg:!text-[2.7rem] text-black">
             مزایــا و معایـب استفـاده از ربـات های معاملــه گر چیست؟
           </h6>
         </div>
       </div>
-      <div class="w-7/12"><img src="../../../assets/img/Group 1114.png" /></div>
+      <div class="lg:w-7/12">
+        <img src="../../../assets/img/Group 1114.png" />
+      </div>
     </div>
     <p class="mb-8 text-lg text-justify leading-8">
       <span class="font-bold">کارایی و سرعت:</span>
@@ -202,19 +221,23 @@
     </drag-scroll>
     <div class="flex">
       <a href="#">
-        <div class="flex flex-row baner-bot">
-          <div class="flex pt-2 basis-1/5">
-            <p class="of-number">%20</p>
-          </div>
-          <div class="flex basis-3/5">
-            <p class="text-3xl text-white font-extrabold">
+        <div class="flex baner-bot max-sm:max-h-20">
+          <div class="flex max-lg:flex-col max-sm:px-1 lg:items-center">
+            <p
+              class="of-number basis-1/5 sm:text-[3rem] leading-8 max-sm:text-[32px] max-sm:leading-[24px] pt-4"
+            >
+              %20
+            </p>
+            <p
+              class="lg:text-3xl text-white font-extrabold max-lg:text-xs max-sm:text-[11px] max-sm:leading-[11px]"
+            >
               تخفیف ویژه اشتراک پلن های سه ماهه و شش ماهه به مناسبات یک
               سالگـــــی ربات معامله گـری ATM
             </p>
           </div>
-          <div class="flex basis-1/5">
+          <div class="flex min-w-[8rem]">
             <img
-              class="bot-baner-img"
+              class="bot-baner-img max-sm:relative bottom-4"
               src="assets/img/bot-baner-money-m.svg"
               alt="bot"
             />
@@ -222,7 +245,11 @@
         </div>
       </a>
     </div>
-    <img class="mt-7" src="../../../assets/img/Mask Group 160.png" alt="" />
+    <img
+      class="mt-7 min-h-[24rem] max-md:rounded-[40px]"
+      src="../../../assets/img/Mask Group 160.png"
+      alt=""
+    />
     <div class="mt-5">
       <h2 class="text-3xl font-bold">ساخت ربات معامله گر</h2>
       <p class="text-lg text-justify">
@@ -234,37 +261,39 @@
         استفاده شوند
       </p>
     </div>
-    <div class="flex justify-evenly">
-      <div class="box-articles mb-4 w-[45%]">
-        <h5 class="flex items-center">
-          <i class="ie-target me-2"></i>
-          تعریف استراتژی معاملاتی
-        </h5>
-        <p class="text-lg text-justify">
-          اولین قدم در ساخت ربات معاملاتی، تعریف استراتژی معاملاتی است. این شامل
-          شناسایی شرایط بازار و شاخص های فنی است که برای انجام معاملات استفاده
-          می‌شود. استراتژی .معاملاتی همچنین باید شامل قوانین مدیریت ریسک، مانند
-          دستورات توقف ضرر، برای کمک به کاهش ضررهای احتمالی باشد
-        </p>
-      </div>
-      <div class="box-articles mb-4 w-[45%]">
-        <h5 class="flex items-center">
-          <i class="ie-laptop me-2"></i> پیاده سازی استراتژی در کد
-        </h5>
-        <p class="text-lg text-justify">
-          زمانی که استراتژی تعریف شد، می‌توان آن را در کد پیاده سازی کرد. این
-          شامل نوشتن کدی است که داده های بازار را تجزیه و تحلیل می‌کند، فرصت های
-          معاملاتی را شناسایی می‌کند و .معاملات را اجرا می‌کند. مهم است که
-          اطمینان حاصل شود که کد به خوبی ساختار یافته و همانطور که باید، عمل
-          می‌کند
-        </p>
+    <div class="max-lg:overflow-scroll">
+      <div class="min-w-[60rem] flex justify-evenly">
+        <div class="box-articles mb-4 w-[45%] ms-4">
+          <h5 class="flex items-center">
+            <i class="ie-target me-2"></i>
+            تعریف استراتژی معاملاتی
+          </h5>
+          <p class="text-lg text-justify">
+            اولین قدم در ساخت ربات معاملاتی، تعریف استراتژی معاملاتی است. این
+            شامل شناسایی شرایط بازار و شاخص های فنی است که برای انجام معاملات
+            استفاده می‌شود. استراتژی .معاملاتی همچنین باید شامل قوانین مدیریت
+            ریسک، مانند دستورات توقف ضرر، برای کمک به کاهش ضررهای احتمالی باشد
+          </p>
+        </div>
+        <div class="box-articles mb-4 w-[45%]">
+          <h5 class="flex items-center">
+            <i class="ie-laptop me-2"></i> پیاده سازی استراتژی در کد
+          </h5>
+          <p class="text-lg text-justify">
+            زمانی که استراتژی تعریف شد، می‌توان آن را در کد پیاده سازی کرد. این
+            شامل نوشتن کدی است که داده های بازار را تجزیه و تحلیل می‌کند، فرصت
+            های معاملاتی را شناسایی می‌کند و .معاملات را اجرا می‌کند. مهم است که
+            اطمینان حاصل شود که کد به خوبی ساختار یافته و همانطور که باید، عمل
+            می‌کند
+          </p>
+        </div>
       </div>
     </div>
     <app-instagram-baner class="mb-4"></app-instagram-baner>
     <div class="mt-2 flex justify-between items-center">
-      <div class="w-5/12">
+      <div class="lg:w-5/12">
         <div>
-          <div class="divider green-back w-[10%] h-2"></div>
+          <div class="divider green-back lg:w-[10%] w-[20%] h-2"></div>
           <h6 class="title-blog-img text-2xl color--green">
             ربات های معامله گر ایرانی
           </h6>
@@ -307,7 +336,17 @@
       تعداد جفت ارزهای قابل معامله، تعداد استراتژی های قابل استفاده و سایر موارد
       است ATA ربات نسخه پولی این ربات محدودیتی ندارد .
     </p>
-    <img src="../../../assets/img/ADS ATM.png" class="cursor-pointer" />
+    <div class="flex justify-center">
+      <img
+        src="../../../assets/img/ADS ATM.png"
+        class="cursor-pointer max-sm:hidden"
+      />
+      <img
+        src="../../../assets/img/robot-trader-res.png"
+        class="cursor-pointer sm:hidden"
+      />
+    </div>
+
     <h2 class="text-3xl font-bold mt-4">
       چگونه می‌توان بهترین ربات معامله گر را بر اساس نیازهای خود انتخاب کرد
     </h2>
@@ -327,10 +366,17 @@
         ></app-blue-cards>
       </div>
     </drag-scroll>
-    <img
-      src="../../../assets/img/ADS Copy Trading.png"
-      class="cursor-pointer"
-    />
+    <div class="flex justify-center">
+      <img
+        src="../../../assets/img/ADS Copy Trading.png"
+        class="cursor-pointer max-sm:hidden"
+      />
+      <img
+        src="../../../assets/img/baner-copyTrade-2.png"
+        class="cursor-pointer sm:hidden"
+      />
+    </div>
+
     <h2 class="text-3xl font-bold mt-4">
       اشتباهات رایج در هنگام استفاده از ربات های معاملاتی
     </h2>

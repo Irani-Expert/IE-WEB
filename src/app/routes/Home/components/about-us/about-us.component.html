@@ -1,11 +1,11 @@
-<div class="flex sm:flex-row-reverse flex-col m-6">
+<div class="flex lg:flex-row-reverse flex-col m-6">
   <app-video-player
-    class="sm:w-1/2"
+    class="lg:w-1/2"
     [VideoId]="100"
     [homeScreen]="false"
     [Link]="'https://www.w3schools.com/html/mov_bbb.ogg'"
   ></app-video-player>
-  <div class="sm:w-1/2 md:p-8">
+  <div class="lg:w-1/2 md:p-8">
     <h1 class="sm:text-4xl text-2xl font-extrabold md:m-6 md:ms-0 ms-3 md:mt-9">
       درباره ایرانی اکسپرت
     </h1>
@@ -24,13 +24,13 @@
     </p>
   </div>
 </div>
-<app-aboutus-targets class="md:block hidden">
+<app-aboutus-targets class="max-lg:hidden">
   <i
     class="ms-3 ie-icon text-white flex items-center text-base ie-target small"
   ></i>
   <span class="text-3xl font-bold pt-2 ps-2">اهداف ما</span>
 </app-aboutus-targets>
-<app-aboutus-targets-responsive class="md:hidden block">
+<app-aboutus-targets-responsive class="lg:hidden">
 </app-aboutus-targets-responsive>
 
 <div class="sm:mx-8">
@@ -188,7 +188,7 @@
       </p>
       <div class="flex">
         <button
-          class="bg-main-blue border-2 flex items-center justify-evenly relative border-[#3246d3] border-solid hover:bg-white hover:text-[#3246d3] text-white sm:px-2 px-6 p-3 w-40 rounded-full font-semibold sm:text-base text-sm"
+          class="bg-main-blue border-2 flex items-center justify-evenly relative border-[#3246d3] border-solid hover:bg-white hover:text-[#3246d3] text-white sm:px-2 px-6 p-2 w-40 rounded-full font-semibold sm:text-base text-sm"
         >
           ارسال رزومه
           <i

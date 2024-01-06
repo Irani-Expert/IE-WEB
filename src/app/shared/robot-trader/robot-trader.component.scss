@@ -1,4 +1,13 @@
 @import "../../../sass/colors";
+@media (min-width: 1024px) {
+  .baner-bot {
+    padding: 0.5rem 2.5rem 0.5rem 2.5rem;
+  }
+  .of-number {
+    font-size: 5rem;
+  }
+}
+
 .header-start {
   &::before {
     content: "";
@@ -33,6 +42,7 @@
 ::-webkit-scrollbar {
   display: none;
 }
+
 .baner-bot {
   background: rgb(0, 22, 178);
   background: linear-gradient(
@@ -42,12 +52,10 @@
   );
   width: 100%;
   align-items: center;
-  padding: 0.5rem 2.5rem 0.5rem 2.5rem;
-  border-radius: 35px;
+  border-radius: 15px;
   height: 8rem;
 }
 .of-number {
-  font-size: 5rem;
   color: #fe0;
   font-style: oblique;
 }

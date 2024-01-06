@@ -1,5 +1,9 @@
-<div class="flex justify-center mt-8 mb-8">
-  <div id="dropdown-component" [ngStyle]="{ 'width.%': wi }">
+<div class="flex justify-center my-8">
+  <div
+    id="dropdown-component"
+    class="max-md:!rounded-full max-md:mx-6"
+    [ngStyle]="{ 'width.%': wi }"
+  >
     <div class="selected flex justify-between" (click)="toggleMenu()">
       <div class="flex w-52 mt-4 mb-4 mr-4">
         <i class="ie-content-menu-icon"></i>
@@ -15,14 +19,16 @@
         <li *ngFor="let item of listElems">
           <div class="divider"></div>
           <div class="flex flex-col justify-around">
-          <button (click)="scrollToId(item.id)" class="text-right">
-              <p class="flex title-menu text-base lg:!text-xl">{{ item.title }}</p>
-          </button>
-          <ng-container *ngFor="let item of item.sub">
             <button (click)="scrollToId(item.id)" class="text-right">
-              <p class="flex title2-menu lg:!text-base">{{item.title}}</p>
+              <p class="flex title-menu text-base lg:!text-xl">
+                {{ item.title }}
+              </p>
             </button>
-          </ng-container>
+            <ng-container *ngFor="let item of item.sub">
+              <button (click)="scrollToId(item.id)" class="text-right">
+                <p class="flex title2-menu lg:!text-base">{{ item.title }}</p>
+              </button>
+            </ng-container>
           </div>
         </li>
       </ul>

@@ -69,12 +69,13 @@
         ></i> -->
         <div
           class="flex justify-center items-center bg-[#3246d3] sm:pt-2.5 md:w-28 md:h-28 sm:w-20 sm:h-20 w-12 h-12 rounded-full"
+          [ngClass]="{ 'max-sm:items-end': pauseplay }"
         >
           <i
             class="fa ie-icon"
             [ngClass]="{
               'ie-puase sm:pe-1 sm:pb-0 ': pauseplay,
-              'ie-Polygon   sm:pl-4 sm:pb-0 pl-2  pb-2': !pauseplay
+              'ie-Polygon   sm:pl-4 sm:pb-0 pl-2  pb-2 ': !pauseplay
             }"
             (click)="puasePaceVideo()"
           ></i>

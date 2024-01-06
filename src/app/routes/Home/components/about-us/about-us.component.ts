@@ -8,6 +8,7 @@ import {
 import { Component } from '@angular/core';
 // import { Meta } from '@angular/platform-browser';
 // import { ActivatedRoute } from '@angular/router';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-about-us',
@@ -23,6 +24,9 @@ import { Component } from '@angular/core';
   ],
 })
 export class AboutUsComponent {
+  mainClass =
+    'm-0 p-0 gap-0 flex flex-col min-h-screen overflow-hidden lg:overflow-y-hidden lg:overflow-x-auto';
+  main: HTMLElement;
   // private activatedRoute: ActivatedRoute
   // private _meta: Meta
   constructor() {
@@ -39,6 +43,10 @@ export class AboutUsComponent {
     //   content:
     //     'دستیار ترید,بهترین اکسپرت معامله گر,معامله با ربات کپی ترید, ربات هوش مصنوعی برای ترید, خرید اکسپرت ترید تضمینی, ربات سفارشی قطعا سودده, ربات تریدر رایگان,معامله گری خودکار, ربات خودکار,  بهترین ربات خودکار برای ایرانیان, ',
     // });
+    if (AppComponent.isBrowser.value) {
+      this.main = document.body.getElementsByTagName('main')[0];
+      this.main.className = `bg-[#FAFAFA] ${this.mainClass}`;
+    }
   }
   ngOnInit() {
     // var location = this.activatedRoute.snapshot.queryParams['location'];
@@ -46,6 +54,9 @@ export class AboutUsComponent {
     //   let element = document.getElementById('userSatisfaction');
     //   element?.scrollIntoView({ behavior: 'smooth' });
     // }
+  }
+  ngOnDestroy() {
+    this.main.className = this.mainClass;
   }
   // buttonText = 'باز کردن لیست پخش';
   // isVideoOpend: boolean = false;
