@@ -1,6 +1,6 @@
 <div class="flex max-sm:flex-col my-8">
   <div
-    class="sm:min-w-[25%] sm:max-w-[25%] flex flex-col pb-10 justify-between bg-suggestion rounded-2xl"
+    class="sm:min-w-[25%] sm:max-w-[25%] flex flex-col pb-10 max-sm:mx-12 justify-between bg-suggestion rounded-2xl"
   >
     <div>
       <div class="flex pt-6 px-4">
@@ -40,15 +40,18 @@
   <div
     class="flex flex-col items-center"
     [ngClass]="slidDirection ? 'slide-right' : 'slide-left'"
-    *ngFor="let x of lenCommentModel | slice : lowwerSlide : upperSlide"
+    *ngFor="
+      let link of lenCommentModel | slice : lowwerSlide : upperSlide;
+      index as i
+    "
   >
     <div class="min-w-[32%] max-sm:mt-3">
       <app-video-player
         class="max-sm:h-[12rem] max-sm:flex"
-        [ngClass]="x % 2 == 0 ? 'max-sm:!hidden' : ''"
-        [VideoId]="x"
+        [ngClass]="i == 1 ? 'max-sm:!hidden' : ''"
+        [VideoId]="i"
         [homeScreen]="true"
-        [Link]="'https://www.w3schools.com/html/mov_bbb.ogg'"
+        [Link]="link"
       >
         <div class="md:mt-6">
           <p class="md:text-xl text-black font-semibold">
