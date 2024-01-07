@@ -1,6 +1,1 @@
 /
-/products
-/products/1/اکسپرت-ATM
-/blog
-/blog/page/1
-/blog/Alpari_/FA
