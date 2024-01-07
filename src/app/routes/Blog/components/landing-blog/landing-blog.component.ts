@@ -96,6 +96,8 @@ export class LandingBlogComponent {
     this.router.navigateByUrl(`blog/page/1?category=${id}`);
   }
   ngOnDestroy() {
-    this.main.className = this.mainClass;
+    if (AppComponent.isBrowser.value) {
+      this.main.className = this.mainClass;
+    }
   }
 }

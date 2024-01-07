@@ -1,5 +1,6 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-video-player',
@@ -34,7 +35,9 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.vId = 'vId' + this.VideoId;
 
-    this.element = document.getElementById('main-card');
+    if (AppComponent.isBrowser.value) {
+      this.element = document.getElementById('main-card');
+    }
   }
   onTimeUpdate() {
     this.video = document.getElementById(this.vId);

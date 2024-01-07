@@ -29,7 +29,6 @@ export abstract class Header {
     if (AppComponent.isBrowser.value) {
       if (window && window.location) {
         let activeRoute = window.location.hash || window.location.pathname;
-        console.log(activeRoute);
         if (activeRoute == '/') {
           activeRoute = 'home';
         }
