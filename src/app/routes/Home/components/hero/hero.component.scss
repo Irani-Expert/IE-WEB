@@ -17,21 +17,6 @@ $min-width-carousel: 300px;
   animation: img-move 12s infinite;
 }
 
-// .hero-image {
-//   min-width: 489px;
-//   aspect-ratio: 4/3;
-//   object-fit: contain;
-//   max-width: 500px;
-//   position: relative;
-//   bottom: 30px;
-//   right: 30px;
-//   animation: img-move 12s infinite;
-// }
-
-.Percent-style {
-  font-style: oblique;
-}
-
 .header-start {
   color: #098b41;
   &::before {
@@ -46,14 +31,12 @@ $min-width-carousel: 300px;
 }
 
 .header-title {
-  font-style: oblique;
   word-spacing: 3px;
 }
 
 .header-text-end {
   color: #098b41;
   font-size: 2rem;
-  font-style: oblique;
 }
 
 @keyframes img-move {
@@ -121,10 +104,7 @@ $min-width-carousel: 300px;
 }
 // ==================[متن هیرو]===============
 
-.hero-h1 {
-  font-style: oblique;
-}
-.hero-h2 {
+.hero-h {
   color: #757575;
 }
 

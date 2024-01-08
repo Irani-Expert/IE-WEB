@@ -21,10 +21,13 @@
                   [@rotatedState]="state"
                   [src]="icon.src"
                   [alt]="icon.alt"
+                  width="20px" height="15px"
                 />
               </ng-container>
               <ng-container *ngIf="icon.placement == 'right-icon'">
-                <img [src]="icon.src" [alt]="icon.alt" />
+                <img [src]="icon.src" [alt]="icon.alt"
+                width="20px" height="15px"
+                />
               </ng-container>
             </span>
           </ng-container>
@@ -60,8 +63,11 @@
   <span
     class="flex p-2.5 mx-2 bg-slate-50 border border-gray-300 rounded-full hover:bg-slate-200 transition-colors cursor-pointer"
     ><img src="assets/icon/google.svg" alt="Google-Icon"
+    width="20px" height="15px"
   /></span>
   <span class="flex p-2.5 mx-2 facebook-icon border rounded-full cursor-pointer"
     ><img src="assets/icon/facebook.svg" alt="Facebook-Icon"
+    width="20px" height="15px"
+
   /></span>
 </div>

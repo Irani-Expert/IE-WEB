@@ -7,7 +7,7 @@ import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { AppServerModule } from './src/main.server';
 import { enableProdMode } from '@angular/core';
-
+import fetch from 'node-fetch';
 // The Express app is exported so that it can be used by serverless Functions.
 enableProdMode();
 export function app(): express.Express {
@@ -24,10 +24,8 @@ export function app(): express.Express {
       bootstrap: AppServerModule,
     })
   );
-
   server.set('view engine', 'html');
   server.set('views', distFolder);
-
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });
   // Serve static files from /browser
@@ -39,11 +37,18 @@ export function app(): express.Express {
   );
 
   // All regular routes use the Universal engine
-  server.get('*', (req, res) => {
-    res.render(indexHtml, {
-      req,
-      providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }],
-    });
+  server.get('*', async (req, res) => {
+    let redirectRes = await fetchRedirects(req.originalUrl);
+
+    if (redirectRes.data !== null) {
+      // redirectRes.data = 'https://www.iraniexpert.com' + redirectRes.data;
+      res.redirect(301, redirectRes.data);
+    } else {
+      res.render(indexHtml, {
+        req,
+        providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }],
+      });
+    }
   });
 
   return server;
@@ -54,6 +59,7 @@ function run(): void {
 
   // Start up the Node server
   const server = app();
+
   server.listen(port, () => {
     console.log(`Node Express server listening on http://localhost:${port}`);
   });
@@ -68,5 +74,32 @@ const moduleFilename = (mainModule && mainModule.filename) || '';
 if (moduleFilename === __filename || moduleFilename.includes('iisnode')) {
   run();
 }
+const fetchRedirects = async (url: string): Promise<Result> => {
+  let getRedirectUrl = `https://api.iraniexpert.com/api/URLRedirect/CheckExists?url=${url}`;
+  const response = await fetch(getRedirectUrl, {
+    method: 'GET',
+    headers: { accept: 'application/json', 'Content-Type': 'application/json' },
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
 
+      let res = { ...apiResult, ...data! };
+      return res;
+    });
+  return response;
+};
 export * from './src/main.server';
+
+type Result = {
+  success: boolean;
+  message: string;
+  data: string | null;
+  errors: Array<any>;
+};
+const apiResult: Result = {
+  data: null,
+  errors: [],
+  message: '',
+  success: false,
+};
