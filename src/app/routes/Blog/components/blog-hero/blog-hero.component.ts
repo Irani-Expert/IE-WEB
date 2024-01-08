@@ -40,7 +40,12 @@ export class BlogHeroComponent {
   // =======================[رسپانسیو]==========
 
   device: 'sm' | 'lg' = 'lg';
+  @ViewChild('nav') ds: any;
+
   ngOnInit() {
+    if (AppComponent.isBrowser.value) {
+      this.ds = DragScrollComponent;
+    }
     this.updateDeviceValue();
     this.setLanguage();
     this._searchInputSubscription = this._searchinput
@@ -67,7 +72,6 @@ export class BlogHeroComponent {
   // ================================[کاروسل رسپانسیو]===============
   rightReached = false;
   leftReached = false;
-  @ViewChild('nav', { read: DragScrollComponent }) ds: DragScrollComponent;
   items = [
     {
       id: 0,
