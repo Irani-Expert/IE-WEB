@@ -7,7 +7,11 @@
     font-size: 5rem;
   }
 }
-
+.robot-trader-img {
+  object-fit: contain;
+  width: auto;
+  aspect-ratio: 16/11;
+}
 .header-start {
   &::before {
     content: "";
