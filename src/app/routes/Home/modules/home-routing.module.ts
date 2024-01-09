@@ -4,6 +4,7 @@ import { LandingPageComponent } from '../components/landing-page/landing-page.co
 import { AboutUsComponent } from '../components/about-us/about-us.component';
 import { LandingSearchComponent } from '../../Search/components/landing-search/landing-search.component';
 import { RobotTraderComponent } from 'src/app/shared/robot-trader/robot-trader.component';
+import { CopyTradeComponent } from 'src/app/components/copy-trade/copy-trade.component';
 
 const routes: Routes = [
   { path: '', title: 'ایرانی اکسپرت - خانه', component: LandingPageComponent },
@@ -12,6 +13,11 @@ const routes: Routes = [
     path: 'robot-trader',
     title: 'ربات معامله گر ',
     component: RobotTraderComponent,
+  },
+  {
+    path: 'copy-trade',
+    title: 'کپی ترید',
+    component: CopyTradeComponent,
   },
   { path: 'search', title: 'جستجو', component: LandingSearchComponent },
 ];

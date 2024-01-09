@@ -65,7 +65,9 @@ export class BlogPaginationComponent {
     );
   }
   ngOnDestroy() {
-    this.main.className = this.mainClass;
+    if (AppComponent.isBrowser.value) {
+      this.main.className = this.mainClass;
+    }
     this.routerSubscriber?.unsubscribe();
   }
   async ngOnInit() {

@@ -40,11 +40,10 @@
 <!-- ====================[رسپانسیو]========= -->
 <div [ngClass]="device == 'sm' ? 'block px-1' : 'hidden'">
   <div class="mt-20 mr-4 ml-4">
-    <ng-container *ngIf="!loading">
-      <ng-container *ngIf="sendDataToChild">
-        <app-blog-detail [data]="blogService._blog!"></app-blog-detail>
-      </ng-container>
+    <ng-container *ngIf="sendDataToChild">
+      <app-blog-detail [data]="blogService._blog!"></app-blog-detail>
     </ng-container>
+
     <!-- <div class="flex justify-center mt-12">
       <div class="baner flex flex-row">
         <div class="basis-1/2 flex items-center">

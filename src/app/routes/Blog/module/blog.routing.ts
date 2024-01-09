@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LandingBlogComponent } from '../components/landing-blog/landing-blog.component';
 import { BlogPaginationComponent } from '../components/blog-pagination/blog-pagination.component';
 import { LandingBlogDetailComponent } from '../components/landing-blog-detail/landing-blog-detail.component';
-import { RedirectResolver } from 'src/app/classes/services/redirector.service';
+// import { RedirectResolver } from 'src/app/classes/services/redirector.service';
 // import { redirectGuard } from 'src/app/classes/redirect';
 
 const routes: Routes = [
@@ -17,7 +17,6 @@ const routes: Routes = [
   },
   {
     path: ':title/:language',
-    resolve: { data: RedirectResolver },
     // canActivate: [redirectGuard()],
     component: LandingBlogDetailComponent,
   },

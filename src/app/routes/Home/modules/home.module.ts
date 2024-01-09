@@ -38,8 +38,10 @@ import { BlueCardsComponent } from 'src/app/shared/blue-cards/blue-cards.compone
 import { QAComponent } from 'src/app/shared/qa/qa.component';
 import { VoteComponent } from 'src/app/shared/vote/vote.component';
 import { QuickAccessComponent } from 'src/app/shared/quick-access/quick-access.component';
+import { CopyTradeComponent } from 'src/app/components/copy-trade/copy-trade.component';
 
 const components = [
+  CopyTradeComponent,
   RobotTraderComponent,
   ServiceBanerComponent,
   AboutusTargetsResponsiveComponent,

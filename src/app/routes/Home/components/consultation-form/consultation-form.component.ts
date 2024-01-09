@@ -22,7 +22,7 @@ const formDataInit: GiftInter = {
 })
 export class ConsultationFormComponent {
   @Input('isGreen') GreenStyles: boolean = false;
-
+  @Input('toggleType') type: number = 1;
   @ViewChild('scrollHere') elementScroll: HTMLElement;
   formControlInit: InputInterface[] = [
     {

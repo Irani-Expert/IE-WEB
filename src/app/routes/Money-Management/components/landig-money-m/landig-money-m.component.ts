@@ -32,6 +32,8 @@ export class LandigMoneyMComponent {
     });
   }
   ngOnDestroy() {
-    this.main.className = this.mainClass;
+    if (AppComponent.isBrowser.value) {
+      this.main.className = this.mainClass;
+    }
   }
 }

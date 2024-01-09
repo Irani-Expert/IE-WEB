@@ -9,7 +9,7 @@ import { Comment } from 'src/app/classes/interfaces/comment.interface';
 export class CommentsComponent {
   @Input('data') comments: Comment[] = new Array<Comment>();
   rateText: string = 'عالی';
-  rate: number = -2.8;
+  rate: number = 3;
   putStyle(n: number, text: string) {
     this.rate = n;
     this.rateText = text;

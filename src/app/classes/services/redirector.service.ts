@@ -5,7 +5,6 @@ import { lastValueFrom, map } from 'rxjs';
 import {
   ActivatedRouteSnapshot,
   Resolve,
-  Router,
   RouterStateSnapshot,
 } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -14,28 +13,19 @@ const decoder = new HttpUrlEncodingCodec();
   providedIn: 'root',
 })
 export class RedirectResolver extends BaseService<any> implements Resolve<any> {
-  constructor(
-    http: HttpClient,
-    private _router: Router,
-    toastr: ToastrService
-  ) {
+  constructor(http: HttpClient, toastr: ToastrService) {
     super(http, toastr);
   }
 
   async resolve(_route: ActivatedRouteSnapshot, _state: RouterStateSnapshot) {
     var url = _state.url;
     // url = decoder.encodeValue(url);
-    const res = this.check(url);
-    const apiRes = await res;
-    if (apiRes.data !== null) {
-      this._router.navigateByUrl(`${apiRes.data}`);
-    } else {
-      url = url.split('/')[2];
-      url = decoder.decodeValue(url.split('_').join(' '));
-      const data = await this.getDetail(url);
 
-      return data.data;
-    }
+    url = url.split('/')[2];
+    url = decoder.decodeValue(url.split('_').join(' '));
+    const data = await this.getDetail(url);
+
+    return data.data;
   }
   async check(url: string) {
     const observer = this.get(`URLRedirect/CheckExists?url=${url}`).pipe(
