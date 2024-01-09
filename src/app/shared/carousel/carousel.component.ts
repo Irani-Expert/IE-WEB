@@ -37,19 +37,19 @@ export class CarouselComponent {
   gallery: CarouselImage[] = [
     {
       id: 1,
-      src: 'assets/img/Expert 2.png',
+      src: 'assets/img/Expert 2.webp',
     },
     {
       id: 2,
-      src: 'assets/img/Expert 1.png',
+      src: 'assets/img/Expert 1.webp',
     },
     {
       id: 3,
-      src: 'assets/img/Expert 2.png',
+      src: 'assets/img/Expert 2.webp',
     },
     {
       id: 4,
-      src: 'assets/img/Expert 1.png',
+      src: 'assets/img/Expert 1.webp',
     },
   ];
   // @Input('images') gallery: CarouselImage[]

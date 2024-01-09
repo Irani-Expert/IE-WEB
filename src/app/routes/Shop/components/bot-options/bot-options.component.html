@@ -1,18 +1,18 @@
-<div class="lg:!mr-14 row">
+<div class="lg:!mr-14 mr-4 ml-8">
   <span class="divid-h lg:!text-base">امکانات ویژه ربات معامله گر ATM </span>
-  <h6 class="faq-h mb-4 lg:!text-2xl">بخشی از مهمترین ویژگی ها و ربات معامله گر ATM</h6>
+  <h6 class="text-black text-base font-semibold mb-4 lg:!text-2xl">بخشی از مهمترین ویژگی ها و ربات معامله گر ATM</h6>
 </div>
 <!-- ===============[FAQ]=========== -->
-<div class="box-shadow flex justify-center">
-  <ul id="accordion " class="accordion max-w-4xl mr-3 ml-3">
+<div class="pb-8 flex justify-center">
+  <ul id="accordion" class="accordion mt-4 max-w-4xl mr-3 ml-3">
     <li
       class="border"
       *ngFor="let menu of data; let i = index"
       [class.active]="menu.isActive"
     >
-      <div class="menu" (click)="toggle(i, !menu.isActive)">
-        <img src="assets/icon/chevron.svg" />
+      <div class="menu flex justify-between" (click)="toggle(i, !menu.isActive)">
         {{ menu.title }}
+        <i class="chevron"></i>
       </div>
       <ul
         class="submenu"
