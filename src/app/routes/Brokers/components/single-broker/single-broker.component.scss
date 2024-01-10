@@ -1,12 +1,10 @@
 .img-container {
-  aspect-ratio: 16/9;
   max-width: 290px;
-  min-width: 245px;
+  min-width: min-content;
   img {
     width: 100%;
-    aspect-ratio: 16/9;
+    height: 100%;
     object-fit: cover;
-    border-radius: 5px;
   }
 }
 .ie-verified {

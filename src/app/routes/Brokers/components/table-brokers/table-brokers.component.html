@@ -19,7 +19,10 @@
             <p>{{ item.rate }}</p>
           </td>
           <td class="td-logo-broker">
-            <img src="assets/img/alpari-broker-forex.jpg" alt="business-logo" />
+            <img
+              src="assets/img/alpari-broker-forex.webp"
+              alt="business-logo"
+            />
           </td>
           <td>
             <p class="px-2">{{ item.name }}</p>
@@ -56,16 +59,42 @@
           </td>
           <td class="td-actions">
             <div class="flex flex-col gap-2">
-              <a [routerLink]="item.name.split(' ').join('_')">
-                <button class="w-full h-7 bg-[#3246D3] rounded-2xl text-white">
-                  بررسی بروکر
-                </button>
-              </a>
-              <a [href]="item.linkSite ? item.linkSite : '#'">
-                <button class="w-full h-7 bg-[#CC3A39] rounded-2xl text-white">
-                  افتتاح حساب
-                </button>
-              </a>
+              <ng-container *ngIf="item.linkSite">
+                <a [routerLink]="item.linkSite.split(' ').join('_')">
+                  <button
+                    class="w-full h-7 bg-[#3246D3] rounded-2xl text-white"
+                  >
+                    بررسی بروکر
+                  </button>
+                </a>
+              </ng-container>
+              <ng-container *ngIf="!item.linkSite">
+                <a [href]="'https://www.trustpilot.com/review/' + item.extLink">
+                  <button
+                    class="w-full h-7 bg-[#3246D3] rounded-2xl text-white"
+                  >
+                    بررسی بروکر
+                  </button>
+                </a>
+              </ng-container>
+              <ng-container *ngIf="item.refCode">
+                <a href="#">
+                  <button
+                    class="w-full h-7 bg-[#CC3A39] rounded-2xl text-white"
+                  >
+                    افتتاح حساب
+                  </button>
+                </a></ng-container
+              >
+              <ng-container *ngIf="!item.refCode">
+                <a href="#">
+                  <button
+                    class="w-full h-7 bg-[#CC3A39] rounded-2xl text-white"
+                  >
+                    افتتاح حساب
+                  </button>
+                </a>
+              </ng-container>
             </div>
           </td>
         </tr>
