@@ -1,21 +1,25 @@
 <div
-  class="flex lg:flex-row flex-col mt-16 justify-center items-center gap-3 lg:gap-0"
+  class="flex lg:flex-row flex-col mt-16 justify-center items-center gap-3 2xl:gap-4"
 >
   <div
-    class="md:basis-1/2 xl:basis-4/6 mt-4 items-center flex flex-col transition-all"
+    class="md:basis-1/2 xl:basis-4/6 mt-4 items-start flex flex-col transition-all order-2 lg:order-1"
   >
-    <h1 class="font-black text-3xl select-none mx-2 md:mr-[7.5rem] w-full">
+    <h1 class="font-black text-3xl select-none mx-2 w-full order-2 lg:order-1">
       بررسی بروکر های فارکس
     </h1>
-    <p class="font-black text-[#098B41] text-2xl select-none xl:-mr-12">
+    <p
+      class="font-black text-[#098B41] text-2xl select-none order-1 lg:order-2"
+    >
       <i
-        class="ms-3 ie-icon scale-[0.8] small ie-thick translate-x-1 translate-y-1"
+        class="ie-icon scale-[0.8] small ie-thick translate-x-1 translate-y-1"
       ></i>
       بهترین بروکر برای ترید در بازار فارکس ایرانیان (Forex) 2023+ انواع بروکر
       ها
     </p>
 
-    <p class="text-justify text-lg text-black mt-5 mx-2 md:mx-14 select-none">
+    <p
+      class="text-justify text-lg text-black mt-5 mr-2 select-none divider-before order-3"
+    >
       انتخاب بهترین بروکر برای ایرانیان، در بازار فارکس (Forex)، همواره چالشی
       است که به بسیاری از عوامل و نیازهای معامله‌گران ایرانی وابسته است. این
       عوامل شامل نوع معاملات، پلتفرم معاملاتی، میزان سرمایه آغازین، نیاز به
@@ -30,13 +34,13 @@
 
     <button
       (click)="navTo()"
-      class="min-w-fit px-4 text-sm text-white bg-[#098B41] font-medium h-9 rounded-s-3xl rounded-bl-3xl ml-auto mt-4 mr-12 flex items-center"
+      class="min-w-fit px-4 text-sm text-white bg-[#098B41] font-medium h-9 rounded-s-3xl rounded-bl-3xl self-end lg:self-start mt-4 flex items-center order-4"
     >
       بیشتر بخوانید
       <span class="chevron-container"><i class="ie-chevron-left"></i></span>
     </button>
   </div>
-  <div class="basis-1/2">
+  <div class="basis-1/2 order-1 lg:order-2">
     <img
       src="../../../../../assets/img/Broker-Demo.webp"
       alt="video-holder"

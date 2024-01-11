@@ -1,13 +1,14 @@
-<div class="flex-col flex items-center">
+<div class="flex-col flex items-center bg-white lg:bg-inherit">
   <div class="px-6">
     <brokers-hero />
     <!-- Row Cards -->
 
     <div
+      *ngIf="loadTable"
       class="my-8 flex flex-row flex-wrap items-center justify-center gap-16"
     >
-      <ng-container *ngFor="let i of [1, 2, 3]">
-        <broker-img-card [linkCard]="true" [data]="i" />
+      <ng-container *ngFor="let b of brokersInHero">
+        <broker-img-card [linkCard]="true" [data]="b" />
       </ng-container>
     </div>
 
@@ -40,7 +41,7 @@
   <!-- Last Part of Landing -->
 
   <div id="readMore" class="flex flex-col lg:flex-row mx-4 my-5">
-    <div class="basis-full max-w-[370px] min-w-[270px]">
+    <div class="basis-full hidden lg:block max-w-[370px] min-w-[270px]">
       <app-blog-filter [type]="'tags'">
         <p header>دسترسی سریع</p>
       </app-blog-filter>
@@ -68,14 +69,14 @@
             کمک می‌کند به طور موثر و کارآمد در این بازار معامله کنند. در زیر به
             برخی از دلایل اصلی استفاده از بروکرها در فارکس اشاره شده است:
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="number">1.</span
             ><span class="font-medium mr-2">دسترسی به بازار فارکس:</span>
             دسترسی به بازار فارکس: بروکرها، دسترسی به بازار فارکس را برای
             معامله‌گران فراهم می‌کنند. بدون واسطه‌ای مانند بروکر، معامله‌گران
             نمی‌توانند مستقیماً به بازار فارکس وارد شوند.
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="number">2.</span
             ><span class="font-medium mr-2">ارائه پلتفرم معاملاتی:</span>
             بروکرها، نرم‌افزارهای معاملاتی و پلتفرم‌های معاملاتی را به
@@ -83,40 +84,40 @@
             در بازار فارکس را می‌دهند و شامل ابزارهای تحلیلی، نقشه‌ها، اخبار
             مالی، و امکانات مدیریت حساب می‌شوند.
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="number">3.</span
             ><span class="font-medium mr-2">انتخاب معاملاتی:</span>
             بروکرها به تریدرها انواع مختلفی از حساب‌های معاملاتی را ارائه
             می‌دهند. این حساب‌ها ممکن است شامل حساب‌های استاندارد، حساب‌های
             نانو، حساب‌های اسلامی (بدون بهره) و حساب‌های آزمایشی (دمو) باشند.
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="number">4.</span
             ><span class="font-medium mr-2">مدیریت حساب:</span>
             این ویژگی بروکرها، به معامله‌گران امکان مانیتورینگ حساب، واریز و
             برداشت وجه را می‌دهد.
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="number">5.</span
             ><span class="font-medium mr-2">تحلیل‌های مالی و آموزش:</span>
             بروکرها معمولاً اخبار مالی و تحلیل‌های بازار را به معامله‌گران ارائه
             می‌دهند که به معامله‌گران کمک می‌کنند تصمیمات معاملاتی بهتری از
             دیدگاه تحلیلی انجام دهند.
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="number">6.</span
             ><span class="font-medium mr-2">پشتیبانی مشتری:</span>
             بروکرها معمولاً خدمات پشتیبانی مشتری حرفه‌ای را ارائه می‌دهند. این
             به معامله‌گران امکان مشاوره و رفع مشکلات فوری را می‌دهد.
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="number">7.</span
             ><span class="font-medium mr-2">کارکرد در معاملات 24/5:</span>
             بازار فارکس در طول هفته به‌طور مداوم کار می‌کند. بروکرها امکان
             معامله در ساعات غیرکاری و در تمامی جلسات بورس جهانی را به
             معامله‌گران می‌دهند.
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="number">8.</span
             ><span class="font-medium mr-2">مدیریت ریسک:</span>
             بروکرها ابزارها و تکنولوژی‌هایی برای مدیریت ریسک در معاملات فراهم
@@ -153,7 +154,7 @@
             کلی، اصلی‌ترین معیارهایی که کاربران باید در نظر بگیرند و در انتخاب
             بروکر مهم هستند عبارتند از:
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="number">1.</span
             ><span class="font-medium mr-2">مجوز و رگولاتوری:</span>
             رگولاتوری (Regulation) در معاملات فارکس، به نهادها و سازمان‌های
@@ -169,17 +170,17 @@
             نهادهای نظارتی دارای اعتبار سطح بالا و برخی دیگر اعتبار سطح متوسط
             ​​یا پایین هستند.
           </p>
-          <p class="text-red-700 mr-20 font-medium">
+          <p class="text-red-700 mr-4 md:mr-10 lg:mr-20 font-medium">
             در حال حاضر به علت تحریم ها در ایران، امکان فعالیت در شعب اصلی
             کارگزاری‌هایی که توسط موسسات معتبر تنظیم می شود وجود ندارد.
           </p>
-          <p class="title-b mr-20 mb-3 mt-2">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3 mt-2">
             اکثر بروکرهایی که می‌‌خواهند به کشورهای تحریم شده‌ای مانند ایران
             خدمات ارائه دهند، باید از
             <span class="font-semibold">رگولاتوری های آفشور ،</span>
             که اعتبار کمتری دارند، استفاده کنند.
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="number">2.</span
             ><span class="font-medium mr-2">داشتن قوانین و مقررات محلی:</span>
             مثلا برای ایرانیان، واریز و برداشت ریالی به شیوه ای ساده به همراه
@@ -192,7 +193,7 @@
             </span>
             می باشد.
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="number">3.</span
             ><span class="font-medium mr-2">پلتفرم معاملاتی:</span>
             اطمینان حاصل کنید که بروکر از پلتفرم معاملاتی کارآمد و پیشرفته‌ای
@@ -202,13 +203,13 @@
             مثلا برای کاربران ایرانی مهم است که بروکر انتخابی، دارای پلتفرم
             معاملاتی متاتریدر4 (MT4) و متاتریدر5 (MT5) باشد.
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="number">4.</span
             ><span class="font-medium mr-2">هزینه‌های معاملاتی:</span>
             این هزینه‌ها برای معامله گران شامل کمیسیون‌ها، اسپرد، و هزینه‌های
             انتقال و برداشت وجه می‌شوند.
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="number">5.</span
             ><span class="font-medium mr-2">پشتیبانی مشتری:</span>
             کیفیت پشتیبانی مشتری بسیار مهم است. معامله‌گران باید اطمینان حاصل
@@ -216,7 +217,7 @@
             خواهد بود. داشتن پشتیبانی فارسی، برای ایرانیان از اهمیت زیادی
             برخوردار است.
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="number">6.</span
             ><span class="font-medium mr-2">امکانات آموزشی:</span>
             اگر شما یک معامله‌گر مبتدی هستید یا به بهبود مهارت‌های معاملاتی خود
@@ -224,19 +225,19 @@
             آموزش‌ها، می‌توانند ویدئوهای آموزشی تا وبینارها و منابع تحلیلی مختلف
             را شامل شوند.
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="number">7.</span
             ><span class="font-medium mr-2">میزان سرمایه آغازین:</span>
             برخی بروکرها ممکن است حداقل میزان سرمایه آغازین برای معاملات تعیین
             کنند. اطمینان حاصل کنید که سرمایه شما با این میزان همخوانی دارد.
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="number">8.</span
             ><span class="font-medium mr-2">امنیت و حریم خصوصی:</span>
             باید مطمئن شوید که بروکر اطلاعات شخصی و مالی مشتریان را به خوبی
             حفاظت می‌کند و از استفاده نادرست از این اطلاعات جلوگیری می‌کند.
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="number">9.</span
             ><span class="font-medium mr-2"
               >انواع حساب معاملاتی ارائه شده:</span
@@ -247,7 +248,7 @@
             پیشنهاد ما اینست بروکرهایی که حساب دمو ارائه نمی‌دهند را از لیست
             انتخابی خود حذف کنید.
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="number">10.</span
             ><span class="font-medium mr-2">تنوع ابزارهای مالی:</span>
             بروکرها معمولاً مجوزهای مختلفی دارند و به تنوع ابزارهای مالی که
@@ -255,7 +256,7 @@
             می‌دهند، در حالی که دیگران امکان معامله ارزها، کریپتوکارنسی‌ها،
             قراردادهای آتی، طلا و سایر دارایی‌ها را فراهم می‌کنند.
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="number">11.</span
             ><span class="font-medium mr-2">محدودیت‌های کشوری:</span>
             بروکرها ممکن است در تعدادی از کشورها محدودیت‌هایی در ارائه خدمات به
@@ -274,14 +275,14 @@
             بهترین شکل ممکن انجام دهند. در ادامه ویژگی‌هایی که یک کارگزار فارکس
             عالی باید داشته باشد، آورده شده است:
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="flex items-baseline">
               <i class="icon-articles-break icon-break"></i>
               یک بروکر فارکس عالی، باید دارای مجوزهای لازم از مراجع مالی ونظارتی
               معتبر (رگولاتوری معتبر) باشد
             </span>
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="flex items-baseline">
               <i class="icon-articles-break icon-break"></i>
               بروکر باید در ارائه اطلاعات مربوط به کارمزدها شفاف باشد.
@@ -290,7 +291,7 @@
               مناسبی در انتخاب یک بروکر فارکس عالی هستند.
             </span>
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="flex items-baseline">
               <i class="icon-articles-break icon-break"></i>
               یک کارگزار عالی باید دارای کارمزدها و هزینه‌های معقولی باشد. به
@@ -298,21 +299,21 @@
               هستند.
             </span>
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="flex items-baseline">
               <i class="icon-articles-break icon-break"></i>
               یک بروکر معتبر باید دارای دسترسی به تنوع ابزارهای مالی مثل جفت‌های
               ارز، کریپتوکارنسی‌ها، معامله قراردادهای آتی و سایر ابزارها باشد.
             </span>
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="flex items-baseline">
               <i class="icon-articles-break icon-break"></i>
               یک بروکر عالی باید پلتفرم معاملاتی با ویژگی‌ها و امکانات حرفه‌ای
               ارائه دهد. برای مثال، متاتریدر4 و متاتریدر 5.
             </span>
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="flex items-baseline">
               <i class="icon-articles-break icon-break"></i>
               کیفیت پشتیبانی مشتری یکی از ویژگی‌های اساسی یک بروکر فارکس عالی
@@ -320,28 +321,28 @@
               با مشکلات و سوالات دسترسی آسانی به پشتیبانی داشته باشند.
             </span>
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="flex items-baseline">
               <i class="icon-articles-break icon-break"></i>
               یک بروکر عالی باید در سطح بالایی از امنیت اطلاعت شخصی و مالی
               مخاطبان برخوردار باشد
             </span>
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="flex items-baseline">
               <i class="icon-articles-break icon-break"></i>
               سرعت و قابلیت اجرای معاملات در زمان های حساس نیز میتوانند نشانه
               هایی از کیفیت باشند.
             </span>
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="flex items-baseline">
               <i class="icon-articles-break icon-break"></i>
               ارائه تحلیل‌های مالی و اخبار بازار به معامله‌گران می‌تواند به آنها
               کمک کند تا تصمیمات بهتری در مورد معاملات خود بگیرند.
             </span>
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="flex items-baseline">
               <i class="icon-articles-break icon-break"></i>
               برخی از کارگزارهای محبوب، امکانات آموزشی به مشتریان خود ارائه
@@ -349,7 +350,7 @@
               دهند.
             </span>
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="flex items-baseline">
               <i class="icon-articles-break icon-break"></i>
               امکان نقل و انتقال وجه به و از حساب معاملاتی باید ساده و مطابق با
@@ -375,43 +376,43 @@
             خدمات و زیرساخت‌های ارائه شده توسط بروکر استفاده کنید. به صورت کلی،
             مراحل استفاده از بروکرها عبارتند از:
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="number">1.</span>
             انتخاب بروکر
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="number">2.</span>
             ثبت ‌نام در بروکر و ایجاد حساب معاملاتی
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="number">3.</span>
             واریز وجه
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="number">4.</span>
             آشنایی ب پلتفرم معاملاتی
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="number">5.</span>
             شروع معاملات
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="number">6.</span>
             مدیریت معاملات
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="number">7.</span>
             بررسی حساب
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="number">8.</span>
             برداشت وجه
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="number">9.</span>
             آموزش و پیشرفت
           </p>
-          <p class="title-b mr-20 mb-3">
+          <p class="title-b mr-4 md:mr-10 lg:mr-20 mb-3">
             <span class="number">10.</span>
             مدیریت سرمایه
           </p>

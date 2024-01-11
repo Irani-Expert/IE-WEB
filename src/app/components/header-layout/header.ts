@@ -32,22 +32,23 @@ export abstract class Header {
         if (activeRoute == '/') {
           activeRoute = 'home';
         }
-        this.items.forEach((item) => {
-          item.active = false;
-          if (activeRoute.indexOf(item.path!) !== -1) {
-            this.navService.selectedItem = item;
-            item.active = true;
-          }
-          if (item.sub) {
-            item.sub.forEach((subItem) => {
-              subItem.active = false;
-              if (activeRoute.indexOf(subItem.path!) !== -1) {
-                this.navService.selectedItem = item;
-                item.active = true;
-              }
-            });
-          }
-        });
+        if (activeRoute)
+          this.items.forEach((item) => {
+            item.active = false;
+            if (activeRoute.indexOf(item.path!) !== -1) {
+              this.navService.selectedItem = item;
+              item.active = true;
+            }
+            if (item.sub) {
+              item.sub.forEach((subItem) => {
+                subItem.active = false;
+                if (activeRoute.indexOf(subItem.path!) !== -1) {
+                  this.navService.selectedItem = item;
+                  item.active = true;
+                }
+              });
+            }
+          });
       }
     }
   }
