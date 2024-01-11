@@ -47,7 +47,7 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
   options: config = { multi: false };
 
   // =================[فیلتر]=============
-  categoryDetailIcon: string = 'assets/img/filter-icon-blog(detail).svg';
+  categoryDetailIcon: string = 'assets/icon/filter-icon-blog(detail).svg';
   categoryDetailHeader: string = 'دسترسی سریع';
 
   // =======================[رسپانسیو]==========

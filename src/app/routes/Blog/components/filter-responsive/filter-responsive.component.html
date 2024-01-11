@@ -6,10 +6,10 @@
     <img
       class="ml-2 mb-1 scale-75"
       src="{{ categoryIcon || categoryDetailIcon || categoryMoneylIcon }}"
-      alt="icon"
+      alt="icon" width="24" height="24"
     />
     <ng-content select="[header]"></ng-content>
-    <img class="scale-50" src="assets/img/open-icon-filter.svg" alt="icon" />
+    <i class="chevron scale-50"></i>
   </span>
 </div>
 <div
@@ -30,7 +30,7 @@
       *ngFor="let item of category"
       (click)="changesort(item.id)"
     >
-      <img src="{{ item.icon }}" alt="icon" />
+      <img src="{{ item.icon }}" alt="icon" width="24" height="24"/>
       <p class="text-xl mr-4">
         {{ item.name }}
         <span *ngIf="item.id === sorttype">&#10004;</span>
