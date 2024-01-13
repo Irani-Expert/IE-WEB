@@ -1,13 +1,21 @@
 import { Component } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
-
+class BrokerModel {
+  isCent: boolean;
+  title: string;
+  telegramSupportLink: string;
+}
 @Component({
   selector: 'app-single-broker',
   templateUrl: './single-broker.component.html',
   styleUrls: ['./single-broker.component.scss'],
 })
 export class SingleBrokerComponent {
-  brokerData = { isCent: true, title: 'آلپاری' };
+  brokerData: BrokerModel = {
+    isCent: true,
+    title: 'آلپاری',
+    telegramSupportLink: 'sad',
+  };
   mainClass =
     'm-0 p-0 gap-0 flex flex-col min-h-screen overflow-hidden lg:overflow-y-hidden lg:overflow-x-auto';
   main: HTMLElement;

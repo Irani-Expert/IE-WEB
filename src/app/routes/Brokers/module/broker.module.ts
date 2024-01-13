@@ -21,9 +21,10 @@ const components = [
 ];
 
 @NgModule({
-  declarations: [components, BrokerKeyPipe, BrokerValuePipe],
+  declarations: [components, BrokerKeyPipe],
   imports: [
     CommonModule,
+    BrokerValuePipe,
     BrokerRoutingModule,
     SharedModule,
     TriangleComponent,
