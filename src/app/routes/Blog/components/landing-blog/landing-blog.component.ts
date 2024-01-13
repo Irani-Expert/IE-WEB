@@ -86,7 +86,7 @@ export class LandingBlogComponent {
   }
 
   // =================[فیلتر]=============
-  categoryIcon: string = 'assets/img/filter-icon-blog.svg';
+  categoryIcon: string = 'assets/icon/filter-icon-blog.svg';
   color = 'white';
 
   fillValue(event: string) {

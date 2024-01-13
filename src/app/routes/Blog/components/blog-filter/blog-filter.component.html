@@ -11,7 +11,7 @@
         (click)="selectCategroy(item)"
       >
         <div class="category-row">
-          <img class="ml-3" src="{{ item.icon }}" alt="" />
+          <img class="ml-3" src="{{ item.icon }}" alt="icon" width="24" height="24" />
           <span
             ><p class="link">{{ item.name }}</p></span
           >
@@ -54,7 +54,7 @@
 <!-- ============[تبلیغات]========= -->
 <div #sticky>
   <div class="" [ngClass]="sticked ? 'sticky-custom ' : 'mt-6 h-[85%] flex items-start'">
-    <img class="add-blog" src="assets/img/blog-add.svg" alt="add" />
+    <img class="add-blog" src="assets/img/blog-add.webp" alt="add" width="24" height="24"/>
   </div>
 </div>
 <div #stickyoff class="absolute bottom-72 flex items-end"></div>

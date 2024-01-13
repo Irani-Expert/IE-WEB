@@ -51,8 +51,9 @@ input.search-input {
   }
 }
 .search-icon {
-  right: 22px;
-  transform: translate(50%, 50%);
+  right: 9px;
+  transform: translate(43%, 16%);
+  scale: 0.6;
 }
 .filter-box-default {
   @media (min-width: 1024px) {
