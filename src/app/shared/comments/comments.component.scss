@@ -1,3 +1,9 @@
+@media (min-width: 768px) {
+  .sep-part {
+    width: 410px;
+  }
+}
+
 .point-card {
   display: inline-block;
   width: 38px;
@@ -84,7 +90,6 @@ progress:before {
 // <!-- =======================[نظرات]=========== -->
 .sep-part {
   display: flex;
-  width: 410px;
   direction: ltr;
   border: 1px solid #ccc;
   border-radius: 14px;
