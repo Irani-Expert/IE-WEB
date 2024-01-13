@@ -23,18 +23,18 @@
                 </p>
               </button> -->
             </div>
-            <strong class="bot-h">{{ product.title }}</strong>
-            <div class="row-rating mb-3">
-              <span class="star-rating">
+            <strong class="text-black font-fat -mt-1 text-3xl">{{ product.title }}</strong>
+            <div class="relative -mt-4 mb-3">
+              <span class="star-rating relative block -z-30 w-40">
                 <app-rating [config]="star"></app-rating>
               </span>
-              <p class="p-rating">
-                <span class="moshtarak">{{ product.rate }}</span>
-                <span class="bazdid">بازدید ها 735</span>
-                <span class="moshtarak">مشترک ها 235</span>
+              <p class="bot-rating relative text-sm font-bold">
+                <span class="Common">{{ product.rate }}</span>
+                <span class="view mx-1 px-1">بازدید ها 735</span>
+                <span class="Common">مشترک ها 235</span>
               </p>
             </div>
-            <h6 class="row-title">انتخاب پلن</h6>
+            <h6 class="mb-4 text-base font-semibold">انتخاب پلن</h6>
             <div class="flex justify-start flex-wrap gap-2 mb-10">
               <div
                 *ngFor="let p of plans; let i = index"
@@ -66,25 +66,25 @@
             </div>
             <h6
               [ngClass]="animationState ? 'price-animation' : ''"
-              class="row-title mb-4"
+              class="mb-4 text-base font-semibold"
             >
               {{ selectedPlan.title }}
             </h6>
             <p
               [ngClass]="animationState ? 'price-animation' : ''"
-              class="p-plan pl-4"
+              class="text-justify -mt-3 pl-4"
             >
               پلن اعتماد این پلن، بدون انقضاء زمانی است و زمان انقضا هنگامی فرا
               می‌رسد که 100 دلار سود گرفته باشد. هدف از تعریف این پلن، آشنایی
               تریدر با نحوه کار ربات است.
             </p>
           </div>
-          <div class="product-d basis-full">
+          <div class="price-detail-box rounded-2xl mr-8 w-full h-96 px-5 basis-full">
             <div class="mt-5">
               <div class="pb-3">
-                <h6 class="producer-h">فروشنده</h6>
+                <h6 class="mb-4 text-base font-black">فروشنده</h6>
                 <properties [verified]="true" [guarantee]="true">
-                  <p class="producer-name" producer>
+                  <p  class="producer-name" producer>
                     {{ product.publishedBy }}
                   </p>
                   <p rate class="product-rate">{{ product.rate }}</p>
@@ -98,30 +98,30 @@
                     پشتیبانی دائمی تا زمان اشتراک
                   </p>
                 </properties>
-                <div class="pt-3 pb-3 row">
-                  <a class="row-p-4" [href]="contentUrl + demoFile" download=""
+                <div class="pt-3 pb-3">
+                  <a class="demo-download text-sm font-extrabold" [href]="contentUrl + demoFile" download=""
                     ><span
                       ><i class="ie-download"></i>دانلود رایگان دموی محصول
                     </span></a
                   >
                 </div>
-                <div class="price-box mt-2 pt-3">
+                <div class="flex mr-auto items-center justify-end mt-2 pt-3">
                   <div class="flex items-center">
                     <p
                       [ngClass]="animationState ? 'price-animation' : ''"
-                      class="price-1"
+                      class="text-black font-black text-2xl"
                     >
                       {{ selectedPlan.price | currency }}
                     </p>
                   </div>
                 </div>
                 <br />
-                <div class="row-btn">
+                <div class="-mr-2">
                   <button
                     (click)="toCheckout(selectedPlan)"
-                    class="btn-cadr w-full"
+                    class="btn-price-box w-full"
                   >
-                    <p class="btn-p">پرداخت</p>
+                    <p class="text-base text-white font-medium">پرداخت</p>
                   </button>
                 </div>
               </div>
@@ -129,7 +129,7 @@
           </div>
         </div>
         <div class="md:hidden xl:block">
-          <h6 class="row-title">توضیحات</h6>
+          <h6 class="mb-4 text-base font-semibold">توضیحات</h6>
           <p class="text-justify ml-8">
             {{ product.description }}
           </p>
@@ -138,7 +138,7 @@
     </div>
   </div>
   <div class="block xl:hidden">
-    <h6 class="row-title">توضیحات</h6>
+    <h6 class="mb-4 text-base font-semibold">توضیحات</h6>
     <p class="text-justify ml-8">
       {{ product.description }}
     </p>
@@ -148,17 +148,18 @@
   <div class="flex justify-center mt-12 px-3">
     <div class="grid grid-cols-4 gap-3 baner">
       <div class="flex items-end mr-8">
-        <img class="logo" src="assets/img/logo-hero.svg" alt="logo" />
+        <img class="absolute object-contain w-32" src="assets/img/logo-shop-hero.webp" alt="logo" width="128"
+        height="121" />
       </div>
       <div class="flex items-center -mr-6 -ml-6 col-span-2 z-10">
-        <p class="body">
+        <p class="text-black font-bold text-lg">
           برای انتخاب مناسب ترین بروکر برای استفاده از ربات هاب معامله گر و
           سرمایه گذاری میتوانید در صفحه بروکر های ایرانی اکسپرت مفایسه،انتخاب و
           ثبت نام کنید
         </p>
       </div>
       <div class="flex items-center justify-center z-10">
-        <a [routerLink]="'../../../brokers'" class="link font-semibold">
+        <a [routerLink]="'../../../brokers'" class="link text-white px-5 py-2 mr-14 text-lg font-semibold">
           مقایسه بروکرها
         </a>
       </div>
@@ -167,7 +168,7 @@
 </div>
 <!-- ===========================[رسپانسیو]============== -->
 <div class="" [ngClass]="device == 'sm' ? 'block' : 'hidden'">
-  <div class="hero-mobile">
+  <div class="relative">
     <!-- <div class="mt-3 row-click">
       <button class="btn-m">
         <p class="click-m">اضافه کردن به سبد خرید</p>
@@ -177,25 +178,27 @@
       </button>
     </div> -->
     <img
-      class="hero-img w-full"
-      src="assets/img/hero-product(re).svg"
-      alt="hero"
+      class="w-full h-full"
+      [src]="contentUrl + product.cardImagePath"
+      alt="atm-bot"
+      width="112"
+      height="50"
     />
   </div>
 
   <!-- ============[پلن]======= -->
-  <div #scroll class="plan-mobile">
-    <div class="titile">
-      <h6 class="bot-h-mobile">{{ product.title }}</h6>
-      <div class="row-rating-mobile mb-3">
-        <p class="p-rating-m">
+  <div #scroll class="plan-mobile bg-white">
+    <div class="pr-8 pb-8 pt-6">
+      <h6 class="text-lg text-black font-bold">{{ product.title }}</h6>
+      <div class="scale-75 -mr-14 mb-3">
+        <p class="inline-flex text-xl">
           <span class="">مشترک ها 235</span>
-          <span class="bazdid-m">بازدید ها 735</span>
+          <span class="view-mobile px-1 py-0 mx-2 my-0">بازدید ها 735</span>
           <span class="ie-star">{{ product.rate }}</span>
         </p>
       </div>
     </div>
-    <h6 class="row-title mr-7">انتخاب پلن</h6>
+    <h6 class="mb-4 text-base font-semibold mr-7">انتخاب پلن</h6>
     <div class="overflow-scroll w-[98vw]">
       <div class="mb-7 min-w-fit">
         <div class="flex flex-row justify-start">
@@ -230,28 +233,28 @@
 
     <h6
       [ngClass]="animationState ? 'price-animation' : ''"
-      class="row-title mb-4 mr-7"
+      class="mb-4 text-base font-semibold mr-7"
     >
       {{ selectedPlan.title }}
     </h6>
     <p
       [ngClass]="animationState ? 'price-animation' : ''"
-      class="p-plan mr-7 ml-7"
+      class="mr-7 ml-7"
     >
       پلن اعتماد این پلن، بدون انقضاء زمانی است و زمان انقضا هنگامی فرا می‌رسد
       که 100 دلار سود گرفته باشد. هدف از تعریف این پلن، آشنایی تریدر با نحوه کار
       ربات است.
     </p>
-    <h6 class="row-title-3">توضیخات</h6>
+    <h6 class="mt-16 mb-4 mr-4 ml-6 text-base font-semibold">توضیخات</h6>
     <p class="mr-7 ml-8 text-justify">
       {{ product.description }}
     </p>
   </div>
   <!-- ================[فروشنده]============ -->
-  <h6 class="producer-h mr-7 mb-3">فروشنده</h6>
+  <h6 class="mb-4 text-base font-black mr-7">فروشنده</h6>
   <div class="mr-14 ml-14">
     <properties [verified]="true" [guarantee]="true">
-      <p class="producer-name" producer>
+      <p producer>
         {{ product.publishedBy }}
       </p>
       <p rate class="product-rate">{{ product.rate }}</p>
@@ -264,7 +267,7 @@
       <p guarantee class="product-guarantee">پشتیبانی دائمی تا زمان اشتراک</p>
     </properties>
     <div class="pt-3 pb-3">
-      <p class="row-p-mobile2">
+      <p class="demo-download font-black">
         <a [href]="contentUrl + demoFile" download=""
           ><i class="ie-download"></i>دانلود رایگان دموی محصول
         </a>
@@ -273,19 +276,21 @@
   </div>
   <div class="divider"></div>
   <!-- ===========================[بنر]============== -->
-  <div class="all-mobile">
+  <div class="banner-mobile mx-10 my-0 rounded-2xl">
     <div class="relative">
       <a [routerLink]="'../../../brokers'">
-        <div class="flex flex-row baner-mobile">
-          <div class="logo-i-mobile basis-1/3">
+        <div class="flex flex-row bg-baner-mobile">
+          <div class="basis-1/3">
             <img
-              class="logo-mobile z-40"
-              src="assets/img/logo-hero.svg"
+              class="logo-mobile absolute w-24  z-40"
+              src="assets/img/logo-shop-hero.webp"
               alt="logo"
+              width="128"
+              height="121"
             />
           </div>
-          <div class="box-body-mobile z-50 basis-2/3">
-            <p class="body-mobile">
+          <div class="z-50 basis-2/3">
+            <p class="text-xs text-black p-2">
               برای انتخاب مناسب ترین بروکر برای استفاده از ربات هاب معامله گر و
               سرمایه گذاری میتوانید در صفحه بروکر های ایرانی اکسپرت
               مفایسه،انتخاب و ثبت نام کنید
@@ -299,15 +304,15 @@
 
   <div class="box-price-row-mobile">
     <div class="flex flex-row pt-5 pb-9">
-      <div class="box-price-btn-mobile basis-1/3">
-        <button (click)="toCheckout(selectedPlan)" class="btn-mobile">
+      <div class="flex items-center basis-1/3">
+        <button (click)="toCheckout(selectedPlan)" class="btn-mobile px-3 py-9 text-white font-bold mr-2">
           پرداخت
         </button>
       </div>
-      <div class="box-price-mobile basis-2/3">
+      <div class="inline-flex justify-center items-center mt-2 basis-2/3">
         <p
           [ngClass]="animationState ? 'price-animation' : ''"
-          class="price-3-m"
+          class="font-black text-black text-2xl"
         >
           {{ selectedPlan.price | currency }}
         </p>
