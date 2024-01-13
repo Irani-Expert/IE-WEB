@@ -1,5 +1,21 @@
 <div class="flex flex-row-reverse w-full sm:p-5 p-2">
   <div class="lg:w-9/12 w-full">
+    <div
+      class="flex relative my-4 bg-[#CFCFCF] rounded-2xl inside-box-shadow md:hidden"
+    >
+      <img
+        class="img-blog opacity-70"
+        src="../../../assets/img/copy-trade.png"
+      />
+      <div class="absolute flex h-full w-full items-end">
+        <div class="mr-8 max-sm:mb-4">
+          <div class="divider blue-back w-1/4 h-1"></div>
+          <h6 class="text-2xl font-bold text-white">
+            صفر تا صد کپی تریدینگ در فارکس
+          </h6>
+        </div>
+      </div>
+    </div>
     <div class="flex justify-between">
       <div class="flex items-center blue-font font-semibold">
         <i class="ie-folder"></i>
@@ -17,17 +33,21 @@
       صفر تا صد کپی تریدینگ در فارکس
     </h1>
     <div>
-      <small class="font-light">انتشار : 01 دی 1402</small>
-      <small class="ms-6 font-light">زمان مطالعه 7 دقیقه</small>
+      <span class="text-base text-gray-600 font-light me-10"
+        >انتشار : 01 دی 1402</span
+      >
+      <span class="text-base text-gray-600 font-light"
+        >زمان مطالعه 7 دقیقه</span
+      >
     </div>
     <div
-      class="flex relative my-4 bg-[#CFCFCF] rounded-2xl inside-box-shadow max-md:hidden"
+      class="flex relative mb-8 mt-2 bg-[#CFCFCF] rounded-2xl inside-box-shadow max-md:hidden"
     >
       <img
         class="img-blog rounded-xl"
-        src="../../../assets/img/Copy-Trading-1.png"
+        src="../../../assets/img/copy-trade.png"
       />
-      <div class="absolute flex h-full w-full items-center">
+      <div class="absolute flex h-full w-full items-center mb-10">
         <div class="mt-60 mr-12">
           <div class="divider blue-back w-1/4 h-1"></div>
           <h4 class="title-blog-img text-white text-4xl font-semibold">
@@ -36,7 +56,7 @@
         </div>
       </div>
     </div>
-    <p class="text-justify text-lg font-medium mt-2 mb-4">
+    <p class="text-justify text-lg text-gray-500 font-medium mt-2 mb-4">
       آیا شما هم از آن دسته افرادی هستید که علاقه مند به انجام معاملات در
       بازارهای مالی نظیر فارکس و کسب درآمد دلاری از آن ها هستید اما دانش لازم را
       ندارید؟ آیا می توانید به خوبی تجزیه و تحلیل کنید اما استراتژی سودآور
@@ -53,8 +73,8 @@
       تواند بهترین گزینه برای شما باشد.
     </p>
     <app-content-menu [data]="listElems" [wid]="100"></app-content-menu>
-    <h2 class="font-bold text-3xl">
-      (copytrading) کپی تریدینگ به زبان ساده چیست؟
+    <h2 class="font-bold text-3xl mb-6" id="0">
+      کپی تریدینگ (copytrading) به زبان ساده چیست؟
     </h2>
     <p class="text-justify text-lg font-medium mt-2 mb-4">
       کپی ترید یا کپی تریدینگ (copytrading)، یک روش در بازارهای مالی است که به
@@ -63,11 +83,13 @@
       معاملات یک سرمایه‌گذار حرفه‌ای را کپی کرده و به اندازه‌ی آن شخص در بازار
       سرمایه حضور داشته باشید.
       <br />
+      <br />
       حال اینکه چگونه کپی ترید کنیم، به این صورت است که شما یک حساب مخصوص باز
       کرده و به سیستم مدیریت حساب متصل می‌شوید. سپس، شما می‌توانید یک یا چند
       سرمایه‌گذار حرفه‌ای را انتخاب کرده و معاملات آن‌ها را کپی کنید. هر وقت که
       سرمایه‌گذار حرفه‌ای مورد انتخاب شما یک معامله را انجام دهد، این معامله به
       صورت خودکار در حساب شما نیز اجرا می‌شود.
+      <br />
       <br />
       به این ترتیب، شما از تجربیات و استراتژی‌های تریدرهای حرفه‌ای بهره می‌برید،
       حتی اگر خود تجربه‌ی کمتری در بازار سرمایه داشته باشید. البته، همواره وجود
@@ -76,10 +98,11 @@
       حرفه‌ای کنید.
     </p>
     <div
-      class="flex relative my-4 bg-[#CFCFCF] rounded-2xl inside-box-shadow max-md:hidden"
+      class="flex relative mt-20 mb-10 bg-[#CFCFCF] rounded-2xl inside-box-shadow max-md:hidden"
     >
       <img
         class="img-blog rounded-xl"
+        id="1"
         src="../../../assets/img/Mask Group 158.png"
       />
       <div class="absolute flex h-full w-full items-center">
@@ -91,22 +114,20 @@
         </div>
       </div>
     </div>
-    <div>
-      <div class="flex">
-        <div class="flex flex-col">
-          <h3 class="font-bold text-3xl">مزایای کپی تریدینگ</h3>
-          <p class="p-10 ps-0 text-lg">
+    <div class="mt-10">
+      <div class="flex max-lg:flex-col-reverse">
+        <div class="flex flex-col max-lg:mt-5">
+          <h3 class="font-bold text-3xl" id="2">مزایای کپی تریدینگ</h3>
+          <p class="lg:p-14 lg:pe-16 ps-0 text-lg">
             <span class="font-bold"> سهولت در شروع: </span>
             کپی تریدینگ به شما به عنوان مبتدی و تریدری که تازه وارد دنیای مالی
             شده‌، این امکان را می‌دهد که بدون دانش عمیق در زمینه مالی، به معامله
             بپردازند.
             <br />
             <br />
-            <br />
             <span class="font-bold"> صرفه‌جویی در زمان: </span>
             با استفاده از سیستم کپی تریدینگ، نیازی به تحلیل بازار و اتخاذ
             تصمیمات معاملاتی زمان‌بر ندارید و و در زمان خود صرفه‌جویی می‌کنید
-            <br />
             <br />
             <br />
             <span class="font-bold"> افزایش اطمینان: </span>
@@ -115,12 +136,10 @@
             افزایش می‌دهد
             <br />
             <br />
-            <br />
             <span class="font-bold"> متنوع‌سازی سرمایه: </span>
             امکان کپی تریدینگ به تریدران این امکان را می‌دهد که سرمایه خود را بر
             روی چندین استراتژی و تریدر تنوع دهند.
 
-            <br />
             <br />
             <br />
             <span class="font-bold"> مدیریت ریسک: </span>
@@ -133,11 +152,11 @@
           <img
             src="../../../assets/img/phone trader.png"
             alt=""
-            class="min-w-[35rem]"
+            class="lg:min-w-[30rem]"
           />
         </div>
       </div>
-      <div class="flex">
+      <div class="flex mt-14 max-sm:flex-col">
         <div class="m-20 ms-0">
           <img
             src="../../../assets/img/flover-pot.png"
@@ -146,8 +165,8 @@
           />
         </div>
         <div>
-          <h3 class="font-bold text-3xl">معایب کپی تریدینگ</h3>
-          <p class="p-10 ps-0 text-lg">
+          <h3 class="font-bold text-3xl" id="3">معایب کپی تریدینگ</h3>
+          <p class="lg:p-10 lg:ps-0 text-lg">
             <span class="font-bold"> عدم کنترل کامل: </span>
             شما به عنوان کپی‌کننده، هیچ کنترلی بر فرآیند تصمیم‌گیری و اجرای
             معاملات ندارید، این ممکن است باعث احساس کمبود کنترل شود
@@ -181,7 +200,7 @@
       </div>
     </div>
     <app-instagram-baner class="mb-4"></app-instagram-baner>
-    <h2 class="font-bold text-3xl mt-4">
+    <h2 class="font-bold text-3xl mt-14" id="4">
       میزان سود و ضرر در سیستم کپی ترید به چه صورت می باشد؟
     </h2>
     <p>
@@ -190,20 +209,23 @@
       می‌شود. این میزان‌ها به شما اطلاع می‌دهند که چقدر از سرمایه اولیه حساب شما
       به دلیل معاملات تریدر حرفه‌ای، افت یا افزایش یافته است.
       <br />
+      <br />
       برای درک بهتر، مفاهیم مهمی که در زمینه کپی ترید استفاده می‌شوند را توضیح
       می‌دهیم:
       <br />
-      <span class="font-bold">1. میزان سود (Profit): </span>
+      <br />
+      <span class="font-bold" id="5">1. میزان سود (Profit): </span>
       <br />
       Profit، نشان‌دهنده تغییر سرمایه مثبت در حساب معامله‌گر است که به صورت زیر
       محاسبه می شود:
-      <img src="../../../assets/img/cal-profit.png" alt="" />
-      <span class="font-bold">2. میزان ضرر (Drawdown): </span>
+      <br />
+      <img class="my-4" src="../../../assets/img/cal-profit.png" alt="" />
+      <span class="font-bold" id="6">2. میزان ضرر (Drawdown): </span>
       <br />
       Drawdown، نشان‌دهنده کاهش سرمایه حساب، از اوج به کمینه در یک دوره زمانی
       است که به صورت زیر محاسبه می‌شود:
-      <img src="../../../assets/img/cal-draw.png" alt="" />
-      <span class="font-bold">3.نسبت موفقیت (WinRate): </span> <br />
+      <img class="my-4" src="../../../assets/img/cal-draw.png" alt="" />
+      <span class="font-bold" id="7">3.نسبت موفقیت (WinRate): </span> <br />
       مهم است که دربررسی استیتمت یک تریدر برای کپی ترید، نه تنها به میزان سود
       (Profit) و کاهش سرمایه (Drawdown) بلکه همچنین به نرخ موفقیت (WinRate) نیز
       توجه کنید. ، نسبت تعداد معاملات موفق به کل تعداد معاملات است
@@ -220,11 +242,11 @@
       <br />
       IRaniExpert Copy trade Statement: Profit: %63 Drawdown: %20 WinRate:%75
       <img src="../../../assets/img/chart.png" alt="" />
-      <span class="text-center block w-full"
+      <span class="text-center block w-full mb-10"
         >استیتمنت بقیه حساب‌های ربات، در سایت MyFxbook قابل مشاهده هستند.</span
       >
     </p>
-    <div class="flex my-10">
+    <div class="flex my-14">
       <a href="#">
         <div class="flex baner-bot max-sm:max-h-20">
           <div class="flex max-lg:flex-col max-sm:px-1 lg:items-center">
@@ -250,7 +272,7 @@
         </div>
       </a>
     </div>
-    <h3 class="font-bold text-3xl">
+    <h3 class="font-bold text-3xl" id="8">
       در کپی ترید انتخاب بهترین تریدرمرجع به چه نحوی است؟
     </h3>
     <p>
@@ -259,50 +281,365 @@
       آورده شده‌اند:
       <br />
       <br />
-      <span class="font-bold">1. بررسی استیتمنت یا سابقه عملکرد: </span>
+      <span class="font-bold" id="9">1. بررسی استیتمنت یا سابقه عملکرد: </span>
       <br />
       نگاهی به نتایج گذشته تریدر و تحلیل عملکرد معاملات او می‌تواند به شما کمک
       کند تا درک بهتری از توانایی و استراتژی او داشته باشید.
       <br />
-      <span class="font-bold">2. مدیریت ریسک: </span>
+      <br />
+      <span class="font-bold" id="10">2. مدیریت ریسک: </span>
       <br />
       تریدر باید استراتژی مشخصی برای تعیین حداکثر افت سرمایه (Drawdown) و
       تنظیمات مربوط به مدیریت ریسک داشته باشد.
-
       <br />
-      <span class="font-bold">3. استراتژی ترید: </span>
+      <br />
+      <span class="font-bold" id="11">3. استراتژی ترید: </span>
       <br />
       بررسی نحوه تحلیل بازار و انجام معاملات توسط تریدر می‌تواند در انتخاب تریدر
       مناسب کمک‌کننده باشد.
       <br />
-      <span class="font-bold">4. تایم فریم معاملات: </span>
+      <br />
+      <span class="font-bold" id="12">4. تایم فریم معاملات: </span>
       <br />
       بررسی تایم فریم معاملاتی نیز در انتخاب تریدر می‌تواند مهم باشد. مثلاً اگر
       شما به دنبال ترید در بازارهای کوتاه مدت هستید، تریدری که در این زمینه
       تجربه دارد ممکن است گزینه مناسبی باشد.
 
       <br />
-      <span class="font-bold">5. میزان سود و ضرر: </span>
+      <br />
+      <span class="font-bold" id="13">5. میزان سود و ضرر: </span>
       <br />
       بررسی میزان سود(Profit) و ضرر(DrawDown) تریدریا اکسپرت کپی ترید مورد نظر
       نیز بااهمیت است. نه تنها به میزان سود بلکه همچنین به نسبت ریسک به سود
       (Risk-Reward Ratio) توجه کنید.
       <br />
-      <span class="font-bold">6. شفافیت: </span>
+      <br />
+      <span class="font-bold" id="14">6. شفافیت: </span>
       <br />
       شفافیت درارائه مواردی مانند اسیتمنت، حد ضرر (Stop Loss) و تغییرات در
       استراتژی توسط تریدر، بسیار حائز اهمیت است.
 
       <br />
-      <span class="font-bold">8. محدودیت‌ها و شرایط: </span>
+      <br />
+      <span class="font-bold" id="15">8. محدودیت‌ها و شرایط: </span>
       <br />
       بررسی محدودیت‌ها و شرایط کپی ترید تریدرمورد نظر، از جمله حداقل دیپازیت و
       هزینه‌های بروکر مرتبط، نیز مهم است. مطالعه دقیق توافق‌نامه و شرایط استفاده
       می‌تواند جلوی مشکلات آینده را بگیرد.
     </p>
+    <h3 class="font-bold text-3xl mt-6" id="16">
+      بهترین راه کاهش ریسک ضرر در فارکس با استفاده از کپی تریدینگ
+    </h3>
+    <p class="text-slate-500 text-xl my-6">
+      میزان ریسک ضرر در کپی تریدینگ فارکس را با چند راهکار می توان کنترل کرد که
+      عبارتند از:
+    </p>
+    <div style="display: flex; flex-wrap: wrap; justify-content: right">
+      <div
+        class="m-2 p-4 py-10 max-w-[22rem] text-xl text-slate-600 border-2 border-gray-200 rounded-3xl"
+      >
+        انتخاب تریدران حرفه‌ای و با تجربه که توانمندی در مدیریت ریسک و تصمیمات
+        معقولانه در بازار فارکس داشته باشند.
+      </div>
+      <div
+        class="m-2 p-4 py-10 max-w-[22rem] text-xl text-slate-600 border-2 border-gray-200 rounded-3xl"
+      >
+        مقدار سرمایه‌ای به کپی تریدینگ اختصاص دهید، که اگر به صورت کامل از دست
+        برود، بر زندگی مالی شما تأثیر منفی نگذارد.
+      </div>
+      <div
+        class="m-2 p-4 py-10 max-w-[22rem] text-xl text-slate-600 border-2 border-gray-200 rounded-3xl"
+      >
+        تعیین یک درصد معقول از سرمایه به عنوان ریسک در هر معامله، می‌تواند در
+        مدیریت ریسک بهتر شما کمک کند.
+      </div>
+      <div
+        class="m-2 p-4 max-w-[22rem] text-xl text-slate-600 border-2 border-gray-200 rounded-3xl"
+      >
+        تنوع، به کاهش ریسک سرمایه شما کمک می‌کند. بنابراین، تریدران مختلفی را
+        دربازارهای مختلف یا با استراتژی‌های مختلف انتخاب کنید تا در مقابل
+        نوسانات بازار محافظت شوید.
+      </div>
+      <div
+        class="m-2 p-4 max-w-[22rem] text-xl text-slate-600 border-2 border-gray-200 rounded-3xl"
+      >
+        لازم است که به‌طور مستمر، عملکرد تریدران مرجع را بررسی کرده و از ادامه‌ی
+        اجرای استراتژی‌های موثر و مدیریت ریسک از طرف آن‌ها مطمئن شوید.
+      </div>
+      <div
+        class="m-2 p-4 max-w-[22rem] text-xl text-slate-600 border-2 border-gray-200 rounded-3xl"
+      >
+        در این راه همچنین استفاده از ابزارهای مدیریت ریسک مناسب مانند استاپ-لاس
+        و تریلینگ استاپ در محافظت از سرمایه در مواجهه با حرکات غیرمنتظره بازار
+        بسیارمفید می‌‎باشد.
+      </div>
+      <div
+        class="m-2 p-4 max-w-[22rem] text-xl text-slate-600 border-2 border-gray-200 rounded-3xl"
+      >
+        آگاهی از بازار و فهم عمیق‌تر از اصول تحلیل تکنیکال و اقتصادی نیز
+        می‌تواند به شما در انتخاب تریدران مرجع و درک بهتری از معاملات کمک کند.
+      </div>
+    </div>
+    <div class="flex justify-center">
+      <img
+        src="../../../assets/img/ADS ATM.png"
+        class="cursor-pointer max-sm:hidden my-10"
+      />
+      <img
+        src="../../../assets/img/robot-trader-res.png"
+        class="cursor-pointer sm:hidden"
+      />
+    </div>
+    <h2 class="text-2xl font-bold my-6" id="17">
+      معرفی بهترین پلتفرهای کپی تریدینگ در فارکس
+    </h2>
+    <p class="text-lg text-justify mb-6">
+      حالا که با مفهموم کپی ترید چیست آشنا شدیم، برای کسب اطلاعات بیشتر، چند
+      سایت کپی ترید برتر را معرفی خواهیم کرد. سایت های کپی تریدینگ به شما این
+      امکان را می‌دهند که حساب بروکر خود را به یک مرجع مرتبط کنید تا بتوانید از
+      سیگنال‌های معاملاتی آن بهره‌مند شوید. همانطور که گفته شد، سیستم کپی ترید
+      فارکس برای افراد مبتدی که می خواهند از تحلیل دیگران استفاده کنند مناسب است
+      تا معاملات به‌صورت اتومات برای آن‌ها اجرا شود. امروزه، امکان کپی ترید در
+      صرافی های ارز دیجیتال نیز فراهم شده است که توانسته اند از این طریق معامله
+      گران زیادی را به خود جذب کنند.
+    </p>
+    <div class="flex" style="white-space: normal" id="6">
+      <app-blue-cards
+        class="me-1"
+        *ngFor="let item of blue_cards"
+        [head]="item.header"
+        [body]="item.text"
+        [id]="item.id"
+      ></app-blue-cards>
+    </div>
+    <h3 class="text-3xl font-bold my-6" id="21">
+      آموزش کپی ترید در متاتریدر4 و 5
+    </h3>
+    <p class="text-lg mb-8">
+      یکی از بهترین راه‌های کسب سود در بازارهای معاملاتی که اخیرا بسیار محبوب
+      شده است.
+      <br />
+      کپی ترید در متاتریدر است! عمل کپی ترید در متاتریدر 4 و 5 بر طبق سیستم
+      سیگنال‌ها انجام می‌شوند و بسیار شبیه به هم هستند. بنابراین، می توانید بسته
+      به سلیقه و نیاز خود یکی از این ورژن‌ها را برای کپی معاملاتتان انتخاب کنید.
+      <br />
+      <br />
+      مراحل انجام کپی تریدر در متاتریدر 4 و 5 به ترتیب زیر می‌باشد: (بهتر است
+      عکس اجرای این مراحل اضافه شود)
+    </p>
+    <div style="display: flex; flex-wrap: wrap; justify-content: right">
+      <div
+        class="lg:min-w-[21rem] lg:max-w-[22rem] w-full flex items-center me-1 p-3 py-6 text-base text-[#0080FF] border-2 border-[#0080FF] rounded-xl"
+      >
+        <strong class="me-0.5">1</strong> دانلود متاتریدر 4 یا متاتریدر 5
+      </div>
+      <div
+        class="lg:min-w-[21rem] lg:max-w-[22rem] max-sm:mt-3 w-full flex items-center me-1 p-3 py-6 text-base text-[#0080FF] border-2 border-[#0080FF] rounded-xl"
+      >
+        <strong class="me-0.5">2</strong> ورود به حساب کاربری بروکر یا افتتاح
+        حساب متاتریدر
+      </div>
+      <div
+        class="lg:min-w-[21rem] lg:max-w-[22rem] max-sm:mt-3 w-full flex items-center me-1 p-3 py-6 text-base text-[#0080FF] border-2 border-[#0080FF] rounded-xl"
+      >
+        <strong class="me-0.5">3</strong> انتخاب تریدر یا ارائه دهنده سیگنال کپی
+        تریدینگ
+      </div>
+    </div>
+    <div
+      class="mt-3"
+      style="display: flex; flex-wrap: wrap; justify-content: right"
+    >
+      <div
+        class="lg:min-w-[21rem] lg:max-w-[22rem] w-full flex items-center me-1 p-3 py-6 text-base text-[#0080FF] border-2 border-[#0080FF] rounded-xl"
+      >
+        <strong class="me-0.5">4</strong> تعیین مقدار سرمایه برای کپی تریدینگ
+      </div>
+      <div
+        class="lg:min-w-[21rem] lg:max-w-[22rem] max-sm:mt-3 w-full flex items-center me-1 p-3 py-6 text-base text-[#0080FF] border-2 border-[#0080FF] rounded-xl"
+      >
+        <strong class="me-0.5">5</strong> تکمیل تنظیمات مورد نیاز و فرایند
+        پرداخت هزینه
+      </div>
+      <div
+        class="lg:min-w-[21rem] lg:max-w-[22rem] max-sm:mt-3 w-full flex items-center me-1 p-3 py-6 text-base text-[#0080FF] border-2 border-[#0080FF] rounded-xl"
+      >
+        <strong class="me-0.5">6</strong> شروع کپی تریدینگ
+      </div>
+    </div>
+    <h3 class="font-bold text-3xl my-8" id="22">
+      تفاوت کپی ترید در متاتریدر 4 و متاتریدر 5
+    </h3>
+    <p class="text-lg">
+      با وجود اینکه متاتریدر 5 (MT5) ویژگی‌های پیشرفته‌تری را فراهم کرده است،
+      اما متاتریدر 4 (MT4) همچنان بسیار محبوب است و بسیاری از تریدران به‌طور
+      فعال از آن استفاده می‌کنند. فرایند کپی ترید متاتریدر در هر دو نسخه بسیار
+      مشابه است و انتخاب بین MT4 و MT5 بستگی به نیازها و ترجیحات شما دارد.
+      <br />
+      <br />
+      ‏ در متن زیر به برخی از تفاوت‌های اصلی کپی تریدینگ در MT5,MT4 اشاره می
+      کنیم
+    </p>
+    <ul class="ul-space mt-4">
+      <li class="secend-line">
+        MT5 از معاملات چند زمانه (Multi Time Frame) پشتیبانی می‌کند که این امکان
+        را فراهم می‌کند تا اطلاعات معاملات را در زمان‌های مختلف بررسی کنید و از
+        آن‌ها در تحلیل‌های خود بهره‌مند شوید.
+      </li>
+      <li class="secend-line">
+        MT5 نسبت به MT4 تعداد بیشتری از انواع سفارشات را پشتیبانی می‌کند. به
+        عنوان مثال، MT5 از سفارشات "Buy Stop Limit" و "Sell Stop Limit" پشتیبانی
+        می‌کند که در MT4 وجود ندارند.
+      </li>
+      <li>
+        MT5 شامل کتاب سفارشات (Order Book) می باشد که اطلاعات بیشتری را در مورد
+        تاریخچه معاملات و نرخ‌های سفارشات در بازار فراهم می‌کند. این ویژگی نیز
+        در MT4 موجود نیست.
+      </li>
+      <li>
+        MT5 ، امکانات اختصاصی بیشتری، مانند ابزارهای تحلیل تکنیکال و تقویم
+        اقتصادی در اختیار شما می‌گذارد.
+      </li>
+    </ul>
+    <p class="my-10">
+      اما در مجموع با توجه به گستردگی جامعه فعال و ابزارهایی که طی سال‌ها برای
+      متاتریدر 4 توسعه یافته است، با متاتریدر 4 می توانید به ربات‌ها و نرم
+      افزارهای بیشتری در زمینه کپی ترید دسترسی پیدا کنید.
+    </p>
+    <div>
+      <h2 class="font-bold text-3xl text-slate-800 my-10" id="23">
+        در کپی ترید انتخاب کدام بروکر بهتر است؟
+      </h2>
+      <p class="text-lg text-justify">
+        فرایند کپی تریدینگ در بروکرها معمولا تفاوت چندانی با هم ندارند، بیشتر
+        تفاوت در انواع حساب‌های معاملاتی، و شرایط معاملاتی بروکرها مانند اسپرد،
+        کارمزد، حداقل سپرده و شرایط استفاده از سرویس‌ها می شود. معمولا بروکرهای
+        قدیمی و معتبرتر، دارای لیست تریدرهای حرفه ای‌تری هستند که فرایند انتخاب
+        برای کپی معاملات را برای شما ساده تر می کنند.
+      </p>
+      <p class="text-lg font-semibold text-justify my-8 text-slate-600">
+        اگر شما هم جزو سرمایه‌گذارانی هستید که فرصت ترید کردن ندارید، می توانید
+        از خدمات کپی ترید بروکرها کسب درآمد کنید؛ اما توجه کنید که همه بروکرها
+        این خدمات را ارائه نمی‌دهند.
+      </p>
+      <p class="text-lg text-justify my-6">
+        در ادامه، بهترین بروکرهایی که امکان کپی ترید را فراهم کرده‌اند به شما
+        معرفی می کنیم:
+      </p>
+      <div class="flex flex-wrap items-center">
+        <div
+          class="flex font-bold justify-center m-1 p-3 py-4 text-2xl min-w-[15rem] text-[#0080FF] border-2 border-[#0080FF] rounded-xl"
+        >
+          بروکر آمارکتس
+        </div>
+        <div
+          class="flex font-bold justify-center m-1 p-3 py-4 text-2xl min-w-[15rem] text-[#0080FF] border-2 border-[#0080FF] rounded-xl"
+        >
+          بروکر لایت فایننس
+        </div>
+        <div
+          class="flex font-bold justify-center m-1 p-3 py-4 text-2xl min-w-[15rem] text-[#0080FF] border-2 border-[#0080FF] rounded-xl"
+        >
+          بروکر ویندزور
+        </div>
+        <div
+          class="flex font-bold justify-center m-1 p-3 py-4 text-2xl min-w-[15rem] text-[#0080FF] border-2 border-[#0080FF] rounded-xl"
+        >
+          بروکر اینگات
+        </div>
+      </div>
+      <div class="flex flex-wrap items-center">
+        <div
+          class="flex font-bold justify-center m-1 p-3 py-4 text-2xl min-w-[15rem] text-[#0080FF] border-2 border-[#0080FF] rounded-xl"
+        >
+          بروکر آوا ترید
+        </div>
+        <div
+          class="flex font-bold justify-center m-1 p-3 py-4 text-2xl min-w-[15rem] text-[#0080FF] border-2 border-[#0080FF] rounded-xl"
+        >
+          بروکر اپو فایننس
+        </div>
+        <div
+          class="flex font-bold justify-center m-1 p-3 py-4 text-2xl min-w-[15rem] text-[#0080FF] border-2 border-[#0080FF] rounded-xl"
+        >
+          بروکر دلتا اف ایکس
+        </div>
+        <div
+          class="flex font-bold justify-center m-1 p-3 py-4 text-2xl min-w-[15rem] text-[#0080FF] border-2 border-[#0080FF] rounded-xl"
+        >
+          بروکر فارکس چیف
+        </div>
+      </div>
+    </div>
+    <p class="text-lg my-8">
+      بروکر آلپاری نیز جزو بروکرهای معتبر و شناخته شده بین ایرانیان محسوب می‌شود
+      اما امکان کپی ترید در آلپاری وجود ندارد. افتتاح حساب پم آلپاری گزینه مناسب
+      دیگر برای معامله گران تازه‌کاری‌ست که تمایل ندارند مستقیما در معاملات
+      فارکس شرکت کنند.
+    </p>
+    <p class="text-lg text-center font-bold text mx-24 my-10">
+      لازم به ذکر است که در حال حاضر اولین نسخه ربات کپی ترید ATM با حداقل
+      دیپازیت 500 دلار، از ، طریق بروکر آمارکتس در اختیار مشتریان (Amarkets)
+      قرار می‌گیرد .
+    </p>
+    <p class="text-base mb-8" id="24">
+      برای اتصال به سیستم کپی ترید ایرانی اکسپرت، مراحل زیر را به ترتیب دنبال
+      کنید :
+    </p>
+    <img src="../../../assets/img/cp-level.png" />
+    <ul class="text-gray-500 mt-8">
+      <li>مرحله اول : ثبت نام در بروکر آمارکتس</li>
+      <li>مرحله دوم : احراز هویت با ایمیل، شماره تماس و کارت ملی</li>
+      <li>مرحله سوم : دیپازیت روی حساب</li>
+      <li>مرحله چهارم : کلیک روی گزینه سرمایه گذار</li>
+      <li>مرحله پنجم : ورود کد 123456 در صفحه باز شده</li>
+      <li>مرحله ششم : مشاهده استیتمنت حساب کپی ترید، با کلیک روی آمار</li>
+      <li>مرحله هفتم : اتصال</li>
+    </ul>
+    <h2 class="font-bold text-3xl text-slate-800 my-10" id="25">جمع بندی</h2>
+    <p class="text-lg text-justify mb-6">
+      اگر علاقه‌مند به انجام کپی تریدینگ هستید، اگر مبتدی هستید، سرمایه کمی
+      دارید، اگر وقت کافی برای معامله ندارید یا دانش و تخصص کافی ندارید، می
+      توانید از سایت های کپی ترید یا اکسپرت کپی ترید استفاده کنید. در واقع شما
+      با این کار، از یک متخصص استفاده می‌کنید
+      <br />
+      <br />
+      تا به جای شما معامله کند و در صورت مثبت بودن نتیجه تراکنش‌های آن‌، به
+      راحتی کسب درآمد می کنید. در معاملات کپی ترید فارکس، هر تراکنش انجام شده
+      توسط مرجع، درحساب شما نیز انجام می‌شود و هر سود یا زیان به دست آمده نیز به
+      سرمایه شما اعمال می‌شود.
+      <br />
+      <br />
+      فقط کافیست بهترین پلتفرم کپی تریدر را با توجه به نیاز خود پیدا کنید تا
+      بتوانید با کپی کردن استراتژی و روش معاملاتی معامله گران موفق سود ببرید.
+      <br />
+      <br />
+      برای اینکه متوجه مفهوم کپی ترید و نکات لازم برای کسب درآمد کپی ترید در
+      فارکس شوید، دراین مقاله به طور کامل و به زبان ساده به این موضوع پرداختیم.
+      مهمتر از آن، سعی کردیم بهترین سایت ها و بروکرهای فارکس برای کپی تریدینگ را
+      معرفی کنیم. اکثر این بروکرها فارسی زبان و از کاربران ایرانی پشتیبانی
+      می‌کنند و به همین دلیل می توانید از طریق آن‌ها معاملات کپی ترید ساده تری
+      را تجربه کنید.
+    </p>
+    <app-free-advice></app-free-advice>
+    <!-- <app-qa [Q]="'سوال 1'" [A]="'جواب 1'"></app-qa> -->
+    <app-vote></app-vote>
+    <!-- <div class="bg-[#ECECEC] rounded-3xl p-5 text-[#4D4D4D]">
+      <div class="flex flex-row-reverse items-center">
+        <span class="text-2xl font-medium">اشتراک گزاری مطلب</span>
+        <i class="ie-meta-trader"></i>
+      </div>
+      <div></div>
+    </div> -->
+    <div class="my-10">
+      <app-comments></app-comments>
+    </div>
   </div>
+
   <div class="w-3/12 max-lg:hidden">
-    <app-quick-access [strText]="qA"></app-quick-access>
+    <app-quick-access [strText]="qA"
+      ><h2 class="m-2 text-gray-600 text-lg">دسترسی سریع</h2>
+    </app-quick-access>
     <!-- ===================[مدرسه فارکس ]=================== -->
     <div class="flex justify-center mt-8 m-2">
       <div class="school-box">
