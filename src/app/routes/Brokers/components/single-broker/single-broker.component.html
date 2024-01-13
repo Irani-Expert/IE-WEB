@@ -1,3 +1,5 @@
+<!-- Header and Details -->
+
 <div class="flex-col flex items-center bg-white lg:bg-inherit">
   <div
     class="min-h-fit px-4 lg:px-2 pb-20 pt-5 bg-white lg:bg-[#EBEBEB] w-full rounded-b-[75px] lg:rounded-b-[110px]"
@@ -113,8 +115,35 @@
     </div>
   </div>
 </div>
+
+<!-- Header and Details -->
+
 <!-- <div class="inline-block border border-gray-400 rounded-[9px] min-w-[26px]">
   <p class="mx-4 my-2 text-sm font-medium">
     جدیدترین خبر های بروکر را به من اطلاع بده
   </p>
 </div> -->
+
+<!-- UL Detail List -->
+<div class="mx-8 lg:mr-10 mb-20 mt-5 detail-container">
+  <ul class="max-w-[487px] w-full lg:bg-white space-y-3 lg:space-y-0">
+    <ng-container *ngFor="let i of brokerData | keyvalue">
+      <li
+        class="li-stripped py-3 px-2 even:bg-[#f3f3f3] odd:bg-white border lg:border-0 rounded-lg lg:rounded-none"
+      >
+        <div class="flex flex-row">
+          <div class="basis-1/2 flex justify-start">
+            <p class="text-[#646464] font-medium">{{ i.key | borkerKey }}</p>
+          </div>
+          <div class="basis-1/2 flex justify-end">
+            <p *brokerValue="i" class="text-[#646464] font-medium">
+              {{ i.value }}
+            </p>
+          </div>
+        </div>
+      </li>
+    </ng-container>
+  </ul>
+</div>
+
+<!-- UL Detail List -->
