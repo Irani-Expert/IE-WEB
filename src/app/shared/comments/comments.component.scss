@@ -1,3 +1,9 @@
+@media (min-width: 768px) {
+  .sep-part {
+    width: 410px;
+  }
+}
+
 .point-card {
   display: inline-block;
   width: 38px;
@@ -57,28 +63,44 @@ progress:before {
   background-color: #ffce29; /* Adjust the color of the dot */
 }
 // <!-- ========================[رسپانسیو]================== -->
-.row{
+.row {
   margin-right: 1rem;
   margin-left: 2rem;
+}
+.divid-h {
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: #3246d3;
+  margin-bottom: 1rem;
+  &::before {
+    content: "";
+    width: 1rem;
+    height: 0.3rem;
+    background-color: #3246d3;
+    border-radius: 6px;
+    display: inline-block;
+    margin: 0px 6px;
   }
-  .divid-h{
-    font-weight: 600;
-    font-size: 0.8rem;
-    color: #3246D3;
-    margin-bottom: 1rem;
-    &::before {
-      content: "";
-     width: 1rem;
-     height: 0.3rem;
-     background-color: #3246D3;
-     border-radius: 6px;
-     display: inline-block;
-     margin: 0px 6px;
-    }
-    }
-    .faq-h{
-      color: black;
-      font-size: 1rem;
-      font-weight: 600;
-      }
-  // <!-- =======================[نظرات]=========== -->
+}
+.faq-h {
+  color: black;
+  font-size: 1rem;
+  font-weight: 600;
+}
+// <!-- =======================[نظرات]=========== -->
+.sep-part {
+  display: flex;
+  direction: ltr;
+  border: 1px solid #ccc;
+  border-radius: 14px;
+  input {
+    direction: rtl;
+    width: 100%;
+    height: 83px;
+    background: none;
+    border: 0;
+    padding: 0;
+    padding-right: 10px;
+    outline: none;
+  }
+}

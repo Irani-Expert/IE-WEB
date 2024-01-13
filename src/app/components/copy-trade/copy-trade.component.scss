@@ -109,3 +109,33 @@
   color: #098b41;
   font-size: 1.2rem;
 }
+ul {
+  list-style-type: none;
+  margin-left: 10px;
+}
+
+ul li {
+  margin-bottom: 12px;
+  margin-left: -10px;
+  display: flex;
+  align-items: center;
+}
+.ul-space {
+  li:not(:last-child) {
+    margin-bottom: 48px !important;
+  }
+}
+
+.secend-line::before {
+  position: relative;
+  bottom: 9px;
+}
+ul li::before {
+  color: transparent;
+  font-size: 1px;
+  content: " ";
+  margin-left: -1.3em;
+  padding: 6px;
+  padding-top: 0px;
+  content: url(../../../assets/icon/Tick-circle.svg);
+}
