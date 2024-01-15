@@ -33,3 +33,10 @@
   line-height: 2rem;
   font-size: 1.875rem;
 }
+.detail-container {
+  display: flex;
+  justify-content: center;
+  @media (min-width: 1024px) {
+    justify-content: flex-start;
+  }
+}
