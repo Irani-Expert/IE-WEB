@@ -23,7 +23,6 @@ export class ContentMenuComponent {
   @Input('data') listElems: Array<any>;
 
   toggleMenu() {
-    debugger;
     this.wi;
     this.menuOpen = !this.menuOpen;
     this.listElem.nativeElement.classList.toggle('show-menu');

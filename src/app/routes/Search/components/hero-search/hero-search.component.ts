@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { SearchModel } from 'src/app/classes/interfaces/search.interface';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, Subscription, debounceTime } from 'rxjs';
 
 @Component({
@@ -10,7 +10,11 @@ import { Subject, Subscription, debounceTime } from 'rxjs';
 })
 export class HeroSearchComponent {
   @Input('data') searchModel : SearchModel;
-  constructor(private router: Router) {}
+
+  savedItem : any;
+  
+
+  constructor(private router: Router , private _activatedRoute: ActivatedRoute ) {}
   
   ngOnInit(){
     this.loading = false;
@@ -19,6 +23,10 @@ export class HeroSearchComponent {
     .subscribe((value) => {
       this.searchFilterName(value);
     });
+
+    this._activatedRoute.queryParams.subscribe(async (item) => {
+      this.savedItem = { ...item };
+    })
   }
 
   _searchInputSubscription: Subscription;
@@ -31,7 +39,6 @@ export class HeroSearchComponent {
   
   searchFilterName(value: string) {
     this.router.navigateByUrl(`search?someThing=${value}`);
+  
   }
-
-
-}
+  }

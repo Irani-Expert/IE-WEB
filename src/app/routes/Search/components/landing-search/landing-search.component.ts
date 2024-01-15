@@ -23,6 +23,8 @@ export class LandingSearchComponent {
       let res = this.searchServices.get(`Search?someThing=${someThing}`).pipe(map(data=> {
         this.searchModel  = data.data!
         this.loading = false
+      console.log(this.searchModel);
+
         return data.success
       }));
       return lastValueFrom(res)

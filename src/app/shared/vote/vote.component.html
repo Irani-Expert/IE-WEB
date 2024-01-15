@@ -1,22 +1,35 @@
-<div class="flex justify-between">
-  <div class="flex items-center">
-    <img src="../../../assets/img/Group 870.png" alt="" />
-    <span class="font-bold text-2xl mx-3">جواد خدادادی</span>
-    <small>تعداد بازدید کل : 135 </small>
+<div class="flex max-md:flex-col justify-between">
+  <div class="flex items-center max-md:mb-6">
+    <img src="../../../assets/img/avatar-c.webp" alt="avatar" width="10" height="20"/>
+    <div class="flex items-center max-md:flex-col">
+      <span class="font-bold text-2xl mx-3">جواد خدادادی</span>
+      <small>تعداد بازدید کل : 135 </small>
+    </div>
   </div>
   <div class="flex flex-col">
-    <div class="flex flex-row-reverse">
-      <i class="ie-h1 mx-1" (click)="putStyle(-14.9, 'خیلی بد ')"></i>
-      <i class="ie-h2 mx-1" (click)="putStyle(-11.9, 'بد')"></i>
-      <i class="ie-h3 mx-1" (click)="putStyle(-8.9, 'خوب')"></i>
-      <i class="ie-h4 mx-1" (click)="putStyle(-5.8, 'خیلی خوب')"></i>
-      <i class="ie-h5 mx-1" (click)="putStyle(-2.8, 'عالی')"> </i>
-      <i
-        class="ie-bg-yellow relative -z-10"
-        [ngStyle]="{ 'left.rem': leftNum }"
-      ></i>
+    <div class="flex flex-row-reverse max-md:justify-around">
+      <div class="flex justify-center">
+        <i class="ie-bg-yellow absolute -z-10" *ngIf="rate == 1"></i>
+        <i class="ie-h1 mx-1" (click)="putStyle(1, 'خیلی بد ')"></i>
+      </div>
+      <div class="flex justify-center">
+        <i class="ie-bg-yellow absolute -z-10" *ngIf="rate == 2"></i>
+        <i class="ie-h2 mx-1" (click)="putStyle(2, 'بد')"></i>
+      </div>
+      <div class="flex justify-center">
+        <i class="ie-bg-yellow absolute -z-10" *ngIf="rate == 3"></i>
+        <i class="ie-h3 mx-1" (click)="putStyle(3, 'خوب')"></i>
+      </div>
+      <div class="flex justify-center">
+        <i class="ie-bg-yellow absolute -z-10" *ngIf="rate == 4"></i>
+        <i class="ie-h4 mx-1" (click)="putStyle(4, 'خیلی خوب')"></i>
+      </div>
+      <div class="flex justify-center">
+        <i class="ie-bg-yellow absolute -z-10" *ngIf="rate == 5"></i>
+        <i class="ie-h5 mx-1" (click)="putStyle(5, 'عالی')"> </i>
+      </div>
     </div>
-    <div class="flex justify-end items-center mt-2">
+    <div class="flex justify-end items-center sm:mt-2 mt-6">
       <span class="me-2">{{ text }}</span>
       <button
         class="bg-[#0080FF] text-white font-bold text-2xl p-2 rounded-2xl"

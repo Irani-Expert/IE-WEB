@@ -53,8 +53,9 @@
 </div>
 <!-- ============[تبلیغات]========= -->
 <div #sticky>
-  <div class="" [ngClass]="sticked ? 'sticky-custom' : 'mt-6'">
+  <div class="" [ngClass]="sticked ? 'sticky-custom ' : 'mt-6 h-[85%] flex items-start'">
     <img class="add-blog" src="assets/img/blog-add.svg" alt="add" />
   </div>
 </div>
-<div #stickyoff class="absolute bottom-72"></div>
+<div #stickyoff class="absolute bottom-72 flex items-end"></div>
+

@@ -4,51 +4,47 @@
 >
   <div class="flex">
     <div
-      class="lg:grid lg:grid-cols-2 lg:gap-2 matn-h mt-16 justify-items-center flex"
+      class="lg:grid lg:grid-cols-2 lg:gap-2 text-right mt-16 justify-items-center flex"
     >
-      <div class="space-y-3 part-right">
-        <p class="header-start">با ایرانی اکسپرت مطمئن و آسان ترید کن</p>
-        <h1 class="header-title">
+      <div class="space-y-3 z-10 -mt-6">
+        <p class="header-start font-black text-2xl">با ایرانی اکسپرت مطمئن و آسان ترید کن</p>
+        <h1 class="header-title font-fat text-4xl">
           ایرانی اکسپرت
           <br />
           در دسترس همه ایرانیان
         </h1>
-        <p class="header-paragraph">
+        <p class="text-xl pl-2 ">
           ما از فوریه 2022 شروع کردیم.مجموعه ای متشکل از تیم برنامه نویسی هوش
           مصنوعی،طراحی سایت و سئو،دیجیتال مارکتینگ و گرافیک،تحلیل و ترید،اکنون
           ربات معامله گر یکی از محصولات ماست.در حوزه ارائه آموزش،مقالات مشاوره و
           نیز تحلیل اقتصادی،اخبارفارکس و پادکست ارائه خدمات میدهیم
         </p>
-        <p class="header-text-end md:hidden lg:block">
+        <p class="header-text-end font-fat text md:hidden lg:block">
           سود ما در راستای سود شماست
         </p>
       </div>
-      <div class="hero-f">
+      <div class="relative">
         <div id="triangleHome" class="absolute">
           <span class="block triangle-home"></span>
         </div>
 
-        <img class="hero-image" src="assets/img/hero.webp" alt="hero" />
+        <img class="hero-image object-contain relative bottom-8 right-8" src="assets/img/hero.webp" alt="hero" width="500" height="353"/>
       </div>
     </div>
   </div>
 
   <div
-    class="flex w-full items-center flex-col gap-3 lg:flex-row lg:justify-between r-h"
+    class="flex w-full items-center flex-col gap-3 lg:flex-row lg:justify-between text-right mt-4"
   >
-    <p class="header-text-end lg:hidden">سود ما در راستای سود شماست</p>
+    <p class="header-text-end font-fat lg:hidden">سود ما در راستای سود شماست</p>
     <div class="flex items-center mb-6 mt-6">
-      <a routerLink="products/1/اکسپرت_ATM" class="btn flex">
+      <a routerLink="products/1/اکسپرت_ATM" class="btn-buy font-bold px-5 py-3 text-white flex">
         خرید ربات معامله گر
-        <img
-          class="icon-btn"
-          src="assets/img/Arrow-left-icon(white).svg"
-          alt="icon"
-        />
+        <i class="Arrow-left-icon-white scale-75 mb-1 mr-2"></i>
       </a>
-      <button (click)="scrollToView()" class="link flex items-center mb-2">
-        <img class="scale-75 ml-2" src="assets/img/call-icon.svg" alt="icon" />
+      <button (click)="scrollToView()" class="relative top-1 right-8 text-[#707070] flex items-center mb-2">
         رایگان مشاوره بگیرید
+        <i class="call-icon scale-75 mr-2"></i>
       </button>
     </div>
 
@@ -56,20 +52,20 @@
       <div
         class="lg:grid md:flex lg:grid-cols-3 gap-3 relative lg:left-32 lg:bottom-2 mb-8 mt-8"
       >
-        <div class="mizan-sod">
-          <span class="darsad">70%</span>
+        <div class="text-center">
+          <span class="font-fat text-3xl">70%</span>
           <br />
-          <p class="title-d">وین ریت</p>
+          <p class="text-base font-light -mt-3">وین ریت</p>
         </div>
-        <div class="mizan-sod mr-6 ml-6">
-          <span class="darsad">7%</span>
+        <div class="text-center mr-6 ml-6">
+          <span class="font-fat text-3xl">7%</span>
           <br />
-          <p class="title-d">ماکسیموم درادون</p>
+          <p class="text-base font-light -mt-3">ماکسیموم درادون</p>
         </div>
-        <div class="mizan-sod">
-          <span class="darsad">22%</span>
+        <div class="text-center">
+          <span class="font-fat text-3xl">22%</span>
           <br />
-          <p class="title-d">سود ماه قبل</p>
+          <p class="text-base font-light -mt-3">سود ماه قبل</p>
         </div>
       </div>
     </div>
@@ -78,34 +74,32 @@
 <!-- ========================[رسپانسیو]================== -->
 <div class="responsive" [ngClass]="device == 'sm' ? 'block' : 'hidden'">
   <!-- ==================[بنر هیرو]================ -->
-  <div class="hero2 flex items-center justify-center">
+  <div class="hero-mobile relative flex items-center justify-center">
     <div class="relative z-20">
-      <img class="hero-img2" src="assets/img/Hero-mobile.png" alt="h" />
-      <div class="box-1 grid grid-cols-2">
-        <div class="emugi">
-          <div class="emugi-box">
-            <img class="emugi-i" src="assets/img/emugi-4.svg" alt="e" />
-          </div>
+      <img class="hero-img-mobile" src="assets/img/Hero-mobile.webp" alt="hero-bot-img" width="807" height="807" />
+      <div class="box-1 relative bg-white w-32 rounded-xl grid grid-cols-2">
+        <div class="emugi-box w-6 h-6 relative top-3 bottom-3 mr-2">
+          <img class="relative top-1 right-1 w-4" src="assets/img/emugi-4.svg" alt="emugi" width="24" height="24" />
         </div>
-        <div class="p-e-box">
-          <div class="p-e">
-            <img class="emugi-h" src="assets/img/emugi-2.svg" alt="l" />
-            <h6 class="h-box">4.8</h6>
-            <p class="p-box">ربات معامله گر ATM</p>
+        <div class="relative -mr-4 pt-3 pb-3">
+          <div class="relative">
+            <img class="w-3 absolute right-5 top-1" src="assets/img/emugi-2.svg" alt="emugi" width="12" height="12" />
+            <h6 class="font-medium text-sm">4.8</h6>
+            <p class="text-black -mt-1 font-semibold text-xs emugi-title">ربات معامله گر ATM</p>
           </div>
         </div>
       </div>
-      <div class="box-2 grid grid-cols-2">
+      <div class="box-2 relative bg-white w-32 rounded-xl grid grid-cols-2">
         <div class="w-9">
-          <div class="emugi-box2">
-            <img class="emugi-i2" src="assets/img/emugi.svg" alt="e" />
+          <div class="emugi-box2 w-6 h-6 relative top-4 right-2 flex items-center justify-center">
+            <img class="w-3" src="assets/img/emugi.svg" alt="emugi" width="24" height="24"/>
           </div>
         </div>
-        <div class="p-e-box2">
-          <div class="p-e">
-            <img class="emugi-h2" src="assets/img/emugi-3.svg" alt="l" />
-            <h6 class="h-box">200+</h6>
-            <p class="p-box">بیش از 200 مشترک فعال</p>
+        <div class="relative -mr-7 pt-3 pb-3">
+          <div class="relative">
+            <img class="absolute right-8 bottom-4 w-4" src="assets/img/emugi-3.svg" alt="emugi" width="12" height="12"/>
+            <h6 class="font-medium text-sm">200+</h6>
+            <p class="text-black -mt-1 font-semibold text-xs emugi-title">بیش از 200 مشترک فعال</p>
           </div>
         </div>
       </div>
@@ -113,25 +107,21 @@
   </div>
   <!-- ==================[متن هیرو]================ -->
   <div class="flex flex-row flex-wrap mb-16">
-    <div class="container relative box-matn">
-      <h1 class="hero-h1">ربات معامله گر فارکس</h1>
-      <h6 class="hero-h2">بر مبنای هوش مصنوعی</h6>
-      <p class="hero-p">
+    <div class="relative mr-6 ml-6">
+      <h1 class="font-fat text-4xl relative z-10">ربات معامله گر فارکس</h1>
+      <h6 class="hero-h font-semibold text-2xl mb-4 relative z-10">بر مبنای هوش مصنوعی</h6>
+      <p class="text-base relative z-20">
         این ربات دستیار تریدرهاست؛ با قابلیت ترید خودکار که بر اساس الگوریتم هوش
         مصنوعی و ژنتیک کار میکند این اکسپرت امکان مدیریت سرمایه،پارامتر های
         ورودی زیاد و نظارت انسانی دارد
       </p>
-      <div class="row-btn flex items-center mt-7">
+      <div class="z-20 relative flex items-center mt-7">
         <a
           routerLink="products/1/اکسپرت_ATM"
-          class="flex items-center btn1 sm:w-auto py-1.5 px-1"
+          class="flex items-center text-white font-bold btn1 sm:w-auto py-1.5 px-1"
         >
           خرید ربات معامله گر
-          <img
-            class="icon-mobile"
-            src="assets/img/Arrow-left-icon(white).svg"
-            alt="icon"
-          />
+          <i class="Arrow-left-icon-white scale-75 mb-1 mr-2"></i>
         </a>
         <a
           [routerLink]="['/about-us', { location: 'userSatisfaction' }]"
@@ -143,26 +133,26 @@
     </div>
   </div>
   <!-- ==================[کاروسل هیرو]================ -->
-  <div class="carousel-box">
+  <div class="flex flex-col items-center justify-center relative">
     <div class="carousel">
       <button class="carousel-control pre" (click)="pre()">&gt;</button>
       <div class="carousel-container">
         <div class="carousel-item" [class.active]="isActive == 1">
-          <div class="box-body">
-            <h5 class="profit">24<span class="profit-d">%</span></h5>
-            <p class="period">سود ماه قبل</p>
+          <div class="absolute top-14 right-16">
+            <h5 class="profit">24<span class="profit-Percent">%</span></h5>
+            <p class="font-light text-xl relative left-2">سود ماه قبل</p>
           </div>
         </div>
         <div class="carousel-item" [class.active]="isActive == 2">
-          <div class="box-body">
-            <h5 class="profit">29<span class="profit-d">%</span></h5>
-            <p class="period">سود دو ماه قبل</p>
+          <div class="absolute top-14 right-16">
+            <h5 class="profit">29<span class="profit-Percent">%</span></h5>
+            <p class="font-light text-xl relative left-2">سود دو ماه قبل</p>
           </div>
         </div>
         <div class="carousel-item" [class.active]="isActive == 3">
-          <div class="box-body">
-            <h5 class="profit">21<span class="profit-d">%</span></h5>
-            <p class="period">سود سال قبل</p>
+          <div class="absolute top-14 right-16">
+            <h5 class="profit">21<span class="profit-Percent">%</span></h5>
+            <p class="font-light text-xl relative left-2">سود سال قبل</p>
           </div>
         </div>
       </div>

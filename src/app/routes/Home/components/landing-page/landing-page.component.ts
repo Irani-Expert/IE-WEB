@@ -47,7 +47,7 @@ export class LandingPageComponent {
     {
       id: 0,
       title: 'در حال بروزرسانی',
-      imgUrl: '../../../assets/img/Trade-School-Coming-Soon.png',
+      imgUrl: '../../../assets/img/Trade-School-Coming-Soon.webp',
       price: 0,
       type: 1,
       colorCode: '#ED912A',
@@ -63,7 +63,7 @@ export class LandingPageComponent {
     {
       id: 0,
       title: 'در حال بروزرسانی',
-      imgUrl: '../../../assets/img/Trade-School-Coming-Soon.png',
+      imgUrl: '../../../assets/img/Trade-School-Coming-Soon.webp',
       price: 0,
       type: 1,
       colorCode: '#ED912A',
@@ -78,7 +78,7 @@ export class LandingPageComponent {
     {
       id: 0,
       title: 'در حال بروزرسانی',
-      imgUrl: '../../../assets/img/Trade-School-Coming-Soon.png',
+      imgUrl: '../../../assets/img/Trade-School-Coming-Soon.webp',
       price: 0,
       type: 1,
       colorCode: '#ED912A',

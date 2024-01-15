@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
 })
 export class VoteComponent {
   text: string = 'عالی';
-  leftNum: number = -2.8;
+  rate: number = 3;
   putStyle(n: number, text: string) {
-    this.leftNum = n;
+    this.rate = n;
     this.text = text;
   }
 }

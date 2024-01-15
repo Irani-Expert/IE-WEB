@@ -6,7 +6,7 @@
     <img
       class="aspect-square w-full object-contain h-full"
       [src]="contentUrl + Data.imgUrl"
-      (error)="contentUrl = ''"
+      (error)="contentUrl = ''" width="342" height="180" alt="img-card"
     />
     <!-- src="https://dl.iraniexpert.com{{ Data.imgUrl }}" -->
   </div>
@@ -76,8 +76,8 @@
       <div class="text-base font-medium m-1 items-center flex">
         <img
           class="w-4"
-          src="../../../../../assets/img/icons8-instagram-verification-badge-144.png"
-          *ngIf="Data.publishedBy == 'IRaniExpert'"
+          src="../../../../../assets/img/icons8-instagram-verification-badge-144.webp"
+          *ngIf="Data.publishedBy == 'IRaniExpert'" width="342" height="180" alt="img-card"
         />
         <p class="mt-1">{{ Data.publishedBy }}</p>
       </div>

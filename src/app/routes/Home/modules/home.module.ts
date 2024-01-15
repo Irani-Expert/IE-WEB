@@ -6,8 +6,7 @@ import { SellInfoComponent } from '../components/sell-info/sell-info.component';
 import { HeroComponent } from '../components/hero/hero.component';
 // import { CounterNumberComponent } from '../components/counter-number/counter-number.component';
 // import { SliderComponent } from '../components/slider/slider.component';
-
-import { BotFacilitiesComponent } from '../components/bot-facilities/bot-facilities.component';
+// import { BotFacilitiesComponent } from '../components/bot-facilities/bot-facilities.component';
 import { BotAdvantagesComponent } from '../components/bot-advantages/bot-advantages.component';
 import { LandingArticleComponent } from '../components/landing-article/landing-article.component';
 import { ConsultationFormComponent } from '../components/consultation-form/consultation-form.component';
@@ -51,7 +50,7 @@ const components = [
   SellInfoComponent,
   BotShowcaseComponent,
   CommentSliderComponent,
-  BotFacilitiesComponent,
+  // BotFacilitiesComponent,
   LandingArticleResponsiveComponent,
   BotAdvantagesComponent,
   LandingArticleComponent,

@@ -5,7 +5,7 @@
               [class.active]="menu.active">
               <div class="menu" (click)="toggle( i , !menu.active)">
                 <!-- <i [class]="menu.iconClass"></i> -->
-                  <img *ngIf="!menu.active" src="assets/icon/chevron.svg">
+                  <i *ngIf="!menu.active" class="chevron"></i>
                   <span *ngIf="menu.active" >&times;</span>
                 {{ menu.question }}
               </div>

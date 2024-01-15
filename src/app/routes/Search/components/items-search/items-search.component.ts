@@ -11,31 +11,50 @@ export class ItemsSearchComponent {
 
 
   @Input('data') searchModel : SearchModel;
+  allItems : any = [];
   contentUrl = environment.contentUrl;
 
   // ==========[هاور]=====
   timer:any;
   loading: boolean = true;
-
-
+  showingItem : any;
   ngOnInit(){
+    console.log(this.tags[0]);
+
     this.loading = false;
     this.toggle(0);
+    this.showingItem = this.allItems;
+    this.searchModel.articles.forEach((it)=>{
+      let item = {...it, tableType: 1};
+      this.allItems.push(item);
+    });
+    this.searchModel.products.forEach((it)=>{
+      let item = {...it, tableType: 6};
+      this.allItems.push(item);
+    });
+    this.searchModel.brokers.forEach((it)=>{
+      let item = {...it, tableType: 36};
+      this.allItems.push(item);
+    });
+    // this.searchModel.calendar.forEach((it)=>{
+    //   let item = {...it, tableType: 34};
+    //   this.allItems.push(item);
+    // });
+  }
+  changeViewItem(tableType : number){
+    if (tableType == null){
+      this.showingItem = this.allItems;
+    }
+    else{
+      this.showingItem = this.allItems.slice().filter((it : any)  => it.tableType == tableType)
+    }
   }
 
 changesort(item:any) {
   clearTimeout(this.timer)
-  this.searchModel.products
-  .forEach(item => item.active = false);
-
-  this.searchModel.brokers
-  .forEach(item => item.active = false);
-
-  this.searchModel.articles
-  .forEach(item => item.active = false);
-  
+  this.allItems
+  .forEach((item : any) => item.active = false);
   item.active = true;
-
 }
 toggleMenuLeave(item : any){
    this.timer = setTimeout(()=>{
@@ -43,41 +62,6 @@ toggleMenuLeave(item : any){
   }, 1000);
 }
 
-searchBox : Array<any> = [
-  {
-    name :'AMarkets - بررسی بروکر آمارکتس',
-    name2 : 'مدرسه ترید',
-    name3 : 'مدرس:حامد زارع',
-    name4 : 'امتیاز:5',
-    name5 : 'رایگان',
-    img : 'assets/img/blog-cart.svg',
-    id : 1,
-    active: false,
-    groupname: ['maghalat' , 'akhbar']
-  },
-  {
-    name :'ATM ربات معامله گر',
-    name2 : 'lorem',
-    name3 : 'lorem 1',
-    name4 : 'lorem 2',
-    name5 : 'lorem 3',
-    img : 'assets/img/img-blog-detail.svg',
-    id : 2,
-    active: false,
-    groupname: ['robate']
-  },
-  {
-    name :'معرفی بارار فارکس از ابتدا',
-    name2 : 'lorem',
-    name3 : 'lorem 1',
-    name4 : 'lorem 2',
-    name5 : 'lorem 3',
-    img : 'assets/img/Robot1.png',
-    id : 3,
-    active: false,
-    groupname: ['akhbar']
-  },
-];
   // ===========[تگ ها]======
   
   tags : Array<any> = [
@@ -85,32 +69,37 @@ searchBox : Array<any> = [
       name :'همه',
       id : 1,
       active: false,
+      tableType : null,
     },
     {
       name :'مقالات',
       id : 2,
       active: false,
+      tableType: 1
     },
     {
       name :'محصولات',
       id : 3,
       active: false,
+      tableType: 6
     },
     {
       name :'بروکرها',
       id : 4,
       active: false,
+      tableType: 36
     },
     {
       name :'رویداد اقتصادی',
       id : 5,
       active: false,
+      tableType : 34
     },
-    {
-      name :'پادکست ها',
-      id : 6,
-      active: false,
-    }
+    // {
+    //   name :'پادکست ها',
+    //   id : 6,
+    //   active: false,
+    // }
   ];
   // =======[اکتیو]====
   toggle(index : number){
