@@ -275,4 +275,25 @@
   &::before {
     content: url(../assets/icon/telegram.svg);
   }
+.icon-play-voice {
+  content: url(../assets/icon/play-voice.svg);
+  display: block;
+}
+.icon-pause-voice {
+  content: url(../assets/icon/pause-voice.svg);
+  display: block;
+}
+.icon-speed-1 {
+  content: url(../assets/icon/speed1.svg);
+  display: block;
+}
+
+.icon-speed-15 {
+  content: url(../assets/icon/speed1.5.svg);
+  display: block;
+}
+
+.icon-speed-2 {
+  content: url(../assets/icon/speed2.svg);
+  display: block;
 }
