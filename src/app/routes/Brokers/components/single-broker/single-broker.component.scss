@@ -4,6 +4,9 @@
   img {
     width: 100%;
     height: 100%;
+    @media (min-width: 1024px) {
+      object-fit: fill;
+    }
     object-fit: cover;
   }
 }
@@ -34,9 +37,107 @@
   font-size: 1.875rem;
 }
 .detail-container {
-  display: flex;
+  display: inline-flex;
   justify-content: center;
+  flex-basis: 33%;
+  flex-wrap: wrap;
+  gap: 1rem;
   @media (min-width: 1024px) {
     justify-content: flex-start;
+  }
+  .custom-position {
+    left: 50%;
+    transform: translate(-50%, -65%);
+  }
+}
+
+.circle-tick {
+  display: inline-flex;
+  width: 25px;
+  height: 25px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #0ce9bf;
+  padding: 0.5rem;
+}
+.icon-tick {
+  filter: grayscale(100%) contrast(1000%) invert(100%);
+  -webkit-filter: grayscale(100%) contrast(1000%) invert(100%);
+  -moz-filter: grayscale(100%) contrast(1000%) invert(100%);
+}
+.ie-telegram {
+  width: 28px;
+  height: 28px;
+}
+.bx-shadow-custom {
+  box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.16);
+}
+.chevron-container {
+  display: inline-flex;
+  margin-left: 0.5rem;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #102094;
+  i {
+    filter: grayscale(100%) contrast(1000%) invert(100%);
+    -webkit-filter: grayscale(100%) contrast(1000%) invert(100%);
+    -moz-filter: grayscale(100%) contrast(1000%) invert(100%);
+  }
+}
+
+.translate-down {
+  transform: translateY(100%);
+}
+
+.img-bg-hover {
+  width: 100%;
+  display: flex;
+  border-radius: 0.5rem;
+  position: absolute;
+  align-items: flex-end;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  background: rgb(255, 255, 255);
+  background: -moz-linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(73, 73, 73, 1) 90%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(73, 73, 73, 1) 90%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(73, 73, 73, 1) 90%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#000000",GradientType=1);
+  background-size: cover;
+  height: 0;
+  &.active {
+    height: 100%;
+    padding-bottom: 1rem;
+    &::before {
+      margin: 0 0.5rem;
+      content: "ورود به صفحه فارسی بروکر ";
+      display: inline-block;
+      color: white;
+      font-size: 1.75rem;
+      font-weight: bold;
+      text-align: center;
+      text-shadow: 0px 0px 13px #000;
+    }
+    &::after {
+      margin: 0 0.5rem;
+      content: url(../../../../../assets/icon/go-to-page.svg);
+      display: inline-block;
+    }
   }
 }

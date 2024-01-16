@@ -1,12 +1,8 @@
 import { Directive, Input, OnInit } from '@angular/core';
+import { SingleBrokerUL } from './single-broker.model';
 interface Data {
-  data: { key: keyof BrokerModel; value: string | boolean | number };
+  data: { key: keyof SingleBrokerUL; value: string | boolean | number };
   el: string;
-}
-interface BrokerModel {
-  isCent: boolean;
-  title: string;
-  telegramSupportLink: string;
 }
 @Directive({
   selector: '[brokerValue]',
@@ -17,10 +13,6 @@ export class BrokerValuePipe implements OnInit {
   constructor() {}
   ngOnInit(): void {
     const x = document.getElementById(this.data.el);
-    console.log(x);
-    // const j = document.getElementById('check-true');
-    // const f = document.getElementById('check-false');
-    // const s = document.getElementById('telegram-link');
 
     let type = this.switchCloneMode(this.data);
     //  Telegram
@@ -28,10 +20,11 @@ export class BrokerValuePipe implements OnInit {
     //  true && false
 
     let data = this.cloneNode(type, x!.id);
-    if (type.indexOf('check') == -1) {
+    if (type == 'simple-text') {
       data.lastChild.outerText = this.data.data.value;
     }
     x?.appendChild(data);
+    // this.sortList();
   }
 
   cloneNode(id: string, parentId: string) {
@@ -40,7 +33,7 @@ export class BrokerValuePipe implements OnInit {
     let clone: any = t!.cloneNode(true);
 
     clone.id = clone.id + '-' + parentId;
-    clone!.className = 'block';
+    clone!.className = 'flex';
     return clone;
   }
 
@@ -56,11 +49,15 @@ export class BrokerValuePipe implements OnInit {
         return result;
       }
     }
-    if (value == 'telegramSupportLink') {
+    if (data.data.key == 'telegramSupportLink') {
       result = 'telegram-link';
     } else {
       result = 'simple-text';
     }
     return result;
   }
+  // sortList() {
+  //   let ul = document.getElementById('broker-ul');
+
+  // }
 }
