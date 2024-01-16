@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-copy-trade',
@@ -6,6 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./copy-trade.component.scss'],
 })
 export class CopyTradeComponent {
+  constructor(private _meta: Meta) {
+    this._meta.updateTag({
+      name: 'description',
+      content:''
+    });
+    this._meta.updateTag({
+      name: 'author',
+      content: '',
+    });
+    this._meta.updateTag({
+      name: 'keywords',
+      content:''
+    });
+  }
   qA = [
     'ATM ربات معامله گر ',
     'درآمد دلاری',

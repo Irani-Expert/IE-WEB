@@ -4,6 +4,7 @@ import { PlatformService } from './classes/services/platform.service';
 
 import { AuthService } from './shared/auth/auth.service';
 import { Header } from './components/header-layout/header';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -21,10 +22,25 @@ export class AppComponent {
   // modalStatus;
   static isBrowser = new BehaviorSubject<boolean>(false);
   title = 'IE-WEB';
-  constructor(private platform: PlatformService, private auth: AuthService) {
+  constructor(private platform: PlatformService, private auth: AuthService , private meta: Meta) {
     if (this.platform.isPlatformBrowser()) {
       AppComponent.isBrowser.next(true);
     }
+        // =================[متاتگ ها]==========
+
+    this.meta.addTag({
+      name: 'description',
+      content:'به دنیای ایرانی اکسپرت (iraniexpert) که شامل خدمات آموزش ترید، مشاوره رایگان، خرید ربات  AI-Trader و ترید میباشد خوش آمدید.',
+    });
+    this.meta.addTag({
+      name: 'author',
+      content: 'خانم مهندس کریمی',
+    });
+    this.meta.addTag({
+      name: 'keywords',
+      content:
+        'اکسپرت ایرانی , ترید, ربات خودکار فارکس,ربات معامله گر فارکس, دستیار ترید,بورس جهانی,نقدینگی سشن های معاملاتی, کارگزاری,درامد, ترید بدون دانش,شغل دوم برای سرمایه گذاری مطمئن, اکسپرت فارکس',
+    });
   }
   async ngOnInit() {
     if (AppComponent.isBrowser.value) {
@@ -53,8 +69,7 @@ export class AppComponent {
         behavior: 'smooth',
       });
   }
-}
-
+  }
 // Get Blogs
 // loading = true;
 // async getBlogs(filter: IFilterBlog) {
