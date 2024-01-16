@@ -14,7 +14,8 @@ export class RobotTraderComponent {
   constructor(private _meta: Meta) {
     this._meta.updateTag({
       name: 'description',
-      content: 'ربات معامله گر(trader bot ) ATM از انواع رباتهای تمام اتوماتیک بوده و به کمک هوش مصنوعی با استفاده از یک دستیار ترید حد سود و ضرر را برای شما فراهم می کند.',
+      content:
+        'ربات معامله گر(trader bot ) ATM از انواع رباتهای تمام اتوماتیک بوده و به کمک هوش مصنوعی با استفاده از یک دستیار ترید حد سود و ضرر را برای شما فراهم می کند.',
     });
     this._meta.updateTag({
       name: 'author',
@@ -22,7 +23,8 @@ export class RobotTraderComponent {
     });
     this._meta.updateTag({
       name: 'keywords',
-      content: 'دستیار معامله  گر-ربات خودکار- ربات ATM - ربات اتو تریدر-خرید ربات تریدر-ربات معامله گر  طلا- خرید ربات معامله گر- ربات اتوماتیک ترید-ساخت ربات معامله گر-',
+      content:
+        'دستیار معامله  گر-ربات خودکار- ربات ATM - ربات اتو تریدر-خرید ربات تریدر-ربات معامله گر  طلا- خرید ربات معامله گر- ربات اتوماتیک ترید-ساخت ربات معامله گر-',
     });
 
     if (AppComponent.isBrowser.value) {
