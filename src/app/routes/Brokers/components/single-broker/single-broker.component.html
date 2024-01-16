@@ -127,19 +127,24 @@
 <!-- UL Detail List -->
 <div class="mx-8 lg:mr-10 mb-20 mt-5 detail-container">
   <ul class="max-w-[487px] w-full lg:bg-white space-y-3 lg:space-y-0">
-    <ng-container *ngFor="let i of brokerData | keyvalue">
+    <ng-container *ngFor="let broker of brokerData | keyvalue; let i = index">
       <li
         class="li-stripped py-3 px-2 even:bg-[#f3f3f3] odd:bg-white border lg:border-0 rounded-lg lg:rounded-none"
       >
         <div class="flex flex-row">
           <div class="basis-1/2 flex justify-start">
-            <p class="text-[#646464] font-medium">{{ i.key | borkerKey }}</p>
-          </div>
-          <div class="basis-1/2 flex justify-end">
-            <p *brokerValue="i" class="text-[#646464] font-medium">
-              {{ i.value }}
+            <p class="text-[#646464] font-medium">
+              {{ broker.key.slice() | borkerKey }}
             </p>
           </div>
+          <div
+            [id]="broker.key"
+            [brokerValue]="{
+              data: { key: broker.key, value: broker.value },
+              el: broker.key
+            }"
+            class="basis-1/2 flex justify-end"
+          ></div>
         </div>
       </li>
     </ng-container>
@@ -147,3 +152,12 @@
 </div>
 
 <!-- UL Detail List -->
+
+<div id="check-true" class="hidden">
+  <i class="icon-tick"></i>
+</div>
+<div id="check-false" class="hidden"></div>
+<div id="telegram-link" class="hidden"></div>
+<div id="simple-text" class="hidden">
+  <p class="text-[#646464] font-medium"></p>
+</div>

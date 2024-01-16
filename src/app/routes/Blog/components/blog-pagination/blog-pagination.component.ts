@@ -147,8 +147,8 @@ export class BlogPaginationComponent {
     }
   }
   // =================[فیلتر]=============
-  categoryIcon: string = 'assets/img/filter-icon-blog.svg';
-
+  categoryIcon: string = 'assets/icon/filter-icon-blog.svg';
+  color : string ='white'
   // Method Get Query Strings
 
   get _querystring() {
