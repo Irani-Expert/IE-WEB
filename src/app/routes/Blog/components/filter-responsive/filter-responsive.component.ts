@@ -10,22 +10,22 @@ export class FilterResponsiveComponent {
   category: Array<any> = [
     {
       name: 'همه مقالات',
-      icon: 'assets/img/icon-filter(blog)-1.svg',
+      icon: 'assets/icon/icon-filter(blog)-1.svg',
       id: 1,
     },
     {
       name: 'معامله گری ',
-      icon: 'assets/img/icon-filter(blog)-4.svg',
+      icon: 'assets/icon/icon-filter(blog)-4.svg',
       id: 7,
     },
     {
       name: 'فناوری بلاکچین',
-      icon: 'assets/img/icon-filter(blog)-5.svg',
+      icon: 'assets/icon/icon-filter(blog)-5.svg',
       id: 8,
     },
     {
       name: 'ربات معامله گر ',
-      icon: 'assets/img/icon-filter(blog)-6.svg',
+      icon: 'assets/icon/icon-filter(blog)-6.svg',
       id: 5,
     },
   ];

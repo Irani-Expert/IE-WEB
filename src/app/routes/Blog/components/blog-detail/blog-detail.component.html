@@ -1,12 +1,12 @@
 <div [ngClass]="device == 'lg' ? 'block' : 'hidden'" class="mt-8">
   <div class="flex justify-between mt-6">
     <div class="flex items-center w-44">
-      <img src="assets/img/icon-carousel-card.svg" alt="icon" />
+      <i class="icon-carousel-card"></i>
       <p class="icon-title mr-3">{{ articleModel.group }}</p>
     </div>
     <button disabled class="flex items-center box-share disabled:opacity-25">
       <p class="icon-title ml-3">اشتراک گذاری</p>
-      <img class="icon" src="assets/img/shared-icon.svg" alt="icon" />
+      <i class="shared-icon"></i>
     </button>
   </div>
   <h6 class="title-blog">{{ articleModel.title }}</h6>
@@ -19,7 +19,7 @@
     <img
       class="img-blog"
       [src]="contentUrl + articleModel.cardImagePath"
-      alt="{{ articleModel.title }}"
+      alt="{{ articleModel.title }}" width="100" height="100"
     />
     <div class="absolute flex h-full w-full items-center">
       <div class="sm:mt-40 sm:mr-12">
@@ -35,7 +35,7 @@
   <!-- ===============[سوالات متداول]==============     -->
   <!-- ===============[ نویسنده]==============     -->
   <div class="flex mt-8 items-center">
-    <img class="ml-4" src="assets/img/avatar.png" alt="avatar" />
+    <img class="ml-4" src="assets/img/avatar.webp" alt="avatar" height="24" width="24" />
     <p class="ml-4 writer">
       {{ articleModel.updatedByFirstName }}&nbsp;
       {{ articleModel.updatedByLastName }}
@@ -48,9 +48,9 @@
 <div [ngClass]="device == 'sm' ? 'block mb-20' : 'hidden'">
   <div class="flex relative mt-4">
     <img
-      class="img-blog-mobile"
+      class="img-blog-mobile w-full"
       [src]="contentUrl + articleModel.cardImagePath"
-      alt="icon"
+      alt="icon" width="100" height="100"
     />
     <div class="absolute flex h-full w-full items-end">
       <div class="mr-12">
@@ -62,12 +62,12 @@
   <!-- ================[تایتل عکس]======= -->
   <div class="flex justify-between mt-6">
     <div class="flex items-center scale-90">
-      <img src="assets/img/icon-carousel-card.svg" alt="icon" />
+      <i class="icon-carousel-card"></i>
       <p class="icon-title mr-3">{{ articleModel.group }}</p>
     </div>
     <a href="" class="flex items-center box-share-mobile">
       <p class="icon-title ml-3">اشتراک گذاری</p>
-      <img class="icon" src="assets/img/shared-icon.svg" alt="icon" />
+      <i class="shared-icon"></i>
     </a>
   </div>
   <h6 class="title-blog-mobile mt-3">{{ articleModel.title }}</h6>
@@ -85,7 +85,7 @@
   <!-- =================[آرتیکلز]========= -->
   <div [innerHTML]="articleHtml" class="mt-6 article-desription"></div>
   <div class="flex mt-8 items-center flex-wrap gap-2">
-    <img src="assets/img/avatar.png" alt="avatar" />
+    <img src="assets/img/avatar.webp" alt="avatar" width="74" height="74"/>
     <div class="basis-3/4 flex flex-col gap-2">
       <p class="ml-4 writer">
         {{ articleModel.updatedByFirstName }}&nbsp;

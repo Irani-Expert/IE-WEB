@@ -25,12 +25,12 @@
             "
           />
           <a href="">
-            <img src="assets/img/search-icon(blog).svg" alt="icon" />
+            <i class="search-icon-blog"></i>
           </a>
         </div>
       </div>
       <div class="basis-1/3 relative flex justify-end">
-        <img class="logo" src="assets/img/blog-baner-logo.svg" alt="logo" />
+        <img class="logo" src="assets/img/blog-baner-logo.webp" alt="logo" width="74" height="74" />
       </div>
     </div>
   </div>
@@ -48,11 +48,7 @@
         <div class="flex justify-start">
           <div class="">
             <div class="flex items-center">
-              <img
-                class="scale-90 ml-1"
-                src="assets/img/article-icon.svg"
-                alt="icon"
-              />
+              <i class="article-icon scale-90 ml-1"></i>
               <p class="row-p">مقالات ایرانی اکسپرت</p>
             </div>
             <h6 class="title2 mt-2">جدیدترین و آخرین مقالات ایرانی اکسپرت</h6>
@@ -145,8 +141,8 @@
         <div class="relative basis-1/3 flex">
           <img
             class="logo-mobile"
-            src="assets/img/blog-baner-logo.svg"
-            alt="logo"
+            src="assets/img/blog-baner-logo.webp"
+            alt="logo" height="100" width="24"
           />
         </div>
       </div>
@@ -163,18 +159,14 @@
             "
           />
           <a href="">
-            <img
-              class="icon-search"
-              src="assets/img/search-icon(blog).svg"
-              alt="icon"
-            />
+            <i class="icon-search search-icon-blog"></i>
           </a>
         </div>
       </div>
     </div>
   </div>
   <!-- =========[دسته بندی]====== -->
-  <app-filter-responsive (result)="filterCategory($event)" [categoryIcon]="categoryIcon">
+  <app-filter-responsive (result)="filterCategory($event)" [categoryIcon]="categoryIcon" [data]="color">
     <p header class="text-black w-28">دسته بندی</p>
   </app-filter-responsive>
   <div class="divider mt-4 mb-7"></div>
@@ -267,7 +259,7 @@
         </div>
       </div>
       <!-- ===========[ تبلیغات ]========== -->
-      <img class="w-full" src="assets/img/add-blog(responsive).svg" alt="add" />
+      <img class="w-full" src="assets/img/add-blog(responsive).webp" alt="add" width="100" height="100" />
     </div>
   </ng-container>
 </div>

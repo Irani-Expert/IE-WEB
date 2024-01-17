@@ -8,4 +8,5 @@ import { Component, Input } from '@angular/core';
 export class BlueCardsComponent {
   @Input('head') title: string;
   @Input('body') text: string;
+  @Input() id = '';
 }

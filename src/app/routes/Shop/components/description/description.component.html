@@ -1,42 +1,42 @@
-<div class="lg:!mr-14 row">
+<div class="lg:!mr-14 mr-4 ml-8">
   <span class="divid-h lg:!text-base">از برتری های استفاده از ربات ATM </span>
-  <h6 class="faq-h mb-4 lg:!text-2xl">
+  <h6 class="text-black font-semibold text-base mb-4 lg:!text-2xl">
     ربات ATM چه برتری هایی نسبت به دیگر ربات ها دارد؟
   </h6>
 </div>
 <!-- ===================[باکس اعداد]=============== -->
 <div class="lg:mr-40">
-  <div class="row-box grid grid-cols-1 gap-3 lg:grid-cols-3">
+  <div class="row-box mx-12 grid grid-cols-1 gap-3 lg:grid-cols-3">
     <ng-container *ngFor="let item of items">
       <div class="box">
-        <p class="box-body">{{ item.title }}</p>
+        <p class="relative z-10 ">{{ item.title }}</p>
         <span class="box-number">{{ item.id }}</span>
       </div>
     </ng-container>
   </div>
 </div>
 <!-- ===================[ پیش نیازها]=============== -->
-<div class="lg:!mr-14 row mt-16">
+<div class="lg:!mr-14  mr-4 ml-8 mt-16">
   <span class="divid-h lg:!text-base">پیش نیاز های استفاده از ربات ATM </span>
-  <h6 class="faq-h mb-4 lg:!text-2xl">
+  <h6 class="text-black font-semibold text-base mb-4 lg:!text-2xl">
     شرایط مورد نیاز برای برای راه اندازی ربات ATM
   </h6>
 </div>
-<div class="first-line:w-full row-body mt-16">
+<div class="first-line:w-full ml-4 mr-2 mt-16">
   <div class="lg:mr-40">
-    <div class="row-p">
-      <img class="ml-2" src="assets/img/icon-tik.svg" alt="icon" />
-      <p class="body-p lg:!text-lg">
+    <div class="inline-flex items-baseline mb-8">
+      <i class="icon-tick ml-2"></i>
+      <p class="text-black text-sm lg:!text-lg">
         استفاده از تمامی انواع حساب ها مجاز می باشد به جز حساب های Neting اهرم
         1:500 به بالا باشد
       </p>
     </div>
     <br />
-    <div class="row-p">
-      <img class="ml-2" src="assets/img/icon-tik.svg" alt="icon" />
+    <div class="inline-flex items-baseline mb-8">
+      <i class="icon-tick ml-2"></i>
       <div class="flex">
-        <p class="body-title lg:!text-lg">مشخصات سخت افزاری سرور/سیستم :</p>
-        <p class="body-p lg:!text-lg">
+        <p class="text-black font-medium text-sm lg:!text-lg">مشخصات سخت افزاری سرور/سیستم :</p>
+        <p class="text-black text-sm lg:!text-lg">
           هرچه بالاتر باشد،عملکرد بهتر است.اما حداقل:
         </p>
       </div>
@@ -44,43 +44,43 @@
   </div>
 
   <div
-    class="box-description-row grid grid-cols-1 gap-3 lg:!ml-20 lg:!mr-20 lg:grid-cols-4"
+    class="justify-items-center mb-12 grid grid-cols-1 gap-3 lg:!ml-20 lg:!mr-20 lg:grid-cols-4"
   >
     <ng-container *ngFor="let item of serverReq">
-      <div class="box-description">
-        <p class="b-d-p">{{ item.description }}</p>
-        <p class="b-d-title">:{{ item.title }}</p>
+      <div class="box-description flex justify-between relative py-4 px-5 mx-4 rounded-2xl">
+        <p>{{ item.description }}</p>
+        <p class="text-black font-semibold">:{{ item.title }}</p>
       </div>
     </ng-container>
   </div>
-  <div class="lg:!mr-40 row-p">
-    <img class="ml-2" src="assets/img/icon-tik.svg" alt="icon" />
+  <div class="lg:!mr-40 inline-flex items-baseline mb-8">
+    <i class="icon-tick ml-2"></i>
     <div class="flex">
-      <p class="body-title lg:!text-lg">مشخصات نرم افزار/سیستم عامل:</p>
+      <p class="text-black font-medium text-sm lg:!text-lg">مشخصات نرم افزار/سیستم عامل:</p>
     </div>
   </div>
   <div class="lg:ml-20 lg:mr-20">
-    <div class="box-description-row grid grid-cols-1 gap-1 lg:grid-cols-2">
+    <div class="justify-items-center mb-12 grid grid-cols-1 gap-1 lg:grid-cols-2">
       <ng-container *ngFor="let item of systemReq">
-        <div class="box-description">
-          <p class="b-d-p">{{ item.description }}</p>
-          <p class="b-d-title">:{{ item.title }}</p>
+        <div class="box-description flex justify-between relative py-4 px-5 mx-4 rounded-2xl">
+          <p>{{ item.description }}</p>
+          <p class="text-black font-semibold">:{{ item.title }}</p>
         </div>
       </ng-container>
     </div>
   </div>
-  <div class="lg:!mr-40 row-p">
-    <img class="ml-2" src="assets/img/icon-tik.svg" alt="icon" />
+  <div class="lg:!mr-40 inline-flex items-baseline mb-8">
+    <i class="icon-tick ml-2"></i>
     <div class="flex">
-      <p class="body-title lg:!text-lg">مشخصات حساب:</p>
+      <p class="text-black font-medium text-sm lg:!text-lg">مشخصات حساب:</p>
     </div>
   </div>
   <div class="lg:ml-20 lg:mr-20">
-    <div class="box-description-row grid grid-cols-1 gap-1 lg:grid-cols-3">
+    <div class="justify-items-center mb-12 grid grid-cols-1 gap-1 lg:grid-cols-3">
       <ng-container *ngFor="let item of accountReq">
-        <div class="box-description">
-          <p class="b-d-p">{{ item.description }}</p>
-          <p class="b-d-title">:{{ item.title }}</p>
+        <div class="box-description flex justify-between relative py-4 px-5 mx-4 rounded-2xl">
+          <p>{{ item.description }}</p>
+          <p class="text-black font-semibold">:{{ item.title }}</p>
         </div>
       </ng-container>
     </div>
@@ -88,52 +88,52 @@
 </div>
 <!-- ===================[ نکات]=============== -->
 <div class="lg:mr-14">
-  <div class="row mt-16">
+  <div class="mr-4 ml-8 mt-16">
     <span class="divid-h lg:!text-base">نکات مهم استفاده از ربات ATM </span>
-    <h6 class="faq-h mb-4 lg:!text-2xl">نکات مهم در مورد ربات ATM</h6>
+    <h6 class="text-black font-semibold text-base mb-4 lg:!text-2xl">نکات مهم در مورد ربات ATM</h6>
   </div>
 </div>
 <ng-container *ngFor="let item of tips.slice(0, 2)">
-  <div class="row-nokat lg:!mr-40">
-    <img class="ml-2" src="assets/img/icon-tik.svg" alt="icon" />
-    <p class="nokat-p lg:!text-lg">
+  <div class="mr-2 ml-4 flex items-baseline lg:!mr-40">
+    <i class="icon-tick ml-2"></i>
+    <p class="text-black mb-4 text-sm lg:!text-lg">
       {{ item.title }}
     </p>
   </div>
 </ng-container>
-<div class="row-nokat lg:!mr-40">
-  <img class="ml-2" src="assets/img/icon-tik.svg" alt="icon" />
-  <p class="nokat-p lg:!text-lg">
+<div class="mr-2 ml-4 flex items-baseline lg:!mr-40">
+  <i class="icon-tick ml-2"></i>
+  <p class="text-black mb-4 text-sm lg:!text-lg">
     تحت <b class="text-[#FF0000]">هیچ شرایطی</b> روی یک متاتریدر,بیش از 1 حساب
     Run نکنید (حتی (Demo)) در غیر اینصورت ربات از کار می‌افتد
   </p>
 </div>
 <ng-container *ngFor="let item of tips.slice(2, 5)">
-  <div class="row-nokat lg:!mr-40">
-    <img class="ml-2" src="assets/img/icon-tik.svg" alt="icon" />
-    <p class="nokat-p lg:!text-lg">
+  <div class="mr-2 ml-4 flex items-baseline lg:!mr-40">
+    <i class="icon-tick ml-2"></i>
+    <p class="text-black mb-4 text-sm lg:!text-lg">
       {{ item.title }}
     </p>
   </div>
 </ng-container>
-<div class="row-nokat lg:!mr-40">
-  <img class="ml-2" src="assets/img/icon-tik.svg" alt="icon" />
-  <p class="nokat-p lg:!text-lg">
+<div class="mr-2 ml-4 flex items-baseline lg:!mr-40">
+  <i class="icon-tick ml-2"></i>
+  <p class="text-black mb-4 text-sm lg:!text-lg">
     قبل از <b class="text-[#FF0000]">منقضی شدن</b>
     ربات حتما از طریق سایت, لایسنس را تمدید و جایگزین کنید که پوزیشن های باز تحت
     الشعاع قرار نگیرد
   </p>
 </div>
 <ng-container *ngFor="let item of tips.slice(5)">
-  <div class="row-nokat lg:!mr-40">
-    <img class="ml-2" src="assets/img/icon-tik.svg" alt="icon" />
-    <p class="nokat-p lg:!text-lg">
+  <div class="mr-2 ml-4 flex items-baseline lg:!mr-40">
+    <i class="icon-tick ml-2"></i>
+    <p class="text-black mb-4 text-sm lg:!text-lg">
       {{ item.title }}
     </p>
   </div>
 </ng-container>
 <!-- <div class="row-nokat lg:!mr-40">
-  <img class="ml-2" src="assets/img/icon-tik.svg" alt="icon" />
+      <i class="icon-tick ml-2"></i>
   <p class="nokat-p lg:!text-lg">
     استفاده از تمامی مجاز می باشد به جز
     <span class="p-danger">انواع حساب ها</span> حساب های Neting اهرم 1:500 به

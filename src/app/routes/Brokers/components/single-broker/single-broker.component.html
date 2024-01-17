@@ -1,75 +1,296 @@
-<div class="min-h-fit pb-20 pt-5 bg-[#F3F3F3] w-full rounded-b-[110px]">
+<!-- Header and Details -->
+
+<div class="flex-col flex items-center bg-white lg:bg-inherit">
   <div
-    class="flex items-start justify-center lg:justify-around xl:justify-between"
+    class="min-h-fit px-4 lg:px-2 pb-4 lg:pb-20 pt-5 bg-white lg:bg-[#EBEBEB] w-full rounded-b-[75px] lg:rounded-b-[110px]"
   >
     <div
-      class="flex flex-col lg:flex-row items-stretch justify-center mt-10 mx-2 lg:mx-10 h-full gap-5"
+      class="flex items-start justify-center lg:justify-around xl:justify-between"
     >
-      <div class="img-container">
-        <img
-          src="../../../../../assets/img/IFC.png"
-          alt="Demo-Single-Broker"
-          width="245"
-          height="137"
-        />
-      </div>
       <div
-        class="mt-[0.15rem] flex-col flex items-start flex-wrap content-start"
+        class="flex flex-col lg:flex-row items-stretch justify-center mt-10 mx-2 lg:mx-10 h-full gap-5"
       >
-        <b class="text-[#098B41] font-black text-3xl">بروکر آی اف سی مارکت</b>
-        <div class="flex items-center gap-1 mt-3">
-          <span class="inline-block">
-            <img class="w-6" src="assets/icon/uk@2x.svg" alt="Flag-UK" />
-          </span>
-          <p class="inline-block text-sm">دفتر مرکزی انگلستان</p>
+        <div
+          class="img-container min-h-[177px] md:min-h-0 aspect-square md:aspect-video"
+        >
+          <img
+            *ngIf="dataLoaded"
+            class="md:rounded-lg rounded-md"
+            [src]="
+              apiData.cardImagePath ? contentUrl + apiData.cardImagePath : ''
+            "
+            [alt]="apiData.secondTitle ? apiData.secondTitle : 'عکس بروکر'"
+            width="245"
+            height="137"
+          />
+          <div
+            *ngIf="!dataLoaded"
+            class="md:rounded-lg w-[249px] rounded-md h-full bg-slate-400 animate-pulse"
+          ></div>
         </div>
         <div
-          class="inline-flex min-w-max px-2 py-0 border border-[#707070] items-center rounded-full mt-2"
+          class="mt-[0.15rem] flex-col sm:flex items-start flex-wrap content-start hidden"
         >
-          <i class="ie-verified"></i>
-          <p class="text-[#646464] text-xs pt-1 font-medium">
-            MT5 , MT4 , Net TradeX
-          </p>
-        </div>
-        <div class="flex-grow mt-5">
-          <button
-            class="h-full min-w-[220px] w-max bg-[#098B41] rounded-lg text-white font-bold min-h-[42.95px]"
+          <b *ngIf="dataLoaded" class="text-[#098B41] font-black text-3xl"
+            >بروکر {{ apiData.secondTitle.split("|")[0] }}</b
           >
-            ورود به سایت اصلی بروکر
-            <i class="ie-go-to-page scale-75 mr-1 align-middle"></i>
-          </button>
+          <b *ngIf="!dataLoaded" class="text-[#098B41] font-black text-3xl"
+            >بروکر &nbsp;</b
+          >
+          <div class="flex items-center gap-1 mt-3">
+            <span class="inline-block">
+              <i class="flag-icon w-6"></i>
+            </span>
+            <p class="inline-block text-sm">
+              دفتر مرکزی {{ apiData.countryName || "" }}
+            </p>
+          </div>
+          <div
+            class="inline-flex min-w-max px-2 py-0 border border-[#707070] items-center rounded-full mt-2"
+          >
+            <i class="ie-verified"></i>
+            <p class="text-[#646464] text-xs pt-1 font-medium">
+              {{ platforms }}
+            </p>
+          </div>
+          <div class="flex-grow mt-5">
+            <a
+              *ngIf="dataLoaded"
+              [href]="
+                'https://' +
+                apiData.webSiteLink.slice(10, apiData.webSiteLink.length)
+              "
+              target="_blank"
+            >
+              <button
+                class="h-full min-w-[220px] w-max bg-[#098B41] rounded-lg text-white font-bold min-h-[42.95px]"
+              >
+                ورود به سایت اصلی بروکر
+                <i class="ie-go-to-page scale-75 mr-1 align-middle"></i>
+              </button>
+            </a>
+            <button
+              *ngIf="!dataLoaded"
+              class="h-full min-w-[220px] w-max bg-[#098B41] rounded-lg text-white font-bold min-h-[42.95px]"
+            >
+              ورود به سایت اصلی بروکر
+              <i class="ie-go-to-page scale-75 mr-1 align-middle"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex flex-col md:flex-row items-stretch gap-1 lg:gap-5 mt-10 mx-1 md:mx-5"
+      >
+        <div
+          class="border bg-[#F3F3F3] border-gray-400 rounded-[9px] w-full max-w-[150px] min-w-[110px]"
+        >
+          <div
+            class="flex flex-col items-center justify-center h-full px-2 gap-6"
+          >
+            <p class="text-[#646464] font-medium text-xs mt-3">
+              امتیاز کاربران
+            </p>
+            <p class="text-[#646464] font-black text-rate">
+              <i class="ie-star"></i>
+              {{ apiData.staticRate / 2 | number : "1.1-2" || "   " }}
+            </p>
+          </div>
+        </div>
+        <div
+          class="border bg-[#F3F3F3] border-gray-400 rounded-[9px] w-full max-w-[150px] min-w-[110px]"
+        >
+          <div
+            class="flex flex-col items-center justify-center h-full px-2 gap-6"
+          >
+            <p class="text-[#646464] font-medium text-xs mt-3">
+              امتیاز ایرانی اکسپرت
+            </p>
+            <p *ngIf="dataLoaded" class="text-[#646464] font-black text-rate">
+              {{ apiData.staticRate }}
+            </p>
+            <p *ngIf="!dataLoaded" class="text-[#646464] font-black text-rate">
+              &nbsp;
+            </p>
+          </div>
         </div>
       </div>
     </div>
-    <div class="flex flex-col md:flex-row items-stretch gap-1 lg:gap-5 mt-10">
-      <div
-        class="border border-gray-400 rounded-[9px] max-w-[150px] min-w-[149px]"
-      >
-        <div
-          class="flex flex-col items-center justify-center h-full px-2 gap-6"
+    <div class="sm:hidden flex flex-col my-5">
+      <div class="flex flex-row mx-2 gap-2 justify-center">
+        <a
+          class="basis-full"
+          *ngIf="dataLoaded"
+          [href]="
+            'https://' +
+            apiData.webSiteLink.slice(10, apiData.webSiteLink.length)
+          "
+          target="_blank"
         >
-          <p class="text-[#646464] font-medium text-xs mt-3">امتیاز کاربران</p>
-          <p class="text-[#646464] font-black text-rate">
-            <i class="ie-star"></i>
-            4
-          </p>
-        </div>
+          <button
+            class="w-full bg-[#098B41] rounded-lg text-white font-medium min-h-[50px] max-w-410px"
+          >
+            سایت اصلی بروکر
+            <i class="ie-go-to-page scale-75 mr-1 align-middle"></i>
+          </button>
+        </a>
+        <!-- <button class="basis-1/2">
+
+        </button> -->
+      </div>
+      <p class="text-center mt-7 mb-4 text-3xl">
+        <b class="text-[#098B41] font-black" *ngIf="dataLoaded">
+          بروکر {{ apiData.secondTitle.split("|")[0] }}</b
+        >
+        <b class="text-[#098B41] font-black" *ngIf="!dataLoaded">
+          بروکر {{ " " }}</b
+        >
+        <br />
+        <b *ngIf="dataLoaded" class="text-[#098B41] font-black">{{
+          apiData.secondTitle.split("|")[1] | uppercase
+        }}</b>
+        <b *ngIf="!dataLoaded" class="text-[#098B41] font-black">{{ " " }}</b>
+      </p>
+      <div class="flex justify-center items-center gap-1 my-3">
+        <span class="inline-block">
+          <i class="flag-icon w-6"></i>
+        </span>
+        <p class="inline-block text-[#646464] font-medium">
+          دفتر مرکزی {{ apiData.countryName }}
+        </p>
       </div>
       <div
-        class="border border-gray-400 rounded-[9px] max-w-[150px] min-w-[149px]"
+        class="inline-flex min-w-max px-2 py-0 border border-[#707070] items-center rounded-full mt-2 self-center"
       >
-        <div
-          class="flex flex-col items-center justify-center h-full px-2 gap-6"
-        >
-          <p class="text-[#646464] font-medium text-xs mt-3">
-            امتیاز ایرانی اکسپرت
-          </p>
-          <p class="text-[#646464] font-black text-rate">9.1</p>
-        </div>
+        <i class="ie-verified"></i>
+        <p class="text-[#646464] pt-1 font-medium">{{ platforms }}</p>
       </div>
     </div>
   </div>
 </div>
+
+<!-- Header and Details -->
+
+<!-- Detail List -->
+<div
+  class="flex flex-col-reverse items-stretch lg:items-start lg:flex-row mx-8 lg:mr-10 my-5 justify-center gap-8 lg:gap-12 px-3"
+>
+  <!-- Video & UL -->
+  <div class="detail-container lg:relative mt-5 lg:mt-48">
+    <div class="hidden lg:block absolute custom-position">
+      <div
+        class="relative w-[400px] p-2 bg-white border border-[#707070] rounded-xl hover:opacity-100 opacity-80 hover:border-[#3246D3] transition-all lg:min-h-[256px]"
+      >
+        <ng-container *ngIf="dataLoaded">
+          <img
+            class="aspect-[16/10] object-cover rounded-xl"
+            [src]="contentUrl + apiData.secondCardImagePath"
+            alt="background-video"
+          />
+        </ng-container>
+        <ng-container *ngIf="!dataLoaded">
+          <div
+            class="aspect-[16/10] bg-slate-400 object-cover rounded-xl animate-pulse"
+          ></div>
+          <!-- <img
+          class="aspect-[16/10] object-cover rounded-xl"
+          src="../../../../../assets/img/"
+          alt="background-video"
+        /> -->
+        </ng-container>
+        <button
+          class="absolute translate-x-[50%] translate-y-[-50%] top-[50%] right-[50%] flex items-center justify-center w-20 h-20 rounded-full bg-[#3246D3]"
+        >
+          <i class="ie-icon ie-Polygon translate-x-[7px] translate-y-[3px]"></i>
+        </button>
+      </div>
+    </div>
+    <div
+      class="block self-center max-w-[487px] justify-center lg:hidden basis-full"
+    >
+      <div
+        class="relative w-full p-2 bg-white border border-[#707070] rounded-xl hover:opacity-100 opacity-80 hover:border-[#3246D3] transition-all"
+      >
+        <img
+          class="aspect-[16/10] object-cover rounded-xl"
+          [src]="contentUrl + apiData.secondCardImagePath"
+          alt="background-video"
+        />
+        <button
+          class="absolute translate-x-[50%] translate-y-[-50%] top-[50%] right-[50%] flex items-center justify-center w-20 h-20 rounded-full bg-[#3246D3]"
+        >
+          <i class="ie-icon ie-Polygon translate-x-[7px] translate-y-[3px]"></i>
+        </button>
+      </div>
+    </div>
+    <app-single-broker-ul
+      class="w-full max-w-[487px]"
+      [data]="brokerData"
+      [load]="dataLoaded"
+    />
+  </div>
+  <!-- Video & UL -->
+  <div
+    class="mt-8 basis-[60%] px-0 lg:px-4 lg:ml-2 max-w-[487px] lg:max-w-none flex flex-col lg:items-start self-center lg:self-start"
+  >
+    <span
+      class="inline-flex px-3 py-3 rounded-e-3xl rounded-tr-3xl bg-[#3246D3] bx-shadow-custom order-4 lg:order-1 mb-4"
+      ><span class="chevron-container"
+        ><i class="ie-icon ie-chevron right"></i
+      ></span>
+      <p class="text-lg text-white font-bold">
+        ویدیو معرفی و بررسی {{ apiData.secondTitle }}
+      </p></span
+    >
+    <p *ngIf="dataLoaded" class="mb-4 text-justify order-1 lg:order-2">
+      {{ apiData.brief }}
+    </p>
+    <ng-container *ngIf="!dataLoaded">
+      <span
+        *ngFor="let holder of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+        class="h-2 w-full block animate-pulse bg-slate-400 my-1 rounded-lg order-1 lg:order-2"
+        >&nbsp;
+      </span></ng-container
+    >
+
+    <!-- Ads Or Specials Place -->
+    <div id="specials" class="my-5 order-3"></div>
+    <!-- Ads Or Specials Place -->
+
+    <div
+      *ngIf="dataLoaded"
+      class="relative order-2 lg:order-4 flex w-full sm:min-h-[222.19px] h-fit rounded-lg"
+      (mouseenter)="hoveredOnImg = true"
+      (mouseleave)="hoveredOnImg = false"
+    >
+      <img
+        class="w-full aspect-video rounded-lg"
+        [src]="contentUrl + apiData.cardImagePath"
+        [alt]="'way'"
+      />
+      <div
+        class="img-bg-hover"
+        [ngClass]="hoveredOnImg ? 'active' : 'de-active'"
+      >
+        <a
+          target="_blank"
+          class="w-full h-full absolute"
+          [href]="
+            'https://' +
+            apiData.webSiteLink.slice(10, apiData.webSiteLink.length)
+          "
+        ></a>
+      </div>
+    </div>
+    <div
+      *ngIf="!dataLoaded"
+      class="relative order-2 lg:order-4 flex w-full h-full aspect-video bg-slate-400 animate-pulse rounded-lg"
+    ></div>
+  </div>
+</div>
+
+<!-- Detail List -->
+
 <!-- <div class="inline-block border border-gray-400 rounded-[9px] min-w-[26px]">
   <p class="mx-4 my-2 text-sm font-medium">
     جدیدترین خبر های بروکر را به من اطلاع بده

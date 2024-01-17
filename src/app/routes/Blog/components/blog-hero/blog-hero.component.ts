@@ -123,23 +123,23 @@ export class BlogHeroComponent {
   x = [
     {
       color: this.red,
-      img: 'assets/img/blog(hover)-2.svg',
+      img: 'assets/img/blog(hover)-2.webp',
     },
     {
       color: this.green,
-      img: 'assets/img/blog(hover)-1.svg',
+      img: 'assets/img/blog(hover)-1.webp',
     },
     {
       color: this.blue,
-      img: 'assets/img/blog(hover)-3.svg',
+      img: 'assets/img/blog(hover)-3.webp',
     },
     {
       color: this.aqua,
-      img: 'assets/img/blog(hover)-4.svg',
+      img: 'assets/img/blog(hover)-4.webp',
     },
     {
       color: this.yellow,
-      img: 'assets/img/blog(hover)-5.svg',
+      img: 'assets/img/blog(hover)-5.webp',
     },
   ];
   setLanguage() {

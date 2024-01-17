@@ -9,9 +9,10 @@
     >
       <img
         class="rounded-3xl md:rounded-2xl"
-        src="../../../../../assets/img/Expert 1.png"
+        src="../../../../../assets/img/Expert 1.webp"
         width="240"
         height="240"
+        alt="bot-img"
       />
     </a>
   </div>
@@ -80,7 +81,7 @@
           class="rounded-full bg-neutral-100 pe-4 ps-4 p-1 text-base font-bold m-1 items-center"
           style="display: flex; align-items: flex-start"
         >
-          <img class="sm:w-4 pt-0.5" *ngIf="i.icon != ''" src="{{ i.icon }}" />
+          <img class="sm:w-4 pt-0.5" *ngIf="i.icon != ''" src="{{ i.icon }}" alt="icon" width="16" height="5" />
           {{ i.name }}
         </div>
       </ng-container>

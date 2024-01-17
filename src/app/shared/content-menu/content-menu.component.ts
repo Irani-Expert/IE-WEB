@@ -43,7 +43,6 @@ export class ContentMenuComponent {
     this.isEmited.emit(true);
   }
   // ======[رسپانسیو]====
-  @Input('data2') color: string;
 
   NavbarsStatus(type: number) {
     this.openNav = type;
