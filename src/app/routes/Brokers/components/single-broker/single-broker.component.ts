@@ -1,29 +1,12 @@
 import { Component } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
-import { SingleBrokerUL } from './single-broker.model';
+import { SingleBrokerULModel } from './single-broker.model';
 import { BrokerService } from '../../broker.service';
 import { ActivatedRoute } from '@angular/router';
 import { ApiBrokerModel } from './api-broker.model';
 import { environment } from 'src/environments/environment.dev';
-import { CurrencyPipe, KeyValue } from '@angular/common';
-class SingleBrokerULModel implements SingleBrokerUL {
-  secondTitle: string = '';
-  isIRSupport: boolean = false;
-  establishedYear: string = '';
-  phoneNumber: string = '';
-  countryName: string = '';
-  email: string = '';
-  mainReg: string = '';
-  iranianRg: string = '';
-  minDeposit: string = '';
-  accountCent: boolean = false;
-  leverage: string = '';
-  tradingSymbols: string = '';
-  deposit: string = '';
-  telegramSupportLink: string = '';
-  isPersianSupport: boolean = false;
-  copyTrade: boolean = false;
-}
+import { CurrencyPipe } from '@angular/common';
+
 @Component({
   selector: 'app-single-broker',
   templateUrl: './single-broker.component.html',
@@ -33,12 +16,6 @@ class SingleBrokerULModel implements SingleBrokerUL {
 export class SingleBrokerComponent {
   hoveredOnImg = false;
   platforms = '';
-  originalOrder = (
-    a: KeyValue<keyof SingleBrokerULModel, string | number | boolean>,
-    b: KeyValue<keyof SingleBrokerULModel, string | number | boolean>
-  ): number => {
-    return 0;
-  };
   contentUrl = environment.contentUrl;
   dataLoaded = false;
   apiData: ApiBrokerModel = new ApiBrokerModel();

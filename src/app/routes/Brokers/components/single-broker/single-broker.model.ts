@@ -16,3 +16,22 @@ export interface SingleBrokerUL {
   mainReg?: string;
   deposit?: string;
 }
+
+export class SingleBrokerULModel implements SingleBrokerUL {
+  secondTitle: string = '';
+  isIRSupport: boolean = false;
+  establishedYear: string = '';
+  phoneNumber: string = '';
+  countryName: string = '';
+  email: string = '';
+  mainReg: string = '';
+  iranianRg: string = '';
+  minDeposit: string = '';
+  accountCent: boolean = false;
+  leverage: string = '';
+  tradingSymbols: string = '';
+  deposit: string = '';
+  telegramSupportLink: string = '';
+  isPersianSupport: boolean = false;
+  copyTrade: boolean = false;
+}
