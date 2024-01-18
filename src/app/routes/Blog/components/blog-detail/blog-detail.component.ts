@@ -111,10 +111,6 @@ export class BlogDetailComponent {
       name: 'keywords',
       content: keywords,
     });
-    this._meta.updateTag({
-      name: 'description',
-      content: this.articleModel.metaDescription,
-    });
     this._title.setTitle(this.articleModel.title);
     // Sanitize Description for HTML
     this.articleHtml = this._sanitizer.bypassSecurityTrustHtml(
