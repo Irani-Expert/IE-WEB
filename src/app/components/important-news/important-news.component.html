@@ -1,0 +1,23 @@
+<div class="flex items-center m-5 mx-0 px-8 py-4 border-y-2">
+  <ng-content></ng-content>
+  <div class="flex overflow-y-scroll">
+    <div
+      class="flex flex-row-reverse items-center lg:ms-4 min-w-[9rem]"
+      *ngFor="let x of currencyTrend"
+    >
+      <span class="text-base font-light text-gray-800 lg:me-3">{{
+        x.currency
+      }}</span>
+      <i
+        class="ie-icon mx-1 pb-1.5"
+        [ngClass]="x.trend ? 'upTrend' : 'downTrend'"
+      ></i>
+      <span
+        class="font-light"
+        [ngClass]="x.trend ? 'text-[#00CB86] ' : 'text-[#FF2A2A]'"
+        dir="ltr"
+        >{{ x.percent }}%</span
+      >
+    </div>
+  </div>
+</div>
