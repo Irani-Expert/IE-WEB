@@ -15,11 +15,13 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class BaseService<T> {
   headers = new HttpHeaders({
-    accept: 'application/json','Content-Type': 'application/json',
+    accept: 'application/json',
+    'Content-Type': 'application/json',
     Authorization: `Bearer anonymous`,
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Allow-Origin': '*',
   });
+
   constructor(public http: HttpClient, public toastrService: ToastrService) {}
 
   //Method GET

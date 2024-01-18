@@ -39,7 +39,7 @@
 .detail-container {
   display: inline-flex;
   justify-content: center;
-  flex-basis: 33%;
+  flex-basis: 45%;
   flex-wrap: wrap;
   gap: 1rem;
   @media (min-width: 1024px) {
@@ -121,4 +121,15 @@
       display: inline-block;
     }
   }
+}
+
+.colse-btn {
+  cursor: pointer;
+  position: absolute;
+  transform: translate(50%, 0%);
+  font-size: 1.5rem;
+  left: 5px;
+  color: #cc3a39;
+  top: -4px;
+  font-weight: 900;
 }
