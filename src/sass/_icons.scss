@@ -43,7 +43,7 @@
   }
   transition: transform 0.3s ease;
 }
-.ie-puase {
+.ie-pause {
   &.small::before {
     width: 16px !important;
   }
@@ -265,6 +265,16 @@
 .icon-articles-break {
   content: url(../assets/icon/icon-articles-break.svg);
   display: block;
+}
+.ie-times {
+  &::before {
+    content: url(../assets/icon/times.svg);
+  }
+}
+.ie-telegram {
+  &::before {
+    content: url(../assets/icon/telegram.svg);
+  }
 }
 .icon-play-voice {
   content: url(../assets/icon/play-voice.svg);

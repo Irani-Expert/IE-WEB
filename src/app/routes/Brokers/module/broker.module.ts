@@ -11,6 +11,7 @@ import { SingleBrokerComponent } from '../components/single-broker/single-broker
 import { TranslateTableHeaders } from '../components/table-brokers/header-translate.pipe';
 import { BrokerKeyPipe } from '../components/single-broker/broker-key.pipe';
 import { BrokerValuePipe } from '../components/single-broker/broker-value.pipe';
+import { SingleBrokerUlComponent } from '../components/single-broker-ul/single-broker-ul.component';
 
 const components = [
   LandingBrokerDetailComponent,
@@ -18,6 +19,7 @@ const components = [
   BrokerImgCardComponent,
   BrokersHeroComponent,
   SingleBrokerComponent,
+  SingleBrokerUlComponent,
 ];
 
 @NgModule({
