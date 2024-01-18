@@ -7,14 +7,9 @@
     max-height: 12rem;
     margin-left: 11px;
     min-width: 8rem;
-    min-height: 9.5rem;
   }
 }
-@media (max-width: 850) {
-  .box-color {
-    height: 93% !important;
-  }
-}
+
 .bg-linear-yellow {
   background: linear-gradient(
     180deg,

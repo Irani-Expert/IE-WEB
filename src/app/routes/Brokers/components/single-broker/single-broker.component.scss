@@ -20,10 +20,10 @@
     mix-blend-mode: luminosity;
   }
 }
-.ie-go-to-page {
-  content: url(../../../../../assets/icon/go-to-page.svg);
-  display: inline;
-}
+// .ie-go-to-page {
+//   content: url(../../../../../assets/icon/go-to-page.svg);
+//   display: inline;
+// }
 .ie-star {
   display: inline;
   scale: 0.7;
@@ -117,7 +117,7 @@
     }
     &::after {
       margin: 0 0.5rem;
-      content: url(../../../../../assets/icon/go-to-page.svg);
+      // content: url(../../../../../assets/icon/go-to-page.svg);
       display: inline-block;
     }
   }
