@@ -13,6 +13,8 @@ import { TradingviewComponent } from 'src/app/shared/tradingview/tradingview.com
 import { Toggler } from 'src/app/shared/toggler/toggler.component';
 import { DatePickerComponent } from 'src/app/shared/date-picker/date-picker.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ImportantNewsComponent } from 'src/app/components/important-news/important-news.component';
+import { CountriesCurrencyComponent } from 'src/app/components/countries-currency/countries-currency.component';
 
 const components = [
   CalendarMainPageComponent,
@@ -21,6 +23,8 @@ const components = [
   CalDetailComponent,
   TradingviewComponent,
   DatePickerComponent,
+  ImportantNewsComponent,
+  CountriesCurrencyComponent,
 ];
 @NgModule({
   declarations: [components],
