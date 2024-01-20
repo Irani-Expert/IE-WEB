@@ -1,0 +1,51 @@
+<ul id="broker-ul" class="w-full lg:bg-white space-y-3 lg:space-y-0 lg:pt-28">
+  <li
+    *ngFor="let broker of brokerData | keyvalue : originalOrder; let i = index"
+    [id]="'list-item-' + i"
+    class="li-stripped py-3 px-2 even:bg-[#f3f3f3] odd:bg-white border lg:border-0 rounded-lg lg:rounded-none"
+  >
+    <div class="flex flex-row">
+      <div class="basis-1/2 flex justify-start">
+        <p class="text-[#646464] font-medium">
+          {{ broker.key.slice() | borkerKey }}
+        </p>
+      </div>
+      <div
+        *ngIf="dataLoaded"
+        [id]="broker.key"
+        [brokerValue]="{
+          data: { key: broker.key, value: broker.value },
+          el: broker.key
+        }"
+        class="basis-1/2 flex justify-end"
+      ></div>
+      <div *ngIf="!dataLoaded" class="basis-1/2 flex justify-end animate-pulse">
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </li>
+</ul>
+
+<div id="check-true" class="hidden">
+  <div class="circle-tick">
+    <i class="icon-tick"></i>
+  </div>
+</div>
+<div id="check-false" class="hidden">
+  <div class="circle-tick !bg-[#CC3A39]">
+    <i class="ie-icon ie-times translate-y-[3px]"></i>
+  </div>
+</div>
+<div id="telegram-link" class="hidden">
+  <div class="inline-flex items-end gap-2">
+    <i class="ie-icon ie-telegram"></i>
+    <a
+      [href]="'https://t.me/' + brokerData.telegramSupportLink"
+      class="text-blue-700 font-medium"
+      >کلیک کنید</a
+    >
+  </div>
+</div>
+<div id="simple-text" class="hidden">
+  <p class="text-[#646464] font-medium"></p>
+</div>

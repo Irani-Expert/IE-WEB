@@ -1,0 +1,84 @@
+<!-- <audio #audioPlayer controls (timeupdate)="updateProgress()">
+  <source
+    src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3"
+    type="audio/mp3"
+  />
+  Your browser does not support the audio element.
+</audio>
+
+
+<progress
+  dir="ltr"
+  class="pr-Before w-full"
+  #progressBar
+  min="0"
+  max="100"
+></progress> -->
+<div class="sm:m-5 sm:my-9 my-2 flex justify-center">
+  <div class="flex flex-col border-2 rounded-xl w-[24rem] p-4">
+    <div class="my-2 flex justify-between">
+      <div>
+        <h3>نظر تیم تحلیلگران ایرانی اکسپرت</h3>
+        <h3 class="text-[#0498FB]">تحلیل اخبار این هفته</h3>
+      </div>
+      <img
+        class="object-contain"
+        src="../../../assets/img/record.webp"
+        alt=""
+      />
+    </div>
+    <div class="my-2 min-h-[2rem] flex items-center justify-evenly">
+      <audio #audioPlayer controls (timeupdate)="updateProgress()">
+        <source [src]="audioSource" type="audio/mp3" />
+        Your browser does not support the audio element.
+      </audio>
+
+      <button (click)="changeSpeed()" class="h-6 w-8">
+        <i
+          class="ie-icon icon-speed-1 w-fit"
+          [ngClass]="[
+            speedNum == 1
+              ? 'icon-speed-1'
+              : '' || speedNum == 2
+              ? 'icon-speed-15'
+              : '' || speedNum == 3
+              ? 'icon-speed-2'
+              : ''
+          ]"
+        ></i>
+      </button>
+      <span class="ms-1 h-6 w-8">{{ time }}</span>
+      <div class="absolute moveMent-line">
+        <div class="left-[-50px] relative">
+          <div class="line-s"></div>
+          <div class="line-e"></div>
+        </div>
+        <div class="left-[-100px] relative">
+          <div class="line-s"></div>
+          <div class="line-e"></div>
+        </div>
+        <div class="left-[-150px] relative">
+          <div class="line-s"></div>
+          <div class="line-e"></div>
+        </div>
+        <div class="left-[-200px] relative">
+          <div class="line-s"></div>
+          <div class="line-e"></div>
+        </div>
+      </div>
+      <progress
+        #progressBar
+        max="100"
+        class="me-2 h-6 cursor-pointer"
+        (click)="seekToPosition($event)"
+        [ngStyle]="{ '--dotMovement': dotMovement }"
+      ></progress>
+      <button class="h-6 cursor-pointer" (click)="playAudio()">
+        <i
+          class="ie-icon"
+          [ngClass]="Pause_Play ? 'icon-pause-voice' : 'icon-play-voice'"
+        ></i>
+      </button>
+    </div>
+  </div>
+</div>

@@ -29,7 +29,7 @@ import { Utils } from 'src/app/classes/utils';
 })
 export class BlogPaginationComponent {
   mainClass =
-    'm-0 p-0 gap-0 flex flex-col min-h-screen overflow-hidden lg:overflow-y-hidden lg:overflow-x-auto';
+    'm-0 p-0 gap-0 flex flex-col min-h-screen overflow-hidden lg:overflow-y-hidden lg:overflow-x-auto bg-white';
   main: HTMLElement;
   // Search Name
 
@@ -148,7 +148,7 @@ export class BlogPaginationComponent {
   }
   // =================[فیلتر]=============
   categoryIcon: string = 'assets/icon/filter-icon-blog.svg';
-  color : string ='white'
+  color: string = 'white';
   // Method Get Query Strings
 
   get _querystring() {

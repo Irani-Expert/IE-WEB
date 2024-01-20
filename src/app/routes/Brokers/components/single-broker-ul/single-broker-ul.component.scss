@@ -1,0 +1,19 @@
+.circle-tick {
+  display: inline-flex;
+  width: 25px;
+  height: 25px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #0ce9bf;
+  padding: 0.5rem;
+}
+.icon-tick {
+  filter: grayscale(100%) contrast(1000%) invert(100%);
+  -webkit-filter: grayscale(100%) contrast(1000%) invert(100%);
+  -moz-filter: grayscale(100%) contrast(1000%) invert(100%);
+}
+.ie-telegram {
+  width: 28px;
+  height: 28px;
+}

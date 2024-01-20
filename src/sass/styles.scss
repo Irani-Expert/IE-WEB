@@ -1,10 +1,5 @@
-// @import "flag-icons.min";
-// @import "all";
 @import "tailwind";
 @import "ngx-toastr/toastr";
-@import "./components/toastr";
-// @import "all";
-
 @import "./variables";
 @import "./colors";
 @import "./mixins";
@@ -24,6 +19,7 @@
 @import "./components/carousel";
 @import "./components/blogs";
 @import "./components/triangle";
+@import "./components/toastr";
 body {
   font-family: $font-family-base;
   font-size: $font-size-base;

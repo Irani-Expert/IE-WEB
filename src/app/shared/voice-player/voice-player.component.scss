@@ -1,0 +1,62 @@
+audio {
+  visibility: hidden;
+  position: absolute;
+}
+
+h1 {
+  color: #009688;
+}
+
+progress {
+  direction: ltr;
+  width: 250px;
+  height: 4px;
+  border-radius: 20px;
+}
+
+progress::before {
+  width: 30%;
+  border-radius: 20px;
+
+  color: blue;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #eaeaea;
+  border-radius: 20px;
+}
+
+progress::-webkit-progress-value {
+  background-color: #0498fb;
+  border-radius: 20px;
+}
+progress:before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #0498fb;
+  transform: translate(var(--dotMovement), -2px);
+}
+.line-e {
+  position: absolute;
+  width: 1px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #eaeaea;
+  transform: translateY(-11px);
+  z-index: -10;
+}
+.line-s {
+  position: absolute;
+  width: 1px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #eaeaea;
+  transform: translateY(18px);
+  z-index: -10;
+}
+.moveMent-line {
+  transform: translate(6rem, -13px);
+}
