@@ -356,7 +356,7 @@
 
 <div id="description" class="flex flex-col lg:flex-row mx-4 my-5">
   <div class="basis-full hidden lg:block max-w-[370px] min-w-[270px]">
-    <app-blog-filter [type]="'tags'">
+    <app-blog-filter [type]="'tags'" [categoryTags]="apiData.sharpLinkTags">
       <p header>دسترسی سریع</p>
     </app-blog-filter>
   </div>
