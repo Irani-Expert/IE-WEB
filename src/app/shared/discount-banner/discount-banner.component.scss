@@ -5,3 +5,30 @@
 
   background-color: #3246d3;
 }
+// <!-- =================[بنر تخفیف]========== -->
+
+.baner-bot{
+  background: rgb(0,22,178);
+  background: linear-gradient(270deg, rgb(0, 22, 178) 28%, rgb(102, 146, 215) 76%);
+    width: 100%;
+    align-items: center;
+    padding: 0.5rem 2.5rem 0.5rem 2.5rem;
+    border-radius: 35px;
+    height: 8rem;
+  
+  }
+  .of-number{
+  font-size: 5rem;
+    color: #FE0;
+    font-style: oblique;
+  }
+  
+  .bot-baner-img{
+      object-fit: cover;
+      width: 99%;
+      transform: translate(0px, -8px);
+      max-width: 194px;
+  }
+  .bot-baner-img-mobile{
+    max-width: 8rem;
+  }

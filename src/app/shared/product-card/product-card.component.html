@@ -16,7 +16,7 @@
         {{ Data.title }}
       </p>
       <p class="text-xl font-medium" [style.color]="Data.colorCode">
-        {{ Data.price | currency }}
+        {{ Data.price !== 0 ? Data.price : '50'  | currency }}
       </p>
     </div>
     <div

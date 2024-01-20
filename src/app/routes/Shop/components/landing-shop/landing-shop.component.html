@@ -9,7 +9,12 @@
   <div class="flex flex-col m-3">
     <div class="flex">
       <div class="w-full" [ngClass]="choosenSlide == 1 ? '' : 'max-sm:hidden'">
-        <app-discount-banner [response]="true"></app-discount-banner>
+        <div class="my-10 opacity-30 select-none relative">
+          <app-discount-banner [response]="true"></app-discount-banner>
+          <div
+            class="absolute w-full h-full z-10 bg-transparent translate-x-[50%] translate-y-[-50%] top-[50%] right-[50%]"
+          ></div>
+        </div>
       </div>
       <div class="w-full" [ngClass]="choosenSlide == 2 ? '' : 'hidden'">
         <div

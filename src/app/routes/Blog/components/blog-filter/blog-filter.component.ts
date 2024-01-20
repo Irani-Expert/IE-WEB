@@ -1,16 +1,13 @@
 import {
   Component,
-  ElementRef,
   EventEmitter,
-  HostListener,
   Input,
   Output,
-  ViewChild,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { AppComponent } from 'src/app/app.component';
+// import { AppComponent } from 'src/app/app.component';
 import { ITags } from 'src/app/classes/interfaces/tags.interface';
-import { Utils } from 'src/app/classes/utils';
+// import { Utils } from 'src/app/classes/utils';
 
 @Component({
   selector: 'app-blog-filter',
@@ -20,27 +17,28 @@ import { Utils } from 'src/app/classes/utils';
 export class BlogFilterComponent {
   @Output('result') emitter = new EventEmitter<number>();
 
-  @ViewChild('sticky') myStickyElement: ElementRef;
-  @ViewChild('stickyoff') myStickyElement2: ElementRef;
   @Input('type') type: 'category' | 'tags' = 'category';
-
+  
   @Input ('categoryTags') categoryDetail : Array<ITags> = new Array<ITags>;
+  // ==========[استیکی]======
+  
+  // @ViewChild('sticky') myStickyElement: ElementRef;
+  // @ViewChild('stickyoff') myStickyElement2: ElementRef;
+  // sticked: boolean = false;
 
-  sticked: boolean = false;
-
-  @HostListener('window:scroll', ['$event'])
-  onScroll() {
-    if (AppComponent.isBrowser.value) {
-      if (
-        Utils.scrollTracker() > this.myStickyElement.nativeElement.offsetTop &&
-        Utils.scrollTracker() < this.myStickyElement2.nativeElement.offsetTop
-      ) {
-        this.sticked = true;
-      } else {
-        this.sticked = false;
-      }
-    }
-  }
+  // @HostListener('window:scroll', ['$event'])
+  // onScroll() {
+  //   if (AppComponent.isBrowser.value) {
+  //     if (
+  //       Utils.scrollTracker() > this.myStickyElement.nativeElement.offsetTop &&
+  //       Utils.scrollTracker() < this.myStickyElement2.nativeElement.offsetTop
+  //     ) {
+  //       this.sticked = true;
+  //     } else {
+  //       this.sticked = false;
+  //     }
+  //   }
+  // }
   ngOnInit() {
     console.log(this.categoryDetail);
   }
