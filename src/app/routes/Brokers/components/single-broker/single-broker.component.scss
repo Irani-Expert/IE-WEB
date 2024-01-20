@@ -20,10 +20,10 @@
     mix-blend-mode: luminosity;
   }
 }
-// .ie-go-to-page {
-//   content: url(../../../../../assets/icon/go-to-page.svg);
-//   display: inline;
-// }
+.ie-go-to-page {
+  content: url(../../../../../assets/icon/go-to-page.svg);
+  display: inline;
+}
 .ie-star {
   display: inline;
   scale: 0.7;
@@ -117,7 +117,7 @@
     }
     &::after {
       margin: 0 0.5rem;
-      // content: url(../../../../../assets/icon/go-to-page.svg);
+      content: url(../../../../../assets/icon/go-to-page.svg);
       display: inline-block;
     }
   }
@@ -132,4 +132,38 @@
   color: #cc3a39;
   top: -4px;
   font-weight: 900;
+}
+
+.circle-tick {
+  display: inline-flex;
+  width: 25px;
+  height: 25px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #0ce9bf;
+  padding: 0.5rem;
+}
+.icon-tick {
+  filter: grayscale(100%) contrast(1000%) invert(100%);
+  -webkit-filter: grayscale(100%) contrast(1000%) invert(100%);
+  -moz-filter: grayscale(100%) contrast(1000%) invert(100%);
+}
+.divider {
+  height: 0.3rem;
+  width: 27%;
+  border-radius: 30px;
+  margin-bottom: 0.5rem;
+}
+.img-blog {
+  object-fit: cover;
+  border-radius: 10px;
+  height: 22rem;
+  width: 100%;
+
+  @media (max-width: 1024px) {
+    aspect-ratio: 16/9;
+    border-radius: 18px;
+    max-height: 340px;
+  }
 }
