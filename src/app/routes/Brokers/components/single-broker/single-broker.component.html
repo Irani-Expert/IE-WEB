@@ -186,55 +186,67 @@
   class="flex flex-col-reverse items-stretch lg:items-start lg:flex-row mx-8 my-5 justify-center gap-8 lg:gap-12 px-3"
 >
   <!-- Video & UL -->
-  <div class="detail-container lg:relative mt-5 lg:mt-64">
-    <div class="hidden lg:block absolute custom-position">
+  <div
+    class="detail-container lg:relative mt-5"
+    [ngClass]="
+      apiData.videoLink.startsWith('https://') ? 'lg:mt-64' : 'lg:mt-8'
+    "
+  >
+    <ng-container *ngIf="dataLoaded.value">
       <div
-        class="relative w-[535px] p-2 bg-white border border-[#707070] rounded-xl hover:opacity-100 opacity-80 hover:border-[#3246D3] transition-all lg:min-h-[256px]"
+        *ngIf="apiData.videoLink.startsWith('https://')"
+        class="hidden lg:block absolute custom-position"
       >
-        <ng-container *ngIf="dataLoaded.value">
-          <img
-            class="aspect-[16/10] object-cover rounded-xl"
-            [src]="contentUrl + apiData.secondCardImagePath"
-            alt="background-video"
-          />
-        </ng-container>
-        <ng-container *ngIf="!dataLoaded.value">
-          <div
-            class="aspect-[16/10] bg-slate-400 object-cover rounded-xl animate-pulse"
-          ></div>
-          <!-- <img
-          class="aspect-[16/10] object-cover rounded-xl"
-          src="../../../../../assets/img/"
-          alt="background-video"
-        /> -->
-        </ng-container>
-        <button
-          class="absolute translate-x-[50%] translate-y-[-50%] top-[50%] right-[50%] flex items-center justify-center w-20 h-20 rounded-full bg-[#3246D3]"
+        <div
+          class="relative w-[535px] p-2 bg-white border border-[#707070] rounded-xl hover:opacity-100 opacity-80 transition-all lg:min-h-[256px]"
         >
-          <i class="ie-icon ie-Polygon translate-x-[7px] translate-y-[3px]"></i>
-        </button>
+          <app-video-player
+            class="aspect-[16/10] rounded-xl"
+            [VideoId]="1"
+            [homeScreen]="false"
+            [Link]="apiData.videoLink"
+          ></app-video-player>
+          <!-- <ng-container *ngIf="!dataLoaded.value">
+            <div
+              class="aspect-[16/10] bg-slate-400 object-cover rounded-xl animate-pulse"
+            ></div> -->
+          <!-- <img
+            class="aspect-[16/10] object-cover rounded-xl"
+            src="../../../../../assets/img/"
+            alt="background-video"
+          /> -->
+          <!-- </ng-container> -->
+          <!-- <button
+            class="absolute translate-x-[50%] translate-y-[-50%] top-[50%] right-[50%] flex items-center justify-center w-20 h-20 rounded-full bg-[#3246D3]"
+          >
+            <i class="ie-icon ie-Polygon translate-x-[7px] translate-y-[3px]"></i>
+          </button> -->
+        </div>
       </div>
-    </div>
+    </ng-container>
     <div
+      *ngIf="apiData.videoLink.startsWith('https://')"
       class="block self-center max-w-[487px] justify-center lg:hidden basis-full"
     >
-      <div
+      <!-- <div
         class="relative w-full p-2 bg-white border border-[#707070] rounded-xl hover:opacity-100 opacity-80 hover:border-[#3246D3] transition-all"
-      >
-        <img
-          class="aspect-[16/10] object-cover rounded-xl"
-          [src]="contentUrl + apiData.secondCardImagePath"
-          alt="background-video"
-        />
-        <button
+      > -->
+      <app-video-player
+        class="aspect-[16/10] rounded-xl"
+        [VideoId]="2"
+        [homeScreen]="false"
+        [Link]="apiData.videoLink"
+      ></app-video-player>
+      <!-- <button
           class="absolute translate-x-[50%] translate-y-[-50%] top-[50%] right-[50%] flex items-center justify-center w-20 h-20 rounded-full bg-[#3246D3]"
         >
           <i class="ie-icon ie-Polygon translate-x-[7px] translate-y-[3px]"></i>
-        </button>
-      </div>
+        </button> -->
+      <!-- </div> -->
     </div>
     <app-single-broker-ul
       class="w-full"
+      [hasVideo]="apiData.videoLink.startsWith('https://')"
       [data]="brokerData"
       [load]="dataLoaded.value"
     />
@@ -264,6 +276,7 @@
     class="mt-8 basis-[55%] px-0 lg:px-4 lg:ml-2 max-w-[487px] lg:max-w-none flex flex-col lg:items-start self-center lg:self-start gap-2"
   >
     <span
+      *ngIf="apiData.videoLink.startsWith('https://')"
       class="inline-flex px-3 py-3 rounded-e-3xl rounded-tr-3xl bg-[#3246D3] bx-shadow-custom order-5 lg:order-1 mb-4"
       ><span class="chevron-container"
         ><i class="ie-icon ie-chevron right"></i
@@ -295,7 +308,7 @@
     >
       <img
         class="w-full aspect-video rounded-lg"
-        [src]="contentUrl + apiData.cardImagePath"
+        [src]="contentUrl + apiData.secondCardImagePath"
         [alt]="'way'"
       />
       <div
