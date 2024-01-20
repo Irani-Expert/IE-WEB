@@ -19,7 +19,13 @@ drag-scroll{
   width: 50%;
 }
 //   <!-- ==============[سرچ آیتم]=============== -->
-
+.item-desc{
+  display: -webkit-box;
+  max-width: 100%;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 .box-item{
     max-width: 875px;
     padding: 1rem;

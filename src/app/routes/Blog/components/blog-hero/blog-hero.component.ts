@@ -144,7 +144,7 @@ export class BlogHeroComponent {
   ];
   setLanguage() {
     this.itemHero.forEach((it) =>
-      it.isRTL ? (it.language = 'FA') : (it.language = 'EN')
+      it.isRTL ? (it.language = 'fa') : (it.language = 'en')
     );
   }
   fillValue(value: string) {

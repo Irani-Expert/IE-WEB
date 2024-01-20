@@ -20,15 +20,15 @@
     </ng-container>
     <div *ngIf="type == 'tags'" class="mt-5 flex flex-wrap mr-3">
       <div *ngFor="let item of categoryDetail">
-        <p class="mb-6 ml-4">
-          <span class="link-detail">{{ item.name }}</span>
-        </p>
+        <button class="mb-6 ml-4" (click)="searchTag(item.title)">
+          <p class="link-detail">{{ item.title }}</p>
+        </button>
       </div>
     </div>
   </div>
 </div>
 <!-- ===================[مدرسه فارکس ]=================== -->
-<div class="flex justify-center mt-8">
+<!-- <div class="flex justify-center mt-8">
   <div class="school-box">
     <div class="flex justify-start">
       <div class="mb-4 mt-4">
@@ -50,12 +50,12 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <!-- ============[تبلیغات]========= -->
-<div #sticky>
+<!-- <div #sticky>
   <div class="" [ngClass]="sticked ? 'sticky-custom ' : 'mt-6 h-[85%] flex items-start'">
     <img class="add-blog" src="assets/img/blog-add.webp" alt="add" width="24" height="24"/>
   </div>
 </div>
-<div #stickyoff class="absolute bottom-72 flex items-end"></div>
+<div #stickyoff class="absolute bottom-72 flex items-end"></div> -->
 

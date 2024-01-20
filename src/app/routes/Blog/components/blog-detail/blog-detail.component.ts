@@ -92,7 +92,7 @@ export class BlogDetailComponent {
       keywords += `${item.title.replace(/#/g, '')},`;
     });
     let href = this.articleModel.browserTitle.split(' ').join('-');
-    let lang = this.articleModel.isRTL ? 'FA' : 'EN';
+    let lang = this.articleModel.isRTL ? 'fa' : 'en';
     this._linkService.createLink(
       `https://www.iraniexpert.com/blog/${href}/${lang}`
     );
@@ -110,10 +110,6 @@ export class BlogDetailComponent {
     this._meta.updateTag({
       name: 'keywords',
       content: keywords,
-    });
-    this._meta.updateTag({
-      name: 'description',
-      content: this.articleModel.metaDescription,
     });
     this._title.setTitle(this.articleModel.title);
     // Sanitize Description for HTML

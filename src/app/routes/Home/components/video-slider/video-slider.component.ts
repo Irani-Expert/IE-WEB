@@ -10,11 +10,10 @@ export class VideoSliderComponent {
   upperSlide: number = 2;
   lowwerSlide: number = 0;
   lenCommentModel = [
-    'https://www.w3schools.com/html/mov_bbb.ogg',
-    'https://www.w3schools.com/html/mov_bbb.ogg',
-    'https://www.w3schools.com/html/mov_bbb.ogg',
-    'https://www.w3schools.com/html/mov_bbb.ogg',
-    'https://www.w3schools.com/html/mov_bbb.ogg',
+    'https://dl.iraniexpert.com//uploads/images/videos/about-us/about-us1.mp4',
+    'https://dl.iraniexpert.com//uploads/images/videos/about-us/about-us2.mp4',
+    'https://dl.iraniexpert.com//uploads/images/videos/about-us/about-us3.mp4',
+    'https://dl.iraniexpert.com//uploads/images/videos/about-us/about-us4.mp4'    
   ];
   slidDirection: boolean | null;
 

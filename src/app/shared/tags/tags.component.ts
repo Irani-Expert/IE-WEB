@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 import { TagService } from 'src/app/classes/services/tag.service';
 import { IArticle } from '../../classes/interfaces/article.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tags',
@@ -9,7 +10,16 @@ import { IArticle } from '../../classes/interfaces/article.interface';
   styleUrls: ['./tags.component.scss'],
 })
 export class TagsComponent {
-  constructor(private _tagServices: TagService) {}
+  constructor(
+    private _tagServices: TagService,
+    private router:Router
+    ) {}
+    searchTag(searchingTag:string) {
+      searchingTag = searchingTag.slice()
+      console.log(searchingTag);
+      
+      this.router.navigateByUrl(`search?someThing=${searchingTag}`)
+    }
 
   values: IArticle | undefined;
 
