@@ -14,6 +14,7 @@ import { InstagramBanerComponent } from '../routes/Home/components/instagram-ban
 import { DragScrollModule } from 'ngx-drag-scroll';
 import { BlogFilterComponent } from '../routes/Blog/components/blog-filter/blog-filter.component';
 import { VoicePlayerComponent } from './voice-player/voice-player.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const components = [
   AcordianComponent,
@@ -28,7 +29,14 @@ const components = [
   VoicePlayerComponent,
 ];
 @NgModule({
-  imports: [CommonModule, Toggler, LottieModule, DragScrollModule],
+  imports: [
+    CommonModule,
+    Toggler,
+    LottieModule,
+    DragScrollModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   exports: [components, LottieModule, DragScrollModule],
   declarations: [
     components,

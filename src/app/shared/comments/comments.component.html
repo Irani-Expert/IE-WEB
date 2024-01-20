@@ -12,112 +12,129 @@
           لطفا نظرات خود را جهت راهنمایی دیگر خریداران ثبت کنید
         </p>
       </div>
-      <div class="flex flex-col items-center">
-        <div
-          class="flex md:w-[52.5rem] justify-between max-lg:flex-col max-lg:items-center"
-        >
-          <div class="sep-part max-md:w-11/12">
-            <input type="text" placeholder="نام خود را وارد کنید" />
-            <div class="w-[20rem] flex items-center font-bold text-2xl">
-              نام و نام خانوادگی
-            </div>
-          </div>
-          <div class="sep-part max-md:w-11/12 max-md:mt-6">
-            <input type="text" placeholder="ایمیل خود را وارد کنید" />
-            <div class="w-[5rem] flex items-center font-bold text-2xl">
-              ایمیل
-            </div>
-          </div>
-        </div>
-
-        <div class="md:w-10/12 w-11/12 mt-5">
-          <textarea
-            placeholder="نظر خود را درباره بروکر معرفی شده ثبت کنید"
-          ></textarea>
-        </div>
-
-        <div class="flex sm:w-10/12 flex-col">
-          <div class="w-full flex justify-between max-md:flex-col-reverse">
-            <div>
-              <span class="font-bold">امتیاز دهید:{{ rateText }}</span>
-              <span>برداشت خود را در بررسی مطلب ارائه شده ثبت کنید</span>
-            </div>
-            <div class="flex items-center max-md:mb-4">
-              ثبت نظر به صورت ناشناس <app-toggle class="mr-3"></app-toggle>
-            </div>
-          </div>
-          <div class="flex flex-col w-full justify-center">
-            <div
-              class="p-div lg:w-[18rem] flex flex-col p-2 text-2xl mb-[24px] justify-center"
-            >
-              <div class="flex flex-col">
-                <div class="flex flex-row-reverse max-md:justify-around">
-                  <div class="flex justify-center">
-                    <i
-                      class="ie-bg-yellow absolute -z-10"
-                      *ngIf="rate == 1"
-                    ></i>
-                    <i class="ie-h1 mx-1" (click)="putStyle(1, 'خیلی بد ')"></i>
-                  </div>
-                  <div class="flex justify-center">
-                    <i
-                      class="ie-bg-yellow absolute -z-10"
-                      *ngIf="rate == 2"
-                    ></i>
-                    <i class="ie-h2 mx-1" (click)="putStyle(2, 'بد')"></i>
-                  </div>
-                  <div class="flex justify-center">
-                    <i
-                      class="ie-bg-yellow absolute -z-10"
-                      *ngIf="rate == 3"
-                    ></i>
-                    <i class="ie-h3 mx-1" (click)="putStyle(3, 'خوب')"></i>
-                  </div>
-                  <div class="flex justify-center">
-                    <i
-                      class="ie-bg-yellow absolute -z-10"
-                      *ngIf="rate == 4"
-                    ></i>
-                    <i class="ie-h4 mx-1" (click)="putStyle(4, 'خیلی خوب')"></i>
-                  </div>
-                  <div class="flex justify-center">
-                    <i
-                      class="ie-bg-yellow absolute -z-10"
-                      *ngIf="rate == 5"
-                    ></i>
-                    <i class="ie-h5 mx-1" (click)="putStyle(5, 'عالی')"> </i>
-                  </div>
-                </div>
-                <!-- <div class="flex justify-end items-center sm:mt-2 mt-6">
-                  <span class="me-2">{{ rateText }}</span>
-                  <button
-                    class="bg-[#0080FF] text-white font-bold text-2xl p-2 rounded-2xl"
-                  >
-                    ثبت رای
-                  </button>
-                </div> -->
-              </div>
-              <!-- <progress
-                min="0"
-                max="100"
-                class="pr-Before w-full cursor-pointer"
-                value="{{ rangeRate }}"
-                (click)="handleClick($event)"
-                [ngStyle]="{ '--movement': left }"
-              ></progress> -->
-            </div>
-          </div>
+      <form [formGroup]="form" (ngSubmit)="commentServices()">
+        <div class="flex flex-col items-center">
           <div
-            class="flex flex-col w-full max-md:items-center items-end justify-end mb-4 md:relative bottom-16"
+            class="flex md:w-[52.5rem] justify-between max-lg:flex-col max-lg:items-center"
           >
-            <button
-              class="bg--blue rounded-xl text-white sm:w-[13.5rem] w-[12rem] mr-2 p-4"
+            <div class="sep-part max-md:w-11/12">
+              <input
+                type="text"
+                placeholder="نام خود را وارد کنید"
+                formControlName="NameInfo"
+              />
+              <div class="w-[20rem] flex items-center font-bold text-2xl">
+                نام و نام خانوادگی
+              </div>
+            </div>
+            <div class="sep-part max-md:w-11/12 max-md:mt-6">
+              <input
+                type="text"
+                placeholder="ایمیل خود را وارد کنید"
+                formControlName="Email"
+              />
+              <div class="w-[5rem] flex items-center font-bold text-2xl">
+                ایمیل
+              </div>
+            </div>
+          </div>
+
+          <div class="md:w-10/12 w-11/12 mt-5">
+            <textarea
+              formControlName="textAr"
+              placeholder="نظر خود را درباره بروکر معرفی شده ثبت کنید"
+            ></textarea>
+          </div>
+
+          <div class="flex sm:w-10/12 flex-col">
+            <div class="w-full flex justify-between max-md:flex-col-reverse">
+              <div class="flex">
+                <span class="font-bold">امتیاز دهید:{{ rateText }}</span>
+                <span>برداشت خود را در بررسی مطلب ارائه شده ثبت کنید</span>
+              </div>
+              <div class="flex items-center max-md:mb-4">
+                ثبت نظر به صورت ناشناس <app-toggle class="mr-3"></app-toggle>
+              </div>
+            </div>
+            <div class="flex flex-col w-full justify-center">
+              <div
+                class="p-div lg:w-[18rem] flex flex-col p-2 text-2xl mb-[24px] justify-center"
+              >
+                <div class="flex flex-col">
+                  <div class="flex flex-row-reverse max-md:justify-around">
+                    <div class="flex justify-center">
+                      <i
+                        class="ie-bg-yellow absolute -z-10"
+                        *ngIf="rate == 1"
+                      ></i>
+                      <i
+                        class="ie-h1 mx-1"
+                        (click)="putStyle(1, 'خیلی بد ')"
+                      ></i>
+                    </div>
+                    <div class="flex justify-center">
+                      <i
+                        class="ie-bg-yellow absolute -z-10"
+                        *ngIf="rate == 2"
+                      ></i>
+                      <i class="ie-h2 mx-1" (click)="putStyle(2, 'بد')"></i>
+                    </div>
+                    <div class="flex justify-center">
+                      <i
+                        class="ie-bg-yellow absolute -z-10"
+                        *ngIf="rate == 3"
+                      ></i>
+                      <i class="ie-h3 mx-1" (click)="putStyle(3, 'خوب')"></i>
+                    </div>
+                    <div class="flex justify-center">
+                      <i
+                        class="ie-bg-yellow absolute -z-10"
+                        *ngIf="rate == 4"
+                      ></i>
+                      <i
+                        class="ie-h4 mx-1"
+                        (click)="putStyle(4, 'خیلی خوب')"
+                      ></i>
+                    </div>
+                    <div class="flex justify-center">
+                      <i
+                        class="ie-bg-yellow absolute -z-10"
+                        *ngIf="rate == 5"
+                      ></i>
+                      <i class="ie-h5 mx-1" (click)="putStyle(5, 'عالی')"> </i>
+                    </div>
+                  </div>
+                  <!-- <div class="flex justify-end items-center sm:mt-2 mt-6">
+                    <span class="me-2">{{ rateText }}</span>
+                    <button
+                      class="bg-[#0080FF] text-white font-bold text-2xl p-2 rounded-2xl"
+                    >
+                      ثبت رای
+                    </button>
+                  </div> -->
+                </div>
+                <!-- <progress
+                  min="0"
+                  max="100"
+                  class="pr-Before w-full cursor-pointer"
+                  value="{{ rangeRate }}"
+                  (click)="handleClick($event)"
+                  [ngStyle]="{ '--movement': left }"
+                ></progress> -->
+              </div>
+            </div>
+            <div
+              class="flex flex-col w-full max-md:items-center items-end justify-end mb-4 md:relative bottom-16 lg:-z-20"
             >
-              ثبت دیدگاه
-            </button>
+              <button
+                class="bg--blue rounded-xl text-white sm:w-[13.5rem] w-[12rem] mr-2 p-4"
+              >
+                ثبت دیدگاه
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </form>
 
       <div class="border-solid border-2 border-gray-300 rounded-lg">
         <div
