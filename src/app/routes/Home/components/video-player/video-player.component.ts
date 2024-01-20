@@ -83,7 +83,6 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit {
   }
   puasePaceVideo() {
     this.video = document.getElementById(this.vId);
-
     this.pauseplay = !this.pauseplay;
     setTimeout(() => {
       this.hidePuase = !this.hidePuase;
