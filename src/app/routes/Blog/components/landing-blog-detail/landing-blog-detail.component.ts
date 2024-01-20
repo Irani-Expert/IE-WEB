@@ -51,6 +51,7 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
   categoryDetailIcon: string = 'assets/icon/filter-icon-blog(detail).svg';
   categoryDetailHeader: string = 'دسترسی سریع';
   tags: ITags[];
+  color = 'white';
 
   // =======================[رسپانسیو]==========
 
