@@ -5,14 +5,16 @@ import { Inject, Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class LinkService {
-  cannonicalLink: HTMLLinkElement | undefined;
+  cannonicalLink: HTMLElement | HTMLLinkElement | undefined | null;
   constructor(@Inject(DOCUMENT) private doc: Document) {}
   createLink(shortnedLink: string) {
+    this.cannonicalLink = this.doc.getElementById('canonicalLink');
     if (this.cannonicalLink) {
       this.removeLink();
     }
     let link: HTMLLinkElement = this.doc.createElement('link');
     link.setAttribute('rel', 'canonical');
+    link.setAttribute('id', 'canonicalLink');
     link.setAttribute('href', shortnedLink);
     this.doc.head.appendChild(link);
     this.cannonicalLink = link;
