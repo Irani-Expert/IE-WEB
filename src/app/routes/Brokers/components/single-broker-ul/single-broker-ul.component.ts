@@ -16,4 +16,5 @@ export class SingleBrokerUlComponent {
   };
   @Input('data') brokerData: SingleBrokerULModel = new SingleBrokerULModel();
   @Input('load') dataLoaded: boolean = false;
+  @Input('hasVideo') videoExist = false;
 }

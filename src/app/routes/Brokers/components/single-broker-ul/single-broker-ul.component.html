@@ -1,6 +1,7 @@
 <ul
   id="broker-ul"
-  class="w-full rounded-2xl lg:bg-white space-y-3 lg:space-y-0 lg:pt-32"
+  [ngClass]="{ 'lg:pt-32': videoExist }"
+  class="w-full rounded-2xl lg:bg-white space-y-3 lg:space-y-0"
 >
   <li
     *ngFor="let broker of brokerData | keyvalue : originalOrder; let i = index"
