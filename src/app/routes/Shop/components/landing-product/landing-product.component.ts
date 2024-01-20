@@ -31,7 +31,7 @@ export class LandingProductComponent {
           });
           this.meta.updateTag({
             name: 'author',
-            content: 'خانم مهندس کریمی',
+            content: 'مهرنوش کریمی',
           });
           this.meta.updateTag({
             name: 'keywords',

@@ -30,16 +30,15 @@ export class AppComponent {
 
     this.meta.addTag({
       name: 'description',
-      content:'به دنیای ایرانی اکسپرت (iraniexpert) که شامل خدمات آموزش ترید، مشاوره رایگان، خرید ربات  AI-Trader و ترید میباشد خوش آمدید.',
+      content:''
     });
     this.meta.addTag({
       name: 'author',
-      content: 'خانم مهندس کریمی',
+      content:''
     });
     this.meta.addTag({
       name: 'keywords',
-      content:
-        'اکسپرت ایرانی , ترید, ربات خودکار فارکس,ربات معامله گر فارکس, دستیار ترید,بورس جهانی,نقدینگی سشن های معاملاتی, کارگزاری,درامد, ترید بدون دانش,شغل دوم برای سرمایه گذاری مطمئن, اکسپرت فارکس',
+      content:''
     });
   }
   async ngOnInit() {

@@ -646,10 +646,14 @@
     </div>
   </div>
 
-  <div class="w-3/12 max-xl:hidden">
-    <app-quick-access [strText]="qA"
+  <div class="w-3/12 max-xl:hidden ml-4">
+    <app-blog-filter [type]="'tags'" [categoryTags]="tags">
+      <p header class="text-black">دسترسی سریع</p>
+    </app-blog-filter>
+    
+    <!-- <app-quick-access [strText]="qA"
       ><h2 class="m-2 text-gray-600 text-lg">دسترسی سریع</h2>
-    </app-quick-access>
+    </app-quick-access> -->
     <!-- ===================[مدرسه فارکس ]=================== -->
     <!-- <div class="flex justify-center mt-8 m-2">
       <div class="school-box">

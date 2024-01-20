@@ -8,6 +8,7 @@ import { BlogService } from 'src/app/classes/services/blog.service';
 import { Blog } from 'src/app/classes/interfaces/blog.interface';
 import { FilterBlog } from 'src/app/classes/interfaces/filter-blog.interface';
 import { ActivatedRoute } from '@angular/router';
+import { ITags } from 'src/app/classes/interfaces/tags.interface';
 
 @Component({
   selector: 'app-landing-blog-detail',
@@ -49,7 +50,8 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
   // =================[فیلتر]=============
   categoryDetailIcon: string = 'assets/icon/filter-icon-blog(detail).svg';
   categoryDetailHeader: string = 'دسترسی سریع';
-
+  tags : ITags[];
+  
   // =======================[رسپانسیو]==========
 
   device: 'sm' | 'lg' = 'lg';
@@ -75,6 +77,9 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
   }
   async ngAfterViewInit() {
     if (await this.getDetail(this.title)) {
+      this.tags = this.blogService._blog!.sharpLinkTags;
+      console.log(this.tags);
+      
       this.sendDataToChild = true;
     }
   }
