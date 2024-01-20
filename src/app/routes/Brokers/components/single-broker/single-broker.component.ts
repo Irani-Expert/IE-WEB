@@ -7,6 +7,7 @@ import { ApiBrokerModel } from './api-broker.model';
 import { environment } from 'src/environments/environment.dev';
 import { CurrencyPipe } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 // import { GetAverageRGB } from 'src/app/classes/tranparent-img';
 // import { base64Maker } from 'src/app/classes/base64Maker';
 
@@ -17,6 +18,7 @@ import { BehaviorSubject } from 'rxjs';
   providers: [CurrencyPipe],
 })
 export class SingleBrokerComponent {
+  brokerDescHtml: SafeHtml;
   hoveredOnImg = false;
   platforms = '';
   contentUrl = environment.contentUrl;
@@ -31,7 +33,8 @@ export class SingleBrokerComponent {
   constructor(
     public brokerService: BrokerService,
     private _state: ActivatedRoute,
-    private _currencyPipe: CurrencyPipe
+    private _currencyPipe: CurrencyPipe,
+    private _sanitizer: DomSanitizer
   ) {
     if (AppComponent.isBrowser.value) {
       this.main = document.body.getElementsByTagName('main')[0];
@@ -137,6 +140,9 @@ export class SingleBrokerComponent {
       '1.1-2'
     )!;
     this.brokerData.leverage = `1:${apiData.leverage}`;
+    this.brokerDescHtml = this._sanitizer.bypassSecurityTrustHtml(
+      apiData.description
+    );
     this.dataLoaded.next(true);
     // this.dataLoaded.complete();
   }

@@ -354,8 +354,19 @@
 
 <!-- Description -->
 
-<!-- <div class="inline-block border border-gray-400 rounded-[9px] min-w-[26px]">
+<div id="description" class="flex flex-col lg:flex-row mx-4 my-5">
+  <div class="basis-full hidden lg:block max-w-[370px] min-w-[270px]">
+    <app-blog-filter [type]="'tags'">
+      <p header>دسترسی سریع</p>
+    </app-blog-filter>
+  </div>
+  <div
+    class="basis-full lg:basis3/4 flex flex-col mx-4"
+    [innerHTML]="brokerDescHtml"
+  ></div>
+  <!-- <div class="inline-block border border-gray-400 rounded-[9px] min-w-[26px]">
   <p class="mx-4 my-2 text-sm font-medium">
     جدیدترین خبر های بروکر را به من اطلاع بده
   </p>
 </div> -->
+</div>
