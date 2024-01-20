@@ -7,6 +7,7 @@
     <video
       width="100%"
       height="20%"
+      id="{{ this.vId }}"
       class="rounded-xl"
       [ngClass]="{ ' video-opa': !pauseplay }"
       webkit-playsinline="true"
@@ -27,7 +28,7 @@
     >
       <i
         class="fa fa-expand ie-icon me-3 text-base text-white ms-2 flex items-center"
-        [ngClass]="!isFullScreen ? 'ie-expand' : 'fa-compress'"
+        [ngClass]="!isFullScreen ? 'ie-expand' : 'ie-expand'"
         (click)="fullScreen()"
       ></i>
 
@@ -46,7 +47,7 @@
       ></progress>
 
       <i
-        class="ms-3 ie-icon text-white flex items-center text-base small"
+        class="ms-1 ie-icon text-white flex items-center text-base small max-w-[12px]"
         [ngClass]="{
           'ie-puase ': pauseplay,
           'ie-Polygon ': !pauseplay
@@ -73,9 +74,9 @@
           [ngClass]="{ 'max-sm:items-end': pauseplay }"
         >
           <i
-            class="fa ie-icon"
+            class="ie-icon"
             [ngClass]="{
-              'ie-puase sm:pe-1 sm:pb-0 ': pauseplay,
+              'ie-puase sm:pb-2 ': pauseplay,
               'ie-Polygon   sm:pl-4 sm:pb-0 pl-2  pb-2 ': !pauseplay
             }"
             (click)="puasePaceVideo()"

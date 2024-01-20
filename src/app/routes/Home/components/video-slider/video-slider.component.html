@@ -7,7 +7,9 @@
         <img
           class="w-24 max-h-[6rem] relative bottom-12"
           src="../../../../../assets/img/comma.webp"
-          alt="comment" width="96" height="86"
+          alt="comment"
+          width="96"
+          height="86"
         />
         <h2 class="px-3 text-4xl font-extrabold">
           ویدیوهایی که شما ارسال کردین
@@ -42,7 +44,7 @@
     class="flex flex-col items-center"
     [ngClass]="slidDirection ? 'slide-right' : 'slide-left'"
     *ngFor="
-      let link of lenCommentModel | slice : lowwerSlide : upperSlide;
+      let x of lenCommentModel | slice : lowwerSlide : upperSlide;
       index as i
     "
   >
@@ -52,13 +54,13 @@
         [ngClass]="i == 1 ? 'max-sm:!hidden' : ''"
         [VideoId]="i"
         [homeScreen]="true"
-        [Link]="link"
+        [Link]="x.link"
       >
         <div class="md:mt-6">
           <p class="md:text-xl text-black font-semibold">
-            نتیجه عملکرد یک هفته کاری 5درصد سود حساب 2000 دلاری
+            {{ x.title }}
           </p>
-          <span class="font-medium">حساب مشتری عزیز :جناب محمد</span>
+          <span class="font-medium">حساب مشتری عزیز :جناب {{ x.name }}</span>
         </div>
       </app-video-player>
     </div>
