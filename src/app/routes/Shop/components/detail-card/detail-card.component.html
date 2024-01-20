@@ -2,11 +2,7 @@
   class="flex sm:py-2 p-1 sm:p-2 items-stretch bg-white rounded-3xl md:rounded-2xl box-shadow-ac border sm:max-h-max sm:max-w-full max-w-[69rem]"
 >
   <div class="basis-full max-w-[240px]">
-    <a
-      routerLink="../../{{ product.id }}/{{
-        product.title.split(' ').join('_')
-      }}"
-    >
+    <a routerLink="../../atm-expert">
       <img
         class="rounded-3xl md:rounded-2xl"
         src="../../../../../assets/img/Expert 1.webp"
@@ -81,7 +77,14 @@
           class="rounded-full bg-neutral-100 pe-4 ps-4 p-1 text-base font-bold m-1 items-center"
           style="display: flex; align-items: flex-start"
         >
-          <img class="sm:w-4 pt-0.5" *ngIf="i.icon != ''" src="{{ i.icon }}" alt="icon" width="16" height="5" />
+          <img
+            class="sm:w-4 pt-0.5"
+            *ngIf="i.icon != ''"
+            src="{{ i.icon }}"
+            alt="icon"
+            width="16"
+            height="5"
+          />
           {{ i.name }}
         </div>
       </ng-container>
@@ -102,11 +105,7 @@
     <div
       class="flex items-center h-full justify-end md:border-t-[1px] sm:pt-3 pt-1 md:border-solid"
     >
-      <a
-        routerLink="../../{{ product.id }}/{{
-          product.title.split(' ').join('_')
-        }}"
-      >
+      <a routerLink="../../atm-expert">
         <p class="sm:pt-2 sm:text-xl text-sm font-black text-black">
           شروع قیمت از {{ product.minPrice || "50" | currency }}
         </p>
@@ -114,13 +113,7 @@
       <button
         class="bg-[#3246d3] hidden sm:block border-2 ms-2 relative border-[#3246d3] border-solid text-white p-1 w-1/4 rounded-full text-lg font-black min-w-[147px]"
       >
-        <a
-          routerLink="../../{{ product.id }}/{{
-            product.title.split(' ').join('_')
-          }}"
-        >
-          بررسی پلن ها
-        </a>
+        <a routerLink="../../atm-expert"> بررسی پلن ها </a>
       </button>
     </div>
   </div>

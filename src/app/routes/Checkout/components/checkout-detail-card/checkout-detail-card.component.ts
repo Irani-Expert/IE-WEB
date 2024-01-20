@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { SingleProduct } from 'src/app/classes/interfaces/product.interface';
 import { OrderService } from 'src/app/classes/services/order.service';
-import { ProductService } from 'src/app/routes/Shop/components/product.service';
+import { ProductService } from 'src/app/classes/services/product.service';
 import { Basket } from 'src/app/classes/interfaces/basket.interface';
 import { environment } from 'src/environments/environment.dev';
 

@@ -1,12 +1,15 @@
 <div
   class="m-4 rounded-xl animation-hover cursor-pointer inline-block h-[316px] bg-[#f3f3f3] w-[342px] overflow-hidden"
-  [routerLink]="'products/' + Data.id + '/' + Data.title.split(' ').join('_')"
+  [routerLink]="'shop/atm-expert'"
 >
   <div class="h-[57%] overflow-hidden">
     <img
       class="aspect-square w-full object-contain h-full"
       [src]="contentUrl + Data.imgUrl"
-      (error)="contentUrl = ''" width="342" height="180" alt="img-card"
+      (error)="contentUrl = ''"
+      width="342"
+      height="180"
+      alt="img-card"
     />
     <!-- src="https://dl.iraniexpert.com{{ Data.imgUrl }}" -->
   </div>
@@ -16,7 +19,7 @@
         {{ Data.title }}
       </p>
       <p class="text-xl font-medium" [style.color]="Data.colorCode">
-        {{ Data.price !== 0 ? Data.price : '50'  | currency }}
+        {{ Data.price !== 0 ? Data.price : ("50" | currency) }}
       </p>
     </div>
     <div
@@ -77,7 +80,10 @@
         <img
           class="w-4"
           src="../../../../../assets/img/icons8-instagram-verification-badge-144.webp"
-          *ngIf="Data.publishedBy == 'IRaniExpert'" width="342" height="180" alt="img-card"
+          *ngIf="Data.publishedBy == 'IRaniExpert'"
+          width="342"
+          height="180"
+          alt="img-card"
         />
         <p class="mt-1">{{ Data.publishedBy }}</p>
       </div>

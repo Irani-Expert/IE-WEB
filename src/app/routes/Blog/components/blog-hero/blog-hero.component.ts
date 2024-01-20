@@ -151,6 +151,6 @@ export class BlogHeroComponent {
     this._searchinput.next(value);
   }
   searchFilterName(value: string) {
-    this.router.navigateByUrl(`blog/page/1?blogName=${value}`);
+    this.router.navigateByUrl(`articles/page/1?blogName=${value}`);
   }
 }

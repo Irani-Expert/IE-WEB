@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
+import { SingleProduct } from 'src/app/classes/interfaces/product.interface';
 
 import { ActivatedRoute } from '@angular/router';
 import { Meta } from '@angular/platform-browser';
-import { ProductService } from '../product.service';
-// import { ActivatedRoute } from '@angular/router';
+import { ProductService } from 'src/app/classes/services/product.service';
 
 @Component({
   selector: 'app-landing-product',
@@ -12,18 +12,16 @@ import { ProductService } from '../product.service';
 })
 export class LandingProductComponent {
   loading: boolean = true;
+  product: SingleProduct;
 
   constructor(
     private _activatedRoute: ActivatedRoute,
     public productService: ProductService,
     private meta: Meta
-  ) {}
-  async ngOnInit() {
-    this._activatedRoute.params.subscribe({
-      next: async (item: any) => {
-        await this.getProduct(parseInt(item.id));
-      },
-    });
+  ) {
+    this._activatedRoute.url.subscribe((it) => console.log(it));
+  }
+  ngOnInit() {
     // =================[متاتگ ها]==========
     this.meta.updateTag({
       name: 'description',
@@ -46,8 +44,16 @@ export class LandingProductComponent {
     el.scrollIntoView({ behavior: 'smooth' });
   }
   async getProduct(id: number) {
-    if (await this.productService.getProduct(id)) {
-      this.loading = false;
-    }
+    this.productService.get(`Product/GetByID/${id}`).subscribe({
+      next: (value) => {
+        if (value.success) {
+          this.product = value.data;
+          this.loading = false;
+        }
+      },
+    });
+  }
+  async ngAfterViewInit() {
+    this.getProduct(1);
   }
 }

@@ -94,7 +94,7 @@ export class BlogDetailComponent {
     let href = this.articleModel.browserTitle.split(' ').join('-');
     let lang = this.articleModel.isRTL ? 'fa' : 'en';
     this._linkService.createLink(
-      `https://www.iraniexpert.com/blog/${href}/${lang}`
+      `https://www.iraniexpert.com/articles/${href}/${lang}`
     );
     this._meta.updateTag({
       name: 'description',

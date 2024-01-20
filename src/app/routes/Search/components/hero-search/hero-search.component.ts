@@ -6,27 +6,29 @@ import { Subject, Subscription, debounceTime } from 'rxjs';
 @Component({
   selector: 'app-hero-search',
   templateUrl: './hero-search.component.html',
-  styleUrls: ['./hero-search.component.scss']
+  styleUrls: ['./hero-search.component.scss'],
 })
 export class HeroSearchComponent {
-  @Input('data') searchModel : SearchModel;
+  @Input('data') searchModel: SearchModel;
 
-  savedItem : any;
-  
+  savedItem: any;
 
-  constructor(private router: Router , private _activatedRoute: ActivatedRoute ) {}
-  
-  ngOnInit(){
+  constructor(
+    private router: Router,
+    private _activatedRoute: ActivatedRoute
+  ) {}
+
+  ngOnInit() {
     this.loading = false;
     this._searchInputSubscription = this._searchinput
-    .pipe(debounceTime(700))
-    .subscribe((value) => {
-      this.searchFilterName(value);
-    });
+      .pipe(debounceTime(700))
+      .subscribe((value) => {
+        this.searchFilterName(value);
+      });
 
     this._activatedRoute.queryParams.subscribe(async (item) => {
       this.savedItem = { ...item };
-    })
+    });
   }
 
   _searchInputSubscription: Subscription;
@@ -36,9 +38,8 @@ export class HeroSearchComponent {
   fillValue(value: string) {
     this._searchinput.next(value);
   }
-  
+
   searchFilterName(value: string) {
-    this.router.navigateByUrl(`search?someThing=${value}`);
-  
+    this.router.navigateByUrl(`search?search=${value}`);
   }
-  }
+}

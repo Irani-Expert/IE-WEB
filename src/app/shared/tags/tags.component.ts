@@ -10,16 +10,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./tags.component.scss'],
 })
 export class TagsComponent {
-  constructor(
-    private _tagServices: TagService,
-    private router:Router
-    ) {}
-    searchTag(searchingTag:string) {
-      searchingTag = searchingTag.slice()
-      console.log(searchingTag);
-      
-      this.router.navigateByUrl(`search?someThing=${searchingTag}`)
-    }
+  constructor(private _tagServices: TagService, private router: Router) {}
+  searchTag(searchingTag: string) {
+    searchingTag = searchingTag.slice();
+    console.log(searchingTag);
+
+    this.router.navigateByUrl(`search?search=${searchingTag}`);
+  }
 
   values: IArticle | undefined;
 

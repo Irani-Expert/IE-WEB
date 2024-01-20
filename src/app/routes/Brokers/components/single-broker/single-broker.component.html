@@ -189,7 +189,9 @@
   <div
     class="detail-container lg:relative mt-5"
     [ngClass]="
-      apiData.videoLink.startsWith('https://') ? 'lg:mt-64' : 'lg:mt-8'
+      dataLoaded.value && apiData.videoLink.startsWith('https://')
+        ? 'lg:mt-64'
+        : 'lg:mt-8'
     "
   >
     <ng-container *ngIf="dataLoaded.value">
@@ -225,7 +227,7 @@
       </div>
     </ng-container>
     <div
-      *ngIf="apiData.videoLink.startsWith('https://')"
+      *ngIf="dataLoaded.value && apiData.videoLink.startsWith('https://')"
       class="block self-center max-w-[487px] justify-center lg:hidden basis-full"
     >
       <!-- <div
@@ -246,7 +248,7 @@
     </div>
     <app-single-broker-ul
       class="w-full"
-      [hasVideo]="apiData.videoLink.startsWith('https://')"
+      [hasVideo]="dataLoaded.value && apiData.videoLink.startsWith('https://')"
       [data]="brokerData"
       [load]="dataLoaded.value"
     />
@@ -276,7 +278,7 @@
     class="mt-8 basis-[55%] px-0 lg:px-4 lg:ml-2 max-w-[487px] lg:max-w-none flex flex-col lg:items-start self-center lg:self-start gap-2"
   >
     <span
-      *ngIf="apiData.videoLink.startsWith('https://')"
+      *ngIf="dataLoaded.value && apiData.videoLink.startsWith('https://')"
       class="inline-flex px-3 py-3 rounded-e-3xl rounded-tr-3xl bg-[#3246D3] bx-shadow-custom order-5 lg:order-1 mb-4"
       ><span class="chevron-container"
         ><i class="ie-icon ie-chevron right"></i

@@ -3,7 +3,7 @@ import { IcardData } from 'src/app/shared/product-card/card-data';
 import { FilterBlog } from 'src/app/classes/interfaces/filter-blog.interface';
 import { BlogService } from 'src/app/classes/services/blog.service';
 import { Blog } from 'src/app/classes/interfaces/blog.interface';
-import { ProductService } from 'src/app/routes/Shop/components/product.service';
+import { ProductService } from 'src/app/classes/services/product.service';
 import { Page } from 'src/app/classes/page.model';
 import { lastValueFrom } from 'rxjs';
 import { Product } from 'src/app/classes/interfaces/product.interface';
@@ -20,24 +20,24 @@ export class LandingPageComponent {
   constructor(
     private _articleServices: BlogService,
     public productService: ProductService,
-    private meta : Meta
+    private meta: Meta
   ) {
-            // =================[متاتگ ها]==========
+    // =================[متاتگ ها]==========
 
-            this.meta.updateTag({
-              name: 'description',
-              content:'به دنیای ایرانی اکسپرت (iraniexpert) که شامل خدمات آموزش ترید، مشاوره رایگان، خرید ربات  AI-Trader و ترید میباشد خوش آمدید.',
-            });
-            this.meta.updateTag({
-              name: 'author',
-              content: 'مهرنوش کریمی',
-            });
-            this.meta.updateTag({
-              name: 'keywords',
-              content:
-                'اکسپرت ایرانی , ترید, ربات خودکار فارکس,ربات معامله گر فارکس, دستیار ترید,بورس جهانی,نقدینگی سشن های معاملاتی, کارگزاری,درامد, ترید بدون دانش,شغل دوم برای سرمایه گذاری مطمئن, اکسپرت فارکس',
-            });
-
+    this.meta.updateTag({
+      name: 'description',
+      content:
+        'به دنیای ایرانی اکسپرت (iraniexpert) که شامل خدمات آموزش ترید، مشاوره رایگان، خرید ربات  AI-Trader و ترید میباشد خوش آمدید.',
+    });
+    this.meta.updateTag({
+      name: 'author',
+      content: 'مهرنوش کریمی',
+    });
+    this.meta.updateTag({
+      name: 'keywords',
+      content:
+        'اکسپرت ایرانی , ترید, ربات خودکار فارکس,ربات معامله گر فارکس, دستیار ترید,بورس جهانی,نقدینگی سشن های معاملاتی, کارگزاری,درامد, ترید بدون دانش,شغل دوم برای سرمایه گذاری مطمئن, اکسپرت فارکس',
+    });
   }
 
   isRecived: boolean = false;

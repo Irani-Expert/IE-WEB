@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: '', title: 'ایرانی اکسپرت - خانه', component: LandingPageComponent },
   { path: 'about-us', title: 'چرا ما؟ ', component: AboutUsComponent },
   {
-    path: 'robot-trader',
+    path: 'expert-advisor',
     title: 'ربات معامله گر ',
     component: RobotTraderComponent,
   },
@@ -19,7 +19,11 @@ const routes: Routes = [
     title: 'کپی ترید',
     component: CopyTradeComponent,
   },
-  { path: 'search', title: 'جستجو', component: LandingSearchComponent },
+  {
+    path: 'search',
+    title: 'جستجو در ایرانی اکسپرت',
+    component: LandingSearchComponent,
+  },
 ];
 
 @NgModule({

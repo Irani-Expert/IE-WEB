@@ -89,7 +89,7 @@ export class BlogPaginationComponent {
                 )
                 .split('/');
               if (arrayOfUrlSegments[3] == '0') {
-                this.router.navigateByUrl('blog/page/1');
+                this.router.navigateByUrl('articles/page/1');
               } else {
                 this._activatedRoute.queryParams.subscribe(async (item) => {
                   await this.fillFilterOnNav(item);
@@ -108,26 +108,26 @@ export class BlogPaginationComponent {
       .subscribe((value) => {
         this.searchFilterName(value);
       });
-      this.meta.updateTag({
-        name: 'description',
-        content:
-          'مقالات (Articles) ایرانی اکسپرت شامل معرفی همه بروکرها و خدمات آنها، زبانهای برنامه نویسی مالی، بک تست در تریدینگ، روانشناسی ترید، درآمد دلاری و مدیریت سرمایه براساس آخرین به روز رسانی 2023 می باشد.',
-      });
-      this.meta.updateTag({
-        name: 'author',
-        content: 'مهرنوش کریمی ',
-      });
-      this.meta.updateTag({
-        name: 'keywords',
-        content:
-          'مقاله فارکس pdf- مقاله در مورد فارکس-دانلود مقاله در مورد فارکس-مقاله آموزشی فارکس-مقاله انگلیسی در مورد فارکس-مقاله های فارکس-فارکس چیست به زبان ساده-تحلیل تکنیکال فارکس-صفر تا صد فارکس رایگان-آموزش جامع فارکس-مقاله درباره فارکس-همه چیز در مورد فارکس-مقاله های ایران بورس آنلاین-فارکس چیست-بازار فارکس-تحقیق در مورد بازار فارکس-داده های فارکس-بهترین دوره های فارکس-خبر های مهم بازار فارکس',
-      });
+    this.meta.updateTag({
+      name: 'description',
+      content:
+        'مقالات (Articles) ایرانی اکسپرت شامل معرفی همه بروکرها و خدمات آنها، زبانهای برنامه نویسی مالی، بک تست در تریدینگ، روانشناسی ترید، درآمد دلاری و مدیریت سرمایه براساس آخرین به روز رسانی 2023 می باشد.',
+    });
+    this.meta.updateTag({
+      name: 'author',
+      content: 'مهرنوش کریمی ',
+    });
+    this.meta.updateTag({
+      name: 'keywords',
+      content:
+        'مقاله فارکس pdf- مقاله در مورد فارکس-دانلود مقاله در مورد فارکس-مقاله آموزشی فارکس-مقاله انگلیسی در مورد فارکس-مقاله های فارکس-فارکس چیست به زبان ساده-تحلیل تکنیکال فارکس-صفر تا صد فارکس رایگان-آموزش جامع فارکس-مقاله درباره فارکس-همه چیز در مورد فارکس-مقاله های ایران بورس آنلاین-فارکس چیست-بازار فارکس-تحقیق در مورد بازار فارکس-داده های فارکس-بهترین دوره های فارکس-خبر های مهم بازار فارکس',
+    });
   }
 
   config: PaginationInstance;
   changePage(event: any) {
     this.blogService.blogsArray.next(null);
-    this.router.navigateByUrl(`blog/page/${event}`);
+    this.router.navigateByUrl(`articles/page/${event}`);
   }
   // =======================[رسپانسیو]==========
 
@@ -207,11 +207,11 @@ export class BlogPaginationComponent {
     this.blogService.blogsArray.next(null);
     if (value.trim().length > 0) {
       this.savedParams = { ...this.savedParams, ...{ blogName: value } };
-      this.router.navigateByUrl(`blog/page/1?${this._querystring}`);
+      this.router.navigateByUrl(`articles/page/1?${this._querystring}`);
     } else {
       this.blogFilter.blogName = null;
       delete this.savedParams['blogName'];
-      this.router.navigateByUrl(`blog/page/1?${this._querystring}`);
+      this.router.navigateByUrl(`articles/page/1?${this._querystring}`);
     }
   }
   filterCategory(id: number) {
@@ -221,7 +221,7 @@ export class BlogPaginationComponent {
       ...{ category: `${id}` },
     };
     this.router.navigateByUrl(
-      `blog/page/${this.blogFilter.pageIndex + 1}?${this._querystring}`
+      `articles/page/${this.blogFilter.pageIndex + 1}?${this._querystring}`
     );
   }
 }

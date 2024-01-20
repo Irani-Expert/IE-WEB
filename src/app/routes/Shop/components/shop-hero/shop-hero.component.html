@@ -23,7 +23,9 @@
                 </p>
               </button> -->
             </div>
-            <strong class="text-black font-fat -mt-1 text-3xl">{{ product.title }}</strong>
+            <strong class="text-black font-fat -mt-1 text-3xl">{{
+              product.title
+            }}</strong>
             <div class="relative -mt-4 mb-3">
               <span class="star-rating relative block -z-30 w-40">
                 <app-rating [config]="star"></app-rating>
@@ -79,12 +81,14 @@
               تریدر با نحوه کار ربات است.
             </p>
           </div>
-          <div class="price-detail-box rounded-2xl mr-8 w-full h-96 px-5 basis-full">
+          <div
+            class="price-detail-box rounded-2xl mr-8 w-full h-96 px-5 basis-full"
+          >
             <div class="mt-5">
               <div class="pb-3">
                 <h6 class="mb-4 text-base font-black">فروشنده</h6>
                 <properties [verified]="true" [guarantee]="true">
-                  <p  class="producer-name" producer>
+                  <p class="producer-name" producer>
                     {{ product.publishedBy }}
                   </p>
                   <p rate class="product-rate">{{ product.rate }}</p>
@@ -99,7 +103,10 @@
                   </p>
                 </properties>
                 <div class="pt-3 pb-3">
-                  <a class="demo-download text-sm font-extrabold" [href]="contentUrl + demoFile" download=""
+                  <a
+                    class="demo-download text-sm font-extrabold"
+                    [href]="contentUrl + demoFile"
+                    download=""
                     ><span
                       ><i class="ie-download"></i>دانلود رایگان دموی محصول
                     </span></a
@@ -148,8 +155,13 @@
   <div class="flex justify-center mt-12 px-3">
     <div class="grid grid-cols-4 gap-3 baner">
       <div class="flex items-end mr-8">
-        <img class="absolute object-contain w-32" src="assets/img/logo-shop-hero.webp" alt="logo" width="128"
-        height="121" />
+        <img
+          class="absolute object-contain w-32"
+          src="assets/img/logo-shop-hero.webp"
+          alt="logo"
+          width="128"
+          height="121"
+        />
       </div>
       <div class="flex items-center -mr-6 -ml-6 col-span-2 z-10">
         <p class="text-black font-bold text-lg">
@@ -159,7 +171,10 @@
         </p>
       </div>
       <div class="flex items-center justify-center z-10">
-        <a [routerLink]="'../../../brokers'" class="link text-white px-5 py-2 mr-14 text-lg font-semibold">
+        <a
+          [routerLink]="'../brokers'"
+          class="link text-white px-5 py-2 mr-14 text-lg font-semibold"
+        >
           مقایسه بروکرها
         </a>
       </div>
@@ -237,10 +252,7 @@
     >
       {{ selectedPlan.title }}
     </h6>
-    <p
-      [ngClass]="animationState ? 'price-animation' : ''"
-      class="mr-7 ml-7"
-    >
+    <p [ngClass]="animationState ? 'price-animation' : ''" class="mr-7 ml-7">
       پلن اعتماد این پلن، بدون انقضاء زمانی است و زمان انقضا هنگامی فرا می‌رسد
       که 100 دلار سود گرفته باشد. هدف از تعریف این پلن، آشنایی تریدر با نحوه کار
       ربات است.
@@ -278,11 +290,11 @@
   <!-- ===========================[بنر]============== -->
   <div class="banner-mobile mx-10 my-0 rounded-2xl">
     <div class="relative">
-      <a [routerLink]="'../../../brokers'">
+      <a [routerLink]="'../brokers'">
         <div class="flex flex-row bg-baner-mobile">
           <div class="basis-1/3">
             <img
-              class="logo-mobile absolute w-24  z-40"
+              class="logo-mobile absolute w-24 z-40"
               src="assets/img/logo-shop-hero.webp"
               alt="logo"
               width="128"
@@ -305,7 +317,10 @@
   <div class="box-price-row-mobile">
     <div class="flex flex-row pt-5 pb-9">
       <div class="flex items-center basis-1/3">
-        <button (click)="toCheckout(selectedPlan)" class="btn-mobile px-3 py-9 text-white font-bold mr-2">
+        <button
+          (click)="toCheckout(selectedPlan)"
+          class="btn-mobile px-3 py-9 text-white font-bold mr-2"
+        >
           پرداخت
         </button>
       </div>

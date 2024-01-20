@@ -1,6 +1,6 @@
 <div
   class="flex mt-3 justify-center cursor-pointer"
-  [routerLink]="'blog/' + '/' + blogs.browserTitle.split(' ').join('_')"
+  [routerLink]="'articles/' + '/' + blogs.browserTitle.split(' ').join('_')"
 >
   <div
     class="border-separate border rounded-3xl sm:rounded-2xl p-3 sm:p-4 ltr box-shadow-ac w-[300px] m-4"
@@ -11,7 +11,9 @@
           class="rounded-t-lg"
           style="object-position: center; max-height: 11rem; min-width: 17.2rem"
           [src]="'https://dl.iraniexpert.com' + blogs.cardImagePath"
-          alt="icon" width="50" height="40"
+          alt="icon"
+          width="50"
+          height="40"
         />
       </div>
       <div class="w-full rtl flex flex-col justify-between">
@@ -20,7 +22,9 @@
             <img
               src="../../../../../assets/img/home-blog.webp"
               class="sm:h-11 h-[20px]"
-              alt="icon" width="20" height="20"
+              alt="icon"
+              width="20"
+              height="20"
             />
             <span
               class="mr-2 sm:text-sm text-[8px] font-medium justify-end flex flex-col color--blue"
@@ -41,7 +45,9 @@
             <img
               src="../../../../../assets/img/avatar.webp"
               class="sm:h-[30px] h-[40px]"
-              alt="avatar" width="40" height="40"
+              alt="avatar"
+              width="40"
+              height="40"
             />
             <span
               class="flex-col flex mr-1 sm:text-sm text-[8px] justify-evenly color--blue font-medium"
