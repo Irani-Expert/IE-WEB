@@ -1,14 +1,14 @@
-import { Injectable } from '@angular/core';
-import { BaseService } from '../../../classes/services/base.service';
-import { BehaviorSubject, lastValueFrom, map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { FilterProduct } from '../../../classes/interfaces/filter-product.interface';
-import {
-  Product,
-  SingleProduct,
-} from '../../../classes/interfaces/product.interface';
-import { PageInterface } from '../../../classes/page.model';
+import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { BehaviorSubject, map, lastValueFrom } from 'rxjs';
+import { FilterProduct } from 'src/app/classes/interfaces/filter-product.interface';
+import {
+  SingleProduct,
+  Product,
+} from 'src/app/classes/interfaces/product.interface';
+import { PageInterface } from 'src/app/classes/page.model';
+import { BaseService } from 'src/app/classes/services/base.service';
 
 @Injectable({
   providedIn: 'root',

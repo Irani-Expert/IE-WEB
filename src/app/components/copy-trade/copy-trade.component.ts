@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-copy-trade',
@@ -7,7 +8,18 @@ import { Meta } from '@angular/platform-browser';
   styleUrls: ['./copy-trade.component.scss'],
 })
 export class CopyTradeComponent {
+  mainClass =
+  'm-0 p-0 gap-0 flex flex-col min-h-screen overflow-hidden lg:overflow-y-hidden lg:overflow-x-auto';
+  main: HTMLElement;
+
+  
   constructor(private _meta: Meta) {
+    if (AppComponent.isBrowser.value) {
+      this.main = document.body.getElementsByTagName('main')[0];
+      this.main.className = `bg-white lg:bg-[#FBFBFB] ${this.mainClass}`;
+    }
+        // =======[متاتگ ها]======
+
     this._meta.updateTag({
       name: 'description',
       content:''
@@ -21,15 +33,18 @@ export class CopyTradeComponent {
       content:''
     });
   }
-  qA = [
-    'ATM ربات معامله گر ',
-    'درآمد دلاری',
-    'آموزش فارکس',
-    'آموزش ارز دیجیتال',
-    'ترید چیست',
-    'انتخاب بهترین بروکر',
-    'اصول انتخاب بروکر',
-  ];
+  ngOnDestroy() {
+    if (AppComponent.isBrowser.value) {
+      this.main.className = this.mainClass;
+    }
+  }
+    // =======[هشتگ ها]======
+    tags : Array<any> = [
+      {
+        title : '#ربات_معامله_گر ',
+        value : 1
+      }
+    ]
   listElems: Array<any> = [
     {
       title: 'کپی تریدینگ (copytrading) به زبان ساده چیست؟',

@@ -59,7 +59,7 @@ export class LandingBlogComponent {
     });
     this.meta.updateTag({
       name: 'author',
-      content: 'خانم کریمی ',
+      content: 'مهرنوش کریمی ',
     });
     this.meta.updateTag({
       name: 'keywords',

@@ -92,7 +92,7 @@ export class BlogDetailComponent {
       keywords += `${item.title.replace(/#/g, '')},`;
     });
     let href = this.articleModel.browserTitle.split(' ').join('-');
-    let lang = this.articleModel.isRTL ? 'FA' : 'EN';
+    let lang = this.articleModel.isRTL ? 'fa' : 'en';
     this._linkService.createLink(
       `https://www.iraniexpert.com/blog/${href}/${lang}`
     );

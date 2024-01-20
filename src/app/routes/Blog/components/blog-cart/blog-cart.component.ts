@@ -36,7 +36,7 @@ export class BlogCartComponent {
   device: 'sm' | 'lg' = 'lg';
   ngOnInit() {
     this.updateDeviceValue();
-    let language = this.item.isRTL ? 'FA' : 'EN';
+    let language = this.item.isRTL ? 'fa' : 'en';
     this.url = this.item.browserTitle.split(' ').join('_') + '/' + language;
     this.loading = false;
   }

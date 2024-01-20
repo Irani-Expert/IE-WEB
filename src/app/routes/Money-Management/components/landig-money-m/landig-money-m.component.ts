@@ -23,7 +23,7 @@ export class LandigMoneyMComponent {
     });
     this._meta.updateTag({
       name: 'author',
-      content: 'آقای مهدی اکبر',
+      content: 'مهدی اکبر',
     });
     this._meta.updateTag({
       name: 'keywords',
@@ -36,4 +36,11 @@ export class LandigMoneyMComponent {
       this.main.className = this.mainClass;
     }
   }
+  // =======[هشتگ ها]======
+  tags : Array<any> = [
+    {
+      title : '#مدیریت_سرمایه',
+      value : 1
+    }
+  ]
 }

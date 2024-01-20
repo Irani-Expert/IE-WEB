@@ -1,4 +1,4 @@
-<div class="flex flex-row-reverse w-full p-5">
+<div class="flex flex-row-reverse w-full p-5 bg-page">
   <div class="xl:w-9/12 w-full">
     <img
       class="img-blog md:hidden w-full"
@@ -249,7 +249,7 @@
         >استیتمنت بقیه حساب‌های ربات، در سایت MyFxbook قابل مشاهده هستند.</span
       >
     </p>
-    <div class="flex my-14">
+    <div class="flex my-14 opacity-75">
       <a href="#">
         <div class="flex baner-bot max-sm:max-h-20">
           <div class="flex max-md:flex-col max-sm:px-1 md:items-center">
@@ -642,16 +642,20 @@
       <div></div>
     </div> -->
     <div class="my-10">
-      <app-comments></app-comments>
+      <app-comments [rowId]="1061" [tableType]="1"></app-comments>
     </div>
   </div>
 
-  <div class="w-3/12 max-xl:hidden">
-    <app-quick-access [strText]="qA"
+  <div class="w-3/12 max-xl:hidden ml-4">
+    <app-blog-filter [type]="'tags'" [categoryTags]="tags">
+      <p header class="text-black">دسترسی سریع</p>
+    </app-blog-filter>
+    
+    <!-- <app-quick-access [strText]="qA"
       ><h2 class="m-2 text-gray-600 text-lg">دسترسی سریع</h2>
-    </app-quick-access>
+    </app-quick-access> -->
     <!-- ===================[مدرسه فارکس ]=================== -->
-    <div class="flex justify-center mt-8 m-2">
+    <!-- <div class="flex justify-center mt-8 m-2">
       <div class="school-box">
         <div class="flex justify-start">
           <div class="mb-4 mt-4">
@@ -673,6 +677,6 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>

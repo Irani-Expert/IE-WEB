@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { ITags } from 'src/app/classes/interfaces/tags.interface';
 
 @Component({
   selector: 'app-filter-responsive',
@@ -6,6 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./filter-responsive.component.scss'],
 })
 export class FilterResponsiveComponent {
+  constructor ( private router : Router ){}
   @Output('result') emitter = new EventEmitter<number>();
   category: Array<any> = [
     {
@@ -30,48 +33,9 @@ export class FilterResponsiveComponent {
     },
   ];
   @Input() categoryIcon: string;
-
-  categoryDetail: Array<any> = [
-    {
-      name: 'درامد دلاری',
-      id: 1,
-    },
-    {
-      name: 'ربات معامله گر ATM',
-      id: 2,
-    },
-    {
-      name: 'آموزش فارکس',
-      id: 3,
-    },
-    {
-      name: 'آموزش ارز دیجیتال',
-      id: 4,
-    },
-    {
-      name: 'ترید چیست',
-      id: 5,
-    },
-    {
-      name: 'انتخاب بهترین بروکر',
-      id: 6,
-    },
-    {
-      name: 'اصول انتخاب بروکر',
-      id: 7,
-    },
-  ];
+  @Input('categoryTags') categoryTags : Array<ITags> = new Array<ITags>;;
   @Input() categoryDetailIcon: string;
-
-  sortFilter = [
-    { name: 'همه محصولات', id: 1 },
-    { name: 'محصولات غیر رایگان', id: 2 },
-    { name: 'محصولات رایگان', id: 3 },
-    { name: 'پربازدیدترین ها', id: 4 },
-    { name: 'پرفروش ترین ها', id: 5 },
-    { name: 'پیشنهاد خریداران', id: 6 },
-    { name: 'منتخب', id: 7 },
-  ];
+  @Input('type') type: 'category' | 'tags' = 'category';
 
   NavbarsStatus(type: number) {
     this.openNav = type;
@@ -83,6 +47,12 @@ export class FilterResponsiveComponent {
   }
   sorttype: number = 1;
 
+  searchTag(searchingTag:string) {
+    searchingTag = searchingTag.slice(1)
+    console.log(searchingTag);
+    
+    this.router.navigateByUrl(`search?someThing=${searchingTag}`)
+  }
   // ==========[مدیریت سرمایه]===
   @Input('data') categoryMoneylIcon: string;
   @Input('data') color: string;
