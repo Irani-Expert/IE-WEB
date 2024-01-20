@@ -6,6 +6,10 @@ import { ActivatedRoute } from '@angular/router';
 import { ApiBrokerModel } from './api-broker.model';
 import { environment } from 'src/environments/environment.dev';
 import { CurrencyPipe } from '@angular/common';
+import { BehaviorSubject } from 'rxjs';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+// import { GetAverageRGB } from 'src/app/classes/tranparent-img';
+// import { base64Maker } from 'src/app/classes/base64Maker';
 
 @Component({
   selector: 'app-single-broker',
@@ -14,10 +18,12 @@ import { CurrencyPipe } from '@angular/common';
   providers: [CurrencyPipe],
 })
 export class SingleBrokerComponent {
+  brokerDescHtml: SafeHtml;
   hoveredOnImg = false;
   platforms = '';
   contentUrl = environment.contentUrl;
-  dataLoaded = false;
+  dataLoaded = new BehaviorSubject(false);
+  dataLoaded$ = this.dataLoaded.asObservable();
   apiData: ApiBrokerModel = new ApiBrokerModel();
   brokerData: SingleBrokerULModel = new SingleBrokerULModel();
   mainClass =
@@ -27,7 +33,8 @@ export class SingleBrokerComponent {
   constructor(
     public brokerService: BrokerService,
     private _state: ActivatedRoute,
-    private _currencyPipe: CurrencyPipe
+    private _currencyPipe: CurrencyPipe,
+    private _sanitizer: DomSanitizer
   ) {
     if (AppComponent.isBrowser.value) {
       this.main = document.body.getElementsByTagName('main')[0];
@@ -133,6 +140,21 @@ export class SingleBrokerComponent {
       '1.1-2'
     )!;
     this.brokerData.leverage = `1:${apiData.leverage}`;
-    this.dataLoaded = true;
+    this.brokerDescHtml = this._sanitizer.bypassSecurityTrustHtml(
+      apiData.description
+    );
+    this.dataLoaded.next(true);
+    // this.dataLoaded.complete();
+  }
+  async transparentImg(id: number | string) {
+    // setTimeout(() => {
+    //   const imgEl = document.getElementById(`transparent-img-${id}`);
+    //   if (imgEl instanceof HTMLImageElement) {
+    //     // imgEl.
+    //     imgEl.crossOrigin = 'anonymous';
+    //     let imgBaseColor = GetAverageRGB(imgEl);
+    //     console.log(imgBaseColor);
+    //   }
+    // }, 2000);
   }
 }
