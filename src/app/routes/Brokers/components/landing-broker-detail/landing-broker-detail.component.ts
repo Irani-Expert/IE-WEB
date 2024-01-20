@@ -32,7 +32,7 @@ export class LandingBrokerDetailComponent {
     });
     this._meta.updateTag({
       name: 'author',
-      content: 'خانم کریمی ',
+      content: 'مهرنوش کریمی ',
     });
     this._meta.updateTag({
       name: 'keywords',

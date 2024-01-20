@@ -9,6 +9,7 @@ import { lastValueFrom } from 'rxjs';
 import { Product } from 'src/app/classes/interfaces/product.interface';
 import { FilterProduct } from 'src/app/classes/interfaces/filter-product.interface';
 import { ConsultationFormComponent } from '../consultation-form/consultation-form.component';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-landing-page',
@@ -18,8 +19,24 @@ import { ConsultationFormComponent } from '../consultation-form/consultation-for
 export class LandingPageComponent {
   constructor(
     private _articleServices: BlogService,
-    public productService: ProductService
+    public productService: ProductService,
+    private meta : Meta
   ) {
+            // =================[متاتگ ها]==========
+
+            this.meta.updateTag({
+              name: 'description',
+              content:'به دنیای ایرانی اکسپرت (iraniexpert) که شامل خدمات آموزش ترید، مشاوره رایگان، خرید ربات  AI-Trader و ترید میباشد خوش آمدید.',
+            });
+            this.meta.updateTag({
+              name: 'author',
+              content: 'مهرنوش کریمی',
+            });
+            this.meta.updateTag({
+              name: 'keywords',
+              content:
+                'اکسپرت ایرانی , ترید, ربات خودکار فارکس,ربات معامله گر فارکس, دستیار ترید,بورس جهانی,نقدینگی سشن های معاملاتی, کارگزاری,درامد, ترید بدون دانش,شغل دوم برای سرمایه گذاری مطمئن, اکسپرت فارکس',
+            });
 
   }
 

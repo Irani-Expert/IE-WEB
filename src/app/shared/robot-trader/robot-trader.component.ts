@@ -32,15 +32,14 @@ export class RobotTraderComponent {
       this.main.className = `bg-[#FAFAFA] ${this.mainClass}`;
     }
   }
-  qA = [
-    'ATM ربات معامله گر ',
-    'درآمد دلاری',
-    'آموزش فارکس',
-    'آموزش ارز دیجیتال',
-    'ترید چیست',
-    'انتخاب بهترین بروکر',
-    'اصول انتخاب بروکر',
-  ];
+  // =======[هشتگ ها]======
+  tags : Array<any> = [
+    {
+      title : '#ربات_معامله_گر ',
+      value : 1
+    }
+  ]
+
   listElems: Array<any> = [
     {
       title: 'انواع ربات های معامله گر',

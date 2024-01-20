@@ -5,8 +5,8 @@
     </h5>
   </div>
   <div class="flex flex-wrap m-5">
-    <div class="min-w-fit m-2" *ngFor="let x of values?.linkTags">
-      <a class="tag px-5 py-1 rounded-2xl text-lg font-normal mr-3"><span>#</span>{{ x.title | slice : 0 : -1 }}</a>
+    <div class="min-w-fit m-2" *ngFor="let x of values?.sharpLinkTags">
+      <button  (click)="searchTag(x.title)" class="tag px-5 py-1 rounded-2xl text-lg font-normal mr-3"><span>#</span>{{ x.title | slice : 0 : -1 }}</button>
     </div>
   </div>
 </div>

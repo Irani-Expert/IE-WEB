@@ -7,7 +7,9 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
+import { ITags } from 'src/app/classes/interfaces/tags.interface';
 import { Utils } from 'src/app/classes/utils';
 
 @Component({
@@ -21,6 +23,8 @@ export class BlogFilterComponent {
   @ViewChild('sticky') myStickyElement: ElementRef;
   @ViewChild('stickyoff') myStickyElement2: ElementRef;
   @Input('type') type: 'category' | 'tags' = 'category';
+
+  @Input ('categoryTags') categoryDetail : Array<ITags> = new Array<ITags>;
 
   sticked: boolean = false;
 
@@ -37,7 +41,9 @@ export class BlogFilterComponent {
       }
     }
   }
-
+  ngOnInit() {
+    console.log(this.categoryDetail);
+  }
   selectCategroy(it: any) {
     this.emitter.emit(it.id);
   }
@@ -63,36 +69,11 @@ export class BlogFilterComponent {
       id: 5,
     },
   ];
-  categoryDetail: Array<any> = [
-    {
-      name: 'درامد دلاری',
-      id: 1,
-    },
-    {
-      name: 'ربات معامله گر ATM',
-      id: 2,
-    },
-    {
-      name: 'آموزش فارکس',
-      id: 3,
-    },
-    {
-      name: 'آموزش ارز دیجیتال',
-      id: 4,
-    },
-    {
-      name: 'ترید چیست',
-      id: 5,
-    },
-    {
-      name: 'انتخاب بهترین بروکر',
-      id: 6,
-    },
-    {
-      name: 'اصول انتخاب بروکر',
-      id: 7,
-    },
-  ];
-  constructor() {}
-  ngOnInit() {}
+  constructor(private router:Router) {}
+  searchTag(searchingTag:string) {
+    searchingTag = searchingTag.slice(1)
+    console.log(searchingTag);
+    
+    this.router.navigateByUrl(`search?someThing=${searchingTag}`)
+  }
 }
