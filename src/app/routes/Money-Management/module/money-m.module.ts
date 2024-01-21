@@ -20,9 +20,9 @@ BoxArticlesComponent
     declarations: [components],
     imports: [
         MoneymRoutingModule,
-        SharedModule,
         CommonModule,
-        DragScrollModule
+        DragScrollModule,
+        SharedModule
     ]
 })
 

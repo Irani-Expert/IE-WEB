@@ -15,6 +15,9 @@ import { DragScrollModule } from 'ngx-drag-scroll';
 import { BlogFilterComponent } from '../routes/Blog/components/blog-filter/blog-filter.component';
 import { VoicePlayerComponent } from './voice-player/voice-player.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { VoteComponent } from './vote/vote.component';
+import { FreeAdviceComponent } from '../routes/Home/free-advice/free-advice.component';
+import { ConsultationFormComponent } from '../routes/Home/components/consultation-form/consultation-form.component';
 
 const components = [
   AcordianComponent,
@@ -27,6 +30,9 @@ const components = [
   InstagramBanerComponent,
   BlogFilterComponent,
   VoicePlayerComponent,
+  VoteComponent,
+  FreeAdviceComponent,
+  ConsultationFormComponent
 ];
 @NgModule({
   imports: [
