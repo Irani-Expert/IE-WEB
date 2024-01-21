@@ -23,6 +23,7 @@ export interface SearchProducts {
   viewsCount: number;
   ordersCount: number;
   active: boolean;
+  browserTitle : string;
 }
 
 export interface SearchBrokers {
@@ -36,6 +37,7 @@ export interface SearchBrokers {
   isIRSupport: true;
   commentCount: number;
   active: boolean;
+  browserTitle : string;
 }
 
 export interface SearchArticles {
@@ -47,6 +49,7 @@ export interface SearchArticles {
   groupName: string;
   rate: number;
   active: boolean;
+  browserTitle : string;
 }
 export interface SearchCalendar {
   id: number;

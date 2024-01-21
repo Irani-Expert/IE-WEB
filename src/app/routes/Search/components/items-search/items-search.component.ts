@@ -11,9 +11,11 @@ export class ItemsSearchComponent {
   allItems: any = [];
   contentUrl = environment.contentUrl;
   loading = true;
+  selectedTableType : number;
   // ==========[هاور]=====
   timer: any;
   showingItem: any;
+
   ngOnInit() {
     this.toggle(0);
     this.showingItem = this.allItems;
@@ -31,6 +33,8 @@ export class ItemsSearchComponent {
         .slice()
         .filter((it: any) => it.tableType == tableType);
     }
+    this.selectedTableType = tableType;
+    console.log(this.selectedTableType);
   }
 
   changesort(item: any) {
@@ -116,5 +120,21 @@ export class ItemsSearchComponent {
         this.loading = false;
       },
     });
+  }
+  tableTypeIdentifier(type: number,browserTitle:string) {
+    let route = ''
+    switch(type) {
+      case 1:
+        route = `articles/${browserTitle}/fa`
+        break;
+      case 6:
+        route = 'shop/atm-expert'
+        break;
+      case 36:
+        route = `brokers/${browserTitle}`
+        break;
+
+    }
+    return route
   }
 }
