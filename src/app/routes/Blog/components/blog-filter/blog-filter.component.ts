@@ -1,9 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 // import { AppComponent } from 'src/app/app.component';
 import { ITags } from 'src/app/classes/interfaces/tags.interface';
@@ -18,10 +13,10 @@ export class BlogFilterComponent {
   @Output('result') emitter = new EventEmitter<number>();
 
   @Input('type') type: 'category' | 'tags' = 'category';
-  
-  @Input ('categoryTags') categoryDetail : Array<ITags> = new Array<ITags>;
+
+  @Input('categoryTags') categoryDetail: Array<ITags> = new Array<ITags>();
   // ==========[استیکی]======
-  
+
   // @ViewChild('sticky') myStickyElement: ElementRef;
   // @ViewChild('stickyoff') myStickyElement2: ElementRef;
   // sticked: boolean = false;
@@ -67,11 +62,11 @@ export class BlogFilterComponent {
       id: 5,
     },
   ];
-  constructor(private router:Router) {}
-  searchTag(searchingTag:string) {
-    searchingTag = searchingTag.slice(1)
+  constructor(private router: Router) {}
+  searchTag(searchingTag: string) {
+    searchingTag = searchingTag.slice(1);
     console.log(searchingTag);
-    
-    this.router.navigateByUrl(`search?someThing=${searchingTag}`)
+
+    this.router.navigateByUrl(`search?search=${searchingTag}`);
   }
 }

@@ -1,27 +1,34 @@
 <!-- ==============[هدر]=========== -->
 <div class="flex justify-center relative">
-    <img class="baner" src="assets/img/search-baner.svg" alt="baner" width="1115" height="200">
-    <div class="absolute text-center w-[85%] sm:!w-[72%] xl:!w-[56%]
-    mt-20 sm:!mt-16 md:!mt-24">
-        <div class="flex justify-center sm:!mb-4 lg:!mb-8 lg:!-mt-4 2xl:!mb-12">
-            <h5 class="baner-titile flex justify-center
-            sm:!text-3xl">مقاله،آموزش یا اکسپرتی که به دنبال آن هستید را جست و جو کنید</h5>
-        </div>
-        <div class="flex justify-center">
-            <div class="flex justify-between items-center box-search h-16
-            sm:!h-20 w-full lg:!w-[80%]">
-                <input (input)="fillValue($any($event.target).value)"
-                 class="h-full search-input-box" type="text"
-                 [placeholder]="
-                 savedItem.someThing
-                   ?  savedItem.someThing
-                   : 'جستجو'
-               "
-                 >
-                <button>
-                    <i class="scale-75 ie-search-page"></i>
-                </button>
-            </div>
-        </div>
+  <img
+    class="baner"
+    src="assets/img/search-baner.svg"
+    alt="baner"
+    width="1115"
+    height="200"
+  />
+  <div
+    class="absolute text-center w-[85%] sm:!w-[72%] xl:!w-[56%] mt-20 sm:!mt-16 md:!mt-24"
+  >
+    <div class="flex justify-center sm:!mb-4 lg:!mb-8 lg:!-mt-4 2xl:!mb-12">
+      <h5 class="baner-titile flex justify-center sm:!text-3xl">
+        مقاله،آموزش یا اکسپرتی که به دنبال آن هستید را جست و جو کنید
+      </h5>
     </div>
+    <div class="flex justify-center">
+      <div
+        class="flex justify-between items-center box-search h-16 sm:!h-20 w-full lg:!w-[80%]"
+      >
+        <input
+          (input)="fillValue($any($event.target).value)"
+          class="h-full search-input-box"
+          type="text"
+          [placeholder]="savedItem.search ? savedItem.search : 'جستجو'"
+        />
+        <button>
+          <i class="scale-75 ie-search-page"></i>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

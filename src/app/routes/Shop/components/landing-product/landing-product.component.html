@@ -1,8 +1,7 @@
 <!-- ==========[هیرو]=========== -->
-<app-shop-hero
-  [data]="productService._product!"
-  *ngIf="!loading"
-></app-shop-hero>
+<ng-container *ngIf="!loading">
+  <app-shop-hero [data]="product"></app-shop-hero>
+</ng-container>
 
 <ng-container *ngIf="!loading">
   <!-- ==========[معرفی]=========== -->

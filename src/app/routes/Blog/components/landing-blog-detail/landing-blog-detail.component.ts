@@ -50,20 +50,24 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
   // =================[فیلتر]=============
   categoryDetailIcon: string = 'assets/icon/filter-icon-blog(detail).svg';
   categoryDetailHeader: string = 'دسترسی سریع';
-  tags : ITags[];
-  
+  tags: ITags[];
+  color = 'white';
+
   // =======================[رسپانسیو]==========
 
   device: 'sm' | 'lg' = 'lg';
+  language: string = '';
   constructor(public blogService: BlogService, private _state: ActivatedRoute) {
     super();
     if (AppComponent.isBrowser.value) {
       this.main = document.body.getElementsByTagName('main')[0];
       this.main.className = `bg-[#FAFAFA] ${this.mainClass}`;
     }
-    this._state.url.subscribe(
-      (it) => (this.title = it[0].path.split('_').join(' '))
-    );
+    this._state.url.subscribe((it) => {
+      this.title = it[0].path.split('_').join(' ');
+
+      this.language = it[1].path;
+    });
   }
   async ngOnInit() {
     this.updateDeviceValue();
@@ -76,10 +80,10 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
     this.routeSubscriber?.unsubscribe();
   }
   async ngAfterViewInit() {
-    if (await this.getDetail(this.title)) {
+    if (await this.getDetail(this.title, this.language)) {
       this.tags = this.blogService._blog!.sharpLinkTags;
       console.log(this.tags);
-      
+
       this.sendDataToChild = true;
     }
   }
@@ -96,8 +100,8 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
       }
     }
   }
-  async getDetail(title: string) {
-    const apiRes = await this.blogService.getBlog(title);
+  async getDetail(title: string, language: string) {
+    const apiRes = await this.blogService.getBlog(title, language);
     return apiRes;
   }
 }

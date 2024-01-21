@@ -35,8 +35,8 @@ export class BlogService extends BaseService<any> {
     );
     return res;
   }
-  async getBlog(title: string) {
-    const result = this.get(`Article/details?title=${title}`).pipe(
+  async getBlog(title: string, lang: string) {
+    const result = this.get(`Article/details?title=${title}&lang=${lang}`).pipe(
       map((res) => {
         if (res.success) this.singleBlog.next(res.data);
         return res.success;

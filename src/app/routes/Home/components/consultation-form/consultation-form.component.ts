@@ -4,6 +4,7 @@ import { FormGroup } from '@angular/forms';
 import { InputForm, InputInterface } from 'src/app/classes/input';
 import { UserNeedService } from 'src/app/classes/services/user-need.service';
 import { AppComponent } from 'src/app/app.component';
+import { ToastrService } from 'ngx-toastr';
 
 const formDataInit: GiftInter = {
   id: 0,
@@ -73,7 +74,7 @@ export class ConsultationFormComponent {
   form: FormGroup;
 
   formMaker = new InputForm(this.formControlInit);
-  constructor(private giftFormService: UserNeedService) {
+  constructor(private giftFormService: UserNeedService , private toaster :ToastrService) {
     this.form = new FormGroup({});
     this.formMaker.inputs.forEach((item) => {
       this.form.setControl(item.name, this.formMaker.createControl(item));
@@ -101,9 +102,12 @@ export class ConsultationFormComponent {
     formData.email = this._Email;
     if (await this.checkFormValidation(formData)) {
       this.giftFormService.consultation_req(formData);
+      this.toaster.success('با موفقیت ارسال شد')
     } else {
+      this.toaster.error('خطا در عملیات!!!')
       console.log('Not Valid');
     }
+
   }
   async checkFormValidation(_formData: GiftInter) {
     const formErrors: { [key: string]: string[] } = {};

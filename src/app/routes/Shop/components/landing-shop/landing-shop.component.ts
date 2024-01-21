@@ -19,7 +19,7 @@ import { FilterProduct } from 'src/app/classes/interfaces/filter-product.interfa
 import { Product } from 'src/app/classes/interfaces/product.interface';
 import { Page } from 'src/app/classes/page.model';
 import { LinkService } from 'src/app/classes/services/link.service';
-import { ProductService } from 'src/app/routes/Shop/components/product.service';
+import { ProductService } from 'src/app/classes/services/product.service';
 import { FilterService } from 'src/app/shared/filter/filter.service';
 import {
   IFilterGroup,
@@ -104,7 +104,7 @@ export class LandingShopComponent {
     private _filterService: FilterService<FilterProduct>,
     private _linkService: LinkService,
     private _activatedRoute: ActivatedRoute,
-    private meta : Meta
+    private meta: Meta
   ) {
     this._filterService.filterModelSubject = new BehaviorSubject(
       this.filterModel
@@ -156,7 +156,7 @@ export class LandingShopComponent {
                 )
                 .split('/');
               if (arrayOfUrlSegments[3] == '0') {
-                this._router.navigateByUrl('products');
+                this._router.navigateByUrl('shop');
               } else {
                 this._activatedRoute.queryParams.subscribe(async (item) => {
                   await this.fillFilterOnNav(item);
@@ -167,28 +167,28 @@ export class LandingShopComponent {
                 this.getProducts();
 
                 this._linkService.createLink(
-                  `https://www.iraniexpert.com/products/page/${arrayOfUrlSegments[3]}`
+                  `https://www.iraniexpert.com/shop/page/${arrayOfUrlSegments[3]}`
                 );
               }
             }
           }
         },
       });
-            // =================[متاتگ ها]==========
-            this.meta.updateTag({
-              name: 'description',
-              content:
-              'درفروشگاه ایراتی اکسپرت خرید ربات ترید ATM  یا اکسپرت (Expert) با قیمت مناسب و سود درصدی ماهانه کاملا اتوماتیک برای سرمایه گذاری در سال 2023 بسیار مناسب است.'
-            });
-            this.meta.updateTag({
-              name: 'author',
-              content: 'ایرانی اکسپرت',
-            });
-            this.meta.updateTag({
-              name: 'keywords',
-              content:
-              'خرید ربات برای فارکس-خرید ربات تریدر فارکس-مقایسه ها-اکسپرت-ربات خرید و فروش فارکس-خرید ربات هوشمند فارکس-بهترین ربات فارکس-خرید ربات فارکس-قیمت ربات های فارکس-خرید اکسپرت فارکس تضمینی-خرید ربات معامله گر فارکس-'
-            });
+    // =================[متاتگ ها]==========
+    this.meta.updateTag({
+      name: 'description',
+      content:
+        'درفروشگاه ایراتی اکسپرت خرید ربات ترید ATM  یا اکسپرت (Expert) با قیمت مناسب و سود درصدی ماهانه کاملا اتوماتیک برای سرمایه گذاری در سال 2023 بسیار مناسب است.',
+    });
+    this.meta.updateTag({
+      name: 'author',
+      content: 'ایرانی اکسپرت',
+    });
+    this.meta.updateTag({
+      name: 'keywords',
+      content:
+        'خرید ربات برای فارکس-خرید ربات تریدر فارکس-مقایسه ها-اکسپرت-ربات خرید و فروش فارکس-خرید ربات هوشمند فارکس-بهترین ربات فارکس-خرید ربات فارکس-قیمت ربات های فارکس-خرید اکسپرت فارکس تضمینی-خرید ربات معامله گر فارکس-',
+    });
   }
 
   // Call From Api Or Use Latest Value on Saved Subject --------------------------------------->
@@ -221,9 +221,7 @@ export class LandingShopComponent {
 
   setPage(pageNumber: number) {
     this.productService.prdArray.next(null);
-    this._router.navigateByUrl(
-      `products/page/${pageNumber}?${this._querystring}`
-    );
+    this._router.navigateByUrl(`shop/page/${pageNumber}?${this._querystring}`);
   }
 
   // Fill The Filter On Reloads or Navigations  --------------------------------------->
@@ -287,12 +285,12 @@ export class LandingShopComponent {
     if (event !== '') {
       this.savedParams = { ...this.savedParams, ...{ productName: event } };
       this._router.navigateByUrl(
-        `products/page/${this.filterModel.pageIndex + 1}?${this._querystring}`
+        `shop/page/${this.filterModel.pageIndex + 1}?${this._querystring}`
       );
     } else {
       delete this.savedParams['productName'];
       this._router.navigateByUrl(
-        `products/page/${this.filterModel.pageIndex + 1}?${this._querystring}`
+        `shop/page/${this.filterModel.pageIndex + 1}?${this._querystring}`
       );
     }
   }
@@ -327,7 +325,7 @@ export class LandingShopComponent {
         ...{ category: `[${categoryString}]` },
       };
       this._router.navigateByUrl(
-        `products/page/${this.filterModel.pageIndex + 1}?${this._querystring}`
+        `shop/page/${this.filterModel.pageIndex + 1}?${this._querystring}`
       );
     } else {
       let index = this.filterModel.categories.findIndex((it) => it == type);
@@ -348,7 +346,7 @@ export class LandingShopComponent {
         };
       }
       this._router.navigateByUrl(
-        `products/page/${this.filterModel.pageIndex + 1}?${this._querystring}`
+        `shop/page/${this.filterModel.pageIndex + 1}?${this._querystring}`
       );
     }
   }
@@ -371,7 +369,7 @@ export class LandingShopComponent {
       ...{ rates: `[${event[0]}]` },
     };
     this._router.navigateByUrl(
-      `products/page/${this.filterModel.pageIndex + 1}?${this._querystring}`
+      `shop/page/${this.filterModel.pageIndex + 1}?${this._querystring}`
     );
   }
   deleteFilters(event: boolean) {
@@ -380,7 +378,7 @@ export class LandingShopComponent {
       this.ratingConfig.content.currentRate = 0;
       this.productService.prdArray.next(null);
       this.filterModel = new FilterProduct();
-      this._router.navigateByUrl(`products/page`);
+      this._router.navigateByUrl(`shop/page`);
     }
   }
 }

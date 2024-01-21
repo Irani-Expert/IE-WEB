@@ -18,16 +18,15 @@ export class HeaderSearchComponent {
     event.stopPropagation();
   }
 
-
   constructor(private router: Router) {}
-  
-  ngOnInit(){
+
+  ngOnInit() {
     this.loading = false;
     this._searchInputSubscription = this._searchinput
-    .pipe(debounceTime(700))
-    .subscribe((value) => {
-      this.searchFilterName(value);
-    });
+      .pipe(debounceTime(700))
+      .subscribe((value) => {
+        this.searchFilterName(value);
+      });
   }
   // ==========[عملکرد سرچ]======
   loading: boolean = true;
@@ -37,8 +36,8 @@ export class HeaderSearchComponent {
   fillValue(value: string) {
     this._searchinput.next(value);
   }
-  
+
   searchFilterName(value: string) {
-    this.router.navigateByUrl(`search?someThing=${value}`);
+    this.router.navigateByUrl(`search?search=${value}`);
   }
 }

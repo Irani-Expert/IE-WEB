@@ -17,12 +17,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./routes/Home/modules/home.module').then((m) => m.HomeModule),
   },
-  {
-    path: 'products',
-    title: 'فروشگاه ایرانی اکسپرت',
-    loadChildren: () =>
-      import('./routes/Shop/module/shop.module').then((m) => m.ShopModule),
-  },
+
   {
     canActivate: [() => inject(CanActivate).canActivate()],
     path: 'checkout',
@@ -38,28 +33,34 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'blog',
+    path: 'articles',
     title: 'مقالات ایرانی اکسپرت',
     loadChildren: () =>
       import('./routes/Blog/module/blog.module').then((m) => m.BlogModule),
   },
   {
-    path: 'money-m',
+    path: 'shop',
+    title: 'فروشگاه ایرانی اکسپرت',
+    loadChildren: () =>
+      import('./routes/Shop/module/shop.module').then((m) => m.ShopModule),
+  },
+  {
+    path: 'money-management',
     title: 'مقالات ایرانی اکسپرت',
     loadChildren: () =>
       import('./routes/Money-Management/module/money-m.module').then(
         (m) => m.MoneymModule
       ),
   },
-  {
-    path: 'calendar',
-    title: 'calendar',
+  // {
+  //   path: 'calendar',
+  //   title: 'calendar',
 
-    loadChildren: () =>
-      import('./routes/calendar/module/calendar.module').then(
-        (m) => m.CalendarModule
-      ),
-  },
+  //   loadChildren: () =>
+  //     import('./routes/calendar/module/calendar.module').then(
+  //       (m) => m.CalendarModule
+  //     ),
+  // },
   {
     path: '**',
     title: '404 - یافت نشد',

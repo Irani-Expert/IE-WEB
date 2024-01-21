@@ -93,7 +93,7 @@ export class LandingBlogComponent {
     this.appBlogHero._searchinput.next(event);
   }
   filterCategory(id: number) {
-    this.router.navigateByUrl(`blog/page/1?category=${id}`);
+    this.router.navigateByUrl(`articles/page/1?category=${id}`);
   }
   ngOnDestroy() {
     if (AppComponent.isBrowser.value) {
