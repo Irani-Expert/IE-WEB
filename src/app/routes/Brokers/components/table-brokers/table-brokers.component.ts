@@ -3,6 +3,7 @@ import {
   // , Input
 } from '@angular/core';
 import { BaseService } from 'src/app/classes/services/base.service';
+import { environment } from 'src/environments/environment.dev';
 
 interface BrokerTable {
   rate: number;
@@ -42,6 +43,7 @@ interface BrokerTableTh {
   styleUrls: ['./table-brokers.component.scss'],
 })
 export class TableBrokersComponent {
+  contentUrl = environment.contentUrl;
   tableLoaded = false;
   savedJson = '../assets/broker-tables.json';
   tableModel = new BrokerTableModel();

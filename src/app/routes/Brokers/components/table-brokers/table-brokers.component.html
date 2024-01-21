@@ -19,7 +19,13 @@
             <p>{{ item.rate }}</p>
           </td>
           <td class="td-logo-broker">
-            <img src="assets/img/alpari-broker-forex.webp" class="w-full h-full" alt="business-logo" width="100" height="50"/>
+            <img
+              [src]="contentUrl + item.logoSrc"
+              class="w-full h-full"
+              alt="business-logo"
+              width="100"
+              height="50"
+            />
           </td>
           <td>
             <p class="px-2">{{ item.name }}</p>
@@ -57,7 +63,7 @@
           <td class="td-actions">
             <div class="flex flex-col gap-2">
               <ng-container *ngIf="item.linkSite">
-                <a [routerLink]="item.linkSite.split(' ').join('_')">
+                <a [href]="item.linkSite" target="_blank">
                   <button
                     class="w-full h-7 bg-[#3246D3] rounded-2xl text-white"
                   >
@@ -75,7 +81,7 @@
                 </a>
               </ng-container>
               <ng-container *ngIf="item.refCode">
-                <a href="#">
+                <a [href]="item.refCode" target="_blank">
                   <button
                     class="w-full h-7 bg-[#CC3A39] rounded-2xl text-white"
                   >
