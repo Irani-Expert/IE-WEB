@@ -1,112 +1,155 @@
 <!-- ==================[فیلتر تگ ها]======== -->
-<div class="hidden sm:flex sm:justify-center items-center mr-4 lg:!-mr-48 mb-6 sm:mt-20 2xl:!-mr-96">
-    <div class="flex xl:flex-nowrap sm:flex-wrap">
-       <ng-container *ngFor="let item of tags;let i = index">
-           <button
-           (click)="toggle(i)"
-           (click)="changeViewItem(item.tableType)"
-           [ngClass]="tags[i].active ? 'btn-tags-actived pt-1 pb-0 pr-6 pl-6 md:!text-lg' : 'btn-tags pt-1 pb-0 pr-6 pl-6 md:!text-lg'"
-           >{{item.name}}</button>
-       </ng-container>
-    </div>
-</div>
-    <!-- =========[فیلتر تگ ها رسپانسیو]========= -->
-<div class="sm:hidden overflow-scroll w-[98vw] flex flex-nowrap mr-4 items-center mt-7 pb-4">
-    <ng-container *ngFor="let item of tags;let i = index">
-        <button
+<div
+  class="hidden sm:flex sm:justify-center items-center mr-4 lg:!-mr-48 mb-6 sm:mt-20 2xl:!-mr-96"
+>
+  <div class="flex xl:flex-nowrap sm:flex-wrap">
+    <ng-container *ngFor="let item of tags; let i = index">
+      <button
         (click)="toggle(i)"
         (click)="changeViewItem(item.tableType)"
-        [ngClass]="tags[i].active ? 'btn-tags-actived h-auto pr-4 pl-4' : 'btn-tags h-auto pr-4 pl-4'"
-        >{{item.name}}</button>
+        [ngClass]="
+          tags[i].active
+            ? 'btn-tags-actived pt-1 pb-0 pr-6 pl-6 md:!text-lg'
+            : 'btn-tags pt-1 pb-0 pr-6 pl-6 md:!text-lg'
+        "
+      >
+        {{ item.name }}
+      </button>
     </ng-container>
+  </div>
+</div>
+<!-- =========[فیلتر تگ ها رسپانسیو]========= -->
+<div
+  class="sm:hidden overflow-scroll w-[98vw] flex flex-nowrap mr-4 items-center mt-7 pb-4"
+>
+  <ng-container *ngFor="let item of tags; let i = index">
+    <button
+      (click)="toggle(i)"
+      (click)="changeViewItem(item.tableType)"
+      [ngClass]="
+        tags[i].active
+          ? 'btn-tags-actived h-auto pr-4 pl-4'
+          : 'btn-tags h-auto pr-4 pl-4'
+      "
+    >
+      {{ item.name }}
+    </button>
+  </ng-container>
 </div>
 
-<ng-container *ngIf="!loading">       
-<div class="h-[33rem] overflow-auto" id="dropdown-item">
-    <ng-container *ngFor="let hvr of showingItem;let i = index">        
-    <!-- ============[هاور به پایین]======================== -->
-    <div class="h-full menu-wrapper-down block 2xl:hidden">
-        <ul [ngClass]="hvr.active ? 'show-menu-down' : 'hide-menu-down'" >
-            <div class="box-hover-down">
-                <div class="flex flex-row">
-                    <div class="basis-1/3">
-                        <img class="img-hvr-item-down"         
-                        [src]="contentUrl + hvr.cardImagePath" alt="img-item" width="100" height="75">
-                    </div>
-                    <div class="basis-2/3 mr-4">
-                        <h6 class="title-hover-down">{{hvr.title}}</h6>
-                        <p>
-                            {{hvr.brief}}
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </ul>
-    </div>
-        <!-- ============[هاور به چپ]======================== -->
-    <div (mouseenter)="changesort(hvr)" class="menu-wrapper hidden 2xl:block">
-        <ul [ngClass]="hvr.active ? 'show-menu' : 'hide-menu'" >
-            <div class="box-hover">
-                  <div class="flex flex-col">
-                      <h6 class="title-hover">{{hvr.title}}</h6>
-                      <img class="img-hvr-item"         
-                      [src]="contentUrl + hvr.cardImagePath" alt="img-item" width="100" height="75">
-                      <p>
-                        {{hvr.brief}}
-                      </p>
-                  </div>
+<ng-container *ngIf="!loading">
+  <div class="h-[33rem] overflow-auto" id="dropdown-item">
+    <ng-container *ngFor="let hvr of showingItem; let i = index">
+      <!-- ============[هاور به پایین]======================== -->
+      <div class="h-full menu-wrapper-down block 2xl:hidden">
+        <ul [ngClass]="hvr.active ? 'show-menu-down' : 'hide-menu-down'">
+          <div class="box-hover-down">
+            <div class="flex flex-row">
+              <div class="basis-1/3">
+                <img
+                  class="img-hvr-item-down"
+                  [src]="contentUrl + hvr.cardImagePath"
+                  alt="img-item"
+                  width="100"
+                  height="75"
+                />
               </div>
-        </ul>
-    </div>
-            <!-- ==============[سرچ آیتم]=============== -->
-    <div class="selected mb-4">
-        <div class="hidden lg:block">
-            <a href="#">
-                <div class="flex box-item" (mouseenter)="changesort(hvr)" (mouseleave)="toggleMenuLeave(hvr)">
-                    <div class="flex flex-row w-full">
-                        <div class="basis-2/6 flex items-center justify-center max-w-[10rem]">
-                            <img class="item-img"         
-                            [src]="contentUrl + hvr.cardImagePath" alt="item" width="100" height="75">
-                        </div>
-                        <div class=" basis-full flex flex-col justify-between mr-6">
-                            <h5 class="title-item">{{hvr.title}}</h5>
-                            <p class="mt-4 mb-4 text-lg item-desc">
-                                {{hvr.brief}}
-                            </p>
-                            <div class="flex flex-row w-full">
-                                <p class="details ml-8">فروشنده :{{hvr.seller}}</p>
-                                <p class="details ml-8">شروع قیمت از :{{hvr.seller}}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
-    
-    </ng-container>
-    <ng-container *ngFor="let hvr of showingItem;let i = index">        
-    <!-- ==============[ رسپانسیو سرچ آیتم]=============== -->
-    <div class="flex justify-center lg:hidden mt-4">
-        <div class="flex box-item-mobile">
-            <div class="flex w-full flex-row">
-                <div class="basis-2/5 flex items-center justify-center max-w-[240px]">
-                    <img class="item-img-mobile"         
-                    [src]="contentUrl + hvr.cardImagePath" alt="item" width="100" height="75">
-                </div>
-                <div class="basis-3/5 flex flex-col justify-between mr-6">
-                    <h5 class="title-item-mobile sm:!text-2xl">{{hvr.title}}</h5>
-                    <p class="text-sm sm:text-lg mt-4 mb-4 item-desc">
-                        {{hvr.brief}}
-                    </p>
-                    <div class="flex flex-row w-full">
-                        <p class="details ml-8">فروشنده :{{hvr.seller}}</p>
-                        <p class="details ml-8">شروع قیمت از :{{hvr.minPrice}}</p>
-                    </div>
-                </div>
+              <div class="basis-2/3 mr-4">
+                <h6 class="title-hover-down">{{ hvr.title }}</h6>
+                <p>
+                  {{ hvr.brief }}
+                </p>
+              </div>
             </div>
+          </div>
+        </ul>
+      </div>
+      <!-- ============[هاور به چپ]======================== -->
+      <div class="menu-wrapper hidden 2xl:block">
+        <ul [ngClass]="hvr.active ? 'show-menu' : 'hide-menu'">
+          <div (mouseenter)="changesort(hvr)" class="box-hover">
+            <div class="flex flex-col">
+              <h6 class="title-hover">{{ hvr.title }}</h6>
+              <img
+                class="img-hvr-item"
+                [src]="contentUrl + hvr.cardImagePath"
+                alt="img-item"
+                width="100"
+                height="75"
+              />
+              <p>
+                {{ hvr.brief }}
+              </p>
+            </div>
+          </div>
+        </ul>
+      </div>
+      <!-- ==============[سرچ آیتم]=============== -->
+      <div class="selected mb-4">
+        <div class="hidden lg:block">
+          <a href="#">
+            <div
+              (mouseenter)="changesort(hvr)"
+              class="flex box-item"
+              (mouseleave)="toggleMenuLeave(hvr)"
+            >
+              <div class="flex flex-row w-full">
+                <div
+                  class="basis-2/6 flex items-center justify-center max-w-[10rem]"
+                >
+                  <img
+                    class="item-img"
+                    [src]="contentUrl + hvr.cardImagePath"
+                    alt="item"
+                    width="100"
+                    height="75"
+                  />
+                </div>
+                <div class="basis-full flex flex-col justify-between mr-6">
+                  <h5 class="title-item">{{ hvr.title }}</h5>
+                  <p class="mt-4 mb-4 text-lg item-desc">
+                    {{ hvr.brief }}
+                  </p>
+                  <div class="flex flex-row w-full">
+                    <p class="details ml-8">فروشنده :{{ hvr.seller }}</p>
+                    <p class="details ml-8">شروع قیمت از :{{ hvr.seller }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
         </div>
-    </div>
+      </div>
     </ng-container>
-</div>
+    <ng-container *ngFor="let hvr of showingItem; let i = index">
+      <!-- ==============[ رسپانسیو سرچ آیتم]=============== -->
+      <div class="flex justify-center lg:hidden mt-4">
+        <div class="flex box-item-mobile">
+          <div class="flex w-full flex-row">
+            <div
+              class="basis-2/5 flex items-center justify-center max-w-[240px]"
+            >
+              <img
+                class="item-img-mobile"
+                [src]="contentUrl + hvr.cardImagePath"
+                alt="item"
+                width="100"
+                height="75"
+              />
+            </div>
+            <div class="basis-3/5 flex flex-col justify-between mr-6">
+              <h5 class="title-item-mobile sm:!text-2xl">{{ hvr.title }}</h5>
+              <p class="text-sm sm:text-lg mt-4 mb-4 item-desc">
+                {{ hvr.brief }}
+              </p>
+              <div class="flex flex-row w-full">
+                <p class="details ml-8">فروشنده :{{ hvr.seller }}</p>
+                <p class="details ml-8">شروع قیمت از :{{ hvr.minPrice }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
 </ng-container>
