@@ -10,7 +10,10 @@
       "platform": ["MT4", "MT5", "Web Trader"],
       "rate": 7.2,
       "regulate": ["VFSC"],
-      "insurance": "--"
+      "linkSite":"https://nl.trustpilot.com/review/forexchief.com",
+      "insurance": "--",
+      "refCode":"https://forexchief.com"
+      
     },
     {
       "deposit": [
@@ -28,8 +31,9 @@
       "platform": ["MT4", "MT5", "Web Terminal", "NetTraderX"],
       "rate": 7.2,
       "regulate": ["BVI FSC", "LFSA", "CySec"],
-      "linkSite": "ifcmarkets",
-      "insurance": "--"
+      "linkSite": "https://www.iraniexpert.com/brokers/ifcmarkets/fa",
+      "insurance": "--",
+      "refCode":"https://www.ifcmiran.asia/614904/fa/farsi-landing"
     },
     {
       "deposit": [
@@ -50,7 +54,8 @@
       "rate": 8,
       "regulate": ["Mwali Island", "FINACOM"],
       "insurance": "--",
-      "linkSite": "alpari"
+      "linkSite": "https://www.iraniexpert.com/brokers/alpari/fa",
+      "refCode":"https://alparipartner.com/fa/?partner_id=170009501"
     },
     {
       "name": "آمارکتس",
@@ -68,7 +73,9 @@
       ],
       "rate": 8.2,
       "logoSrc": "",
-      "insurance": "--"
+      "insurance": "--",
+      "linkSite":"https://www.iraniexpert.com/brokers/amarkets/fa",
+      "refCode":"https://fa.amarketsworld.com/open-an-account-standard-fa/?g=IRANI2"
     },
     {
       "name": "ویندزور",
@@ -80,7 +87,7 @@
       "deposit": ["کریپتو", "ریالی مستقیم", "اسکریل", "نتلر", "وبمانی"],
       "rate": 7.4,
       "logoSrc": "/uploads/images/article/WINDSOR-1.webp",
-      "linkSite": "windsor",
+      "linkSite": "https://www.iraniexpert.com/brokers/windsor/fa",
       "insurance": "--"
     },
     {
@@ -92,8 +99,10 @@
       "platform": ["MT4", "MT5", "WebTrader", "CTrader"],
       "deposit": ["بیتکوین و کریپتو", "پرفکت مانی", "ریالی مستقیم"],
       "rate": 7.6,
+      "linkSite":"https://nl.trustpilot.com/review/errant.dk",
       "logoSrc": "",
-      "insurance": "--"
+      "insurance": "--",
+      "refCode":"https://errant.dk"
     },
     {
       "name": "یو‌اس‌جی‌اف‌ایکس",
@@ -112,7 +121,9 @@
       ],
       "rate": 7.5,
       "logoSrc": "",
-      "insurance": "--"
+      "linkSite":"https://nl.trustpilot.com/review/usgfx.com",
+      "insurance": "--",
+      "refCode":"https://usgfx.com"
     },
     {
       "name": "اچ ام سی ام",
@@ -130,7 +141,8 @@
       ],
       "rate": 7.8,
       "logoSrc": "",
-      "insurance": "--"
+      "insurance": "--",
+      "refCode":""
     },
     {
       "name": "لایت فارکس",
@@ -141,8 +153,10 @@
       "platform": ["MT4", "MT5", "WebTrader"],
       "deposit": ["کریپتو", "ریالی تاپ چنج", "پرفکت مانی", "وب مانی"],
       "rate": 7.3,
+      "linkSite":"https://nl.trustpilot.com/review/liteforex-trade.com",
       "logoSrc": "",
-      "insurance": "--"
+      "insurance": "--",
+      "refCode":"https://www.litefinance.org/fa/?uid=711960074&cid=248782"
     },
     {
       "name": "اپوفایننس(اپوفارکس)",
@@ -154,7 +168,9 @@
       "deposit": ["تاپ چنج", "پرفکت مانی", "کریپتو"],
       "rate": 7,
       "logoSrc": "",
-      "insurance": "--"
+      "linkSite":"https://www.iraniexpert.com/brokers/opofinance/fa",
+      "insurance": "--",
+      "refCode":"https://client.opofinance.com/links/go/4251"
     },
     {
       "name": "آیرون اف ایکس",
@@ -166,7 +182,9 @@
       "deposit": ["ریالی تاپ چنج", "ریالی مستقیم", "پرفکت مانی", "کریپتو"],
       "rate": 5,
       "logoSrc": "",
-      "insurance": "--"
+      "linkSite":"https://nl.trustpilot.com/review/ironfx.com",
+      "insurance": "--",
+      "refCode":"https://ironfx.com"
     },
     {
       "name": "آیرون گروپ",
@@ -178,7 +196,9 @@
       "deposit": ["ریالی مستقیم", "پرفکت مانی", "کریپتو"],
       "rate": 5,
       "logoSrc": "",
-      "insurance": "--"
+      "linkSite":"https://nl.trustpilot.com/review/arongroups.co",
+      "insurance": "--",
+      "refCode":"https://arongroups.co"
     },
     {
       "name": "پکس فارکس",
@@ -190,7 +210,9 @@
       "deposit": ["وبمانی", "پرفکت مانی", "کریپتو"],
       "rate": 5,
       "logoSrc": "",
-      "insurance": "--"
+      "linkSite":"https://nl.trustpilot.com/review/paxforex.com",
+      "insurance": "--",
+      "refCode":"https://paxforex.com"
     },
     {
       "name": "اینستافارکس",
@@ -202,7 +224,9 @@
       "deposit": ["ریالی مستقیم", "کریپتو"],
       "rate": 5,
       "logoSrc": "",
-      "insurance": "--"
+      "linkSite":"https://nl.trustpilot.com/review/instaforex.com",
+      "insurance": "--",
+      "refCode":"https://instaforex.com"
     },
     {
       "name": "نامبروان",
@@ -214,7 +238,9 @@
       "deposit": ["پرفکت مانی", "رمزارزها"],
       "rate": 5,
       "logoSrc": "",
-      "insurance": "--"
+      "linkSite":"https://nl.trustpilot.com/review/number1.exchange",
+      "insurance": "--",
+      "refCode":"https://number1.exchange"
     },
     {
       "name": "آیکیوایندکس",
@@ -226,7 +252,9 @@
       "deposit": ["پرفکت مانی", "کریپتو"],
       "rate": 5,
       "logoSrc": "",
-      "insurance": "--"
+      "linkSite":"https://nl.trustpilot.com/review/accuindex.com",
+      "insurance": "--",
+      "refCode":"https://accuindex.com"
     },
     {
       "name": "سوپرفارکس",
@@ -237,8 +265,10 @@
       "platform": ["MT4"],
       "deposit": ["ریالی مستقیم", "پرفکت مانی", "کریپتو"],
       "rate": 5,
+      "linkSite":"https://nl.trustpilot.com/review/superforex.com",
       "logoSrc": "",
-      "insurance": "--"
+      "insurance": "--",
+      "refCode":"https://superforex.co"
     },
     {
       "name": "جاست فارکس",
@@ -250,7 +280,9 @@
       "deposit": ["ریالی مستقیم", "پرفکت مانی", "کریپتو"],
       "rate": 5.5,
       "logoSrc": "",
-      "insurance": "--"
+      "linkSite":"https://nl.trustpilot.com/review/justforexltd.com",
+      "insurance": "--",
+      "refCode":"https://justforexltd.com"
     },
     {
       "name": "آی‌تی‌بی‌اف‌ایکس",
@@ -262,7 +294,9 @@
       "deposit": ["ریالی", "کریپتو"],
       "rate": 4.3,
       "logoSrc": "",
-      "insurance": "--"
+      "linkSite":"https://nl.trustpilot.com/review/itbfx.com",
+      "insurance": "--",
+      "refCode":"https://itbfx.com"
     },
     {
       "name": "اینوسلو",
@@ -274,7 +308,9 @@
       "deposit": ["ریالی مستقیم", "پرفکت مانی", "رمزارزها"],
       "rate": 4,
       "logoSrc": "",
-      "insurance": "--"
+      "linkSite":"https://nl.trustpilot.com/review/investlord-limited.com",
+      "insurance": "--",
+      "refCode":"https://investlord-limited.com"
     },
     {
       "name": "نیکس",
@@ -286,7 +322,9 @@
       "deposit": ["ریالی تاپ چنج", "وبمانی", "رمزارزها"],
       "rate": 4,
       "logoSrc": "",
-      "insurance": "--"
+      "linkSite":"https://nl.trustpilot.com/review/nyxcosmetics.com",
+      "insurance": "--",
+      "refCode":"https://nyxcosmetics.com"
     },
     {
       "name": "آی سی ام بروکرز",
@@ -298,7 +336,9 @@
       "deposit": ["ریالی تاپ چنج", "کریپتو"],
       "rate": 4.5,
       "logoSrc": "",
-      "insurance": "--"
+      "linkSite":"https://nl.trustpilot.com/review/icmbrokers.com",
+      "insurance": "--",
+      "refCode":"https://icmbrokers.com"
     },
     {
       "name": "گرند کپیتال",
@@ -310,7 +350,9 @@
       "deposit": ["ریالی تاپ چنج", "پرفکت مانی", "کریپتو"],
       "rate": 5.9,
       "logoSrc": "",
-      "insurance": "--"
+      "linkSite":"https://nl.trustpilot.com/review/grandcapital.net",
+      "insurance": "--",
+      "refCode":"https://grandcapital.net"
     },
     {
       "name": "فیبوگروپ",
@@ -322,7 +364,9 @@
       "deposit": ["ریالی مستقیم", "وبمانی", "اسکریل", "نتلر", "کریپتو"],
       "rate": 7.4,
       "logoSrc": "",
-      "insurance": "--"
+      "linkSite":"https://nl.trustpilot.com/review/www.fibogroup.com",
+      "insurance": "--",
+      "refCode":"https://www.fibogroup.com"
     },
     {
       "name": "کپیتال اکستند",
@@ -334,7 +378,9 @@
       "deposit": ["ریالی مستقیم", "پرفکت مانی", "کریپتو کارنسی"],
       "rate": 7.2,
       "logoSrc": "",
-      "insurance": "--"
+      "linkSite":"https://nl.trustpilot.com/review/capitalxtend.com",
+      "insurance": "--",
+      "refCode":"https://capitalxtend.com"
     },
     {
       "name": "تاپ اف ایکس",
@@ -346,7 +392,9 @@
       "deposit": ["پرفکت مانی", "کریپتو"],
       "rate": 7,
       "logoSrc": "",
-      "insurance": "--"
+      "linkSite":"https://nl.trustpilot.com/review/top-fx.com",
+      "insurance": "--",
+      "refCode":"https://top-fx.com"
     },
     {
       "name": "اینگات بروکرز",
@@ -358,7 +406,9 @@
       "deposit": ["ریالی مستقیم", "ریالی تاپ چنج", "کریپتو"],
       "rate": 6.9,
       "logoSrc": "",
-      "insurance": "--"
+      "linkSite":"https://nl.trustpilot.com/review/ingotbrokers.com",
+      "insurance": "--",
+      "refCode":""
     },
     {
       "name": "دلتااف ایکس",
@@ -370,7 +420,9 @@
       "deposit": ["ریالی مستقیم", "وبمانی", "کریپتو"],
       "rate": 6.1,
       "logoSrc": "",
-      "insurance": "--"
+      "linkSite":"https://nl.trustpilot.com/review/deltafx.com",
+      "insurance": "--",
+      "refCode":"https://deltafx.com"
     },
     {
       "name": "لیدیافارکس",
@@ -382,7 +434,9 @@
       "deposit": ["ریالی مستقیم", "وبمانی", "پرفکت مانی", "کریپتو"],
       "rate": 3.9,
       "logoSrc": "",
-      "insurance": "--"
+      "linkSite":"https://nl.trustpilot.com/review/lidya.info",
+      "insurance": "--",
+      "refCode":"https://lidya.info"
     },
     {
       "name": "اچ وای سی ام",
@@ -394,7 +448,9 @@
       "deposit": ["ریالی مستقیم", "پرفکت مانی", "کریپتو", "اسکریل", "نتلر"],
       "rate": 7.8,
       "logoSrc": "",
-      "insurance": "--"
+      "linkSite":"https://nl.trustpilot.com/review/hycm.com",
+      "insurance": "--",
+      "refCode":"https://hycm.com"
     },
     {
       "name": "اوربکس",
@@ -406,7 +462,9 @@
       "deposit": ["پرفکت مانی", "کریپتو", "وبمانی"],
       "rate": 7,
       "logoSrc": "",
-      "insurance": "--"
+      "linkSite":"https://nl.trustpilot.com/review/orbex.com",
+      "insurance": "--",
+      "refCode":"https://orbex.com"
     },
     {
       "name": "اف ایکس چویس",
@@ -418,7 +476,9 @@
       "deposit": ["ریالی تاپ چنج", "پرفکت مانی", "کریپتو"],
       "rate": 7,
       "logoSrc": "",
-      "insurance": "--"
+      "linkSite":"https://nl.trustpilot.com/review/myfxchoice.com",
+      "insurance": "--",
+      "refCode":"https://myfxchoice.com"
     },
     {
       "name": "تریدرزوِی",
@@ -430,7 +490,9 @@
       "deposit": ["ریالی", "پرفکت مانی", "کریپتو"],
       "rate": 6.3,
       "logoSrc": "",
-      "insurance": "--"
+      "linkSite":"https://nl.trustpilot.com/review/www.tradersway.com",
+      "insurance": "--",
+      "refCode":"https://www.tradersway.com"
     }
   ]
 }
