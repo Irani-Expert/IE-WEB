@@ -5,7 +5,7 @@ import { SingleBrokerComponent } from '../components/single-broker/single-broker
 
 const routes: Routes = [
   { path: '', component: LandingBrokerDetailComponent },
-  { path: ':title', component: SingleBrokerComponent },
+  { path: ':title/:lang', component: SingleBrokerComponent },
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],
