@@ -9,7 +9,7 @@ import { HeroComponent } from '../components/hero/hero.component';
 // import { BotFacilitiesComponent } from '../components/bot-facilities/bot-facilities.component';
 import { BotAdvantagesComponent } from '../components/bot-advantages/bot-advantages.component';
 import { LandingArticleComponent } from '../components/landing-article/landing-article.component';
-import { ConsultationFormComponent } from '../components/consultation-form/consultation-form.component';
+// import { ConsultationFormComponent } from '../components/consultation-form/consultation-form.component';
 import { BannersComponent } from '../components/banners/banners.component';
 import { ProductsComponent } from '../components/products/products.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -31,12 +31,11 @@ import { AboutusTargetsComponent } from '../components/aboutus-targets/aboutus-t
 import { CommentSliderComponent } from '../components/comment-slider/comment-slider.component';
 import { VideoSliderComponent } from '../components/video-slider/video-slider.component';
 import { SearchModule } from '../../Search/module/search.module';
-import { FreeAdviceComponent } from '../free-advice/free-advice.component';
+// import { FreeAdviceComponent } from '../free-advice/free-advice.component';
 import { AboutusTargetsResponsiveComponent } from '../components/aboutus-targets-responsive/aboutus-targets-responsive.component';
 import { RobotTraderComponent } from 'src/app/shared/robot-trader/robot-trader.component';
 import { BlueCardsComponent } from 'src/app/shared/blue-cards/blue-cards.component';
 import { QAComponent } from 'src/app/shared/qa/qa.component';
-import { VoteComponent } from 'src/app/shared/vote/vote.component';
 import { QuickAccessComponent } from 'src/app/shared/quick-access/quick-access.component';
 import { CopyTradeComponent } from 'src/app/components/copy-trade/copy-trade.component';
 
@@ -47,7 +46,7 @@ const components = [
   AboutusTargetsResponsiveComponent,
   QuestionsComponent,
   LandingPageComponent,
-  FreeAdviceComponent,
+  // FreeAdviceComponent,
   HeroComponent,
   SellInfoComponent,
   BotShowcaseComponent,
@@ -57,7 +56,7 @@ const components = [
   BotAdvantagesComponent,
   LandingArticleComponent,
   VideoSliderComponent,
-  ConsultationFormComponent,
+  // ConsultationFormComponent,
   BannersComponent,
   ProductCardComponent,
   ProductsComponent,
@@ -72,8 +71,7 @@ const components = [
   AboutusTargetsComponent,
   // DiscountBannerComponent,
   BlueCardsComponent,
-  QAComponent,
-  VoteComponent,
+  QAComponent
 ];
 @NgModule({
   declarations: [components],

@@ -4,7 +4,9 @@
 >
   <img
     src="../../../../../assets/img/payment-result.webp"
-    alt="payment-result"  width="205" height="100"
+    alt="payment-result"
+    width="205"
+    height="100"
   />
   <strong class="text-2xl sm:text-3xl mt-4 text-[#0540F2] font-fat"
     >سفارش شما ثبت شد</strong
@@ -17,24 +19,28 @@
     </p>
   </div>
   <strong class="text-base sm:text-xl text-black font-bold"
-    >کد پیگیری درخواست: 0927262</strong
+    >کد پیگیری درخواست: {{ code }}</strong
   >
   <div
     class="flex gap-4 flex-row sm:gap-10 lg:gap-20 mt-6 w-full justify-center transition-all"
   >
     <div class="basis-auto">
-      <button
-        class="min-w-[7.5rem] min-h-[2.75rem] sm:min-w-[10.5rem] sm:min-h-[3.25rem] bg-[#3246D3] rounded-lg text-white font-bold text-base sm:text-xl"
-      >
-        صفحه اصلی
-      </button>
+      <a [routerLink]="'../../../home'">
+        <button
+          class="min-w-[7.5rem] min-h-[2.75rem] sm:min-w-[10.5rem] sm:min-h-[3.25rem] bg-[#3246D3] rounded-lg text-white font-bold text-base sm:text-xl"
+        >
+          صفحه اصلی
+        </button>
+      </a>
     </div>
     <div class="basis-auto">
-      <button
-        class="min-w-[7.5rem] min-h-[2.75rem] sm:min-w-[10.5rem] sm:min-h-[3.25rem] bg-[#3246D3] rounded-lg text-white font-bold text-base sm:text-xl"
-      >
-        پنل کاربری
-      </button>
+      <a [href]="profilePanel" target="_blank">
+        <button
+          class="min-w-[7.5rem] min-h-[2.75rem] sm:min-w-[10.5rem] sm:min-h-[3.25rem] bg-[#3246D3] rounded-lg text-white font-bold text-base sm:text-xl"
+        >
+          پنل کاربری
+        </button>
+      </a>
     </div>
   </div>
 </div>
