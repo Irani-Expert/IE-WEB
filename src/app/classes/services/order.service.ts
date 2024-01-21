@@ -42,6 +42,11 @@ export class OrderService extends BaseService<any> {
       })
       .pipe(
         map((res) => {
+          if (res.success) {
+            this.toastSuccess(res.message);
+          } else {
+            this.toastError(res.message);
+          }
           return res;
         })
       );
@@ -69,6 +74,18 @@ export class OrderService extends BaseService<any> {
       this.basket.value.basketItems.splice(index, 1);
     }
     this.basket.value.totalPrice -= item.price;
+  }
+  override get(path: string): Observable<Result<any>> {
+    const token = this.auth._user.token;
+    return this.http.get<Result<any>>(`${environment.apiUrl + path}`, {
+      headers: {
+        accept: 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Origin': '*',
+        Authorization: `Bearer ${token}`,
+      },
+    });
   }
   // fillBasket() {
   //   let item = JSON.parse(this.localStorage.getItem('basketItems')!);

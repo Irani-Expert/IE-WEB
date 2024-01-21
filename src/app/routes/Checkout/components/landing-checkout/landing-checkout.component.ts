@@ -36,6 +36,7 @@ export class LandingCheckoutComponent {
   // ClipBoard ------------------->
   ticked = false;
   showClipboardContent = false;
+  timeOut: NodeJS.Timeout;
   copyToClipboard(el: HTMLInputElement) {
     if (!this.ticked) {
       this.ticked = true;
@@ -153,6 +154,7 @@ export class LandingCheckoutComponent {
     this.formMaker.inputs.forEach((item) => {
       this.formGroup.setControl(item.name, this.formMaker.createControl(item));
     });
+
     // Forms ------------->
 
     // User -------------->
@@ -168,12 +170,12 @@ export class LandingCheckoutComponent {
       this.orderModel.totalPrice = item.totalPrice;
       this.basket = item.basketItems;
     });
+    this.formGroup.controls['discountCode'].disable();
   }
   formToOrderModel() {
     this.orderModel.accountNumber = this._formControls['accountNumber'].value;
     this.orderModel.startDate = this._formControls['startDate'].value;
     this.orderModel.acceptRules = this._formControls['acceptRules'].value;
-    console.log(this.orderModel);
   }
   OnChangeDate(event: any) {
     this.selectedDate = event;
@@ -240,6 +242,16 @@ export class LandingCheckoutComponent {
   }
   locateBack() {
     this._location.back();
+  }
+  timeout() {
+    this.timeOut = setTimeout(() => {
+      if (this.showClipboardContent) {
+        this.showClipboardContent = false;
+      }
+    }, 5000);
+  }
+  deleteTimeOut() {
+    clearTimeout(this.timeOut);
   }
 }
 

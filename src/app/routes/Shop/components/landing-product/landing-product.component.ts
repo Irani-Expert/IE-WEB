@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SingleProduct } from 'src/app/classes/interfaces/product.interface';
 
 import { ActivatedRoute } from '@angular/router';
 import { Meta } from '@angular/platform-browser';
@@ -12,14 +11,13 @@ import { ProductService } from 'src/app/classes/services/product.service';
 })
 export class LandingProductComponent {
   loading: boolean = true;
-  product: SingleProduct;
-
+  title: string;
   constructor(
     private _activatedRoute: ActivatedRoute,
     public productService: ProductService,
     private meta: Meta
   ) {
-    this._activatedRoute.url.subscribe((it) => console.log(it));
+    this._activatedRoute.url.subscribe((it) => (this.title = it[0].path));
   }
   ngOnInit() {
     // =================[متاتگ ها]==========
@@ -44,16 +42,12 @@ export class LandingProductComponent {
     el.scrollIntoView({ behavior: 'smooth' });
   }
   async getProduct(id: number) {
-    this.productService.get(`Product/GetByID/${id}`).subscribe({
-      next: (value) => {
-        if (value.success) {
-          this.product = value.data;
-          this.loading = false;
-        }
-      },
-    });
+    const apiRes = await this.productService.getProduct(id);
+    return apiRes;
   }
   async ngAfterViewInit() {
-    this.getProduct(1);
+    if (await this.getProduct(1)) {
+      this.loading = false;
+    }
   }
 }
