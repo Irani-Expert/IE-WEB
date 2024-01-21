@@ -26,6 +26,7 @@
       <button
         (click)="sliderMovement(false)"
         [ngClass]="lowwerSlide >= 2 ? 'active-btn' : ''"
+        [disabled]="!(lowwerSlide >= 2)"
         class="flex justify-center items-center rounded-xl mx-2 h-16 w-16 pt-1 bg-[#ebebeb] cursor-context-menu"
       >
         <i class="ie-icon ie-dir w-3.5"></i>
@@ -33,6 +34,7 @@
       <button
         (click)="sliderMovement(true)"
         [ngClass]="upperSlide < lenCommentModel.length ? 'active-btn' : ''"
+        [disabled]="!(upperSlide < lenCommentModel.length)"
         class="flex justify-center items-center rounded-xl mx-2 h-16 w-16 pt-1 bg-[#ebebeb] cursor-context-menu"
       >
         <i class="ie-icon ie-dir bottom-[5px] left w-3.5"></i>
