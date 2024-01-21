@@ -41,7 +41,7 @@ export class CopyTradeComponent {
     // =======[هشتگ ها]======
     tags : Array<any> = [
       {
-        title : '#ربات_معامله_گر ',
+        title : '#کپی_ترید',
         value : 1
       }
     ]

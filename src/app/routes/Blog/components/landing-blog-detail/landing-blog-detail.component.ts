@@ -46,13 +46,11 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
   sendDataToChild = false;
 
   options: config = { multi: false };
-
   // =================[فیلتر]=============
   categoryDetailIcon: string = 'assets/icon/filter-icon-blog(detail).svg';
   categoryDetailHeader: string = 'دسترسی سریع';
   tags: ITags[];
   color = 'white';
-
   // =======================[رسپانسیو]==========
 
   device: 'sm' | 'lg' = 'lg';

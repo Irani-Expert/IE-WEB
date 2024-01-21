@@ -116,5 +116,12 @@ export class BlogDetailComponent {
     this.articleHtml = this._sanitizer.bypassSecurityTrustHtml(
       this.articleModel.description
     );
+    // ==========={بردر جدول}=====
+    const table = document.getElementsByTagName('table');
+     setTimeout(()=> {
+      for(let i = 0; i >= table.length ;i++) {
+        table[i].className = 'table-articles'
+      }    
+     })
   }
 }
