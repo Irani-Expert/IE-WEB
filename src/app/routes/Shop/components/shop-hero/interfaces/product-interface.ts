@@ -9,9 +9,10 @@
 // }
 // ===========[وب سرویس خودم]===============
 export interface planInterface {
-    id : number;
-    title : string;
-    active : boolean;
-    offPrice : number;
-    price : number;
+  id: number;
+  title: string;
+  active: boolean;
+  offPrice: number;
+  price: number;
+  description: string;
 }

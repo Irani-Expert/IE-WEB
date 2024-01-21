@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import {
   ActivatedRoute,
@@ -15,11 +15,13 @@ import {
   lastValueFrom,
   takeUntil,
 } from 'rxjs';
+import { AppComponent } from 'src/app/app.component';
 import { FilterProduct } from 'src/app/classes/interfaces/filter-product.interface';
 import { Product } from 'src/app/classes/interfaces/product.interface';
 import { Page } from 'src/app/classes/page.model';
 import { LinkService } from 'src/app/classes/services/link.service';
 import { ProductService } from 'src/app/classes/services/product.service';
+import { Utils } from 'src/app/classes/utils';
 import { FilterService } from 'src/app/shared/filter/filter.service';
 import {
   IFilterGroup,
@@ -30,6 +32,7 @@ import {
   RatingConfig,
   StarRating,
 } from 'src/app/shared/rating/rating-config';
+import { environment } from 'src/environments/environment.dev';
 
 @Component({
   selector: 'app-landing-shop',
@@ -37,6 +40,7 @@ import {
   styleUrls: ['./landing-shop.component.scss'],
 })
 export class LandingShopComponent {
+  contentUrl = environment.contentUrl;
   sortFilter = [
     { name: 'همه محصولات', id: 1 },
     { name: 'محصولات غیر رایگان', id: 2 },
@@ -98,6 +102,7 @@ export class LandingShopComponent {
     type: 0,
   };
   filterModel = new FilterProduct();
+  device: string;
   constructor(
     public productService: ProductService,
     private _router: Router,
@@ -137,6 +142,7 @@ export class LandingShopComponent {
   }
   // Init Page Needs and Navigation --------------------------------------->
   async ngOnInit() {
+    this.updateDeviceValue();
     this.routerSubscriber = this._router.events
       .pipe(takeUntil(this.routeSubject))
       .subscribe({
@@ -379,6 +385,20 @@ export class LandingShopComponent {
       this.productService.prdArray.next(null);
       this.filterModel = new FilterProduct();
       this._router.navigateByUrl(`shop/page`);
+    }
+  }
+  @HostListener('window:resize', ['$event'])
+  OnResize() {
+    this.updateDeviceValue();
+  }
+
+  updateDeviceValue() {
+    if (AppComponent.isBrowser.value) {
+      if (Utils.isMobileL()) {
+        this.device = 'sm';
+      } else {
+        this.device = 'lg';
+      }
     }
   }
 }

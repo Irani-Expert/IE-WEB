@@ -24,6 +24,7 @@ const planInit: planInterface = {
   offPrice: 0,
   price: 0,
   title: '',
+  description: '',
 };
 
 @Component({
@@ -69,6 +70,7 @@ export class ShopHeroComponent implements OnInit {
           active: false,
           price: it.price,
           title: it.title,
+          description: it.description,
         });
       });
 
@@ -77,7 +79,7 @@ export class ShopHeroComponent implements OnInit {
   }
 
   // ==========={اکتیو}=========
-  toggle(plan: planInterface, index: number) {
+  toggle(plan: planInterface) {
     if (this.selectedPlan.id == plan.id) {
       return;
     }

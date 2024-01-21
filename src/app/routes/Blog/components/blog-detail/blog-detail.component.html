@@ -32,7 +32,7 @@
   </div>
   <p class="mt-8">{{ articleModel.brief }}</p>
   <!-- =================[آرتیکلز]========= -->
-  <div [innerHTML]="articleHtml" class="mt-6"></div>
+  <div id="ckeditor" [innerHTML]="articleHtml" class="mt-6"></div>
 
   <!-- ===============[سوالات متداول]==============     -->
   <!-- ===============[ نویسنده]==============     -->
@@ -93,7 +93,7 @@
     {{ articleModel.brief }}
   </p>
   <!-- =================[آرتیکلز]========= -->
-  <div [innerHTML]="articleHtml" class="mt-6 article-desription"></div>
+  <div id="ckeditor" [innerHTML]="articleHtml" class="mt-6"></div>
   <div class="flex mt-8 items-center flex-wrap gap-2">
     <img src="assets/img/avatar.webp" alt="avatar" width="74" height="74" />
     <div class="basis-3/4 flex flex-col gap-2">
