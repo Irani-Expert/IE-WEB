@@ -151,7 +151,7 @@ export class ItemsSearchComponent {
         route = 'shop/atm-expert'
         break;
       case 36:
-        route = `brokers/${browserTitle}`
+        route = `brokers/${browserTitle}/fa`
         break;
 
     }
