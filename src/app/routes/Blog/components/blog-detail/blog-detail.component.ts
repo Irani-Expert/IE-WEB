@@ -96,6 +96,7 @@ export class BlogDetailComponent {
     this._linkService.createLink(
       `https://www.iraniexpert.com/articles/${href}/${lang}`
     );
+    
     this._meta.updateTag({
       name: 'description',
       content: this.articleModel.metaDescription,
@@ -116,12 +117,5 @@ export class BlogDetailComponent {
     this.articleHtml = this._sanitizer.bypassSecurityTrustHtml(
       this.articleModel.description
     );
-    // ==========={بردر جدول}=====
-    const table = document.getElementsByTagName('table');
-     setTimeout(()=> {
-      for(let i = 0; i >= table.length ;i++) {
-        table[i].className = 'table-articles'
-      }    
-     })
   }
 }

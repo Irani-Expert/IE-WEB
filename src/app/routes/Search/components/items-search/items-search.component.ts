@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { searchServices } from 'src/app/classes/services/search.services';
 import { environment } from 'src/environments/environment.dev';
+import { ILottieConfig } from 'src/app/shared/lottie/lottie-config';
 
 @Component({
   selector: 'app-items-search',
@@ -8,13 +9,21 @@ import { environment } from 'src/environments/environment.dev';
   styleUrls: ['./items-search.component.scss'],
 })
 export class ItemsSearchComponent {
+  lottieConfig: ILottieConfig = {
+    width: '100%',
+    max_w: '320px',
+    height: 'auto',
+    path: 'assets/lottie/no-info.json',
+  };
+
   allItems: any = [];
   contentUrl = environment.contentUrl;
   loading = true;
-  selectedTableType : number;
+  selectedTableType : number | null;
   // ==========[هاور]=====
   timer: any;
   showingItem: any;
+  massage : boolean;
 
   ngOnInit() {
     this.toggle(0);
@@ -25,16 +34,23 @@ export class ItemsSearchComponent {
     //   this.allItems.push(item);
     // });
   }
-  changeViewItem(tableType: number) {
+  changeViewItem(tableType: number | null) {
+    this.loading = true
     if (tableType == null) {
       this.showingItem = this.allItems;
     } else {
       this.showingItem = this.allItems
         .slice()
-        .filter((it: any) => it.tableType == tableType);
-    }
+        .filter((it: any) => it.tableType == tableType);        
+      }
     this.selectedTableType = tableType;
-    console.log(this.selectedTableType);
+    if (this.showingItem.length == 0 || null || undefined){
+      this.massage = true;
+    }
+    else {
+      this.massage = false;
+    }
+    this.loading = false
   }
 
   changesort(item: any) {
@@ -97,27 +113,31 @@ export class ItemsSearchComponent {
   constructor(private searchService: searchServices) {
     this.searchService.searchModel$.subscribe({
       next: (value) => {
+        this.selectedTableType = null
         this.allItems = [];
 
         this.loading = true;
         value.articles.forEach((it) => {
           let item = { ...it, tableType: 1 };
-          this.allItems.push(item);
+            this.allItems.push(item);
         });
         value.products.forEach((it) => {
           let item = { ...it, tableType: 6 };
           this.allItems.push(item);
+
         });
         value.brokers.forEach((it) => {
           let item = { ...it, tableType: 36 };
           this.allItems.push(item);
+
         });
         value.calendarEvents.forEach((it) => {
           let item = { ...it, tableType: 34 };
           this.allItems.push(item);
+
         });
-        this.showingItem = this.allItems;
-        this.loading = false;
+        this.changeViewItem(null)
+        this.toggle(0)
       },
     });
   }
@@ -131,7 +151,7 @@ export class ItemsSearchComponent {
         route = 'shop/atm-expert'
         break;
       case 36:
-        route = `brokers/${browserTitle}`
+        route = `brokers/${browserTitle}/fa`
         break;
 
     }
