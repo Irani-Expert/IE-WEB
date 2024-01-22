@@ -8,4 +8,9 @@ import { Blog } from 'src/app/classes/interfaces/blog.interface';
 })
 export class LandingArticleResponsiveComponent {
   @Input() blogs: Blog;
+  routeLink() {
+    let browserTitle = this.blogs.browserTitle;
+    let lang = this.blogs.isRTL ? 'fa' : 'en';
+    return browserTitle + '/' + lang;
+  }
 }

@@ -9,4 +9,9 @@ import { Blog } from 'src/app/classes/interfaces/blog.interface';
 export class LandingArticleComponent {
   @Input() blogs: Blog[];
   constructor() {}
+  routeLink(blog: Blog) {
+    let browserTitle = blog.browserTitle;
+    let lang = blog.isRTL ? 'fa' : 'en';
+    return browserTitle + '/' + lang;
+  }
 }
