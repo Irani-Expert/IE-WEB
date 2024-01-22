@@ -36,26 +36,37 @@
     </button>
   </ng-container>
 </div>
-
+<div *ngIf="massage == true" class="flex flex-col items-baseline">
+  <div>
+    <app-lottie [config]="lottieConfig" />
+    <p class="rounded-3xl mr-16 bg-[#e6effd] text-[#2f65b9] text-3xl py-2 px-4">
+      متاسفانه هیچ مطلبی در این رابطه پیدا نشد
+    </p>
+  </div>
+</div>
 <ng-container *ngIf="!loading">
   <div class="h-[33rem] overflow-auto" id="dropdown-item">
     <ng-container *ngFor="let hvr of showingItem; let i = index">
       <!-- ============[هاور به پایین]======================== -->
-      <div class="h-full menu-wrapper-down hidden lg:block 2xl:hidden">
+      <div  class="h-full menu-wrapper-down hidden lg:block 2xl:hidden">
         <ul [ngClass]="hvr.active ? 'show-menu-down' : 'hide-menu-down'">
-          <div class="box-hover-down">
+          <div (mouseenter)="changesort(hvr)" class="box-hover-down">
             <div class="flex flex-row">
               <div class="basis-1/3">
                 <img
+                *ngIf="hvr.tableType !== 34"
                   class="img-hvr-item-down"
                   [src]="contentUrl + hvr.cardImagePath"
                   alt="img-item"
                   width="100"
                   height="75"
                 />
+                <i *ngIf="hvr.tableType == 34" class="scale-[7] my-16 fi fi-{{hvr.code | lowercase}}"></i>
               </div>
               <div class="basis-2/3 mr-4">
-                <h6 class="title-hover-down">{{ hvr.title }}</h6>
+                <h6 class="title-hover-down" *ngIf="hvr.tableType !== 34">{{ hvr.title }}</h6>
+                <h6 class="title-hover-down" *ngIf="hvr.tableType == 34">{{ hvr.secondName }}</h6>
+
                 <p>
                   {{ hvr.brief }}
                 </p>
@@ -126,7 +137,7 @@
                   <div *ngIf="hvr.tableType == 6" class="flex flex-row w-full">
                     <p class="details ml-8">محصولات</p>
                     <p class="details ml-8">فروشنده :{{ hvr.seller }}</p>
-                    <p class="details ml-8">کمترین قیمت :{{ hvr.minPrice }}</p>
+                    <p class="details ml-8">کمترین قیمت :{{ hvr.minPrice !== 0 ? hvr.minPrice : ("20" | currency) }}</p>
                   </div>
                   <div *ngIf="hvr.tableType == 36" class="flex flex-row w-full">
                     <p class="details ml-8 flex w-28 "><i class="broker-search ml-2"></i>بررسی بروکر </p>
