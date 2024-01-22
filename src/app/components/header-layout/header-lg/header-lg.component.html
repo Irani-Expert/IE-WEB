@@ -8,7 +8,9 @@
       <img
         src="assets/icon/logo.svg"
         class="mr-1 h-12 w-auto"
-        alt="Irani-Expert Logo" width="34" height="20"
+        alt="Irani-Expert Logo"
+        width="34"
+        height="20"
       />
     </a>
     <div class="justify-between items-center flex w-auto mr-auto">
@@ -77,6 +79,15 @@
       </button>
     </div>
     <div *ngIf="loggedIn" class="flex items-center">
+      <a [href]="panelUrl" target="_blank">
+        <button
+          [disabled]="_btnDisabled"
+          type="button"
+          class="button-subscription rounded-lg px-1 text-white font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 mx-1"
+        >
+          پنل کاربری
+        </button>
+      </a>
       <button
         [disabled]="_btnDisabled"
         type="button"

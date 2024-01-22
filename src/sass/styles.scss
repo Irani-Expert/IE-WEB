@@ -36,6 +36,16 @@ body {
   background: #6db500;
   @extend .button-styles;
 }
+.header-panel-button {
+  padding: 0.625rem;
+  background: #6db500;
+  @extend .button-styles;
+}
+.header-exit-button {
+  padding: 0.625rem;
+  background: #fb3556;
+  @extend .button-styles;
+}
 .bg-main-blue {
   background-color: $blue;
 }
