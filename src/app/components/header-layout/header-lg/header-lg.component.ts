@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/shared/auth/auth.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
-import { filter } from 'rxjs';
+import { Observable, filter } from 'rxjs';
 
 @Component({
   selector: 'app-header-lg',
@@ -18,6 +18,8 @@ import { filter } from 'rxjs';
 export class HeaderLgComponent extends Header {
   @Output('modal') openingModal: EventEmitter<string> = new EventEmitter(false);
   hoveredItem = -1;
+  user$: Observable<any>;
+  panelUrl = '';
   nav: IMenuItem[] = new Array<IMenuItem>();
   constructor(
     navService: NavigationService,
@@ -28,6 +30,7 @@ export class HeaderLgComponent extends Header {
     private location: Location
   ) {
     super(navService);
+    this.user$ = this.auth.userSubject.asObservable();
   }
   onHover(index: number) {
     this.hoveredItem = index;
@@ -61,6 +64,13 @@ export class HeaderLgComponent extends Header {
     }
   }
   ngOnInit() {
+    this.user$.subscribe({
+      next: async (val) => {
+        if (val.token !== '') {
+          this.panelUrl = `https://panel.iraniexpert.com/#/checkUserPermission?token=${val.token}`;
+        }
+      },
+    });
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((item) => {
