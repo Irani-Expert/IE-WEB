@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { searchServices } from 'src/app/classes/services/search.services';
 import { environment } from 'src/environments/environment.dev';
 import { ILottieConfig } from 'src/app/shared/lottie/lottie-config';
+import { RatingConfig, StarRating } from 'src/app/shared/rating/rating-config';
 
 @Component({
   selector: 'app-items-search',
@@ -157,4 +158,9 @@ export class ItemsSearchComponent {
     }
     return route
   }
+    // ============[ستاره ها]==================
+    star: RatingConfig<StarRating> = {
+      type: 1,
+      content: { readonly: true, currentRate: 4, rate: 5 },
+    };
 }

@@ -48,7 +48,6 @@ const components = [
     SharedModule,
     RatingComponent,
     FilterComponent,
-    RatingComponent,
     Checkbox,
     SearchComponent,
   ],
