@@ -33,6 +33,7 @@ import { CommonModule } from '@angular/common';
   ],
 })
 export class ModalComponent {
+  @Input('footer') footer: boolean = false;
   @Input('header') header: boolean = true;
   @Input('overflow') overflow!: string;
   @Input('width') width: string = 'auto';
