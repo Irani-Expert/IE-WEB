@@ -1,9 +1,5 @@
-<div class="flex justify-center">
-  <div
-    id="main{{ this.vId }}"
-    class="sm:p-4 box-shadow-ac"
-    [ngClass]="homeScreen ? 'home-height' : ''"
-  >
+<div id="main{{ this.vId }}" class="box-shadow-ac h-full">
+  <div class="absolute h-full w-full">
     <video
       width="100%"
       height="20%"
@@ -20,25 +16,46 @@
     >
       <source src="{{ videoLink }}" type="video/mp4" />
     </video>
+  </div>
+
+  <div class="flex w-full h-full content-end flex-wrap">
+    <div class="p-div d-flex justify-center align-middle btn-span h-[60%]">
+      <span
+        class="fa-stack fa-4x opacity-100 flex justify-center items-center"
+        [@fade]
+        *ngIf="!hidePuase"
+      >
+        <div
+          class="flex justify-center items-center bg-[#3246d3] sm:pt-2.5 md:w-28 md:h-28 w-20 h-20 rounded-full"
+        >
+          <i
+            class="ie-icon"
+            [ngClass]="{
+              'ie-puase ': pauseplay,
+              'ie-Polygon    me-2 max-md:mt-2': !pauseplay
+            }"
+            (click)="puasePaceVideo()"
+          ></i>
+        </div>
+      </span>
+    </div>
+
     <div
-      class="items-center p-div flex justify-center text-2xl sm:p-2 sm:px-16 px-4 pb-2"
-      [ngClass]="
-        isFullScreen ? 'bottom-0' : 'top-[7rem] md:top-[75%] sm:top-[55%]'
-      "
+      class="flex items-center p-div text-2xl p-2"
+      [ngClass]="!isFullScreen ? 'justify-evenly ' : '   justify-center'"
     >
       <i
-        class="fa fa-expand ie-icon me-3 text-base text-white ms-2 flex items-center"
-        [ngClass]="!isFullScreen ? 'ie-expand' : 'ie-expand'"
+        class="ie-icon ie-expand text-base text-white flex items-center mx-1.5"
         (click)="fullScreen()"
       ></i>
 
-      <div class="me-3 mt-1 text-white flex items-center">
+      <div class="text-white flex items-center">
         {{ videoCurrentTime }}
       </div>
       <progress
         dir="ltr"
         (drag)="dragFiunction($event)"
-        class="pr-Before w-full"
+        class="pr-Before mb-1.5"
         (click)="handleClick($event)"
         [value]="progressValue"
         min="0"
@@ -47,43 +64,14 @@
       ></progress>
 
       <i
-        class="ms-1 ie-icon text-white flex items-center text-base small max-w-[12px]"
+        class="ms-1 ie-icon text-white flex items-center text-base small"
         [ngClass]="{
-          'ie-puase ': pauseplay,
+          'ie-puase max-w-[14px] mb-2': pauseplay,
           'ie-Polygon ': !pauseplay
         }"
         (click)="puasePaceVideo()"
       ></i>
     </div>
-    <div
-      class="p-div d-flex justify-center align-middle btn-span"
-      [ngClass]="
-        !isFullScreen ? 'sm:bottom-[48%] bottom-[6rem]' : 'bottom-[24rem]'
-      "
-    >
-      <span
-        class="fa-stack fa-4x opacity-100 flex justify-center items-center"
-        [@fade]
-        *ngIf="!hidePuase"
-      >
-        <!-- <i
-          class="fa fa-circle sm:fa-stack-2x sm:text-9xl text-7xl text-[#3246d3]"
-        ></i> -->
-        <div
-          class="flex justify-center items-center bg-[#3246d3] sm:pt-2.5 md:w-28 md:h-28 sm:w-20 sm:h-20 w-12 h-12 rounded-full"
-          [ngClass]="{ 'max-sm:items-end': pauseplay }"
-        >
-          <i
-            class="ie-icon"
-            [ngClass]="{
-              'ie-puase sm:pb-2 ': pauseplay,
-              'ie-Polygon   sm:pl-4 sm:pb-0 pl-2  pb-2 ': !pauseplay
-            }"
-            (click)="puasePaceVideo()"
-          ></i>
-        </div>
-      </span>
-    </div>
-    <ng-content></ng-content>
   </div>
 </div>
+<ng-content></ng-content>
