@@ -55,7 +55,7 @@ export class ShopHeroComponent implements OnInit {
       count: 1,
       price: 0,
       rowID: this.product.id,
-      tableType: 17,
+      tableType: 6,
       title: this.product.title,
       id: this._orderService.basket.value.basketItems.length + 1,
     };

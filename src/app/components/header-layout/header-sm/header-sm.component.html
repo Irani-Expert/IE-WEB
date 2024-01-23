@@ -39,13 +39,27 @@
 
     <ng-container style="margin-top: 50%" *ngFor="let item of items">
       <li
-        [routerLink]="item.path"
+        *ngIf="item.path !== undefined"
         class="justify-end p-2.5 pr-8 flex cursor-pointer hover:bg-[#293dc8]"
         [ngClass]="item.active ? 'active-tab' : ''"
         (click)="choosenLink(item.id)"
       >
-        <a class="text-white no-underline font-medium">{{ item.name }} </a>
+        <a [routerLink]="item.path" class="text-white no-underline font-medium"
+          >{{ item.name }}
+        </a>
       </li>
+      <ng-container *ngFor="let sub of item.sub">
+        <li
+          class="justify-end p-2.5 pr-8 flex cursor-pointer space-y-5 hover:bg-[#293dc8]"
+          *ngIf="item.path == undefined"
+        >
+          <a
+            class="text-white no-underline font-medium block"
+            [routerLink]="sub.path"
+            >{{ sub.name }}</a
+          >
+        </li>
+      </ng-container>
     </ng-container>
 
     <li class="justify-end p-2.5 pr-8 flex" *ngIf="!loggedIn">
