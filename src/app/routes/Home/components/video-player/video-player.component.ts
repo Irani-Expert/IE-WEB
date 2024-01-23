@@ -17,7 +17,6 @@ import { AppComponent } from 'src/app/app.component';
 })
 export class VideoPlayerComponent implements OnInit, AfterViewInit {
   @Input({ required: true }) VideoId!: number;
-  @Input() homeScreen: boolean = false;
   @Input('Link') videoLink: string;
 
   constructor() {}

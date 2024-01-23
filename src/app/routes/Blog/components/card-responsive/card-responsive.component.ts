@@ -15,6 +15,8 @@ class BlogModel implements Blog {
   studyTime: string = '';
   publishDate: string = '';
   brief: string = '';
+  favoriteCount : number = 0;
+
 }
 
 @Component({

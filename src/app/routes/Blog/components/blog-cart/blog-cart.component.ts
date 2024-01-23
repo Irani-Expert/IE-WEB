@@ -18,6 +18,7 @@ class BlogModel implements Blog {
   publishDate: string = '';
   browserTitle: string = '';
   brief: string = '';
+  favoriteCount : number = 0;
 }
 @Component({
   selector: 'app-blog-cart',
@@ -31,6 +32,7 @@ export class BlogCartComponent {
   url = '';
   @Input('data') item: Blog = new BlogModel();
 
+  like : number;
   // =======================[رسپانسیو]==========
 
   device: 'sm' | 'lg' = 'lg';
@@ -39,6 +41,12 @@ export class BlogCartComponent {
     let language = this.item.isRTL ? 'fa' : 'en';
     this.url = this.item.browserTitle.split(' ').join('_') + '/' + language;
     this.loading = false;
+    if( this.item.favoriteCount ==  null){
+      this.like = 25
+    }
+    else {
+      this.like = this.item.favoriteCount;
+    }
   }
 
   @HostListener('window:resize', ['$event'])
