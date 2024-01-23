@@ -75,7 +75,7 @@
                     <app-rating [config]="star"></app-rating>
                   </span>
                   <p class="bot-rating relative text-sm font-bold">
-                    <span class="Common">{{hvr.rate}}</span>
+                    <span class="Common">{{hvr.rate | number: "1.0-1"}}</span>
                     <span class="view mx-1 px-1">بازدید ها {{hvr.viewsCount}} </span>
                     <span class="Common">مشترک ها {{hvr.ordersCount}}</span>
                   </p>
@@ -118,7 +118,7 @@
                   <app-rating [config]="star"></app-rating>
                 </span>
                 <p class="bot-rating relative text-sm font-bold">
-                  <span class="Common">{{hvr.rate}}</span>
+                  <span class="Common">{{hvr.rate | number: "1.0-1"}}</span>
                   <span class="view mx-1 px-1">بازدید ها {{hvr.viewsCount}} </span>
                   <span class="Common">مشترک ها {{hvr.ordersCount}}</span>
                 </p>

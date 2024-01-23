@@ -1,4 +1,4 @@
-<div [ngClass]="device == 'lg' ? 'flex' : 'hidden'">
+<div class="hidden lg:block">
   <ng-container *ngIf="!loading">
 
   <div class="cart flex-col flex justify-between">
@@ -54,7 +54,7 @@
   </ng-container>
 </div>
 <!-- ======================[رسپانسیو}======== -->
-<div [ngClass]="device == 'sm' ? 'flex' : 'hidden'">
+<div class="lg:hidden">
   <ng-container *ngIf="!loading">
 
   <div class="grid grid-cols-4 mb-8">
@@ -74,7 +74,7 @@
           <p class="date-card ml-8">
             زمان انتشار: {{ item.publishDate | date }}
           </p>
-          <p class="date-card">زمان مطالعه: {{ item.viewsCount % 25 }} دقیقه</p>
+          <p class="date-card">زمان مطالعه: {{ item.studyTime }} دقیقه</p>
         </div>
       </div>
     </div>
