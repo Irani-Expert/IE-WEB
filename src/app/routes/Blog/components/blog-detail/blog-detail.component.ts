@@ -30,6 +30,7 @@ class SingleBlogModel implements SingleBlog {
   isRTL: boolean = false;
   metaDescription: string = '';
   browserTitle: string = '';
+  favoriteCount : number = 0;
   linkTags: [{ title: string; value: number }] = [{ title: '', value: 0 }];
   sharpLinkTags: [{ title: string; value: number }] = [{ title: '', value: 0 }];
   faQs: FAQ[] = new Array<FAQ>();

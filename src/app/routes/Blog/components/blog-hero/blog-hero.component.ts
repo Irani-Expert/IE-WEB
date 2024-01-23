@@ -22,6 +22,8 @@ class BlogModel implements Blog {
   browserTitle: string = '';
   brief: string = '';
   language?: string = '';
+  favoriteCount : number = 0;
+
 }
 @Component({
   selector: 'app-blog-hero',
