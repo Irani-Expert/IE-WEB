@@ -265,7 +265,7 @@
             به عهده خود آنان است و «ایرانی اکسپرت» در این‌باره مسئولیتی ندارد
           </p>
         </div>
-        <span class="colse-btn">&times;</span>
+        <!-- <span class="colse-btn">&times;</span> -->
       </div>
     </div>
 
@@ -349,7 +349,7 @@
 
 <!-- Description -->
 
-<div
+<!-- <div
   class="h-24 mx-8 flex py-2 justify-center bg-[#84AE40] items-center rounded-2xl"
 >
   <img
@@ -363,7 +363,7 @@
     *ngIf="!dataLoaded.value"
     class="max-h-full object-contain self-center"
   ></div>
-</div>
+</div> -->
 
 <!-- Description -->
 
@@ -404,10 +404,10 @@
         </div>
       </div>
     </div>
-    <div [innerHTML]="brokerDescHtml"></div>
+    <div id="ckeditor" [innerHTML]="brokerDescHtml"></div>
     <div
       *ngIf="dataLoaded.value"
-      class="flex flex-col md:flex-row justify-center items-stretch gap-10"
+      class="flex flex-col md:flex-row justify-center items-stretch gap-10 mt-8"
     >
       <div class="inline-flex flex-col space-y-3 basis-1/2">
         <p class="text-center text-[#098B41] font-medium text-xl">مزایا</p>

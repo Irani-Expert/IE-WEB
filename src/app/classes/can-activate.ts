@@ -20,7 +20,7 @@ export class CanActivate {
   canActivate() {
     let item = this.orderService.basket.value;
     if (item.basketItems.length == 0) {
-      this.router.navigateByUrl('');
+      this.router.navigateByUrl('shop/atm-expert');
       return false;
     }
     if (!AuthService.loggedIn.value) {

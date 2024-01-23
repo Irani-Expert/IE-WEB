@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavigationService } from 'src/app/classes/services/navigation.service';
 
 @Component({
   selector: 'app-footer',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
-
+  constructor(public nav:NavigationService){
+    
+  }
 }

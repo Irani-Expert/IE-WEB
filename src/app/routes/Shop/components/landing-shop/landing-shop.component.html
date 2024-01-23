@@ -1,35 +1,52 @@
-<!-- <app-shop-hero></app-shop-hero> -->
-
-<!-- <div *ngIf="!loading">
-    <ng-container *ngFor="let item of _productService._paginatedPrd?.items">
-      <app-detail-card [item]="item" />
-    </ng-container>
-  </div> -->
-<div class="m-0 lg:px-4 py-10">
-  <div class="flex flex-col m-3">
-    <div class="flex">
-      <div class="w-full" [ngClass]="choosenSlide == 1 ? '' : 'max-sm:hidden'">
-        <div class="my-10 opacity-30 select-none relative">
-          <app-discount-banner [response]="true"></app-discount-banner>
+<div class="m-0 lg:px-4 py-5">
+  <div class="flex flex-col m-3 lg:pr-6">
+    <div class="flex min-h-[201px] max-h-[201px]">
+      <div class="w-full" [ngClass]="choosenSlide == 1 ? '' : 'hidden'">
+        <a
+          target="_blank"
+          class="w-full flex justify-center"
+          routerLink="../../../about-us"
+          [queryParams]="{ counselling: 'true' }"
+        >
+          <img
+            [src]="
+              device == 'sm'
+                ? 'assets/img/BANNER2 copy.webp'
+                : 'assets/img/Banner-Product.webp'
+            "
+            [ngClass]="device == 'sm' ? 'max-w-[459px]' : ''"
+            alt="alpari"
+            class="w-full"
+            loading="lazy"
+            height="80"
+            width="138"
+          />
+        </a>
+        <!-- <app-discount-banner [response]="true"></app-discount-banner>
           <div
             class="absolute w-full h-full z-10 bg-transparent translate-x-[50%] translate-y-[-50%] top-[50%] right-[50%]"
-          ></div>
-        </div>
+          ></div> -->
       </div>
+      <!-- </div> -->
       <div class="w-full" [ngClass]="choosenSlide == 2 ? '' : 'hidden'">
-        <div
-          class="text-white sm:hidden flex justify-around h-[7rem] sm:h-[6rem] m-3 me-0 ms-0 rounded-2xl p-4 bg-cover bg-black min-w-[18rem]"
+        <a
+          [routerLink]="'../../../brokers'"
+          target="_blank"
+          class="w-full flex justify-center"
         >
-          <div class="flex flex-col justify-end">
-            <p class="text-white">بررسی بروکر</p>
-            <p class="text-white text-xl">Alpari - آلپاری</p>
-          </div>
-          <img src="assets/img/alpari-broker-forex.webp" alt="alpari" height="80" width="138"/>
-        </div>
+          <img
+            [ngClass]="device == 'sm' ? 'max-w-[459px]' : ''"
+            src="assets/img/Untitled-1.webp"
+            class="w-full"
+            alt="brokers"
+            height="80"
+            width="138"
+          />
+        </a>
       </div>
     </div>
     <app-slider
-      class="sm:hidden"
+      class="md:hidden"
       [choosenSlide]="choosenSlide"
       (changednum)="changeSlide($event)"
     ></app-slider>
@@ -44,15 +61,19 @@
   </div>
 
   <div
-    class="flex flex-row flex-wrap lg:flex-nowrap p-3 lg:bg-white bg-[#F6F6F6]"
+    class="flex flex-row flex-wrap lg:flex-nowrap p-3 md:bg-white bg-[#F6F6F6]"
   >
     <div class="basis-1/5 hidden lg:block">
       <div class="w-full hidden items-center flex-col justify-center sm:flex">
-        <img
-          src="assets/img/alpari-broker-forex.webp"
-          class="custom-img-product"
-          alt="alpari" width="300" height="180"
-        />
+        <a [routerLink]="'../../../brokers'" target="_blank">
+          <img
+            src="assets/img/Untitled-2.webp"
+            class="custom-img-product"
+            alt="alpari"
+            width="300"
+            height="180"
+          />
+        </a>
         <app-filter
           (deleteFilters)="deleteFilters($event)"
           [filterModel]="filter"

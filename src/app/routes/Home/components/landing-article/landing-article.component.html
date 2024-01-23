@@ -10,7 +10,7 @@
 <div class="flex sm:flex-col flex-col-reverse items-center px-8">
   <div class="flex sm:justify-end justify-center w-full mt-6 mb-6">
     <a
-      routerLink="/blog"
+      routerLink="/articles"
       class="flex justify-center items-center border-2 relative text-[#3246d3] border-solid sm:w-36 bg-[#E5EDFF] border-[#E5EDFF] p-1 rounded-full font-semibold text-lg"
     >
       همه مقالات<i class="fa fa-long-arrow-left text-2xl ms-1"></i>
@@ -20,9 +20,7 @@
     <div class="hidden sm:flex ml-9 flex-col justify-between">
       <div
         class="flex justify-center mt-3 cursor-pointer"
-        [routerLink]="
-          'articles/' + blogs[0].browserTitle.split(' ').join('_') + '/fa'
-        "
+        [routerLink]="'articles/' + routeLink(blogs[0])"
       >
         <div
           class="border-separate border rounded-2xl p-4 ltr box-shadow-ac hidden sm:block"
@@ -97,9 +95,7 @@
       </div>
       <div
         class="flex justify-center mt-3 cursor-pointer"
-        [routerLink]="
-          'articles/' + blogs[1].browserTitle.split(' ').join('_') + '/fa'
-        "
+        [routerLink]="'articles/' + routeLink(blogs[1])"
       >
         <div
           class="border-separate border rounded-2xl p-4 ltr box-shadow-ac hidden sm:block"
@@ -176,15 +172,13 @@
     <div class="flex mt-3 justify-center w-9/12 sm:w-8/12">
       <div
         class="border-separate border rounded-3xl sm:rounded-2xl p-3 sm:p-4 ltr box-shadow-ac w-9/ w-full cursor-pointer"
-        [routerLink]="
-          'articles/' + blogs[2].browserTitle.split(' ').join('_') + '/fa'
-        "
+        [routerLink]="'articles/' + routeLink(blogs[2])"
       >
         <div class="h-full flex flex-col">
           <div class="w-full flex rounded-t-lg bg-[#D2EFBE] sm:h-80">
             <img
               class="rounded-t-lg"
-              style="object-fit: contain; object-position: center"
+              style="width: 100%; object-fit: cover; object-position: center"
               [src]="'https://dl.iraniexpert.com' + blogs[2].cardImagePath"
               alt="img-blog"
               width="150"

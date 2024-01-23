@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /Blog/*IE
+Disallow: /*.gif$
+Disallow: /about-us/
+Disallow: /v/
+Disallow: /*?
+Disallow: *.mp3
+Sitemap: https://www.iraniexpert.com/sitemap.xml

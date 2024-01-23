@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { SearchModel } from 'src/app/classes/interfaces/search.interface';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, Subscription, debounceTime } from 'rxjs';
 
@@ -9,8 +8,6 @@ import { Subject, Subscription, debounceTime } from 'rxjs';
   styleUrls: ['./hero-search.component.scss'],
 })
 export class HeroSearchComponent {
-  @Input('data') searchModel: SearchModel;
-
   savedItem: any;
 
   constructor(
@@ -23,7 +20,7 @@ export class HeroSearchComponent {
     this._searchInputSubscription = this._searchinput
       .pipe(debounceTime(700))
       .subscribe((value) => {
-        this.searchFilterName(value);
+        if (value.split('').length >= 3) this.searchFilterName(value);
       });
 
     this._activatedRoute.queryParams.subscribe(async (item) => {

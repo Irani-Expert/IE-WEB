@@ -96,6 +96,7 @@ export class BlogDetailComponent {
     this._linkService.createLink(
       `https://www.iraniexpert.com/articles/${href}/${lang}`
     );
+    
     this._meta.updateTag({
       name: 'description',
       content: this.articleModel.metaDescription,

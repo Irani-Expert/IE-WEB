@@ -44,8 +44,9 @@
               >
                 <div class="h-full w-full">
                   <button
-                    (click)="toggle(p, i)"
-                    class="rounded-[18px] p-2 h-full w-full transition-all"
+                    [disabled]="i == plans.length - 1"
+                    (click)="toggle(p)"
+                    class="rounded-[18px] p-2 h-full w-full transition-all disabled:opacity-50"
                     [ngClass]="p.active ? ' bg-[#3246d3]' : ' bg-[#f3f3f3]'"
                   >
                     <p
@@ -76,9 +77,7 @@
               [ngClass]="animationState ? 'price-animation' : ''"
               class="text-justify -mt-3 pl-4"
             >
-              پلن اعتماد این پلن، بدون انقضاء زمانی است و زمان انقضا هنگامی فرا
-              می‌رسد که 100 دلار سود گرفته باشد. هدف از تعریف این پلن، آشنایی
-              تریدر با نحوه کار ربات است.
+              {{ selectedPlan.description }}
             </p>
           </div>
           <div
@@ -172,7 +171,7 @@
       </div>
       <div class="flex items-center justify-center z-10">
         <a
-          [routerLink]="'../brokers'"
+          [routerLink]="'../../brokers'"
           class="link text-white px-5 py-2 mr-14 text-lg font-semibold"
         >
           مقایسه بروکرها
@@ -223,8 +222,9 @@
             [ngClass]="p.active ? ' bg-[#3246d3]' : ' bg-[#f3f3f3]'"
           >
             <button
-              class="p-2 h-full w-full transition-all"
-              (click)="toggle(p, i)"
+              [disabled]="i == plans.length - 1"
+              class="p-2 h-full w-full transition-all disabled:opacity-50"
+              (click)="toggle(p)"
             >
               <p
                 [ngClass]="
@@ -253,9 +253,7 @@
       {{ selectedPlan.title }}
     </h6>
     <p [ngClass]="animationState ? 'price-animation' : ''" class="mr-7 ml-7">
-      پلن اعتماد این پلن، بدون انقضاء زمانی است و زمان انقضا هنگامی فرا می‌رسد
-      که 100 دلار سود گرفته باشد. هدف از تعریف این پلن، آشنایی تریدر با نحوه کار
-      ربات است.
+      {{ selectedPlan.description }}
     </p>
     <h6 class="mt-16 mb-4 mr-4 ml-6 text-base font-semibold">توضیخات</h6>
     <p class="mr-7 ml-8 text-justify">
@@ -290,7 +288,7 @@
   <!-- ===========================[بنر]============== -->
   <div class="banner-mobile mx-10 my-0 rounded-2xl">
     <div class="relative">
-      <a [routerLink]="'../brokers'">
+      <a [routerLink]="'../../brokers'">
         <div class="flex flex-row bg-baner-mobile">
           <div class="basis-1/3">
             <img
@@ -319,7 +317,7 @@
       <div class="flex items-center basis-1/3">
         <button
           (click)="toCheckout(selectedPlan)"
-          class="btn-mobile px-3 py-9 text-white font-bold mr-2"
+          class="btn-mobile text-white font-bold mr-2 w-full h-[45px]"
         >
           پرداخت
         </button>

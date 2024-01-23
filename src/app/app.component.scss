@@ -3,6 +3,14 @@
   background: inherit;
   border-radius: 0 0 45px 45px;
   bottom: 100%;
-  z-index: 45;
+  z-index: 9;
   transform: translateY(40px);
+}
+.padding-all {
+  @media (min-width: 768px) {
+    padding: 0px calc(100% - 95vw);
+  }
+}
+.transition-custom {
+  transition: all 0.075s cubic-bezier(0.4, 0, 0.2, 1);
 }

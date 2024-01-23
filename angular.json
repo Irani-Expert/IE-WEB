@@ -25,6 +25,8 @@
             "inlineStyleLanguage": "scss",
             "allowedCommonJsDependencies": ["lottie-web"],
             "assets": [
+              "./src/sitemap.xml",
+              "./src/robots.txt",
               "./src/favicon.ico",
               "./src/assets/img",
               "./src/assets/icon",

@@ -4,6 +4,9 @@ import { LandingSearchComponent } from '../components/landing-search/landing-sea
 import { HeroSearchComponent } from '../components/hero-search/hero-search.component';
 import { ItemsSearchComponent } from '../components/items-search/items-search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// import { LottieModule } from 'ngx-lottie';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { RatingComponent } from 'src/app/shared/rating/rating.component';
 
 const components = [
   LandingSearchComponent,
@@ -17,7 +20,10 @@ const components = [
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    // LottieModule,
+    SharedModule,
+    RatingComponent
 
   ],
 })

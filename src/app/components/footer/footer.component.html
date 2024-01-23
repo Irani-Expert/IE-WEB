@@ -1,28 +1,32 @@
 <footer class="bg--dimGreen pt-10">
   <div class="flex text-white max-md:flex-col md:p-12">
-    <div class="m-5 sm:hidden flex justify-center">
-      <img
-        class="w-44 h-10"
-        src="../../../assets/img/logo-footer.webp"
-        alt="logo"
-        width="20"
-        height="25"
-      />
+    <div class="m-5 md:hidden flex justify-center">
+      <a href="https://www.iraniexpert.com/">
+        <img
+          class="w-44 h-10"
+          src="../../../assets/img/logo-footer.webp"
+          alt="logo"
+          width="20"
+          height="25"
+        />
+      </a>
     </div>
     <div class="flex flex-col">
-      <div class="flex sm:flex-row flex-col-reverse">
-        <div class="sm:w-5/12">
-          <div class="m-5 max-sm:hidden">
-            <img
-              class="w-60 h-32"
-              src="../../../assets/img/logo-white.webp"
-              alt="logo"
-              width="20"
-              height="25"
-            />
+      <div class="flex md:flex-row flex-col-reverse">
+        <div class="md:w-5/12">
+          <div class="m-5 max-md:hidden">
+            <a href="https://www.iraniexpert.com/">
+              <img
+                class="w-60 h-32 aspect-video object-contain"
+                src="../../../assets/img/logo-footer.webp"
+                alt="logo"
+                width="20"
+                height="25"
+              />
+            </a>
             <span class="text-lg font-bold">در ارتباط باشید</span>
           </div>
-          <div class="flex sm:m-5 max-sm:justify-center">
+          <div class="flex md:m-5 max-md:justify-center">
             <a href="https://www.telegram.me/irani_expert">
               <img
                 class="w-11 h-11 ico-res m-1"
@@ -47,13 +51,15 @@
                 width="20"
                 height="25"
             /></a>
-            <img
-              class="w-11 h-11 ico-res m-1"
-              src="../../../assets/../assets/img/04.webp"
-              alt="icon-link"
-              width="20"
-              height="25"
-            />
+            <a href="https://twitter.com/IRaniExpert">
+              <img
+                class="w-11 h-11 ico-res m-1"
+                src="../../../assets/../assets/img/04.webp"
+                alt="icon-link"
+                width="20"
+                height="25"
+              />
+            </a>
             <a href="https://www.instagram.com/irani_expert/">
               <img
                 class="w-11 h-11 ico-res m-1"
@@ -62,47 +68,66 @@
                 width="20"
                 height="25"
             /></a>
-            <img
+            <!-- <img
               class="w-11 h-11 ico-res m-1"
               src="../../../assets/../assets/img/06.webp"
               alt="icon-link"
               width="20"
               height="25"
-            />
+            /> -->
             <!-- <img
               class="w-12 h-12 ico-res m-2"
               src="../../../assets/img/03.png"
             /> -->
           </div>
-          <ul class="m-5 max-sm:text-center">
-            <li>support&#64;IraniExpert.com</li>
-            <li dir="ltr">+98 915 422 2973</li>
-            <li>Whatsapp</li>
+          <ul class="m-5 max-md:text-center">
+            <li>
+              <a href="mailto:support@IraniExpert.com"
+                >support&#64;IraniExpert.com</a
+              >
+            </li>
+            <li dir="ltr"><a href="tel:+989150502018">+98 915 050 2018</a></li>
           </ul>
         </div>
-        <div class="sm:w-6/12 flex flex-col justify-around">
-          <div class="flex max-sm:flex-col-reverse">
+        <div class="md:w-6/12 flex flex-col justify-around">
+          <div class="flex max-md:flex-col-reverse">
             <div
-              class="sm:w-4/12 max-sm:flex items-center flex-col max-sm:mt-4"
+              class="md:w-4/12 max-md:flex items-center flex-col max-md:mt-4"
             >
-              <h3 class="text-white text-xl font-bold sm:m-4 sm:ms-0">
+              <h3 class="text-white text-xl font-bold md:m-4 md:ms-0">
                 دسترسی سریع
               </h3>
-              <ul class="max-sm:flex flex-col items-center cursor-pointer">
-                <li><a href="">خانه</a></li>
+              <ul class="max-md:flex flex-col items-center cursor-pointer">
+                <ng-container *ngFor="let item of nav.defaultMenu">
+                  <li *ngIf="item.path !== undefined">
+                    <a [routerLink]="item.path">
+                      {{ item.name }}
+                    </a>
+                  </li>
+                  <li *ngIf="item.path == undefined">
+                    <ng-container *ngFor="let sub of item.sub">
+                      <a
+                        class="block mb-2 text-center md:text-start"
+                        [routerLink]="sub.path"
+                        >{{ sub.name }}</a
+                      >
+                    </ng-container>
+                  </li>
+                </ng-container>
+                <!-- <li><a href="">خانه</a></li>
                 <li [routerLink]="'/shop/page/1'">فروشگاه</li>
-                <li [routerLink]="'/blog'">مجله ایرانی اکسپرت</li>
-                <li [routerLink]="'/brokers'">بروکر ها</li>
+                <li [routerLink]="'/articles'">مجله ایرانی اکسپرت</li>
+                <li [routerLink]="'/brokers'">بروکر ها</li> -->
                 <!-- <li [routerLink]="">تقویم اقتصادی</li> -->
-                <li [routerLink]="'/about-us'">تماس با ما</li>
+                <!-- <li [routerLink]="'/about-us'">تماس با ما</li> -->
               </ul>
             </div>
-            <div class="sm:w-7/12 max-sm:flex items-center flex-col">
-              <h3 class="text-white text-xl ms-0 sm:m-4 font-bold">
+            <div class="md:w-7/12 max-md:flex items-center flex-col">
+              <p class="text-white text-xl ms-0 md:m-4 font-bold">
                 ایرانی اکسپرت
-              </h3>
+              </p>
               <p
-                class="text-white sm:text-justify p-10 py-0 max-sm:text-xs max-sm:text-center"
+                class="text-white md:text-justify p-10 py-0 max-md:text-xs max-md:text-center"
               >
                 ایرانی اکسپرت مفتخر است اعلام کند در دو فاز فعالیت دارد فاز اول
                 تولید و توسعـه ابزارهـای معاملاتی، فاز دوم فروشگاه اکسپرت برای
@@ -114,7 +139,7 @@
               </p>
             </div>
           </div>
-          <div class="sm:hidden flex justify-between my-4 items-center">
+          <div class="md:hidden flex justify-between my-4 items-center">
             <div class="text-left w-4/12"><hr /></div>
             <span class="text-lg font-bold">در ارتباط باشید</span>
             <div class="text-right w-4/12"><hr /></div>
@@ -138,7 +163,7 @@
           </div> -->
         </div>
       </div>
-      <div class="flex justify-center text-center sm:text-xl text-sm px-6">
+      <div class="flex justify-center text-center md:text-xl text-sm px-6">
         کلیه حقوق این سایت محفوظ و متعلق به سامانه آنلاین ایرانی اکسپرت میباشد
       </div>
     </div>

@@ -26,7 +26,7 @@
       </button>
       <button
         (click)="sliderMovement(true)"
-        [ngClass]="upperSlide < lenCommentModel.length ? 'active-btn' : ''"
+        [ngClass]="upperSlide < commentModel.length ? 'active-btn' : ''"
         class="flex justify-center items-center rounded-xl mx-2 h-14 w-14 pt-1 bg-[#ebebeb] cursor-context-menu"
       >
         <i class="ie-icon ie-dir bottom-[5px] left w-3.5"></i>
@@ -39,13 +39,13 @@
     <div
       class="sm:min-w-[24rem] max-w-[27rem] sm:mx-9 mt-7"
       [ngClass]="slidDirection ? 'slide-right' : 'slide-left'"
-      *ngFor="let x of lenCommentModel | slice : lowwerSlide : upperSlide"
+      *ngFor="let x of commentModel | slice : lowwerSlide : upperSlide"
     >
       <div
         class="flex sm:min-h-[15rem] flex-col justify-end border-solid bg-white z-50 border-[#d1d1d1] relative border-[1px] z rounded-xl rounded-br-none"
       >
         <p class="sm:p-8 p-6 py-10 text-justify">
-          {{ commentModel.text }}
+          {{ x.text }}
         </p>
         <div
           class="relative w-[7.67rem] sm:h-[0.7rem] h-[1.5rem] top-[3px] bg-[#ffffff]"
@@ -63,7 +63,7 @@
         />
         <div class="flex flex-col justify-around">
           <span class="text-lg font-bold"
-            >آقای {{ this.commentModel.firstname }}</span
+            >آقای {{ this.x.firstname }}</span
           >
           <span class="text-sm font-extralight"
             >رضایت مشتریان ایرانی اکسپرت</span
