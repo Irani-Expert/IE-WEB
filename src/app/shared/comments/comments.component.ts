@@ -106,7 +106,6 @@ export class CommentsComponent {
       )
     );
     // this.questionFaq = (await lastValueFrom(res)).data!;
-    debugger;
   }
   async commentServices() {
     this.formErrors = {};
