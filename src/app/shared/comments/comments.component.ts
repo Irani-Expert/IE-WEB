@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 const formDataInit: Comment = {
   id: 0,
   isActive: true,
-  userID: 54,
+  userID: 0,
   name: 'mohammad t',
   text: 'this is test',
   rate: 3,
@@ -26,7 +26,7 @@ const formDataInit: Comment = {
 export class CommentsComponent {
   @Input() rowId: number;
   formErrors: { [key: string]: string[] } = {};
-
+  commentData: Comment[] = new Array<Comment>();
   @Input() tableType: number;
   formControlInit: InputInterface[] = [
     {
@@ -84,6 +84,9 @@ export class CommentsComponent {
   get _Email(): string {
     return this.form.controls['Email'].value;
   }
+  ngOnInit() {
+    this.getComment();
+  }
   ngAfterContentChecked() {
     if (this._authservice._user.id != 0) {
       this.completedFill = true;
@@ -94,6 +97,16 @@ export class CommentsComponent {
       this.form.controls['Email'].setValue(this._authservice._user.username);
       this.form.controls['Email'].disable;
     }
+  }
+  async getComment() {
+    await lastValueFrom(
+      this._comment.get(
+        'Comment/GetByTableTypeAndRowId/1061/1?pageIndex=0&pageSize=100&accending=true      ',
+        undefined
+      )
+    );
+    // this.questionFaq = (await lastValueFrom(res)).data!;
+    debugger;
   }
   async commentServices() {
     this.formErrors = {};
