@@ -4,33 +4,53 @@
     [ngClass]="selected == 0 ? '' : 'active-Filter'"
     (click)="choosenItem(0)"
   >
-    <img src="../../../../../assets/img/Ai.webp" alt="icon" width="62" height="62" />
+    <img
+      src="../../../../../assets/img/Ai.webp"
+      alt="icon"
+      width="62"
+      height="62"
+    />
   </button>
   <button
     class="items"
     [ngClass]="selected == 1 ? '' : 'active-Filter'"
     (click)="choosenItem(1)"
   >
-    <img src="../../../../../assets/img/money.webp" alt="icon" height="45" width="60"/>
+    <img
+      src="../../../../../assets/img/money.webp"
+      alt="icon"
+      height="45"
+      width="60"
+    />
   </button>
   <button
     class="items"
     [ngClass]="selected == 2 ? '' : 'active-Filter'"
     (click)="choosenItem(2)"
   >
-    <img src="../../../../../assets/img/Mql.webp" alt="icon" width="78" height="18"/>
+    <img
+      src="../../../../../assets/img/Mql.webp"
+      alt="icon"
+      width="78"
+      height="18"
+    />
   </button>
   <button
     class="items"
     [ngClass]="selected == 3 ? '' : 'active-Filter'"
     (click)="choosenItem(3)"
   >
-    <img src="../../../../../assets/img/tradeCourse.webp" alt="icon" width="42" height="43"/>
+    <img
+      src="../../../../../assets/img/tradeCourse.webp"
+      alt="icon"
+      width="42"
+      height="43"
+    />
   </button>
 </div>
 <ng-container *ngFor="let item of defualtObj; let i = index">
   <div class="mx-6 my-4 p-2 green-border slide-right" *ngIf="i == selected">
-    <h1 class="text-2xl font-semibold color--green">{{ item.head }}</h1>
+    <h2 class="text-2xl font-semibold color--green">{{ item.head }}</h2>
     <p class="text-justify text-base">{{ item.text }}</p>
   </div>
 </ng-container>
