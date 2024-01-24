@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 const formDataInit: Comment = {
   id: 0,
   isActive: true,
-  userID: 54,
+  userID: 0,
   name: 'mohammad t',
   text: 'this is test',
   rate: 3,
@@ -25,6 +25,8 @@ const formDataInit: Comment = {
 })
 export class CommentsComponent {
   @Input() rowId: number;
+  formErrors: { [key: string]: string[] } = {};
+  commentData: Comment[] = new Array<Comment>();
   @Input() tableType: number;
   formControlInit: InputInterface[] = [
     {
@@ -65,8 +67,9 @@ export class CommentsComponent {
   form: FormGroup;
 
   @Input('data') comments: Comment[] = new Array<Comment>();
-  rateText: string = 'عالی';
+  rateText: string = 'خوب';
   rate: number = 3;
+  completedFill: boolean = false;
   putStyle(n: number, text: string) {
     this.rate = n;
     this.rateText = text;
@@ -81,40 +84,113 @@ export class CommentsComponent {
   get _Email(): string {
     return this.form.controls['Email'].value;
   }
-  ngOnInit() {}
-  async commentServices() {
+  ngOnInit() {
+    this.getComment();
+  }
+  ngAfterContentChecked() {
     if (this._authservice._user.id != 0) {
-      let formData = formDataInit;
-      formData.name = this._NameInfo;
-      formData.text = this._text;
-      formData.email = this._Email;
-      formData.rate = this.rate;
-      formData.tableType = this.tableType;
-      formData.rowID = this.rowId;
-      formData.userID = this._authservice._user.id;
+      this.completedFill = true;
+      this.form.controls['NameInfo'].setValue(
+        this._authservice._user.firstName + this._authservice._user.lastName
+      );
+      this.form.controls['NameInfo'].disable;
+      this.form.controls['Email'].setValue(this._authservice._user.username);
+      this.form.controls['Email'].disable;
+    }
+  }
+  async getComment() {
+    await lastValueFrom(
+      this._comment.get(
+        'Comment/GetByTableTypeAndRowId/1061/1?pageIndex=0&pageSize=100&accending=true      ',
+        undefined
+      )
+    );
+    // this.questionFaq = (await lastValueFrom(res)).data!;
+  }
+  async commentServices() {
+    this.formErrors = {};
+    let formData = formDataInit;
+    formData.name = this._NameInfo;
+    formData.text = this._text;
+    formData.email = this._Email;
+    formData.rate = this.rate;
+    formData.tableType = this.tableType;
+    formData.rowID = this.rowId;
+    formData.userID = this._authservice._user.id;
+    if (await this.checkFormValidation(formData)) {
       const apiRes = this._comment.post(
         'Comment?authorID=' + this._authservice._user.id,
         formData
       );
-      await lastValueFrom(apiRes);
+      if (await lastValueFrom(apiRes)) {
+        this.toaster.success('با موفقیت ثبت شد');
+      }
     } else {
-      this._toaster.error('لطفا وارد شوید', 'عملیات با خطا مواجه شد');
+      this.toaster.error('خطا در عملیات!!!');
+      console.log('Not Valid');
     }
   }
   // ===================[رسپانسیو ]==================
   constructor(
     private _comment: CommentService,
     private _authservice: AuthService,
-    private _toaster: ToastrService
+    private toaster: ToastrService
   ) {
     this.form = new FormGroup({});
     this.formMaker.inputs.forEach((item) => {
       this.form.setControl(item.name, this.formMaker.createControl(item));
+      console.log(this._authservice._user.id);
     });
     this.formControls = this.formMaker.inputs;
   }
   device: 'sm' | 'lg' = 'lg';
+  async checkFormValidation(_formData: Comment) {
+    for (const controlName in this.form.controls) {
+      const control = this.form.controls[controlName];
 
+      if (control.invalid) {
+        this.formErrors[controlName] = [];
+
+        if (control.errors!['required']) {
+          this.formErrors[controlName].push(`${controlName} is required.`);
+        }
+
+        if (control.errors!['email']) {
+          this.formErrors[controlName].push(`Invalid ${controlName} format.`);
+        }
+
+        if (control.errors!['pattern']) {
+          this.formErrors[controlName].push(
+            `${controlName} must be a valid number.`
+          );
+        }
+
+        if (control.errors!['min']) {
+          this.formErrors[controlName].push(
+            `You must be at least 18 years old.`
+          );
+        }
+      }
+    }
+    // console.log(formErrors);
+    let erorrKeyName = Object.keys(this.formErrors);
+    this.formControlInit.forEach((x) => {
+      if (erorrKeyName.indexOf(x.name) > -1) {
+        x.hasErr = true;
+      }
+      setInterval(() => {
+        x.hasErr = false;
+      }, 10000);
+    });
+
+    if (Object.keys(this.formErrors).length > 0) {
+      return false;
+    } else {
+      return true;
+    }
+    // You Can Add Any Validation Here
+    // But now We don't need any
+  }
   // @HostListener('window:resize', ['$event'])
   // onResize() {
   //   this.updateDeviceValue();

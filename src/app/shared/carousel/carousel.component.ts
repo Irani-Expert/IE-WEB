@@ -30,28 +30,11 @@ import { ModalComponent } from '../modal/modal.component';
 export class CarouselComponent {
   showModal: boolean = false;
   @Input('max-width') maxWidth: string = '365px';
+  @Input('data') gallery: CarouselImage[] = new Array<CarouselImage>();
   // indexHolder = -1;
   translateX = '';
   state: 'default' | 'transformed' = 'default';
   selectedItem: CarouselImage;
-  gallery: CarouselImage[] = [
-    {
-      id: 1,
-      src: 'assets/img/Expert 2.webp',
-    },
-    {
-      id: 2,
-      src: 'assets/img/Expert 1.webp',
-    },
-    {
-      id: 3,
-      src: 'assets/img/Expert 2.webp',
-    },
-    {
-      id: 4,
-      src: 'assets/img/Expert 1.webp',
-    },
-  ];
   // @Input('images') gallery: CarouselImage[]
   zoomUrl = `url("../../assets/icon/plus-zoom.svg")`;
   unzoomUrl = `url("../../assets/icon/minus-zoom.svg")`;

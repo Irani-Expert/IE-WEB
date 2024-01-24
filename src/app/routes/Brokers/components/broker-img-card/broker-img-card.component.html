@@ -12,17 +12,19 @@
     </div>
 
     <div
+      dir="ltr"
       *ngIf="linkCard"
       class="absolute w-fit card-link-container cursor-pointer"
     >
       <span
-        class="flex px-3 py-1 rounded-s-3xl rounded-bl-3xl bg-white bx-shadow-custom"
-        ><p class="font-medium text-sm text-black">
-          بررسی بروکر {{ data.title }}
-          <span class="chevron-container !bg-[#F1F1F1] scale-90"
+        class="flex px-3 py-1 bg-[#2d46fb] bx-shadow-custom rounded-tr-0 rounded-bl-2xl rounded-e-2xl"
+        ><p class="font-medium text-sm text-white">
+          <span class="chevron-container scale-90"
             ><i class="ie-chevron left"></i
-          ></span></p
-      ></span>
+          ></span>
+          بررسی بروکر {{ data.title }}
+        </p></span
+      >
     </div>
   </div>
 </a>

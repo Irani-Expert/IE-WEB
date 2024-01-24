@@ -3,7 +3,7 @@
     class="flex flex-row flex-wrap lg:flex-nowrap gap-4 md:items-center lg:items-start"
   >
     <div class="lg:basis-[42%] flex basis-full justify-center lg:justify-start">
-      <app-carousel [max-width]="'412px'"></app-carousel>
+      <app-carousel [data]="galleryImages" [max-width]="'412px'"></app-carousel>
     </div>
     <div class="basis-full flex flex-col">
       <div class="mx-auto">
@@ -152,24 +152,24 @@
   <!-- ===========================[بنر]============== -->
 
   <div class="flex justify-center mt-12 px-3">
-    <div class="grid grid-cols-4 gap-3 baner">
-      <div class="flex items-end mr-8">
+    <div class="flex flex-row baner">
+      <div class="flex basis-1/4 items-end mr-8">
         <img
-          class="absolute object-contain w-32"
+          class="absolute right-7 -bottom-3 object-contain w-32"
           src="assets/img/logo-shop-hero.webp"
           alt="logo"
           width="128"
           height="121"
         />
       </div>
-      <div class="flex items-center -mr-6 -ml-6 col-span-2 z-10">
+      <div class="flex items-center basis-2/4 -mr-6 -ml-6 z-10">
         <p class="text-black font-bold text-lg">
           برای انتخاب مناسب ترین بروکر برای استفاده از ربات هاب معامله گر و
           سرمایه گذاری میتوانید در صفحه بروکر های ایرانی اکسپرت مفایسه،انتخاب و
           ثبت نام کنید
         </p>
       </div>
-      <div class="flex items-center justify-center z-10">
+      <div class="flex items-center justify-center basis-1/4 z-10">
         <a
           [routerLink]="'../../brokers'"
           class="link text-white px-5 py-2 mr-14 text-lg font-semibold"

@@ -1,8 +1,8 @@
 <!-- ==================[فیلتر تگ ها]======== -->
 <div
-  class="hidden sm:flex sm:justify-center items-center mr-4 lg:!-mr-48 mb-6 sm:mt-20 2xl:!-mr-96"
+  class="hidden sm:flex sm:justify-center items-center mr-4 mb-6 sm:mt-20"
 >
-  <div class="flex xl:flex-nowrap sm:flex-wrap">
+  <div class="flex xl:flex-nowrap sm:flex-wrap ">
     <ng-container *ngFor="let item of tags; let i = index">
       <button
         (click)="toggle(i)"
@@ -36,14 +36,17 @@
     </button>
   </ng-container>
 </div>
-<div *ngIf="massage == true" class="flex flex-col items-baseline">
+<!-- =========[ پیام بدون اطلاعات ]========= -->
+
+<div *ngIf="massage == true" class="flex flex-col items-center">
   <div>
     <app-lottie [config]="lottieConfig" />
-    <p class="rounded-3xl mr-16 bg-[#e6effd] text-[#2f65b9] text-3xl py-2 px-4">
+    <p class="rounded-3xl mx-4 bg-[#e6effd] text-[#2f65b9] text-3xl py-2 px-4">
       متاسفانه هیچ مطلبی در این رابطه پیدا نشد
     </p>
   </div>
 </div>
+
 <ng-container *ngIf="!loading">
   <div class="h-[33rem] overflow-auto" id="dropdown-item">
     <ng-container *ngFor="let hvr of showingItem; let i = index">
@@ -67,9 +70,26 @@
                 <h6 class="title-hover-down" *ngIf="hvr.tableType !== 34">{{ hvr.title }}</h6>
                 <h6 class="title-hover-down" *ngIf="hvr.tableType == 34">{{ hvr.secondName }}</h6>
 
+                <div *ngIf="hvr.tableType == 6" class="relative -mt-4 mb-3">
+                  <span class="star-rating relative block -z-30 w-40">
+                    <app-rating [config]="star"></app-rating>
+                  </span>
+                  <p class="bot-rating relative text-sm font-bold">
+                    <span class="Common">{{hvr.rate | number: "1.0-1"}}</span>
+                    <span class="view mx-1 px-1">بازدید ها {{hvr.viewsCount}} </span>
+                    <span class="Common">مشترک ها {{hvr.ordersCount}}</span>
+                  </p>
+                </div>
                 <p>
                   {{ hvr.brief }}
                 </p>
+                <div *ngIf="hvr.tableType == 6" class="flex w-full pl-10 justify-end">
+                  <div class="flex mt-8 mb-4 items-center">
+                    <p class="ml-8 text-black text-xl font-black">شروع قیمت از :{{ hvr.minPrice !== 0 ? hvr.minPrice : ("20" | currency) }}</p>
+                    <a href="shop/atm-expert" target="_blank" 
+                    class="bg-blue-800 font-bold text-white px-6 py-2 rounded-3xl text-lg">بررسی پلن ها</a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -78,8 +98,8 @@
       <!-- ============[هاور به چپ]======================== -->
       <div class="menu-wrapper hidden 2xl:block">
         <ul [ngClass]="hvr.active ? 'show-menu' : 'hide-menu'">
-          <div (mouseenter)="changesort(hvr)" class="box-hover">
-            <div class="flex flex-col items-center">
+          <div (mouseenter)="changesort(hvr)" class="box-hover relative z-50">
+            <div class="flex flex-col items-start">
               <h6 class="title-hover" *ngIf="hvr.tableType !== 34">{{ hvr.title }}</h6>
               <h6 class="title-hover" *ngIf="hvr.tableType == 34">{{hvr.secondName}}</h6>
 
@@ -91,11 +111,29 @@
                 width="100"
                 height="75"
               />
-              <i *ngIf="hvr.tableType == 34" class="scale-[7] my-16 fi fi-{{hvr.code | lowercase}}"></i>
+              <i *ngIf="hvr.tableType == 34" class="flag my-16 fi fi-{{hvr.code | lowercase}}"></i>
+
+              <div *ngIf="hvr.tableType == 6" class="relative -mt-4 mb-3">
+                <span class="star-rating relative block -z-30 w-40">
+                  <app-rating [config]="star"></app-rating>
+                </span>
+                <p class="bot-rating relative text-sm font-bold">
+                  <span class="Common">{{hvr.rate | number: "1.0-1"}}</span>
+                  <span class="view mx-1 px-1">بازدید ها {{hvr.viewsCount}} </span>
+                  <span class="Common">مشترک ها {{hvr.ordersCount}}</span>
+                </p>
+              </div>
+
               <p>
                 {{ hvr.brief }}
               </p>
-
+              <div *ngIf="hvr.tableType == 6" class="flex w-full pl-10 justify-end">
+                <div class="flex mt-8 mb-4 items-center">
+                  <p class="ml-8 text-black text-xl font-black">شروع قیمت از :{{ hvr.minPrice !== 0 ? hvr.minPrice : ("20" | currency) }}</p>
+                  <a href="shop/atm-expert" target="_blank" 
+                  class="bg-blue-800 font-bold text-white px-6 py-2 rounded-3xl text-lg">بررسی پلن ها</a>
+                </div>
+              </div>
             </div>
           </div>
         </ul>
@@ -122,7 +160,7 @@
                     width="100"
                     height="75"
                   />
-                  <i *ngIf="hvr.tableType == 34" class="scale-[7] fi fi-{{hvr.code | lowercase}}"></i>
+                  <i *ngIf="hvr.tableType == 34" class="scale-[7] rounded-sm fi fi-{{hvr.code | lowercase}}"></i>
                 </div>
                 <div class="basis-full flex flex-col justify-between mr-6">
                   <h5 class="title-item">{{ hvr.title }}</h5>

@@ -394,9 +394,10 @@ export class LandingShopComponent {
 
   updateDeviceValue() {
     if (AppComponent.isBrowser.value) {
-      if (Utils.isMobileL()) {
+      if (Utils.isTablet()) {
         this.device = 'sm';
       } else {
+        this.choosenSlide = 1;
         this.device = 'lg';
       }
     }

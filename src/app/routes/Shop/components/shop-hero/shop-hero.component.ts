@@ -16,6 +16,7 @@ import { environment } from 'src/environments/environment.dev';
 import { OrderService } from 'src/app/classes/services/order.service';
 import { BskItem } from 'src/app/classes/interfaces/basket.interface';
 import { Router } from '@angular/router';
+import { CarouselImage } from 'src/app/shared/carousel/carousel';
 // import { OrderService } from 'src/app/classes/services/order.service';
 
 const planInit: planInterface = {
@@ -34,6 +35,7 @@ const planInit: planInterface = {
   animations: [smoothWidth],
 })
 export class ShopHeroComponent implements OnInit {
+  galleryImages: CarouselImage[] = new Array<CarouselImage>();
   contentUrl = environment.contentUrl;
   constructor(private _orderService: OrderService, private router: Router) {
     this._orderService.basket.value.basketItems = [];
@@ -55,7 +57,7 @@ export class ShopHeroComponent implements OnInit {
       count: 1,
       price: 0,
       rowID: this.product.id,
-      tableType: 17,
+      tableType: 6,
       title: this.product.title,
       id: this._orderService.basket.value.basketItems.length + 1,
     };
@@ -76,6 +78,13 @@ export class ShopHeroComponent implements OnInit {
 
     this.selectedPlan = this.plans[0];
     this.selectedPlan.active = true;
+    let gallery = this.product.galleries.filter((it) => it.stationID !== 3);
+    gallery.forEach((it, index) => {
+      this.galleryImages.push({
+        id: index + 1,
+        src: this.contentUrl + it.filePath,
+      });
+    });
   }
 
   // ==========={اکتیو}=========

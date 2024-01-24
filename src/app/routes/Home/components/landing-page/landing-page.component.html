@@ -199,19 +199,19 @@
   ></div>
 
   <app-banners> </app-banners>
-  <div class="bg-[#F5F5F5] rounded-b-[2.5rem] pb-16 sm:hidden">
+  <div class="bg-[#F5F5F5] rounded-b-[2.5rem] pb-16">
     <div class="flex overflow-y-scroll">
       <app-landing-article-responsive
         *ngFor="let i of blogData"
         [blogs]="i"
-        class="block sm:hidden"
+        class="block lg:hidden mb-16"
       />
     </div>
   </div>
   <app-landing-article
     [blogs]="blogData"
     *ngIf="isRecived"
-    class="hidden sm:block"
+    class="hidden lg:block"
   />
 </div>
 <div
@@ -223,12 +223,12 @@
   <div class="bg-cover bgi-world-map1 lg:mx-32 pb-16 bg-cover-custom">
     <app-bot-advantages />
   </div>
-  <h1
+  <h2
     id="form-consulting"
     class="sm:text-4xl text-2xl text-green-800 text-center oblique sm:mt-8"
   >
     درخواست مشاوره
-  </h1>
+  </h2>
   <p class="text-center text-black text-xl sm:text-3xl">
     لطفا اطلاعات خود را ثبت کنید تا همکاران ما در ایرانی اکسپرت با شما تماس
     بگیرند

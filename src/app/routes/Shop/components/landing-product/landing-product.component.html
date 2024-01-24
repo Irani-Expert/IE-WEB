@@ -72,5 +72,8 @@
     ></app-scroll>
   </div>
 
-  <app-comments [data]="productService._product?.comments!"></app-comments>
+  <app-comments
+    [data]="productService._product?.comments!"
+    [tableType]="1"
+  ></app-comments>
 </ng-container>

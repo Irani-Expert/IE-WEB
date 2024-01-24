@@ -36,6 +36,8 @@ $xlg: 1270px;
   background-color: $white;
   border-radius: 15px;
   .modal-header {
+    position: absolute;
+    left: 0;
     @include justify-between;
     font-size: 18px;
     padding: 10px;
@@ -59,7 +61,6 @@ $xlg: 1270px;
     overflow: var(--overflow);
     width: var(--width);
     max-width: inherit;
-    margin-bottom: 20px;
     min-width: 310px;
   }
 

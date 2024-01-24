@@ -1,3 +1,11 @@
+.view {
+  border-right: 1px solid #b6b6b6;
+  border-left: 1px solid #b6b6b6;
+  color: #b6b6b6;
+}
+.Common {
+  color: #b6b6b6;
+}
 //   <!-- ==================[فیلتر تگ ها]======== -->
 .btn-tags{
   border: 2px solid #8F8F8F;
@@ -27,7 +35,7 @@ drag-scroll{
   overflow: hidden;
 }
 .box-item{
-    max-width: 875px;
+    max-width: 800px;
     padding: 1rem;
     border: 1px solid #d7d6d6;
     border-radius: 28px;
@@ -71,7 +79,7 @@ drag-scroll{
   
   // ==============[باکس هاور]==========
   .box-hover{
-    width: 20%;
+    width: 35%;
     padding: 1rem;
     border: solid 1px #d7d6d6;
     border-radius: 25px;
@@ -88,6 +96,12 @@ drag-scroll{
     font-size: 1.7rem;
     font-weight: 500;
     margin-bottom: 1rem;
+  }
+  .flag{
+    position: relative;
+    scale: 10;
+    right: 13rem;
+    border-radius: 2px;
   }
   #dropdown-item {
     position: relative;
@@ -130,13 +144,17 @@ drag-scroll{
       display: block !important;
       animation: display 0.85s ease-in forwards;
       transition: transform 0.2s;
-      transform: translate(-56rem, 0rem);
-
+      transform: translate(-52rem, 0rem);
+      position: relative;
+      z-index: 60;
     }
     .hide-menu {
       display: block !important;
       animation: displayOut 0.25s ease-in forwards;
+      position: relative;
+      z-index: -10;
     }
+
     // <!-- ============[هاور به پایین]======================== -->
     .show-menu-down{
       transform: translate(0rem, 13rem);

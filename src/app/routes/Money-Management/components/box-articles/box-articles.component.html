@@ -3,9 +3,9 @@
         <div class="flex flex-col">
            <ng-container *ngFor="let item1 of boxCol1">
            <div class="box-articles mb-4">
-               <h6>
+               <span>
                 {{item1.title}}  
-               </h6>
+               </span>
                <p>
                 {{item1.desc}}
                </p>
@@ -15,9 +15,9 @@
         <!-- ========== -->
         <div class="flex flex-col">
             <div class="box-articles mb-4" *ngFor="let item2 of boxCol2">
-                <h6>
+                <span>
                     {{item2.title}}    
-                </h6>
+                </span>
                 <p>
                     {{item2.desc}}
                 </p>
@@ -26,9 +26,9 @@
          <!-- ============= -->
         <div class="flex flex-col">
             <div class="box-articles mb-4" *ngFor="let item3 of boxCol3">
-                <h6>
+                <span>
                     {{item3.title}}    
-                </h6>
+                </span>
                 <p>
                     {{item3.desc}}
                 </p>
@@ -40,9 +40,9 @@
 <div class="flex flex-nowrap items-start lg:hidden overflow-auto">
         <div class="flex ml-4 mb-4 " *ngFor="let item3 of boxCol3">
             <div class="box-articles !w-72">
-                <h6>
+                <span>
                     {{item3.title}}    
-                </h6>
+                </span>
                 <p>
                     {{item3.desc}}
                 </p>
@@ -50,9 +50,9 @@
         </div> 
         <div class="flex ml-4 mb-4" *ngFor="let item2 of boxCol2">
             <div class="box-articles !w-72">
-                <h6>
+                <span>
                     {{item2.title}}    
-                </h6>
+                </span>
                 <p>
                     {{item2.desc}}
                 </p>
@@ -60,9 +60,9 @@
         </div>
         <div class="flex ml-4 mb-4" *ngFor="let item1 of boxCol1">
             <div class="box-articles !w-72">
-                <h6>
+                <span>
                  {{item1.title}}  
-                </h6>
+                </span>
                 <p>
                  {{item1.desc}}
                 </p>

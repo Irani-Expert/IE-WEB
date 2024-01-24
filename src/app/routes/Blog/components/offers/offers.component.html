@@ -1,4 +1,4 @@
-<div [ngClass]="device == 'lg' ? 'block' : 'hidden'">
+<div class="hidden lg:block">
   <ng-container *ngIf="!loading">
     <!-- ==============[پیشنهاد]================ -->
     <div class="all-offer">
@@ -87,7 +87,7 @@
   </ng-container>
 </div>
 <!-- ====================[رسپانسیو========== -->
-<div [ngClass]="device == 'sm' ? 'block' : 'hidden'">
+<div class="lg:hidden">
   <ng-container *ngIf="!loading">
     <div class="divier-mobile mt-4"></div>
     <div class="mr-6 ml-6 mt-6">

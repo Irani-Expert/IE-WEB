@@ -6,6 +6,7 @@ import { ItemsSearchComponent } from '../components/items-search/items-search.co
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { LottieModule } from 'ngx-lottie';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { RatingComponent } from 'src/app/shared/rating/rating.component';
 
 const components = [
   LandingSearchComponent,
@@ -21,7 +22,8 @@ const components = [
     FormsModule,
     ReactiveFormsModule,
     // LottieModule,
-    SharedModule
+    SharedModule,
+    RatingComponent
 
   ],
 })

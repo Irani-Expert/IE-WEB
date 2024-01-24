@@ -1,7 +1,7 @@
 <div class="sm:absolute mt-6 mb-6 flex justify-center flex-col alig">
-  <h1 class="sm:text-4xl text-3xl text-green-800 oblique text-center">
+  <h2 class="sm:text-4xl text-3xl text-green-800 oblique text-center">
     جدیدترین مطالب آموزشی و مقالات ایرانی اکسپرت
-  </h1>
+  </h2>
   <span class="sm:text-2xl text-2xl sm:text-start text-center"
     >معرفی آخرین خدمات و امکانات مجله ایرانی اکسپرت</span
   >
@@ -11,7 +11,7 @@
   <div class="flex sm:justify-end justify-center w-full mt-6 mb-6">
     <a
       routerLink="/articles"
-      class="flex justify-center items-center border-2 relative text-[#3246d3] border-solid sm:w-36 bg-[#E5EDFF] border-[#E5EDFF] p-1 rounded-full font-semibold text-lg"
+      class="flex justify-center items-center mt-24 border-2 relative text-[#3246d3] border-solid sm:w-36 bg-[#E5EDFF] border-[#E5EDFF] p-1 rounded-full font-semibold text-lg"
     >
       همه مقالات<i class="fa fa-long-arrow-left text-2xl ms-1"></i>
     </a>
@@ -23,7 +23,7 @@
         [routerLink]="'articles/' + routeLink(blogs[0])"
       >
         <div
-          class="border-separate border rounded-2xl p-4 ltr box-shadow-ac hidden sm:block"
+          class="border-separate border rounded-2xl p-4 ltr box-shadow-ac hidden sm:block h-80F"
         >
           <div class="flex h-56">
             <div class="w-1/2 rounded-l-2xl flex" style="height: inherit">
@@ -53,9 +53,9 @@
                     }}</small></span
                   >
                 </div>
-                <h1 class="m-4 ms-0 text-4xl font-semibold">
+                <h2 class="m-4 ms-0 text-4xl font-semibold">
                   {{ blogs[0].title.slice(0, 30) }}
-                </h1>
+                </h2>
               </div>
               <div
                 class="border-t ml-2 flex justify-between border-gray-300 items-center"
@@ -72,19 +72,17 @@
                     >نویسنده ؛ {{ blogs[0].updatedByFirstName }}
                     {{ blogs[0].updatedByLastName
                     }}<small class="text-sm color--grey500 font-normal"
-                      >زمان مطالعه 6 دقیقه</small
+                      >زمان مطالعه {{ blogs[0].studyTime }} دقیقه</small
                     ></span
                   >
                 </div>
                 <div class="m-2 me-0 text-sm flex flex-col color--grey500 ltr">
-                  <span
-                    ><i
-                      class="fa fa-heart-o color--grey500 font-extralight"
-                    ></i>
-                    386
+                  <span class="flex items-start"
+                    ><i class="favorite-icon mr-2"></i>
+                    {{ blogs[0].favoriteCount }}
                   </span>
-                  <span class="ltr"
-                    ><i class="fa fa-eye color--grey500 font-extralight"></i>
+                  <span class="flex items-start mt-2"
+                    ><i class="eye-icon mr-2"></i>
                     {{ blogs[0].viewsCount }}
                   </span>
                 </div>
@@ -128,9 +126,9 @@
                     }}</small></span
                   >
                 </div>
-                <h1 class="m-4 ms-0 text-4xl font-semibold">
+                <h2 class="m-4 ms-0 text-4xl font-semibold">
                   {{ blogs[1].title.slice(0, 30) }}
-                </h1>
+                </h2>
               </div>
               <div
                 class="border-t ml-2 flex justify-between border-gray-300 items-center"
@@ -147,19 +145,17 @@
                     >نویسنده ؛ {{ blogs[1].updatedByFirstName }}
                     {{ blogs[1].updatedByLastName
                     }}<small class="text-sm color--grey500 font-normal"
-                      >زمان مطالعه 6 دقیقه</small
+                      >زمان مطالعه {{ blogs[1].studyTime }} دقیقه</small
                     ></span
                   >
                 </div>
                 <div class="m-2 me-0 text-sm flex flex-col color--grey500 ltr">
-                  <span
-                    ><i
-                      class="fa fa-heart-o color--grey500 font-extralight"
-                    ></i>
-                    386
+                  <span class="flex items-start"
+                    ><i class="favorite-icon mr-2"></i>
+                    {{ blogs[1].favoriteCount }}
                   </span>
-                  <span class="ltr"
-                    ><i class="fa fa-eye color--grey500 font-extralight"></i>
+                  <span class="flex items-start mt-2"
+                    ><i class="eye-icon mr-2"></i>
                     {{ blogs[1].viewsCount }}
                   </span>
                 </div>
@@ -203,9 +199,9 @@
                   ></span
                 >
               </div>
-              <h1 class="m-3 ms-0 sm:text-4xl font-semibold text-xl">
+              <h2 class="m-3 ms-0 sm:text-4xl font-semibold text-xl">
                 {{ blogs[2].title }}
-              </h1>
+              </h2>
             </div>
             <div
               class="border-t pl-0 pr-0 flex justify-between border-gray-300 items-center p-2"
@@ -223,17 +219,19 @@
                   >نویسنده ؛ {{ blogs[1].updatedByFirstName }}
                   {{ blogs[1].updatedByLastName
                   }}<small class="text-sm color--grey500 font-normal"
-                    >زمان مطالعه 6 دقیقه</small
+                    >زمان مطالعه {{ blogs[1].studyTime }} دقیقه</small
                   ></span
                 >
               </div>
-              <div class="sm:m-2 me-0 sm:text-xl text-[8px] color--grey500 ltr">
-                <span class="me-2"
-                  ><i class="fa fa-heart-o color--grey500 font-extralight"></i>
-                  386
+              <div
+                class="sm:m-2 me-0 sm:text-xl text-[8px] color--grey500 ltr flex items-baseline"
+              >
+                <span class="me-2 flex items-baseline"
+                  ><i class="favorite-icon mr-2"></i>
+                  {{ blogs[2].favoriteCount }}
                 </span>
-                <span class="ltr"
-                  ><i class="fa fa-eye color--grey500 font-extralight"></i>
+                <span class="flex items-baseline"
+                  ><i class="eye-icon mr-2"></i>
                   {{ blogs[2].viewsCount }}
                 </span>
               </div>

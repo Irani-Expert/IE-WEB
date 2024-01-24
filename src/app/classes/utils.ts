@@ -14,6 +14,12 @@ export class Utils {
   static isLaptopSm() {
     return window && window.matchMedia('(max-width: 1279px)').matches;
   }
+  static isLaptopLg() {
+    return window && window.matchMedia('(max-width: 2340px)').matches;
+  }
+  static is4k() {
+    return window && window.matchMedia('(max-width: 7679px )').matches;
+  }
   static scrollToTop(selector: string) {
     if (document) {
       const element = <HTMLElement>document.querySelector(selector);
