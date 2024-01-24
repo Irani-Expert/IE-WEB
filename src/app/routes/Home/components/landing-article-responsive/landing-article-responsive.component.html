@@ -39,9 +39,9 @@
               ></span
             >
           </div>
-          <h1 class="sm:m-4 m-3 ms-0 sm:text-4xl font-semibold text-xl">
+          <h2 class="sm:m-4 m-3 ms-0 sm:text-4xl font-semibold text-xl">
             {{ blogs.title.slice(0, 30) }}
-          </h1>
+          </h2>
         </div>
         <div
           class="border-t pl-0 pr-0 flex justify-between border-gray-300 items-center p-2"
@@ -59,19 +59,21 @@
               >نویسنده ؛ {{ blogs.updatedByFirstName }}
               {{ blogs.updatedByLastName
               }}<small class="sm:text-sm color--grey500 font-normal"
-                >زمان مطالعه {{blogs.studyTime}} دقیقه</small
+                >زمان مطالعه {{ blogs.studyTime }} دقیقه</small
               ></span
             >
           </div>
-          <div class="sm:m-2 me-0 sm:text-xl text-[8px] color--grey500 ltr flex items-center">
+          <div
+            class="sm:m-2 me-0 sm:text-xl text-[8px] color--grey500 ltr flex items-center"
+          >
             <span class="me-2 flex items-start text-sm"
-            ><i class="favorite-icon mr-2"></i>
-            {{blogs.favoriteCount}}
-          </span>
-          <span class="flex items-start text-sm"
-            ><i class="eye-icon mr-2"></i>
-            {{ blogs.viewsCount }}
-          </span>
+              ><i class="favorite-icon mr-2"></i>
+              {{ blogs.favoriteCount }}
+            </span>
+            <span class="flex items-start text-sm"
+              ><i class="eye-icon mr-2"></i>
+              {{ blogs.viewsCount }}
+            </span>
           </div>
         </div>
       </div>
