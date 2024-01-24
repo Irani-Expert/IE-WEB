@@ -15,96 +15,106 @@
       <form [formGroup]="form" (ngSubmit)="commentServices()">
         <div class="flex flex-col items-center">
           <div
-            class="flex md:w-[52.5rem] justify-between max-lg:flex-col max-lg:items-center"
+            class="flex md:w-[46rem] justify-between max-lg:flex-col max-lg:items-center"
           >
-            <div class="sep-part max-md:w-11/12">
+            <div
+              class="sep-part"
+              [ngClass]="this.formErrors['NameInfo'] != null ? 'hasError' : ''"
+            >
               <input
                 type="text"
+                [ngClass]="completedFill ? 'disable-color' : ''"
                 placeholder="نام خود را وارد کنید"
                 formControlName="NameInfo"
               />
-              <div class="w-[20rem] flex items-center font-bold text-2xl">
+              <div
+                class="w-[16rem] flex items-center font-bold md:text-xl text-lg"
+              >
                 نام و نام خانوادگی
               </div>
             </div>
-            <div class="sep-part max-md:w-11/12 max-md:mt-6">
+            <div
+              class="sep-part max-lg:w-full max-md:mt-6"
+              [ngClass]="this.formErrors['Email'] != null ? 'hasError' : ''"
+            >
               <input
                 type="text"
+                [ngClass]="completedFill ? 'disable-color' : ''"
                 placeholder="ایمیل خود را وارد کنید"
                 formControlName="Email"
               />
-              <div class="w-[5rem] flex items-center font-bold text-2xl">
+              <div
+                class="w-[5rem] flex items-center font-bold md:text-xl text-lg"
+              >
                 ایمیل
               </div>
             </div>
           </div>
 
-          <div class="md:w-10/12 w-11/12 mt-5">
+          <div class="w-full mt-5">
             <textarea
+              [ngClass]="this.formErrors['textAr'] != null ? 'hasError' : ''"
               formControlName="textAr"
               placeholder="نظر خود را درباره بروکر معرفی شده ثبت کنید"
             ></textarea>
           </div>
 
-          <div class="flex sm:w-10/12 flex-col">
+          <div class="flex flex-col w-full">
             <div class="w-full flex justify-between max-md:flex-col-reverse">
               <div class="flex">
-                <span class="font-bold">امتیاز دهید:{{ rateText }}</span>
+                <span class="font-bold me-2">امتیاز دهید:{{ rateText }}</span>
                 <span>برداشت خود را در بررسی مطلب ارائه شده ثبت کنید</span>
               </div>
               <div class="flex items-center max-md:mb-4">
                 ثبت نظر به صورت ناشناس <app-toggle class="mr-3"></app-toggle>
               </div>
             </div>
-            <div class="flex flex-col w-full justify-center">
-              <div
-                class="p-div lg:w-[18rem] flex flex-col p-2 text-2xl mb-[24px] justify-center"
-              >
-                <div class="flex flex-col">
-                  <div class="flex flex-row-reverse max-md:justify-around">
-                    <div class="flex justify-center">
-                      <i
-                        class="ie-bg-yellow absolute -z-10"
-                        *ngIf="rate == 1"
-                      ></i>
-                      <i
-                        class="ie-h1 mx-1"
-                        (click)="putStyle(1, 'خیلی بد ')"
-                      ></i>
+            <div class="lg:flex">
+              <div class="flex flex-col w-full justify-center">
+                <div
+                  class="p-div lg:w-[18rem] flex flex-col p-2 text-2xl mb-[24px] justify-center"
+                >
+                  <div class="flex flex-col">
+                    <div class="flex flex-row-reverse max-md:justify-around">
+                      <div
+                        class="flex justify-center mx-2 w-9"
+                        [ngClass]="rate == 1 ? 'bg-active' : ''"
+                      >
+                        <i
+                          class="ie-h1 mx-1"
+                          (click)="putStyle(1, 'خیلی بد ')"
+                        ></i>
+                      </div>
+                      <div
+                        class="flex justify-center mx-2 w-9"
+                        [ngClass]="rate == 2 ? 'bg-active' : ''"
+                      >
+                        <i class="ie-h2 mx-1" (click)="putStyle(2, 'بد')"></i>
+                      </div>
+                      <div
+                        class="flex justify-center mx-2 w-9"
+                        [ngClass]="rate == 3 ? 'bg-active' : ''"
+                      >
+                        <i class="ie-h3 mx-1" (click)="putStyle(3, 'خوب')"></i>
+                      </div>
+                      <div
+                        class="flex justify-center mx-2 w-9"
+                        [ngClass]="rate == 4 ? 'bg-active' : ''"
+                      >
+                        <i
+                          class="ie-h4 mx-1"
+                          (click)="putStyle(4, 'خیلی خوب')"
+                        ></i>
+                      </div>
+                      <div
+                        class="flex justify-center mx-2 w-9"
+                        [ngClass]="rate == 5 ? 'bg-active' : ''"
+                      >
+                        <i class="ie-h5 mx-1" (click)="putStyle(5, 'عالی')">
+                        </i>
+                      </div>
                     </div>
-                    <div class="flex justify-center">
-                      <i
-                        class="ie-bg-yellow absolute -z-10"
-                        *ngIf="rate == 2"
-                      ></i>
-                      <i class="ie-h2 mx-1" (click)="putStyle(2, 'بد')"></i>
-                    </div>
-                    <div class="flex justify-center">
-                      <i
-                        class="ie-bg-yellow absolute -z-10"
-                        *ngIf="rate == 3"
-                      ></i>
-                      <i class="ie-h3 mx-1" (click)="putStyle(3, 'خوب')"></i>
-                    </div>
-                    <div class="flex justify-center">
-                      <i
-                        class="ie-bg-yellow absolute -z-10"
-                        *ngIf="rate == 4"
-                      ></i>
-                      <i
-                        class="ie-h4 mx-1"
-                        (click)="putStyle(4, 'خیلی خوب')"
-                      ></i>
-                    </div>
-                    <div class="flex justify-center">
-                      <i
-                        class="ie-bg-yellow absolute -z-10"
-                        *ngIf="rate == 5"
-                      ></i>
-                      <i class="ie-h5 mx-1" (click)="putStyle(5, 'عالی')"> </i>
-                    </div>
-                  </div>
-                  <!-- <div class="flex justify-end items-center sm:mt-2 mt-6">
+                    <!-- <div class="flex justify-end items-center sm:mt-2 mt-6">
                     <span class="me-2">{{ rateText }}</span>
                     <button
                       class="bg-[#0080FF] text-white font-bold text-2xl p-2 rounded-2xl"
@@ -112,8 +122,8 @@
                       ثبت رای
                     </button>
                   </div> -->
-                </div>
-                <!-- <progress
+                  </div>
+                  <!-- <progress
                   min="0"
                   max="100"
                   class="pr-Before w-full cursor-pointer"
@@ -121,16 +131,17 @@
                   (click)="handleClick($event)"
                   [ngStyle]="{ '--movement': left }"
                 ></progress> -->
+                </div>
               </div>
-            </div>
-            <div
-              class="flex flex-col w-full max-md:items-center items-end justify-end mb-4 md:relative bottom-16 lg:-z-20"
-            >
-              <button
-                class="bg--blue rounded-xl text-white sm:w-[13.5rem] w-[12rem] mr-2 p-4"
+              <div
+                class="flex flex-col w-full lg:w-fit max-md:items-center items-end justify-end mb-4"
               >
-                ثبت دیدگاه
-              </button>
+                <button
+                  class="bg--blue rounded-xl text-white sm:w-[13.5rem] w-[12rem] mr-2 p-4"
+                >
+                  ثبت دیدگاه
+                </button>
+              </div>
             </div>
           </div>
         </div>
