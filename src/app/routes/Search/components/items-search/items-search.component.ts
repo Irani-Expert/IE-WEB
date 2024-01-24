@@ -161,6 +161,6 @@ export class ItemsSearchComponent {
     // ============[ستاره ها]==================
     star: RatingConfig<StarRating> = {
       type: 1,
-      content: { readonly: true, currentRate: 4, rate: 5 },
+      content: { readonly: true, currentRate: 3.6, rate: 5 },
     };
 }

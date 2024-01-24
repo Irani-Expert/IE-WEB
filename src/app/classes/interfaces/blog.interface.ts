@@ -15,6 +15,7 @@ export interface Blog {
   isRTL: boolean;
   brief: string;
   createDate: string;
+  favoriteCount : number;
 }
 export interface SingleBlog {
   createDate: string;
@@ -40,6 +41,7 @@ export interface SingleBlog {
   isRTL: boolean;
   metaDescription: string;
   browserTitle: string;
+  favoriteCount : number;
   linkTags: [
     {
       title: string;

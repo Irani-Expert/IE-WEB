@@ -1,4 +1,4 @@
-<div [ngClass]="device == 'lg' ? 'block' : 'hidden'" class="mt-8">
+<div class="mt-8 hidden lg:block">
   <div class="flex justify-between mt-6">
     <div class="flex items-center w-44">
       <i class="icon-carousel-card"></i>
@@ -53,7 +53,7 @@
 </div>
 
 <!-- ====================[رسپانسیو]========= -->
-<div [ngClass]="device == 'sm' ? 'block mb-20' : 'hidden'">
+<div class="lg:hidden">
   <div class="flex relative mt-4">
     <img
       class="img-blog-mobile w-full"
@@ -75,10 +75,10 @@
       <i class="icon-carousel-card"></i>
       <p class="icon-title mr-3">{{ articleModel.group }}</p>
     </div>
-    <a href="" class="flex items-center box-share-mobile">
+    <button disabled class="flex items-center box-share disabled:opacity-25">
       <p class="icon-title ml-3">اشتراک گذاری</p>
-      <i class="shared-icon"></i>
-    </a>
+      <i class="shared-icon icon"></i>
+    </button>
   </div>
   <h6 class="title-blog-mobile mt-3">{{ articleModel.title }}</h6>
   <div class="flex mt-3">

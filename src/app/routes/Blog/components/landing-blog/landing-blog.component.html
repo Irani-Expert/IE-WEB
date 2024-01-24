@@ -1,5 +1,5 @@
 <div class="bg-all">
-  <div [ngClass]="device == 'lg' ? 'block' : 'hidden'" class="mr-8 ml-8 pt-9">
+  <div class="mr-8 ml-8 pt-9 hidden lg:block">
     <ng-container *ngIf="!loading">
       <app-blog-hero [data]="itemsBlog.slice(0, 5)"></app-blog-hero>
     </ng-container>
@@ -20,7 +20,7 @@
 </div>
 
 <!-- ==========[رسپانسیو]=========== -->
-<div [ngClass]="device == 'sm' ? 'block' : 'hidden'" class="pt-12">
+<div class="pt-12 lg:hidden">
   <!-- ========================[بنر]============== -->
   <div class="flex justify-center mb-10">
     <div class="baner-mobile">

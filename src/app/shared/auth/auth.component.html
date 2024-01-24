@@ -1,14 +1,15 @@
 <section
-  class="custom-container p-3 md:px-7"
+  class="custom-container"
   [ngStyle]="{ '--flex-direction': flexDirection }"
 >
   <div class="right-container">
     <img
-      class="w-28 aspect-video object-contain"
+      class="w-48 aspect-video object-contain"
       src="../../../assets/icon/logo.svg"
       alt="Irani-Expert"
-      alt="logo" width="50px" height="40px"
-
+      alt="logo"
+      width="50px"
+      height="40px"
     />
     <ng-container *ngIf="!changingPassword">
       <app-switch
@@ -40,6 +41,7 @@
     </ng-container>
   </div>
   <div *ngIf="this.flexDirection == 'row'" class="left-container">
-    <app-lottie [config]="lottieConfig" />
+    <!-- <app-lottie class="self-center" [config]="lottieConfig" /> -->
+    <img src="assets/img/auth.webp" alt="" class="object-contain" />
   </div>
 </section>
