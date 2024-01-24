@@ -19,6 +19,7 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
   mainClass =
     'm-0 p-0 gap-0 flex flex-col min-h-screen overflow-hidden lg:overflow-y-hidden lg:overflow-x-auto';
   main: HTMLElement;
+  id: number = 0;
   // ===========[سرویس ها]==========
   itemsBlog: Blog[] = new Array<Blog>();
   blogFilter: FilterBlog = new FilterBlog();
@@ -80,7 +81,7 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
   async ngAfterViewInit() {
     if (await this.getDetail(this.title, this.language)) {
       this.tags = this.blogService._blog!.sharpLinkTags;
-      console.log(this.tags);
+      this.id = Number(this.blogService._blog?.id);
 
       this.sendDataToChild = true;
     }

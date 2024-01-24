@@ -29,7 +29,7 @@
           class="flex justify-center items-center bg-[#3246d3] sm:pt-2.5 md:w-28 md:h-28 w-20 h-20 rounded-full"
         >
           <i
-            class="ie-icon"
+            class="ie-icon cursor-pointer"
             [ngClass]="{
               'ie-puase ': pauseplay,
               'ie-Polygon    me-2 max-md:mt-2': !pauseplay
@@ -45,7 +45,7 @@
       [ngClass]="!isFullScreen ? 'justify-evenly ' : '   justify-center'"
     >
       <i
-        class="ie-icon ie-expand text-base text-white flex items-center mx-1.5"
+        class="ie-icon ie-expand text-base text-white flex items-center mx-1.5 cursor-pointer"
         (click)="fullScreen()"
       ></i>
 
@@ -55,7 +55,7 @@
       <progress
         dir="ltr"
         (drag)="dragFiunction($event)"
-        class="pr-Before mb-1.5"
+        class="pr-Before mb-1.5 cursor-pointer"
         (click)="handleClick($event)"
         [value]="progressValue"
         min="0"
@@ -64,7 +64,7 @@
       ></progress>
 
       <i
-        class="ms-1 ie-icon text-white flex items-center text-base small"
+        class="ms-1 ie-icon text-white flex items-center text-base small cursor-pointer"
         [ngClass]="{
           'ie-puase max-w-[14px] mb-2': pauseplay,
           'ie-Polygon ': !pauseplay
