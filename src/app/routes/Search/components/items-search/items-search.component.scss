@@ -97,6 +97,12 @@ drag-scroll{
     font-weight: 500;
     margin-bottom: 1rem;
   }
+  .flag{
+    position: relative;
+    scale: 10;
+    right: 13rem;
+    border-radius: 2px;
+  }
   #dropdown-item {
     position: relative;
     .selected {
@@ -148,6 +154,7 @@ drag-scroll{
       position: relative;
       z-index: -10;
     }
+
     // <!-- ============[هاور به پایین]======================== -->
     .show-menu-down{
       transform: translate(0rem, 13rem);

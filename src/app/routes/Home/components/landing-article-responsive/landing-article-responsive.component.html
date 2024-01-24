@@ -59,19 +59,19 @@
               >نویسنده ؛ {{ blogs.updatedByFirstName }}
               {{ blogs.updatedByLastName
               }}<small class="sm:text-sm color--grey500 font-normal"
-                >زمان مطالعه 6 دقیقه</small
+                >زمان مطالعه {{blogs.studyTime}} دقیقه</small
               ></span
             >
           </div>
-          <div class="sm:m-2 me-0 sm:text-xl text-[8px] color--grey500 ltr">
-            <span class="me-2"
-              ><i class="fa fa-heart-o color--grey500 font-extralight"></i>
-              386
-            </span>
-            <span class="ltr"
-              ><i class="fa fa-eye color--grey500 font-extralight"></i>
-              {{ blogs.viewsCount }}
-            </span>
+          <div class="sm:m-2 me-0 sm:text-xl text-[8px] color--grey500 ltr flex items-center">
+            <span class="me-2 flex items-start text-sm"
+            ><i class="favorite-icon mr-2"></i>
+            {{blogs.favoriteCount}}
+          </span>
+          <span class="flex items-start text-sm"
+            ><i class="eye-icon mr-2"></i>
+            {{ blogs.viewsCount }}
+          </span>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { ToastrService } from 'ngx-toastr';
 import { Subject, Subscription, debounceTime } from 'rxjs';
 
 @Component({
@@ -18,7 +18,7 @@ export class HeaderSearchComponent {
     event.stopPropagation();
   }
 
-  constructor(private router: Router) {}
+  constructor(private router: Router , private toaster : ToastrService) {}
 
   ngOnInit() {
     this.loading = false;
@@ -38,6 +38,11 @@ export class HeaderSearchComponent {
   }
 
   searchFilterName(value: string) {
-    this.router.navigateByUrl(`search?search=${value}`);
+    if (value.length <= 2 ) {
+      this.toaster.error('حداقل باید 3 کاراکتر باید برای سرچ ارسال گردد');
+    }
+    else {
+      this.router.navigateByUrl(`search?search=${value}`);
+    }
   }
 }
