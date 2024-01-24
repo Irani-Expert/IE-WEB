@@ -199,19 +199,19 @@
   ></div>
 
   <app-banners> </app-banners>
-  <div class="bg-[#F5F5F5] rounded-b-[2.5rem] pb-16 sm:hidden">
+  <div class="bg-[#F5F5F5] rounded-b-[2.5rem] pb-16">
     <div class="flex overflow-y-scroll">
       <app-landing-article-responsive
         *ngFor="let i of blogData"
         [blogs]="i"
-        class="block sm:hidden"
+        class="block lg:hidden mb-16"
       />
     </div>
   </div>
   <app-landing-article
     [blogs]="blogData"
     *ngIf="isRecived"
-    class="hidden sm:block"
+    class="hidden lg:block"
   />
 </div>
 <div
