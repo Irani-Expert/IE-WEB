@@ -36,7 +36,10 @@
         <ng-container *ngIf="sendDataToChild">
           <app-blog-detail [data]="blogService._blog!"></app-blog-detail>
 
-          <app-comments [rowId]="id" [tableType]="1"></app-comments>
+          <app-comments
+            [rowId]="blogService._blog!.id"
+            [tableType]="1"
+          ></app-comments>
           <app-carousel-blog [data]="itemsBlog.slice(0, 5)"></app-carousel-blog>
         </ng-container>
       </div>

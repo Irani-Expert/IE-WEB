@@ -81,6 +81,8 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
   async ngAfterViewInit() {
     if (await this.getDetail(this.title, this.language)) {
       this.tags = this.blogService._blog!.sharpLinkTags;
+      console.log(this.blogService._blog!.id);
+
       this.id = Number(this.blogService._blog?.id);
 
       this.sendDataToChild = true;

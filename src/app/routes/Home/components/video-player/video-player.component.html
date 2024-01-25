@@ -45,11 +45,11 @@
       [ngClass]="!isFullScreen ? 'justify-evenly ' : '   justify-center'"
     >
       <i
-        class="ie-icon ie-expand text-base text-white flex items-center mx-1.5 cursor-pointer"
+        class="ie-icon ie-expand text-base text-white flex items-center mx-1.5 cursor-pointer drop-shadow-md"
         (click)="fullScreen()"
       ></i>
 
-      <div class="text-white flex items-center">
+      <div class="text-white flex items-center drop-shadow-md">
         {{ videoCurrentTime }}
       </div>
       <progress
@@ -64,7 +64,7 @@
       ></progress>
 
       <i
-        class="ms-1 ie-icon text-white flex items-center text-base small cursor-pointer"
+        class="ms-1 ie-icon text-white flex items-center text-base small cursor-pointer drop-shadow-md"
         [ngClass]="{
           'ie-puase max-w-[14px] mb-2': pauseplay,
           'ie-Polygon ': !pauseplay
