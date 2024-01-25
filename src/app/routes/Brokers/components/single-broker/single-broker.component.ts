@@ -7,7 +7,7 @@ import { ApiBrokerModel } from './api-broker.model';
 import { environment } from 'src/environments/environment.dev';
 import { CurrencyPipe } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
 // import { GetAverageRGB } from 'src/app/classes/tranparent-img';
 // import { base64Maker } from 'src/app/classes/base64Maker';
 
@@ -34,7 +34,9 @@ export class SingleBrokerComponent {
     public brokerService: BrokerService,
     private _state: ActivatedRoute,
     private _currencyPipe: CurrencyPipe,
-    private _sanitizer: DomSanitizer
+    private _sanitizer: DomSanitizer,
+    private _meta: Meta,
+    private _title: Title
   ) {
     if (AppComponent.isBrowser.value) {
       this.main = document.body.getElementsByTagName('main')[0];
@@ -61,6 +63,7 @@ export class SingleBrokerComponent {
     return this.brokerService.getDetails(title);
   }
   setDataToUl(apiData: ApiBrokerModel) {
+    this.setSeo(apiData);
     const tempData: any = { ...apiData };
     let keysOfULModel = Object.keys(this.brokerData);
     let keys: [keyof ApiBrokerModel] | string[] = Object.keys(tempData);
@@ -156,5 +159,25 @@ export class SingleBrokerComponent {
     //     console.log(imgBaseColor);
     //   }
     // }, 2000);
+  }
+  setSeo(apiData = new ApiBrokerModel()) {
+    let keywords = '';
+    apiData.linkTags.forEach((item) => {
+      keywords += `${item.title.replace(/#/g, '')},`;
+    });
+
+    this._meta.updateTag({
+      name: 'description',
+      content: apiData.metaDescription,
+    });
+    this._meta.updateTag({
+      name: 'author',
+      content: apiData.author,
+    });
+    this._meta.updateTag({
+      name: 'keywords',
+      content: keywords,
+    });
+    this._title.setTitle(apiData.title);
   }
 }

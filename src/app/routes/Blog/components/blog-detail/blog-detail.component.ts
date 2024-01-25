@@ -2,7 +2,7 @@ import { Component, HostListener, Input } from '@angular/core';
 import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
 import { AppComponent } from 'src/app/app.component';
 import { SingleBlog } from 'src/app/classes/interfaces/blog.interface';
-import { LinkService } from 'src/app/classes/services/link.service';
+
 import { Utils } from 'src/app/classes/utils';
 import { FAQ } from 'src/app/routes/Home/components/questions/interfaces/faq-interfce';
 import { environment } from 'src/environments/environment.dev';
@@ -30,7 +30,7 @@ class SingleBlogModel implements SingleBlog {
   isRTL: boolean = false;
   metaDescription: string = '';
   browserTitle: string = '';
-  favoriteCount : number = 0;
+  favoriteCount: number = 0;
   linkTags: [{ title: string; value: number }] = [{ title: '', value: 0 }];
   sharpLinkTags: [{ title: string; value: number }] = [{ title: '', value: 0 }];
   faQs: FAQ[] = new Array<FAQ>();
@@ -68,7 +68,6 @@ export class BlogDetailComponent {
   constructor(
     private _sanitizer: DomSanitizer,
     private _title: Title,
-    private _linkService: LinkService,
     private _meta: Meta
   ) {}
 
@@ -92,12 +91,6 @@ export class BlogDetailComponent {
     this.articleModel.linkTags.forEach((item) => {
       keywords += `${item.title.replace(/#/g, '')},`;
     });
-    let href = this.articleModel.browserTitle.split(' ').join('-');
-    let lang = this.articleModel.isRTL ? 'fa' : 'en';
-    this._linkService.createLink(
-      `https://www.iraniexpert.com/articles/${href}/${lang}`
-    );
-    
     this._meta.updateTag({
       name: 'description',
       content: this.articleModel.metaDescription,
