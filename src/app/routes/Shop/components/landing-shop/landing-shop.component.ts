@@ -19,7 +19,6 @@ import { AppComponent } from 'src/app/app.component';
 import { FilterProduct } from 'src/app/classes/interfaces/filter-product.interface';
 import { Product } from 'src/app/classes/interfaces/product.interface';
 import { Page } from 'src/app/classes/page.model';
-import { LinkService } from 'src/app/classes/services/link.service';
 import { ProductService } from 'src/app/classes/services/product.service';
 import { Utils } from 'src/app/classes/utils';
 import { FilterService } from 'src/app/shared/filter/filter.service';
@@ -107,7 +106,6 @@ export class LandingShopComponent {
     public productService: ProductService,
     private _router: Router,
     private _filterService: FilterService<FilterProduct>,
-    private _linkService: LinkService,
     private _activatedRoute: ActivatedRoute,
     private meta: Meta
   ) {
@@ -171,10 +169,6 @@ export class LandingShopComponent {
                 this.filterModel.pageIndex =
                   parseInt(arrayOfUrlSegments[3]) - 1;
                 this.getProducts();
-
-                this._linkService.createLink(
-                  `https://www.iraniexpert.com/shop/page/${arrayOfUrlSegments[3]}`
-                );
               }
             }
           }

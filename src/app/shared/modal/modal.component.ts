@@ -3,6 +3,7 @@ import { AppComponent } from 'src/app/app.component';
 import { ModalService } from './services/modal.service';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-modal',
@@ -37,7 +38,13 @@ export class ModalComponent {
   @Input('header') header: boolean = true;
   @Input('overflow') overflow!: string;
   @Input('width') width: string = 'auto';
-  constructor(private el: ElementRef, private modal: ModalService) {}
+  constructor(
+    private el: ElementRef,
+    private modal: ModalService,
+    private _meta: Meta
+  ) {
+    this._meta.addTag({ name: 'robots', content: 'none' });
+  }
   ngOnInit() {
     if (AppComponent.isBrowser.value) {
       document.body.appendChild(this.el.nativeElement);
@@ -48,6 +55,7 @@ export class ModalComponent {
     this.el.nativeElement.remove();
   }
   ngOnDestroy() {
+    this._meta.removeTag('content=none');
     this.close();
   }
 }
