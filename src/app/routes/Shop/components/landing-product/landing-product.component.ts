@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
-import { Meta } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 import { ProductService } from 'src/app/classes/services/product.service';
 
 @Component({
@@ -15,11 +15,15 @@ export class LandingProductComponent {
   constructor(
     private _activatedRoute: ActivatedRoute,
     public productService: ProductService,
-    private meta: Meta
+    private meta: Meta,
+    private _title: Title
   ) {
     this._activatedRoute.url.subscribe((it) => (this.title = it[0].path));
   }
   ngOnInit() {
+    this._title.setTitle(
+      'خرید بهترین ربات ترید فارکس 2024 تضمینی با بستری ساده و امن'
+    );
     // =================[متاتگ ها]==========
     this.meta.updateTag({
       name: 'description',

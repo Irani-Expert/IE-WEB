@@ -147,17 +147,20 @@
         </div>
       </form>
 
-      <!-- <div class="border-solid border-2 border-gray-300 rounded-lg">
+      <div
+        class="border-solid border-2 border-gray-300 rounded-lg mb-6"
+        *ngFor="let x of preComments"
+      >
         <div
           class="flex justify-between border-b-2 m-2 py-2 sm:mx-8 border-gray-300"
         >
           <div class="flex justify-around text-xs">
-            <div class="point-card font-extrabold">5</div>
+            <div class="point-card font-extrabold">{{ x.rate }}</div>
             <p class="font-bold sm:leading-[20px] mx-2 pt-2 text-[#847b7b]">
-              3 شهریور 1400
+              {{ x.createDate | date : "MMMM d" }}
             </p>
             <p class="font-bold sm:leading-[20x] mx-2 pt-2 text-[#847b7b]">
-              سعید عبداللهی
+              {{ x.name }}
             </p>
 
             <div
@@ -181,8 +184,7 @@
             height="20"
           />
           <p class="sm:leading-[3.4rem] ms-2">
-            سلام ... ابتدا یکماهه و سپس یکساله گرفتم و روی تمام جفت ارزهای ماژور
-            کار میکنم ... خدا بهتون برکت بده و ممنون از محصول بی نظیرتون
+            {{ x.text }}
           </p>
         </div>
         <div class="h-1/4 sm:m-2 mx-8">
@@ -192,7 +194,7 @@
           <i class="fa fa-thumbs-down text-gray-400 text-lg cursor-pointer"></i>
         </div>
       </div>
-      <div class="flex lg:items-end lg:h-64 max-lg:mt-7 mix-blend-screen:ms-3">
+      <!-- <div class="flex lg:items-end lg:h-64 max-lg:mt-7 mix-blend-screen:ms-3">
         <div class="h-full max-md:hidden">
           <div
             class="border-solid border-r-2 border-b-2 border-gray-300 w-5 h-4/6"
@@ -245,6 +247,7 @@
           </div>
         </div>
       </div> -->
+
       <!-- <div class="flex items-end h-64 ms-3">
         <div class="h-full">
           <div
@@ -260,9 +263,9 @@
 <div class="comment-mobile" [ngClass]="device == 'sm' ? 'block' : 'hidden'">
   <div class="lg:!mr-14 row">
     <span class="divid-h lg:!text-base">ATM نظرات خریداران ربات </span>
-    <h6 class="faq-h mb-4 lg:!text-2xl">
+    <p class="faq-h mb-4 lg:!text-2xl">
       لطفا نظرات خود را جهت راهنمایی دیگر خریداران ثبت کنید
-    </h6>
+    </p>
   </div>
 
   <!-- =======================[نظرات]=========== -->

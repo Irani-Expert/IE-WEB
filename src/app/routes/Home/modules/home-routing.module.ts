@@ -7,7 +7,11 @@ import { RobotTraderComponent } from 'src/app/shared/robot-trader/robot-trader.c
 import { CopyTradeComponent } from 'src/app/components/copy-trade/copy-trade.component';
 
 const routes: Routes = [
-  { path: '', title: 'ایرانی اکسپرت - خانه', component: LandingPageComponent },
+  {
+    path: '',
+    title: 'ایرانی اکسپرت - آموزش فارکس| ترید فارکس| ربات خودکار فارکس',
+    component: LandingPageComponent,
+  },
   { path: 'about-us', title: 'چرا ما؟ ', component: AboutUsComponent },
   {
     path: 'expert-advisor',

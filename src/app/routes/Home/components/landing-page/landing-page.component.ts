@@ -23,7 +23,6 @@ export class LandingPageComponent {
     private meta: Meta
   ) {
     // =================[متاتگ ها]==========
-
     this.meta.updateTag({
       name: 'description',
       content:

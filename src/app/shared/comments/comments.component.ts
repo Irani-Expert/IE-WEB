@@ -6,7 +6,10 @@ import { Comment } from 'src/app/classes/interfaces/comment.interface';
 import { CommentService } from 'src/app/classes/services/comment.service';
 import { AuthService } from '../auth/auth.service';
 import { ToastrService } from 'ngx-toastr';
-const formDataInit: Comment = {
+import { Result } from 'src/app/classes/result';
+import { PageInterface } from 'src/app/classes/page.model';
+
+let formDataInit: Comment = {
   id: 0,
   isActive: true,
   userID: 0,
@@ -24,7 +27,8 @@ const formDataInit: Comment = {
   styleUrls: ['./comments.component.scss'],
 })
 export class CommentsComponent {
-  @Input() rowId: number;
+  preComments: Comment[] | undefined = new Array<Comment>();
+  @Input() rowId: number | undefined;
   formErrors: { [key: string]: string[] } = {};
   commentData: Comment[] = new Array<Comment>();
   @Input() tableType: number;
@@ -86,6 +90,7 @@ export class CommentsComponent {
   }
   ngOnInit() {
     this.getComment();
+    formDataInit.id != this.rowId;
   }
   ngAfterContentChecked() {
     if (this._authservice._user.id != 0) {
@@ -99,13 +104,25 @@ export class CommentsComponent {
     }
   }
   async getComment() {
-    await lastValueFrom(
-      this._comment.get(
-        'Comment/GetByTableTypeAndRowId/1061/1?pageIndex=0&pageSize=100&accending=true      ',
+    // await lastValueFrom(
+    //   this._comment.get(
+    //     'Comment/GetByTableTypeAndRowId/1061/1?pageIndex=0&pageSize=100&accending=true      ',
+    //     undefined
+    //   )
+    // );
+    // this.questionFaq = (await lastValueFrom(res)).data!;
+    this._comment
+      .get(
+        'Comment/GetByTableTypeAndRowId/' +
+          this.rowId +
+          '/' +
+          this.tableType +
+          '?pageIndex=0&pageSize=100&accending=true ',
         undefined
       )
-    );
-    // this.questionFaq = (await lastValueFrom(res)).data!;
+      .subscribe((res: Result<PageInterface<Comment[]>>) => {
+        this.preComments = res.data?.items?.filter((it) => it.isAccepted);
+      });
   }
   async commentServices() {
     this.formErrors = {};
@@ -115,7 +132,7 @@ export class CommentsComponent {
     formData.email = this._Email;
     formData.rate = this.rate;
     formData.tableType = this.tableType;
-    formData.rowID = this.rowId;
+    formData.rowID != this.rowId;
     formData.userID = this._authservice._user.id;
     if (await this.checkFormValidation(formData)) {
       const apiRes = this._comment.post(

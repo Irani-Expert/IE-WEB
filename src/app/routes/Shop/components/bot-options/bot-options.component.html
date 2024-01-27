@@ -1,6 +1,8 @@
 <div class="lg:!mr-14 mr-4 ml-8">
   <span class="divid-h lg:!text-base">امکانات ویژه ربات معامله گر ATM </span>
-  <h6 class="text-black text-base font-semibold mb-4 lg:!text-2xl">بخشی از مهمترین ویژگی ها و ربات معامله گر ATM</h6>
+  <p class="text-black text-base font-semibold mb-4 lg:!text-2xl">
+    بخشی از مهمترین ویژگی ها و ربات معامله گر ATM
+  </p>
 </div>
 <!-- ===============[FAQ]=========== -->
 <div class="pb-8 flex justify-center">
@@ -10,7 +12,10 @@
       *ngFor="let menu of data; let i = index"
       [class.active]="menu.isActive"
     >
-      <div class="menu flex justify-between" (click)="toggle(i, !menu.isActive)">
+      <div
+        class="menu flex justify-between"
+        (click)="toggle(i, !menu.isActive)"
+      >
         {{ menu.title }}
         <i class="chevron"></i>
       </div>

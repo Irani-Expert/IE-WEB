@@ -5,6 +5,8 @@ import { PlatformService } from './classes/services/platform.service';
 import { AuthService } from './shared/auth/auth.service';
 import { Header } from './components/header-layout/header';
 import { Meta } from '@angular/platform-browser';
+import { NavigationEnd, Router } from '@angular/router';
+import { LinkService } from './classes/services/link.service';
 
 @Component({
   selector: 'app-root',
@@ -22,23 +24,42 @@ export class AppComponent {
   // modalStatus;
   static isBrowser = new BehaviorSubject<boolean>(false);
   title = 'IE-WEB';
-  constructor(private platform: PlatformService, private auth: AuthService , private meta: Meta) {
+  constructor(
+    private platform: PlatformService,
+    private auth: AuthService,
+    private meta: Meta,
+    private _router: Router,
+    private _linkService: LinkService
+  ) {
     if (this.platform.isPlatformBrowser()) {
       AppComponent.isBrowser.next(true);
+      this._router.events.subscribe({
+        next: (it) => {
+          if (it instanceof NavigationEnd) {
+            it.urlAfterRedirects = it.urlAfterRedirects.split('?')[0];
+            this._linkService.createLink(
+              `https://www.iraniexpert.com${it.urlAfterRedirects}`
+            );
+          }
+        },
+      });
     }
-        // =================[متاتگ ها]==========
-
+    // =================[متاتگ ها]==========
     this.meta.addTag({
       name: 'description',
-      content:''
+      content: '',
     });
     this.meta.addTag({
       name: 'author',
-      content:''
+      content: '',
     });
     this.meta.addTag({
       name: 'keywords',
-      content:''
+      content: '',
+    });
+    this.meta.addTag({
+      name: 'publisher',
+      content: 'ایرانی اکسپرت - Irani Expert',
     });
   }
   async ngOnInit() {
@@ -68,7 +89,7 @@ export class AppComponent {
         behavior: 'smooth',
       });
   }
-  }
+}
 // Get Blogs
 // loading = true;
 // async getBlogs(filter: IFilterBlog) {

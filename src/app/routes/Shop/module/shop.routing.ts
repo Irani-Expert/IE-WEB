@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'page/:id', pathMatch: 'prefix', component: LandingShopComponent },
   {
     path: ':title',
+    // title: 'خرید بهترین ربات ترید فارکس 2024 تضمینی با بستری ساده و امن',
     component: LandingProductComponent,
   },
 ];
