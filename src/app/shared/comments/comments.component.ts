@@ -104,7 +104,6 @@ export class CommentsComponent {
     }
   }
   async getComment() {
-    debugger;
     // await lastValueFrom(
     //   this._comment.get(
     //     'Comment/GetByTableTypeAndRowId/1061/1?pageIndex=0&pageSize=100&accending=true      ',
@@ -122,7 +121,7 @@ export class CommentsComponent {
         undefined
       )
       .subscribe((res: Result<PageInterface<Comment[]>>) => {
-        this.preComments = res.data?.items;
+        this.preComments = res.data?.items?.filter((it) => it.isAccepted);
       });
   }
   async commentServices() {
