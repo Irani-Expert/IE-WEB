@@ -115,26 +115,26 @@ export class LandingPageComponent {
     } else {
       if (await this.getProductsFromApi()) {
         this.page = new Page(this.productService._paginatedPrd!);
-        this.page?._items?.forEach((x) => {
-          var dataKeeper: IcardData = {
-            id: x.id,
-            title: x.title,
-            imgUrl: x.cardImagePath,
-            price: x.minPrice,
-            type: 0,
-            colorCode: '#ED912A',
-            bgColorCode: 'rgb(245 179 104)',
-            hours: null,
-            session: null,
-            writer: null,
-            isOrigin: null,
-            link: null,
-            publishedBy: x.publishedBy,
-          };
-          this.card_data2.push(dataKeeper);
-        });
       }
     }
+    this.page?._items?.forEach((x) => {
+      var dataKeeper: IcardData = {
+        id: x.id,
+        title: x.title,
+        imgUrl: x.cardImagePath,
+        price: x.minPrice,
+        type: 0,
+        colorCode: '#ED912A',
+        bgColorCode: 'rgb(245 179 104)',
+        hours: null,
+        session: null,
+        writer: null,
+        isOrigin: null,
+        link: null,
+        publishedBy: x.publishedBy,
+      };
+      this.card_data2.push(dataKeeper);
+    });
   }
   async getProductsFromApi() {
     return await lastValueFrom(

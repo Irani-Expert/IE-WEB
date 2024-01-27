@@ -26,6 +26,11 @@ class BlogModel implements Blog {
   styleUrls: ['./blog-cart.component.scss'],
 })
 export class BlogCartComponent {
+
+  @Input('linkType') linkType : number;
+  link : string = '';
+
+
   loading: boolean = true;
 
   contentUrl = environment.contentUrl;
@@ -38,9 +43,8 @@ export class BlogCartComponent {
   device: 'sm' | 'lg' = 'lg';
   ngOnInit() {
     this.updateDeviceValue();
-    let language = this.item.isRTL ? 'fa' : 'en';
-    this.url = this.item.browserTitle.split(' ').join('_') + '/' + language;
     this.loading = false;
+    this.getUrl();
     if( this.item.favoriteCount ==  null){
       this.like = 25
     }
@@ -48,7 +52,13 @@ export class BlogCartComponent {
       this.like = this.item.favoriteCount;
     }
   }
-
+  getUrl(){
+    let language = this.item.isRTL ? 'fa' : 'en';
+    if( this.linkType == 2 ){
+      this.link = '../../';
+    }
+    this.url = this.item.browserTitle.split(' ').join('_') + '/' + language;
+  }
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.updateDeviceValue();

@@ -20,7 +20,7 @@
                 <div class="ml-4 mr-2">
                     <drag-scroll #nav (reachesRightBound)="isRightBoundary($event)" (reachesLeftBound)="isLeftBoundary($event)">
                         <div class="md:scale-75 md:-ml-4 md:-mr-10 md:-mt-8 md:mb-8 " drag-scroll-item *ngFor="let item of itemOffers">
-                            <app-blog-cart [data]="item"></app-blog-cart>
+                            <app-blog-cart [linkType]="2" [data]="item"></app-blog-cart>
                         </div>
                     </drag-scroll>
                 </div>

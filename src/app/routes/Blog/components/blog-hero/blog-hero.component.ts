@@ -31,6 +31,9 @@ class BlogModel implements Blog {
   styleUrls: ['./blog-hero.component.scss'],
 })
 export class BlogHeroComponent {
+
+  @Input('linkType') linkType : number;
+  link : string = '';
   // Search Blog
   value: string | null = null;
   _searchInputSubscription: Subscription;
@@ -45,16 +48,23 @@ export class BlogHeroComponent {
   @ViewChild('nav') ds: any;
 
   ngOnInit() {
+    this.getUrl();
     if (AppComponent.isBrowser.value) {
       this.ds = DragScrollComponent;
     }
     this.updateDeviceValue();
-    this.setLanguage();
     this._searchInputSubscription = this._searchinput
       .pipe(debounceTime(700))
       .subscribe((value) => {
         this.searchFilterName(value);
       });
+  }
+
+  getUrl(){
+    if (this.linkType == 2 ){
+      this.link = '../../';
+    }
+    this.setLanguage();
   }
 
   constructor(private router: Router) {}
