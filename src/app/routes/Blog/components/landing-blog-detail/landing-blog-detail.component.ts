@@ -26,7 +26,6 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
   loading: boolean = true;
   title: string = '';
 
-  
   async getItemBlogs(filters: FilterBlog) {
     return await lastValueFrom(
       await this.blogService.getBlogsFromApi(
@@ -35,7 +34,7 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
       )
     );
   }
-  
+
   routeSubscriber: Subscription | undefined;
   sendDataToChild = false;
 
@@ -80,7 +79,6 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
   async ngAfterViewInit() {
     if (await this.getDetail(this.title, this.language)) {
       this.tags = this.blogService._blog!.sharpLinkTags;
-      console.log(this.blogService._blog!.id);
 
       this.id = Number(this.blogService._blog?.id);
 
