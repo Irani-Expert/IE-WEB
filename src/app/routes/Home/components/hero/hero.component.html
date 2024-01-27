@@ -1,10 +1,8 @@
 <h1 class="sr-only">ایرانی اکسپرت در دسترس همه ایرانیان</h1>
 <h2 class="sr-only">با ایرانی اکسپرت مطمئن و آسان ترید کن</h2>
 <h2 class="sr-only">ایرانی اکسپرت</h2>
-<div
-  class="p-9 overflow-hidden"
-  [ngClass]="device == 'lg' ? 'block' : 'hidden'"
->
+<h2 class="sr-only">سود ما در راستای سود شماست</h2>
+<div class="p-9 overflow-hidden hidden lg:block">
   <div class="flex">
     <div
       class="lg:grid lg:grid-cols-2 lg:gap-2 text-right mt-16 justify-items-center flex"
@@ -24,9 +22,9 @@
           ربات معامله گر یکی از محصولات ماست.در حوزه ارائه آموزش،مقالات مشاوره و
           نیز تحلیل اقتصادی،اخبارفارکس و پادکست ارائه خدمات میدهیم
         </p>
-        <h2 class="header-text-end font-fat text md:hidden lg:block">
+        <p class="header-text-end font-fat text md:hidden lg:block">
           سود ما در راستای سود شماست
-        </h2>
+        </p>
       </div>
       <div class="relative">
         <div id="triangleHome" class="absolute">
@@ -34,6 +32,7 @@
         </div>
 
         <img
+          title="ایرانی اکسپرت در دسترس همه‌ی ایرانیان"
           class="hero-image object-contain relative bottom-8 right-8"
           src="assets/img/hero.webp"
           alt="hero"
@@ -89,12 +88,13 @@
   </div>
 </div>
 <!-- ========================[رسپانسیو]================== -->
-<div class="responsive" [ngClass]="device == 'sm' ? 'block' : 'hidden'">
+<div class="responsive block lg:hidden">
   <!-- ==================[بنر هیرو]================ -->
   <div class="hero-mobile relative flex items-center justify-center">
     <div class="relative z-20">
       <img
         class="hero-img-mobile"
+        title="ایرانی اکسپرت در دسترس همه‌ی ایرانیان"
         src="assets/img/Hero-mobile.webp"
         alt="hero-bot-img"
         width="807"

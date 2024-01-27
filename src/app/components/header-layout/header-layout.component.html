@@ -1,12 +1,11 @@
 <header #headerMain class="relative z-10">
   <app-header-lg
     (modal)="openedModal($event)"
-    class="flex justify-center"
-    [ngClass]="device == 'lg' || device == '4k' ? ' bg-white block' : 'hidden'"
+    class="lg:flex justify-center hidden bg-white"
   />
   <app-header-sm
     (modal)="openedModal($event)"
-    [ngClass]="device == 'sm' ? ' bg-[#F6F6F6] block' : 'hidden'"
+    class="lg:hidden block bg-[#F6F6F6]"
   />
   <!-- <app-header-alt /> -->
 </header>
