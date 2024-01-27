@@ -86,7 +86,10 @@
       >
         <p header class="text-black w-28">دسترسی سریع</p>
       </app-filter-responsive>
-      <!-- <app-blog-hero [data]="itemsBlog.slice(0, 5)"></app-blog-hero> -->
+      <app-blog-hero
+        [linkType]="2"
+        [data]="itemsBlog.slice(0, 5)"
+      ></app-blog-hero>
     </ng-container>
 
     <!-- <div class="flex justify-center mt-12">
