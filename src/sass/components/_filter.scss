@@ -16,7 +16,7 @@
   border-radius: 19px;
   background-color: #f6f6f6;
 
-  h3 {
+  b {
     font-weight: 900;
     font-size: $font-size-base;
   }
@@ -75,7 +75,7 @@ input.search-input {
     width: 100%;
     justify-content: space-between;
     align-items: baseline;
-    h3 {
+    b {
       font-weight: 900;
       font-size: $font-size-base;
     }

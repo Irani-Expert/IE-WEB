@@ -45,7 +45,6 @@ export class AppComponent {
       });
     }
     // =================[متاتگ ها]==========
-
     this.meta.addTag({
       name: 'description',
       content: '',
@@ -57,6 +56,10 @@ export class AppComponent {
     this.meta.addTag({
       name: 'keywords',
       content: '',
+    });
+    this.meta.addTag({
+      name: 'publisher',
+      content: 'ایرانی اکسپرت - Irani Expert',
     });
   }
   async ngOnInit() {

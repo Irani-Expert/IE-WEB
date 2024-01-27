@@ -13,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    title: 'ابرانی اکسپرت',
+    title: 'ایرانی اکسپرت - آموزش فارکس| ترید فارکس| ربات خودکار فارکس',
     loadChildren: () =>
       import('./routes/Home/modules/home.module').then((m) => m.HomeModule),
   },
@@ -40,7 +40,7 @@ const routes: Routes = [
   },
   {
     path: 'shop',
-    title: 'فروشگاه ایرانی اکسپرت',
+    title: 'فروشگاه ایرانی اکسپرت - ربات فارکس atm - خرید اکسپرت تضمینی',
     loadChildren: () =>
       import('./routes/Shop/module/shop.module').then((m) => m.ShopModule),
   },

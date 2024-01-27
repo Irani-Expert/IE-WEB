@@ -1,12 +1,18 @@
 <div class="mr-4 ml-4">
   <div class="text-right">
-    <h5 class="font-bold sm:text-3xl text-xl">
-      <span class="symbol text-2xl">#</span> موضوعات پرطرفدار و هشتگ های داغ هفته
-    </h5>
+    <b class="font-bold sm:text-3xl text-xl">
+      <span class="symbol text-2xl">#</span> موضوعات پرطرفدار و هشتگ های داغ
+      هفته
+    </b>
   </div>
   <div class="flex flex-wrap m-5">
     <div class="min-w-fit m-2" *ngFor="let x of values?.sharpLinkTags">
-      <button  (click)="searchTag(x.title)" class="tag px-5 py-1 rounded-2xl text-lg font-normal mr-3"><span>#</span>{{ x.title | slice : 0 : -1 }}</button>
+      <button
+        (click)="searchTag(x.title)"
+        class="tag px-5 py-1 rounded-2xl text-lg font-normal mr-3"
+      >
+        <span>#</span>{{ x.title | slice : 0 : -1 }}
+      </button>
     </div>
   </div>
 </div>
