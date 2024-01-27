@@ -2,7 +2,7 @@ import { Component, HostListener } from '@angular/core';
 import { config } from 'src/app/shared/acordian/types';
 import { AppComponent } from 'src/app/app.component';
 import { Utils } from 'src/app/classes/utils';
-import { Subscription } from 'rxjs';
+import { Subscription, lastValueFrom } from 'rxjs';
 import { HttpUrlEncodingCodec } from '@angular/common/http';
 import { BlogService } from 'src/app/classes/services/blog.service';
 import { Blog } from 'src/app/classes/interfaces/blog.interface';
@@ -25,24 +25,17 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
   blogFilter: FilterBlog = new FilterBlog();
   loading: boolean = true;
   title: string = '';
-  // async getItemBlogs(filters: FilterBlog) {
-  //   (
-  //     await this.blogService.getBlogsFromApi(
-  //       'Article/GetArticleByFilter',
-  //       filters
-  //     )
-  //   ).subscribe({
-  //     next: (x) => {
-  //       if (this.blogService._paginatedBlogs?.items) {
-  //         this.itemsBlog = this.blogService._paginatedBlogs?.items;
-  //         this.loading = false;
-  //       }
-  //     },
-  //   });
-  // }
 
-  //Logic Get Data
-  // private destroyed$ = new Subject();
+  
+  async getItemBlogs(filters: FilterBlog) {
+    return await lastValueFrom(
+      await this.blogService.getBlogsFromApi(
+        'Article/GetArticleByFilter',
+        filters
+      )
+    );
+  }
+  
   routeSubscriber: Subscription | undefined;
   sendDataToChild = false;
 
@@ -70,6 +63,12 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
   }
   async ngOnInit() {
     this.updateDeviceValue();
+
+    if (await this.getItemBlogs(this.blogFilter)) {
+      this.itemsBlog = this.blogService._paginatedBlogs?.items!;
+      this.loading = false;
+    }
+
     // this.getItemBlogs(this.blogFilter);
   }
   ngOnDestroy() {

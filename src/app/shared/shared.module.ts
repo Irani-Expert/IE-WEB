@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VoteComponent } from './vote/vote.component';
 import { FreeAdviceComponent } from '../routes/Home/free-advice/free-advice.component';
 import { ConsultationFormComponent } from '../routes/Home/components/consultation-form/consultation-form.component';
+import { ShareLinkBoxComponent } from './share-link-box/share-link-box.component';
 
 const components = [
   AcordianComponent,
@@ -32,7 +33,8 @@ const components = [
   VoicePlayerComponent,
   VoteComponent,
   FreeAdviceComponent,
-  ConsultationFormComponent
+  ConsultationFormComponent,
+  ShareLinkBoxComponent
 ];
 @NgModule({
   imports: [
@@ -49,6 +51,7 @@ const components = [
     ScrollComponent,
     NotFoundComponent,
     ContentMenuComponent,
+    ShareLinkBoxComponent,
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

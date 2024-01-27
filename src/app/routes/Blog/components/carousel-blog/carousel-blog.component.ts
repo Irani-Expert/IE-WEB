@@ -14,6 +14,8 @@ export class CarouselBlogComponent {
   leftReached = false;
   @ViewChild('nav') ds: any;
   ngOnInit() {
+    // console.log(this.itemOffers);
+    
     this.ds = DragScrollComponent;
   }
   items = [

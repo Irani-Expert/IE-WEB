@@ -36,21 +36,16 @@
 
   <!-- ===============[سوالات متداول]==============     -->
   <!-- ===============[ نویسنده]==============     -->
-  <div class="flex mt-8 items-center">
-    <img
-      class="ml-4"
-      src="assets/img/avatar.webp"
-      alt="avatar"
-      height="24"
-      width="24"
-    />
-    <p class="ml-4 writer">
-      {{ articleModel.updatedByFirstName }}&nbsp;
-      {{ articleModel.updatedByLastName }}
-    </p>
-    <p class="writer-date">تعداد بازدید کل:{{ articleModel.viewsCount }}</p>
+  <div class="flex mt-8 items-center flex-wrap gap-2">
+    <img src="assets/img/avatar-2.webp" alt="avatar" width="74" height="74" />
+    <div class="basis-3/4 flex flex-col gap-2">
+      <p class="ml-4 writer">
+        {{ articleModel.updatedByFirstName }}&nbsp;
+        {{ articleModel.updatedByLastName }}
+      </p>
+      <p class="writer-date">تعداد بازدید کل:{{ articleModel.viewsCount }}</p>
+    </div>
   </div>
-</div>
 
 <!-- ====================[رسپانسیو]========= -->
 <div class="lg:hidden">
@@ -95,7 +90,7 @@
   <!-- =================[آرتیکلز]========= -->
   <div id="ckeditor" [innerHTML]="articleHtml" class="mt-6"></div>
   <div class="flex mt-8 items-center flex-wrap gap-2">
-    <img src="assets/img/avatar.webp" alt="avatar" width="74" height="74" />
+    <img src="assets/img/avatar-2.webp" alt="avatar" width="74" height="74" />
     <div class="basis-3/4 flex flex-col gap-2">
       <p class="ml-4 writer">
         {{ articleModel.updatedByFirstName }}&nbsp;
