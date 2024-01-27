@@ -4,6 +4,7 @@ export interface PageInterface<T> {
   totalCount?: number;
   pageSize?: number;
   items?: T;
+  result?: T;
 }
 export class PageModel<T> implements PageInterface<T> {
   pageNumber: number;
