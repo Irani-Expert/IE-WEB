@@ -1,20 +1,34 @@
 <table class="calendar-table">
   <tbody>
     <tr *ngFor="let item of table">
-      <td *ngFor="let key of item | keyvalue : originalOrder">
-        <ng-container *ngIf="key.key == 'country'">
-          <div class="td-country">
-            <i [class]="'fi fi-' + item.country.flag.toLowerCase()"></i>
-          </div>
-        </ng-container>
-        <ng-container *ngIf="key.key == 'event'">
-          {{ item.event.name }}
-          {{ item.event.time | date }}
-        </ng-container>
-        <ng-container *ngIf="key.key !== 'country' && key.key !== 'event'">
-          {{ key.value }}
-        </ng-container>
+      <td></td>
+      <td class="importance">
+        <span
+          [ngClass]="{
+          'bg-[#DFFF00]': item.importance == 3,
+          'bg-[#FF5B5B]': item.importance == 2,
+          'bg-[#FFD95B]': item.importance == 1,
+          'bg-[#FCF1F1]': item.importance == 0,
+        }"
+        ></span>
       </td>
+      <td class="country">
+        <div>
+          <i class="fi fi-{{ item.country.flag | lowercase }}"></i>
+          <span>{{ item.country.symbol | uppercase }}</span>
+        </div>
+      </td>
+      <td class="event">
+        <span class="block text-black font-medium">
+          {{ item.event.time | date : "HH:MM" }}
+        </span>
+        <p class="text-black font-medium">
+          {{ item.event.name }}
+        </p>
+      </td>
+      <td class="forecast-value"></td>
+      <td class="pre-value"></td>
+      <td class="actual-value"></td>
     </tr>
   </tbody>
 </table>

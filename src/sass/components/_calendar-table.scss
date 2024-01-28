@@ -23,12 +23,42 @@
       overflow: hidden;
       background-color: #fff;
       td {
-        div {
-          &.td-country {
-            font-size: 2rem;
+        &.importance {
+          padding: 0;
+          width: 3px;
+          span {
+            display: inline-block;
+            width: 3px;
+            border-radius: 25px;
+            height: 54px;
           }
         }
+        &.country {
+          width: 64px;
+          div {
+            display: inline-flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            justify-content: space-between;
+            align-items: flex-end;
+            i {
+              filter: drop-shadow(0px 0px 1px rgb(209, 207, 207));
+              border-radius: 4px;
+              font-size: 1.725rem;
+            }
+            span {
+              display: inline-flex;
+              color: #000000;
+            }
+          }
+        }
+        // &.event {
+
+        // }
+
         &:first-child {
+          width: 1px;
+          padding: 0;
           border-top-right-radius: 13px;
           border-bottom-right-radius: 13px;
         }

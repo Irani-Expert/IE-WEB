@@ -1,21 +1,20 @@
 import { Component } from '@angular/core';
-import { originalOrderKeyValues } from 'src/app/classes/originalOrderKeys';
 import { CalendarEventsTable } from './calendar-events.model';
 import { CommonModule } from '@angular/common';
 const calendarTableInit: CalendarEventsTable[] = [
   {
+    importance: 2,
     country: {
       flag: 'us',
       symbol: 'USD',
     },
     event: {
-      name: 'CPY',
+      name: 'گزارش موقعیت های شغلی اشغال نشده (اوت) ',
       time: String(new Date()),
     },
     forecast_Value: 's',
     actual_Value: 'a',
     prev_Value: 'b',
-    importance: 100,
   },
 ];
 
@@ -26,6 +25,21 @@ const calendarTableInit: CalendarEventsTable[] = [
   imports: [CommonModule],
 })
 export class TableCalendar {
-  originalOrder = originalOrderKeyValues<CalendarEventsTable>;
   table = calendarTableInit;
+  constructor() {
+    this.table.push({
+      importance: 3,
+      country: {
+        flag: 'it',
+        symbol: 'GBP',
+      },
+      event: {
+        name: 'گزارش موقعیت های شغلی اشغال نشده (اوت) ',
+        time: String(new Date()),
+      },
+      forecast_Value: 's',
+      actual_Value: 'a',
+      prev_Value: 'b',
+    });
+  }
 }
