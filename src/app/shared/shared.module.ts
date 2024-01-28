@@ -34,7 +34,7 @@ const components = [
   VoteComponent,
   FreeAdviceComponent,
   ConsultationFormComponent,
-  ShareLinkBoxComponent
+  ShareLinkBoxComponent,
 ];
 @NgModule({
   imports: [
