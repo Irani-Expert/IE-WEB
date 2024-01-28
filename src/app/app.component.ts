@@ -19,7 +19,6 @@ export class AppComponent {
     path: './assets/lottie/loader.json',
   };
   static loaderSubject = new BehaviorSubject(false);
-
   // modalStatus;
   static isBrowser = new BehaviorSubject<boolean>(false);
   title = 'IE-WEB';
@@ -69,6 +68,21 @@ export class AppComponent {
         left: 0,
         behavior: 'smooth',
       });
+  }
+  static changeMainBg(type: 'white' | 'creamy') {
+    if (AppComponent.isBrowser.value) {
+      let main = document.body.getElementsByTagName('main')[0];
+
+      let mainClass = main.classList;
+
+      if (type == 'creamy') {
+        mainClass.remove('bg-white');
+        main.className = `${mainClass} bg-[#FAFAFA]`;
+      } else {
+        mainClass.remove('bg-[#FAFAFA]');
+        main.className = `${mainClass} bg-white`;
+      }
+    }
   }
 }
 // Get Blogs

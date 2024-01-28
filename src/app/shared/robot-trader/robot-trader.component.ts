@@ -8,9 +8,6 @@ import { AppComponent } from 'src/app/app.component';
   styleUrls: ['./robot-trader.component.scss'],
 })
 export class RobotTraderComponent {
-  mainClass =
-    'm-0 p-0 gap-0 flex flex-col min-h-screen overflow-hidden lg:overflow-y-hidden lg:overflow-x-auto';
-  main: HTMLElement;
   constructor(private _meta: Meta) {
     this._meta.updateTag({
       name: 'description',
@@ -27,18 +24,15 @@ export class RobotTraderComponent {
         'دستیار معامله  گر-ربات خودکار- ربات ATM - ربات اتو تریدر-خرید ربات تریدر-ربات معامله گر  طلا- خرید ربات معامله گر- ربات اتوماتیک ترید-ساخت ربات معامله گر-',
     });
 
-    if (AppComponent.isBrowser.value) {
-      this.main = document.body.getElementsByTagName('main')[0];
-      this.main.className = `bg-[#FAFAFA] ${this.mainClass}`;
-    }
+    AppComponent.changeMainBg('creamy');
   }
   // =======[هشتگ ها]======
-  tags : Array<any> = [
+  tags: Array<any> = [
     {
-      title : '#ربات_معامله_گر ',
-      value : 1
-    }
-  ]
+      title: '#ربات_معامله_گر ',
+      value: 1,
+    },
+  ];
 
   listElems: Array<any> = [
     {
@@ -211,7 +205,7 @@ export class RobotTraderComponent {
     },
   ];
   ngOnDestroy() {
-    this.main.className = this.mainClass;
+    AppComponent.changeMainBg('white');
   }
 }
 

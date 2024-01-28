@@ -1,0 +1,20 @@
+<table class="calendar-table">
+  <tbody>
+    <tr *ngFor="let item of table">
+      <td *ngFor="let key of item | keyvalue : originalOrder">
+        <ng-container *ngIf="key.key == 'country'">
+          <div class="td-country">
+            <i [class]="'fi fi-' + item.country.flag.toLowerCase()"></i>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="key.key == 'event'">
+          {{ item.event.name }}
+          {{ item.event.time | date }}
+        </ng-container>
+        <ng-container *ngIf="key.key !== 'country' && key.key !== 'event'">
+          {{ key.value }}
+        </ng-container>
+      </td>
+    </tr>
+  </tbody>
+</table>

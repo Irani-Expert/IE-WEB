@@ -23,26 +23,26 @@ export class EcoCalService extends BaseService<PageInterface<CurrencyData[]>> {
   connect() {
     // Replace the URL with the appropriate TradingView WebSocket URL
     const tradingviewWebSocketUrl =
-      'wss://demo.piesocket.com/v3/channel_123?api_key=VCXCEuvhGcBDP7XhiJJUDvR1e1D3eiVjgZ9VRiaV&notify_self';
+      'wss://stream.binance.com:9443/ws/ethusdt@trade';
 
     // Initialize WebSocket connection
     this.socket$ = webSocket(tradingviewWebSocketUrl);
 
     // Subscribe to symbol information for a specific symbol (replace 'AAPL' with your desired symbol)
-    const symbolSubscribeMsg = {
-      symbol: 'AAPL',
-      event: 'subscribe',
-      params: {
-        symbol_info: true,
-      },
-    };
+    // const symbolSubscribeMsg = {
+    //   symbol: 'AAPL',
+    //   event: 'subscribe',
+    //   params: {
+    //     symbol_info: true,
+    //   },
+    // };
 
     // Send subscription message
-    this.socket$.next(symbolSubscribeMsg);
+    // this.socket$.next(symbolSubscribeMsg);
 
     // Subscribe to incoming messages
     this.socket$.subscribe(
-      (message) => console.log('Received:', message),
+      (message) => console.log('Received:', message, this.socket$.complete()),
       (error) => console.error('Error:', error),
       () => console.log('WebSocket closed')
     );

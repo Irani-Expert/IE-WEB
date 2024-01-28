@@ -24,9 +24,6 @@ import { AppComponent } from 'src/app/app.component';
   ],
 })
 export class AboutUsComponent {
-  mainClass =
-    'm-0 p-0 gap-0 flex flex-col min-h-screen overflow-hidden lg:overflow-y-hidden lg:overflow-x-auto';
-  main: HTMLElement;
   // private activatedRoute: ActivatedRoute
   // private _meta: Meta
   constructor() {
@@ -43,10 +40,7 @@ export class AboutUsComponent {
     //   content:
     //     'دستیار ترید,بهترین اکسپرت معامله گر,معامله با ربات کپی ترید, ربات هوش مصنوعی برای ترید, خرید اکسپرت ترید تضمینی, ربات سفارشی قطعا سودده, ربات تریدر رایگان,معامله گری خودکار, ربات خودکار,  بهترین ربات خودکار برای ایرانیان, ',
     // });
-    if (AppComponent.isBrowser.value) {
-      this.main = document.body.getElementsByTagName('main')[0];
-      this.main.className = `bg-[#FAFAFA] ${this.mainClass}`;
-    }
+    AppComponent.changeMainBg('creamy');
   }
   ngOnInit() {
     // var location = this.activatedRoute.snapshot.queryParams['location'];
@@ -56,7 +50,7 @@ export class AboutUsComponent {
     // }
   }
   ngOnDestroy() {
-    this.main.className = this.mainClass;
+    AppComponent.changeMainBg('white');
   }
   // buttonText = 'باز کردن لیست پخش';
   // isVideoOpend: boolean = false;

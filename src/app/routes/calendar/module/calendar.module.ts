@@ -15,6 +15,7 @@ import { DatePickerComponent } from 'src/app/shared/date-picker/date-picker.comp
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ImportantNewsComponent } from 'src/app/components/important-news/important-news.component';
 import { CountriesCurrencyComponent } from 'src/app/components/countries-currency/countries-currency.component';
+import { TableCalendar } from 'src/app/shared/table-calendar/table-calendar.component';
 
 const components = [
   CalendarMainPageComponent,
@@ -34,6 +35,7 @@ const components = [
     SharedModule,
     // FormsModule,
     // ReactiveFormsModule,
+    TableCalendar,
     MapsModule,
     CalendarModuleRouting,
   ],

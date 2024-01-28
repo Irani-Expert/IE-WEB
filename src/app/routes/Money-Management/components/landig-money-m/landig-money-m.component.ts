@@ -8,14 +8,8 @@ import { AppComponent } from 'src/app/app.component';
   styleUrls: ['./landig-money-m.component.scss'],
 })
 export class LandigMoneyMComponent {
-  mainClass =
-    'm-0 p-0 gap-0 flex flex-col min-h-screen overflow-hidden lg:overflow-y-hidden lg:overflow-x-auto';
-  main: HTMLElement;
   constructor(private _meta: Meta) {
-    if (AppComponent.isBrowser.value) {
-      this.main = document.body.getElementsByTagName('main')[0];
-      this.main.className = `bg-[#FAFAFA] ${this.mainClass}`;
-    }
+    AppComponent.changeMainBg('creamy');
     this._meta.updateTag({
       name: 'description',
       content:
@@ -32,15 +26,13 @@ export class LandigMoneyMComponent {
     });
   }
   ngOnDestroy() {
-    if (AppComponent.isBrowser.value) {
-      this.main.className = this.mainClass;
-    }
+    AppComponent.changeMainBg('white');
   }
   // =======[هشتگ ها]======
-  tags : Array<any> = [
+  tags: Array<any> = [
     {
-      title : '#مدیریت_سرمایه',
-      value : 1
-    }
-  ]
+      title: '#مدیریت_سرمایه',
+      value: 1,
+    },
+  ];
 }

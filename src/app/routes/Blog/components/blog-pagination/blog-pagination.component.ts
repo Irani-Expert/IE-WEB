@@ -28,9 +28,6 @@ import { Utils } from 'src/app/classes/utils';
   styleUrls: ['./blog-pagination.component.scss'],
 })
 export class BlogPaginationComponent {
-  mainClass =
-    'm-0 p-0 gap-0 flex flex-col min-h-screen overflow-hidden lg:overflow-y-hidden lg:overflow-x-auto bg-white';
-  main: HTMLElement;
   // Search Name
 
   value: string | null = null;
@@ -50,12 +47,7 @@ export class BlogPaginationComponent {
     private meta: Meta,
     private router: Router,
     private _activatedRoute: ActivatedRoute
-  ) {
-    if (AppComponent.isBrowser.value) {
-      this.main = document.body.getElementsByTagName('main')[0];
-      this.main.className = `bg-[#FAFAFA] ${this.mainClass}`;
-    }
-  }
+  ) {}
   async getItemBlogs(filters: FilterBlog) {
     return await lastValueFrom(
       await this.blogService.getBlogsFromApi(
@@ -65,12 +57,12 @@ export class BlogPaginationComponent {
     );
   }
   ngOnDestroy() {
-    if (AppComponent.isBrowser.value) {
-      this.main.className = this.mainClass;
-    }
+    AppComponent.changeMainBg('white');
+
     this.routerSubscriber?.unsubscribe();
   }
   async ngOnInit() {
+    AppComponent.changeMainBg('creamy');
     this.routerSubscriber = this.router.events
       .pipe(takeUntil(this.routeSubject))
       .subscribe({

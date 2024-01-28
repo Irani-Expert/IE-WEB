@@ -5,21 +5,9 @@
 @import "./mixins";
 @import "./typography";
 @import "./icons";
-@import "./components/loader";
 @import "./forms";
-@import "./components/prdproperties";
-@import "./components/modals";
-@import "./components/switcher";
-@import "./components/toggler";
-@import "./components/spinner";
-@import "./components/otp";
-@import "./components/lotties";
-@import "./components/filter";
-@import "./components/priceRange";
-@import "./components/carousel";
-@import "./components/blogs";
-@import "./components/triangle";
-@import "./components/toastr";
+@import "./components/components";
+
 body {
   font-family: $font-family-base;
   font-size: $font-size-base;
