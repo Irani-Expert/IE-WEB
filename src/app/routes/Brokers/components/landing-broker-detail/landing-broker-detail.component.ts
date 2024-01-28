@@ -15,16 +15,10 @@ interface BrokerImgCard<T> {
   styleUrls: ['./landing-broker-detail.component.scss'],
 })
 export class LandingBrokerDetailComponent {
-  mainClass =
-    'm-0 p-0 gap-0 flex flex-col min-h-screen overflow-hidden lg:overflow-y-hidden lg:overflow-x-auto';
-  main: HTMLElement;
   @ViewChild(TableBrokersComponent, { static: true })
   tableBrokers: TableBrokersComponent;
   constructor(private _meta: Meta) {
-    if (AppComponent.isBrowser.value) {
-      this.main = document.body.getElementsByTagName('main')[0];
-      this.main.className = `bg-[#FAFAFA] ${this.mainClass}`;
-    }
+    AppComponent.changeMainBg('creamy');
     this._meta.updateTag({
       name: 'description',
       content:
@@ -61,9 +55,7 @@ export class LandingBrokerDetailComponent {
     return this.tableBrokers.tableLoaded;
   }
   ngOnDestroy() {
-    if (AppComponent.isBrowser.value) {
-      this.main.className = this.mainClass;
-    }
+    AppComponent.changeMainBg('white');
   }
 }
 const brokersInHero = ['ویندزور', 'آلپاری', 'آی اف سی مارکتس'];

@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { Bubble, Maps, MapsTooltip } from '@syncfusion/ej2-angular-maps';
+import { AppComponent } from 'src/app/app.component';
 Maps.Inject(Bubble, MapsTooltip);
 interface trend_data {
   currency: string;
@@ -13,6 +14,7 @@ interface trend_data {
   encapsulation: ViewEncapsulation.None,
 })
 export class CalendarMainPageComponent {
+  constructor() {}
   data: trend_data[] = [
     {
       currency: 'XAU USD',
@@ -35,4 +37,10 @@ export class CalendarMainPageComponent {
       trend: true,
     },
   ];
+  ngOnInit() {
+    AppComponent.changeMainBg('creamy');
+  }
+  ngOnDestroy() {
+    AppComponent.changeMainBg('white');
+  }
 }

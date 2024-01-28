@@ -16,6 +16,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { ImportantNewsComponent } from 'src/app/components/important-news/important-news.component';
 import { CountriesCurrencyComponent } from 'src/app/components/countries-currency/countries-currency.component';
 import { CalendarDescribtionComponent } from '../calendar-describtion/calendar-describtion.component';
+import { TableCalendar } from 'src/app/shared/table-calendar/table-calendar.component';
 
 const components = [
   CalendarMainPageComponent,
@@ -36,6 +37,7 @@ const components = [
     SharedModule,
     // FormsModule,
     // ReactiveFormsModule,
+    TableCalendar,
     MapsModule,
     CalendarModuleRouting,
   ],

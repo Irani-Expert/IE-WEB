@@ -16,9 +16,6 @@ import { ITags } from 'src/app/classes/interfaces/tags.interface';
   styleUrls: ['./landing-blog-detail.component.scss'],
 })
 export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
-  mainClass =
-    'm-0 p-0 gap-0 flex flex-col min-h-screen overflow-hidden lg:overflow-y-hidden lg:overflow-x-auto';
-  main: HTMLElement;
   id: number = 0;
   // ===========[سرویس ها]==========
   itemsBlog: Blog[] = new Array<Blog>();
@@ -26,7 +23,6 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
   loading: boolean = true;
   title: string = '';
 
-  
   async getItemBlogs(filters: FilterBlog) {
     return await lastValueFrom(
       await this.blogService.getBlogsFromApi(
@@ -35,7 +31,7 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
       )
     );
   }
-  
+
   routeSubscriber: Subscription | undefined;
   sendDataToChild = false;
 
@@ -51,10 +47,7 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
   language: string = '';
   constructor(public blogService: BlogService, private _state: ActivatedRoute) {
     super();
-    if (AppComponent.isBrowser.value) {
-      this.main = document.body.getElementsByTagName('main')[0];
-      this.main.className = `bg-[#FAFAFA] ${this.mainClass}`;
-    }
+    AppComponent.changeMainBg('creamy');
     this._state.url.subscribe((it) => {
       this.title = it[0].path.split('_').join(' ');
 
@@ -72,15 +65,12 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
     // this.getItemBlogs(this.blogFilter);
   }
   ngOnDestroy() {
-    if (AppComponent.isBrowser.value) {
-      this.main.className = this.mainClass;
-    }
+    AppComponent.changeMainBg('white');
     this.routeSubscriber?.unsubscribe();
   }
   async ngAfterViewInit() {
     if (await this.getDetail(this.title, this.language)) {
       this.tags = this.blogService._blog!.sharpLinkTags;
-      console.log(this.blogService._blog!.id);
 
       this.id = Number(this.blogService._blog?.id);
 

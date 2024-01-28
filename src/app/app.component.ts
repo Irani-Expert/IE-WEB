@@ -4,7 +4,6 @@ import { PlatformService } from './classes/services/platform.service';
 
 import { AuthService } from './shared/auth/auth.service';
 import { Header } from './components/header-layout/header';
-import { Meta } from '@angular/platform-browser';
 import { NavigationEnd, Router } from '@angular/router';
 import { LinkService } from './classes/services/link.service';
 
@@ -20,14 +19,12 @@ export class AppComponent {
     path: './assets/lottie/loader.json',
   };
   static loaderSubject = new BehaviorSubject(false);
-
   // modalStatus;
   static isBrowser = new BehaviorSubject<boolean>(false);
   title = 'IE-WEB';
   constructor(
     private platform: PlatformService,
     private auth: AuthService,
-    private meta: Meta,
     private _router: Router,
     private _linkService: LinkService
   ) {
@@ -44,23 +41,6 @@ export class AppComponent {
         },
       });
     }
-    // =================[متاتگ ها]==========
-    this.meta.addTag({
-      name: 'description',
-      content: '',
-    });
-    this.meta.addTag({
-      name: 'author',
-      content: '',
-    });
-    this.meta.addTag({
-      name: 'keywords',
-      content: '',
-    });
-    this.meta.addTag({
-      name: 'publisher',
-      content: 'ایرانی اکسپرت - Irani Expert',
-    });
   }
   async ngOnInit() {
     if (AppComponent.isBrowser.value) {
@@ -88,6 +68,21 @@ export class AppComponent {
         left: 0,
         behavior: 'smooth',
       });
+  }
+  static changeMainBg(type: 'white' | 'creamy') {
+    if (AppComponent.isBrowser.value) {
+      let main = document.body.getElementsByTagName('main')[0];
+
+      let mainClass = main.classList;
+
+      if (type == 'creamy') {
+        mainClass.remove('bg-white');
+        main.className = `${mainClass} bg-[#FAFAFA]`;
+      } else {
+        mainClass.remove('bg-[#FAFAFA]');
+        main.className = `${mainClass} bg-white`;
+      }
+    }
   }
 }
 // Get Blogs
