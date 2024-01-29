@@ -55,7 +55,22 @@
         // &.event {
 
         // }
-
+        &.forecast-value,
+        &.pre-value {
+          color: #000000;
+          text-align: center;
+          span {
+            text-align: center;
+            display: block;
+          }
+        }
+        &.actual-value {
+          text-align: center;
+          span {
+            text-align: center;
+            display: block;
+          }
+        }
         &:first-child {
           width: 1px;
           padding: 0;

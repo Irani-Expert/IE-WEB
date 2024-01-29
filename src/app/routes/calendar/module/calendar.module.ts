@@ -17,6 +17,7 @@ import { ImportantNewsComponent } from 'src/app/components/important-news/import
 import { CountriesCurrencyComponent } from 'src/app/components/countries-currency/countries-currency.component';
 import { CalendarDescribtionComponent } from '../calendar-describtion/calendar-describtion.component';
 import { TableCalendar } from 'src/app/shared/table-calendar/table-calendar.component';
+import { ImportanceComponent } from '../importance/importance.component';
 
 const components = [
   CalendarMainPageComponent,
@@ -35,6 +36,7 @@ const components = [
     CommonModule,
     Toggler,
     SharedModule,
+    ImportanceComponent,
     // FormsModule,
     // ReactiveFormsModule,
     TableCalendar,

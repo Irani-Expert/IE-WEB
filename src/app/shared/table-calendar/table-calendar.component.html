@@ -26,9 +26,34 @@
           {{ item.event.name }}
         </p>
       </td>
-      <td class="forecast-value"></td>
-      <td class="pre-value"></td>
-      <td class="actual-value"></td>
+      <td class="pre-value">
+        <span class="font-medium text-base">{{ item.prev_Value }}</span>
+        <span class="font-light text-xs">قبلی</span>
+      </td>
+      <td class="forecast-value">
+        <span class="font-medium text-base">{{ item.forecast_Value }}</span>
+        <span class="font-light text-xs">پیش‌بینی</span>
+      </td>
+      <td class="actual-value">
+        <ng-container *ngIf="item.actual_Value">
+          <span
+            class="font-medium text-base"
+            [ngClass]="{
+          'text-[#DFFF00]': item.importance == 3,
+          'text-[#FF5B5B]': item.importance == 2,
+          'text-[#FFD95B]': item.importance == 1,
+          }"
+            >{{ item.actual_Value }}</span
+          >
+          <span class="font-light text-xs">واقعی</span>
+        </ng-container>
+        <ng-container *ngIf="!item.actual_Value">
+          <span class="cursor-pointer" (click)="getActualValue()">
+            <i class="ie-sync" [ngClass]="isSyncing ? 'spin' : ''"></i>
+          </span>
+          <span class="font-light text-xs">واقعی</span>
+        </ng-container>
+      </td>
     </tr>
   </tbody>
 </table>

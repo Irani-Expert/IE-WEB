@@ -1,3 +1,5 @@
+import { formatDate } from '@angular/common';
+
 export class Utils {
   static isMobileS() {
     return window && window.matchMedia('(max-width: 376px)').matches;
@@ -49,5 +51,9 @@ export class Utils {
     if (document) {
       <HTMLElement>(<unknown>document.getElementById(id)!.focus());
     }
+  }
+  static changeFormatDate(date: any) {
+    let getDate = formatDate(date, 'yyyy.MM.dd', 'en-US');
+    return getDate;
   }
 }

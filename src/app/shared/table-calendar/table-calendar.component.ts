@@ -12,9 +12,9 @@ const calendarTableInit: CalendarEventsTable[] = [
       name: 'گزارش موقعیت های شغلی اشغال نشده (اوت) ',
       time: String(new Date()),
     },
-    forecast_Value: 's',
-    actual_Value: 'a',
-    prev_Value: 'b',
+    forecast_Value: '8.920M',
+    actual_Value: '8.920M',
+    prev_Value: '8.920M',
   },
 ];
 
@@ -25,21 +25,41 @@ const calendarTableInit: CalendarEventsTable[] = [
   imports: [CommonModule],
 })
 export class TableCalendar {
+  isSyncing = false;
   table = calendarTableInit;
   constructor() {
-    this.table.push({
-      importance: 3,
-      country: {
-        flag: 'it',
-        symbol: 'GBP',
+    this.table.unshift(
+      {
+        importance: 1,
+        country: {
+          flag: 'it',
+          symbol: 'GBP',
+        },
+        event: {
+          name: 'گزارش موقعیت های شغلی اشغال نشده (اوت) ',
+          time: String(new Date()),
+        },
+        forecast_Value: '8.920M',
+        actual_Value: '8.920M',
+        prev_Value: '8.920M',
       },
-      event: {
-        name: 'گزارش موقعیت های شغلی اشغال نشده (اوت) ',
-        time: String(new Date()),
-      },
-      forecast_Value: 's',
-      actual_Value: 'a',
-      prev_Value: 'b',
-    });
+      {
+        importance: 1,
+        country: {
+          flag: 'it',
+          symbol: 'GBP',
+        },
+        event: {
+          name: 'گزارش موقعیت های شغلی اشغال نشده (اوت) ',
+          time: String(new Date()),
+        },
+        forecast_Value: '8.920M',
+        prev_Value: '8.920M',
+      }
+    );
+  }
+
+  getActualValue() {
+    this.isSyncing = !this.isSyncing;
   }
 }
