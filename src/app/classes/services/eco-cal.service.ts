@@ -13,12 +13,12 @@ import { Filter as FilterCalendar } from 'src/app/routes/calendar/calendar-main-
 @Injectable({
   providedIn: 'root',
 })
-export class EcoCalService extends BaseService<PageInterface<unknown>> {
+export class EcoCalService extends BaseService<unknown> {
   constructor(http: HttpClient, toastr: ToastrService) {
     super(http, toastr);
   }
-  getcal(path: string): Observable<Result<PageInterface<CurrencyData[]>>> {
-    return this.http.get<Result<PageInterface<CurrencyData[]>>>(path, {});
+  getcal(path: string): Observable<Result<CurrencyData[]>> {
+    return this.http.get<Result<CurrencyData[]>>(path, {});
   }
   private socket$: WebSocketSubject<any>;
 
