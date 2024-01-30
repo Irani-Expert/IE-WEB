@@ -141,17 +141,17 @@ export class SingleBrokerComponent {
     this.dataLoaded.next(true);
     // this.dataLoaded.complete();
   }
-  async transparentImg(id: number | string) {
-    // setTimeout(() => {
-    //   const imgEl = document.getElementById(`transparent-img-${id}`);
-    //   if (imgEl instanceof HTMLImageElement) {
-    //     // imgEl.
-    //     imgEl.crossOrigin = 'anonymous';
-    //     let imgBaseColor = GetAverageRGB(imgEl);
-    //     console.log(imgBaseColor);
-    //   }
-    // }, 2000);
-  }
+  // async transparentImg(id: number | string) {
+  // setTimeout(() => {
+  //   const imgEl = document.getElementById(`transparent-img-${id}`);
+  //   if (imgEl instanceof HTMLImageElement) {
+  //     // imgEl.
+  //     imgEl.crossOrigin = 'anonymous';
+  //     let imgBaseColor = GetAverageRGB(imgEl);
+  //     console.log(imgBaseColor);
+  //   }
+  // }, 2000);
+  // }
   setSeo(apiData = new ApiBrokerModel()) {
     let keywords = '';
     apiData.linkTags.forEach((item) => {

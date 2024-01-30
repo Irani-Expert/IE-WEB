@@ -1,59 +1,71 @@
 <table class="calendar-table">
   <tbody>
-    <tr *ngFor="let item of table">
-      <td></td>
-      <td class="importance">
-        <span
-          [ngClass]="{
-          'bg-[#DFFF00]': item.importance == 3,
-          'bg-[#FF5B5B]': item.importance == 2,
-          'bg-[#FFD95B]': item.importance == 1,
-          'bg-[#FCF1F1]': item.importance == 0,
-        }"
-        ></span>
-      </td>
-      <td class="country">
-        <div>
-          <i class="fi fi-{{ item.country.flag | lowercase }}"></i>
-          <span>{{ item.country.symbol | uppercase }}</span>
-        </div>
-      </td>
-      <td class="event">
-        <span class="block text-black font-medium">
-          {{ item.event.time | date : "HH:MM" }}
-        </span>
-        <p class="text-black font-medium">
-          {{ item.event.name }}
-        </p>
-      </td>
-      <td class="pre-value">
-        <span class="font-medium text-base">{{ item.prev_Value }}</span>
-        <span class="font-light text-xs">قبلی</span>
-      </td>
-      <td class="forecast-value">
-        <span class="font-medium text-base">{{ item.forecast_Value }}</span>
-        <span class="font-light text-xs">پیش‌بینی</span>
-      </td>
-      <td class="actual-value">
-        <ng-container *ngIf="item.actual_Value">
-          <span
-            class="font-medium text-base"
-            [ngClass]="{
-          'text-[#DFFF00]': item.importance == 3,
-          'text-[#FF5B5B]': item.importance == 2,
-          'text-[#FFD95B]': item.importance == 1,
-          }"
-            >{{ item.actual_Value }}</span
-          >
-          <span class="font-light text-xs">واقعی</span>
-        </ng-container>
-        <ng-container *ngIf="!item.actual_Value">
-          <span class="cursor-pointer" (click)="getActualValue()">
-            <i class="ie-sync" [ngClass]="isSyncing ? 'spin' : ''"></i>
-          </span>
-          <span class="font-light text-xs">واقعی</span>
-        </ng-container>
-      </td>
-    </tr>
+    <ng-container *ngIf="!tableIsLoading">
+      <ng-container *ngFor="let item of table; let i = index">
+        <tr (click)="showDetails(item)">
+          <td></td>
+          <td class="importance">
+            <span
+              [ngClass]="{
+              'bg-[#DFFF00]': item.importance == 3,
+              'bg-[#FF5B5B]': item.importance == 2,
+              'bg-[#FFD95B]': item.importance == 1,
+              'bg-[#FCF1F1]': item.importance == 0,
+            }"
+            ></span>
+          </td>
+          <td class="country">
+            <div>
+              <i class="fi fi-{{ item.country.flag | lowercase }}"></i>
+              <span>{{ item.country.symbol | uppercase }}</span>
+            </div>
+          </td>
+          <td class="event">
+            <span class="block text-black font-medium">
+              {{ item.event.time.slice(0, 5) }}
+            </span>
+            <p class="text-black font-medium">
+              {{ item.event.name }}
+            </p>
+          </td>
+          <td class="pre-value">
+            <span class="font-bold text-lg">{{ item.prev_Value }}</span>
+            <span class="font-light text-sm">قبلی</span>
+          </td>
+          <td class="forecast-value">
+            <span class="font-bold text-lg">{{ item.forecast_Value }}</span>
+            <span class="font-light text-sm">پیش‌بینی</span>
+          </td>
+          <td class="actual-value">
+            <ng-container *ngIf="item.actual_Value">
+              <span
+                class="font-bold text-lg"
+                [ngClass]="{
+              'text-[#00cb86]': events[i].impact_Type == 'POSITIVE',
+              'text-[#ff4444]': events[i].impact_Type == 'NEGATIVE',
+              }"
+                >{{ item.actual_Value }}</span
+              >
+              <span class="font-light text-sm">واقعی</span>
+            </ng-container>
+            <ng-container *ngIf="!item.actual_Value">
+              <span class="cursor-pointer" (click)="getActualValue()">
+                <i class="ie-sync" [ngClass]="isSyncing ? 'spin' : ''"></i>
+              </span>
+              <span class="font-light text-sm">واقعی</span>
+            </ng-container>
+          </td>
+        </tr>
+        <tr
+          [ngClass]="item.active ? 'h-[500px]' : 'h-0 overflow-hidden'"
+          class="details"
+        >
+          <div *ngIf="item.active" class="absolute max-h-[100%] p-3">سلام</div>
+        </tr>
+      </ng-container>
+    </ng-container>
+    <ng-container *ngIf="tableIsLoading">
+      <tr class="table-holder"></tr>
+    </ng-container>
   </tbody>
 </table>
