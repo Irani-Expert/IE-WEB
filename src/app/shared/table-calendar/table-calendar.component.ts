@@ -3,6 +3,7 @@ import { CalendarEventsTable } from './calendar-events.model';
 import { CommonModule } from '@angular/common';
 import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
 import { CalEvent } from 'src/app/routes/calendar/calendar-main-page/cal-event.model';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'table-calendar',
@@ -66,12 +67,30 @@ export class TableCalendar {
   }
 
   showDetails(item: CalendarEventsTable) {
-    if (item.active) {
-      item.active = false;
-    } else {
-      this.selectedTr = this.events.find((it) => it.id == item.id)!;
-      this.table.forEach((it) => (it.active = false));
-      item.active = true;
+    if (AppComponent.isBrowser.value) {
+      if (item.active) {
+        const element = document.getElementById(`event-details-${item.id}`);
+        element?.classList.add('de-active');
+
+        item!.active = false;
+      } else {
+        let activeItem = this.table.find(
+          (it) => it.active == true && it.id !== item.id
+        );
+
+        if (activeItem?.id) {
+          const element = document.getElementById(
+            `event-details-${activeItem!.id}`
+          );
+          element?.classList.add('de-active');
+          activeItem!.active = false;
+        } else {
+          const element = document.getElementById(`event-details-${item.id}`);
+          element?.classList.remove('de-active');
+        }
+        this.selectedTr = this.events.find((it) => it.id == item.id)!;
+        item!.active = true;
+      }
     }
   }
 }

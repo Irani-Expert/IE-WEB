@@ -29,15 +29,19 @@
             </p>
           </td>
           <td class="pre-value">
-            <span class="font-bold text-lg">{{ item.prev_Value }}</span>
+            <span class="font-bold text-lg">{{
+              item.prev_Value == "NaN" ? "__" : item.prev_Value
+            }}</span>
             <span class="font-light text-sm">قبلی</span>
           </td>
           <td class="forecast-value">
-            <span class="font-bold text-lg">{{ item.forecast_Value }}</span>
+            <span class="font-bold text-lg">{{
+              item.forecast_Value == "NaN" ? "__" : item.forecast_Value
+            }}</span>
             <span class="font-light text-sm">پیش‌بینی</span>
           </td>
           <td class="actual-value">
-            <ng-container *ngIf="item.actual_Value">
+            <ng-container *ngIf="item.actual_Value !== 'NaN'">
               <span
                 class="font-bold text-lg"
                 [ngClass]="{
@@ -48,7 +52,7 @@
               >
               <span class="font-light text-sm">واقعی</span>
             </ng-container>
-            <ng-container *ngIf="!item.actual_Value">
+            <ng-container *ngIf="item.actual_Value == 'NaN'">
               <span class="cursor-pointer" (click)="getActualValue()">
                 <i class="ie-sync" [ngClass]="isSyncing ? 'spin' : ''"></i>
               </span>
@@ -57,7 +61,8 @@
           </td>
         </tr>
         <tr
-          [ngClass]="item.active ? 'h-[500px]' : 'h-0 overflow-hidden'"
+          id="event-details-{{ item.id }}"
+          [ngClass]="item.active ? 'active' : 'overflow-hidden'"
           class="details"
         >
           <div *ngIf="item.active" class="absolute max-h-[100%] p-3">سلام</div>
