@@ -84,10 +84,9 @@ export class TableCalendar {
           );
           element?.classList.add('de-active');
           activeItem!.active = false;
-        } else {
-          const element = document.getElementById(`event-details-${item.id}`);
-          element?.classList.remove('de-active');
         }
+        const element = document.getElementById(`event-details-${item.id}`);
+        element?.classList.remove('de-active');
         this.selectedTr = this.events.find((it) => it.id == item.id)!;
         item!.active = true;
       }
