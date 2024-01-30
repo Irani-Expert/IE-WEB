@@ -1,7 +1,7 @@
 export interface CalendarEventsTable {
   id: number;
   importance: number;
-  country: { flag: string; symbol: string };
+  country: { flag: string; symbol: string; currencySymbol: string };
   event: { name: string; time: string };
   forecast_Value: string;
   prev_Value: string;

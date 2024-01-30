@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
 import { CalEvent } from 'src/app/routes/calendar/calendar-main-page/cal-event.model';
 import { AppComponent } from 'src/app/app.component';
+import { ImportanceComponent } from 'src/app/routes/calendar/importance/importance.component';
 
 @Component({
   selector: 'table-calendar',
@@ -12,12 +13,13 @@ import { AppComponent } from 'src/app/app.component';
   styles: [
     `
       .table-holder {
-        height: 500px;
+        height: 814px;
         position: relative;
       }
     `,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, ImportanceComponent],
+  animations: [],
 })
 export class TableCalendar {
   tableIsLoading = true;
@@ -54,7 +56,11 @@ export class TableCalendar {
       const itemToPourInTable: CalendarEventsTable = {
         active: false,
         id: it.id,
-        country: { flag: it.code, symbol: it.currency },
+        country: {
+          flag: it.code,
+          symbol: it.currency,
+          currencySymbol: it.currencySymbol,
+        },
         event: { name: it.name, time: it.time_ },
         forecast_Value: it.forecast_Value.toString(),
         importance: it.importance,
@@ -91,5 +97,28 @@ export class TableCalendar {
         item!.active = true;
       }
     }
+  }
+
+  get importance() {
+    let importance: { color: string; title: string };
+    switch (this.selectedTr.importance) {
+      case 0:
+        importance = { title: 'نامشخص', color: '#FCF1F1' };
+
+        break;
+      case 1:
+        importance = { title: 'پایین', color: '#DFFF00' };
+
+        break;
+      case 2:
+        importance = { title: 'مهم', color: '#FF5B5B' };
+
+        break;
+      case 3:
+        importance = { title: 'متوسط', color: '#FFD95B' };
+
+        break;
+    }
+    return importance!;
   }
 }
