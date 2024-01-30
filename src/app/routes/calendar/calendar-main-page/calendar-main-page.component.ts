@@ -70,9 +70,7 @@ export class CalendarMainPageComponent {
     AppComponent.changeMainBg('creamy');
   }
   async ngAfterViewInit() {
-    if (await this.getCal()) {
-      console.log(this.ecoCalService.paginatedCalendar);
-    }
+    await this.getCal();
   }
   ngOnDestroy() {
     AppComponent.changeMainBg('white');

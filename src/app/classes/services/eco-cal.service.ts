@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BaseService } from './base.service';
-import { PageInterface, PageModel } from '../page.model';
+import { PageInterface } from '../page.model';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { CurrencyData } from '../interfaces/currency-data';
@@ -13,7 +13,7 @@ import { Filter as FilterCalendar } from 'src/app/routes/calendar/calendar-main-
 @Injectable({
   providedIn: 'root',
 })
-export class EcoCalService extends BaseService<unknown> {
+export class EcoCalService extends BaseService<PageInterface<CalEvent[]>> {
   constructor(http: HttpClient, toastr: ToastrService) {
     super(http, toastr);
   }
@@ -66,13 +66,10 @@ export class EcoCalService extends BaseService<unknown> {
     filterModel: FilterCalendar = new FilterCalendar()
   ) {
     let path = 'CalendarValue/GetDaily?' + params;
-
     return this.post(path, filterModel).pipe(
       map((it) => {
         if (it.success) {
-          if (it.data instanceof PageModel) {
-            this.paginatedCalendar.next(it.data);
-          }
+          this.paginatedCalendar.next(it.data!);
         }
         return it.success!;
       })

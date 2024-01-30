@@ -3,7 +3,7 @@
   max-width: 1536px;
   tbody {
     td {
-      vertical-align: middle;
+      vertical-align: top;
       color: #646464;
       font-weight: 500;
       padding: 10px 12px;
@@ -15,7 +15,21 @@
       }
     }
     tr {
-      transition: background-color 0.4s ease;
+      &.details {
+        position: relative;
+        max-height: 500px;
+        transition: all 0.4s cubic-bezier(0, -0.51, 0.02, 0.98);
+      }
+      // &.details {
+      //   &:hover {
+      //     max-height: 500px;
+      //     transition: max-height 0.25s ease-in;
+      //   }
+      //   max-height: 0px;
+      //   overflow: hidden;
+      //   transition: max-height 0.15s ease-out;
+      // }
+      transition: all 0.4s cubic-bezier(0, -0.51, 0.02, 0.98);
       &:hover {
         background-color: #fafafa;
       }
@@ -72,14 +86,18 @@
           }
         }
         &:first-child {
-          width: 1px;
-          padding: 0;
-          border-top-right-radius: 13px;
-          border-bottom-right-radius: 13px;
+          &:not(.details-td) {
+            width: 1px;
+            padding: 0;
+            border-top-right-radius: 13px;
+            border-bottom-right-radius: 13px;
+          }
         }
         &:last-child {
-          border-top-left-radius: 13px;
-          border-bottom-left-radius: 13px;
+          &:not(.details-td) {
+            border-top-left-radius: 13px;
+            border-bottom-left-radius: 13px;
+          }
         }
       }
 
