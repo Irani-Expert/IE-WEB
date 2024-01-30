@@ -17,8 +17,8 @@ export class EcoCalService extends BaseService<PageInterface<CalEvent[]>> {
   constructor(http: HttpClient, toastr: ToastrService) {
     super(http, toastr);
   }
-  getcal(path: string): Observable<Result<PageInterface<CurrencyData[]>>> {
-    return this.http.get<Result<PageInterface<CurrencyData[]>>>(path, {});
+  getcal(path: string): Observable<Result<CurrencyData[]>> {
+    return this.http.get<Result<CurrencyData[]>>(path, {});
   }
   private socket$: WebSocketSubject<any>;
 

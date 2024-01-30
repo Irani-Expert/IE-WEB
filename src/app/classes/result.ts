@@ -1,6 +1,7 @@
 export class Result<T> {
-    success	= false;
-  message	= '';
+  success = false;
+  message = '';
   data: T | undefined;
+  results: T;
   errors: [] = [];
-  }
+}
