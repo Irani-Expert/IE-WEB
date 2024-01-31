@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
+import { DomSanitizer, Meta, SafeHtml } from '@angular/platform-browser';
 import { AppComponent } from 'src/app/app.component';
+import { ITags } from 'src/app/classes/interfaces/tags.interface';
+import { BlogService } from 'src/app/classes/services/blog.service';
 
 @Component({
   selector: 'app-copy-trade',
@@ -8,9 +10,9 @@ import { AppComponent } from 'src/app/app.component';
   styleUrls: ['./copy-trade.component.scss'],
 })
 export class CopyTradeComponent {
-  constructor(private _meta: Meta) {
-    // =======[متاتگ ها]======
-
+  constructor(private _meta: Meta , public blogService : BlogService , private _sanitizer : DomSanitizer
+    ) {
+          // =======[متاتگ ها]======
     this._meta.updateTag({
       name: 'description',
       content: '',
@@ -23,6 +25,32 @@ export class CopyTradeComponent {
       name: 'keywords',
       content: '',
     });
+
+    }
+
+    tags: ITags[];
+
+  sendDataToChild = false;
+  title: string = '';
+  language: string = '';
+  id: number = 0;
+  articleHtml: SafeHtml;
+
+  async ngAfterViewInit() {
+    if (await this.getDetail('copy-trade', 'fa')) {
+      this.tags = this.blogService._blog!.sharpLinkTags;
+
+      this.id = Number(this.blogService._blog?.id);
+      this.articleHtml = this._sanitizer.bypassSecurityTrustHtml(
+        this.blogService._blog!.description
+      );
+      this.sendDataToChild = true;
+    }
+  }
+
+  async getDetail(title: string, language: string) {
+    const apiRes = await this.blogService.getBlog(title, language);
+    return apiRes;
   }
   ngOnInit() {
     AppComponent.changeMainBg('creamy');
@@ -30,13 +58,8 @@ export class CopyTradeComponent {
   ngOnDestroy() {
     AppComponent.changeMainBg('white');
   }
-  // =======[هشتگ ها]======
-  tags: Array<any> = [
-    {
-      title: '#کپی_ترید',
-      value: 1,
-    },
-  ];
+
+
   listElems: Array<any> = [
     {
       title: 'کپی تریدینگ (copytrading) به زبان ساده چیست؟',

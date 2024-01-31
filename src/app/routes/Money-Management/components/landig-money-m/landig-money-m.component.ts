@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { AppComponent } from 'src/app/app.component';
+import { ITags } from 'src/app/classes/interfaces/tags.interface';
 import { BlogService } from 'src/app/classes/services/blog.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class LandigMoneyMComponent {
   language: string = '';
   id: number = 0;
   sendDataToChild = false;
+  tags: ITags[];
 
 
   constructor(private _meta: Meta , public blogService : BlogService) {
@@ -51,11 +53,4 @@ export class LandigMoneyMComponent {
     const apiRes = await this.blogService.getBlog(title, language);
     return apiRes;
   }
-  // =======[هشتگ ها]======
-  tags: Array<any> = [
-    {
-      title: '#مدیریت_سرمایه',
-      value: 1,
-    },
-  ];
 }
