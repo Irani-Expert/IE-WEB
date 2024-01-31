@@ -1,0 +1,21 @@
+export class CalEvent {
+  id: number = 0;
+  date_: string = '';
+  time_: string = '';
+  actual_Value: number = 0;
+  prev_Value: number = 0;
+  forecast_Value: number = 0;
+  impact_Type: string = '';
+  name: string = '';
+  type: number = 0;
+  sector: number = 0;
+  time_Mode: number = 0;
+  unit: number = 0;
+  multiplier: number = 0;
+  importance: number = 0;
+  currency: string = '';
+  code: string = '';
+  currencySymbol: string = '';
+  eventID: number = 0;
+  secondName: string = '';
+}

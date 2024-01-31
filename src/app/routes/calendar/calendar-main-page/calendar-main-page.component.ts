@@ -1,6 +1,8 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { Bubble, Maps, MapsTooltip } from '@syncfusion/ej2-angular-maps';
 import { AppComponent } from 'src/app/app.component';
+import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
+import { lastValueFrom } from 'rxjs';
 Maps.Inject(Bubble, MapsTooltip);
 interface trend_data {
   currency: string;
@@ -14,7 +16,34 @@ interface trend_data {
   encapsulation: ViewEncapsulation.None,
 })
 export class CalendarMainPageComponent {
-  constructor() {}
+  importances = [
+    {
+      color: '#FF5B5B',
+      value: 2,
+      title: 'مهم',
+      active: true,
+    },
+    {
+      color: '#FFD95B',
+      value: 3,
+      title: 'متوسط',
+      active: false,
+    },
+    {
+      color: '#DFFF00',
+      value: 1,
+      title: 'پایین',
+      active: false,
+    },
+    {
+      color: '#FCF1F1',
+      value: 0,
+      title: 'نامشخص',
+      active: true,
+    },
+  ];
+  today = new Date();
+  constructor(private ecoCalService: EcoCalService) {}
   data: trend_data[] = [
     {
       currency: 'XAU USD',
@@ -40,7 +69,18 @@ export class CalendarMainPageComponent {
   ngOnInit() {
     AppComponent.changeMainBg('creamy');
   }
+  async ngAfterViewInit() {
+    await this.getCal();
+  }
   ngOnDestroy() {
     AppComponent.changeMainBg('white');
+  }
+
+  async getCal() {
+    const apiData = this.ecoCalService.getCalEvents(
+      `pageIndex=0&pageSize=10&accending=true`
+    );
+
+    return await lastValueFrom(apiData);
   }
 }

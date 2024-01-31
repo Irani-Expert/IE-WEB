@@ -5,18 +5,20 @@ import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { CurrencyData } from '../interfaces/currency-data';
 import { Result } from '../result';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
+import { CalEvent } from 'src/app/routes/calendar/calendar-main-page/cal-event.model';
+import { Filter as FilterCalendar } from 'src/app/routes/calendar/calendar-main-page/filter.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class EcoCalService extends BaseService<PageInterface<CurrencyData[]>> {
+export class EcoCalService extends BaseService<PageInterface<CalEvent[]>> {
   constructor(http: HttpClient, toastr: ToastrService) {
     super(http, toastr);
   }
-  getcal(path: string): Observable<Result<PageInterface<CurrencyData[]>>> {
-    return this.http.get<Result<PageInterface<CurrencyData[]>>>(path, {});
+  getcal(path: string): Observable<Result<CurrencyData[]>> {
+    return this.http.get<Result<CurrencyData[]>>(path, {});
   }
   private socket$: WebSocketSubject<any>;
 
@@ -41,16 +43,36 @@ export class EcoCalService extends BaseService<PageInterface<CurrencyData[]>> {
     // this.socket$.next(symbolSubscribeMsg);
 
     // Subscribe to incoming messages
-    this.socket$.subscribe(
-      (message) => console.log('Received:', message, this.socket$.complete()),
-      (error) => console.error('Error:', error),
-      () => console.log('WebSocket closed')
-    );
+    this.socket$.subscribe({
+      next: (message) => {
+        console.log('Received:', message, this.socket$.complete());
+      },
+      error: (error) => console.error('Error:', error),
+      complete: () => console.log('WebSocket closed'),
+    });
   }
 
   disconnect() {
     if (this.socket$) {
       this.socket$.complete(); // Close the WebSocket connection
     }
+  }
+
+  paginatedCalendar = new BehaviorSubject<PageInterface<CalEvent[]> | null>(
+    null
+  );
+  getCalEvents(
+    params: string = '',
+    filterModel: FilterCalendar = new FilterCalendar()
+  ) {
+    let path = 'CalendarValue/GetDaily?' + params;
+    return this.post(path, filterModel).pipe(
+      map((it) => {
+        if (it.success) {
+          this.paginatedCalendar.next(it.data!);
+        }
+        return it.success!;
+      })
+    );
   }
 }
