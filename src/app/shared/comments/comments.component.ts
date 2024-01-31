@@ -131,11 +131,11 @@ export class CommentsComponent {
         formData.userID = null;
       }
       const apiRes = this._comment.post(address, formData);
-      console.log(apiRes);
       const lastVal = await lastValueFrom(apiRes);
       if (lastVal && lastVal.success) {
-        console.log(apiRes);
         this.toaster.success('با موفقیت ثبت شد');
+        this.form.controls['textAr'].setValue('');
+        debugger;
       } else {
         this.toaster.error('خطا در عملیات!!!');
         console.log('Not Valid');
