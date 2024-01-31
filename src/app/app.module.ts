@@ -1,5 +1,8 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {
+  BrowserModule,
+  provideClientHydration,
+} from '@angular/platform-browser';
 import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { HeaderLayoutComponent } from './components/header-layout/header-layout.component';
@@ -54,6 +57,7 @@ const footer = [FooterComponent];
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
+    provideClientHydration(),
     BaseService,
     {
       provide: HTTP_INTERCEPTORS,

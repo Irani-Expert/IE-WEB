@@ -3,6 +3,7 @@
     <ng-container *ngIf="!tableIsLoading">
       <ng-container *ngFor="let item of table; let i = index">
         <tr
+          class="cursor-pointer"
           (click)="showDetails(item)"
           [ngClass]="item.active ? 'activated' : 'default'"
         >
@@ -31,7 +32,7 @@
                 <p class="text-black text-sm font-medium">
                   {{ item.event.time.slice(0, 5) }}
                 </p>
-                <p class="text-black text-xs font-medium">
+                <p class="text-black text-xs font-medium line-h-custom">
                   {{ item.country.symbol | uppercase }}
                 </p>
               </span>

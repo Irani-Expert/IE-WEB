@@ -6,24 +6,16 @@ import { HeroMComponent } from '../components/hero-m/hero-m.component';
 import { ArticlesMoneyComponent } from '../components/articles-money/articles-money.component';
 import { BoxArticlesComponent } from '../components/box-articles/box-articles.component';
 import { CommonModule } from '@angular/common';
-import { DragScrollModule } from 'ngx-drag-scroll';
 
-const components =[
-LandigMoneyMComponent,
-HeroMComponent,
-ArticlesMoneyComponent,
-BoxArticlesComponent
-]
-
+const components = [
+  LandigMoneyMComponent,
+  HeroMComponent,
+  ArticlesMoneyComponent,
+  BoxArticlesComponent,
+];
 
 @NgModule({
-    declarations: [components],
-    imports: [
-        MoneymRoutingModule,
-        CommonModule,
-        DragScrollModule,
-        SharedModule
-    ]
+  declarations: [components],
+  imports: [MoneymRoutingModule, CommonModule, SharedModule],
 })
-
-export class MoneymModule { }
+export class MoneymModule {}

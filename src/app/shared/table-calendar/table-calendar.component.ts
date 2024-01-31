@@ -16,6 +16,9 @@ import { ImportanceComponent } from 'src/app/routes/calendar/importance/importan
         height: 814px;
         position: relative;
       }
+      .line-h-custom {
+        line-height: 0.5rem !important;
+      }
     `,
   ],
   imports: [CommonModule, ImportanceComponent],

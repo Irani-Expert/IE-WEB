@@ -5,7 +5,6 @@ import { BlogRoutingModule } from './blog.routing';
 import { BlogCartComponent } from '../components/blog-cart/blog-cart.component';
 import { BlogHeroComponent } from '../components/blog-hero/blog-hero.component';
 import { OffersComponent } from '../components/offers/offers.component';
-import { DragScrollModule } from 'ngx-drag-scroll';
 import { BlogPaginationComponent } from '../components/blog-pagination/blog-pagination.component';
 import { ArticlesComponent } from '../components/articles/articles.component';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -34,12 +33,6 @@ const components = [
 
 @NgModule({
   declarations: [components],
-  imports: [
-    SharedModule,
-    NgxPaginationModule,
-    CommonModule,
-    BlogRoutingModule,
-    DragScrollModule,
-  ],
+  imports: [SharedModule, NgxPaginationModule, CommonModule, BlogRoutingModule],
 })
 export class BlogModule {}

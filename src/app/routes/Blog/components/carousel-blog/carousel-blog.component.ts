@@ -1,5 +1,6 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { DragScrollComponent } from 'ngx-drag-scroll';
+import { AppComponent } from 'src/app/app.component';
 import { Blog } from 'src/app/classes/interfaces/blog.interface';
 
 @Component({
@@ -15,8 +16,8 @@ export class CarouselBlogComponent {
   @ViewChild('nav') ds: any;
   ngOnInit() {
     // console.log(this.itemOffers);
-    
-    this.ds = DragScrollComponent;
+
+    if (AppComponent.isBrowser.value) this.ds = DragScrollComponent;
   }
   items = [
     {

@@ -57,4 +57,8 @@ export class AboutUsComponent {
   // openVideoList() {
   //   this.isVideoOpend = !this.isVideoOpend;
   // }
+
+  get isBrowser() {
+    return AppComponent.isBrowser.value;
+  }
 }

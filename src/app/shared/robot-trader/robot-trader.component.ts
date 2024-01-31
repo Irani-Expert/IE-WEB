@@ -207,6 +207,10 @@ export class RobotTraderComponent {
   ngOnDestroy() {
     AppComponent.changeMainBg('white');
   }
+
+  get isBrowser() {
+    return AppComponent.isBrowser.value;
+  }
 }
 
 interface Icardlist {

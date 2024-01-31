@@ -190,7 +190,9 @@
     و نتایج معاملات ربات معامله گر</span
   >
 </div>
-<app-video-slider></app-video-slider>
+<ng-container *ngIf="isBrowser">
+  <app-video-slider></app-video-slider>
+</ng-container>
 
 <!-- <div class="item">
   <h2 class="font-bold text-3xl mt-4">شامل معیارهای استاندارد</h2>
