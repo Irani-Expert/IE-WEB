@@ -45,7 +45,7 @@ export class ImportantNewsComponent {
           ) {
             let valuec = (currencyInfo.c * 100) / currencyInfo.o - 100;
             let trend: trend_data = {
-              currency: currencyInfo.T.slice(2, 8),
+              currency: currencyInfo.T.slice(2, 6),
               percent: valuec.toString().slice(0, 6),
               trend: valuec > 0 ? true : false,
             };
