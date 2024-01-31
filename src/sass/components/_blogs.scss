@@ -72,4 +72,53 @@
     width: fit-content;
     margin: 2rem auto !important;
   }
+  // =======[مدیریت سرمایه]====
+  &.money-m {
+    p {
+      font-weight: 700;
+    }
+    .img-articles {
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .links {
+      background: white;
+      padding: 0.5rem 1rem 0.5rem 1rem;
+      border-radius: 20px;
+      margin-top: 1rem;
+      text-align: end;
+    }
+    .amalgar {
+      color: #0086ff;
+      margin-right: 0.25rem;
+      margin-left: 0.25rem;
+      font-size: 1.4rem;
+    }
+    .box-articles{
+      background-color: white;
+      height: auto;
+      border: #EAEAEA 1px solid;
+      border-radius: 20px;
+      padding: 1.5rem;
+  }
+   .box-articles-title {
+      font-size: 1.3rem;
+      color: #0080FF;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+  }
+  drag-scroll{
+      width: 25rem;
+      height: 20rem;
+  }
+  .box-articles-m {
+      background-color: white;
+      height: auto;
+      width: 100%;
+      border: #EAEAEA 1px solid;
+      border-radius: 20px;
+      padding: 1.5rem;
+  }
+  }
 }

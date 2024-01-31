@@ -3,6 +3,8 @@ import { CalendarEventsTable } from './calendar-events.model';
 import { CommonModule } from '@angular/common';
 import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
 import { CalEvent } from 'src/app/routes/calendar/calendar-main-page/cal-event.model';
+import { AppComponent } from 'src/app/app.component';
+import { ImportanceComponent } from 'src/app/routes/calendar/importance/importance.component';
 
 @Component({
   selector: 'table-calendar',
@@ -11,12 +13,13 @@ import { CalEvent } from 'src/app/routes/calendar/calendar-main-page/cal-event.m
   styles: [
     `
       .table-holder {
-        height: 500px;
+        height: 814px;
         position: relative;
       }
     `,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, ImportanceComponent],
+  animations: [],
 })
 export class TableCalendar {
   tableIsLoading = true;
@@ -53,7 +56,11 @@ export class TableCalendar {
       const itemToPourInTable: CalendarEventsTable = {
         active: false,
         id: it.id,
-        country: { flag: it.code, symbol: it.currency },
+        country: {
+          flag: it.code,
+          symbol: it.currency,
+          currencySymbol: it.currencySymbol,
+        },
         event: { name: it.name, time: it.time_ },
         forecast_Value: it.forecast_Value.toString(),
         importance: it.importance,
@@ -66,12 +73,52 @@ export class TableCalendar {
   }
 
   showDetails(item: CalendarEventsTable) {
-    if (item.active) {
-      item.active = false;
-    } else {
-      this.selectedTr = this.events.find((it) => it.id == item.id)!;
-      this.table.forEach((it) => (it.active = false));
-      item.active = true;
+    if (AppComponent.isBrowser.value) {
+      if (item.active) {
+        const element = document.getElementById(`event-details-${item.id}`);
+        element?.classList.add('de-active');
+
+        item!.active = false;
+      } else {
+        let activeItem = this.table.find(
+          (it) => it.active == true && it.id !== item.id
+        );
+
+        if (activeItem?.id) {
+          const element = document.getElementById(
+            `event-details-${activeItem!.id}`
+          );
+          element?.classList.add('de-active');
+          activeItem!.active = false;
+        }
+        const element = document.getElementById(`event-details-${item.id}`);
+        element?.classList.remove('de-active');
+        this.selectedTr = this.events.find((it) => it.id == item.id)!;
+        item!.active = true;
+      }
     }
+  }
+
+  get importance() {
+    let importance: { color: string; title: string };
+    switch (this.selectedTr.importance) {
+      case 0:
+        importance = { title: 'نامشخص', color: '#FCF1F1' };
+
+        break;
+      case 1:
+        importance = { title: 'پایین', color: '#DFFF00' };
+
+        break;
+      case 2:
+        importance = { title: 'مهم', color: '#FF5B5B' };
+
+        break;
+      case 3:
+        importance = { title: 'متوسط', color: '#FFD95B' };
+
+        break;
+    }
+    return importance!;
   }
 }
