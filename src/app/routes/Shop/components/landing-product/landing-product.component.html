@@ -19,7 +19,7 @@
 
 <ng-container *ngIf="!loading">
   <!-- ==========[معرفی]=========== -->
-  <div #description>
+  <div class="pt-10" #description>
     <app-scroll
       [activeId]="0"
       (scrollClick1)="scroll(description)"
@@ -34,7 +34,7 @@
   </div>
   <!-- ==========[امکانات]=========== -->
 
-  <div #option>
+  <div class="pt-10" #option>
     <app-scroll
       [activeId]="1"
       (scrollClick1)="scroll(description)"
@@ -63,7 +63,7 @@
   <!-- <app-back-test [data]="productService._product?.backTests!"></app-back-test> -->
 
   <!-- ==========[سوالات]=========== -->
-  <div #question>
+  <div class="pt-10" #question>
     <app-scroll
       [activeId]="2"
       (scrollClick1)="scroll(description)"
@@ -76,7 +76,7 @@
   <app-question-shop></app-question-shop>
 
   <!-- ==========[نظرات]=========== -->
-  <div #comment>
+  <div class="pt-10" #comment>
     <app-scroll
       [activeId]="3"
       (scrollClick1)="scroll(description)"

@@ -35,7 +35,7 @@ export class BlogFilterComponent {
   //   }
   // }
   ngOnInit() {
-    console.log(this.categoryDetail);
+    // console.log(this.categoryDetail);
   }
   selectCategroy(it: any) {
     this.emitter.emit(it.id);

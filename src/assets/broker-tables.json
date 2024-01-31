@@ -1,20 +1,6 @@
 {
   "items": [
     {
-      "deposit": ["وبمانی", "ریالی مستقیم", "پرفکت‌مانی", "کریپتوکارنسی"],
-      "establishedYear": 2014,
-      "leverage": 1000,
-      "logoSrc": "",
-      "minimumDesposit": 10,
-      "name": "فارکس چیف",
-      "platform": ["MT4", "MT5", "Web Trader"],
-      "rate": 7.2,
-      "regulate": ["VFSC"],
-      "linkSite": "https://nl.trustpilot.com/review/forexchief.com",
-      "insurance": "--",
-      "refCode": "https://forexchief.com"
-    },
-    {
       "deposit": [
         "وبمانی",
         "ریالی مستقیم",
@@ -71,7 +57,7 @@
         "اسکریل"
       ],
       "rate": 8.2,
-      "logoSrc": "",
+      "logoSrc": "/uploads/images/article/AMARKETS-1.webp",
       "insurance": "--",
       "linkSite": "https://www.iraniexpert.com/brokers/amarkets/fa",
       "refCode": "https://fa.amarketsworld.com/open-an-account-standard-fa/?g=IRANI2"
@@ -90,6 +76,21 @@
       "insurance": "--"
     },
     {
+      "deposit": ["وبمانی", "ریالی مستقیم", "پرفکت‌مانی", "کریپتوکارنسی"],
+      "establishedYear": 2014,
+      "leverage": 1000,
+      "logoSrc": "/uploads/images/article/Forex chief.webp",
+      "minimumDesposit": 10,
+      "name": "فارکس چیف",
+      "platform": ["MT4", "MT5", "Web Trader"],
+      "rate": 7.2,
+      "regulate": ["VFSC"],
+      "linkSite": "https://nl.trustpilot.com/review/forexchief.com",
+      "insurance": "--",
+      "refCode": "https://forexchief.com"
+    },
+
+    {
       "name": "ارانته",
       "regulate": ["FSASeychelles", "CySec"],
       "establishedYear": 2018,
@@ -99,7 +100,7 @@
       "deposit": ["بیتکوین و کریپتو", "پرفکت مانی", "ریالی مستقیم"],
       "rate": 7.6,
       "linkSite": "https://nl.trustpilot.com/review/errant.dk",
-      "logoSrc": "",
+      "logoSrc": "/uploads/images/article/errante.webp",
       "insurance": "--",
       "refCode": "https://errant.dk"
     },
@@ -119,7 +120,7 @@
         "فساپی"
       ],
       "rate": 7.5,
-      "logoSrc": "",
+      "logoSrc": "/uploads/images/article/usg.webp",
       "linkSite": "https://nl.trustpilot.com/review/usgfx.com",
       "insurance": "--",
       "refCode": "https://usgfx.com"
@@ -139,7 +140,7 @@
         "نتلر"
       ],
       "rate": 7.8,
-      "logoSrc": "",
+      "logoSrc": "/uploads/images/article/HYCM.webp",
       "insurance": "--",
       "refCode": ""
     },
@@ -153,7 +154,7 @@
       "deposit": ["کریپتو", "ریالی تاپ چنج", "پرفکت مانی", "وب مانی"],
       "rate": 7.3,
       "linkSite": "https://nl.trustpilot.com/review/liteforex-trade.com",
-      "logoSrc": "",
+      "logoSrc": "/uploads/images/article/Lite finance.webp",
       "insurance": "--",
       "refCode": "https://www.litefinance.org/fa/?uid=711960074&cid=248782"
     },
@@ -166,7 +167,7 @@
       "platform": ["MT4", "MT5", "Web Trader"],
       "deposit": ["تاپ چنج", "پرفکت مانی", "کریپتو"],
       "rate": 7,
-      "logoSrc": "",
+      "logoSrc": "/uploads/images/article/OPO-1.webp",
       "linkSite": "https://www.iraniexpert.com/brokers/opofinance/fa",
       "insurance": "--",
       "refCode": "https://client.opofinance.com/links/go/4251"
@@ -180,7 +181,7 @@
       "platform": ["MT4", "Web Trader", "Iron Trader App"],
       "deposit": ["ریالی تاپ چنج", "ریالی مستقیم", "پرفکت مانی", "کریپتو"],
       "rate": 5,
-      "logoSrc": "",
+      "logoSrc": "/uploads/images/article/iron fx.webp",
       "linkSite": "https://nl.trustpilot.com/review/ironfx.com",
       "insurance": "--",
       "refCode": "https://ironfx.com"
@@ -194,7 +195,7 @@
       "platform": ["MT5"],
       "deposit": ["ریالی مستقیم", "پرفکت مانی", "کریپتو"],
       "rate": 5,
-      "logoSrc": "",
+      "logoSrc": "/uploads/images/article/",
       "linkSite": "https://nl.trustpilot.com/review/arongroups.co",
       "insurance": "--",
       "refCode": "https://arongroups.co"
@@ -208,7 +209,7 @@
       "platform": ["MT4", "WebTrader"],
       "deposit": ["وبمانی", "پرفکت مانی", "کریپتو"],
       "rate": 5,
-      "logoSrc": "",
+      "logoSrc": "/uploads/images/article/Pax forex.webp",
       "linkSite": "https://nl.trustpilot.com/review/paxforex.com",
       "insurance": "--",
       "refCode": "https://paxforex.com"
@@ -222,7 +223,7 @@
       "platform": ["MT4", "MT5", "WebTrader", "MultiTerminal"],
       "deposit": ["ریالی مستقیم", "کریپتو"],
       "rate": 5,
-      "logoSrc": "",
+      "logoSrc": "/uploads/images/article/insta forex.webp",
       "linkSite": "https://nl.trustpilot.com/review/instaforex.com",
       "insurance": "--",
       "refCode": "https://instaforex.com"
@@ -236,13 +237,13 @@
       "platform": ["MT4", "MT5"],
       "deposit": ["پرفکت مانی", "رمزارزها"],
       "rate": 5,
-      "logoSrc": "",
+      "logoSrc": "/uploads/images/article/Number one.webp",
       "linkSite": "https://nl.trustpilot.com/review/number1.exchange",
       "insurance": "--",
       "refCode": "https://number1.exchange"
     },
     {
-      "name": "آیکیوایندکس",
+      "name": "آکیوایندکس",
       "regulate": ["FSCM", "CYSEC"],
       "establishedYear": 2014,
       "minimumDesposit": 100,
@@ -250,7 +251,7 @@
       "platform": ["MT4", "MT5", "WEbTrader"],
       "deposit": ["پرفکت مانی", "کریپتو"],
       "rate": 5,
-      "logoSrc": "",
+      "logoSrc": "/uploads/images/article/Accuindex.webp",
       "linkSite": "https://nl.trustpilot.com/review/accuindex.com",
       "insurance": "--",
       "refCode": "https://accuindex.com"
@@ -265,7 +266,7 @@
       "deposit": ["ریالی مستقیم", "پرفکت مانی", "کریپتو"],
       "rate": 5,
       "linkSite": "https://nl.trustpilot.com/review/superforex.com",
-      "logoSrc": "",
+      "logoSrc": "/uploads/images/article/super forex.webp",
       "insurance": "--",
       "refCode": "https://superforex.co"
     },
@@ -278,7 +279,7 @@
       "platform": ["MT4", "MT5", "WebTrader"],
       "deposit": ["ریالی مستقیم", "پرفکت مانی", "کریپتو"],
       "rate": 5.5,
-      "logoSrc": "",
+      "logoSrc": "/uploads/images/article/Just forex.webp",
       "linkSite": "https://nl.trustpilot.com/review/justforexltd.com",
       "insurance": "--",
       "refCode": "https://justforexltd.com"
@@ -292,7 +293,7 @@
       "platform": ["MT5"],
       "deposit": ["ریالی", "کریپتو"],
       "rate": 4.3,
-      "logoSrc": "",
+      "logoSrc": "/uploads/images/article/ITBFX.webp",
       "linkSite": "https://nl.trustpilot.com/review/itbfx.com",
       "insurance": "--",
       "refCode": "https://itbfx.com"
@@ -306,7 +307,7 @@
       "platform": ["MT4", "WebTrader"],
       "deposit": ["ریالی مستقیم", "پرفکت مانی", "رمزارزها"],
       "rate": 4,
-      "logoSrc": "",
+      "logoSrc": "/uploads/images/article/Inveslo.webp",
       "linkSite": "https://nl.trustpilot.com/review/investlord-limited.com",
       "insurance": "--",
       "refCode": "https://investlord-limited.com"
@@ -320,7 +321,7 @@
       "platform": ["MT5"],
       "deposit": ["ریالی تاپ چنج", "وبمانی", "رمزارزها"],
       "rate": 4,
-      "logoSrc": "",
+      "logoSrc": "/uploads/images/article/NYX.webp",
       "linkSite": "https://nl.trustpilot.com/review/nyxcosmetics.com",
       "insurance": "--",
       "refCode": "https://nyxcosmetics.com"
@@ -334,7 +335,7 @@
       "platform": ["MT4", "MultiTerminal"],
       "deposit": ["ریالی تاپ چنج", "کریپتو"],
       "rate": 4.5,
-      "logoSrc": "",
+      "logoSrc": "/uploads/images/article/ICM broker.webp",
       "linkSite": "https://nl.trustpilot.com/review/icmbrokers.com",
       "insurance": "--",
       "refCode": "https://icmbrokers.com"
@@ -348,7 +349,7 @@
       "platform": ["MT4", "MT5", "WebTrader"],
       "deposit": ["ریالی تاپ چنج", "پرفکت مانی", "کریپتو"],
       "rate": 5.9,
-      "logoSrc": "",
+      "logoSrc": "/uploads/images/article/Grand Capital.webp",
       "linkSite": "https://nl.trustpilot.com/review/grandcapital.net",
       "insurance": "--",
       "refCode": "https://grandcapital.net"
@@ -362,7 +363,7 @@
       "platform": ["MT4", "MT5", "cTrader", "WebTrader"],
       "deposit": ["ریالی مستقیم", "وبمانی", "اسکریل", "نتلر", "کریپتو"],
       "rate": 7.4,
-      "logoSrc": "",
+      "logoSrc": "/uploads/images/article/Fibo Group.webp",
       "linkSite": "https://nl.trustpilot.com/review/www.fibogroup.com",
       "insurance": "--",
       "refCode": "https://www.fibogroup.com"
@@ -376,7 +377,7 @@
       "platform": ["MT4", "MT5", "WebTrader"],
       "deposit": ["ریالی مستقیم", "پرفکت مانی", "کریپتو کارنسی"],
       "rate": 7.2,
-      "logoSrc": "",
+      "logoSrc": "/uploads/images/article/Capital xtend.webp",
       "linkSite": "https://nl.trustpilot.com/review/capitalxtend.com",
       "insurance": "--",
       "refCode": "https://capitalxtend.com"
@@ -390,7 +391,7 @@
       "platform": ["MT4", "cTrader"],
       "deposit": ["پرفکت مانی", "کریپتو"],
       "rate": 7,
-      "logoSrc": "",
+      "logoSrc": "/uploads/images/article/Top Fx.webp",
       "linkSite": "https://nl.trustpilot.com/review/top-fx.com",
       "insurance": "--",
       "refCode": "https://top-fx.com"
@@ -404,7 +405,7 @@
       "platform": ["MT4", "MT5", "WebTrader"],
       "deposit": ["ریالی مستقیم", "ریالی تاپ چنج", "کریپتو"],
       "rate": 6.9,
-      "logoSrc": "",
+      "logoSrc": "/uploads/images/article/Ingot.webp",
       "linkSite": "https://nl.trustpilot.com/review/ingotbrokers.com",
       "insurance": "--",
       "refCode": ""
@@ -418,7 +419,7 @@
       "platform": ["MT4"],
       "deposit": ["ریالی مستقیم", "وبمانی", "کریپتو"],
       "rate": 6.1,
-      "logoSrc": "",
+      "logoSrc": "/uploads/images/article/Delta fx.webp",
       "linkSite": "https://nl.trustpilot.com/review/deltafx.com",
       "insurance": "--",
       "refCode": "https://deltafx.com"
@@ -432,7 +433,7 @@
       "platform": ["MT5"],
       "deposit": ["ریالی مستقیم", "وبمانی", "پرفکت مانی", "کریپتو"],
       "rate": 3.9,
-      "logoSrc": "",
+      "logoSrc": "/uploads/images/article/",
       "linkSite": "https://nl.trustpilot.com/review/lidya.info",
       "insurance": "--",
       "refCode": "https://lidya.info"
@@ -446,7 +447,7 @@
       "platform": ["MT4", "MT5", "WebTrader", "HYTrader"],
       "deposit": ["ریالی مستقیم", "پرفکت مانی", "کریپتو", "اسکریل", "نتلر"],
       "rate": 7.8,
-      "logoSrc": "",
+      "logoSrc": "/uploads/images/article/HYCM.webp",
       "linkSite": "https://nl.trustpilot.com/review/hycm.com",
       "insurance": "--",
       "refCode": "https://hycm.com"
@@ -460,7 +461,7 @@
       "platform": ["MT4"],
       "deposit": ["پرفکت مانی", "کریپتو", "وبمانی"],
       "rate": 7,
-      "logoSrc": "",
+      "logoSrc": "/uploads/images/article/",
       "linkSite": "https://nl.trustpilot.com/review/orbex.com",
       "insurance": "--",
       "refCode": "https://orbex.com"
@@ -474,7 +475,7 @@
       "platform": ["MT4", "MT5", "WebTrader"],
       "deposit": ["ریالی تاپ چنج", "پرفکت مانی", "کریپتو"],
       "rate": 7,
-      "logoSrc": "",
+      "logoSrc": "/uploads/images/article/Fx Choice.webp",
       "linkSite": "https://nl.trustpilot.com/review/myfxchoice.com",
       "insurance": "--",
       "refCode": "https://myfxchoice.com"
@@ -488,7 +489,7 @@
       "platform": ["MT4", "MT5", "cTrader", "WebTrader"],
       "deposit": ["ریالی", "پرفکت مانی", "کریپتو"],
       "rate": 6.3,
-      "logoSrc": "",
+      "logoSrc": "/uploads/images/article/Trader`s way.webp",
       "linkSite": "https://nl.trustpilot.com/review/www.tradersway.com",
       "insurance": "--",
       "refCode": "https://www.tradersway.com"
