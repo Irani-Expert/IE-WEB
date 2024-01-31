@@ -9,39 +9,37 @@
       <i class="shared-icon icon"></i>
     </button>
   </div>
-  <h1 class="title-blog">مدیریت سرمایه چیست و چرا در بازارهای مالی مهم است؟</h1>
+  <h1 class="title-blog">
+    {{articleModel.title}}
+  </h1>
   <div class="flex mt-3">
-    <p class="date ml-10">انتشار : 01 دی 1402</p>
-    <p class="date">زمان مطالعه 7 دقیقه</p>
+    <p class="date ml-10">انتشار : {{articleModel.publishDate | date}}</p>
+    <p class="date">زمان مطالعه {{articleModel.studyTime}} دقیقه</p>
   </div>
   <!-- ================[عکس شاخص]========== -->
   <div class="flex relative mt-4">
-    <img class="img-blog" src="assets/img/money-m-img-header.webp" alt="img" width="1125" height="400"/>
+    <img class="img-blog" [src]=" contentUrl + articleModel.cardImagePath" alt="img" width="1125" height="400"/>
     <div class="absolute flex h-full w-full justify-end flex-col mr-12 pb-12">
       <div class="divider" [style]="'background-color:' + color"></div>
       <span class="title-blog-img">
-        مدیریت سرمایه چیست و چرا در بازارهای مالی مهم است؟
+        {{articleModel.title}}
       </span>
     </div>
   </div>
   <!-- =========[توضیح]==== -->
   <p class="mt-6">
-    مدیریت سرمایه و مدیریت ریسک در بازارهای مالی، سنگ بنای موفقیت معامله‌گران و
-    سرمایه‌گذاران است. جایی که می توان در یک چشم به هم زدن ثروت به دست آورد یا
-    از دست داد. در ادامه ما استراتژی‌ها، تکنیک‌ها و اصولی را که معامله‌گران موفق
-    برای محافظت از دارایی‌های خود و به حداکثر رساندن سودآوری معاملاتشان به کار
-    می‌گیرند را بررسی خواهیم کرد.
+  {{articleModel.brief}}
   </p>
 </div>
 <!-- ==========[رسپانسیو]=============== -->
 <div class="block lg:hidden">
   <div class="flex relative mt-4">
-    <img class="img-blog-mobile" src="assets/img/money-m-img-header.webp" alt="img" width="1125" height="400"/>
+    <img class="img-blog-mobile" [src]=" contentUrl + articleModel.cardImagePath" alt="img" width="1125" height="400"/>
     <div class="absolute flex h-full w-full items-end">
       <div class="mr-8 ml-8">
         <div class="divider-mobile" [style]="'background-color:' + color"></div>
         <span class="title-blog-img-mobile">
-          مدیریت سرمایه چیست و چرا در بازارهای مالی مهم است؟
+          {{articleModel.title}}
         </span>
       </div>
     </div>
@@ -58,17 +56,13 @@
     </a>
   </div>
   <span class="title-blog-mobile mt-3">
-    مدیریت سرمایه چیست و چرا در بازارهای مالی مهم است؟
+    {{articleModel.title}}
   </span>
   <div class="flex mt-3">
-    <p class="date-mobile ml-10">انتشار : 01 دی 1402</p>
-    <p class="date-mobile">زمان مطالعه 7 دقیقه</p>
+    <p class="date-mobile ml-10">انتشار : {{articleModel.publishDate | date}}</p>
+    <p class="date-mobile">زمان مطالعه {{articleModel.studyTime}} دقیقه</p>
   </div>
   <p class="mt-8">
-    مدیریت سرمایه و مدیریت ریسک در بازارهای مالی، سنگ بنای موفقیت معامله‌گران و
-    سرمایه‌گذاران است. جایی که می توان در یک چشم به هم زدن ثروت به دست آورد یا
-    از دست داد. در ادامه ما استراتژی‌ها، تکنیک‌ها و اصولی را که معامله‌گران موفق
-    برای محافظت از دارایی‌های خود و به حداکثر رساندن سودآوری معاملاتشان به کار
-    می‌گیرند را بررسی خواهیم کرد.
+    {{articleModel.brief}}
   </p>
 </div>

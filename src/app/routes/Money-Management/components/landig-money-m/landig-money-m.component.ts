@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { AppComponent } from 'src/app/app.component';
+import { BlogService } from 'src/app/classes/services/blog.service';
 
 @Component({
   selector: 'app-landig-money-m',
@@ -8,7 +9,14 @@ import { AppComponent } from 'src/app/app.component';
   styleUrls: ['./landig-money-m.component.scss'],
 })
 export class LandigMoneyMComponent {
-  constructor(private _meta: Meta) {
+  title: string = '';
+  language: string = '';
+  id: number = 0;
+  sendDataToChild = false;
+
+
+  constructor(private _meta: Meta , public blogService : BlogService) {
+    
     AppComponent.changeMainBg('creamy');
     this._meta.updateTag({
       name: 'description',
@@ -24,9 +32,24 @@ export class LandigMoneyMComponent {
       content:
         'مدیریت سرمایه گذاری پیشرفته,مدیریت سرمایه گذاری استراتژیک,مدیریت ریسک و سرمایه در ترید, فرمول مدیریت سرمایه در ترید, مدیریت سرمایه در ترید, مدیریت سرمایه فارکس, مدیریت ریسک و سرمایه گذاری ,مدیریت سرمایه به زبان ساده',
     });
+
   }
   ngOnDestroy() {
     AppComponent.changeMainBg('white');
+  }
+  async ngAfterViewInit() {
+    if (await this.getDetail('money-management', 'fa')) {
+      this.tags = this.blogService._blog!.sharpLinkTags;
+
+      this.id = Number(this.blogService._blog?.id);
+
+      this.sendDataToChild = true;
+    }
+  }
+
+    async getDetail(title: string, language: string) {
+    const apiRes = await this.blogService.getBlog(title, language);
+    return apiRes;
   }
   // =======[هشتگ ها]======
   tags: Array<any> = [

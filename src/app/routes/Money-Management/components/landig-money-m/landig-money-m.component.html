@@ -32,10 +32,15 @@
     </app-blog-filter>
   </div>
   <div class="lg:col-span-3 lg:mr-4">
-    <app-hero-m></app-hero-m>
-    <app-articles-money></app-articles-money>
+    <ng-container *ngIf="sendDataToChild">
+    <app-hero-m [data]="blogService._blog!"></app-hero-m>
+    <app-articles-money [data]="blogService._blog!"></app-articles-money>
     <app-free-advice></app-free-advice>
     <app-vote></app-vote>
-    <app-comments></app-comments>
+    <app-comments
+    [rowId]="blogService._blog!.id"
+    [tableType]="1"
+  ></app-comments>  
+  </ng-container>
   </div>
 </div>
