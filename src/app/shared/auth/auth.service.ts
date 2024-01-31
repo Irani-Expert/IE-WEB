@@ -88,7 +88,7 @@ export class AuthService extends BaseService<User | ILogin | IForgetPassword> {
   saveForOneSession(data: any) {
     let user: User = {
       id: data.id,
-      username: data.username,
+      username: data.subject,
       firstName: data.firstName,
       lastName: data.lastName,
       token: data.token,
