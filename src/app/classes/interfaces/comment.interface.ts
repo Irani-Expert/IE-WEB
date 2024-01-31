@@ -8,7 +8,7 @@ export interface Comment {
   description?: string;
   orderID?: number;
   isActive?: boolean;
-  userID: number;
+  userID: number | null;
   parentID?: number;
   commentParent?: string[];
   tableType: number;
