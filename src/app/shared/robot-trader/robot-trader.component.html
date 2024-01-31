@@ -113,7 +113,9 @@
       می‌کنند تا تشخیص دهند چه اخباری تأثیر اجتماعی دارند و احتمالاً بر قیمت‌
       بازار تأثیر زیادی خواهند گذاشت.
     </p>
-    <app-content-menu [data]="listElems" [wid]="100"></app-content-menu>
+    <ng-container *ngIf="isBrowser">
+      <app-content-menu [data]="listElems" [wid]="100"></app-content-menu>
+    </ng-container>
     <div class="mt-4">
       <h2 class="font-bold text-3xl" id="1">انواع ربات های معامله گر</h2>
       <p class="text-lg text-justify leading-8">
@@ -235,18 +237,20 @@
       معامله‌گران اجازه می‌دهد تا یک رویکرد .منضبط و منظم را برای تجارت حفظ کنند
       <br />
     </p>
-    <drag-scroll>
-      <div class="flex mb-4" style="white-space: normal" id="6">
-        <app-blue-cards
-          drag-scroll-item
-          class="me-3"
-          *ngFor="let item of blue_cards"
-          [head]="item.header"
-          [body]="item.text"
-          [id]="item.id"
-        ></app-blue-cards>
-      </div>
-    </drag-scroll>
+    <ng-container *ngIf="isBrowser">
+      <drag-scroll>
+        <div class="flex mb-4" style="white-space: normal" id="6">
+          <app-blue-cards
+            drag-scroll-item
+            class="me-3"
+            *ngFor="let item of blue_cards"
+            [head]="item.header"
+            [body]="item.text"
+            [id]="item.id"
+          ></app-blue-cards>
+        </div>
+      </drag-scroll>
+    </ng-container>
     <div class="flex opacity-75">
       <a href="shop/atm-expert">
         <div class="flex baner-bot max-sm:max-h-20">
@@ -360,6 +364,25 @@
         >https://www.iraniexpert.com/shop/atm-expert</a
       >
     </p>
+    <span class="text-3xl font-bold" id="16">ربات ملیچگ</span>
+    <p class="text-lg text-justify my-2">
+      ربات ملیچگ اولین ربات تریدر ایرانی است که به صورت رایگان در دسترس قرار
+      دارد. این ربات از استراتژی نوسان گیری استفاده می‌کند و برای ترید ارزهای
+      دیجیتال در صرافی بایننس صرافی بایننس به حساب کاربری شما API طراحی شده است.
+      ربات ملیچگ دارای رابط کاربری ساده و کاربرپسند است و نیازی به دانش تحلیل
+      تکنیکال ندارد. ربات ملیچگ با استفاده از .متصل می‌شود و شروع به ترید
+      می‌کند. این ربات از چندین استراتژی معاملاتی مختلف استفاده می‌کند که بر
+      .اساس نوسانات قیمت ارزهای دیجیتال کار می‌کنند
+      <br />
+      برای استفاده از ربات ملیچگ، ابتدا باید یک حساب کاربری در صرافی بایننس
+      ایجاد کنید و API کلید خود را دریافت کنید. سپس، باید نرم افزار ملیچگ را
+      دانلود و نصب کنید و API کلید خود را در آن وارد کنید. پس از نصب و راه
+      اندازی نرم افزار ملیچگ، می‌توانید تنظیمات مربوط به استراتژی معاملاتی،
+      میزان ریسک و سایر موارد را سفارشی کنید. سپس، می‌توانید ربات را شروع کنید و
+      به آن اجازه دهید تا به طور خودکار برای شما ترید کند. ربات تریدر ملیچگ توسط
+      یک تیم توسعه دهنده ایرانی طراحی و توسعه یافته است. این ربات دارای رابط
+      کاربری .ساده و کاربرپسند است و نیازی به دانش تحلیل تکنیکال ندارد
+    </p>
     <span class="text-3xl font-bold" id="17">ATA ربات تریدر</span>
     <p class="text-lg text-justify my-2">
       یک ربات معاملاتی خودکار است که برای ترید ارزهای دیجیتال، فارکس و سهام
@@ -403,18 +426,20 @@
       استراتژی ربات، بررسی تاریخچه عملکرد آن، قابلیت سفارشی‌سازی، کاربرپسند
       بودن، پشتیبانی مشتری و .هزینه، همه جنبه‌های ضروری هستند
     </p>
-    <drag-scroll>
-      <div class="flex" style="white-space: normal">
-        <app-blue-cards
-          drag-scroll-item
-          class="me-3"
-          *ngFor="let item of blue_cards2"
-          [head]="item.header"
-          [body]="item.text"
-          [id]="item.id"
-        ></app-blue-cards>
-      </div>
-    </drag-scroll>
+    <ng-container *ngIf="isBrowser">
+      <drag-scroll>
+        <div class="flex" style="white-space: normal">
+          <app-blue-cards
+            drag-scroll-item
+            class="me-3"
+            *ngFor="let item of blue_cards2"
+            [head]="item.header"
+            [body]="item.text"
+            [id]="item.id"
+          ></app-blue-cards>
+        </div>
+      </drag-scroll>
+    </ng-container>
     <div class="flex justify-center">
       <a href="copy-trade" target="_blank">
         <img
@@ -482,9 +507,11 @@
       معامله گران باید همیشه هوشیار و آماده مداخله یا اصلاح استراتژی های
       معاملاتی خود در صورت لزوم باشند .
     </p>
-    <app-free-advice></app-free-advice>
+    <ng-container *ngIf="isBrowser">
+      <app-free-advice></app-free-advice
+    ></ng-container>
     <!-- <app-qa [Q]="'سوال 1'" [A]="'جواب 1'"></app-qa> -->
-    <app-vote></app-vote>
+    <ng-container *ngIf="isBrowser"> <app-vote></app-vote></ng-container>
     <!-- <div class="bg-[#ECECEC] rounded-3xl p-5 text-[#4D4D4D]">
       <div class="flex flex-row-reverse items-center">
         <span class="text-2xl font-medium">اشتراک گزاری مطلب</span>
@@ -492,12 +519,16 @@
       </div>
       <div></div>
     </div> -->
-    <app-comments [rowId]="1062" [tableType]="1"></app-comments>
+    <ng-container *ngIf="isBrowser">
+      <app-comments [rowId]="1062" [tableType]="1"></app-comments
+    ></ng-container>
   </div>
   <div class="w-3/12 max-lg:hidden ml-4">
-    <app-blog-filter [type]="'tags'" [categoryTags]="tags">
-      <p header class="text-black">دسترسی سریع</p>
-    </app-blog-filter>
+    <ng-container *ngIf="isBrowser">
+      <app-blog-filter [type]="'tags'" [categoryTags]="tags">
+        <p header class="text-black">دسترسی سریع</p>
+      </app-blog-filter>
+    </ng-container>
 
     <!-- <app-quick-access [strText]="qA"></app-quick-access> -->
     <!-- ===================[مدرسه فارکس ]=================== -->

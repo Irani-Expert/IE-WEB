@@ -1,85 +1,82 @@
-<div
-  class="flex mt-3 justify-center cursor-pointer"
-  [routerLink]="'articles/' + '/' + routeLink()"
->
-  <div
-    class="border-separate border rounded-3xl sm:rounded-2xl p-3 sm:p-4 ltr box-shadow-ac w-[300px] m-4"
-  >
-    <div class="h-full flex flex-col">
-      <div class="w-full flex rounded-t-lg bg-black sm:h-80">
-        <img
-          loading="lazy"
-          class="rounded-t-lg"
-          style="
-            object-position: center;
-            max-height: 11rem;
-            min-width: 17.2rem;
-            object-fit: cover;
-          "
-          [src]="'https://dl.iraniexpert.com' + blogs.cardImagePath"
-          alt="icon"
-          width="50"
-          height="40"
-        />
-      </div>
-      <div class="w-full rtl flex flex-col justify-between">
-        <div>
-          <div class="flex m-2">
-            <img
-              loading="lazy"
-              src="../../../../../assets/img/home-blog.webp"
-              class="sm:h-11 h-[20px]"
-              alt="icon"
-              width="20"
-              height="20"
-            />
-            <span
-              class="mr-2 sm:text-sm text-[8px] font-medium justify-end flex flex-col color--blue"
-              >دربررسی بروکر ها<small
-                class="sm:text-sm font-medium color--grey500"
-                >{{ blogs.updateDate }}</small
-              ></span
-            >
-          </div>
-          <b class="sm:m-4 m-3 ms-0 sm:text-4xl font-semibold text-xl">
-            {{ blogs.title.slice(0, 30) }}
-          </b>
+<div class="flex mt-3 justify-center cursor-pointer">
+  <a [routerLink]="'articles/' + '/' + routeLink()" target="_blank">
+    <div
+      class="border-separate border rounded-3xl sm:rounded-2xl p-3 sm:p-4 ltr box-shadow-ac w-[300px] m-4"
+    >
+      <div class="h-full flex flex-col">
+        <div class="w-full flex rounded-t-2xl sm:h-80">
+          <img
+            loading="lazy"
+            class="rounded-t-lg"
+            style="
+              object-position: center;
+              min-width: 17.2rem;
+              object-fit: cover;
+            "
+            [src]="'https://dl.iraniexpert.com' + blogs.cardImagePath"
+            alt="icon"
+            width="50"
+            height="40"
+          />
         </div>
-        <div
-          class="border-t pl-0 pr-0 flex justify-between border-gray-300 items-center p-2"
-        >
-          <div style="display: flex">
-            <img
-              loading="lazy"
-              src="../../../../../assets/img/avatar.webp"
-              class="sm:h-[30px] h-[40px]"
-              alt="avatar"
-              width="40"
-              height="40"
-            />
-            <span
-              class="flex-col flex mr-1 sm:text-sm text-[8px] justify-evenly color--blue font-medium"
-              >نویسنده ؛ {{ blogs.updatedByFirstName }}
-              {{ blogs.updatedByLastName
-              }}<small class="sm:text-sm color--grey500 font-normal"
-                >زمان مطالعه {{ blogs.studyTime }} دقیقه</small
-              ></span
-            >
+        <div class="w-full rtl flex flex-col justify-between">
+          <div>
+            <div class="flex m-2">
+              <img
+                loading="lazy"
+                src="../../../../../assets/img/home-blog.webp"
+                class="h-[40px] aspect-1/1 object-contain"
+                alt="icon"
+                width="20"
+                height="20"
+              />
+              <span
+                class="mr-2 text-lg font-medium justify-end flex flex-col color--blue"
+                ><small class="color--grey500">{{
+                  blogs.updateDate | date : "YYYY:MM:dd"
+                }}</small></span
+              >
+            </div>
+            <b class="sm:m-4 m-3 ms-0 sm:text-2xl font-semibold text-xl">
+              {{ blogs.title.slice(0, 30) }}
+            </b>
           </div>
           <div
-            class="sm:m-2 me-0 sm:text-xl text-[8px] color--grey500 ltr flex items-center"
+            class="border-t pl-0 pr-0 flex justify-between border-gray-300 items-center p-2"
           >
-            <span class="me-2 flex items-start text-sm"
-              ><i class="favorite-icon mr-2"></i>
-              {{ blogs.favoriteCount }}
-            </span>
-            <span class="flex items-start text-sm"
-              ><i class="eye-icon mr-2"></i>
-              {{ blogs.viewsCount }}
-            </span>
+            <div style="display: flex">
+              <img
+                loading="lazy"
+                src="../../../../../assets/img/avatar.webp"
+                class="h-10 aspect-1/1 object-contain"
+                alt="avatar"
+                width="40"
+                height="40"
+              />
+              <span
+                class="flex-col flex mr-1 sm:text-sm text-[8px] justify-evenly color--blue font-medium"
+                >نویسنده ؛ {{ blogs.updatedByFirstName }}
+                {{ blogs.updatedByLastName
+                }}<small class="sm:text-sm color--grey500 font-normal"
+                  >زمان مطالعه {{ blogs.studyTime }} دقیقه</small
+                ></span
+              >
+            </div>
+            <div
+              class="sm:m-2 me-0 sm:text-xl text-[8px] color--grey500 ltr flex items-center"
+            >
+              <span class="me-2 flex items-start text-sm"
+                ><i class="favorite-icon mr-2"></i>
+                {{ blogs.favoriteCount }}
+              </span>
+              <span class="flex items-start text-sm"
+                ><i class="eye-icon mr-2"></i>
+                {{ blogs.viewsCount }}
+              </span>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </a>
 </div>

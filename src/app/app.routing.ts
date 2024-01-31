@@ -63,7 +63,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    title: '404 - یافت نشد',
+    title: 'ایرانی اکسپرت ',
     component: NotFoundComponent,
   },
 ];

@@ -1,1 +1,3 @@
 /
+/expert-advisor
+/about-us
