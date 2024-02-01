@@ -87,7 +87,7 @@
                   >
                     <span class="flex items-start"
                       ><i class="favorite-icon mr-2"></i>
-                      {{ blogs[0].favoriteCount }}
+                      {{ blogs[0].favoriteCount !== null || 0 ? blogs[2].favoriteCount : '25' }}
                     </span>
                     <span class="flex items-start mt-2"
                       ><i class="eye-icon mr-2"></i>
@@ -169,7 +169,7 @@
                   >
                     <span class="flex items-start"
                       ><i class="favorite-icon mr-2"></i>
-                      {{ blogs[1].favoriteCount }}
+                      {{ blogs[1].favoriteCount !== null || 0 ? blogs[2].favoriteCount : '25'}}
                     </span>
                     <span class="flex items-start mt-2"
                       ><i class="eye-icon mr-2"></i>
@@ -253,7 +253,7 @@
                 >
                   <span class="me-2 flex items-baseline"
                     ><i class="favorite-icon mr-2"></i>
-                    {{ blogs[2].favoriteCount }}
+                    {{ blogs[2].favoriteCount !== null || 0 ? blogs[2].favoriteCount : '25'  }}
                   </span>
                   <span class="flex items-baseline"
                     ><i class="eye-icon mr-2"></i>

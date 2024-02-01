@@ -36,7 +36,7 @@
     <app-hero-m [data]="blogService._blog!"></app-hero-m>
     <app-articles-money [data]="blogService._blog!"></app-articles-money>
     <app-free-advice></app-free-advice>
-    <app-vote></app-vote>
+    <app-vote [data]="blogService._blog!" ></app-vote>
     <app-comments
     [rowId]="blogService._blog!.id"
     [tableType]="1"

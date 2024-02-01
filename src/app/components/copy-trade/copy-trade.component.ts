@@ -3,6 +3,7 @@ import { DomSanitizer, Meta, SafeHtml } from '@angular/platform-browser';
 import { AppComponent } from 'src/app/app.component';
 import { ITags } from 'src/app/classes/interfaces/tags.interface';
 import { BlogService } from 'src/app/classes/services/blog.service';
+import { environment } from 'src/environments/environment.dev';
 
 @Component({
   selector: 'app-copy-trade',
@@ -30,6 +31,7 @@ export class CopyTradeComponent {
 
     tags: ITags[];
 
+    contentUrl = environment.contentUrl;
   sendDataToChild = false;
   title: string = '';
   language: string = '';
