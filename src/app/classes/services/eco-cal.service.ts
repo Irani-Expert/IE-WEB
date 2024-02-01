@@ -5,10 +5,11 @@ import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { CurrencyData } from '../interfaces/currency-data';
 import { Result } from '../result';
-import { BehaviorSubject, map, Observable } from 'rxjs';
+import { BehaviorSubject, lastValueFrom, map, Observable } from 'rxjs';
 import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
 import { CalEvent } from 'src/app/routes/calendar/calendar-main-page/cal-event.model';
 import { Filter as FilterCalendar } from 'src/app/routes/calendar/calendar-main-page/filter.model';
+import { environment } from 'src/environments/environment.dev';
 
 @Injectable({
   providedIn: 'root',
@@ -74,5 +75,20 @@ export class EcoCalService extends BaseService<PageInterface<CalEvent[]>> {
         return it.success!;
       })
     );
+  }
+  async getActualValByID(id: number) {
+    const result = this.http
+      .get<Result<string>>(
+        `${environment.apiUrl}CalendarValue/GetActualValByID?id=${id}`,
+        {
+          headers: this.headers,
+        }
+      )
+      .pipe(
+        map((it) => {
+          return it.data;
+        })
+      );
+    return await lastValueFrom(result);
   }
 }

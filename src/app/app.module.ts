@@ -24,6 +24,7 @@ import { LoaderInterceptor } from './classes/loader.interceptor';
 import { LottieModule } from 'ngx-lottie';
 import { LoaderComponent } from './components/loader/loader.component';
 import { ToastrModule } from 'ngx-toastr';
+import { JWTInterceptor } from './classes/jwt.interceptor';
 
 export function playerFactory(): any {
   return import('lottie-web');
@@ -59,6 +60,11 @@ const footer = [FooterComponent];
   providers: [
     provideClientHydration(),
     BaseService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JWTInterceptor,
+      multi: true,
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoaderInterceptor,

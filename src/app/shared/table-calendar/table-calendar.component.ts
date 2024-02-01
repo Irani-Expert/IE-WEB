@@ -36,8 +36,25 @@ export class TableCalendar {
   ngAfterViewInit() {
     this.getCalendarValues();
   }
-  getActualValue() {
-    this.isSyncing = !this.isSyncing;
+  async getActualValue(item: CalendarEventsTable) {
+    if (AppComponent.isBrowser.value) {
+      const element = document.getElementById(`sync-${item.id}`);
+      element?.classList.add('spin');
+      setTimeout(() => {
+        element?.classList.remove('spin');
+      }, 2500);
+      const result = await this._ecoCalService.getActualValByID(item.id);
+
+      if (result !== 'string' && result !== 'NaN' && result) {
+        item.actual_Value = result;
+      }
+
+      setTimeout(() => {
+        element?.classList.remove('spin');
+      }, 2500);
+    } else {
+      console.log('App is Running On Server');
+    }
   }
 
   getCalendarValues() {
@@ -67,6 +84,7 @@ export class TableCalendar {
         event: { name: it.name, time: it.time_ },
         forecast_Value: it.forecast_Value.toString(),
         importance: it.importance,
+        impact_Type: it.impact_Type,
         prev_Value: it.prev_Value.toString(),
         actual_Value: it.actual_Value.toString(),
       };
