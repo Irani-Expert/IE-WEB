@@ -7,6 +7,7 @@ import { importances } from '../importance/importances';
 import { Importance } from '../importance/importance.interface';
 import { Filter as FilterEvents } from './filter.model';
 import { TableCalendar } from 'src/app/shared/table-calendar/table-calendar.component';
+import { CalEvent } from './cal-event.model';
 Maps.Inject(Bubble, MapsTooltip);
 interface trend_data {
   currency: string;
@@ -20,6 +21,7 @@ interface trend_data {
   encapsulation: ViewEncapsulation.None,
 })
 export class CalendarMainPageComponent {
+  eventsHolder = new Array<CalEvent>();
   @ViewChild(TableCalendar, { static: false }) appTableComponent: TableCalendar;
   filteredModel = new FilterEvents();
   filter = new BehaviorSubject<FilterEvents>(new FilterEvents());
@@ -64,9 +66,9 @@ export class CalendarMainPageComponent {
     AppComponent.changeMainBg('white');
   }
 
-  async getCal(filter: FilterEvents) {
+  async getCal(filter: FilterEvents, pageIndex: number = 0) {
     const apiData = this.ecoCalService.getCalEvents(
-      `pageIndex=0&pageSize=10&accending=true`,
+      `pageIndex=${pageIndex}&pageSize=10&accending=true`,
       filter
     );
 
@@ -83,6 +85,25 @@ export class CalendarMainPageComponent {
     } else {
       this.filteredModel.importance.splice(index, 1);
       this.filter.next(this.filteredModel);
+    }
+  }
+  showMore(index: number = 0, type: 'getted' | 'want-more' = 'want-more') {
+    if (type == 'want-more') {
+      this.getCal(this.filteredModel, index);
+    }
+    if (type == 'getted') {
+      this.appTableComponent.setTable(this.appTableComponent.events);
+    }
+  }
+  showLess() {
+    this.appTableComponent.table.splice(9, this.appTableComponent.table.length);
+  }
+
+  get pageNumber() {
+    if (this.ecoCalService.paginatedCalendar.value?.pageNumber) {
+      return this.ecoCalService.paginatedCalendar.value?.pageNumber;
+    } else {
+      return 0;
     }
   }
 }
