@@ -58,13 +58,13 @@
             </p>
           </td>
           <ng-container *ngIf="!item.active">
-            <td class="pre-value">
+            <td (click)="showDetails(item)" class="pre-value">
               <span class="font-bold text-lg">{{
                 item.prev_Value == "NaN" ? "__" : item.prev_Value
               }}</span>
               <span class="font-light text-sm">قبلی</span>
             </td>
-            <td class="forecast-value">
+            <td (click)="showDetails(item)" class="forecast-value">
               <span class="font-bold text-lg">{{
                 item.forecast_Value == "NaN" ? "__" : item.forecast_Value
               }}</span>
@@ -91,9 +91,9 @@
             </td>
           </ng-container>
           <ng-container *ngIf="item.active">
-            <td></td>
-            <td></td>
-            <td>
+            <td (click)="showDetails(item)"></td>
+            <td (click)="showDetails(item)"></td>
+            <td (click)="showDetails(item)">
               <div class="flex items-center gap-3">
                 <span
                   class="scale-150 block"
