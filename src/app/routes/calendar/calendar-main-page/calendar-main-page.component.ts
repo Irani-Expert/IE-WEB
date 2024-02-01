@@ -1,8 +1,12 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Bubble, Maps, MapsTooltip } from '@syncfusion/ej2-angular-maps';
 import { AppComponent } from 'src/app/app.component';
 import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
-import { lastValueFrom } from 'rxjs';
+import { BehaviorSubject, lastValueFrom } from 'rxjs';
+import { importances } from '../importance/importances';
+import { Importance } from '../importance/importance.interface';
+import { Filter as FilterEvents } from './filter.model';
+import { TableCalendar } from 'src/app/shared/table-calendar/table-calendar.component';
 Maps.Inject(Bubble, MapsTooltip);
 interface trend_data {
   currency: string;
@@ -16,32 +20,11 @@ interface trend_data {
   encapsulation: ViewEncapsulation.None,
 })
 export class CalendarMainPageComponent {
-  importances = [
-    {
-      color: '#FF5B5B',
-      value: 2,
-      title: 'مهم',
-      active: true,
-    },
-    {
-      color: '#FFD95B',
-      value: 3,
-      title: 'متوسط',
-      active: false,
-    },
-    {
-      color: '#DFFF00',
-      value: 1,
-      title: 'پایین',
-      active: false,
-    },
-    {
-      color: '#FCF1F1',
-      value: 0,
-      title: 'نامشخص',
-      active: true,
-    },
-  ];
+  @ViewChild(TableCalendar, { static: false }) appTableComponent: TableCalendar;
+  filteredModel = new FilterEvents();
+  filter = new BehaviorSubject<FilterEvents>(new FilterEvents());
+  filter$ = this.filter.asObservable();
+  importances = importances;
   today = new Date();
   constructor(private ecoCalService: EcoCalService) {}
   data: trend_data[] = [
@@ -70,17 +53,36 @@ export class CalendarMainPageComponent {
     AppComponent.changeMainBg('creamy');
   }
   async ngAfterViewInit() {
-    await this.getCal();
+    this.filter$.subscribe({
+      next: async (item) => {
+        this.appTableComponent.events = [];
+        await this.getCal(item);
+      },
+    });
   }
   ngOnDestroy() {
     AppComponent.changeMainBg('white');
   }
 
-  async getCal() {
+  async getCal(filter: FilterEvents) {
     const apiData = this.ecoCalService.getCalEvents(
-      `pageIndex=0&pageSize=10&accending=true`
+      `pageIndex=0&pageSize=10&accending=true`,
+      filter
     );
 
     return await lastValueFrom(apiData);
+  }
+
+  setImportance(item: Importance) {
+    let index = this.filteredModel.importance.findIndex(
+      (it) => it == item.value
+    );
+    if (index == -1) {
+      this.filteredModel.importance.push(item.value);
+      this.filter.next(this.filteredModel);
+    } else {
+      this.filteredModel.importance.splice(index, 1);
+      this.filter.next(this.filteredModel);
+    }
   }
 }
