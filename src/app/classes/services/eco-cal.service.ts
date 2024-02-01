@@ -91,4 +91,11 @@ export class EcoCalService extends BaseService<PageInterface<CalEvent[]>> {
       );
     return await lastValueFrom(result);
   }
+
+  // private get getItems() {
+  //   if (this.paginatedCalendar.value?.items) {
+  //     return this.paginatedCalendar.value.items;
+  //   }
+  //   return new Array<CalEvent>();
+  // }
 }

@@ -63,7 +63,9 @@ export class TableCalendar {
     pageObservable$.subscribe({
       next: (it) => {
         if (it) {
-          this.events = it.items!;
+          this.events.push(...it.items!);
+          console.log(this.events);
+
           this.setTable(it.items);
         }
       },

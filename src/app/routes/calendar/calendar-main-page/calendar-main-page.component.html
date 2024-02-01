@@ -10,7 +10,7 @@
   <div class="basis-1/3 bg-white rounded-2xl shadow-sm"></div>
 
   <div
-    class="basis-2/3 bg-white px-2 py-1 rounded-2xl shadow-sm border border-[#EAEAEA]"
+    class="basis-2/3 bg-white px-2 py-1 rounded-2xl shadow-sm border border-[#EAEAEA] relative"
   >
     <div class="w-full my-2 mx-2 flex items-center">
       <div class="mx-2">
@@ -26,7 +26,7 @@
         <span class="block text-sm ml-4"> اهمیت</span>
         <ng-container *ngFor="let i of importances">
           <span
-            (click)="i.active = !i.active"
+            (click)="i.active = !i.active; setImportance(i)"
             class="rounded-md border-[1.5px] holder-icon cursor-pointer hover:bg-slate-200"
             [ngClass]="
               i.active
