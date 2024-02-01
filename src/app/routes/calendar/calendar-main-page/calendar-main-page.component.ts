@@ -57,8 +57,11 @@ export class CalendarMainPageComponent {
   async ngAfterViewInit() {
     this.filter$.subscribe({
       next: async (item) => {
+        this.appTableComponent.tableIsLoading = true;
         this.appTableComponent.events = [];
+        this.appTableComponent.table = [];
         await this.getCal(item);
+        this.appTableComponent.tableIsLoading = false;
       },
     });
   }
