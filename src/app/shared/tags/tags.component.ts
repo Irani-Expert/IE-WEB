@@ -13,7 +13,6 @@ export class TagsComponent {
   constructor(private _tagServices: TagService, private router: Router) {}
   searchTag(searchingTag: string) {
     searchingTag = searchingTag.slice();
-    console.log(searchingTag);
 
     this.router.navigateByUrl(`search?search=${searchingTag}`);
   }

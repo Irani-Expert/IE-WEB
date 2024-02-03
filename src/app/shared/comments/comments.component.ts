@@ -135,10 +135,8 @@ export class CommentsComponent {
       if (lastVal && lastVal.success) {
         this.toaster.success('با موفقیت ثبت شد');
         this.form.controls['textAr'].setValue('');
-        debugger;
       } else {
         this.toaster.error('خطا در عملیات!!!');
-        console.log('Not Valid');
       }
     }
   }
@@ -169,7 +167,6 @@ export class CommentsComponent {
       this.form.controls['NameInfo'].disable;
       this.form.controls['Email'].setValue(this._authservice._user.username);
       this.form.controls['Email'].disable;
-      debugger;
     }
   }
   device: 'sm' | 'lg' = 'lg';
