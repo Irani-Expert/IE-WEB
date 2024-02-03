@@ -2,11 +2,11 @@
   <div class="flex items-center max-md:mb-6">
     <img src="../../../assets/img/avatar-c.webp" alt="avatar" width="50" />
     <div class="flex items-center max-md:flex-col">
-      <span class="font-bold text-2xl mx-3">جواد خدادادی</span>
-      <small>تعداد بازدید کل : 135 </small>
+      <span class="font-bold text-2xl mx-3">{{articleModel.updatedByFirstName}} {{articleModel.updatedByLastName}}</span>
+      <small>تعداد بازدید کل : {{articleModel.viewsCount}} </small>
     </div>
   </div>
-  <div class="flex flex-col">
+  <!-- <div class="flex flex-col">
     <div class="flex flex-row-reverse max-md:justify-around">
       <div class="flex justify-center">
         <i class="ie-bg-yellow absolute -z-10" *ngIf="rate == 1"></i>
@@ -37,5 +37,5 @@
         ثبت رای
       </button>
     </div>
-  </div>
+  </div> -->
 </div>

@@ -44,15 +44,12 @@ export class HeaderSmComponent extends Header {
     throw new Error('Method not implemented.');
   }
   @Output('modal') openingModal: EventEmitter<string> = new EventEmitter(false);
-  user$;
-  panelUrl: string = '';
   constructor(
     navService: NavigationService,
     private modal: ModalService,
     private auth: AuthService
   ) {
     super(navService);
-    this.user$ = this.auth.userSubject.asObservable();
   }
 
   link: number = 1;
@@ -60,13 +57,6 @@ export class HeaderSmComponent extends Header {
   menuState: string = 'in';
 
   ngOninit() {
-    this.user$.subscribe({
-      next: async (val) => {
-        if (val.token !== '') {
-          this.panelUrl = `https://panel.iraniexpert.com/#/checkUserPermission?token=${val.token}`;
-        }
-      },
-    });
     this.updateMenu();
   }
   openandClose() {
@@ -99,5 +89,13 @@ export class HeaderSmComponent extends Header {
       },
     });
     HeaderLayoutComponent.modalStatus = true;
+  }
+
+  get panelUrl() {
+    if (AuthService.loggedIn) {
+      return `https://panel.iraniexpert.com/#/checkUserPermission?token=${this.auth._user.token}`;
+    } else {
+      return '';
+    }
   }
 }

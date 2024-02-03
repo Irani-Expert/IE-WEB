@@ -2,7 +2,7 @@ User-agent: *
 Disallow: /Blog/*IE
 Disallow: /*.gif$
 Disallow: /contact-us/
-Desallow: /search
+Disallow: /search
 Disallow: /v/
 Disallow: /*?
 Disallow: *.mp3

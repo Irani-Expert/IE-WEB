@@ -1,8 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
+import { DomSanitizer, Meta, SafeHtml } from '@angular/platform-browser';
 import { TableBrokersComponent } from '../table-brokers/table-brokers.component';
 import { imgNotFound } from 'src/app/classes/not-found';
 import { AppComponent } from 'src/app/app.component';
+import { ITags } from 'src/app/classes/interfaces/tags.interface';
+import { BlogService } from 'src/app/classes/services/blog.service';
 interface BrokerImgCard<T> {
   id: T;
   img: string;
@@ -17,7 +19,8 @@ interface BrokerImgCard<T> {
 export class LandingBrokerDetailComponent {
   @ViewChild(TableBrokersComponent, { static: true })
   tableBrokers: TableBrokersComponent;
-  constructor(private _meta: Meta) {
+  constructor(private _meta: Meta, public blogService : BlogService , private _sanitizer : DomSanitizer
+    ) {
     AppComponent.changeMainBg('creamy');
     this._meta.updateTag({
       name: 'description',
@@ -57,5 +60,31 @@ export class LandingBrokerDetailComponent {
   ngOnDestroy() {
     AppComponent.changeMainBg('white');
   }
+
+
+  tags: ITags[];
+  sendDataToChild = false;
+  title: string = '';
+  language: string = '';
+  id: number = 0;
+  articleHtml: SafeHtml;
+
+  async ngAfterViewInit() {
+      if (await this.getDetail('Broker', 'fa')) {
+        this.tags = this.blogService._blog!.sharpLinkTags;
+
+      this.id = Number(this.blogService._blog?.id);
+      this.articleHtml = this._sanitizer.bypassSecurityTrustHtml(
+        this.blogService._blog!.description
+      );
+      this.sendDataToChild = true;
+    }
+  }
+
+  async getDetail(title: string, language: string) {
+    const apiRes = await this.blogService.getBlog(title, language);
+    return apiRes;
+  }
+
 }
 const brokersInHero = ['ویندزور', 'آلپاری', 'آی اف سی مارکتس'];

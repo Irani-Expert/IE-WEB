@@ -4,11 +4,10 @@
       <ng-container *ngFor="let item of table; let i = index">
         <tr
           class="cursor-pointer"
-          (click)="showDetails(item)"
           [ngClass]="item.active ? 'activated' : 'default'"
         >
-          <td></td>
-          <td class="importance">
+          <td (click)="showDetails(item)"></td>
+          <td (click)="showDetails(item)" class="importance">
             <span
               [ngClass]="{
               '!bg-transparent': item.active,
@@ -19,7 +18,7 @@
             }"
             ></span>
           </td>
-          <td class="country">
+          <td (click)="showDetails(item)" class="country">
             <div
               class="flex"
               [ngClass]="item.active ? '!flex-row !items-center' : ''"
@@ -47,7 +46,7 @@
               </span>
             </ng-container>
           </span> -->
-          <td class="event">
+          <td (click)="showDetails(item)" class="event">
             <span *ngIf="!item.active" class="block text-black font-medium">
               {{ item.event.time.slice(0, 5) }}
             </span>
@@ -59,13 +58,13 @@
             </p>
           </td>
           <ng-container *ngIf="!item.active">
-            <td class="pre-value">
+            <td (click)="showDetails(item)" class="pre-value">
               <span class="font-bold text-lg">{{
                 item.prev_Value == "NaN" ? "__" : item.prev_Value
               }}</span>
               <span class="font-light text-sm">قبلی</span>
             </td>
-            <td class="forecast-value">
+            <td (click)="showDetails(item)" class="forecast-value">
               <span class="font-bold text-lg">{{
                 item.forecast_Value == "NaN" ? "__" : item.forecast_Value
               }}</span>
@@ -76,25 +75,25 @@
                 <span
                   class="font-bold text-lg"
                   [ngClass]="{
-                'text-[#00cb86]': events[i].impact_Type == 'POSITIVE',
-                'text-[#ff4444]': events[i].impact_Type == 'NEGATIVE',
+                'text-[#00cb86]': item.impact_Type == 'POSITIVE',
+                'text-[#ff4444]': item.impact_Type == 'NEGATIVE',
                 }"
                   >{{ item.actual_Value }}</span
                 >
                 <span class="font-light text-sm">واقعی</span>
               </ng-container>
               <ng-container *ngIf="item.actual_Value == 'NaN'">
-                <span class="cursor-pointer" (click)="getActualValue()">
-                  <i class="ie-sync" [ngClass]="isSyncing ? 'spin' : ''"></i>
+                <span class="cursor-pointer" (click)="getActualValue(item)">
+                  <i id="sync-{{ item.id }}" class="ie-sync"></i>
                 </span>
                 <span class="font-light text-sm">واقعی</span>
               </ng-container>
             </td>
           </ng-container>
           <ng-container *ngIf="item.active">
-            <td></td>
-            <td></td>
-            <td>
+            <td (click)="showDetails(item)"></td>
+            <td (click)="showDetails(item)"></td>
+            <td (click)="showDetails(item)">
               <div class="flex items-center gap-3">
                 <span
                   class="scale-150 block"

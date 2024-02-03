@@ -74,11 +74,13 @@ export class BaseService<T> {
 
   private handleError(error: HttpErrorResponse) {
     let errorMessage = '';
-    if (error.error instanceof ErrorEvent) {
-      errorMessage = error.error.message;
-    } else {
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    }
+    // if (error.error instanceof ErrorEvent) {
+    //   errorMessage = error.error.message;
+    // } else {
+    //   errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    // }
+    console.log(error);
+
     console.log(errorMessage);
     return throwError(() => {
       return errorMessage;

@@ -3,6 +3,7 @@ import { DomSanitizer, Meta, SafeHtml } from '@angular/platform-browser';
 import { AppComponent } from 'src/app/app.component';
 import { ITags } from 'src/app/classes/interfaces/tags.interface';
 import { BlogService } from 'src/app/classes/services/blog.service';
+import { environment } from 'src/environments/environment.dev';
 
 @Component({
   selector: 'app-copy-trade',
@@ -12,24 +13,13 @@ import { BlogService } from 'src/app/classes/services/blog.service';
 export class CopyTradeComponent {
   constructor(private _meta: Meta , public blogService : BlogService , private _sanitizer : DomSanitizer
     ) {
-          // =======[متاتگ ها]======
-    this._meta.updateTag({
-      name: 'description',
-      content: '',
-    });
-    this._meta.updateTag({
-      name: 'author',
-      content: '',
-    });
-    this._meta.updateTag({
-      name: 'keywords',
-      content: '',
-    });
+
 
     }
-
+    
     tags: ITags[];
 
+    contentUrl = environment.contentUrl;
   sendDataToChild = false;
   title: string = '';
   language: string = '';
@@ -44,6 +34,25 @@ export class CopyTradeComponent {
       this.articleHtml = this._sanitizer.bypassSecurityTrustHtml(
         this.blogService._blog!.description
       );
+      let keywords = '';
+      this.blogService._blog!.linkTags.forEach((item) => {
+        keywords += `${item.title.replace(/#/g, '')},`;
+      });
+          // =======[متاتگ ها]======
+    this._meta.updateTag({
+      name: 'description',
+      content: this.blogService._blog!.metaDescription,
+    });
+    this._meta.updateTag({
+      name: 'author',
+      content:
+      this.blogService._blog!.updatedByFirstName +
+      this.blogService._blog!.updatedByLastName,
+    });
+    this._meta.updateTag({
+      name: 'keywords',
+      content: keywords,
+    });
       this.sendDataToChild = true;
     }
   }

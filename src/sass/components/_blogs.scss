@@ -1,4 +1,28 @@
 #ckeditor {
+  h2 {
+    margin: 1.25rem 0;
+    font-size: 1.5rem;
+    font-weight: bolder;
+  }
+  h3 {
+    :not(.title-blog-img) {
+      margin: 1rem 0;
+      font-size: 1.35rem;
+      font-weight: bolder;
+    }
+  }
+  h4 {
+    margin: 1rem 0;
+
+    font-size: 1.275rem;
+    font-weight: bold;
+  }
+  h5 {
+    margin: 1rem 0;
+
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
   table {
     width: 100% !important;
   }
@@ -70,17 +94,17 @@
   }
   img {
     width: fit-content;
-    margin: 2rem auto !important;
+    margin: 0 auto !important;
   }
   // =======[مدیریت سرمایه]====
   &.money-m {
     p {
       font-size: 1rem;
-      font-weight: 700;
+      font-weight: 500;
     }
     .img-articles {
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       border-radius: 10px;
     }
     .links {
@@ -96,180 +120,322 @@
       margin-left: 0.25rem;
       font-size: 1.4rem;
     }
-    .box-articles{
+    .box-articles {
       background-color: white;
       height: auto;
-      border: #EAEAEA 1px solid;
+      border: #eaeaea 1px solid;
       border-radius: 20px;
       padding: 1.5rem;
-  }
-   .box-articles-title {
+      margin-left: 1rem;
+    }
+    .box-articles-title {
       font-size: 1.3rem;
-      color: #0080FF;
+      color: #0080ff;
       font-weight: 500;
       margin-bottom: 0.75rem;
-  }
-  drag-scroll{
+    }
+    drag-scroll {
       width: 25rem;
       height: 20rem;
-  }
-  .box-articles-m {
+    }
+    .box-articles-m {
       background-color: white;
       height: auto;
       width: 100%;
-      border: #EAEAEA 1px solid;
+      border: #eaeaea 1px solid;
       border-radius: 20px;
       padding: 1.5rem;
+    }
+    a {
+      font-size: inherit;
+    }
   }
-  a {
-    font-size: 1rem;
-  }
-  }
-    // =======[ کپی ترید]====
-    &.copy-trade {
+  // =======[  ربات تریدر]====
+  &.expert-advisor {
     @import "../colors";
-.bg-page{
-  background-color: #FBFBFB;
-}
-@media (min-width: 1024px) {
-  .baner-bot {
-    padding: 0.5rem 2.5rem 0.5rem 2.5rem;
-  }
-  .of-number {
-    font-size: 5rem;
-  }
-}
-.robot-trader-img {
-  object-fit: contain;
-  width: auto;
-  aspect-ratio: 16/11;
-}
-.header-start {
-  &::before {
-    content: "";
-    width: 20px;
-    height: 5px;
-    background-color: $blue;
-    border-radius: 6px;
-    display: inline-block;
-    margin: 2px 6px;
-  }
-}
-.blue-font {
-  color: #0080ff;
-}
-.blue-back {
-  background-color: #0066ff;
-}
-.green-back {
-  background-color: #098b41;
-}
-.divider {
-  border-radius: 30px;
-  margin-bottom: 0.5rem;
-}
+    @media (min-width: 1024px) {
+      .baner-bot {
+        padding: 0.5rem 2.5rem 0.5rem 2.5rem;
+      }
+      .of-number {
+        font-size: 5rem;
+      }
+    }
+    .robot-trader-img {
+      object-fit: contain;
+      width: auto;
+      aspect-ratio: 16/11;
+    }
+    .header-start {
+      &::before {
+        content: "";
+        width: 20px;
+        height: 5px;
+        background-color: $blue;
+        border-radius: 6px;
+        display: inline-block;
+        margin: 2px 6px;
+      }
+    }
+    .blue-font {
+      color: #0080ff;
+    }
+    .blue-back {
+      background-color: #0066ff;
+    }
+    .green-back {
+      background-color: #098b41;
+    }
+    .divider {
+      border-radius: 30px;
+      margin-bottom: 0.5rem;
+    }
+    .title-blog-img {
+      font-weight: 800;
+      font-size: 1.8rem !important;
+    }
+    .inside-box-shadow {
+      box-shadow: inset -14px -27px 130px 19px rgba(0, 0, 0, 0.63);
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
 
-.inside-box-shadow {
-  box-shadow: inset -14px -27px 130px 19px rgba(0, 0, 0, 0.63);
-}
-::-webkit-scrollbar {
-  display: none;
-}
-
-.baner-bot {
-  background: rgb(0, 22, 178);
-  background: linear-gradient(
-    270deg,
-    rgb(0, 22, 178) 28%,
-    rgb(102, 146, 215) 76%
-  );
-  width: 100%;
-  align-items: center;
-  border-radius: 15px;
-  height: 9rem;
-}
-.of-number {
-  color: #fe0;
-  font-style: oblique;
-}
-.box-articles {
-  background-color: white;
-  height: auto;
-  border: #eaeaea 1px solid;
-  border-radius: 20px;
-  padding: 1.5rem;
-}
-.box-articles h5 {
-  font-size: 1.4rem;
-  color: #0080ff;
-  font-weight: 500;
-  margin-bottom: 0.75rem;
-}
-.school-box {
-  background-color: white;
-  border: #eaeaea solid 2px;
-  padding: 0.5rem 1rem 0.5rem 1rem;
-  border-radius: 20px;
-}
-.box-video {
-  background-color: #fafafa;
-  padding: 0.7rem 1rem 0.7rem 1rem;
-  border: 1px solid #eaeaea;
-  border-radius: 20px;
-}
-.video {
-  background-color: white;
-  height: 160px;
-  width: 100%;
-}
-.video-title {
-  font-weight: 600;
-  color: #7d7d7d;
-  font-size: 0.9rem;
-}
-.time-video {
-  color: #7d7d7d;
-  font-size: 0.8rem;
-  background-color: #f5f5f5;
-  padding: 0.2rem 0.8rem 0.2rem 0.8rem;
-  border-radius: 22px;
-}
-.title1-row {
-  color: black;
-}
-.title2-row {
-  color: #098b41;
-  font-size: 1.2rem;
-}
-ul {
-  list-style-type: none;
-  margin-left: 10px;
-}
-
-ul li {
-  margin-bottom: 12px;
-  margin-left: -10px;
-  display: flex;
-  align-items: center;
-}
-.ul-space {
-  li:not(:last-child) {
-    margin-bottom: 48px !important;
+    .baner-bot {
+      background: rgb(0, 22, 178);
+      background: linear-gradient(
+        270deg,
+        rgb(0, 22, 178) 28%,
+        rgb(102, 146, 215) 76%
+      );
+      width: 100%;
+      align-items: center;
+      border-radius: 15px;
+      height: 9rem;
+    }
+    .of-number {
+      color: #fe0;
+      font-style: oblique;
+    }
+    .box-articles {
+      background-color: white;
+      height: auto;
+      border: #eaeaea 1px solid;
+      border-radius: 20px;
+      padding: 1.5rem;
+    }
+    .box-articles h5 {
+      font-size: 1.4rem !important;
+      color: #0080ff !important;
+      font-weight: 500 !important;
+      margin-bottom: 0.75rem !important;
+    }
+    .school-box {
+      background-color: white;
+      border: #eaeaea solid 2px;
+      padding: 0.5rem 1rem 0.5rem 1rem;
+      border-radius: 20px;
+    }
+    .box-video {
+      background-color: #fafafa;
+      padding: 0.7rem 1rem 0.7rem 1rem;
+      border: 1px solid #eaeaea;
+      border-radius: 20px;
+    }
+    .video {
+      background-color: white;
+      height: 160px;
+      width: 100%;
+    }
+    .video-title {
+      font-weight: 600;
+      color: #7d7d7d;
+      font-size: 0.9rem;
+    }
+    .time-video {
+      color: #7d7d7d;
+      font-size: 0.8rem;
+      background-color: #f5f5f5;
+      padding: 0.2rem 0.8rem 0.2rem 0.8rem;
+      border-radius: 22px;
+    }
+    .title1-row {
+      color: black;
+    }
+    .title2-row {
+      color: #098b41;
+      font-size: 1.2rem;
+    }
   }
-}
+  // =======[ کپی ترید]====
+  &.copy-trade {
+    @import "../colors";
+    .bg-page {
+      background-color: #fbfbfb;
+    }
+    @media (min-width: 1024px) {
+      .baner-bot {
+        padding: 0.5rem 2.5rem 0.5rem 2.5rem;
+      }
+      .of-number {
+        font-size: 5rem;
+      }
+    }
+    .gray-box {
+      @media (min-width: 768px) {
+        max-width: 22rem;
+      }
+    }
+    .robot-trader-img {
+      object-fit: contain;
+      width: auto;
+      aspect-ratio: 16/11;
+    }
+    .learing-steps {
+      gap: 0.5rem;
+      flex-basis: 30% !important;
+      min-width: 280px !important;
+      color: #0080ff;
+      border: 2px solid #0080ff;
+    }
+    .box-copy-trade {
+      color: #0080ff;
+      border: 2px solid #0080ff;
+      min-width: 14rem;
+      a {
+        color: #0080ff !important;
+        font-size: inherit !important;
+        &:hover {
+          text-decoration: none !important;
+        }
+      }
+    }
+    .header-start {
+      &::before {
+        content: "";
+        width: 20px;
+        height: 5px;
+        background-color: $blue;
+        border-radius: 6px;
+        display: inline-block;
+        margin: 2px 6px;
+      }
+    }
+    .blue-font {
+      color: #0080ff;
+    }
+    .blue-back {
+      background-color: #0066ff;
+    }
+    .green-back {
+      background-color: #098b41;
+    }
+    .divider {
+      border-radius: 30px;
+      margin-bottom: 0.5rem;
+    }
 
-.secend-line::before {
-  position: relative;
-  bottom: 9px;
-}
-ul li::before {
-  color: transparent;
-  font-size: 1px;
-  content: " ";
-  margin-left: -1.3em;
-  padding: 6px;
-  padding-top: 0px;
-  content: url(../../assets/icon/Tick-circle.svg);
-}
-}
+    .inside-box-shadow {
+      box-shadow: inset -14px -27px 130px 19px rgba(0, 0, 0, 0.63);
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    .baner-bot {
+      background: rgb(0, 22, 178);
+      background: linear-gradient(
+        270deg,
+        rgb(0, 22, 178) 28%,
+        rgb(102, 146, 215) 76%
+      );
+      width: 100%;
+      align-items: center;
+      border-radius: 15px;
+      height: 9rem;
+    }
+    .of-number {
+      color: #fe0;
+      font-style: oblique;
+    }
+    .box-articles {
+      background-color: white;
+      height: auto;
+      border: #eaeaea 1px solid;
+      border-radius: 20px;
+      padding: 1.5rem;
+    }
+    .box-articles h5 {
+      font-size: 1.4rem;
+      color: #0080ff;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+    .school-box {
+      background-color: white;
+      border: #eaeaea solid 2px;
+      padding: 0.5rem 1rem 0.5rem 1rem;
+      border-radius: 20px;
+    }
+    .box-video {
+      background-color: #fafafa;
+      padding: 0.7rem 1rem 0.7rem 1rem;
+      border: 1px solid #eaeaea;
+      border-radius: 20px;
+    }
+    .video {
+      background-color: white;
+      height: 160px;
+      width: 100%;
+    }
+    .video-title {
+      font-weight: 600;
+      color: #7d7d7d;
+      font-size: 0.9rem;
+    }
+    .time-video {
+      color: #7d7d7d;
+      font-size: 0.8rem;
+      background-color: #f5f5f5;
+      padding: 0.2rem 0.8rem 0.2rem 0.8rem;
+      border-radius: 22px;
+    }
+    .title1-row {
+      color: black;
+    }
+    .title2-row {
+      color: #098b41;
+      font-size: 1.2rem;
+    }
+    ul {
+      list-style-type: none;
+      margin-left: 10px;
+    }
+
+    ul li {
+      margin-bottom: 12px;
+      margin-left: -10px;
+      display: flex;
+      align-items: center;
+    }
+    .ul-space {
+      li:not(:last-child) {
+        margin-bottom: 48px !important;
+      }
+    }
+
+    .secend-line::before {
+      position: relative;
+      bottom: 9px;
+    }
+    ul li::before {
+      color: transparent;
+      font-size: 1px;
+      content: " ";
+      margin-left: -1.3em;
+      padding: 6px;
+      padding-top: 0px;
+      content: url(../../assets/icon/Tick-circle.svg);
+    }
+  }
 }

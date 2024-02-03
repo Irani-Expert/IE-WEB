@@ -7,4 +7,5 @@ export interface CalendarEventsTable {
   prev_Value: string;
   actual_Value?: string;
   active: boolean;
+  impact_Type: string;
 }

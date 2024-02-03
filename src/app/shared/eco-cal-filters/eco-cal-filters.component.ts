@@ -8,9 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class EcoCalFiltersComponent implements OnInit {
   stres = 'sss';
   openedList = [false, false, false, false];
-  ngOnInit() {
-    console.log(this.openedList[0]);
-  }
+  ngOnInit() {}
   openFilter(index: number) {
     this.openedList[index] = !this.openedList[index];
   }

@@ -18,22 +18,10 @@ export class LandigMoneyMComponent {
 
 
   constructor(private _meta: Meta , public blogService : BlogService) {
-    
+   
+
     AppComponent.changeMainBg('creamy');
-    this._meta.updateTag({
-      name: 'description',
-      content:
-        'مدیریت سرمایه(money management) در بازارهای مالی علمی است که در فعالیت های سرمایه گذاری میتوان ریسک را کنترل کرد و یک استراتژی معاملاتی برای سرمایه اولیه تولید کرد. ',
-    });
-    this._meta.updateTag({
-      name: 'author',
-      content: 'مهدی اکبر',
-    });
-    this._meta.updateTag({
-      name: 'keywords',
-      content:
-        'مدیریت سرمایه گذاری پیشرفته,مدیریت سرمایه گذاری استراتژیک,مدیریت ریسک و سرمایه در ترید, فرمول مدیریت سرمایه در ترید, مدیریت سرمایه در ترید, مدیریت سرمایه فارکس, مدیریت ریسک و سرمایه گذاری ,مدیریت سرمایه به زبان ساده',
-    });
+    
 
   }
   ngOnDestroy() {
@@ -44,7 +32,24 @@ export class LandigMoneyMComponent {
       this.tags = this.blogService._blog!.sharpLinkTags;
 
       this.id = Number(this.blogService._blog?.id);
-
+      let keywords = '';
+      this.blogService._blog!.linkTags.forEach((item) => {
+        keywords += `${item.title.replace(/#/g, '')},`;
+      });
+      this._meta.updateTag({
+        name: 'description',
+        content: this.blogService._blog!.metaDescription,
+      });
+      this._meta.updateTag({
+        name: 'author',
+        content:
+        this.blogService._blog!.updatedByFirstName +
+        this.blogService._blog!.updatedByLastName,
+      });
+      this._meta.updateTag({
+        name: 'keywords',
+        content: keywords
+      });
       this.sendDataToChild = true;
     }
   }

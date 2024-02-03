@@ -45,7 +45,7 @@ export class BlogCartComponent {
     this.updateDeviceValue();
     this.loading = false;
     this.getUrl();
-    if( this.item.favoriteCount ==  null){
+    if( this.item.favoriteCount ==  null || 0){
       this.like = 25
     }
     else {

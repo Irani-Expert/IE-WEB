@@ -73,9 +73,8 @@
       </button>
     </li>
     <li class="justify-end p-2.5 pr-8 flex" *ngIf="loggedIn">
-      <a [href]="panelUrl">
+      <a [href]="panelUrl" target="_blank">
         <button
-          [disabled]="_btnDisabled"
           class="text-1.5xl header-panel-button font-medium rounded-md hover:bg-slate-400"
         >
           <i class="text-2xl align-sub">&leftarrow;</i>

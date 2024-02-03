@@ -1,3 +1,5 @@
 /
 /expert-advisor
 /about-us
+/money-management
+/copy-trade
