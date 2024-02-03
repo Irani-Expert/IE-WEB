@@ -1,0 +1,32 @@
+export interface DetaiCal {
+  name: null;
+  source_Url: string;
+  type: number;
+  typeTitle: string;
+  sector: number;
+  sectorTitle: string;
+  time_Mode: number;
+  timeModeTitle: string;
+  unit: number;
+  unitTitle: string;
+  importance: number;
+  importanceTitle: string;
+  multiplier: number;
+  multiplierTitle: string;
+  event_Code: string;
+  code: string;
+  currency: string;
+  currencySymbol: string;
+  countryName: string;
+  actual_Value: string;
+  forecast_Value: string;
+  revised_Prev_Value: string;
+  date_: string;
+  time_: string;
+  period: string;
+  revision: string;
+  description: null;
+  iraniExpertDescription: null;
+  impact: string;
+  secondName: string;
+}

@@ -18,6 +18,8 @@ import { CountriesCurrencyComponent } from 'src/app/components/countries-currenc
 import { CalendarDescribtionComponent } from '../calendar-describtion/calendar-describtion.component';
 import { TableCalendar } from 'src/app/shared/table-calendar/table-calendar.component';
 import { ImportanceComponent } from '../importance/importance.component';
+import { TableDetailComponent } from 'src/app/routes/table-detail/table-detail.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 const components = [
   CalendarMainPageComponent,
@@ -29,6 +31,7 @@ const components = [
   ImportantNewsComponent,
   CountriesCurrencyComponent,
   CalendarDescribtionComponent,
+  TableDetailComponent,
 ];
 @NgModule({
   declarations: [components],
@@ -42,6 +45,7 @@ const components = [
     TableCalendar,
     MapsModule,
     CalendarModuleRouting,
+    NgxPaginationModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
