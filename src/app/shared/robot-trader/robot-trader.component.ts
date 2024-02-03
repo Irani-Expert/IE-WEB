@@ -12,20 +12,7 @@ import { environment } from 'src/environments/environment.dev';
 })
 export class RobotTraderComponent {
   constructor(private _meta: Meta , public blogService : BlogService , private _sanitizer : DomSanitizer) {
-    this._meta.updateTag({
-      name: 'description',
-      content:
-        'ربات معامله گر(trader bot ) ATM از انواع رباتهای تمام اتوماتیک بوده و به کمک هوش مصنوعی با استفاده از یک دستیار ترید حد سود و ضرر را برای شما فراهم می کند.',
-    });
-    this._meta.updateTag({
-      name: 'author',
-      content: 'ایرانی اکسپرت',
-    });
-    this._meta.updateTag({
-      name: 'keywords',
-      content:
-        'دستیار معامله  گر-ربات خودکار- ربات ATM - ربات اتو تریدر-خرید ربات تریدر-ربات معامله گر  طلا- خرید ربات معامله گر- ربات اتوماتیک ترید-ساخت ربات معامله گر-',
-    });
+
 
     AppComponent.changeMainBg('creamy');
   }
@@ -45,6 +32,25 @@ export class RobotTraderComponent {
       this.articleHtml = this._sanitizer.bypassSecurityTrustHtml(
         this.blogService._blog!.description
       );
+      let keywords = '';
+      this.blogService._blog!.linkTags.forEach((item) => {
+        keywords += `${item.title.replace(/#/g, '')},`;
+      });
+      this._meta.updateTag({
+        name: 'description',
+        content:this.blogService._blog!.metaDescription
+        ,
+      });
+      this._meta.updateTag({
+        name: 'author',
+        content:
+        this.blogService._blog!.updatedByFirstName +
+        this.blogService._blog!.updatedByLastName,
+      });
+      this._meta.updateTag({
+        name: 'keywords',
+        content:keywords,
+      });
       this.sendDataToChild = true;
     }
   }

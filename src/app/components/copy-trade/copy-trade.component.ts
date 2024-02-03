@@ -13,22 +13,10 @@ import { environment } from 'src/environments/environment.dev';
 export class CopyTradeComponent {
   constructor(private _meta: Meta , public blogService : BlogService , private _sanitizer : DomSanitizer
     ) {
-          // =======[متاتگ ها]======
-    this._meta.updateTag({
-      name: 'description',
-      content: '',
-    });
-    this._meta.updateTag({
-      name: 'author',
-      content: '',
-    });
-    this._meta.updateTag({
-      name: 'keywords',
-      content: '',
-    });
+
 
     }
-
+    
     tags: ITags[];
 
     contentUrl = environment.contentUrl;
@@ -46,6 +34,25 @@ export class CopyTradeComponent {
       this.articleHtml = this._sanitizer.bypassSecurityTrustHtml(
         this.blogService._blog!.description
       );
+      let keywords = '';
+      this.blogService._blog!.linkTags.forEach((item) => {
+        keywords += `${item.title.replace(/#/g, '')},`;
+      });
+          // =======[متاتگ ها]======
+    this._meta.updateTag({
+      name: 'description',
+      content: this.blogService._blog!.metaDescription,
+    });
+    this._meta.updateTag({
+      name: 'author',
+      content:
+      this.blogService._blog!.updatedByFirstName +
+      this.blogService._blog!.updatedByLastName,
+    });
+    this._meta.updateTag({
+      name: 'keywords',
+      content: keywords,
+    });
       this.sendDataToChild = true;
     }
   }
