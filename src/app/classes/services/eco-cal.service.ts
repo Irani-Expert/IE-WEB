@@ -95,7 +95,7 @@ export class EcoCalService extends BaseService<PageInterface<CalEvent[]>> {
 
   async getCountries() {
     const apiRes = this.http.get<Result<PageInterface<Country[]>>>(
-      `${environment.apiUrl}CalendarCountry?pageIndex=0&pageSize=10&accending=false`,
+      `${environment.apiUrl}CalendarCountry?pageIndex=0&pageSize=null&accending=false`,
       {
         headers: this.headers,
       }

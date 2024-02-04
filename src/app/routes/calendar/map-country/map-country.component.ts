@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { Country } from './country';
 import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
 import { AppComponent } from 'src/app/app.component';
+import { ImportanceComponent } from '../importance/importance.component';
 
 @Component({
   selector: 'app-map-country',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ImportanceComponent],
   templateUrl: './map-country.component.html',
   styleUrls: ['./map-country.component.scss'],
 })
@@ -19,7 +20,10 @@ export class MapCountryComponent {
     AppComponent.changeMainBg('creamy');
     this.countries = (await this._ecoCalService.getCountries()).data?.items!;
     console.log(this.countries);
-    this.country = { ...this.country, ...this.countries[0] };
+    this.country = { ...this.country, ...this.countries[1] };
     console.log(this.country);
+  }
+  ngOnDestroy() {
+    AppComponent.changeMainBg('white');
   }
 }

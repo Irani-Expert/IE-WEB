@@ -99,7 +99,7 @@ export class BlogDetailComponent {
       name: 'author',
       content:
         this.articleModel.updatedByFirstName +
-        '_' +
+        ' ' +
         this.articleModel.updatedByLastName,
     });
     this._meta.updateTag({

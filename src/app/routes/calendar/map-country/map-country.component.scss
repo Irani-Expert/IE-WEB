@@ -32,3 +32,10 @@
     }
   }
 }
+.card-footer {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  flex-basis: 55%;
+  border-radius: 0px 0px 22px 22px;
+}

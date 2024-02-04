@@ -2,20 +2,30 @@
 
 <div>{{ country | json }}</div>
 <div
-  class="w-48 flex flex-col h-40 bg-white rounded-3xl border-[1.5px] border-[#CBCBCB]"
+  class="w-48 flex flex-col h-40 bg-white rounded-3xl border-[2px] border-[#CBCBCB]"
 >
   <div class="card-header">
     <div class="country-name">
-      <span class="font-light">
-        {{ "United States" }}
+      <span class="font-normal">
+        {{ country.name }}
       </span>
-      <span class="font-medium mr-auto">
-        {{ "USD" }}
+      <span class="font-bold mr-auto">
+        {{ country.currency }}
       </span>
     </div>
     <div class="country-flag">
-      <i class="fi fi-us"></i>
+      <i class="fi fi-{{ country.code | lowercase }}"></i>
     </div>
   </div>
-  <div class="card-footer"></div>
+  <div class="card-footer">
+    <div class="event">
+      <span class="inline-flex">
+        <span
+          class="scale-95 block"
+          [ngStyle]="{ '--importance-color': '#FF5B5B' }"
+        >
+          <app-importance /> </span></span
+      ><span class="inline-block">3 خبر مهم</span>
+    </div>
+  </div>
 </div>
