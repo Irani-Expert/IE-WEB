@@ -94,4 +94,8 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
     const apiRes = await this.blogService.getBlog(title, language);
     return apiRes;
   }
+
+  get isBrowser() {
+    return AppComponent.isBrowser.value;
+  }
 }

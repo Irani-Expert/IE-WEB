@@ -28,18 +28,21 @@
   <div class="flex justify-center mt-16 mr-4">
     <div class="grid grid-cols-4">
       <div class="part-1">
-        <app-blog-filter [type]="'tags'" [categoryTags]="tags">
-          <p header class="text-black">دسترسی سریع</p>
-        </app-blog-filter>
+        <ng-container *ngIf="isBrowser">
+          <app-blog-filter [type]="'tags'" [categoryTags]="tags">
+            <p header class="text-black">دسترسی سریع</p>
+          </app-blog-filter>
+        </ng-container>
       </div>
       <div class="col-span-3 mr-4 ml-4">
         <ng-container *ngIf="sendDataToChild">
           <app-blog-detail [data]="blogService._blog!"></app-blog-detail>
-
-          <app-comments
-            [rowId]="blogService._blog!.id"
-            [tableType]="1"
-          ></app-comments>
+          <ng-container *ngIf="isBrowser">
+            <app-comments
+              [rowId]="blogService._blog!.id"
+              [tableType]="1"
+            ></app-comments>
+          </ng-container>
           <!-- <app-carousel-blog [data]="itemsBlog.slice(0, 5)"></app-carousel-blog> -->
         </ng-container>
       </div>
@@ -52,44 +55,48 @@
     <!-- =========[دسته بندی]====== -->
     <ng-container *ngIf="sendDataToChild">
       <app-blog-detail [data]="blogService._blog!"></app-blog-detail>
-      <div class="flex justify-center my-16">
-        <div class="baner flex flex-row ml-2 mr-2 h-28">
-          <div class="basis-1/2 flex items-center">
-            <div class="mr-3">
-              <span class="divid-h lg:!text-base">در مجله ایرانی اکسپرت </span>
-              <h6 class="title-h mb-4 lg:!text-3xl">
-                تازه ترین مقالات بازارهای مالی
-              </h6>
+      <ng-container *ngIf="isBrowser">
+        <div class="flex justify-center my-16">
+          <div class="baner flex flex-row ml-2 mr-2 h-28">
+            <div class="basis-1/2 flex items-center">
+              <div class="mr-3">
+                <span class="divid-h lg:!text-base"
+                  >در مجله ایرانی اکسپرت
+                </span>
+                <h6 class="title-h mb-4 lg:!text-3xl">
+                  تازه ترین مقالات بازارهای مالی
+                </h6>
+              </div>
+            </div>
+            <div class="flex justify-center basis-1/2">
+              <img
+                class="mr-2 logo-mobile"
+                src="assets/img/baner-detail.webp"
+                alt="logo"
+                height="162"
+                width="224"
+              />
             </div>
           </div>
-          <div class="flex justify-center basis-1/2">
-            <img
-              class="mr-2 logo-mobile"
-              src="assets/img/baner-detail.webp"
-              alt="logo"
-              height="162"
-              width="224"
-            />
-          </div>
         </div>
-      </div>
-      <app-share-link-box></app-share-link-box>
-      <app-comments
-        [rowId]="blogService._blog!.id"
-        [tableType]="1"
-      ></app-comments>
-      <app-filter-responsive
-        [categoryDetailIcon]="categoryDetailIcon"
-        [data]="color"
-        [categoryTags]="tags"
-        [type]="'tags'"
-      >
-        <p header class="text-black w-28">دسترسی سریع</p>
-      </app-filter-responsive>
-      <app-blog-hero
-        [linkType]="2"
-        [data]="itemsBlog.slice(0, 5)"
-      ></app-blog-hero>
+        <app-share-link-box></app-share-link-box>
+        <app-comments
+          [rowId]="blogService._blog!.id"
+          [tableType]="1"
+        ></app-comments>
+        <app-filter-responsive
+          [categoryDetailIcon]="categoryDetailIcon"
+          [data]="color"
+          [categoryTags]="tags"
+          [type]="'tags'"
+        >
+          <p header class="text-black w-28">دسترسی سریع</p>
+        </app-filter-responsive>
+        <app-blog-hero
+          [linkType]="2"
+          [data]="itemsBlog.slice(0, 5)"
+        ></app-blog-hero>
+      </ng-container>
     </ng-container>
 
     <!-- <div class="flex justify-center mt-12">

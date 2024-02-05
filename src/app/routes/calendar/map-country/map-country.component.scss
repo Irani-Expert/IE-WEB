@@ -1,0 +1,41 @@
+.card-header {
+  display: flex;
+  flex-direction: row;
+  flex-basis: 45%;
+  width: 100%;
+  background-color: #e6e6e6;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 22px 22px 0px 0px;
+  align-items: center;
+  .country-flag {
+    display: inline-flex;
+    height: fit-content;
+    overflow: hidden;
+    border-radius: 17rem;
+    width: auto;
+    border: 1.5px solid #cbcbcb;
+    aspect-ratio: 1/1;
+    i {
+      font-size: 1.875rem;
+      background-size: cover !important;
+    }
+  }
+  .country-name {
+    display: inline-flex;
+    flex-direction: column;
+    span {
+      font-size: 0.875rem;
+      color: #000000;
+      display: inline-flex;
+    }
+  }
+}
+.card-footer {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  flex-basis: 55%;
+  border-radius: 0px 0px 22px 22px;
+}
