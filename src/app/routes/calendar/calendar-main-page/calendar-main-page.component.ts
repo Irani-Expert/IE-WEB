@@ -21,6 +21,7 @@ interface trend_data {
   encapsulation: ViewEncapsulation.None,
 })
 export class CalendarMainPageComponent {
+  sampleIDForDetail: string = '276010004';
   eventsHolder = new Array<CalEvent>();
   @ViewChild(TableCalendar, { static: false }) appTableComponent: TableCalendar;
   filteredModel = new FilterEvents();

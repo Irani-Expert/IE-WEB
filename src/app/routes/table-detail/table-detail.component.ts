@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { PaginationInstance } from 'ngx-pagination';
 import { DetaiCal } from 'src/app/classes/interfaces/detai-cal';
 import { DetailCalHistory } from 'src/app/classes/interfaces/detail-cal-history';
@@ -13,6 +13,7 @@ export class TableDetailComponent {
   constructor(private ecoCalService: EcoCalService) {}
   config: PaginationInstance;
   main_data: DetaiCal;
+  @Input() fieldID = '';
 
   historyTable: DetailCalHistory[] = new Array<DetailCalHistory>();
   ngOnInit() {
@@ -27,7 +28,7 @@ export class TableDetailComponent {
   }
   getData() {
     this.ecoCalService
-      .get('CalendarEvent/GetByID?Id=276010004')
+      .get('CalendarEvent/GetByID?Id=' + this.fieldID)
       .subscribe((res: any) => {
         this.main_data = res.data.details;
         this.historyTable = res.data.history;
