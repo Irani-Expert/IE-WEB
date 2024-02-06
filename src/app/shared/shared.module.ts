@@ -19,6 +19,8 @@ import { VoteComponent } from './vote/vote.component';
 import { FreeAdviceComponent } from '../routes/Home/free-advice/free-advice.component';
 import { ConsultationFormComponent } from '../routes/Home/components/consultation-form/consultation-form.component';
 import { ShareLinkBoxComponent } from './share-link-box/share-link-box.component';
+import { SectorFilterComponent } from './sector-filter/sector-filter.component';
+import { FilterPipe } from 'src/ts/filterNgfor.pipe';
 
 const components = [
   AcordianComponent,
@@ -35,6 +37,7 @@ const components = [
   FreeAdviceComponent,
   ConsultationFormComponent,
   ShareLinkBoxComponent,
+  SectorFilterComponent,
 ];
 @NgModule({
   imports: [
@@ -52,6 +55,7 @@ const components = [
     NotFoundComponent,
     ContentMenuComponent,
     ShareLinkBoxComponent,
+    FilterPipe,
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
