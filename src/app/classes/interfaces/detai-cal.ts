@@ -29,4 +29,5 @@ export interface DetaiCal {
   iraniExpertDescription: null;
   impact: string;
   secondName: string;
+  changes: string;
 }
