@@ -8,6 +8,10 @@ import { Component } from '@angular/core';
         stroke-linecap: round;
         stroke: #000;
       }
+      .b {
+        fill: var(--importance-color);
+        stroke: #000;
+      }
     `,
   ],
   selector: 'app-importance',

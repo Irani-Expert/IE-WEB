@@ -10,7 +10,7 @@ import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
 import { CalEvent } from 'src/app/routes/calendar/calendar-main-page/cal-event.model';
 import { Filter as FilterCalendar } from 'src/app/routes/calendar/calendar-main-page/filter.model';
 import { environment } from 'src/environments/environment.dev';
-import { Country } from 'src/app/routes/calendar/map-country/country';
+import { Country } from 'src/app/routes/calendar/map/map-country/country';
 
 @Injectable({
   providedIn: 'root',
@@ -93,9 +93,9 @@ export class EcoCalService extends BaseService<PageInterface<CalEvent[]>> {
     return await lastValueFrom(result);
   }
 
-  async getCountries() {
-    const apiRes = this.http.get<Result<PageInterface<Country[]>>>(
-      `${environment.apiUrl}CalendarCountry?pageIndex=0&pageSize=null&accending=false`,
+  async getCountriesByEvents() {
+    const apiRes = this.http.get<Result<Country[]>>(
+      `${environment.apiUrl}CalendarCountry/GetDatailsToday`,
       {
         headers: this.headers,
       }
