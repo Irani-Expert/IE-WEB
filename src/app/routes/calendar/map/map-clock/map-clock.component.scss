@@ -1,0 +1,49 @@
+.marker-position {
+  left: 0;
+  transform: translate(-50%, var(--translate-y));
+  top: 0;
+}
+
+.clock-item {
+  .seperator-dashed {
+    display: flex;
+    width: 100%;
+    align-self: center;
+    border-bottom: 1px dashed #0498fb;
+  }
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  .city,
+  .time {
+    direction: ltr;
+    color: #0498fb;
+  }
+  .city {
+    font-weight: 500;
+    font-size: 0.925rem;
+  }
+  .time {
+    font-weight: 400;
+    font-size: 0.875rem;
+  }
+}
+
+.time-city-container {
+  .city,
+  .time {
+    direction: ltr;
+    color: #0498fb;
+  }
+  .city {
+    font-weight: 400;
+    font-size: 0.875rem;
+  }
+  .time {
+    font-weight: 700;
+    font-size: 0.925rem;
+  }
+  min-width: 65px;
+  right: 50%;
+  transform: translate(-20%, 10px);
+}
