@@ -5,6 +5,7 @@ import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
 import { CalEvent } from 'src/app/routes/calendar/calendar-main-page/cal-event.model';
 import { AppComponent } from 'src/app/app.component';
 import { ImportanceComponent } from 'src/app/routes/calendar/importance/importance.component';
+import { TableDetailComponent } from 'src/app/routes/table-detail/table-detail.component';
 
 @Component({
   selector: 'table-calendar',
@@ -21,7 +22,7 @@ import { ImportanceComponent } from 'src/app/routes/calendar/importance/importan
       }
     `,
   ],
-  imports: [CommonModule, ImportanceComponent],
+  imports: [CommonModule, ImportanceComponent, TableDetailComponent],
   animations: [],
 })
 export class TableCalendar {

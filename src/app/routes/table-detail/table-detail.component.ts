@@ -1,5 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { PaginationInstance } from 'ngx-pagination';
+import { NgxPaginationModule, PaginationInstance } from 'ngx-pagination';
 import { DetaiCal } from 'src/app/classes/interfaces/detai-cal';
 import { DetailCalHistory } from 'src/app/classes/interfaces/detail-cal-history';
 import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
@@ -8,6 +9,9 @@ import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
   selector: 'app-table-detail',
   templateUrl: './table-detail.component.html',
   styleUrls: ['./table-detail.component.scss'],
+  standalone: true,
+
+  imports: [CommonModule, NgxPaginationModule],
 })
 export class TableDetailComponent {
   constructor(private ecoCalService: EcoCalService) {}
