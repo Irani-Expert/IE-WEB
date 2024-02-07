@@ -21,6 +21,7 @@ import { ConsultationFormComponent } from '../routes/Home/components/consultatio
 import { ShareLinkBoxComponent } from './share-link-box/share-link-box.component';
 import { SectorFilterComponent } from './sector-filter/sector-filter.component';
 import { FilterPipe } from 'src/ts/filterNgfor.pipe';
+import { SymbolsComponent } from '../routes/calendar/symbols/symbols.component';
 
 const components = [
   AcordianComponent,
@@ -38,6 +39,7 @@ const components = [
   ConsultationFormComponent,
   ShareLinkBoxComponent,
   SectorFilterComponent,
+  SymbolsComponent,
 ];
 @NgModule({
   imports: [
