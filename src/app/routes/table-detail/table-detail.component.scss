@@ -7,6 +7,12 @@
   width: 2.5rem;
   border: 1px solid #eaeaea;
 }
+.inner-tab {
+  color: #b1b1b1;
+  img {
+    object-fit: contain;
+  }
+}
 .detail-active-tab {
   border: 1px solid #0080ff !important;
   background-color: #e5f2ff;
@@ -15,22 +21,7 @@
       brightness(102%) contrast(105%);
   }
 }
-.fade-animation {
-  animation: myAnim 0.5s ease 0s 1 normal forwards;
-}
-@keyframes myAnim {
-  0% {
-    opacity: 1;
-  }
 
-  80% {
-    opacity: 0.2;
-  }
-
-  100% {
-    display: none;
-  }
-}
 .info-table {
   tr:nth-child(even) {
     background-color: #f3f3f3;
@@ -41,10 +32,13 @@
   th {
     color: #000000;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 18px;
   }
   td {
+    direction: ltr;
     text-align: center;
+    font-size: 16px;
+    font-weight: 700;
   }
 }
 .pagination-previous {
@@ -61,4 +55,20 @@
 .isavtive {
   background-color: white;
   color: #818181;
+}
+.fade-animation {
+  // animation: focus-in-contract 10s ease-in-out 30s forwards;
+  animation: focus-in-contract 0.25s ease 0.5 forwards;
+}
+@keyframes focus-in-contract {
+  0% {
+    filter: blur(3px);
+    opacity: 0.7;
+  }
+
+  100% {
+    filter: blur(0);
+    opacity: 1;
+    display: block !important;
+  }
 }

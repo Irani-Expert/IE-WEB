@@ -1,0 +1,32 @@
+<h3>بخش</h3>
+<div class="relative mt-10 flex justify-center items-center">
+  <div class="absolute cursor-pointer right-[64px] search--icon">
+    <i class="ie-search-page rotate-90"></i>
+  </div>
+  <input
+    type="text"
+    class="search-input search-sector"
+    placeholder="جستجوی بخش"
+    [(ngModel)]="searchItem"
+  />
+  <div class="h-[2rem] flex justify-center" (click)="openList()">
+    <i
+      class="ie-icon openList open-tab"
+      [ngClass]="isListOpen ? 'rotate-90deg' : ''"
+    ></i>
+  </div>
+</div>
+<div class="relative mt-10 flex justify-center items-center">
+  <ul
+    class="rounded-2xl shadow-md p-5 w-[20rem]"
+    [ngClass]="isListOpen ? 'activate-tab' : 'deactive-tab'"
+  >
+    <li
+      *ngFor="let item of list | filter : searchItem"
+      class="hover:bg-[#FAFAFA] mb-3"
+      (click)="selectField(item.value)"
+    >
+      {{ item.title }}
+    </li>
+  </ul>
+</div>

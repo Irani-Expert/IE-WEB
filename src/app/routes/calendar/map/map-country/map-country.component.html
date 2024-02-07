@@ -1,0 +1,41 @@
+<div
+  class="w-48 flex flex-col min-h-[6.5rem] bg-white rounded-3xl border-[2px] border-[#CBCBCB]"
+>
+  <div class="card-header">
+    <div class="country-name">
+      <span class="font-normal">
+        {{ country.name }}
+      </span>
+      <span class="font-bold mr-auto">
+        {{ country.currency }}
+      </span>
+    </div>
+    <div class="country-flag">
+      <i class="fi fi-{{ country.code | lowercase }}"></i>
+    </div>
+  </div>
+  <div class="card-footer">
+    <ng-container *ngFor="let item of country.events | keyvalue">
+      <ng-container *ngIf="item.value.count !== 0">
+        <div class="event my-0.5">
+          <span dir="ltr" class="inline-block text-sm font-normal pt-0.5"
+            >{{ item.value.count }} news
+          </span>
+          <span class="inline-flex">
+            <div
+              class="inline-flex importance-container border-2 rounded-lg items-center border-{{
+                item.value.color
+              }}"
+            >
+              <span
+                class="block scale-95"
+                [ngStyle]="{ '--importance-color': item.value.color }"
+              >
+                <app-importance />
+              </span></div
+          ></span>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>

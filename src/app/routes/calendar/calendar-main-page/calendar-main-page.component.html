@@ -7,7 +7,10 @@
 <app-voice-player></app-voice-player>
 
 <div class="flex gap-5 items-stretch">
-  <div class="basis-1/3 bg-white rounded-2xl shadow-sm"></div>
+  <div class="basis-1/3 bg-white rounded-2xl shadow-sm p-5">
+    <app-symbols></app-symbols>
+    <app-sector-filter></app-sector-filter>
+  </div>
 
   <div
     class="basis-2/3 bg-white px-2 py-1 rounded-2xl shadow-sm border border-[#EAEAEA] relative"
@@ -45,12 +48,9 @@
       </div>
     </div>
     <table-calendar />
-    <div class="mt-12" style="border: 1px solid #f0f0f0 !important">
-      <app-table-detail></app-table-detail>
-    </div>
+    <!-- <div class="mt-12" style="border: 1px solid #f0f0f0 !important"></div> -->
   </div>
 </div>
-
 <!-- <div>
   <button
     class="bg-black rounded-xl w-20 text-white"

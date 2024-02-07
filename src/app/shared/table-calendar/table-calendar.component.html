@@ -116,7 +116,10 @@
           [ngClass]="item.active ? 'active' : ''"
           class="details"
         >
-          <div *ngIf="item.active" class="absolute max-h-[100%] p-3">سلام</div>
+          <div *ngIf="item.active" class="absolute max-h-[100%] p-3 w-full">
+            <!-- sampleIDForDetail = '276010004'; -->
+            <app-table-detail class="block" [fieldID]="'276010004'" />
+          </div>
         </tr>
       </ng-container>
     </ng-container>
