@@ -1,0 +1,150 @@
+.all-search-transform {
+        border-left: 2px solid #b7b7b7;
+        padding-left: 0.25rem;
+    @media (min-width:1536px) {
+        transform: translate(36px, 1px);
+    }
+    @media (max-width:1536px) {
+        transform: translate(135px, 1px);
+    }
+}
+.search-heder-btn{
+    // padding: 0.5rem;
+    border: 2px solid $border-hover;
+    border-radius: 32px;
+    transition: all 150ms ease-in-out;
+    scale: 0.7;
+    width: 43px;
+    height: 43px;
+    display: flex;
+}
+.search-heder-btn:hover{
+    background-color: $border-hover;
+}
+
+@mixin cross($size: 20px, $color: currentColor, $thickness: 1px) {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    position: relative;
+    width: 23px;
+    height: 37px;
+  
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: ($size - $thickness) / 2;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background-color: $border-hover;
+      border-radius: $thickness;
+      &:hover {
+        color: $border-hover;
+    }
+    }
+  
+    &:before {
+      transform: rotate(45deg);
+
+    }
+  
+    &:after {
+      transform: rotate(-45deg);
+    }
+  
+    span {
+      display: block;
+    }
+  
+  }
+  
+  
+  .close-search-header-btn {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    background: #fff;
+    border-radius: 50%;
+    width: 43px;
+    height: 43px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 150ms;
+    border: 2px solid $border-hover;
+    border-radius: 32px;
+    scale: 0.7;
+    
+    .icon-cross {
+      @include cross(40px, #fff, 6px);   
+    }
+    
+    &:hover,
+    &:focus {
+      transform: rotateZ(90deg);
+    }
+  
+  }
+
+.search-input-header {
+    margin-left: -9rem;
+    &::placeholder {
+      color: $border-hover;
+      font-weight: 400;
+      direction: rtl;
+    font-size: 0.9rem;
+
+    }
+    border: 1px solid $border-hover;
+    outline: 0;
+    background-color: $white;
+    border-radius: 24px;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    font-weight: 500;
+    transition: border 0.3s ease;
+    font-size: 0.9rem;
+    color: black;
+    @media (min-width:1536px) {
+        transform: translate(130px, -60px);
+    }
+}
+
+  .input-transform {
+    transition: all 150ms ease-in-out;
+    scale: 0.8;
+    @media (min-width:1536px) {
+        animation: rotateInput-1 400ms ease-in-out forwards;
+    }
+    @media (max-width:1536px) {
+        animation: rotateInput-2 400ms ease-in-out forwards;
+    }
+  }
+
+  @keyframes rotateInput-1 {
+    0% {
+        transform: rotateY(-90deg)
+    }
+    70% {
+        transform: rotateY(20deg) 
+    }
+    100% {
+        transform: rotateY(0deg) 
+    }
+  }
+
+  @keyframes rotateInput-2 {
+    0% {
+        transform: rotateX(-90deg)
+    }
+    70% {
+        transform: rotateX(20deg) 
+    }
+    100% {
+        transform: rotateX(0deg) 
+    }
+  }

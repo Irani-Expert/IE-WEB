@@ -10,6 +10,15 @@ import { Subject, Subscription, debounceTime } from 'rxjs';
 })
 export class HeaderSearchComponent {
   isSearchClicked: boolean = false;
+  onHover :boolean;
+
+  mouseHover(){
+    this.onHover = true;
+  }
+  
+  mouseUnHover(){
+    this.onHover = false;
+  }
 
   isSearchOpened() {
     this.isSearchClicked = !this.isSearchClicked;

@@ -8,19 +8,28 @@ import { AuthService } from 'src/app/shared/auth/auth.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
-import { Observable, filter } from 'rxjs';
+import { filter } from 'rxjs';
+
 
 @Component({
   selector: 'app-header-lg',
   templateUrl: './header-lg.component.html',
   styleUrls: ['./header-lg.component.scss'],
 })
+
 export class HeaderLgComponent extends Header {
+  
+
   @Output('modal') openingModal: EventEmitter<string> = new EventEmitter(false);
   hoveredItem = -1;
-  user$: Observable<any>;
+  hoveredItemUser : boolean;
+  hoveredItemUser2: boolean;
+  hoveredItemUser3:boolean;
+
+  user$;
   panelUrl = '';
   nav: IMenuItem[] = new Array<IMenuItem>();
+  username: string;
   constructor(
     navService: NavigationService,
     private modal: ModalService,
@@ -32,6 +41,25 @@ export class HeaderLgComponent extends Header {
     super(navService);
     this.user$ = this.auth.userSubject.asObservable();
   }
+  onHoverUser(){
+    this.hoveredItemUser = true;
+  }
+  unHoverUser(){
+    this.hoveredItemUser = false;
+  }
+  onHoverUser2(){
+    this.hoveredItemUser2 = true;
+  }
+  unHoverUser2(){
+    this.hoveredItemUser2 = false;
+  }
+  onHoverUser3(){
+    this.hoveredItemUser3 = true;
+  }
+  unHoverUser3(){
+    this.hoveredItemUser3 = false;
+  }
+
   onHover(index: number) {
     this.hoveredItem = index;
   }
@@ -67,10 +95,12 @@ export class HeaderLgComponent extends Header {
     this.user$.subscribe({
       next: async (val) => {
         if (val.token !== '') {
+          this.username = val.firstName + ' ' + val.lastName
           this.panelUrl = `https://panel.iraniexpert.com/#/checkUserPermission?token=${val.token}`;
         }
       },
     });
+   
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((item) => {
