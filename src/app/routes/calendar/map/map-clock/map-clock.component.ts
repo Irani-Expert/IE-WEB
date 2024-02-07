@@ -31,11 +31,13 @@ enum TimeZone {
 })
 export class MapClockComponent {
   timer;
+  sessionObs$ = this._forexSessionService.sessionsSubject.asObservable();
+
   changing = false;
   currentTime: Date = new Date();
   activeTimeZone = {
-    city_1: Cities.NYC.valueOf(),
-    city_2: Cities.LDN.valueOf(),
+    city_1: '',
+    city_2: '',
   };
   sessions: City[] = [
     {
@@ -57,28 +59,39 @@ export class MapClockComponent {
   ];
 
   constructor(private _forexSessionService: ForexSessionService) {
-    this.detectForexSession();
     let doubled = this.sessions.concat(this.sessions);
 
     this.sessions = doubled;
-    console.log(this.sessions);
 
     this.timer = setInterval(
       () => {
+        // let date = new Date()
         this.currentTime = new Date();
       },
-      600000 //Stands for One Minuet
+      60000 //Stands for One Minuet
     );
+    let indexOfCity = this.sessions.findIndex(
+      (it) => it.name == this._forexSessionService.sessionsSubject.value![0]
+    );
+    this.activeTimeZone.city_1 = this.sessions[indexOfCity].name;
+    this.activeTimeZone.city_2 = this.sessions[indexOfCity + 1].name;
+    this.sessions = [
+      ...this.sessions.slice(indexOfCity),
+      ...this.sessions.slice(0, indexOfCity),
+    ];
+
+    this.detectForexSession();
   }
 
   ngOnDestory() {
+    this._forexSessionService.closeTimer();
     clearInterval(this.timer);
   }
 
-  activeZone(city_1: City, city_2: City) {
+  activeZone(city_1: string, city_2: string) {
     this.changing = true;
-    this.activeTimeZone.city_1 = city_1.name;
-    this.activeTimeZone.city_2 = city_2.name;
+    this.activeTimeZone.city_1 = city_1;
+    this.activeTimeZone.city_2 = city_2;
     // if (AppComponent.isBrowser.value) {
     //   const element = document.getElementsByClassName('clock-item')!;
     //   for (let index = 0; index < element.length; index++) {
@@ -93,11 +106,23 @@ export class MapClockComponent {
   }
 
   getTime(timezone: string) {
-    return moment().tz(timezone).format('HH:MM');
+    return moment().tz(timezone).format('HH:mm');
   }
 
   detectForexSession() {
-    const session = this._forexSessionService.getCurrentSession();
-    console.log(`Current Forex session is: ${session}`);
+    this.sessionObs$.subscribe({
+      next: (val) => {
+        console.log(val);
+
+        if (val![0] !== this.activeTimeZone.city_1) {
+          let indexOfCity = this.sessions.findIndex((it) => it.name == val![0]);
+
+          this.activeZone(
+            this.sessions[indexOfCity].name,
+            this.sessions[indexOfCity + 1].name
+          );
+        }
+      },
+    });
   }
 }
