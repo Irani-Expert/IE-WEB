@@ -1,24 +1,58 @@
 .dropdown-user{
   scale: 0.5;
-  transform: translate(2.5rem, -20px) !important;
+  @media (min-width:1536px) {
+    transform: translate(2.5rem, -20px) !important;
+  }
+  @media (max-width:1536px) {
+    transform: translate(-1.5rem, -15px) !important;
+}
 }
 .dropdown-user-2 {
   scale: 0.5;
-  transform: translate(-3.5rem, -33px) !important;
+  @media (min-width:1536px) {
+    transform: translate(-3.5rem, -33px) !important;
+  }
+  @media (max-width:1536px) {
+    transform: translate(-7.5rem, -33px) !important;
+}
 }
 .dropdown-user-3 {
   scale: 0.5;
-  transform: translate(-12.5rem, -14rem) !important;
+  @media (min-width:1536px) {
+    transform: translate(-12.5rem, -14rem) !important;
+  }
+  @media (max-width:1536px) {
+    transform: translate(-16.5rem, -14rem) !important;
+}
 }
 .avatar-user{
   transform: translate(2rem, -9rem) !important;
   scale: 0.4;
 }
+.login-user-header{
+  @media (min-width:1536px) {
+    transform: translate(-15.5rem, -1rem) !important;
+  }
+  @media (max-width:1536px) {
+  transform: translate(-10rem, -1rem) !important;
+  width: 168px;
+}
+}
 .logout-items{
-  transform: translate(-13.5rem, -1.3rem) !important;
+  @media (min-width:1536px) {
+    transform: translate(1.5rem, -0.5rem) !important;
+  }
+  @media (max-width:1536px) {
+    transform: translate(0.75rem, -0.5rem) !important;
+  }
 }
 .login-items{
-  transform: translate(-8.5rem, -1rem) !important;
+  @media (min-width:1536px) {
+    transform: translate(6.5rem, 0rem) !important;
+  }
+  @media (max-width:1536px) {
+    transform: translate(-0.5rem, 0rem) !important;
+  }
 }
 .dropdown {
     text-align: center;
