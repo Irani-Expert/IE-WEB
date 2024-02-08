@@ -3,7 +3,7 @@
   class="px-6 pb-6 pt-4 max-w-screen-2xl self-center w-full"
 >
   <div class="flex items-center mx-auto relative">
-    <a [routerLink]="'home'" class="flex items-center min-w-[9rem]">
+    <a [routerLink]="'home'" class="flex items-center lg:w-36 xl:w-auto">
       <span class="sr-only">ایرانی اکسپرت - Irani Expert</span>
       <img
         src="assets/icon/logo.svg"
@@ -14,7 +14,7 @@
         height="20"
       />
     </a>
-    <div class="justify-between items-center flex w-auto mr-8 min-w-[36rem]">
+    <div class="justify-between items-center flex xl:w-auto mr-8 lg:w-[576px]">
       <ul class="flex flex-row mt-0 font-medium items-center space-x-8">
         <ng-container *ngFor="let item of items; let i = index">
           <li
@@ -66,101 +66,103 @@
       </ul>
     </div>
     <app-search-header />
-    <div class="relative lg:left-32 2xl:left-8">
-      <!-- =========[ورود و عضویت حساب]==== -->
-
-      <div class="flex items-center" *ngIf="!loggedIn">
-        <button
-          [disabled]="_btnDisabled"
-          type="button"
-          (click)="openModal('login')"
-          class="button-enter font-medium mx-4"
-        >
-          ورود
-        </button>
-        <button
-          [disabled]="_btnDisabled"
-          type="button"
-          (click)="openModal('sign-up')"
-          class="button-subscription rounded-3xl px-1 text-white font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-        >
-          عضویت
-        </button>
-      </div>
-      <div *ngIf="loggedIn" class="flex items-baseline mt-3">
-        <!-- =========[خروج از حساب]==== -->
-
-        <button
-        [disabled]="_btnDisabled"
-        type="button"
-        (click)="logout()"
-        (mouseenter)="onHoverUser()"
-        (mouseleave)="unHoverUser()"
-        class="mx-6"
-        >
-        <i class="header-login-icon"></i>
-        <ng-container *ngIf="hoveredItemUser" >
-        <div class="dropdown dropdown-user">
-            <ul class="dropdown-ul">
-              <ng-container>
-                <li class="dropdown-li">
-                  <button type="button" (click)="logout()">
-                    <p class="!text-xl !font-medium">
-                      خروج
-                    </p>
-                  </button>
-                </li>
-              </ng-container>
-            </ul>
-          </div>
-        </ng-container>
-        </button>
-        <!-- =========[ورود به پنل]==== -->
-        <a [href]="panelUrl" target="_blank">
+    <div class="relative">
+      <div class="lg:left-32 2xl:left-8 absolute">
+        <!-- =========[ورود و عضویت حساب]==== -->
+  
+        <div class="flex items-center login-items" *ngIf="!loggedIn">
           <button
-          (mouseenter)="onHoverUser2()"
-          (mouseleave)="unHoverUser2()"
             [disabled]="_btnDisabled"
             type="button"
-            >
-            <i class="header-panel-icon"></i>
-            <ng-container *ngIf="hoveredItemUser2" >
-              <div class="dropdown dropdown-user-2">
+            (click)="openModal('login')"
+            class="button-enter font-medium mx-4"
+          >
+            ورود
+          </button>
+          <button
+            [disabled]="_btnDisabled"
+            type="button"
+            (click)="openModal('sign-up')"
+            class="button-subscription rounded-3xl px-1 text-white font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+          >
+            عضویت
+          </button>
+        </div>
+        <div *ngIf="loggedIn" class="flex items-baseline mt-3 logout-items">
+          <!-- =========[خروج از حساب]==== -->
+  
+          <button
+          [disabled]="_btnDisabled"
+          type="button"
+          (click)="logout()"
+          (mouseenter)="onHoverUser()"
+          (mouseleave)="unHoverUser()"
+          class="mx-6"
+          >
+          <i class="header-login-icon"></i>
+          <ng-container *ngIf="hoveredItemUser" >
+          <div class="dropdown dropdown-user">
+              <ul class="dropdown-ul">
+                <ng-container>
+                  <li class="dropdown-li">
+                    <button type="button" (click)="logout()">
+                      <p class="!text-xl !font-medium">
+                        خروج
+                      </p>
+                    </button>
+                  </li>
+                </ng-container>
+              </ul>
+            </div>
+          </ng-container>
+          </button>
+          <!-- =========[ورود به پنل]==== -->
+          <a [href]="panelUrl" target="_blank">
+            <button
+            (mouseenter)="onHoverUser2()"
+            (mouseleave)="unHoverUser2()"
+              [disabled]="_btnDisabled"
+              type="button"
+              >
+              <i class="header-panel-icon"></i>
+              <ng-container *ngIf="hoveredItemUser2" >
+                <div class="dropdown dropdown-user-2">
+                    <ul class="dropdown-ul">
+                      <ng-container>
+                        <li class="dropdown-li">
+                          <button type="button" (click)="logout()">
+                            <p class="!text-xl !font-medium">
+                              داشبورد شخصی
+                            </p>
+                          </button>
+                        </li>
+                      </ng-container>
+                    </ul>
+                  </div>
+                </ng-container>
+            </button>
+          </a>
+          <!-- =========[آواتار]==== -->
+          <div class="h-6">
+            <i class="avatar-user-icon avatar-user"
+            (mouseenter)="onHoverUser3()"
+            (mouseleave)="unHoverUser3()"></i>
+            <ng-container *ngIf="hoveredItemUser3" >
+              <div class="dropdown dropdown-user-3">
                   <ul class="dropdown-ul">
                     <ng-container>
                       <li class="dropdown-li">
-                        <button type="button" (click)="logout()">
                           <p class="!text-xl !font-medium">
-                            داشبورد شخصی
+                            {{username}}
                           </p>
-                        </button>
                       </li>
                     </ng-container>
                   </ul>
                 </div>
               </ng-container>
-          </button>
-        </a>
-        <!-- =========[آواتار]==== -->
-        <div class="h-6">
-          <i class="avatar-user-icon avatar-user"
-          (mouseenter)="onHoverUser3()"
-          (mouseleave)="unHoverUser3()"></i>
-          <ng-container *ngIf="hoveredItemUser3" >
-            <div class="dropdown dropdown-user-3">
-                <ul class="dropdown-ul">
-                  <ng-container>
-                    <li class="dropdown-li">
-                        <p class="!text-xl !font-medium">
-                          {{username}}
-                        </p>
-                    </li>
-                  </ng-container>
-                </ul>
-              </div>
-            </ng-container>
+          </div>
+  
         </div>
-
       </div>
     </div>
   </div>
