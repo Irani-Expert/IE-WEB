@@ -34,12 +34,14 @@
               "./src/assets/lottie",
               "./src/assets/broker-tables.json"
             ],
-            "styles": ["./src/sass/styles.scss"],
+            "styles": [
+              "./src/sass/styles.scss",
+              "node_modules/tippy.js/dist/tippy.css"
+            ],
             "stylePreprocessorOptions": {
               "includePaths": [
                 "node_modules/tailwindcss",
-                "node_modules/flag-icons/css",
-                "node_modules/animate.css"
+                "node_modules/flag-icons/css"
               ]
             },
             "scripts": []

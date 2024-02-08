@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import * as moment from 'moment-timezone';
 import { City } from './city.interface';
 import { ForexSessionService } from './forex-session.service';
+import { NgxTippyModule } from 'ngx-tippy-wrapper';
 // interface WorldClock  {
 //   nyc: string
 //   london: string
@@ -24,7 +25,7 @@ enum TimeZone {
 @Component({
   selector: 'app-clock',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgxTippyModule],
   templateUrl: './map-clock.component.html',
   styleUrls: ['./map-clock.component.scss'],
   providers: [ForexSessionService],
@@ -38,6 +39,7 @@ export class MapClockComponent {
   activeTimeZone = {
     city_1: '',
     city_2: '',
+    openSessionsLng: 0,
   };
   sessions: City[] = [
     {
@@ -68,7 +70,7 @@ export class MapClockComponent {
         // let date = new Date()
         this.currentTime = new Date();
       },
-      60000 //Stands for One Minuet
+      1000 //Stands for One Sec
     );
     let indexOfCity = this.sessions.findIndex(
       (it) => it.name == this._forexSessionService.sessionsSubject.value![0]
@@ -112,10 +114,13 @@ export class MapClockComponent {
   detectForexSession() {
     this.sessionObs$.subscribe({
       next: (val) => {
-        console.log(val);
-
-        if (val![0] !== this.activeTimeZone.city_1) {
-          let indexOfCity = this.sessions.findIndex((it) => it.name == val![0]);
+        this.activeTimeZone.openSessionsLng = val.length;
+        if (val.length == 0) {
+          console.log('No Open Sessions');
+          return;
+        }
+        if (val[0] !== this.activeTimeZone.city_1) {
+          let indexOfCity = this.sessions.findIndex((it) => it.name == val[0]);
 
           this.activeZone(
             this.sessions[indexOfCity].name,
