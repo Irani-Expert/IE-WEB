@@ -78,6 +78,8 @@ export class HeaderLgComponent extends Header {
       },
     });
     HeaderLayoutComponent.modalStatus = true;
+    this.hoveredItemUser = false;
+
   }
   logout() {
     this.auth.logOutUser();
