@@ -11,7 +11,7 @@ export class ForexSessionService {
     London: { open: '07:00', close: '16:00' },
     'New York': { open: '13:00', close: '22:00' },
   };
-  sessionsSubject = new BehaviorSubject<string[] | null>(this.getOpenMarket());
+  sessionsSubject = new BehaviorSubject<string[]>(this.getOpenMarket());
   checkEveryMinute: NodeJS.Timer;
   constructor() {
     this.checkEveryMinute = setInterval(() => {

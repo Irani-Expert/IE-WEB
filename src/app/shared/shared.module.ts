@@ -22,7 +22,7 @@ import { ShareLinkBoxComponent } from './share-link-box/share-link-box.component
 import { SectorFilterComponent } from './sector-filter/sector-filter.component';
 import { FilterPipe } from 'src/ts/filterNgfor.pipe';
 import { SymbolsComponent } from '../routes/calendar/symbols/symbols.component';
-
+import { NgxTippyModule } from 'ngx-tippy-wrapper';
 const components = [
   AcordianComponent,
   CommentsComponent,
@@ -49,8 +49,9 @@ const components = [
     DragScrollModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxTippyModule,
   ],
-  exports: [components, LottieModule, DragScrollModule],
+  exports: [components, LottieModule, DragScrollModule, NgxTippyModule],
   declarations: [
     components,
     ScrollComponent,
