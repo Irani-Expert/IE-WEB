@@ -49,7 +49,9 @@ export class RobotTraderComponent {
       });
       this._meta.updateTag({
         name: 'keywords',
-        content:keywords,
+        content:
+        'دستیار معامله  گر-ربات خودکار- ربات ATM - ربات اتو تریدر-خرید ربات تریدر-ربات معامله گر  طلا- خرید ربات معامله گر- ربات اتوماتیک ترید-ساخت ربات معامله گر-',
+        // content:keywords,
       });
       this.sendDataToChild = true;
     }
