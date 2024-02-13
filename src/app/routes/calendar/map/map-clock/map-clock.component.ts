@@ -45,18 +45,26 @@ export class MapClockComponent {
     {
       name: Cities.LDN.valueOf(),
       timezone: TimeZone.LDN.valueOf(),
+      open: '11:30',
+      close: '20:30',
     },
     {
       name: Cities.NYC.valueOf(),
       timezone: TimeZone.NYC.valueOf(),
+      open: '16:30',
+      close: '01:30',
     },
     {
       name: Cities.SYD.valueOf(),
       timezone: TimeZone.SYD.valueOf(),
+      open: '23:30',
+      close: '08:30',
     },
     {
       name: Cities.TKY.valueOf(),
       timezone: TimeZone.TKY.valueOf(),
+      open: '03:30',
+      close: '12:30',
     },
   ];
 
