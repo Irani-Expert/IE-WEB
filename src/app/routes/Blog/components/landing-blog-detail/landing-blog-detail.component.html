@@ -1,4 +1,4 @@
-<div class="mt-8 lg:block hidden">
+<div class="mt-10 lg:block hidden">
   <div class="flex justify-center">
     <div class="baner flex flex-row ml-4 mr-4">
       <div class="basis-2/3 flex items-center">
@@ -37,13 +37,14 @@
       <div class="col-span-3 mr-4 ml-4">
         <ng-container *ngIf="sendDataToChild">
           <app-blog-detail [data]="blogService._blog!"></app-blog-detail>
+          <app-share-link-box></app-share-link-box>
           <ng-container *ngIf="isBrowser">
             <app-comments
               [rowId]="blogService._blog!.id"
               [tableType]="1"
             ></app-comments>
           </ng-container>
-          <!-- <app-carousel-blog [data]="itemsBlog.slice(0, 5)"></app-carousel-blog> -->
+          <app-carousel-blog [data]="itemsBlog.slice(0, 5)"></app-carousel-blog>
         </ng-container>
       </div>
     </div>

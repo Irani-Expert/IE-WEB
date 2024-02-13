@@ -11,11 +11,7 @@ import { environment } from 'src/environments/environment.dev';
   styleUrls: ['./copy-trade.component.scss'],
 })
 export class CopyTradeComponent {
-  constructor(private _meta: Meta , public blogService : BlogService , private _sanitizer : DomSanitizer
-    ) {
-
-
-    }
+  constructor(private _meta: Meta , public blogService : BlogService , private _sanitizer : DomSanitizer){}
     
     tags: ITags[];
 
@@ -51,7 +47,9 @@ export class CopyTradeComponent {
     });
     this._meta.updateTag({
       name: 'keywords',
-      content: keywords,
+      content: 
+      'کپی ترید-کپی ترید چیست-اکسپرت کپی ترید-کپی ترید فارکس-آموزش کپی ترید-کپی ترید در متاتریدر-سایت کپی ترید-چگونه کپی ترید کنیم-اکسپرت کپی ترید متاتریدر 5-کپی ترید فارکس-کپی ترید crypto-بهترین کپی تریدر-درامد کپی ترید-کپی ترید در صرافی -کپی ترید در آلپاری-اکسپرت کپی ترید',
+      // content: keywords,
     });
       this.sendDataToChild = true;
     }
@@ -61,6 +59,7 @@ export class CopyTradeComponent {
     const apiRes = await this.blogService.getBlog(title, language);
     return apiRes;
   }
+  
   ngOnInit() {
     AppComponent.changeMainBg('creamy');
   }

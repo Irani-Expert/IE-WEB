@@ -48,7 +48,10 @@ export class LandigMoneyMComponent {
       });
       this._meta.updateTag({
         name: 'keywords',
-        content: keywords
+        content:
+        'مدیریت سرمایه گذاری پیشرفته,مدیریت سرمایه گذاری استراتژیک,مدیریت ریسک و سرمایه در ترید, فرمول مدیریت سرمایه در ترید, مدیریت سرمایه در ترید, مدیریت سرمایه فارکس, مدیریت ریسک و سرمایه گذاری ,مدیریت سرمایه به زبان ساده',
+        // content: keywords
+
       });
       this.sendDataToChild = true;
     }

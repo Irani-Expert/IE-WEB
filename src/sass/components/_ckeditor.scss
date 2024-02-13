@@ -78,4 +78,24 @@
               margin-left: 0.5rem;
           }
     }
+    &.calendar{
+      .margin-bottom{
+        margin-bottom: -5.25rem !important;
+      }
+      .calendar-h{
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #098b41;
+        margin-bottom: -1.25rem;
+        &::before {
+          content: "";
+          width: 1.7rem;
+          height: 7px;
+          background-color: #098b41;
+          border-radius: 6px;
+          display: inline-block;
+          margin: 2px 6px;
+        }
+      }
+    }
 }

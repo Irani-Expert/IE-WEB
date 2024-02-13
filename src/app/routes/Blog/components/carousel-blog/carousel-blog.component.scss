@@ -27,33 +27,32 @@ drag-scroll{
 .btn{
   border: #0080FF solid 2.5px;
   border-radius: 41px;
-  width: 2rem;
-  height: 2rem;
+  width: 2.3rem;
+  height: 2.3rem;
   position: relative;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .icon-btn{
   font-family: monospace;
   color: #0080FF;
   font-size: 2rem;
   font-weight: 900;
-  position: absolute;
-  bottom: -8px;
-  right: 5px;
 }
 .icon-disable{
     color: #8D8D8D;
     font-family: monospace;
     font-size: 2rem;
     font-weight: 900;
-    position: absolute;
-    bottom: -8px;
-    right: 5px;
 }
 .btn-disable{
-  border: #8D8D8D solid 2.5px;
+  border: #8d8d8d solid 2.5px;
   border-radius: 41px;
-  width: 2rem;
-  height: 2rem;
+  width: 2.3rem;
+  height: 2.3rem;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
