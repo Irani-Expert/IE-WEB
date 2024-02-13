@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Country } from './country';
-import { AppComponent } from 'src/app/app.component';
 import { ImportanceComponent } from '../../importance/importance.component';
 const countryInit: Country = { active: false, code: '', id: 0, name: '' };
 @Component({
@@ -18,10 +17,6 @@ export class MapCountryComponent {
   async ngAfterViewInit() {
     this.setCountry();
   }
-  ngOnDestroy() {
-    AppComponent.changeMainBg('white');
-  }
-
   // getImportanceColor() {
 
   // }

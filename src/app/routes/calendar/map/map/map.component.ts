@@ -24,4 +24,8 @@ export class MapComponent {
     this.countries = (await this._ecoCalService.getCountriesByEvents()).data!;
     this.isLoading = false;
   }
+
+  ngOnDestroy() {
+    AppComponent.changeMainBg('white');
+  }
 }

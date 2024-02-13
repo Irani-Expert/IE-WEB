@@ -9,6 +9,7 @@
 }
 
 .clock-item {
+  user-select: none;
   .seperator-dashed {
     display: flex;
     margin: 2px 0;
