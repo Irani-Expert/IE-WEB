@@ -64,9 +64,7 @@ export class BlogFilterComponent {
   ];
   constructor(private router: Router) {}
   searchTag(searchingTag: string) {
-    searchingTag = searchingTag.slice(1);
-    console.log(searchingTag);
-
+    // searchingTag = searchingTag.slice(1);
     this.router.navigateByUrl(`search?search=${searchingTag}`);
   }
 }

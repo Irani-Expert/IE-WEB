@@ -6,7 +6,9 @@
       <ng-container *ngFor="let session of sessions; let i = index">
         <!-- Each Clock -->
         <div
-          ngxTippy="Tooltip content"
+          [ngxTippy]="
+            'Opens at: ' + session.open + ' - ' + 'Close at: ' + session.close
+          "
           tippyClassName="ie-tooltip"
           [tippyProps]="{
             placement: 'right'
