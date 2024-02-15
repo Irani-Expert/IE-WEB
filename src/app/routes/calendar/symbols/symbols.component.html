@@ -1,24 +1,12 @@
 <h3>نمادها</h3>
-<div>
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr">
   <div
-    class="flex py-2"
-    style="
-      min-width: 6rem;
-      max-width: 8rem;
-      justify-content: space-around;
-      border-style: solid;
-      border-width: 2px;
-      border-radius: 6px;
-    "
+    class="flex my-2 py-2 symbol-card cursor-pointer"
+    *ngFor="let item of items"
+    [ngClass]="{ 'symbol-active-tab': item.isActive }"
+    (click)="activate(item.name)"
   >
-    <i
-      class="fi fi-nz"
-      style="
-        filter: drop-shadow(0px 0px 1px rgb(209, 207, 207));
-        border-radius: 4px;
-        font-size: 1.725rem;
-      "
-    ></i
-    ><span style="display: flex; align-items: end">NZD</span>
+    <i class="fi {{ item.icon }} filter-icn"></i
+    ><span class="flex items-end">{{ item.name }}</span>
   </div>
 </div>
