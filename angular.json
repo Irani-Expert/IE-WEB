@@ -23,7 +23,12 @@
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "allowedCommonJsDependencies": ["lottie-web", "moment-timezone"],
+            "allowedCommonJsDependencies": [
+              "lottie-web",
+              "moment-timezone",
+              "d3",
+              "topojson"
+            ],
             "assets": [
               "./src/sitemap.xml",
               "./src/robots.txt",
@@ -32,17 +37,15 @@
               "./src/assets/icon",
               "./src/assets/audio",
               "./src/assets/lottie",
-              "./src/assets/broker-tables.json"
+              "./src/assets/broker-tables.json",
+              "./src/datamaps.world.min.js"
             ],
             "styles": [
               "./src/sass/styles.scss",
               "node_modules/tippy.js/dist/tippy.css"
             ],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "node_modules/tailwindcss",
-                "node_modules/flag-icons/css"
-              ]
+              "includePaths": ["node_modules/tailwindcss"]
             },
             "scripts": []
           },

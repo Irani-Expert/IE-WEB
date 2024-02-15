@@ -27,6 +27,7 @@
     "@nguniversal/express-engine": "^16.2.0",
     "@syncfusion/ej2-angular-maps": "23.1.42",
     "cors": "^2.8.5",
+    "d3": "^7.8.5",
     "express": "^4.15.2",
     "flag-icons": "^6.11.1",
     "howler": "^2.2.4",
@@ -41,6 +42,7 @@
     "ngx-toastr": "^18.0.0",
     "node-fetch": "^3.3.2",
     "rxjs": "~7.8.0",
+    "topojson": "^3.0.2",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
   },
