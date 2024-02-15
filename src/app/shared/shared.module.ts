@@ -23,11 +23,19 @@ import { SectorFilterComponent } from './sector-filter/sector-filter.component';
 import { FilterPipe } from 'src/ts/filterNgfor.pipe';
 import { SymbolsComponent } from '../routes/calendar/symbols/symbols.component';
 import { NgxTippyModule } from 'ngx-tippy-wrapper';
+import { DatePickerComponent } from './date-picker/date-picker.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {
+  DefaultMatCalendarRangeStrategy,
+  MatRangeDateSelectionModel,
+} from '@angular/material/datepicker';
 const components = [
   AcordianComponent,
   CommentsComponent,
   TagsComponent,
   ScrollComponent,
+  DatePickerComponent,
   VideoPlayerComponent,
   LottieComponent,
   ContentMenuComponent,
@@ -50,6 +58,8 @@ const components = [
     FormsModule,
     ReactiveFormsModule,
     NgxTippyModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   exports: [components, LottieModule, DragScrollModule, NgxTippyModule],
   declarations: [
@@ -60,7 +70,7 @@ const components = [
     ShareLinkBoxComponent,
     FilterPipe,
   ],
-  providers: [],
+  providers: [DefaultMatCalendarRangeStrategy, MatRangeDateSelectionModel],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SharedModule {}

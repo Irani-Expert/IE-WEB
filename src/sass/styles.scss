@@ -13,10 +13,10 @@
 @import "./components/search";
 @import "./components/tooltips";
 body {
-  font-family: $font-family-base;
-  font-size: $font-size-base;
+  font-family: $font-family-base !important;
+  font-size: $font-size-base !important;
   // background-color: $darken-white;
-  word-spacing: $word-spacing-base;
+  word-spacing: $word-spacing-base !important;
 }
 
 .button-styles {
@@ -139,4 +139,55 @@ body {
   border-radius: 36%;
   z-index: 1;
   opacity: 0.34;
+}
+
+.mat-calendar-controls {
+  flex-direction: row-reverse;
+}
+.mat-calendar-previous-button {
+  order: 1;
+}
+.mat-calendar-body-selected {
+  background-color: #0080ff !important;
+}
+// .mat-calendar-body-in-range {
+//   background-color: #0080ff47 !important;
+// }
+.mat-h3,
+.mat-subtitle-1,
+.mat-typography .mat-h3,
+.mat-typography .mat-subtitle-1,
+.mat-typography h3 {
+  font-size: 0.82rem;
+  font-weight: initial !important;
+  line-height: 0 !important;
+  font-family: $font-family-base !important;
+  font-size: $font-size-base !important;
+  letter-spacing: initial !important;
+  margin: initial !important;
+}
+.mat-calendar-table-header-divider::after {
+  position: static !important;
+}
+.mat-calendar-table-header {
+  th {
+    font-size: 17.5px !important;
+    font-weight: 600 !important;
+    color: #000000 !important;
+  }
+}
+.mat-calendar-body-cell-content {
+  font-size: 16px !important;
+  width: 70% !important;
+  height: 70% !important;
+}
+.mat-calendar-body-cell::before,
+.mat-calendar-body-cell::after,
+.mat-calendar-body-cell-preview {
+  height: 70% !important;
+}
+.mat-calendar-body-range-start:not(
+    .mat-calendar-body-in-comparison-range
+  )::before {
+  width: 77% !important;
 }

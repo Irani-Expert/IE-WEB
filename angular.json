@@ -41,6 +41,7 @@
               "./src/datamaps.world.min.js"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "./src/sass/styles.scss",
               "node_modules/tippy.js/dist/tippy.css"
             ],
@@ -117,7 +118,10 @@
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["sass/styles.scss"],
+            "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "sass/styles.scss"
+            ],
             "scripts": []
           }
         },
