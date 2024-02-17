@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { AcordianComponent } from './acordian/acordian.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { CommentsComponent } from './comments/comments.component';
 import { Toggler } from './toggler/toggler.component';
 import { ScrollComponent } from './scroll/scroll.component';
@@ -70,7 +70,11 @@ const components = [
     ShareLinkBoxComponent,
     FilterPipe,
   ],
-  providers: [DefaultMatCalendarRangeStrategy, MatRangeDateSelectionModel],
+  providers: [
+    DefaultMatCalendarRangeStrategy,
+    MatRangeDateSelectionModel,
+    DatePipe,
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SharedModule {}

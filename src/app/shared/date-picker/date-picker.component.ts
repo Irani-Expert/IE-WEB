@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import {
   DateRange,
   DefaultMatCalendarRangeStrategy,
@@ -12,7 +12,7 @@ import {
 })
 export class DatePickerComponent {
   selectedDateRange: DateRange<Date> | undefined;
-
+  @Output() calDate = new EventEmitter<Date[]>();
   constructor(
     private readonly selectionModel: MatRangeDateSelectionModel<Date>,
     private readonly selectionStrategy: DefaultMatCalendarRangeStrategy<Date>
@@ -31,6 +31,14 @@ export class DatePickerComponent {
       newSelection.start,
       newSelection.end
     );
-    console.log(this.selectionModel.selection.start);
+
+    var date: Date[] = new Array<Date>();
+    if (this.selectionModel.selection.start != null) {
+      date[0] = this.selectionModel.selection.start;
+    }
+    if (this.selectionModel.selection.end != null) {
+      date[1] = this.selectionModel.selection.end;
+    }
+    this.calDate.emit(date);
   }
 }

@@ -7,13 +7,19 @@
 <app-voice-player></app-voice-player>
 
 <div class="flex gap-5 items-stretch">
-  <div class="flex flex-col">
-    <div class="basis-1/3 bg-white rounded-2xl shadow-sm p-5 mb-5">
-      <app-date-picker></app-date-picker>
+  <div class="flex flex-col basis-1/3">
+    <div class="bg-white rounded-2xl shadow-sm p-5">
+      <app-date-picker (calDate)="setCalDate($event)"></app-date-picker>
     </div>
-    <div class="basis-1/3 bg-white rounded-2xl shadow-sm p-5">
-      <app-symbols></app-symbols>
-      <app-sector-filter></app-sector-filter>
+    <div class="bg-white rounded-2xl shadow-sm p-5 my-5">
+      <app-symbols
+        (listOfSelectedItems)="setSymbolServices($event)"
+      ></app-symbols>
+    </div>
+    <div class="bg-white rounded-2xl shadow-sm p-5">
+      <app-sector-filter
+        (sections)="setSectionServices($event)"
+      ></app-sector-filter>
     </div>
   </div>
 

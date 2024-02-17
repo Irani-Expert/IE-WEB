@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 interface Isymbol {
   name: string;
@@ -12,6 +12,8 @@ interface Isymbol {
   styleUrls: ['./symbols.component.scss'],
 })
 export class SymbolsComponent {
+  @Output() listOfSelectedItems = new EventEmitter<string[]>();
+
   items: Isymbol[] = [
     { name: 'EUR', icon: 'fi-eu', isActive: false },
     { name: 'USD', icon: 'fi-us', isActive: false },
@@ -36,5 +38,12 @@ export class SymbolsComponent {
   activate(name: string) {
     let index = this.items.findIndex((x) => x.name == name);
     this.items[index].isActive = !this.items[index].isActive;
+    var keepdata: string[] = [];
+    this.items.forEach((item) => {
+      if (item.isActive == true) {
+        keepdata.push(item.name);
+      }
+    });
+    this.listOfSelectedItems.emit(keepdata);
   }
 }

@@ -7,6 +7,8 @@ import { importances } from '../importance/importances';
 import { Importance } from '../importance/importance.interface';
 import { Filter as FilterEvents } from './filter.model';
 import { TableCalendar } from 'src/app/shared/table-calendar/table-calendar.component';
+import { DatePipe } from '@angular/common';
+
 import { CalEvent } from './cal-event.model';
 Maps.Inject(Bubble, MapsTooltip);
 interface trend_data {
@@ -28,7 +30,10 @@ export class CalendarMainPageComponent {
   filter$ = this.filter.asObservable();
   importances = importances;
   today = new Date();
-  constructor(private ecoCalService: EcoCalService) {}
+  constructor(
+    private ecoCalService: EcoCalService,
+    public datepipe: DatePipe
+  ) {}
   data: trend_data[] = [
     {
       currency: 'XAU USD',
@@ -107,6 +112,43 @@ export class CalendarMainPageComponent {
       return this.ecoCalService.paginatedCalendar.value?.pageNumber;
     } else {
       return 0;
+    }
+  }
+
+  ////////////////////////// today
+
+  setSectionServices(event: number[]) {
+    var data: number[] = [];
+    event.forEach((x) => {
+      data.push(x);
+    });
+
+    this.filteredModel.sectors = data;
+    this.getCal(this.filteredModel);
+    this.filter.next(this.filteredModel);
+  }
+  setSymbolServices(event: string[]) {
+    this.filteredModel.currencies = event;
+    this.getCal(this.filteredModel);
+    this.filter.next(this.filteredModel);
+  }
+  setCalDate(event: Date[]) {
+    if (event[1] == undefined) {
+      let currentdate = this.datepipe.transform(event[0], 'yyyy.MM.dd');
+      this.filteredModel.currentTime = '';
+      if (currentdate != null) this.filteredModel.currentTime = currentdate;
+
+      this.getCal(this.filteredModel);
+      this.filter.next(this.filteredModel);
+    } else {
+      let fromDate = this.datepipe.transform(event[0], 'yyyy.MM.dd');
+      let Todate = this.datepipe.transform(event[1], 'yyyy.MM.dd');
+      this.filteredModel.currentTime = '';
+      if (fromDate != null) this.filteredModel.currentTime = fromDate;
+      if (Todate != null) this.filteredModel.currentTime = Todate;
+
+      this.getCal(this.filteredModel);
+      this.filter.next(this.filteredModel);
     }
   }
 }
