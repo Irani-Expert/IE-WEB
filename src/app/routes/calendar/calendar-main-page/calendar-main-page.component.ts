@@ -143,7 +143,7 @@ export class CalendarMainPageComponent {
     } else {
       let fromDate = this.datepipe.transform(event[0], 'yyyy.MM.dd');
       let Todate = this.datepipe.transform(event[1], 'yyyy.MM.dd');
-      this.today = fromDate?.toString() + '-' + Todate?.toString();
+      this.today = Todate?.toString() + '-' + fromDate?.toString();
       this.today = this.today?.replaceAll('.', '/');
       this.filteredModel.currentTime = '';
       if (fromDate != null) this.filteredModel.fromTime = fromDate;
