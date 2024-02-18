@@ -29,11 +29,10 @@ export class CalendarMainPageComponent {
   filter = new BehaviorSubject<FilterEvents>(new FilterEvents());
   filter$ = this.filter.asObservable();
   importances = importances;
-  today = new Date();
-  constructor(
-    private ecoCalService: EcoCalService,
-    public datepipe: DatePipe
-  ) {}
+  today: string | undefined;
+  constructor(private ecoCalService: EcoCalService, public datepipe: DatePipe) {
+    this.today = this.datepipe.transform(new Date(), 'yyyy/MM/dd')?.toString();
+  }
   data: trend_data[] = [
     {
       currency: 'XAU USD',
@@ -137,15 +136,18 @@ export class CalendarMainPageComponent {
       let currentdate = this.datepipe.transform(event[0], 'yyyy.MM.dd');
       this.filteredModel.currentTime = '';
       if (currentdate != null) this.filteredModel.currentTime = currentdate;
-
+      this.today = currentdate?.toString();
+      this.today = this.today?.replaceAll('.', '/');
       this.getCal(this.filteredModel);
       this.filter.next(this.filteredModel);
     } else {
       let fromDate = this.datepipe.transform(event[0], 'yyyy.MM.dd');
       let Todate = this.datepipe.transform(event[1], 'yyyy.MM.dd');
+      this.today = Todate?.toString() + '-' + fromDate?.toString();
+      this.today = this.today?.replaceAll('.', '/');
       this.filteredModel.currentTime = '';
-      if (fromDate != null) this.filteredModel.currentTime = fromDate;
-      if (Todate != null) this.filteredModel.currentTime = Todate;
+      if (fromDate != null) this.filteredModel.fromTime = fromDate;
+      if (Todate != null) this.filteredModel.toTime = Todate;
 
       this.getCal(this.filteredModel);
       this.filter.next(this.filteredModel);
