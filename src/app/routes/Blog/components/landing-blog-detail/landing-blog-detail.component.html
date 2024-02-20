@@ -44,7 +44,11 @@
               [tableType]="1"
             ></app-comments>
           </ng-container>
-          <app-carousel-blog [data]="itemsBlog.slice(0, 5)"></app-carousel-blog>
+          <ng-container *ngIf="isBrowser">
+            <app-carousel-blog
+              [data]="itemsBlog.slice(0, 5)"
+            ></app-carousel-blog>
+          </ng-container>
         </ng-container>
       </div>
     </div>

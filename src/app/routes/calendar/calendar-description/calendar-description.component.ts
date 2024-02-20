@@ -3,11 +3,11 @@ import { DomSanitizer, Meta, SafeHtml } from '@angular/platform-browser';
 import { BlogService } from 'src/app/classes/services/blog.service';
 
 @Component({
-  selector: 'app-calendar-describtion',
-  templateUrl: './calendar-describtion.component.html',
-  styleUrls: ['./calendar-describtion.component.scss']
+  selector: 'app-calendar-description',
+  templateUrl: './calendar-description.component.html',
+  styleUrls: ['./calendar-description.component.scss']
 })
-export class CalendarDescribtionComponent {
+export class CalendarDescriptionComponent {
   sendDataToChild = false;
   title: string = '';
   language: string = '';

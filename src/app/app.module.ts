@@ -25,7 +25,7 @@ import { LottieModule } from 'ngx-lottie';
 import { LoaderComponent } from './components/loader/loader.component';
 import { ToastrModule } from 'ngx-toastr';
 import { JWTInterceptor } from './classes/jwt.interceptor';
-
+import { NgChartsModule } from 'ng2-charts';
 export function playerFactory(): any {
   return import('lottie-web');
 }
@@ -53,6 +53,7 @@ const footer = [FooterComponent];
     Checkbox,
     SearchComponent,
     LoaderComponent,
+    NgChartsModule,
     LottieModule.forRoot({ player: playerFactory }),
     ToastrModule.forRoot(),
   ],

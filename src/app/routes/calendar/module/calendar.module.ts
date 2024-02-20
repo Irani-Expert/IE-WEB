@@ -9,15 +9,19 @@ import { AudioPlayerComponent } from 'src/app/shared/audio-player/audio-player.c
 import { CalDetailComponent } from 'src/app/shared/cal-detail/cal-detail.component';
 import { TradingviewComponent } from 'src/app/shared/tradingview/tradingview.component';
 // import { EcoCalFiltersComponent } from 'src/app/shared/eco-cal-filters/eco-cal-filters.component';
-// import { SharedModule } from 'src/app/shared/shared.module';
 import { Toggler } from 'src/app/shared/toggler/toggler.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ImportantNewsComponent } from 'src/app/components/important-news/important-news.component';
 import { CountriesCurrencyComponent } from 'src/app/components/countries-currency/countries-currency.component';
-import { CalendarDescribtionComponent } from '../calendar-describtion/calendar-describtion.component';
+import { CalendarDescriptionComponent } from '../calendar-description/calendar-description.component';
 import { TableCalendar } from 'src/app/shared/table-calendar/table-calendar.component';
 import { ImportanceComponent } from '../importance/importance.component';
+<<<<<<< HEAD
 import { ResponsiveTableComponent } from '../responsive-table/responsive-table.component';
+=======
+import { LandingSingleCountryComponent } from '../landing-single-country/landing-single-country.component';
+
+>>>>>>> 8a79658ce07b35cdc2747ae1196ae3ceda5a384a
 
 const components = [
   CalendarMainPageComponent,
@@ -28,7 +32,8 @@ const components = [
   TradingviewComponent,
   ImportantNewsComponent,
   CountriesCurrencyComponent,
-  CalendarDescribtionComponent,
+  CalendarDescriptionComponent,
+  LandingSingleCountryComponent
 ];
 @NgModule({
   declarations: [components],
