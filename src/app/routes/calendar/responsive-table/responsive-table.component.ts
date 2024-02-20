@@ -5,7 +5,8 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CalEvent } from '../calendar-main-page/cal-event.model';
 
 @Component({
   selector: 'app-responsive-table',
@@ -37,8 +38,11 @@ import { Component } from '@angular/core';
   ],
 })
 export class ResponsiveTableComponent {
+  @Input('tableData') table: CalEvent[] = new Array<CalEvent>();
   myState: string = 'select1';
-
+  ngOnInit() {
+    console.log(this.table);
+  }
   selectState(state: string) {
     console.log(state);
 
