@@ -1,0 +1,39 @@
+<div class="w-10/12">
+  <div class="dynamic-list">
+    <div
+      class="cursor-pointer"
+      [ngClass]="myState == 'select1' ? 'activated-tab' : ''"
+      (click)="selectState('select1')"
+    >
+      لیست اخبار
+    </div>
+    <div
+      class="cursor-pointer"
+      [ngClass]="myState == 'select2' ? 'activated-tab' : ''"
+      (click)="selectState('select2')"
+    >
+      نماد
+    </div>
+    <div
+      class="cursor-pointer"
+      [ngClass]="myState == 'select3' ? 'activated-tab' : ''"
+      (click)="selectState('select3')"
+    >
+      بخش
+    </div>
+  </div>
+  <div [@openClose]="myState">
+    <div class="bg-[#0498fb] w-[34px] h-[3.5px]"></div>
+  </div>
+</div>
+<div class="flex flex-col mt-3">
+  <div [ngClass]="myState == 'select1' ? 'showtab ' : 'hideTab absolute'">
+    1
+  </div>
+  <div [ngClass]="myState == 'select2' ? 'showtab ' : 'hideTab absolute'">
+    <app-symbols></app-symbols>
+  </div>
+  <div [ngClass]="myState == 'select3' ? 'showtab ' : 'hideTab absolute'">
+    <app-sector-filter></app-sector-filter>
+  </div>
+</div>

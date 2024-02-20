@@ -17,9 +17,11 @@ import { CountriesCurrencyComponent } from 'src/app/components/countries-currenc
 import { CalendarDescribtionComponent } from '../calendar-describtion/calendar-describtion.component';
 import { TableCalendar } from 'src/app/shared/table-calendar/table-calendar.component';
 import { ImportanceComponent } from '../importance/importance.component';
+import { ResponsiveTableComponent } from '../responsive-table/responsive-table.component';
 
 const components = [
   CalendarMainPageComponent,
+  ResponsiveTableComponent,
   AutoplaySliderComponent,
   AudioPlayerComponent,
   CalDetailComponent,

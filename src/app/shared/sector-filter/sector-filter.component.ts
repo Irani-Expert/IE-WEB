@@ -3,6 +3,7 @@ import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
 interface newsList {
   title: string;
   value: number;
+  isActive: boolean;
 }
 @Component({
   selector: 'app-sector-filter',
@@ -19,7 +20,10 @@ export class SectorFilterComponent {
   constructor(private ecoCalService: EcoCalService) {
     this.ecoCalService.get('Public/GetEconomicCalSector').subscribe((x) => {
       if (Array.isArray(x.data)) {
-        x.data.forEach((y) => this.list?.push(y));
+        x.data.forEach((y) => {
+          y.isActive = false;
+          this.list?.push(y);
+        });
       }
     });
   }
@@ -28,19 +32,30 @@ export class SectorFilterComponent {
     this.isListOpen = !this.isListOpen;
   }
 
-  selectField(selected: number) {
-    this.searchItem += this.list[selected].title;
-    this.searchedField = this.searchItem.split(',');
-    this.searchItem = '';
-    var data: number[] = [];
-    this.searchedField.forEach((x) => {
-      if (!this.searchItem.includes(x)) {
-        this.searchItem += x + ',';
-      }
-      const index = this.list.findIndex((itemIndex) => itemIndex.title === x);
-      data.push(this.list[index].value);
-    });
-
-    this.sections.emit(data);
+  selectField(selected: number | null) {
+    if (selected != null) {
+      this.searchItem += this.list[selected].title;
+    }
+    if (this.searchItem != '') {
+      this.searchedField = this.searchItem.split(',');
+      this.searchItem = '';
+      var data: number[] = [];
+      this.searchedField.forEach((x) => {
+        if (!this.searchItem.includes(x)) {
+          this.searchItem += x + ',';
+        }
+        const index = this.list.findIndex((itemIndex) => itemIndex.title === x);
+        if (index != -1) data.push(this.list[index].value);
+      });
+      this.sections.emit(data);
+    } else this.sections.emit([]);
+  }
+  changeText() {
+    this.selectField(null);
+  }
+  responsiveActive(val: number) {
+    let index = this.list.findIndex((x) => x.value == val);
+    this.list[index].isActive = !this.list[index].isActive;
+    this.selectField(val);
   }
 }

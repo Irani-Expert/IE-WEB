@@ -16,7 +16,9 @@ export class DatePickerComponent {
   constructor(
     private readonly selectionModel: MatRangeDateSelectionModel<Date>,
     private readonly selectionStrategy: DefaultMatCalendarRangeStrategy<Date>
-  ) {}
+  ) {
+    this.selectedDateRange = new DateRange<Date>(new Date(), null);
+  }
 
   // Event handler for when the date range selection changes.
   rangeChanged(selectedDate: Date) {
