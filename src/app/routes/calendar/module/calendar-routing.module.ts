@@ -6,7 +6,7 @@ import { MapComponent } from '../map/map/map.component';
 const routes: Routes = [
   { path: '', component: CalendarMainPageComponent },
   {
-    path: 'map-testing',
+    path: 'maps',
     component: MapComponent,
   },
 ];

@@ -37,8 +37,7 @@
               "./src/assets/icon",
               "./src/assets/audio",
               "./src/assets/lottie",
-              "./src/assets/broker-tables.json",
-              "./src/datamaps.world.min.js"
+              "./src/assets/broker-tables.json"
             ],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",

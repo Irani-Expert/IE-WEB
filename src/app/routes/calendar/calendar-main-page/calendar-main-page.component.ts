@@ -1,5 +1,4 @@
 import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
-import { Bubble, Maps, MapsTooltip } from '@syncfusion/ej2-angular-maps';
 import { AppComponent } from 'src/app/app.component';
 import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
 import { BehaviorSubject, lastValueFrom } from 'rxjs';
@@ -10,7 +9,6 @@ import { TableCalendar } from 'src/app/shared/table-calendar/table-calendar.comp
 import { DatePipe } from '@angular/common';
 
 import { CalEvent } from './cal-event.model';
-Maps.Inject(Bubble, MapsTooltip);
 interface trend_data {
   currency: string;
   percent: string;
