@@ -1,32 +1,53 @@
-<h3>بخش</h3>
-<div class="relative mt-10 flex justify-center items-center">
-  <div class="absolute cursor-pointer right-[64px] search--icon">
-    <i class="ie-search-page rotate-90"></i>
+<div class="max-lg:hidden">
+  <h3>بخش</h3>
+  <div class="relative mt-10 flex justify-center items-center">
+    <div class="absolute cursor-pointer right-[64px] search--icon">
+      <i class="ie-search-page rotate-90"></i>
+    </div>
+    <input
+      type="text"
+      class="search-input search-sector"
+      placeholder="جستجوی بخش"
+      [(ngModel)]="searchItem"
+      (change)="changeText()"
+    />
+    <div class="h-[2rem] flex justify-center" (click)="openList()">
+      <i
+        class="ie-icon openList open-tab"
+        [ngClass]="isListOpen ? 'rotate-90deg' : ''"
+      ></i>
+    </div>
   </div>
-  <input
-    type="text"
-    class="search-input search-sector"
-    placeholder="جستجوی بخش"
-    [(ngModel)]="searchItem"
-  />
-  <div class="h-[2rem] flex justify-center" (click)="openList()">
-    <i
-      class="ie-icon openList open-tab"
-      [ngClass]="isListOpen ? 'rotate-90deg' : ''"
-    ></i>
+  <div class="relative mt-10 flex justify-center items-center">
+    <ul
+      class="rounded-2xl shadow-md p-5 w-[20rem]"
+      [ngClass]="isListOpen ? 'activate-tab' : 'deactive-tab'"
+    >
+      <li
+        *ngFor="let item of list | filter : searchItem"
+        class="hover:bg-[#FAFAFA] mb-3"
+        (click)="selectField(item.value)"
+      >
+        {{ item.title }}
+      </li>
+    </ul>
   </div>
 </div>
-<div class="relative mt-10 flex justify-center items-center">
-  <ul
-    class="rounded-2xl shadow-md p-5 w-[20rem]"
-    [ngClass]="isListOpen ? 'activate-tab' : 'deactive-tab'"
+<div class="lg:hidden">
+  <div
+    style="display: grid; grid-template-columns: 1fr 1fr; background: #fafafa"
   >
-    <li
-      *ngFor="let item of list | filter : searchItem"
-      class="hover:bg-[#FAFAFA] mb-3"
-      (click)="selectField(item.value)"
+    <div
+      class="flex justify-center py-2 symbol-card cursor-pointer"
+      *ngFor="let item of list"
     >
-      {{ item.title }}
-    </li>
-  </ul>
+      <div
+        class="p-2 responsiveField"
+        [ngClass]="{ 'activated-tab': item.isActive }"
+        (click)="responsiveActive(item.value)"
+      >
+        <span class="flex items-end text-xl font-medium">{{ item.title }}</span>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,0 +1,35 @@
+.dynamic-list {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 17px;
+  font-weight: 600;
+  color: #acacac;
+}
+.activated-tab {
+  color: #000000;
+  font-size: 18px;
+}
+.hideTab {
+  animation: hideAnimatio 0.1s ease 0s 1 normal forwards;
+  position: absolute;
+}
+.showtab {
+  order: 0;
+}
+@keyframes hideAnimatio {
+  100% {
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+  }
+}
+@keyframes disablehideAnimatio {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+  }
+  100% {
+    opacity: 1;
+  }
+}

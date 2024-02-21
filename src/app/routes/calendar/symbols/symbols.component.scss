@@ -16,3 +16,12 @@
   background: #e4f1ff !important;
   border-color: #0080ff !important;
 }
+.symbol-card {
+  min-width: 5.5rem;
+  max-width: 7.5rem;
+  justify-content: space-around;
+  border-width: 2px;
+  border-radius: 10px;
+  border-color: #eaeaea;
+  font-weight: 500;
+}
