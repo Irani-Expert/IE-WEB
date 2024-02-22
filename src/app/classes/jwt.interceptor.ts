@@ -17,7 +17,7 @@ export class JWTInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    if (req.url.includes('polygon')) {
+    if (req.url.includes('polygon') || req.url.includes('marketdata')) {
       return next.handle(req);
     }
     req = req.clone({

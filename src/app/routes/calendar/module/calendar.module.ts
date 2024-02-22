@@ -1,6 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-// import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalendarModuleRouting } from './calendar-routing.module';
 import { CalendarMainPageComponent } from '../calendar-main-page/calendar-main-page.component';
 import { MapsModule } from '@syncfusion/ej2-angular-maps';
@@ -16,14 +15,19 @@ import { CountriesCurrencyComponent } from 'src/app/components/countries-currenc
 import { CalendarDescriptionComponent } from '../calendar-description/calendar-description.component';
 import { TableCalendar } from 'src/app/shared/table-calendar/table-calendar.component';
 import { ImportanceComponent } from '../importance/importance.component';
+import { ResponsiveTableComponent } from '../responsive-table/responsive-table.component';
 import { LandingSingleCountryComponent } from '../landing-single-country/landing-single-country.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CalendarCardResponsiveComponent } from '../calendar-card-responsive/calendar-card-responsive.component';
 import { CardFinanceComponent } from '../card-finance/card-finance.component';
 import { NgChartsModule } from 'ng2-charts';
 
 const components = [
   CalendarMainPageComponent,
+  ResponsiveTableComponent,
   AutoplaySliderComponent,
   AudioPlayerComponent,
+  CalendarCardResponsiveComponent,
   CalDetailComponent,
   TradingviewComponent,
   ImportantNewsComponent,
@@ -40,8 +44,8 @@ const components = [
     Toggler,
     SharedModule,
     ImportanceComponent,
-    // FormsModule,
-    // ReactiveFormsModule,
+    FormsModule,
+    ReactiveFormsModule,
     TableCalendar,
     MapsModule,
     CalendarModuleRouting,
