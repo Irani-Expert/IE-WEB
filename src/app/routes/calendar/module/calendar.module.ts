@@ -17,7 +17,8 @@ import { CalendarDescriptionComponent } from '../calendar-description/calendar-d
 import { TableCalendar } from 'src/app/shared/table-calendar/table-calendar.component';
 import { ImportanceComponent } from '../importance/importance.component';
 import { LandingSingleCountryComponent } from '../landing-single-country/landing-single-country.component';
-
+import { CardFinanceComponent } from '../card-finance/card-finance.component';
+import { NgChartsModule } from 'ng2-charts';
 
 const components = [
   CalendarMainPageComponent,
@@ -28,12 +29,14 @@ const components = [
   ImportantNewsComponent,
   CountriesCurrencyComponent,
   CalendarDescriptionComponent,
-  LandingSingleCountryComponent
+  LandingSingleCountryComponent,
+  CardFinanceComponent
 ];
 @NgModule({
   declarations: [components],
   imports: [
     CommonModule,
+    NgChartsModule,
     Toggler,
     SharedModule,
     ImportanceComponent,

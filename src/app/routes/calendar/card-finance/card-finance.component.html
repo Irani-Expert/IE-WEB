@@ -1,0 +1,55 @@
+<div class="flex h-full my-2">
+    <div class="w-full flex flex-col box-card">
+
+        <div class="flex justify-between items-center mt-3">
+            <p class="text-black font-medium">{{data.title}}</p>
+            <img [src]="data.icon" width="17" height="35" alt="icon-card-finance">
+        </div>
+
+       <!-- =====[بخش راست]==== -->
+
+        <div *ngIf="!leftPart" class="w-full flex flex-col">
+            <p class="2xl:text-3xl text-2xl text-black font-black my-6">$20,580,223.00</p>
+            <div class="flex items-center">
+                <div class="flex items-baseline">
+                    <i class="ascending-icon scale-100"></i>
+                    <!-- <i class="descending-icon"></i> -->
+                    <!-- <span class="text-[#FF4444] mx-2 font-bold text-sm">-2%</span> -->
+                    <span class="text-[#00CB85] mx-2 font-bold text-sm">+2%</span>
+                </div>
+                <p class="text-[#ACACAC] text-sm font-medium">{{data.subTitle}}</p>
+            </div>
+        </div>
+
+        <!-- =====[بخش چپ]==== -->
+
+        <div *ngIf="leftPart" class="w-full flex flex-col xl:h-full h-96">
+            <p class="text-black font-bold text-3xl my-6">3.9%</p>
+            <div class="w-full flex h-full relative">
+                <div class="chart-js">
+                    <canvas
+                    baseChart
+                    class="chart"
+                    [legend]="false"
+                    [data]="doughnutChartData"
+                    [type]="doughnutChartType">
+                    </canvas>
+                </div>
+                <div class="flex flex-col items-end w-full justify-end mb-4">
+                    <p class="text-[#919191] text-xs justify-end font-medium flex items-baseline w-48 -mr-3">
+                        {{data.subTitle1}}
+                        <span class="text-black mx-1 font-bold text-sm">3.9%</span>
+                        <span class="before"></span>
+                    </p>
+                    <br>
+                    <!-- <p class="text-[#919191] text-xs justify-end font-medium flex items-baseline w-48 -mr-3 mt-2">
+                        {{data.subTitle1}}
+                        <span class="text-black mx-1 font-bold text-sm">3.9%</span>
+                        <span class="before"></span>
+                    </p> -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
