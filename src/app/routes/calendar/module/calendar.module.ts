@@ -21,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalendarCardResponsiveComponent } from '../calendar-card-responsive/calendar-card-responsive.component';
 import { CardFinanceComponent } from '../card-finance/card-finance.component';
 import { NgChartsModule } from 'ng2-charts';
+import { CountryDetailComponent } from '../country-detail/country-detail.component';
 
 const components = [
   CalendarMainPageComponent,
@@ -34,7 +35,8 @@ const components = [
   CountriesCurrencyComponent,
   CalendarDescriptionComponent,
   LandingSingleCountryComponent,
-  CardFinanceComponent
+  CardFinanceComponent,
+  CountryDetailComponent
 ];
 @NgModule({
   declarations: [components],

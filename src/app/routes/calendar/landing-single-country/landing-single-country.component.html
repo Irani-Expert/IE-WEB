@@ -1,25 +1,29 @@
-<div class="flex bg-[#FAFAFA] p-4">
+<div class="bg-[#FAFAFA] p-4">
+
+    <app-country-detail></app-country-detail>
 
     <!-- ========================[کارت فایننس]========= -->
-    <div class="flex w-full xl:h-96 flex-col xl:flex-row">
-    
-        <!-- =====[بخش راست]==== -->
-    
-        <div class="md:flex md:basis-full xl:basis-[45%] xl:ml-4 ">
-            <div class="md:grid md:grid-cols-2 md:gap-4 flex flex-col w-full">
-                <ng-container *ngFor="let card1 of groupCardPart1.items">
-                    <app-card-finance [type]="groupCardPart1.type" [data]="card1" ></app-card-finance>
-                </ng-container>
-            </div>
-        </div>
-    
-        <!-- =====[بخش چپ]==== -->
+    <div class="flex justify-center">
+        <div class="flex w-[328px] md:w-[748px] xl:w-full xl:h-[25rem] flex-col xl:flex-row">
         
-        <div class="md:flex md:basis-full md:mt-6 xl:mt-0 xl:basis-[55%]">
-            <div class="md:grid md:grid-cols-2 md:gap-4 flex flex-col w-full">
-                <ng-container *ngFor="let card2 of groupCardPart2.items">
-                    <app-card-finance [type]="groupCardPart2.type" [data]="card2"></app-card-finance>
-                </ng-container>
+            <!-- =====[بخش راست]==== -->
+        
+            <div class="md:flex md:basis-full xl:basis-[45%] xl:ml-4 ">
+                <div class="md:grid md:grid-cols-2 md:gap-4 flex flex-col w-full">
+                    <ng-container *ngFor="let card1 of groupCardPart1.items">
+                        <app-card-finance [type]="groupCardPart1.type" [data]="card1" ></app-card-finance>
+                    </ng-container>
+                </div>
+            </div>
+        
+            <!-- =====[بخش چپ]==== -->
+            
+            <div class="md:flex md:basis-full md:mt-6 xl:mt-0 xl:basis-[55%]">
+                <div class="md:grid md:grid-cols-2 md:gap-4 flex flex-col w-full">
+                    <ng-container *ngFor="let card2 of groupCardPart2.items">
+                        <app-card-finance [type]="groupCardPart2.type" [data]="card2"></app-card-finance>
+                    </ng-container>
+                </div>
             </div>
         </div>
     </div>
