@@ -98,12 +98,15 @@ export class CalendarMainPageComponent {
     }
     if (type == 'getted') {
       this.appTableComponent.setTable(this.appTableComponent.events);
+      console.log(1);
     }
   }
   showLess() {
     this.appTableComponent.table.splice(9, this.appTableComponent.table.length);
   }
-
+  setResTable(items: CalEvent[] = new Array<CalEvent>()) {
+    console.log(items);
+  }
   get pageNumber() {
     if (this.ecoCalService.paginatedCalendar.value?.pageNumber) {
       return this.ecoCalService.paginatedCalendar.value?.pageNumber;

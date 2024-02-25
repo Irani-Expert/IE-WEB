@@ -55,7 +55,6 @@ export class GraphFinanceComponent {
   constructor() {
     this.lineChartData.datasets[0].data.forEach((it) => {
       if (typeof it === 'number') {
-        debugger;
         it = it * 100;
       }
       this.lineChartData.labels?.push('');
