@@ -1,4 +1,9 @@
-.graph-container {
-  width: 250px;
-  aspect-ratio: 16/9;
+.chart-container {
+  width: 196px;
+  overflow: hidden;
+}
+
+.chart-itself {
+  transform: translate(-3px, 17px);
+  scale: 1.07;
 }

@@ -19,6 +19,8 @@ import { ResponsiveTableComponent } from '../responsive-table/responsive-table.c
 import { LandingSingleCountryComponent } from '../landing-single-country/landing-single-country.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalendarCardResponsiveComponent } from '../calendar-card-responsive/calendar-card-responsive.component';
+import { CardFinanceComponent } from '../card-finance/card-finance.component';
+import { NgChartsModule } from 'ng2-charts';
 
 const components = [
   CalendarMainPageComponent,
@@ -32,11 +34,13 @@ const components = [
   CountriesCurrencyComponent,
   CalendarDescriptionComponent,
   LandingSingleCountryComponent,
+  CardFinanceComponent
 ];
 @NgModule({
   declarations: [components],
   imports: [
     CommonModule,
+    NgChartsModule,
     Toggler,
     SharedModule,
     ImportanceComponent,

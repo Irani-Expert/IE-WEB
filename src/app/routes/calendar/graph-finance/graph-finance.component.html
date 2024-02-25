@@ -1,10 +1,42 @@
-<div class="graph-container">
-  <canvas
-    baseChart
-    [type]="'line'"
-    [data]="lineChartData"
-    [options]="lineChartOptions"
-    [legend]="false"
-  >
-  </canvas>
+<div
+  class="data-chart-card select-none bg-white inline-flex flex-col items-stretch border-[#EAEAEA] border-2 overflow-hidden rounded-xl justify-center mx-auto my-10"
+>
+  <div class="data-container flex-row flex p-2">
+    <div class="right-container flex-col flex basis-1/2">
+      <span class="block text-base text-[#0080FF]"> 1H </span>
+      <span class="inline-flex text-base text-[#2FCE7A] scale-95">
+        <i
+          [ngClass]="showGraph ? 'upTrend' : 'downTrend'"
+          class="ie-icon mx-1 pb-1.5"
+        ></i>
+        %0.24</span
+      >
+    </div>
+    <div class="left-container basis-1/2 text-end">
+      <span class="block text-base"> EUR USD </span>
+      <span class="block text-base font-light" *ngIf="showGraph">
+        {{
+          lineChartData.datasets[0].data[
+            lineChartData.datasets[0].data.length - 1
+          ]
+        }}
+      </span>
+      <span class="block text-base font-light"> 21Pip </span>
+    </div>
+  </div>
+  <div class="chart-container">
+    <ng-container *ngIf="showGraph">
+      <canvas
+        class="chart-itself"
+        width="16"
+        height="9"
+        baseChart
+        [type]="'line'"
+        [data]="lineChartData"
+        [options]="lineChartOptions"
+        [legend]="false"
+      >
+      </canvas
+    ></ng-container>
+  </div>
 </div>
