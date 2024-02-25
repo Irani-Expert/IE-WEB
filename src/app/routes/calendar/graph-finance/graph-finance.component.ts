@@ -61,14 +61,25 @@ export class GraphFinanceComponent {
     },
   };
   constructor(private baseService: BaseService<GraphFinance>) {
-    if (AppComponent.isBrowser.value) {
-      const ctx = document.createElement('canvas').getContext('2d')!;
-      this.gradient = ctx.createLinearGradient(0, 0, 0, 400);
-      this.gradient.addColorStop(0, 'rgba(47,206,122,0.5108018207282913)');
-      this.gradient.addColorStop(0.08, 'rgba(172,242,205,0.7780287114845938)');
-      this.gradient.addColorStop(0.15, 'rgba(255,255,255,0.8780287114845938)');
-      this.lineChartData.datasets[0].backgroundColor = this.gradient;
-    }
+    this.lineChartData.datasets[0].data.forEach((it) => {
+      if (typeof it === 'number') {
+        it = it * 100;
+      }
+      if (AppComponent.isBrowser.value) {
+        const ctx = document.createElement('canvas').getContext('2d')!;
+        this.gradient = ctx.createLinearGradient(0, 0, 0, 400);
+        this.gradient.addColorStop(0, 'rgba(47,206,122,0.5108018207282913)');
+        this.gradient.addColorStop(
+          0.08,
+          'rgba(172,242,205,0.7780287114845938)'
+        );
+        this.gradient.addColorStop(
+          0.15,
+          'rgba(255,255,255,0.8780287114845938)'
+        );
+        this.lineChartData.datasets[0].backgroundColor = this.gradient;
+      }
+    });
   }
 
   ngOnInit() {

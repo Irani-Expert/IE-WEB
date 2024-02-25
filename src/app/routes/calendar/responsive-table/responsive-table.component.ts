@@ -5,8 +5,9 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { CalEvent } from '../calendar-main-page/cal-event.model';
+import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
 
 @Component({
   selector: 'app-responsive-table',
@@ -38,14 +39,24 @@ import { CalEvent } from '../calendar-main-page/cal-event.model';
   ],
 })
 export class ResponsiveTableComponent {
-  @Input('tableData') table: CalEvent[] = new Array<CalEvent>();
+  table: CalEvent[] | undefined = new Array<CalEvent>();
   myState: string = 'select1';
+  constructor(private _ecoCalService: EcoCalService) {}
   ngOnInit() {
-    console.log(this.table);
+    this.getCalendarValues();
+  }
+  getCalendarValues() {
+    const pageObservable$ =
+      this._ecoCalService.paginatedCalendar.asObservable();
+    pageObservable$.subscribe({
+      next: (it) => {
+        if (it) {
+          this.table = it.items;
+        }
+      },
+    });
   }
   selectState(state: string) {
-    console.log(state);
-
     this.myState = state;
   }
 }
