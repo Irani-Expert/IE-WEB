@@ -35,7 +35,7 @@ export class BlogFilterComponent {
   //   }
   // }
   ngOnInit() {
-    console.log(this.categoryDetail);
+    // console.log(this.categoryDetail);
   }
   selectCategroy(it: any) {
     this.emitter.emit(it.id);
@@ -64,9 +64,7 @@ export class BlogFilterComponent {
   ];
   constructor(private router: Router) {}
   searchTag(searchingTag: string) {
-    searchingTag = searchingTag.slice(1);
-    console.log(searchingTag);
-
+    // searchingTag = searchingTag.slice(1);
     this.router.navigateByUrl(`search?search=${searchingTag}`);
   }
 }

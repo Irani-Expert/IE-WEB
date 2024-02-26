@@ -1,0 +1,130 @@
+<table class="calendar-table">
+  <tbody>
+    <ng-container *ngIf="!tableIsLoading">
+      <ng-container *ngFor="let item of table; let i = index">
+        <tr
+          class="cursor-pointer"
+          [ngClass]="item.active ? 'activated' : 'default'"
+        >
+          <td (click)="showDetails(item)"></td>
+          <td (click)="showDetails(item)" class="importance">
+            <span
+              [ngClass]="{
+              '!bg-transparent': item.active,
+              'bg-[#DFFF00]': item.importance == 1,
+              'bg-[#FF5B5B]': item.importance == 2,
+              'bg-[#FFD95B]': item.importance == 3,
+              'bg-[#FCF1F1]': item.importance == 0,
+            }"
+            ></span>
+          </td>
+          <td (click)="showDetails(item)" class="country">
+            <div
+              class="flex"
+              [ngClass]="item.active ? '!flex-row !items-center' : ''"
+            >
+              <i class="fi fi-{{ item.country.flag | lowercase }}"></i>
+              <span *ngIf="!item.active">{{
+                item.country.symbol | uppercase
+              }}</span>
+              <span *ngIf="item.active" class="inline-flex flex-col">
+                <p class="text-black text-sm font-medium">
+                  {{ item.event.time.slice(0, 5) }}
+                </p>
+                <p class="text-black text-xs font-medium line-h-custom">
+                  {{ item.country.symbol | uppercase }}
+                </p>
+              </span>
+            </div>
+          </td>
+          <!-- <span class="absolute" [ngClass]="item.active ? '' : '!w-0'">
+            <ng-container *ngIf="item.active">
+              <span
+                class="inline-flex p-1 w-10 h-10 rounded-full bg-[#E1E1E1] text-[#3246D3]"
+              >
+                {{ item.country.currencySymbol }}
+              </span>
+            </ng-container>
+          </span> -->
+          <td (click)="showDetails(item)" class="event">
+            <span *ngIf="!item.active" class="block text-black font-medium">
+              {{ item.event.time.slice(0, 5) }}
+            </span>
+            <p
+              [ngClass]="item.active ? 'font-bold' : 'font-medium'"
+              class="text-black"
+            >
+              {{ item.event.name }}
+            </p>
+          </td>
+          <ng-container *ngIf="!item.active">
+            <td (click)="showDetails(item)" class="pre-value">
+              <span class="font-bold text-lg">{{
+                item.prev_Value == "NaN" ? "__" : item.prev_Value
+              }}</span>
+              <span class="font-light text-sm">قبلی</span>
+            </td>
+            <td (click)="showDetails(item)" class="forecast-value">
+              <span class="font-bold text-lg">{{
+                item.forecast_Value == "NaN" ? "__" : item.forecast_Value
+              }}</span>
+              <span class="font-light text-sm">پیش‌بینی</span>
+            </td>
+            <td class="actual-value">
+              <ng-container *ngIf="item.actual_Value !== 'NaN'">
+                <span
+                  class="font-bold text-lg"
+                  [ngClass]="{
+                'text-[#00cb86]': item.impact_Type == 'POSITIVE',
+                'text-[#ff4444]': item.impact_Type == 'NEGATIVE',
+                }"
+                  >{{ item.actual_Value }}</span
+                >
+                <span class="font-light text-sm">واقعی</span>
+              </ng-container>
+              <ng-container *ngIf="item.actual_Value == 'NaN'">
+                <span class="cursor-pointer" (click)="getActualValue(item)">
+                  <i id="sync-{{ item.id }}" class="ie-sync"></i>
+                </span>
+                <span class="font-light text-sm">واقعی</span>
+              </ng-container>
+            </td>
+          </ng-container>
+          <ng-container *ngIf="item.active">
+            <td (click)="showDetails(item)"></td>
+            <td (click)="showDetails(item)"></td>
+            <td (click)="showDetails(item)">
+              <div class="flex items-center gap-3">
+                <span
+                  class="scale-150 block"
+                  [ngStyle]="{ '--importance-color': importance.color }"
+                >
+                  <app-importance />
+                </span>
+                <span
+                  class="inline-flex py-0.5 px-3 font-bold text-black rounded-md text-sm border-2 border-black  bg-[{{
+                    importance.color
+                  }}] "
+                  >{{ importance.title }}</span
+                >
+              </div>
+            </td>
+          </ng-container>
+        </tr>
+        <tr
+          id="event-details-{{ item.id }}"
+          [ngClass]="item.active ? 'active' : ''"
+          class="details"
+        >
+          <div *ngIf="item.active" class="absolute max-h-[100%] p-3 w-full">
+            <!-- sampleIDForDetail = '276010004'; -->
+            <app-table-detail class="block" [fieldID]="'276010004'" />
+          </div>
+        </tr>
+      </ng-container>
+    </ng-container>
+    <ng-container *ngIf="tableIsLoading">
+      <tr class="table-holder"></tr>
+    </ng-container>
+  </tbody>
+</table>

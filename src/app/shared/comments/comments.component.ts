@@ -92,17 +92,7 @@ export class CommentsComponent {
     this.getComment();
     formDataInit.id != this.rowId;
   }
-  ngAfterContentChecked() {
-    if (this._authservice._user.id != 0) {
-      this.completedFill = true;
-      this.form.controls['NameInfo'].setValue(
-        this._authservice._user.firstName + this._authservice._user.lastName
-      );
-      this.form.controls['NameInfo'].disable;
-      this.form.controls['Email'].setValue(this._authservice._user.username);
-      this.form.controls['Email'].disable;
-    }
-  }
+
   async getComment() {
     // await lastValueFrom(
     //   this._comment.get(
@@ -135,16 +125,19 @@ export class CommentsComponent {
     formData.rowID != this.rowId;
     formData.userID = this._authservice._user.id;
     if (await this.checkFormValidation(formData)) {
-      const apiRes = this._comment.post(
-        'Comment?authorID=' + this._authservice._user.id,
-        formData
-      );
-      if (await lastValueFrom(apiRes)) {
-        this.toaster.success('با موفقیت ثبت شد');
+      let address = 'Comment?authorID=' + this._authservice._user.id;
+      if (this._authservice._user.id == 0) {
+        address = 'Comment';
+        formData.userID = null;
       }
-    } else {
-      this.toaster.error('خطا در عملیات!!!');
-      console.log('Not Valid');
+      const apiRes = this._comment.post(address, formData);
+      const lastVal = await lastValueFrom(apiRes);
+      if (lastVal && lastVal.success) {
+        this.toaster.success('با موفقیت ثبت شد');
+        this.form.controls['textAr'].setValue('');
+      } else {
+        this.toaster.error('خطا در عملیات!!!');
+      }
     }
   }
   // ===================[رسپانسیو ]==================
@@ -156,9 +149,25 @@ export class CommentsComponent {
     this.form = new FormGroup({});
     this.formMaker.inputs.forEach((item) => {
       this.form.setControl(item.name, this.formMaker.createControl(item));
-      console.log(this._authservice._user.id);
     });
     this.formControls = this.formMaker.inputs;
+
+    var loggedIn$ = AuthService.loggedIn.asObservable();
+    loggedIn$.subscribe((res) => {
+      this.completeUserInfo();
+    });
+  }
+  completeUserInfo() {
+    if (this._authservice._user.id != 0) {
+      this.completedFill = true;
+      this.form.controls['NameInfo'].setValue(
+        this._authservice._user.firstName + this._authservice._user.lastName
+      );
+
+      this.form.controls['NameInfo'].disable;
+      this.form.controls['Email'].setValue(this._authservice._user.username);
+      this.form.controls['Email'].disable;
+    }
   }
   device: 'sm' | 'lg' = 'lg';
   async checkFormValidation(_formData: Comment) {

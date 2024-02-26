@@ -1,0 +1,57 @@
+<div class="block lg:hidden my-4">
+  <div class="flex w-full h-40 justify-center">
+    <div
+      class="w-full p-4 rounded-xl flex bg-white h-full condition"
+      [style]="'border-right-color:' + borderColor"
+    >
+      <div class="flex flex-col w-full">
+        <div class="flex flex-row w-full">
+          <div class="flex basis-1/12">
+            <div class="flex flex-col w-full">
+              <i
+                class="fi fi-{{ singleRow.country.flag | lowercase }} w-12"
+              ></i>
+              <p class="font-semibold text-lg mr-1 mt-2">
+                {{ singleRow.country.symbol | uppercase }}
+              </p>
+            </div>
+          </div>
+          <div class="pr-4 basis-11/12">
+            <p class="text-black">{{ singleRow.event.time.slice(0, 5) }}</p>
+            <p class="text-black">{{ singleRow.event.name }}</p>
+          </div>
+        </div>
+        <!-- ===========[پارت پایین]==== -->
+        <div
+          class="flex items-center justify-around flex-row divider w-full pt-2 h-full"
+        >
+          <div class="flex flex-col items-center">
+            <p>
+              {{ singleRow.prev_Value == "NaN" ? "__" : singleRow.prev_Value }}
+            </p>
+            <p class="text-sm">قبلی</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <p>
+              {{
+                singleRow.forecast_Value == "NaN"
+                  ? "__"
+                  : singleRow.forecast_Value
+              }}
+            </p>
+            <p class="text-sm">پیشبینی</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <!-- <i class="refresh-icon scale-110"></i> -->
+            <p>
+              {{
+                singleRow.actual_Value == "NaN" ? "__" : singleRow.actual_Value
+              }}
+            </p>
+            <p class="text-sm mt-2">واقعی</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,6 +7,11 @@
   -webkit-font-smoothing: antialiased;
   display: inline-block;
 }
+.ie-calendar {
+  &::before {
+    content: url(../assets/icon/calendar.svg);
+  }
+}
 .ie-chevron {
   &.right {
     transform: rotate(-90deg);
@@ -173,9 +178,28 @@
   content: url(../assets/icon/bg-yellow.svg);
   display: block;
 }
-
+// ======[ایکون های هدر]====
+.search-icon-gray {
+  content: url(../assets/icon/search-icon-gray.svg);
+  display: block;
+}
+.search-icon-white {
+  content: url(../assets/icon/search-icon-white.svg);
+  display: block;
+}
+.header-login-icon {
+  content: url(../assets/icon/header-login-icon.svg);
+  display: block;
+}
+.header-panel-icon {
+  content: url(../assets/icon/header-panel-icon.svg);
+  display: block;
+}
+.avatar-user-icon {
+  content: url(../assets/Gif/P-1.gif);
+  display: block;
+}
 // ======[ایکون های هوم]====
-
 .Arrow-left-icon-white {
   content: url(../assets/icon/Arrow-left-icon-white.svg);
   display: block;
@@ -208,7 +232,7 @@
   content: url(../assets/icon/icon-trade-school.webp);
   display: block;
 }
-.broker-search{
+.broker-search {
   content: url(../assets/icon/broker-search.svg);
   display: block;
 }
@@ -256,23 +280,23 @@
   content: url(../assets/icon/eye-icon.svg);
   display: block;
 }
-.link-box-icon-1{
+.link-box-icon-1 {
   content: url(../assets/icon/link-box-icon-1.webp);
   display: block;
 }
-.link-box-icon-2{
+.link-box-icon-2 {
   content: url(../assets/icon/link-box-icon-2.webp);
   display: block;
 }
-.link-box-icon-3{
+.link-box-icon-3 {
   content: url(../assets/icon/link-box-icon-3.webp);
   display: block;
 }
-.link-box-icon-4{
+.link-box-icon-4 {
   content: url(../assets/icon/link-box-icon-4.webp);
   display: block;
 }
-.link-box-icon-5{
+.link-box-icon-5 {
   content: url(../assets/icon/link-box-icon-5.webp);
   display: block;
 }
@@ -342,3 +366,69 @@
   content: url(../assets/icon/broker-group-icn.svg);
   display: block;
 }
+.ie-sync {
+  display: inline-block;
+  width: 19px;
+  height: 15px;
+  scale: 1.3;
+  &::before {
+    content: url(../assets/icon/sync.svg);
+    display: inline-block;
+  }
+  &.spin {
+    @extend .animate-spinner;
+  }
+}
+.ie-news {
+  display: inline-block;
+  &::before {
+    content: url(../assets/icon/News.svg);
+    display: inline-block;
+  }
+}
+.ie-importance {
+  .b {
+    fill: #0000ff !important;
+  }
+  display: inline-block;
+  &::before {
+    content: url(../assets/icon/importance.svg);
+    display: inline-block;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spinner {
+  animation: spin 1s linear infinite;
+}
+.td-compass {
+  content: url(../assets/icon/td-compass.svg);
+  display: block;
+}
+.td-pen {
+  content: url(../assets/icon/td-pen.svg);
+  display: block;
+}
+.td-slid {
+  content: url(../assets/icon/td-slid.svg);
+  display: block;
+}
+.openList {
+  content: url(../assets/icon/arrow.svg);
+  display: block;
+}
+// ======[ایکون های هرکشور]====
+
+// .descending-icon{
+//   content: url(../assets/icon/descending-icon.svg);
+//   display: block;
+// }
+
+// .ascending-icon{
+//   content: url(../assets/icon/ascending-icon.svg);
+//   display: block;
+// }

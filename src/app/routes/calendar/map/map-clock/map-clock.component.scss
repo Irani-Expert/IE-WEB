@@ -1,0 +1,68 @@
+.marker-position {
+  left: 0;
+  transform: translate(-50%, 20%);
+  top: 0;
+}
+
+.scroll {
+  animation: scrollTimezons 1.5s ease-in-out forwards;
+}
+
+.clock-item {
+  user-select: none;
+  .seperator-dashed {
+    display: flex;
+    margin: 2px 0;
+    width: 100%;
+    align-self: center;
+    border-bottom: 1px dashed #0498fb;
+  }
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0.25rem 0;
+  .city,
+  .time {
+    direction: ltr;
+    color: #0498fb;
+  }
+  .city {
+    font-weight: 500;
+    font-size: 0.925rem;
+  }
+  .time {
+    font-weight: 400;
+    font-size: 0.875rem;
+  }
+}
+
+.time-city-container {
+  .city,
+  .time {
+    direction: rtl;
+    color: #0498fb;
+  }
+  .city {
+    font-weight: 400;
+    font-size: 0.875rem;
+  }
+  .time {
+    font-weight: 700;
+    font-size: 0.925rem;
+  }
+  min-width: 65px;
+  right: 50%;
+  transform: translate(-20%, 10px);
+}
+
+@keyframes scrollTimezons {
+  to {
+    transform: translateY(-150%);
+  } /* Adjust the percentage based on card height and number of cards */
+}
+
+.bg-opactiy-custom {
+  background-color: #0000004b;
+  background-size: 50%;
+  // background-position:;
+}

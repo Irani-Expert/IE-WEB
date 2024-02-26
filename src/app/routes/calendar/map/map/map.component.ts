@@ -1,0 +1,40 @@
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { MapCountryComponent } from '../map-country/map-country.component';
+import { AppComponent } from 'src/app/app.component';
+import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
+import { Country } from '../map-country/country';
+import { MapClockComponent } from '../map-clock/map-clock.component';
+import { GraphFinanceComponent } from '../../graph-finance/graph-finance.component';
+
+@Component({
+  selector: 'app-map',
+  standalone: true,
+  imports: [
+    CommonModule,
+    MapCountryComponent,
+    MapClockComponent,
+    GraphFinanceComponent,
+  ],
+  templateUrl: './map.component.html',
+  styleUrls: ['./map.component.scss'],
+})
+export class MapComponent {
+  isLoading = true;
+  countries = new Array<Country>();
+
+  constructor(private _ecoCalService: EcoCalService) {
+    AppComponent.changeMainBg('creamy');
+  }
+  async ngOnInit() {
+    if (AppComponent.isBrowser.value) {
+      console.log('Appication is on Browser');
+    }
+    this.countries = (await this._ecoCalService.getCountriesByEvents()).data!;
+    this.isLoading = false;
+  }
+
+  ngOnDestroy() {
+    AppComponent.changeMainBg('white');
+  }
+}

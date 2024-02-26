@@ -5,7 +5,7 @@ import {
   HttpInterceptor,
   HttpEvent,
 } from '@angular/common/http';
-import { Observable, delay, finalize } from 'rxjs';
+import { Observable, finalize } from 'rxjs';
 import { AppComponent } from '../app.component';
 // import { finalize } from 'rxjs';
 // import { AuthService } from '../shared/auth/auth.service';
@@ -17,14 +17,12 @@ export class LoaderInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
+    if (req.url.includes('GetActualValByID')) {
+      return next.handle(req);
+    }
     AppComponent.loaderSubject.next(true);
-    return next.handle(req).pipe(
-      delay(200),
-      finalize(() => AppComponent.loaderSubject.next(false))
-    );
+    return next
+      .handle(req)
+      .pipe(finalize(() => AppComponent.loaderSubject.next(false)));
   }
-  // constructor(private auth: AuthService) {}
-  // intercept(request: HttpRequest<any>, next: HttpHandler) {
-
-  // }
 }

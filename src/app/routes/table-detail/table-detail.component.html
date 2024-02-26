@@ -1,0 +1,158 @@
+<div class="h-[22.5rem] overflow-y-auto">
+  <div
+    class="inner-tab hidden"
+    [ngClass]="active_tab == 1 ? 'fade-animation' : 'hidden'"
+    [innerHTML]="main_data.description"
+  ></div>
+  <div
+    class="inner-tab hidden"
+    [ngClass]="active_tab == 2 ? 'fade-animation' : 'hidden'"
+    [innerHTML]="main_data.iraniExpertDescription"
+  ></div>
+  <div [ngClass]="active_tab == 3 ? 'fade-animation' : 'hidden'">
+    <table class="w-full info-table">
+      <thead>
+        <tr class="border-b">
+          <th>تاریخ</th>
+          <th>مقدار قبلی</th>
+          <th>مقدار پیش بینی</th>
+          <th>مقدار واقعی</th>
+          <th>نهایی</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let x of historyTable | paginate : config">
+          <td>{{ x.date_ | date : "dd  MMM yyyy" }}</td>
+          <td>{{ x.prev_Value }}</td>
+          <td>{{ x.forecast_Value }}</td>
+          <td
+            [ngClass]="{
+              'text-[#CC3A39]': x.impact == 'NEGATIVE',
+              'text-[#0ACF6C]': x.impact == 'POSITIVE'
+            }"
+          >
+            {{ x.actual_Value }}
+          </td>
+          <td>{{ x.revised_Prev_Value }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="flex h-20 border-solid border-t-[1px] border-[#eaeaea]">
+  <div class="w-52 flex items-center" style="justify-content: space-evenly">
+    <div
+      class="detail-tab rounded-md"
+      [ngClass]="{ 'detail-active-tab': active_tab == 1 }"
+      (click)="selectTab(1)"
+    >
+      <i class="ie-icon td-slid w-5"></i>
+    </div>
+    <div
+      class="detail-tab rounded-md"
+      [ngClass]="{ 'detail-active-tab': active_tab == 2 }"
+      (click)="selectTab(2)"
+    >
+      <i class="ie-icon td-pen w-5"></i>
+    </div>
+    <div
+      class="detail-tab rounded-md"
+      [ngClass]="{ 'detail-active-tab': active_tab == 3 }"
+      (click)="selectTab(3)"
+    >
+      <i class="ie-icon td-compass w-5"></i>
+    </div>
+  </div>
+  <div class="flex items-center justify-around w-full" *ngIf="active_tab != 3">
+    <div class="flex flex-col text-center font-bold">
+      <span
+        class="text-[16px]"
+        [ngClass]="{
+          'text-[#CC3A39]': main_data.impact == 'NEGATIVE',
+          'text-[#0ACF6C]': main_data.impact == 'POSITIVE'
+        }"
+        >{{ main_data.actual_Value }}</span
+      >
+      <span class="text-xs text-gray-400">مقدار واقعی</span>
+    </div>
+    <div class="flex flex-col text-center font-bold">
+      <span class="text-[16px]">{{ main_data.forecast_Value }}</span>
+      <span class="text-xs text-gray-400">مقدار پیش بینی</span>
+    </div>
+    <div class="flex flex-col text-center font-bold">
+      <span class="text-[16px]">{{ main_data.revised_Prev_Value }}</span>
+      <span class="text-xs text-gray-400">مقدار قبلی</span>
+    </div>
+    <div class="flex flex-col text-center font-bold">
+      <span
+        class="text-[16px]"
+        [ngClass]="{
+          'text-[#CC3A39]':
+            main_data.impact == 'NEGATIVE' && main_data.changes != '--',
+          'text-[#0ACF6C]':
+            main_data.impact == 'POSITIVE' && main_data.changes != '--'
+        }"
+        >{{ main_data.changes }}</span
+      >
+      <span class="text-xs text-gray-400">مقدار تغییرات</span>
+    </div>
+    <div class="flex flex-col text-center font-bold">
+      <span class="text-[16px]">{{
+        main_data.date_ | date : "   dd/MM/yyyy"
+      }}</span>
+      <span class="text-xs text-gray-400">تاریخ</span>
+    </div>
+  </div>
+  <div class="flex items-center w-full" *ngIf="active_tab == 3">
+    <pagination-template
+      #p="paginationApi"
+      [id]="config.id!"
+      class="w-full flex justify-center"
+      (pageChange)="changePage($event)"
+    >
+      <div class="flex items-center">
+        <div>
+          <button
+            [disabled]="p.isFirstPage()"
+            class="flex items-center disabled:opacity-25"
+            (click)="p.previous()"
+          >
+            <p class="icon">&lt;</p>
+            <p class="page-btn mr-3 ml-6">صفحه قبلی</p>
+          </button>
+        </div>
+        <div
+          *ngFor="let page of p.pages"
+          [class.current]="p.getCurrent() === page.value"
+        >
+          <a
+            (click)="p.setCurrent(page.value)"
+            *ngIf="p.getCurrent() !== page.value"
+          >
+            <button
+              class="pagination-previous items-end ml-2"
+              [ngClass]="page.value == config.currentPage ? '' : 'isavtive'"
+            >
+              {{ page.label }}
+            </button>
+          </a>
+          <div *ngIf="p.getCurrent() === page.value">
+            <button class="pagination-previous items-end ml-2">
+              {{ page.label }}
+            </button>
+          </div>
+        </div>
+        <div>
+          <button
+            [disabled]="p.isLastPage()"
+            class="flex items-center disabled:opacity-25"
+            (click)="p.next()"
+          >
+            <p class="page-btn ml-3 mr-6">صفحه بعدی</p>
+            <p class="icon">&gt;</p>
+          </button>
+        </div>
+      </div>
+    </pagination-template>
+  </div>
+</div>

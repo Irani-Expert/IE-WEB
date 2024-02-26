@@ -52,18 +52,18 @@ const routes: Routes = [
         (m) => m.MoneymModule
       ),
   },
-  // {
-  //   path: 'calendar',
-  //   title: 'calendar',
+  {
+    path: 'calendar',
+    title: 'calendar',
 
-  //   loadChildren: () =>
-  //     import('./routes/calendar/module/calendar.module').then(
-  //       (m) => m.CalendarModule
-  //     ),
-  // },
+    loadChildren: () =>
+      import('./routes/calendar/module/calendar.module').then(
+        (m) => m.CalendarModule
+      ),
+  },
   {
     path: '**',
-    title: '404 - یافت نشد',
+    title: 'ایرانی اکسپرت ',
     component: NotFoundComponent,
   },
 ];

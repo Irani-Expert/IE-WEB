@@ -39,26 +39,30 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit {
     }
   }
   onTimeUpdate() {
-    this.video = document.getElementById(this.vId);
+    if (AppComponent.isBrowser.value) {
+      this.video = document.getElementById(this.vId);
 
-    this.percentage = (this.video.currentTime / this.video.duration) * 100;
+      this.percentage = (this.video.currentTime / this.video.duration) * 100;
 
-    this.progressbarLeft = this.percentage + '%';
-    if (this.percentage > 0.2) {
-      this.progressValue = this.percentage + 0.4;
+      this.progressbarLeft = this.percentage + '%';
+      if (this.percentage > 0.2) {
+        this.progressValue = this.percentage + 0.4;
+      } else {
+        this.progressValue = 0;
+      }
+      this.videoCurrentTime = this.video.currentTime;
+
+      if (this.video.currentTime > this.video.duration - 0.2) {
+        this.video.currentTime += 0.2;
+        this.pauseplay = false;
+        this.hidePuase = false;
+        this.video.pause();
+        this.progressbarLeft = '99%';
+      }
+      this.NumToTime(this.video.currentTime);
     } else {
-      this.progressValue = 0;
+      console.log('App is Running In Server');
     }
-    this.videoCurrentTime = this.video.currentTime;
-
-    if (this.video.currentTime > this.video.duration - 0.2) {
-      this.video.currentTime += 0.2;
-      this.pauseplay = false;
-      this.hidePuase = false;
-      this.video.pause();
-      this.progressbarLeft = '99%';
-    }
-    this.NumToTime(this.video.currentTime);
   }
   handleClick(event: any) {
     const clickedM = event.offsetX;

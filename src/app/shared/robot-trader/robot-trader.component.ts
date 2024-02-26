@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
+import { DomSanitizer, Meta, SafeHtml } from '@angular/platform-browser';
 import { AppComponent } from 'src/app/app.component';
+import { ITags } from 'src/app/classes/interfaces/tags.interface';
+import { BlogService } from 'src/app/classes/services/blog.service';
+import { environment } from 'src/environments/environment.dev';
 
 @Component({
   selector: 'app-robot-trader',
@@ -8,37 +11,56 @@ import { AppComponent } from 'src/app/app.component';
   styleUrls: ['./robot-trader.component.scss'],
 })
 export class RobotTraderComponent {
-  mainClass =
-    'm-0 p-0 gap-0 flex flex-col min-h-screen overflow-hidden lg:overflow-y-hidden lg:overflow-x-auto';
-  main: HTMLElement;
-  constructor(private _meta: Meta) {
-    this._meta.updateTag({
-      name: 'description',
-      content:
-        'ربات معامله گر(trader bot ) ATM از انواع رباتهای تمام اتوماتیک بوده و به کمک هوش مصنوعی با استفاده از یک دستیار ترید حد سود و ضرر را برای شما فراهم می کند.',
-    });
-    this._meta.updateTag({
-      name: 'author',
-      content: 'ایرانی اکسپرت',
-    });
-    this._meta.updateTag({
-      name: 'keywords',
-      content:
-        'دستیار معامله  گر-ربات خودکار- ربات ATM - ربات اتو تریدر-خرید ربات تریدر-ربات معامله گر  طلا- خرید ربات معامله گر- ربات اتوماتیک ترید-ساخت ربات معامله گر-',
-    });
+  constructor(private _meta: Meta , public blogService : BlogService , private _sanitizer : DomSanitizer) {
 
-    if (AppComponent.isBrowser.value) {
-      this.main = document.body.getElementsByTagName('main')[0];
-      this.main.className = `bg-[#FAFAFA] ${this.mainClass}`;
+
+    AppComponent.changeMainBg('creamy');
+  }
+  tags: ITags[];
+  contentUrl = environment.contentUrl;
+  sendDataToChild = false;
+  title: string = '';
+  language: string = '';
+  id: number = 0;
+  articleHtml: SafeHtml;
+
+  async ngAfterViewInit() {
+      if (await this.getDetail('expert-advisor', 'fa')) {
+        this.tags = this.blogService._blog!.sharpLinkTags;
+
+      this.id = Number(this.blogService._blog?.id);
+      this.articleHtml = this._sanitizer.bypassSecurityTrustHtml(
+        this.blogService._blog!.description
+      );
+      let keywords = '';
+      this.blogService._blog!.linkTags.forEach((item) => {
+        keywords += `${item.title.replace(/#/g, '')},`;
+      });
+      this._meta.updateTag({
+        name: 'description',
+        content:this.blogService._blog!.metaDescription
+        ,
+      });
+      this._meta.updateTag({
+        name: 'author',
+        content:
+        this.blogService._blog!.updatedByFirstName +
+        this.blogService._blog!.updatedByLastName,
+      });
+      this._meta.updateTag({
+        name: 'keywords',
+        content:
+        'دستیار معامله  گر-ربات خودکار- ربات ATM - ربات اتو تریدر-خرید ربات تریدر-ربات معامله گر  طلا- خرید ربات معامله گر- ربات اتوماتیک ترید-ساخت ربات معامله گر-',
+        // content:keywords,
+      });
+      this.sendDataToChild = true;
     }
   }
-  // =======[هشتگ ها]======
-  tags : Array<any> = [
-    {
-      title : '#ربات_معامله_گر ',
-      value : 1
-    }
-  ]
+
+  async getDetail(title: string, language: string) {
+    const apiRes = await this.blogService.getBlog(title, language);
+    return apiRes;
+  }
 
   listElems: Array<any> = [
     {
@@ -70,23 +92,23 @@ export class RobotTraderComponent {
       sub: [
         {
           title: 'مرحله 1: یک ربات را انتخاب کنید',
-          id: 7,
+          id: 6,
         },
         {
           title: 'مرحله 2: ربات را نصب کنید',
-          id: 8,
+          id: 6,
         },
         {
           title: 'مرحله 3: ربات را پیکربندی کنید',
-          id: 9,
+          id: 6,
         },
         {
           title: 'مرحله 4: ربات را تست کنید',
-          id: 10,
+          id: 6,
         },
         {
           title: 'مرحله 5: معامله با ربات را شروع کنید',
-          id: 11,
+          id: 6,
         },
       ],
       active: false,
@@ -128,23 +150,23 @@ export class RobotTraderComponent {
       sub: [
         {
           title: '‏1. استراتژی و تاریخچه عملکرد',
-          id: 19,
+          id: 18,
         },
         {
           title: '‏2. قابلیت سفارشی سازی',
-          id: 20,
+          id: 18,
         },
         {
           title: '‏3. رابط کاربر پسند',
-          id: 21,
+          id: 18,
         },
         {
           title: '‏4. پشتیبانی مشتری',
-          id: 22,
+          id: 18,
         },
         {
           title: '‏5. انتظارات سود واقعی',
-          id: 23,
+          id: 18,
         },
       ],
       active: false,
@@ -156,67 +178,11 @@ export class RobotTraderComponent {
       active: false,
     },
   ];
-  blue_cards: Icardlist[] = [
-    {
-      header: 'مرحله 1: یک ربات را انتخاب کنید',
-      text: ' اولین قدم در معامله با یک ربات تریدر، انتخاب یک ربات است که متناسب با نیاز شما باشد. ربات‌های زیادی در بازار موجود هستند، شما باید تحقیقات خود را انجام دهید تا ربات‌هایی را پیدا کنید که با اهداف و ترجیحات تجاری شما مطابقت دارد. برخی از عواملی که هنگام انتخاب ربات باید در نظر گرفته شوند عبارتند از استراتژی معاملاتی، سابقه عملکرد و سطح .سفارشی سازی موجود',
-      id: '7',
-    },
-    {
-      header: 'مرحله 2: ربات را نصب کنید',
-      text: 'هنگامی که یک ربات را انتخاب کردید، مرحله بعدی نصب آن بر روی پلتفرم معاملاتی است. بیشتر ربات ‌ها برای کار با متاتریدر 4 یا 5 طراحی شده اند که یک پلت فرم معاملاتی محبوب در بین معامله گران فارکس است. برای نصب ربات، باید فایل ربات را دانلود کنید، پلتفرم MetaTrader را باز کنید، گزینه File را از نوار منو انتخاب کنید و سپس روی Open Data Folder کلیک کنید. با این کار پوشه ای که باید فایل ربات را در آن کپی کنید باز می‌شود. پس از کپی کردن فایل، پلتفرم را مجددا راه اندازی کنید و ربات برای استفاده در دسترس خواهد بود.',
-      id: '8',
-    },
-    {
-      header: 'مرحله 3: ربات را پیکربندی کنید',
-      text: 'پس از نصب ربات، باید آن را مطابق با ترجیحات تجاری خود پیکربندی کنید. این شامل تنظیم پارامترهای معاملاتی مانند اندازه لات، حد ضرر و سطوح سود است. همچنین باید پارامترهای مدیریت ریسک مانند حداکثر تعداد معاملات مجاز در روز را تنظیم کنید. این به شما کمک می‌کند تا ریسک خود را مدیریت کنید و از ضررهای قابل توجه جلوگیری کنید.',
-      id: '9',
-    },
-    {
-      header: 'مرحله 4: ربات را تست کنید',
-      text: 'قبل از شروع تجارت با ربات، باید آن را در یک حساب آزمایشی آزمایش کنید. یک حساب آزمایشی به شما امکان می‌دهد عملکرد ربات را بدون ریسک کردن پول واقعی آزمایش کنید. آزمایش ربات به شما کمک می‌کند تا هر گونه مشکل یا اشکال در نرم افزار را شناسایی کرده و از درست کارکرد آن اطمینان حاصل کنید. شما باید ربات را برای چند هفته آزمایش کنید تا درک بهتری از عملکرد آن داشته باشید و تنظیمات را به خوبی تنظیم کنید.',
-      id: '10',
-    },
-    {
-      header: 'مرحله 5: معامله با ربات را شروع کنید',
-      text: 'هنگامی که ربات را آزمایش کردید و از عملکرد آن راضی بودید، می‌توانید تجارت با آن را در یک حساب کاربری، با سرمایه واقعی شروع کنید. شما باید با سرمایه کمی شروع کنید و با کسب تجربه و اطمینان بیشتر در عملکرد ربات به تدریج سرمایه گذاری خود را افزایش دهید. همچنین باید عملکرد ربات را به طور منظم زیر نظر داشته باشید و در صورت نیاز تنظیمات آن را تغییر دهید. این به شما کمک می‌کند تا عملکرد ربات را بهینه کنید و سود خود را به حداکثر برسانید.',
-      id: '11',
-    },
-  ];
-  blue_cards2: Icardlist[] = [
-    {
-      header: '1. استراتژی و تاریخچه عملکرد',
-      text: 'قبل از سرمایه گذاری روی یک ربات فارکس، درک استراتژی پشت آن ضروری است. هر ربات بر اساس مجموعه ای منحصر به فرد از قوانین و الگوریتم ‌ها عمل می‌کند. برخی از ربات‌ها ممکن است به گونه‌ای برنامه‌ریزی شوند که از استراتژی‌های پیروی از روند پیروی کنند، در حالی که برخی دیگر ممکن است بر اساس سبک ترید اسکالپ تمرکز کنند. بسیار مهم است که رباتی را پیدا کنید که با اهداف و ترجیحات تجاری شما هماهنگ باشد. علاوه بر این، بررسی تاریخچه عملکرد یک ربات فارکس بسیار مهم است. به دنبال ربات‌هایی باشید که سوابق تأیید شده یا حداقل یک گزارش جامع از بک تست ارائه می‌کنند. این به شما ایده می‌دهد که ربات در شرایط مختلف بازار چگونه عمل کرده است و آیا پتانسیل ارائه سود ثابت را دارد یا خیر.',
-      id: '19',
-    },
-    {
-      header: '2. قابلیت سفارشی سازی',
-      text: 'هر معامله گر دارای ترجیحات منحصر به فرد و سطوح تحمل ریسک است. یک ربات خوب، باید امکان سفارشی سازی را برای مطابقت با نیازهای فردی فراهم کند. به دنبال ربات‌هایی باشید که پارامترهای قابل تنظیمی را ارائه می‌دهند، مانند سطوح توقف ضرر و سود، اندازه‌های لات و تنظیمات مدیریت ریسک. امکان تغییر این تنظیمات می‌تواند به تنظیم عملکرد ربات با نیازهای خاص شما کمک کند.',
-      id: '20',
-    },
-    {
-      header: '3. رابط کاربر پسند',
-      text: 'همه معامله‌گران از فناوری آگاه نیستند و اسفتاده از یک ربات فارکس با رابط کاربری پیچیده می‌تواند چالش‌برانگیز باشد. توانایی درک آسان و کار با ربات باعث صرفه جویی در وقت و سرمایه شما می‌شود.',
-      id: '21',
-    },
-    {
-      header: '4. پشتیبانی مشتری',
-      text: 'ربات های معامله گر مانند هر نرم افزار دیگری ممکن است با مشکلات فنی مواجه شوند یا نیاز به عیب یابی داشته باشند. بنابراین، انتخاب یک ربات که پشتیبانی قابل اعتماد مشتری را ارائه می‌دهد بسیار مهم است. به دنبال ارائه دهندگانی باشید که پاسخ های سریع به سوالات ارائه می‌دهند و به خدمات عالی به مشتریان شهرت دارند.',
-      id: '22',
-    },
-    {
-      header: '‏5. انتظارات سود واقعی',
-      text: 'در حالی که ربات‌ها می‌توانند معاملات را خودکار کنند و به طور بالقوه سود ایجاد کنند، داشتن انتظارات واقع بینانه بسیار مهم است. مراقب ربات‌هایی باشید که وعده سود نجومی را به شما می‌دهند یا سود ثابتی را تضمین می‌کنند. بازارهای مالی بسیار بی ثبات هستند و هیچ رباتی نمی تواند سود را در تمام شرایط بازار تضمین کند. به دنبال ربات‌هایی باشید که انتظارات سود معقولی را ارائه می‌کنند و بر مدیریت ریسک تأکید دارند.',
-      id: '23',
-    },
-  ];
   ngOnDestroy() {
-    this.main.className = this.mainClass;
+    AppComponent.changeMainBg('white');
   }
-}
 
-interface Icardlist {
-  header: string;
-  text: string;
-  id: string;
+  get isBrowser() {
+    return AppComponent.isBrowser.value;
+  }
 }

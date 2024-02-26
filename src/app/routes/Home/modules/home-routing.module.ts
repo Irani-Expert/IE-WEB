@@ -15,12 +15,15 @@ const routes: Routes = [
   { path: 'about-us', title: 'چرا ما؟ ', component: AboutUsComponent },
   {
     path: 'expert-advisor',
-    title: 'ربات معامله گر ',
+    title:
+      'موفقیت های ربات های معامله ‎گر در سال 2023 چیست ؟ نحوه عملکرد + دانلود ',
     component: RobotTraderComponent,
   },
+  //موفقیت ربات های معامله گر (traderbot)در سال 2023 چیست؟ نحوه عملکرد +دانلود
   {
     path: 'copy-trade',
-    title: 'کپی ترید',
+    title:
+      ' بهترین کپی تریدینگ (copytrading) فارکس در بازارهای مالی 2023| سود تضمینی',
     component: CopyTradeComponent,
   },
   {

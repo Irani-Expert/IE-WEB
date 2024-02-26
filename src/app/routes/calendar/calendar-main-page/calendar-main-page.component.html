@@ -5,3 +5,84 @@
 >
 <app-countries-currency></app-countries-currency>
 <app-voice-player></app-voice-player>
+
+<div class="flex max-lg:hidden gap-5 items-stretch">
+  <div class="flex flex-col basis-1/3">
+    <div class="bg-whit|e rounded-2xl shadow-sm p-5">
+      <app-date-picker (calDate)="setCalDate($event)"></app-date-picker>
+    </div>
+    <div class="bg-white rounded-2xl shadow-sm p-5 my-5">
+      <app-symbols
+        (listOfSelectedItems)="setSymbolServices($event)"
+      ></app-symbols>
+    </div>
+    <div class="bg-white rounded-2xl shadow-sm p-5">
+      <app-sector-filter
+        (sections)="setSectionServices($event)"
+      ></app-sector-filter>
+    </div>
+  </div>
+
+  <div
+    class="basis-2/3 bg-white px-2 py-1 rounded-2xl shadow-sm border border-[#EAEAEA] relative hidden"
+  >
+    <div class="w-full my-2 mx-2 flex items-center">
+      <div class="mx-2">
+        <i class="ie-news"></i>
+      </div>
+      <div class="mx-2">
+        <span class="block text-sm">تقویم اقتصادی</span>
+        <span class="inline-block text-[#0498FB] text-sm font-medium">
+          {{ today }}
+        </span>
+      </div>
+      <div class="flex items-center ml-4 mr-auto space-x-2">
+        <span class="block text-sm ml-4"> اهمیت</span>
+        <ng-container *ngFor="let i of importances">
+          <span
+            (click)="i.active = !i.active; setImportance(i)"
+            class="rounded-md border-[1.5px] holder-icon cursor-pointer hover:bg-slate-200"
+            [ngClass]="
+              i.active
+                ? 'bg-[#E7F3FB] border-[#0498FB]'
+                : 'bg-white border-[#BCBCBC]'
+            "
+          >
+            <span
+              class="scale-95 block w-full"
+              [ngStyle]="{ '--importance-color': i.color }"
+            >
+              <app-importance />
+            </span>
+          </span>
+        </ng-container>
+      </div>
+    </div>
+    <table-calendar />
+    <div class="mt-12" style="border: 1px solid #f0f0f0 !important"></div>
+  </div>
+</div>
+<div class="flex items-center justify-center">
+  <div style="width: 40rem">
+    <app-responsive-table></app-responsive-table>
+  </div>
+</div>
+<!-- <div>
+  <button
+    class="bg-black rounded-xl w-20 text-white"
+    (click)="showMore(pageNumber + 1, 'want-more')"
+  >
+    بیشتر
+  </button>
+  <button
+    class="bg-black rounded-xl w-20 text-white"
+    (click)="showMore(undefined, 'getted')"
+  >
+    بیشتر
+  </button>
+  <button class="bg-black rounded-xl w-20 text-white" (click)="showLess()">
+    کمش کن
+  </button>
+</div> -->
+
+<app-calendar-description />

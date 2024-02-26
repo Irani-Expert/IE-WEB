@@ -1,1 +1,16 @@
 /
+/expert-advisor
+/about-us
+/money-management
+/copy-trade
+/articles/how-to-make-money-in-dollars/fa
+/articles/what-is-forex/fa
+/articles/capital-management/fa
+/articles/trade-psychology/fa
+/articles/backtest/fa
+/articles/broker-terms/fa
+/articles/programming-languages-in-the-financial-market/fa
+/articles/catalog/fa
+/articles/catalog/en
+/articles/free-forex-robot/fa
+/articles/best-expert/fa

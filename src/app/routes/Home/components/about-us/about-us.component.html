@@ -1,11 +1,11 @@
 <div class="flex lg:flex-row-reverse flex-col m-6">
-  <app-video-player
-    class="lg:w-1/2 h-[25rem]"
-    [VideoId]="100"
-    [Link]="
-      'https://dl.iraniexpert.com//uploads/images/videos/about-us/about-us1.mp4'
-    "
-  ></app-video-player>
+  <ng-container *ngIf="isBrowser">
+    <app-video-player
+      class="lg:w-1/2 h-[25rem]"
+      [VideoId]="100"
+      [Link]="'https://dl.iraniexpert.com//uploads/images/article/aboutus.mp4'"
+    ></app-video-player>
+  </ng-container>
   <div class="lg:w-1/2 md:p-8">
     <h1 class="sm:text-4xl text-2xl font-extrabold md:m-6 md:ms-0 ms-3 md:mt-9">
       درباره ایرانی اکسپرت
@@ -190,7 +190,9 @@
     و نتایج معاملات ربات معامله گر</span
   >
 </div>
-<app-video-slider></app-video-slider>
+<ng-container *ngIf="isBrowser">
+  <app-video-slider></app-video-slider>
+</ng-container>
 
 <!-- <div class="item">
   <h2 class="font-bold text-3xl mt-4">شامل معیارهای استاندارد</h2>

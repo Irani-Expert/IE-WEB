@@ -26,9 +26,6 @@ export class SingleBrokerComponent {
   dataLoaded$ = this.dataLoaded.asObservable();
   apiData: ApiBrokerModel = new ApiBrokerModel();
   brokerData: SingleBrokerULModel = new SingleBrokerULModel();
-  mainClass =
-    'm-0 p-0 gap-0 flex flex-col min-h-screen overflow-hidden lg:overflow-y-hidden lg:overflow-x-auto';
-  main: HTMLElement;
   title: string;
   constructor(
     public brokerService: BrokerService,
@@ -38,18 +35,13 @@ export class SingleBrokerComponent {
     private _meta: Meta,
     private _title: Title
   ) {
-    if (AppComponent.isBrowser.value) {
-      this.main = document.body.getElementsByTagName('main')[0];
-      this.main.className = `bg-white lg:bg-[#FAFAFA] ${this.mainClass}`;
-    }
+    AppComponent.changeMainBg('creamy');
     this._state.url.subscribe(
       (it) => (this.title = it[0].path.split('_').join(' '))
     );
   }
   ngOnDestroy() {
-    if (AppComponent.isBrowser.value) {
-      this.main.className = this.mainClass;
-    }
+    AppComponent.changeMainBg('white');
   }
   async ngOnInit() {
     this.brokerService.singleBroker$.subscribe((it) => {
@@ -149,17 +141,17 @@ export class SingleBrokerComponent {
     this.dataLoaded.next(true);
     // this.dataLoaded.complete();
   }
-  async transparentImg(id: number | string) {
-    // setTimeout(() => {
-    //   const imgEl = document.getElementById(`transparent-img-${id}`);
-    //   if (imgEl instanceof HTMLImageElement) {
-    //     // imgEl.
-    //     imgEl.crossOrigin = 'anonymous';
-    //     let imgBaseColor = GetAverageRGB(imgEl);
-    //     console.log(imgBaseColor);
-    //   }
-    // }, 2000);
-  }
+  // async transparentImg(id: number | string) {
+  // setTimeout(() => {
+  //   const imgEl = document.getElementById(`transparent-img-${id}`);
+  //   if (imgEl instanceof HTMLImageElement) {
+  //     // imgEl.
+  //     imgEl.crossOrigin = 'anonymous';
+  //     let imgBaseColor = GetAverageRGB(imgEl);
+  //     console.log(imgBaseColor);
+  //   }
+  // }, 2000);
+  // }
   setSeo(apiData = new ApiBrokerModel()) {
     let keywords = '';
     apiData.linkTags.forEach((item) => {

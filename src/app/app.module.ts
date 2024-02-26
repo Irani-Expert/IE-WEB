@@ -1,5 +1,8 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {
+  BrowserModule,
+  provideClientHydration,
+} from '@angular/platform-browser';
 import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { HeaderLayoutComponent } from './components/header-layout/header-layout.component';
@@ -21,7 +24,8 @@ import { LoaderInterceptor } from './classes/loader.interceptor';
 import { LottieModule } from 'ngx-lottie';
 import { LoaderComponent } from './components/loader/loader.component';
 import { ToastrModule } from 'ngx-toastr';
-
+import { JWTInterceptor } from './classes/jwt.interceptor';
+import { NgChartsModule } from 'ng2-charts';
 export function playerFactory(): any {
   return import('lottie-web');
 }
@@ -49,12 +53,19 @@ const footer = [FooterComponent];
     Checkbox,
     SearchComponent,
     LoaderComponent,
+    NgChartsModule,
     LottieModule.forRoot({ player: playerFactory }),
     ToastrModule.forRoot(),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
+    provideClientHydration(),
     BaseService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JWTInterceptor,
+      multi: true,
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoaderInterceptor,

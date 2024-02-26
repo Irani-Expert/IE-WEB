@@ -1,30 +1,21 @@
-@import "tailwind";
 @import "ngx-toastr/toastr";
 @import "./variables";
 @import "./colors";
 @import "./mixins";
 @import "./typography";
 @import "./icons";
-@import "./components/loader";
 @import "./forms";
-@import "./components/prdproperties";
-@import "./components/modals";
-@import "./components/switcher";
-@import "./components/toggler";
-@import "./components/spinner";
-@import "./components/otp";
-@import "./components/lotties";
-@import "./components/filter";
-@import "./components/priceRange";
-@import "./components/carousel";
-@import "./components/blogs";
-@import "./components/triangle";
-@import "./components/toastr";
+@import "./components/components";
+@import "./components/instagram-baner";
+@import "./components/ckeditor";
+@import "./components/header";
+@import "./components/search";
+@import "./components/tooltips";
 body {
-  font-family: $font-family-base;
-  font-size: $font-size-base;
+  font-family: $font-family-base !important;
+  font-size: $font-size-base !important;
   // background-color: $darken-white;
-  word-spacing: $word-spacing-base;
+  word-spacing: $word-spacing-base !important;
 }
 
 .button-styles {
@@ -85,55 +76,6 @@ body {
   border-bottom-right-radius: 5rem;
 
   background-color: white;
-}
-.dropdown {
-  text-align: center;
-  position: absolute;
-  margin-top: 12px;
-  width: 8rem;
-  height: auto;
-  background: $dropDown-bg;
-  border: 1px solid $darken-white;
-  border-radius: 15px;
-  transform: translateX(-50%);
-  left: 50%;
-  .dropdown-ul {
-    padding: 5px;
-  }
-  .dropdown-li {
-    padding: 2px 4px;
-    border-radius: 5px;
-    cursor: pointer;
-
-    margin: 7px 0;
-    p {
-      font-size: 0.75rem;
-    }
-  }
-  .dropdown-ul:after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-bottom: 10px solid $dropDown-bg;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .dropdown-ul::before {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-bottom: 11px solid $darken-white;
-    border-left: 11px solid transparent;
-    border-right: 11px solid transparent;
-    top: -11px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
 }
 .border-01 {
   border-width: 0.1px;
@@ -196,4 +138,55 @@ body {
   border-radius: 36%;
   z-index: 1;
   opacity: 0.34;
+}
+
+.mat-calendar-controls {
+  flex-direction: row-reverse;
+}
+.mat-calendar-previous-button {
+  order: 1;
+}
+.mat-calendar-body-selected {
+  background-color: #0080ff !important;
+}
+// .mat-calendar-body-in-range {
+//   background-color: #0080ff47 !important;
+// }
+.mat-h3,
+.mat-subtitle-1,
+.mat-typography .mat-h3,
+.mat-typography .mat-subtitle-1,
+.mat-typography h3 {
+  font-size: 0.82rem;
+  font-weight: initial !important;
+  line-height: 0 !important;
+  font-family: $font-family-base !important;
+  font-size: $font-size-base !important;
+  letter-spacing: initial !important;
+  margin: initial !important;
+}
+.mat-calendar-table-header-divider::after {
+  position: static !important;
+}
+.mat-calendar-table-header {
+  th {
+    font-size: 17.5px !important;
+    font-weight: 600 !important;
+    color: #000000 !important;
+  }
+}
+.mat-calendar-body-cell-content {
+  font-size: 16px !important;
+  width: 70% !important;
+  height: 70% !important;
+}
+.mat-calendar-body-cell::before,
+.mat-calendar-body-cell::after,
+.mat-calendar-body-cell-preview {
+  height: 70% !important;
+}
+.mat-calendar-body-range-start:not(
+    .mat-calendar-body-in-comparison-range
+  )::before {
+  width: 77% !important;
 }

@@ -1,0 +1,67 @@
+.dynamic-list {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 17px;
+  font-weight: 600;
+  color: #acacac;
+}
+.activated-tab {
+  color: #000000;
+  font-size: 18px;
+}
+.hideTab {
+  animation: hideAnimatio 0.1s ease 0s 1 normal forwards;
+  position: absolute;
+}
+.showtab {
+  order: 0;
+}
+@keyframes hideAnimatio {
+  100% {
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+  }
+}
+@keyframes disablehideAnimatio {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+label {
+  font-family: sans-serif;
+  font-size: 1rem;
+  padding-right: 10px;
+}
+
+select {
+  font-size: 0.9rem;
+  padding: 2px 5px;
+}
+.cal-date {
+  display: flex;
+  justify-content: space-around;
+  height: 5.5rem;
+  background-color: #0498fb;
+  margin-top: 10px;
+}
+.cal-date-field {
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-weight: 200;
+  flex-direction: column;
+}
+.calActive {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 0, 0, 0) 39%,
+    rgb(251 251 251 / 36%) 100%
+  );
+}

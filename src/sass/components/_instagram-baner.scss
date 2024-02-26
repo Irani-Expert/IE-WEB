@@ -1,0 +1,42 @@
+@media (min-width: 640px) {
+    .ins-baner {
+      max-width: 575px;
+      min-width: 490px;
+      min-height: 6rem;
+    }
+    .logo-i {
+      padding: 0px 32px;
+    }
+  }
+  @media (max-width: 640px) {
+    .ins-baner {
+      min-height: 5rem;
+    }
+    .logo-i {
+      padding: 0px 22px;
+    }
+  }
+  
+  .link-ins {
+    border-radius: 30px;
+  }
+  .logo-ins {
+    transform: translate(0px, -26px);
+    width: 5rem !important;
+  }
+  .ins-baner {
+    background: rgb(93, 0, 255);
+    background: linear-gradient(
+      267deg,
+      rgba(93, 0, 255, 1) 24%,
+      rgba(173, 62, 115, 1) 45%,
+      rgba(240, 210, 20, 1) 82%
+    );
+    border-radius: 22px;
+  }
+  .ins-desc{
+    font-weight: 700;
+    font-size: 0.75rem;
+    color: white;
+  }
+  

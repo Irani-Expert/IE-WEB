@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { AcordianComponent } from './acordian/acordian.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { CommentsComponent } from './comments/comments.component';
 import { Toggler } from './toggler/toggler.component';
 import { ScrollComponent } from './scroll/scroll.component';
@@ -19,12 +19,23 @@ import { VoteComponent } from './vote/vote.component';
 import { FreeAdviceComponent } from '../routes/Home/free-advice/free-advice.component';
 import { ConsultationFormComponent } from '../routes/Home/components/consultation-form/consultation-form.component';
 import { ShareLinkBoxComponent } from './share-link-box/share-link-box.component';
-
+import { SectorFilterComponent } from './sector-filter/sector-filter.component';
+import { FilterPipe } from 'src/ts/filterNgfor.pipe';
+import { SymbolsComponent } from '../routes/calendar/symbols/symbols.component';
+import { NgxTippyModule } from 'ngx-tippy-wrapper';
+import { DatePickerComponent } from './date-picker/date-picker.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {
+  DefaultMatCalendarRangeStrategy,
+  MatRangeDateSelectionModel,
+} from '@angular/material/datepicker';
 const components = [
   AcordianComponent,
   CommentsComponent,
   TagsComponent,
   ScrollComponent,
+  DatePickerComponent,
   VideoPlayerComponent,
   LottieComponent,
   ContentMenuComponent,
@@ -34,7 +45,9 @@ const components = [
   VoteComponent,
   FreeAdviceComponent,
   ConsultationFormComponent,
-  ShareLinkBoxComponent
+  ShareLinkBoxComponent,
+  SectorFilterComponent,
+  SymbolsComponent,
 ];
 @NgModule({
   imports: [
@@ -44,16 +57,24 @@ const components = [
     DragScrollModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxTippyModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
-  exports: [components, LottieModule, DragScrollModule],
+  exports: [components, LottieModule, DragScrollModule, NgxTippyModule],
   declarations: [
     components,
     ScrollComponent,
     NotFoundComponent,
     ContentMenuComponent,
     ShareLinkBoxComponent,
+    FilterPipe,
   ],
-  providers: [],
+  providers: [
+    DefaultMatCalendarRangeStrategy,
+    MatRangeDateSelectionModel,
+    DatePipe,
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SharedModule {}

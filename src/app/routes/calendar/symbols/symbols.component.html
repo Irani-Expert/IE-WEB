@@ -1,0 +1,12 @@
+<h3>نمادها</h3>
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr">
+  <div
+    class="flex my-2 py-2 symbol-card cursor-pointer"
+    *ngFor="let item of items"
+    [ngClass]="{ 'symbol-active-tab': item.isActive }"
+    (click)="activate(item.name)"
+  >
+    <i class="fi {{ item.icon }} filter-icn"></i
+    ><span class="flex items-end">{{ item.name }}</span>
+  </div>
+</div>
