@@ -46,7 +46,7 @@ const routes: Routes = [
   },
   {
     path: 'money-management',
-    title: 'مقالات ایرانی اکسپرت',
+    title: 'تکنیک های مدیریت سرمایه (CM) چیست؟اصول مدیریت ریسک و سرمایه گذاری',
     loadChildren: () =>
       import('./routes/Money-Management/module/money-m.module').then(
         (m) => m.MoneymModule
