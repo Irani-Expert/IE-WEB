@@ -1,0 +1,74 @@
+.row-detail {
+    border: 1px solid #EAEAEA;
+    border-radius: 20px;
+    padding: 1.5rem 2.5rem;
+}
+.history{
+    background-color: #0399FE;
+    color: white;
+    font-weight: 700;
+    border-radius: 17px;
+    position: absolute;
+    padding: 0.5rem 1rem 0.25rem 1rem;
+
+}
+.box-country{
+    border: 1px solid #EAEAEA;
+    border-radius: 20px;
+    padding: 1rem;
+}
+
+/* <!-- ........{ رسپانسیو}........... --> */
+
+@media (width < 768px) {
+
+    .history{
+        font-size: 1.5rem;
+        transform: translate(-3rem, 37.75rem) !important;
+    }
+
+    .row-detail{
+        width: 328px !important;
+    }
+}
+
+@media (width < 1280px) {
+
+    .history{
+        font-size: 1.5rem;
+        transform: translate(-17rem, 18.75rem);
+      }
+
+    .box-country{
+        height: 127px;
+    }
+
+    .row-detail{
+        width: 755px;
+    }
+}
+
+
+@media (width >= 1280px) {
+
+    .history{
+        font-size: 1.35rem;
+        transform: translate(-30rem, 9rem);
+      }
+    
+    .box-country{
+        height: 123px;
+    }
+
+    .row-detail{
+        width: 100%;
+    }
+}
+
+@media (width >= 1536px) {
+
+    .history{
+        font-size: 1.6rem;
+        transform: translate(-37rem, 9rem);
+    }
+}
