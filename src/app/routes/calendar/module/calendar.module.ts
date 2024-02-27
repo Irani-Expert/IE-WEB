@@ -21,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalendarCardResponsiveComponent } from '../calendar-card-responsive/calendar-card-responsive.component';
 import { CardFinanceComponent } from '../card-finance/card-finance.component';
 import { NgChartsModule } from 'ng2-charts';
+import { ModalComponent } from 'src/app/shared/modal/modal.component';
 
 const components = [
   CalendarMainPageComponent,
@@ -34,11 +35,12 @@ const components = [
   CountriesCurrencyComponent,
   CalendarDescriptionComponent,
   LandingSingleCountryComponent,
-  CardFinanceComponent
+  CardFinanceComponent,
 ];
 @NgModule({
   declarations: [components],
   imports: [
+    ModalComponent,
     CommonModule,
     NgChartsModule,
     Toggler,
