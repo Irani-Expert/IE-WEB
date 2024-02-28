@@ -2,11 +2,9 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CalendarModuleRouting } from './calendar-routing.module';
 import { CalendarMainPageComponent } from '../calendar-main-page/calendar-main-page.component';
-import { MapsModule } from '@syncfusion/ej2-angular-maps';
 import { AutoplaySliderComponent } from 'src/app/shared/autoplay-slider/autoplay-slider.component';
 import { AudioPlayerComponent } from 'src/app/shared/audio-player/audio-player.component';
 import { CalDetailComponent } from 'src/app/shared/cal-detail/cal-detail.component';
-import { TradingviewComponent } from 'src/app/shared/tradingview/tradingview.component';
 // import { EcoCalFiltersComponent } from 'src/app/shared/eco-cal-filters/eco-cal-filters.component';
 import { Toggler } from 'src/app/shared/toggler/toggler.component';
 import { SharedModule } from 'src/app/shared/shared.module';
@@ -22,6 +20,7 @@ import { CalendarCardResponsiveComponent } from '../calendar-card-responsive/cal
 import { CardFinanceComponent } from '../card-finance/card-finance.component';
 import { NgChartsModule } from 'ng2-charts';
 import { CountryDetailComponent } from '../country-detail/country-detail.component';
+import { TradingViewComponent } from 'src/app/components/trading-view/trading-view.component';
 
 const components = [
   CalendarMainPageComponent,
@@ -30,18 +29,18 @@ const components = [
   AudioPlayerComponent,
   CalendarCardResponsiveComponent,
   CalDetailComponent,
-  TradingviewComponent,
   ImportantNewsComponent,
   CountriesCurrencyComponent,
   CalendarDescriptionComponent,
   LandingSingleCountryComponent,
   CardFinanceComponent,
-  CountryDetailComponent
+  CountryDetailComponent,
 ];
 @NgModule({
   declarations: [components],
   imports: [
     CommonModule,
+    TradingViewComponent,
     NgChartsModule,
     Toggler,
     SharedModule,
@@ -49,7 +48,6 @@ const components = [
     FormsModule,
     ReactiveFormsModule,
     TableCalendar,
-    MapsModule,
     CalendarModuleRouting,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

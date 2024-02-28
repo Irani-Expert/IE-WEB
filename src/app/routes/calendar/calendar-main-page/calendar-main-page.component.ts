@@ -9,6 +9,7 @@ import { TableCalendar } from 'src/app/shared/table-calendar/table-calendar.comp
 import { DatePipe } from '@angular/common';
 
 import { CalEvent } from './cal-event.model';
+import { TradingViewComponent } from 'src/app/components/trading-view/trading-view.component';
 interface trend_data {
   currency: string;
   percent: string;
@@ -57,6 +58,7 @@ export class CalendarMainPageComponent {
     AppComponent.changeMainBg('creamy');
   }
   async ngAfterViewInit() {
+    TradingViewComponent.createView();
     this.filter$.subscribe({
       next: async (item) => {
         this.appTableComponent.tableIsLoading = true;

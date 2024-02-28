@@ -13,6 +13,7 @@ import { LinkService } from './classes/services/link.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  trade = false;
   lottieConfig = {
     width: '50vw',
     height: 'auto',
@@ -84,6 +85,7 @@ export class AppComponent {
       }
     }
   }
+  ngAfterViewInit() {}
 }
 // Get Blogs
 // loading = true;
