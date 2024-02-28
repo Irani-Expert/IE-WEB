@@ -37,7 +37,7 @@
         />
         <div class="absolute flex h-full w-full items-end">
           <div class="mr-8 max-sm:mb-4">
-            <div class="divider blue-back w-1/4 h-1"></div>
+            <div class="divider w-1/4 h-1" [style]="'background-color:' + color"></div>
             <span class="text-2xl block font-bold text-white">
               {{ blogService._blog!.title }}
             </span>
@@ -71,7 +71,7 @@
           >انتشار : {{ blogService._blog?.publishDate | date }}</small
         >
         <small class="ms-6 font-light"
-          >زمان مطالعه {{ blogService._blog!.studyTime }} دقیقه</small
+          >زمان مطالعه {{ blogService._blog!.studyTime.split(':')[1] }} دقیقه</small
         >
       </div>
       <div
@@ -86,7 +86,7 @@
         />
         <div class="absolute flex h-full w-full items-end">
           <div class="mb-8 mr-12">
-            <div class="divider blue-back w-1/4 h-1"></div>
+            <div class="divider blue-back w-1/4 h-1" [style]="'background-color:' + color"></div>
             <span class="title-blog-img text-white block">
               {{ blogService._blog!.title }}
             </span>

@@ -31,6 +31,7 @@ class SingleBlogModel implements SingleBlog {
   linkTags: [{ title: string; value: number }] = [{ title: '', value: 0 }];
   sharpLinkTags: [{ title: string; value: number }] = [{ title: '', value: 0 }];
   faQs: FAQ[] = new Array<FAQ>();
+  colorCode: string;
 }
 
 @Component({
@@ -39,9 +40,25 @@ class SingleBlogModel implements SingleBlog {
   styleUrls: ['./hero-m.component.scss']
 })
 export class HeroMComponent {
+  color : string;
+
   @Input('data') articleModel: SingleBlogModel = new SingleBlogModel();
 
   contentUrl = environment.contentUrl;
-  
-  color = '#0066FF';
+
+  ngOnInit(){
+
+    if (this.articleModel.colorCode == null || undefined){
+      this.color = '#0066FF';
+    } 
+    else{
+      this.color = this.articleModel.colorCode;        
+    }
+    
+    if (this.articleModel.studyTime == null || undefined){
+      this.articleModel.studyTime = '00:15:00'
+    } 
+
+
+  }
 }

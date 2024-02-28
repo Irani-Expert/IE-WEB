@@ -23,6 +23,7 @@ class BlogModel implements Blog {
   brief: string = '';
   language?: string = '';
   favoriteCount : number = 0;
+  colorCode: string;
 
 }
 @Component({

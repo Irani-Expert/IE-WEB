@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment.dev';
   styleUrls: ['./copy-trade.component.scss'],
 })
 export class CopyTradeComponent {
+  color : string;
   constructor(private _meta: Meta , public blogService : BlogService , private _sanitizer : DomSanitizer){}
     
     tags: ITags[];
@@ -52,6 +53,18 @@ export class CopyTradeComponent {
       // content: keywords,
     });
       this.sendDataToChild = true;
+    }
+
+    if (this.blogService._blog!.studyTime == null || undefined){
+      
+      this.blogService._blog!.studyTime = '00:15:00'
+    } 
+
+    if (this.blogService._blog!.colorCode == null || undefined){
+      this.color = '#0066FF';
+    } 
+    else{
+      this.color = this.blogService._blog!.colorCode;        
     }
   }
 

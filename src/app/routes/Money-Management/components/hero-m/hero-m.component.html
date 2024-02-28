@@ -14,7 +14,7 @@
   </h1>
   <div class="flex mt-3">
     <p class="date ml-10">انتشار : {{articleModel.publishDate | date}}</p>
-    <p class="date">زمان مطالعه {{articleModel.studyTime}} دقیقه</p>
+    <p class="date">زمان مطالعه {{articleModel.studyTime.split(':')[1]}} دقیقه</p>
   </div>
   <!-- ================[عکس شاخص]========== -->
   <div class="flex relative mt-4">
@@ -60,7 +60,7 @@
   </span>
   <div class="flex mt-3">
     <p class="date-mobile ml-10">انتشار : {{articleModel.publishDate | date}}</p>
-    <p class="date-mobile">زمان مطالعه {{articleModel.studyTime}} دقیقه</p>
+    <p class="date-mobile">زمان مطالعه {{articleModel.studyTime.split(':')[1]}} دقیقه</p>
   </div>
   <p class="mt-8">
     {{articleModel.brief}}

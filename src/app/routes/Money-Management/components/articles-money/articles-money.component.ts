@@ -31,6 +31,8 @@ class SingleBlogModel implements SingleBlog {
   linkTags: [{ title: string; value: number }] = [{ title: '', value: 0 }];
   sharpLinkTags: [{ title: string; value: number }] = [{ title: '', value: 0 }];
   faQs: FAQ[] = new Array<FAQ>();
+  colorCode: string;
+
 }
 
 @Component({

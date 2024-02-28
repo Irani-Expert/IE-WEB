@@ -19,7 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalendarCardResponsiveComponent } from '../calendar-card-responsive/calendar-card-responsive.component';
 import { CardFinanceComponent } from '../card-finance/card-finance.component';
 import { NgChartsModule } from 'ng2-charts';
-import { CountryDetailComponent } from '../country-detail/country-detail.component';
+import { ModalComponent } from 'src/app/shared/modal/modal.component';
 import { TradingViewComponent } from 'src/app/components/trading-view/trading-view.component';
 
 const components = [
@@ -34,11 +34,11 @@ const components = [
   CalendarDescriptionComponent,
   LandingSingleCountryComponent,
   CardFinanceComponent,
-  CountryDetailComponent,
 ];
 @NgModule({
   declarations: [components],
   imports: [
+    ModalComponent,
     CommonModule,
     TradingViewComponent,
     NgChartsModule,

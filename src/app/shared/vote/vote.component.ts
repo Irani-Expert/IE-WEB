@@ -3,6 +3,7 @@ import { SingleBlog } from 'src/app/classes/interfaces/blog.interface';
 import { FAQ } from 'src/app/routes/Home/components/questions/interfaces/faq-interfce';
 
 class SingleBlogModel implements SingleBlog {
+  colorCode: string;
   createDate: string = '';
   id: number = 0;
   title: string = '';
