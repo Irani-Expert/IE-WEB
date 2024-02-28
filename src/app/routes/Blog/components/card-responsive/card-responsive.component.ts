@@ -16,6 +16,7 @@ class BlogModel implements Blog {
   publishDate: string = '';
   brief: string = '';
   favoriteCount : number = 0;
+  colorCode: string;
 
 }
 

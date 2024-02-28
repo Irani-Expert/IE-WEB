@@ -7,6 +7,7 @@ import { Utils } from 'src/app/classes/utils';
 import { FAQ } from 'src/app/routes/Home/components/questions/interfaces/faq-interfce';
 import { environment } from 'src/environments/environment.dev';
 class SingleBlogModel implements SingleBlog {
+  colorCode: string;
   createDate: string = '';
   id: number = 0;
   title: string = '';
@@ -49,7 +50,7 @@ export class BlogDetailComponent {
   // =======================[رسپانسیو]==========
 
   device: 'sm' | 'lg' = 'lg';
-  color = '#0066FF';
+  color : string;
 
   @HostListener('window:resize', ['$event'])
   onResize() {
@@ -75,6 +76,19 @@ export class BlogDetailComponent {
     this.setPage();
 
     this.setArticleDetail();
+
+    if (this.articleModel.colorCode == null || undefined){
+      this.color = '#0066FF';
+    } 
+    else{
+      this.color = this.articleModel.colorCode;        
+    }
+
+    if (this.articleModel.studyTime == null || undefined){
+      
+      this.articleModel.studyTime = '00:15:00'
+    } 
+
   }
   setPage() {
     if (AppComponent.isBrowser.value) {
@@ -82,7 +96,7 @@ export class BlogDetailComponent {
       Utils.scrollTopWindow();
     }
   }
-  ngAfterViewInit() {}
+  // ngAfterViewInit() {}
   // ngOnDestroy() {}
   // ngOnInit() {}
   // ngDoCheck() {}

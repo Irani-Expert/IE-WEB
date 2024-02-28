@@ -27,7 +27,7 @@
         >انتشار : {{blogService._blog!.publishDate | date}}</span
       >
       <span class="text-base text-gray-600 font-light"
-        >زمان مطالعه {{blogService._blog!.studyTime}} دقیقه</span
+        >زمان مطالعه {{blogService._blog!.studyTime.split(':')[1]}} دقیقه</span
       >
     </div>
     <div
@@ -39,7 +39,7 @@
       />
       <div class="absolute flex h-full w-full items-center mb-10">
         <div class="mt-60 mr-12">
-          <div class="divider blue-back w-1/4 h-1"></div>
+          <div class="divider w-1/4 h-1" [style]="'background-color:' + color"></div>
           <span class="title-blog-img text-white text-4xl font-semibold">
           {{blogService._blog!.title}}  
           </span>

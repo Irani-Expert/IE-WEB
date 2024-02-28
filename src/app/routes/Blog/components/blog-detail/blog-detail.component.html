@@ -12,7 +12,7 @@
   <h1 class="title-blog">{{ articleModel.title }}</h1>
   <div class="flex mt-3">
     <p class="date ml-10">اننتشار :{{ articleModel.createDate | date }}</p>
-    <p class="date">زمان مطالعه {{ articleModel.studyTime }}دقیقه</p>
+    <p class="date">زمان مطالعه {{ articleModel.studyTime.split(':')[1] }}دقیقه</p>
   </div>
   <!-- ================[عکس شاخص]========== -->
   <div class="flex relative mt-4">
@@ -82,7 +82,7 @@
       اننتشار :{{ articleModel.createDate | date }}
     </p>
     <p class="date-mobile">
-      زمان مطالعه : {{ articleModel.studyTime || "0" }}دقیقه
+      زمان مطالعه : {{ articleModel.studyTime.split(':')[1] }}دقیقه
     </p>
   </div>
   <p class="mt-8">
