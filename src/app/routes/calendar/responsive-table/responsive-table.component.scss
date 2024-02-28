@@ -65,3 +65,13 @@ select {
     rgb(251 251 251 / 36%) 100%
   );
 }
+@media (max-width: 350px) {
+  .res-scale {
+    scale: 0.6;
+  }
+}
+@media (max-width: 410px) {
+  .res-scale {
+    scale: 0.8;
+  }
+}

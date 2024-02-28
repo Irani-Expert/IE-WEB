@@ -28,36 +28,63 @@
 </div>
 <div class="flex flex-col mt-3">
   <div [ngClass]="myState == 'select1' ? 'showtab ' : 'hideTab absolute'">
-    <div>
+    <div
+      class="max-[350px]:scale-[0.65] max-[410px]:scale-[0.8]"
+      style="width: 30rem"
+    >
       <div
         class="flex flex-row-reverse justify-between h-[2.4rem] bg-[#0498fb] px-8"
       >
         <div class="flex text-white mt-2">
-          <select class="w-[109px] bg-[#0498fb] text-base">
-            <option value="">January</option>
-            <option value="February">February</option>
-            <option value="March">March</option>
-            <option value="April">April</option>
-            <option value="May">May</option>
-            <option value="June">June</option>
-            <option value="July">July</option>
-            <option value="September">September</option>
-            <option value="October">October</option>
-            <option value="November">November</option>
-            <option value="December">December</option>
+          <select
+            class="w-[109px] bg-[#0498fb] !text-base"
+            [(ngModel)]="selectedMonth"
+            (change)="selectDate(selectedDay)"
+          >
+            <option value="0">January</option>
+            <option value="1">February</option>
+            <option value="2">March</option>
+            <option value="3">April</option>
+            <option value="4">May</option>
+            <option value="5">June</option>
+            <option value="6">July</option>
+            <option value="7">august</option>
+            <option value="8">September</option>
+            <option value="9">October</option>
+            <option value="10">November</option>
+            <option value="11">December</option>
           </select>
-          <strong class="flex items-center text-lg">2023</strong>
+          <strong class="flex items-center text-lg">{{ selectedYear }}</strong>
         </div>
         <div class="flex items-center">
-          <i class="ie-icon ie-calendar h-4"></i>
+          <i
+            class="ie-icon ie-calendar h-4"
+            (click)="modalStatus = !modalStatus"
+          ></i>
         </div>
       </div>
-      <div class="cal-date px-3">
-        <div class="cal-date-field w-1/5 py-3">
-          <span class="text-xl"> 13</span>
-          <small>جمعه</small>
+      <div
+        class="cal-date px-3 cursor-grabbing"
+        (touchmove)="dragd($event)"
+        (touchend)="dragOver($event)"
+      >
+        <div
+          class="flex"
+          style="position: relative; display: flex"
+          [ngStyle]="{ transform: 'translateX(' + tranformValue + 'rem)' }"
+        >
+          <div
+            class="cal-date-field w-[6rem] py-3 cursor-grabbing"
+            *ngFor="let item of resdate"
+            (click)="selectDate(item.day)"
+            [ngClass]="{ calActive: item.day == selectedDay }"
+          >
+            <span class="text-xl">{{ item.day }}</span>
+            <small>{{ item.name }}</small>
+          </div>
         </div>
 
+        <!-- 
         <div class="cal-date-field w-1/5 py-3">
           <span class="text-xl"> 12</span>
           <small>پنج شنبه</small>
@@ -66,14 +93,14 @@
           <span class="text-xl"> 11</span>
           <small>چهار شنبه</small>
         </div>
-        <div class="cal-date-field w-1/5 py-3 calActive">
+        <div class="cal-date-field w-1/5 py-3">
           <span class="text-xl"> 10</span>
           <small>سه شنبه</small>
         </div>
         <div class="cal-date-field w-1/5 py-3">
           <span class="text-xl"> 09</span>
           <small>دو شنبه</small>
-        </div>
+        </div> -->
       </div>
     </div>
     <app-calendar-card-responsive
@@ -88,3 +115,6 @@
     <app-sector-filter></app-sector-filter>
   </div>
 </div>
+<app-modal [header]="true" [overflow]="'auto'" [width]="'10'">
+  <div content>sss</div>
+</app-modal>
