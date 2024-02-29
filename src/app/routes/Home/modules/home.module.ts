@@ -71,13 +71,14 @@ const components = [
   AboutusTargetsComponent,
   // DiscountBannerComponent,
   BlueCardsComponent,
-  QAComponent
+  QAComponent,
 ];
 @NgModule({
   declarations: [components],
   imports: [
     CommonModule,
     HomeRoutingModule,
+    // FavoriteComponent,
     FormsModule,
     NgxSliderModule,
     ReactiveFormsModule,

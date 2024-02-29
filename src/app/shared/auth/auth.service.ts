@@ -92,7 +92,6 @@ export class AuthService extends BaseService<User | ILogin | IForgetPassword> {
       firstName: data.firstName,
       lastName: data.lastName,
       token: data.token,
-      favourites: data.favourites,
     };
     this.userSubject.next(user);
     AuthService.loggedIn.next(true);
@@ -104,14 +103,13 @@ export class AuthService extends BaseService<User | ILogin | IForgetPassword> {
       firstName: data.firstName,
       lastName: data.lastName,
       token: data.token,
-      favourites: data.favourites,
     };
-    let favorites = data.favourites;
+
     let token = data.token;
     this.localStorage.setItem('info', JSON.stringify(info));
     this.localStorage.setItem('token', token);
-    this.localStorage.setItem('favorites', JSON.stringify(favorites));
     this.userSubject.next(info);
+
     AuthService.loggedIn.next(true);
   }
   logOutUser() {
@@ -119,7 +117,6 @@ export class AuthService extends BaseService<User | ILogin | IForgetPassword> {
     this.userSubject.next(userInit);
     this.localStorage.removeItem('info');
     this.localStorage.removeItem('token');
-    this.localStorage.removeItem('favorites');
   }
   async checkValidToken() {
     const token = this.localStorage.getItem('token');

@@ -6,6 +6,7 @@ import { AuthService } from './shared/auth/auth.service';
 import { Header } from './components/header-layout/header';
 import { NavigationEnd, Router } from '@angular/router';
 import { LinkService } from './classes/services/link.service';
+import { UserClaimService } from './classes/services/user-claim.service';
 
 @Component({
   selector: 'app-root',
@@ -31,6 +32,7 @@ export class AppComponent {
   ) {
     if (this.platform.isPlatformBrowser()) {
       AppComponent.isBrowser.next(true);
+
       this._router.events.subscribe({
         next: (it) => {
           if (it instanceof NavigationEnd) {
