@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserClaimService } from 'src/app/classes/services/user-claim.service';
 
@@ -6,12 +6,22 @@ import { UserClaimService } from 'src/app/classes/services/user-claim.service';
   selector: 'app-favorite',
   standalone: true,
   imports: [CommonModule],
-  // providers: [UserClaimService],
+
   templateUrl: './favorite.component.html',
   styleUrls: ['./favorite.component.scss'],
 })
 export class FavoriteComponent {
-  constructor(public _userClaimService: UserClaimService) {
-    this._userClaimService.getFavs();
+  @Input('id') rowID: number = 0;
+  @Input('tableType') tableType: number = 0;
+  contentLoaded = false;
+  constructor(public _userClaimService: UserClaimService) {}
+
+  ngAfterContentInit() {
+    this.contentLoaded = true;
+  }
+  get isFavorited() {
+    let res = this._userClaimService.checkFav(this.rowID, this.tableType);
+
+    return res;
   }
 }
