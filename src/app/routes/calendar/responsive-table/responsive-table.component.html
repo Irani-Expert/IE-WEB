@@ -57,10 +57,7 @@
           <strong class="flex items-center text-lg">{{ selectedYear }}</strong>
         </div>
         <div class="flex items-center">
-          <i
-            class="ie-icon ie-calendar h-4"
-            (click)="modalStatus = !modalStatus"
-          ></i>
+          <i class="ie-icon ie-calendar h-4" (click)="choosRangeDate()"></i>
         </div>
       </div>
       <div
@@ -109,12 +106,23 @@
     ></app-calendar-card-responsive>
   </div>
   <div [ngClass]="myState == 'select2' ? 'showtab ' : 'hideTab absolute'">
-    <app-symbols></app-symbols>
+    <app-symbols
+      (listOfSelectedItems)="setSymbolServices($event)"
+    ></app-symbols>
   </div>
   <div [ngClass]="myState == 'select3' ? 'showtab ' : 'hideTab absolute'">
-    <app-sector-filter></app-sector-filter>
+    <app-sector-filter
+      (sections)="setSectionServices($event)"
+    ></app-sector-filter>
   </div>
 </div>
-<app-modal [header]="true" [overflow]="'auto'" [width]="'10'">
-  <div content>sss</div>
+<app-modal
+  [header]="true"
+  *ngIf="modalStatus"
+  [overflow]="'auto'"
+  [width]="'10'"
+>
+  <div content>
+    <app-date-picker (calDate)="setCalDate($event)"></app-date-picker>
+  </div>
 </app-modal>

@@ -66,7 +66,6 @@ export class TableCalendar {
         if (it) {
           this.events.push(...it.items!);
           this.setTable(it.items);
-          console.log(2);
         }
       },
     });
