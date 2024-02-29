@@ -16,6 +16,8 @@ export interface Blog {
   brief: string;
   createDate: string;
   favoriteCount : number;
+  colorCode: string;
+
 }
 export interface SingleBlog {
   createDate: string;
@@ -42,6 +44,7 @@ export interface SingleBlog {
   metaDescription: string;
   browserTitle: string;
   favoriteCount : number;
+  colorCode: string;
   linkTags: [
     {
       title: string;

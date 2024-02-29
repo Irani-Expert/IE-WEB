@@ -11,6 +11,8 @@ import { environment } from 'src/environments/environment.dev';
   styleUrls: ['./robot-trader.component.scss'],
 })
 export class RobotTraderComponent {
+  color : string;
+
   constructor(private _meta: Meta , public blogService : BlogService , private _sanitizer : DomSanitizer) {
 
 
@@ -54,6 +56,17 @@ export class RobotTraderComponent {
         // content:keywords,
       });
       this.sendDataToChild = true;
+      if (this.blogService._blog!.studyTime == null || undefined){
+      
+        this.blogService._blog!.studyTime = '00:15:00'
+      } 
+  
+      if (this.blogService._blog!.colorCode == null || undefined){
+        this.color = '#0066FF';
+      } 
+      else{
+        this.color = this.blogService._blog!.colorCode;        
+      }
     }
   }
 

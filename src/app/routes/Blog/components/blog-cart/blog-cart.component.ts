@@ -19,6 +19,8 @@ class BlogModel implements Blog {
   browserTitle: string = '';
   brief: string = '';
   favoriteCount : number = 0;
+  colorCode: string;
+
 }
 @Component({
   selector: 'app-blog-cart',
@@ -51,6 +53,10 @@ export class BlogCartComponent {
     else {
       this.like = this.item.favoriteCount;
     }
+
+    if (this.item.studyTime == null || undefined){
+      this.item.studyTime = '00:15:00'
+    }     
   }
   getUrl(){
     let language = this.item.isRTL ? 'fa' : 'en';

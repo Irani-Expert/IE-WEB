@@ -45,7 +45,7 @@
             itemHero[0].language
           "
           class="box-hover pt-24"
-          [style]="'background-color:' + red"
+          [style]="'background-color:' + (itemHero[0].colorCode ? itemHero[0].colorCode : red)"
         >
           <div class="row-hover flex gap-24 items-center">
             <p class="row-p1">
@@ -68,7 +68,7 @@
                 item.browserTitle.split(' ').join('_') + '/' + item.language
               "
               class="box-hover pt-8"
-              [style]="'background-color:' + x[i + 1].color"
+              [style]="'background-color:' + (item.colorCode ? item.colorCode : x[i + 1].color)"
             >
               <div class="row-hover flex gap-8 items-center">
                 <p class="row-p3">
@@ -203,12 +203,12 @@
                     </a>
                     <div
                       class="box-shadow"
-                      [style]="'box-shadow: 0px -20px 46px 66px' + x[i].color"
+                      [style]="'box-shadow: 0px -20px 46px 66px ' + (item.colorCode ? item.colorCode : '#0066FF')"
                     ></div>
                     <div class="img-description-row">
                       <div
                         class="divider-mobile"
-                        [style]="'background-color:' + x[i].color"
+                        [style]="'background-color:' +( item.colorCode ? item.colorCode : '#0066FF')"
                       ></div>
                       <a
                       target="_blank"
@@ -250,7 +250,7 @@
                     انتشار: {{ item.publishDate | date }}
                   </p>
                   <p class="date-carousel mr-4">
-                    زمان مطالعه: {{ item.viewsCount % 25 }} دقیقه
+                    زمان مطالعه: {{item.studyTime ? item.studyTime.split(':')[1] : '15'}} دقیقه
                   </p>
                 </div>
               </div>
