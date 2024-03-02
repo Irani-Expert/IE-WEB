@@ -8,6 +8,7 @@ import { BlogService } from 'src/app/classes/services/blog.service';
 import { Utils } from 'src/app/classes/utils';
 import { BlogHeroComponent } from '../blog-hero/blog-hero.component';
 import { Router } from '@angular/router';
+import { LinkService } from 'src/app/classes/services/link.service';
 
 @Component({
   selector: 'app-landing-blog',
@@ -26,8 +27,10 @@ export class LandingBlogComponent {
   constructor(
     private blogService: BlogService,
     private meta: Meta,
-    private router: Router
+    private router: Router,
+    private _linkService: LinkService
   ) {
+    this._linkService.createLink(`https://www.iraniexpert.com/articles`);
     AppComponent.changeMainBg('creamy');
   }
   async getItemBlogs(filters: FilterBlog) {

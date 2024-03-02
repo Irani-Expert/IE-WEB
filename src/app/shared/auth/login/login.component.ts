@@ -10,7 +10,6 @@ import {
   trigger,
 } from '@angular/animations';
 import { InputForm, InputIcon, InputInterface } from 'src/app/classes/input';
-import { UserClaimService } from 'src/app/classes/services/user-claim.service';
 const formDataInit: ILogin = { password: '', username: '' };
 @Component({
   selector: 'app-login',
@@ -83,10 +82,7 @@ export class LoginComponent {
   form: FormGroup;
   formControls: InputInterface[];
   rememberMe: boolean = false;
-  constructor(
-    private authService: AuthService,
-    private _userClaimService: UserClaimService
-  ) {
+  constructor(private authService: AuthService) {
     this.form = new FormGroup({});
     this.formMaker.inputs.forEach((item) => {
       this.form.setControl(item.name, this.formMaker.createControl(item));
@@ -109,8 +105,6 @@ export class LoginComponent {
       let res = this.authService.login(formData, this.rememberMe);
       if ((await res) == false) {
         this.loading = false;
-      } else {
-        this._userClaimService.getFavs(54);
       }
     } else {
       console.log('Not Valid');

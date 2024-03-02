@@ -1,15 +1,36 @@
 import { Injectable } from '@angular/core';
 import { BaseService } from './base.service';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { LocalStorageService } from '../local-storage';
 import { Favorite } from '../interfaces/favorite';
-import { BehaviorSubject, lastValueFrom } from 'rxjs';
+import {
+  BehaviorSubject,
+  Observable,
+  catchError,
+  lastValueFrom,
+  map,
+} from 'rxjs';
+import { Result } from '../result';
+import { environment } from 'src/environments/environment.dev';
+import { PageInterface } from '../page.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class UserClaimService extends BaseService<Favorite[]> {
+export class UserClaimService extends BaseService<
+  PageInterface<Favorite[]> | Favorite
+> {
+  override headers: HttpHeaders = new HttpHeaders({
+    accept: 'application/json',
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Origin': '*',
+    Pragma: 'no-cache',
+    Expires: '0',
+    'Cache-Control':
+      'no-cache, no-store, must-revalidate, post-check=0, pre-check=0',
+  });
   favoriteSubject = new BehaviorSubject<Favorite[]>(new Array<Favorite>());
   constructor(
     http: HttpClient,
@@ -35,8 +56,8 @@ export class UserClaimService extends BaseService<Favorite[]> {
     this.localStorage.setItem('favorites', JSON.stringify(favorites));
   }
 
-  removeFavorites() {
-    this.localStorage.removeItem('favorites');
+  removeOnLogOut() {
+    this.favoriteSubject.next(new Array<Favorite>());
   }
 
   async getFavs(userId: number) {
@@ -47,7 +68,8 @@ export class UserClaimService extends BaseService<Favorite[]> {
       })
     );
     const { data, success } = await lastValueFrom(request);
-    if (data) this.favoriteSubject.next(data);
+
+    if (data) this.favoriteSubject.next(data.items!);
 
     return success;
   }
@@ -59,9 +81,63 @@ export class UserClaimService extends BaseService<Favorite[]> {
       (it) => it.rowID == rowID && it.tableType == tableType
     );
     if (index == -1) {
-      return true;
+      return 0;
     } else {
-      return false;
+      return favs[index].id;
     }
+  }
+
+  async removeFav(id: number) {
+    const req = this.delete(`AspNetUserClaim/${id}`).pipe(
+      map((it) => {
+        debugger;
+        let favs = this.favoriteSubject.value;
+        let index = favs.findIndex((it) => it.id == id);
+        favs.splice(index, 1);
+        this.favoriteSubject.next(favs);
+        return it;
+      })
+    );
+    return (await lastValueFrom(req)).success;
+  }
+
+  async addFav(rowID: number, tableType: number, userID: number) {
+    let favorite: Favorite = {
+      claimType: 0,
+      createDate: null,
+      rowID: rowID,
+      tableType: tableType,
+      userId: userID,
+      id: 0,
+    };
+    const req = this.post('AspNetUserClaim', favorite);
+    const res = await lastValueFrom(req);
+    this.favoriteSubject.value.push(res.data!);
+  }
+
+  // Overrides
+
+  override get(
+    path: string,
+    params?: HttpParams | undefined
+  ): Observable<Result<PageInterface<Favorite[]>>> {
+    return this.http
+      .get<Result<PageInterface<Favorite[]>>>(`${environment.apiUrl + path}`, {
+        headers: this.headers,
+        params: params,
+      })
+      .pipe(catchError(this.handleError));
+  }
+
+  override post(path: string, body: any): Observable<Result<Favorite>> {
+    return this.http
+      .post<Result<Favorite>>(`${environment.apiUrl + path}`, body, {
+        headers: this.headers,
+      })
+      .pipe(
+        map((res) => {
+          return res;
+        })
+      );
   }
 }

@@ -4,9 +4,6 @@ import { PlatformService } from './classes/services/platform.service';
 
 import { AuthService } from './shared/auth/auth.service';
 import { Header } from './components/header-layout/header';
-import { NavigationEnd, Router } from '@angular/router';
-import { LinkService } from './classes/services/link.service';
-import { UserClaimService } from './classes/services/user-claim.service';
 
 @Component({
   selector: 'app-root',
@@ -24,26 +21,9 @@ export class AppComponent {
   // modalStatus;
   static isBrowser = new BehaviorSubject<boolean>(false);
   title = 'IE-WEB';
-  constructor(
-    private platform: PlatformService,
-    private auth: AuthService,
-    private _router: Router,
-    private _linkService: LinkService,
-    private _userClaimService: UserClaimService
-  ) {
+  constructor(private platform: PlatformService, private auth: AuthService) {
     if (this.platform.isPlatformBrowser()) {
       AppComponent.isBrowser.next(true);
-
-      this._router.events.subscribe({
-        next: (it) => {
-          if (it instanceof NavigationEnd) {
-            it.urlAfterRedirects = it.urlAfterRedirects.split('?')[0];
-            this._linkService.createLink(
-              `https://www.iraniexpert.com${it.urlAfterRedirects}`
-            );
-          }
-        },
-      });
     }
   }
   async ngOnInit() {
@@ -51,7 +31,6 @@ export class AppComponent {
       Header._btnDisabled = true;
       let res = await this.auth.checkValidToken();
       if (res[0]) {
-        this._userClaimService.getFavs(this.auth._user.id);
         Header._btnDisabled = false;
         this.auth.rememberUser(res[1]);
       } else {

@@ -9,6 +9,7 @@ import { Blog } from 'src/app/classes/interfaces/blog.interface';
 import { FilterBlog } from 'src/app/classes/interfaces/filter-blog.interface';
 import { ActivatedRoute } from '@angular/router';
 import { ITags } from 'src/app/classes/interfaces/tags.interface';
+import { LinkService } from 'src/app/classes/services/link.service';
 
 @Component({
   selector: 'app-landing-blog-detail',
@@ -45,7 +46,11 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
 
   device: 'sm' | 'lg' = 'lg';
   language: string = '';
-  constructor(public blogService: BlogService, private _state: ActivatedRoute) {
+  constructor(
+    public blogService: BlogService,
+    private _state: ActivatedRoute,
+    private _linkService: LinkService
+  ) {
     super();
     AppComponent.changeMainBg('creamy');
     this._state.url.subscribe((it) => {
@@ -91,6 +96,9 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
     }
   }
   async getDetail(title: string, language: string) {
+    this._linkService.createLink(
+      `https://www.iraniexpert.com/articles/${title}/${language.toLowerCase()}`
+    );
     const apiRes = await this.blogService.getBlog(title, language);
     return apiRes;
   }
