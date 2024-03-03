@@ -108,7 +108,10 @@ export class ResponsiveTableComponent {
       var wantedDate = new Date(result);
       var dayName = week[wantedDate.getDay()];
 
-      let x: monthDate = { day: String(index + 1), name: dayName };
+      let x: monthDate = {
+        day: ('0' + String(index + 1)).slice(-2),
+        name: dayName, // '11'
+      };
       if (x) this.resdate.push(x);
     }
   }
@@ -199,6 +202,7 @@ export class ResponsiveTableComponent {
     this.tranformValue = (this.tranformValue - 15) * 6;
     if (formattedDate != undefined) {
       this.selectedDay = formattedDate;
+      debugger;
     }
     if (event[1] == undefined) {
       this.selectedYear = event[0].getFullYear();

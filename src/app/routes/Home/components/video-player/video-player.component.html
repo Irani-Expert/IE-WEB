@@ -42,36 +42,46 @@
 
     <div
       class="flex items-center p-div text-2xl p-2"
-      [ngClass]="!isFullScreen ? 'justify-evenly ' : '   justify-center'"
+      style="height: 37px; bottom: 22px; background-color: #0000ff73"
     >
       <i
-        class="ie-icon ie-expand text-base text-white flex items-center mx-1.5 cursor-pointer drop-shadow-md"
+        class="ie-icon ie-expand text-base text-white flex items-center cursor-pointer drop-shadow-md ml-3"
+        style="height: inherit"
         (click)="fullScreen()"
       ></i>
-
-      <div class="text-white flex items-center drop-shadow-md">
+      <span
+        class="text-white items-center drop-shadow-md ml-3"
+        style="height: inherit; height: 38px; line-height: 47px"
+      >
         {{ videoCurrentTime }}
+      </span>
+      <div class="w-[32rem] ml-3">
+        <progress
+          dir="ltr"
+          (drag)="dragFiunction($event)"
+          class="pr-Before cursor-pointer w-full"
+          (click)="handleClick($event)"
+          [value]="progressValue"
+          min="0"
+          max="100"
+          [ngStyle]="{ '--movement': progressbarLeft }"
+        ></progress>
       </div>
-      <progress
-        dir="ltr"
-        (drag)="dragFiunction($event)"
-        class="pr-Before mb-1.5 cursor-pointer"
-        (click)="handleClick($event)"
-        [value]="progressValue"
-        min="0"
-        max="100"
-        [ngStyle]="{ '--movement': progressbarLeft }"
-      ></progress>
-
       <i
-        class="ms-1 ie-icon text-white flex items-center text-base small cursor-pointer drop-shadow-md"
+        class="ie-icon text-white flex items-center text-base small cursor-pointer drop-shadow-md play-icon"
+        style="height: inherit"
         [ngClass]="{
           'ie-puase max-w-[14px] mb-2': pauseplay,
           'ie-Polygon ': !pauseplay
         }"
         (click)="puasePaceVideo()"
       ></i>
-    </div>
+      <!-- 
+
+
+     
+
+    --></div>
   </div>
 </div>
 <ng-content></ng-content>

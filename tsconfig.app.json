@@ -4,7 +4,7 @@
   "compilerOptions": {
     "outDir": "./out-tsc/app",
     "types": [],
-    "noUnusedLocals": true,
+    "noUnusedLocals": false,
     "allowJs": true
   },
   "files": ["src/main.ts"],
