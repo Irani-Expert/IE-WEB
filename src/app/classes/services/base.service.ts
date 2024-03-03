@@ -72,7 +72,7 @@ export class BaseService<T> {
       );
   }
 
-  private handleError(error: HttpErrorResponse) {
+  protected handleError(error: HttpErrorResponse) {
     let errorMessage = '';
     // if (error.error instanceof ErrorEvent) {
     //   errorMessage = error.error.message;

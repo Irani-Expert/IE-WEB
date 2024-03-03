@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { LocalStorageService } from 'src/app/classes/local-storage';
 import { ModalService } from '../modal/services/modal.service';
 import { ToastrService } from 'ngx-toastr';
+import { UserClaimService } from 'src/app/classes/services/user-claim.service';
 const userInit: User = {
   firstName: '',
   lastName: '',
@@ -23,7 +24,8 @@ export class AuthService extends BaseService<User | ILogin | IForgetPassword> {
     http: HttpClient,
     private localStorage: LocalStorageService,
     private modal: ModalService,
-    toastr: ToastrService
+    toastr: ToastrService,
+    private _userClaimService: UserClaimService
   ) {
     super(http, toastr);
   }
@@ -87,14 +89,14 @@ export class AuthService extends BaseService<User | ILogin | IForgetPassword> {
   }
   saveForOneSession(data: any) {
     let user: User = {
-      id: data.id,
+      id: data.userID,
       username: data.subject,
       firstName: data.firstName,
       lastName: data.lastName,
       token: data.token,
-      favourites: data.favourites,
     };
     this.userSubject.next(user);
+    this._userClaimService.getFavs(user.id);
     AuthService.loggedIn.next(true);
   }
   rememberUser(data: any) {
@@ -104,22 +106,21 @@ export class AuthService extends BaseService<User | ILogin | IForgetPassword> {
       firstName: data.firstName,
       lastName: data.lastName,
       token: data.token,
-      favourites: data.favourites,
     };
-    let favorites = data.favourites;
+
     let token = data.token;
     this.localStorage.setItem('info', JSON.stringify(info));
     this.localStorage.setItem('token', token);
-    this.localStorage.setItem('favorites', JSON.stringify(favorites));
     this.userSubject.next(info);
+    this._userClaimService.getFavs(info.id);
     AuthService.loggedIn.next(true);
   }
   logOutUser() {
-    AuthService.loggedIn.next(false);
     this.userSubject.next(userInit);
     this.localStorage.removeItem('info');
     this.localStorage.removeItem('token');
-    this.localStorage.removeItem('favorites');
+    this._userClaimService.removeOnLogOut();
+    AuthService.loggedIn.next(false);
   }
   async checkValidToken() {
     const token = this.localStorage.getItem('token');

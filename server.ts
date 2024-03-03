@@ -78,7 +78,14 @@ const fetchRedirects = async (url: string): Promise<Result> => {
   let getRedirectUrl = `https://api.iraniexpert.com/api/URLRedirect/CheckExists?url=${url}`;
   const response = await fetch(getRedirectUrl, {
     method: 'GET',
-    headers: { accept: 'application/json', 'Content-Type': 'application/json' },
+    headers: {
+      accept: 'application/json',
+      'Content-Type': 'application/json',
+      Pragma: 'no-cache',
+      Expires: '0',
+      'Cache-Control':
+        'no-cache, no-store, must-revalidate, post-check=0, pre-check=0',
+    },
   })
     .then((res) => res.json())
     .then((data) => {

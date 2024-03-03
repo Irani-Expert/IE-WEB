@@ -4,7 +4,6 @@ export class User {
   firstName = '';
   lastName = '';
   token = '';
-  favourites?: Favourite[];
 }
 export interface IForgetPassword {
   email?: string;
@@ -12,11 +11,7 @@ export interface IForgetPassword {
   id?: number;
   code?: number;
 }
-interface Favourite {
-  rowID: number;
-  tableType: number;
-  id: number;
-}
+
 export interface ILogin {
   username: string;
   password: string;

@@ -21,6 +21,7 @@ import { FilterBlog } from 'src/app/classes/interfaces/filter-blog.interface';
 import { Page } from 'src/app/classes/page.model';
 import { BlogService } from 'src/app/classes/services/blog.service';
 import { Utils } from 'src/app/classes/utils';
+import { LinkService } from 'src/app/classes/services/link.service';
 
 @Component({
   selector: 'app-blog-pagination',
@@ -46,7 +47,8 @@ export class BlogPaginationComponent {
     private blogService: BlogService,
     private meta: Meta,
     private router: Router,
-    private _activatedRoute: ActivatedRoute
+    private _activatedRoute: ActivatedRoute,
+    private _linkService: LinkService
   ) {}
   async getItemBlogs(filters: FilterBlog) {
     return await lastValueFrom(
@@ -87,6 +89,9 @@ export class BlogPaginationComponent {
                   await this.fillFilterOnNav(item);
                   this.savedParams = { ...item };
                 });
+                this._linkService.createLink(
+                  `https://www.iraniexpert.com/articles/page/${parseInt(arrayOfUrlSegments[3])}`
+                );
                 this.blogFilter.pageIndex = parseInt(arrayOfUrlSegments[3]) - 1;
                 this.getBlogs();
               }

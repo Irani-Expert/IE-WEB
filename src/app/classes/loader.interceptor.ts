@@ -12,17 +12,30 @@ import { AppComponent } from '../app.component';
 
 @Injectable()
 export class LoaderInterceptor implements HttpInterceptor {
+  private loadingDismissers = ['GetActualValByID', 'AspNetUserClaim'];
+
   constructor() {}
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    if (req.url.includes('GetActualValByID')) {
+    if (this.dismissLoader(req.url)) {
       return next.handle(req);
     }
     AppComponent.loaderSubject.next(true);
     return next
       .handle(req)
       .pipe(finalize(() => AppComponent.loaderSubject.next(false)));
+  }
+
+  dismissLoader(url: string) {
+    let result = false;
+    this.loadingDismissers.forEach((it) => {
+      if (url.includes(it)) {
+        result = true;
+        return;
+      }
+    });
+    return result;
   }
 }

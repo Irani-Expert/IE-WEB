@@ -9,8 +9,9 @@ import { lastValueFrom } from 'rxjs';
 import { Product } from 'src/app/classes/interfaces/product.interface';
 import { FilterProduct } from 'src/app/classes/interfaces/filter-product.interface';
 import { ConsultationFormComponent } from '../consultation-form/consultation-form.component';
-import {  Meta, SafeHtml } from '@angular/platform-browser';
+import { Meta, SafeHtml } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment.dev';
+import { LinkService } from 'src/app/classes/services/link.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -22,8 +23,11 @@ export class LandingPageComponent {
     public _articleServices: BlogService,
     public productService: ProductService,
     private meta: Meta,
-    // private _sanitizer : DomSanitizer
-  ) {
+    private _linkService: LinkService
+  ) // private _sanitizer : DomSanitizer
+  {
+    this._linkService.createLink(`https://www.iraniexpert.com`);
+
     // =================[متاتگ ها]==========
     this.meta.updateTag({
       name: 'description',
@@ -169,17 +173,15 @@ export class LandingPageComponent {
 
   async ngAfterViewInit() {
     if (await this.getDetail('Home', 'fa')) {
+      this.id = Number(this._articleServices._blog?.id);
+      this.articleHtml = this._articleServices._blog!.description;
 
-    this.id = Number(this._articleServices._blog?.id);
-    this.articleHtml = 
-      this._articleServices._blog!.description
-
-    this.sendDataToChild = true;
+      this.sendDataToChild = true;
+    }
   }
-}
 
-async getDetail(title: string, language: string) {
-  const apiRes = await this._articleServices.getBlog(title, language);
-  return apiRes;
-}
+  async getDetail(title: string, language: string) {
+    const apiRes = await this._articleServices.getBlog(title, language);
+    return apiRes;
+  }
 }
