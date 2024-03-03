@@ -90,7 +90,6 @@ export class UserClaimService extends BaseService<
   async removeFav(id: number) {
     const req = this.delete(`AspNetUserClaim/${id}`).pipe(
       map((it) => {
-        debugger;
         let favs = this.favoriteSubject.value;
         let index = favs.findIndex((it) => it.id == id);
         favs.splice(index, 1);

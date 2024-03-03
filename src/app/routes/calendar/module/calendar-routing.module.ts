@@ -6,8 +6,11 @@ import { LandingSingleCountryComponent } from '../landing-single-country/landing
 
 const routes: Routes = [
   { path: '', component: CalendarMainPageComponent },
-  { path: 'maps' , component: MapComponent },
-  {path: 's-c' , component : LandingSingleCountryComponent}
+  {
+    path: ':country',
+    component: LandingSingleCountryComponent,
+    title: 'کشور ها',
+  },
 ];
 
 @NgModule({

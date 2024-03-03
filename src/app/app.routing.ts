@@ -53,8 +53,9 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'calendar',
-    title: 'calendar',
+    path: 'economic-calendar',
+    title:
+      'اخبار فاندامنتال فارکس  آنلاین  و لحظه ای در سایت فارسی + آپدیت 24 ساعته',
 
     loadChildren: () =>
       import('./routes/calendar/module/calendar.module').then(

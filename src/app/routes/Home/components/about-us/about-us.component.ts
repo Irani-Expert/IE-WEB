@@ -9,6 +9,7 @@ import { Component } from '@angular/core';
 // import { Meta } from '@angular/platform-browser';
 // import { ActivatedRoute } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
+import { LinkService } from 'src/app/classes/services/link.service';
 
 @Component({
   selector: 'app-about-us',
@@ -26,7 +27,8 @@ import { AppComponent } from 'src/app/app.component';
 export class AboutUsComponent {
   // private activatedRoute: ActivatedRoute
   // private _meta: Meta
-  constructor() {
+  constructor(private _linkService: LinkService) {
+    this._linkService.createLink(`https://www.iraniexpert.com/about-us`);
     // // this._meta.addTag({
     // //   name: 'description',
     // //   content: '',

@@ -89,7 +89,6 @@ export class ResponsiveTableComponent {
     var curr_month = d.getMonth();
     var curr_year = d.getFullYear();
     this.selectedYear = curr_year;
-    debugger;
     let numberofDays = this.daysInMonth(curr_month + 1, curr_year);
     let week = new Array(
       'يكشنبه',
@@ -202,7 +201,6 @@ export class ResponsiveTableComponent {
     this.tranformValue = (this.tranformValue - 15) * 6;
     if (formattedDate != undefined) {
       this.selectedDay = formattedDate;
-      debugger;
     }
     if (event[1] == undefined) {
       this.selectedYear = event[0].getFullYear();

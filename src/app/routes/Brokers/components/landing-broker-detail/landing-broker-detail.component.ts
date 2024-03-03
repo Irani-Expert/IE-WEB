@@ -5,6 +5,7 @@ import { imgNotFound } from 'src/app/classes/not-found';
 import { AppComponent } from 'src/app/app.component';
 import { ITags } from 'src/app/classes/interfaces/tags.interface';
 import { BlogService } from 'src/app/classes/services/blog.service';
+import { LinkService } from 'src/app/classes/services/link.service';
 interface BrokerImgCard<T> {
   id: T;
   img: string;
@@ -19,8 +20,12 @@ interface BrokerImgCard<T> {
 export class LandingBrokerDetailComponent {
   @ViewChild(TableBrokersComponent, { static: true })
   tableBrokers: TableBrokersComponent;
-  constructor(private _meta: Meta, public blogService : BlogService , private _sanitizer : DomSanitizer
-    ) {
+  constructor(
+    private _meta: Meta,
+    public blogService: BlogService,
+    private _sanitizer: DomSanitizer,
+    private _linkService: LinkService
+  ) {
     AppComponent.changeMainBg('creamy');
     this._meta.updateTag({
       name: 'description',
@@ -36,6 +41,7 @@ export class LandingBrokerDetailComponent {
       content:
         'بهترین بروکر ها برای ایرانیان-بهترین بروکر ها-مقایسه بروکر ها-بروکر های ایرانی- انواع بروکرها-بروکر های معتبر فارکس-کدام بروکر ها حساب سنتی دارند-بروکر ها با کمترین اسپرد-بروکر معتبر برای ایرانی ه-بروکرهای معتبر فارکس-بهترین بروکر ها برای کپی ترید-بروکر هایی که با ایران کار می کنند-ثبت نام در بروکر-بهترین بروکر فارکس برای ایرانی ها-بهترین بروکرهای فارکس در جهان',
     });
+    this._linkService.createLink(`https://www.iraniexpert.com/brokers`);
   }
   get brokersInHero() {
     let brokers = this.tableBrokers.items.filter((it) =>
@@ -61,7 +67,6 @@ export class LandingBrokerDetailComponent {
     AppComponent.changeMainBg('white');
   }
 
-
   tags: ITags[];
   sendDataToChild = false;
   title: string = '';
@@ -70,8 +75,8 @@ export class LandingBrokerDetailComponent {
   articleHtml: SafeHtml;
 
   async ngAfterViewInit() {
-      if (await this.getDetail('Broker', 'fa')) {
-        this.tags = this.blogService._blog!.sharpLinkTags;
+    if (await this.getDetail('Broker', 'fa')) {
+      this.tags = this.blogService._blog!.sharpLinkTags;
 
       this.id = Number(this.blogService._blog?.id);
       this.articleHtml = this._sanitizer.bypassSecurityTrustHtml(
@@ -85,6 +90,5 @@ export class LandingBrokerDetailComponent {
     const apiRes = await this.blogService.getBlog(title, language);
     return apiRes;
   }
-
 }
 const brokersInHero = ['ویندزور', 'آلپاری', 'آی اف سی مارکتس'];
