@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment.dev';
 import { CurrencyPipe } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
 import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
+import { LinkService } from 'src/app/classes/services/link.service';
 // import { GetAverageRGB } from 'src/app/classes/tranparent-img';
 // import { base64Maker } from 'src/app/classes/base64Maker';
 
@@ -33,7 +34,8 @@ export class SingleBrokerComponent {
     private _currencyPipe: CurrencyPipe,
     private _sanitizer: DomSanitizer,
     private _meta: Meta,
-    private _title: Title
+    private _title: Title,
+    private _linkService: LinkService
   ) {
     AppComponent.changeMainBg('creamy');
     this._state.url.subscribe(
@@ -171,5 +173,9 @@ export class SingleBrokerComponent {
       content: keywords,
     });
     this._title.setTitle(apiData.title);
+    const language = apiData.isRTL ? 'fa' : 'en';
+    this._linkService.createLink(
+      `https://www.iraniexpert.com/brokers/${apiData.browserTitle}/${language}`
+    );
   }
 }

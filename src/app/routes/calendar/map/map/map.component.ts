@@ -5,17 +5,11 @@ import { AppComponent } from 'src/app/app.component';
 import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
 import { Country } from '../map-country/country';
 import { MapClockComponent } from '../map-clock/map-clock.component';
-import { GraphFinanceComponent } from '../../graph-finance/graph-finance.component';
 
 @Component({
   selector: 'app-map',
   standalone: true,
-  imports: [
-    CommonModule,
-    MapCountryComponent,
-    MapClockComponent,
-    GraphFinanceComponent,
-  ],
+  imports: [CommonModule, MapCountryComponent, MapClockComponent],
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss'],
 })

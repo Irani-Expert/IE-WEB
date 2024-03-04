@@ -3,6 +3,7 @@ import { DomSanitizer, Meta, SafeHtml } from '@angular/platform-browser';
 import { AppComponent } from 'src/app/app.component';
 import { ITags } from 'src/app/classes/interfaces/tags.interface';
 import { BlogService } from 'src/app/classes/services/blog.service';
+import { LinkService } from 'src/app/classes/services/link.service';
 import { environment } from 'src/environments/environment.dev';
 
 @Component({
@@ -11,10 +12,15 @@ import { environment } from 'src/environments/environment.dev';
   styleUrls: ['./robot-trader.component.scss'],
 })
 export class RobotTraderComponent {
-  color : string;
+  color: string;
 
-  constructor(private _meta: Meta , public blogService : BlogService , private _sanitizer : DomSanitizer) {
-
+  constructor(
+    private _meta: Meta,
+    public blogService: BlogService,
+    private _sanitizer: DomSanitizer,
+    private _linkService: LinkService
+  ) {
+    this._linkService.createLink(`https://www.iraniexpert.com/expert-advisor`);
 
     AppComponent.changeMainBg('creamy');
   }
@@ -27,8 +33,8 @@ export class RobotTraderComponent {
   articleHtml: SafeHtml;
 
   async ngAfterViewInit() {
-      if (await this.getDetail('expert-advisor', 'fa')) {
-        this.tags = this.blogService._blog!.sharpLinkTags;
+    if (await this.getDetail('expert-advisor', 'fa')) {
+      this.tags = this.blogService._blog!.sharpLinkTags;
 
       this.id = Number(this.blogService._blog?.id);
       this.articleHtml = this._sanitizer.bypassSecurityTrustHtml(
@@ -40,32 +46,29 @@ export class RobotTraderComponent {
       });
       this._meta.updateTag({
         name: 'description',
-        content:this.blogService._blog!.metaDescription
-        ,
+        content: this.blogService._blog!.metaDescription,
       });
       this._meta.updateTag({
         name: 'author',
         content:
-        this.blogService._blog!.updatedByFirstName +
-        this.blogService._blog!.updatedByLastName,
+          this.blogService._blog!.updatedByFirstName +
+          this.blogService._blog!.updatedByLastName,
       });
       this._meta.updateTag({
         name: 'keywords',
         content:
-        'دستیار معامله  گر-ربات خودکار- ربات ATM - ربات اتو تریدر-خرید ربات تریدر-ربات معامله گر  طلا- خرید ربات معامله گر- ربات اتوماتیک ترید-ساخت ربات معامله گر-',
+          'دستیار معامله  گر-ربات خودکار- ربات ATM - ربات اتو تریدر-خرید ربات تریدر-ربات معامله گر  طلا- خرید ربات معامله گر- ربات اتوماتیک ترید-ساخت ربات معامله گر-',
         // content:keywords,
       });
       this.sendDataToChild = true;
-      if (this.blogService._blog!.studyTime == null || undefined){
-      
-        this.blogService._blog!.studyTime = '00:15:00'
-      } 
-  
-      if (this.blogService._blog!.colorCode == null || undefined){
+      if (this.blogService._blog!.studyTime == null || undefined) {
+        this.blogService._blog!.studyTime = '00:15:00';
+      }
+
+      if (this.blogService._blog!.colorCode == null || undefined) {
         this.color = '#0066FF';
-      } 
-      else{
-        this.color = this.blogService._blog!.colorCode;        
+      } else {
+        this.color = this.blogService._blog!.colorCode;
       }
     }
   }

@@ -44,6 +44,7 @@ export interface Product {
   viewsCount: number;
 }
 export interface SingleProduct {
+  browserTitle?: string;
   id: number;
   updateDate: string;
   createDate: string;

@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { ProductService } from 'src/app/classes/services/product.service';
+import { LinkService } from 'src/app/classes/services/link.service';
 
 @Component({
   selector: 'app-landing-product',
@@ -16,9 +17,13 @@ export class LandingProductComponent {
     private _activatedRoute: ActivatedRoute,
     public productService: ProductService,
     private meta: Meta,
-    private _title: Title
+    private _title: Title,
+    private _linkService: LinkService
   ) {
     this._activatedRoute.url.subscribe((it) => (this.title = it[0].path));
+    this._linkService.createLink(
+      `https://www.iraniexpert.com/shop/${this.title}`
+    );
   }
   ngOnInit() {
     this._title.setTitle(
@@ -50,7 +55,8 @@ export class LandingProductComponent {
     return apiRes;
   }
   async ngAfterViewInit() {
-    if (await this.getProduct(1)) {
+    const res = await this.getProduct(1);
+    if (res) {
       this.loading = false;
     }
   }

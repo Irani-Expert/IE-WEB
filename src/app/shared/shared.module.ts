@@ -30,6 +30,7 @@ import {
   DefaultMatCalendarRangeStrategy,
   MatRangeDateSelectionModel,
 } from '@angular/material/datepicker';
+import { FavoriteComponent } from './favorite/favorite.component';
 const components = [
   AcordianComponent,
   CommentsComponent,
@@ -60,8 +61,15 @@ const components = [
     NgxTippyModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    FavoriteComponent,
   ],
-  exports: [components, LottieModule, DragScrollModule, NgxTippyModule],
+  exports: [
+    components,
+    LottieModule,
+    DragScrollModule,
+    NgxTippyModule,
+    FavoriteComponent,
+  ],
   declarations: [
     components,
     ScrollComponent,

@@ -29,7 +29,7 @@ class BlogModel implements Blog {
 })
 export class BlogCartComponent {
 
-  @Input('linkType') linkType : number;
+  // @Input('linkType') linkType : number;
   link : string = '';
 
 
@@ -60,9 +60,9 @@ export class BlogCartComponent {
   }
   getUrl(){
     let language = this.item.isRTL ? 'fa' : 'en';
-    if( this.linkType == 2 ){
-      this.link = '../../';
-    }
+    // if( this.linkType == 2 ){
+    // }
+    this.link = 'https://www.iraniexpert.com/articles/';
     this.url = this.item.browserTitle.split(' ').join('_') + '/' + language;
   }
   @HostListener('window:resize', ['$event'])

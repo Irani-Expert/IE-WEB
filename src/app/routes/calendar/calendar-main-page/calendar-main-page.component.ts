@@ -10,6 +10,7 @@ import { DatePipe } from '@angular/common';
 
 import { CalEvent } from './cal-event.model';
 import { TradingViewComponent } from 'src/app/components/trading-view/trading-view.component';
+import { LinkService } from 'src/app/classes/services/link.service';
 interface trend_data {
   currency: string;
   percent: string;
@@ -29,8 +30,15 @@ export class CalendarMainPageComponent {
   filter$ = this.filter.asObservable();
   importances = importances;
   today: string | undefined;
-  constructor(private ecoCalService: EcoCalService, public datepipe: DatePipe) {
+  constructor(
+    private ecoCalService: EcoCalService,
+    public datepipe: DatePipe,
+    private _linkService: LinkService
+  ) {
     this.today = this.datepipe.transform(new Date(), 'yyyy/MM/dd')?.toString();
+    this._linkService.createLink(
+      `https://www.iraniexpert.com/economic-calendar`
+    );
   }
   data: trend_data[] = [
     {

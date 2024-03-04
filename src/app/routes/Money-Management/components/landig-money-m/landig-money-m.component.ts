@@ -3,6 +3,7 @@ import { Meta } from '@angular/platform-browser';
 import { AppComponent } from 'src/app/app.component';
 import { ITags } from 'src/app/classes/interfaces/tags.interface';
 import { BlogService } from 'src/app/classes/services/blog.service';
+import { LinkService } from 'src/app/classes/services/link.service';
 
 @Component({
   selector: 'app-landig-money-m',
@@ -16,13 +17,16 @@ export class LandigMoneyMComponent {
   sendDataToChild = false;
   tags: ITags[];
 
-
-  constructor(private _meta: Meta , public blogService : BlogService) {
-   
+  constructor(
+    private _meta: Meta,
+    public blogService: BlogService,
+    private _linkService: LinkService
+  ) {
+    this._linkService.createLink(
+      `https://www.iraniexpert.com/money-management`
+    );
 
     AppComponent.changeMainBg('creamy');
-    
-
   }
   ngOnDestroy() {
     AppComponent.changeMainBg('white');
@@ -43,21 +47,20 @@ export class LandigMoneyMComponent {
       this._meta.updateTag({
         name: 'author',
         content:
-        this.blogService._blog!.updatedByFirstName +
-        this.blogService._blog!.updatedByLastName,
+          this.blogService._blog!.updatedByFirstName +
+          this.blogService._blog!.updatedByLastName,
       });
       this._meta.updateTag({
         name: 'keywords',
         content:
-        'مدیریت سرمایه گذاری پیشرفته,مدیریت سرمایه گذاری استراتژیک,مدیریت ریسک و سرمایه در ترید, فرمول مدیریت سرمایه در ترید, مدیریت سرمایه در ترید, مدیریت سرمایه فارکس, مدیریت ریسک و سرمایه گذاری ,مدیریت سرمایه به زبان ساده',
+          'مدیریت سرمایه گذاری پیشرفته,مدیریت سرمایه گذاری استراتژیک,مدیریت ریسک و سرمایه در ترید, فرمول مدیریت سرمایه در ترید, مدیریت سرمایه در ترید, مدیریت سرمایه فارکس, مدیریت ریسک و سرمایه گذاری ,مدیریت سرمایه به زبان ساده',
         // content: keywords
-
       });
       this.sendDataToChild = true;
     }
   }
 
-    async getDetail(title: string, language: string) {
+  async getDetail(title: string, language: string) {
     const apiRes = await this.blogService.getBlog(title, language);
     return apiRes;
   }

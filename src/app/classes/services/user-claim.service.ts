@@ -19,7 +19,7 @@ import { PageInterface } from '../page.model';
   providedIn: 'root',
 })
 export class UserClaimService extends BaseService<
-  PageInterface<Favorite[]> | Favorite
+  PageInterface<Favorite[]> | Favorite | number
 > {
   override headers: HttpHeaders = new HttpHeaders({
     accept: 'application/json',
@@ -109,9 +109,16 @@ export class UserClaimService extends BaseService<
       userId: userID,
       id: 0,
     };
-    const req = this.post('AspNetUserClaim', favorite);
-    const res = await lastValueFrom(req);
-    this.favoriteSubject.value.push(res.data!);
+    const req = this.post('AspNetUserClaim', favorite).pipe(
+      map((it) => {
+        let favs = this.favoriteSubject.value;
+        favorite.id = it.data!;
+        favs.push(favorite);
+        this.favoriteSubject.next(favs);
+        return it;
+      })
+    );
+    return (await lastValueFrom(req)).success;
   }
 
   // Overrides
@@ -128,9 +135,9 @@ export class UserClaimService extends BaseService<
       .pipe(catchError(this.handleError));
   }
 
-  override post(path: string, body: any): Observable<Result<Favorite>> {
+  override post(path: string, body: any): Observable<Result<number>> {
     return this.http
-      .post<Result<Favorite>>(`${environment.apiUrl + path}`, body, {
+      .post<Result<any>>(`${environment.apiUrl + path}`, body, {
         headers: this.headers,
       })
       .pipe(

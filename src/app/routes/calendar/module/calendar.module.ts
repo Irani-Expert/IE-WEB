@@ -21,10 +21,14 @@ import { CardFinanceComponent } from '../card-finance/card-finance.component';
 import { NgChartsModule } from 'ng2-charts';
 import { ModalComponent } from 'src/app/shared/modal/modal.component';
 import { TradingViewComponent } from 'src/app/components/trading-view/trading-view.component';
+import { MapComponent } from '../map/map/map.component';
+import { CountryDetailComponent } from '../country-detail/country-detail.component';
+import { GraphFinanceComponent } from '../graph-finance/graph-finance.component';
 
 const components = [
   CalendarMainPageComponent,
   ResponsiveTableComponent,
+  CountryDetailComponent,
   AutoplaySliderComponent,
   AudioPlayerComponent,
   CalendarCardResponsiveComponent,
@@ -39,7 +43,9 @@ const components = [
   declarations: [components],
   imports: [
     ModalComponent,
+    MapComponent,
     CommonModule,
+    GraphFinanceComponent,
     TradingViewComponent,
     NgChartsModule,
     Toggler,
