@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AppComponent } from 'src/app/app.component';
 import { LinkService } from 'src/app/classes/services/link.service';
+import { TableCalendar } from 'src/app/shared/table-calendar/table-calendar.component';
 
 @Component({
   selector: 'app-landing-single-country',
@@ -10,11 +12,13 @@ import { LinkService } from 'src/app/classes/services/link.service';
 export class LandingSingleCountryComponent {
   title: string = '';
   language: string = '';
+  @ViewChild(TableCalendar, { static: false }) appTableComponent: TableCalendar;
 
   constructor(
     private _state: ActivatedRoute,
     private _linkService: LinkService
   ) {
+    AppComponent.changeMainBg('creamy');
     this._state.url.subscribe((it) => {
       this.title = it[0].path.split('_').join(' ');
     });
@@ -71,4 +75,7 @@ export class LandingSingleCountryComponent {
       },
     ],
   };
+  ngOnDestroy() {
+    AppComponent.changeMainBg('white');
+  }
 }

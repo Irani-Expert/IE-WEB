@@ -1,9 +1,16 @@
 <ng-container *ngIf="contentLoaded">
   <button
-    [disabled]="componentDisable"
+    *ngIf="favId !== 0"
+    [disabled]="componentDisable || readonly"
     (click)="removeFav()"
-    class="p-5 bg-slate-500 text-white text-lg"
   >
-    {{ favId !== 0 ? "لایک" : "ن لایک" }}
+    <i class="ie-icon favorite-icon-filled"></i>
+  </button>
+  <button
+    *ngIf="favId == 0"
+    [disabled]="componentDisable || readonly"
+    (click)="addFav()"
+  >
+    <i class="ie-icon favorite-icon"></i>
   </button>
 </ng-container>

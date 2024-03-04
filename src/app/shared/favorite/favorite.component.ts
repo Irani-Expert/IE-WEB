@@ -15,8 +15,9 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./favorite.component.scss'],
 })
 export class FavoriteComponent {
-  @Input('id') rowID: number = 0;
-  @Input('tableType') tableType: number = 0;
+  @Input({ required: true }) readonly: boolean;
+  @Input({ required: true }) rowID: number = 0;
+  @Input({ required: true }) tableType: number = 0;
   contentLoaded = false;
   favId = 0;
   favSubescription: Subscription;
@@ -46,11 +47,15 @@ export class FavoriteComponent {
     this.favSubescription.unsubscribe();
   }
 
-  addFav() {
+  async addFav() {
+    this.componentDisable = true;
     let userId = this._auth._user.id;
     if (userId !== 0) {
-      this._userClaimService.addFav(this.rowID, this.tableType, userId);
+      await this._userClaimService.addFav(this.rowID, this.tableType, userId);
+      this.componentDisable = false;
     } else {
+      this.componentDisable = false;
+
       this.openModal();
     }
   }

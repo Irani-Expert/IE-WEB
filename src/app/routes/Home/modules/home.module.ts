@@ -38,7 +38,6 @@ import { BlueCardsComponent } from 'src/app/shared/blue-cards/blue-cards.compone
 import { QAComponent } from 'src/app/shared/qa/qa.component';
 import { QuickAccessComponent } from 'src/app/shared/quick-access/quick-access.component';
 import { CopyTradeComponent } from 'src/app/components/copy-trade/copy-trade.component';
-import { FavoriteComponent } from 'src/app/shared/favorite/favorite.component';
 
 const components = [
   CopyTradeComponent,
@@ -79,7 +78,7 @@ const components = [
   imports: [
     CommonModule,
     HomeRoutingModule,
-    FavoriteComponent,
+
     FormsModule,
     NgxSliderModule,
     ReactiveFormsModule,

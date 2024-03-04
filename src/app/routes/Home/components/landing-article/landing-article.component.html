@@ -78,7 +78,13 @@
                       >نویسنده ؛ {{ blogs[0].updatedByFirstName }}
                       {{ blogs[0].updatedByLastName
                       }}<small class="text-sm color--grey500 font-normal"
-                        >زمان مطالعه {{ blogs[0].studyTime ? blogs[0].studyTime.split(':')[1] : '15' }} دقیقه</small
+                        >زمان مطالعه
+                        {{
+                          blogs[0].studyTime
+                            ? blogs[0].studyTime.split(":")[1]
+                            : "15"
+                        }}
+                        دقیقه</small
                       ></span
                     >
                   </div>
@@ -86,8 +92,16 @@
                     class="m-2 me-0 text-sm flex flex-col color--grey500 ltr"
                   >
                     <span class="flex items-start"
-                      ><i class="favorite-icon mr-2"></i>
-                      {{ blogs[0].favoriteCount !== null || 0 ? blogs[2].favoriteCount : '25' }}
+                      ><app-favorite
+                        [readonly]="true"
+                        [rowID]="blogs[0].id"
+                        [tableType]="1"
+                      ></app-favorite>
+                      {{
+                        blogs[0].favoriteCount !== null || 0
+                          ? blogs[0].favoriteCount
+                          : "25"
+                      }}
                     </span>
                     <span class="flex items-start mt-2"
                       ><i class="eye-icon mr-2"></i>
@@ -160,7 +174,13 @@
                       >نویسنده ؛ {{ blogs[1].updatedByFirstName }}
                       {{ blogs[1].updatedByLastName
                       }}<small class="text-sm color--grey500 font-normal"
-                        >زمان مطالعه {{ blogs[1].studyTime ? blogs[1].studyTime.split(':')[1] : '15' }} دقیقه</small
+                        >زمان مطالعه
+                        {{
+                          blogs[1].studyTime
+                            ? blogs[1].studyTime.split(":")[1]
+                            : "15"
+                        }}
+                        دقیقه</small
                       ></span
                     >
                   </div>
@@ -168,8 +188,16 @@
                     class="m-2 me-0 text-sm flex flex-col color--grey500 ltr"
                   >
                     <span class="flex items-start"
-                      ><i class="favorite-icon mr-2"></i>
-                      {{ blogs[1].favoriteCount !== null || 0 ? blogs[2].favoriteCount : '25'}}
+                      ><app-favorite
+                        [readonly]="true"
+                        [rowID]="blogs[1].id"
+                        [tableType]="1"
+                      ></app-favorite>
+                      {{
+                        blogs[1].favoriteCount !== null || 0
+                          ? blogs[1].favoriteCount
+                          : "25"
+                      }}
                     </span>
                     <span class="flex items-start mt-2"
                       ><i class="eye-icon mr-2"></i>
@@ -243,7 +271,13 @@
                     >نویسنده ؛ {{ blogs[1].updatedByFirstName }}
                     {{ blogs[1].updatedByLastName
                     }}<small class="text-sm color--grey500 font-normal"
-                      >زمان مطالعه {{ blogs[1].studyTime ? blogs[1].studyTime.split(':')[1] : '15'}} دقیقه</small
+                      >زمان مطالعه
+                      {{
+                        blogs[1].studyTime
+                          ? blogs[1].studyTime.split(":")[1]
+                          : "15"
+                      }}
+                      دقیقه</small
                     ></span
                   >
                 </div>
@@ -251,8 +285,16 @@
                   class="sm:m-2 me-0 sm:text-xl text-[8px] color--grey500 ltr flex items-baseline"
                 >
                   <span class="me-2 flex items-baseline"
-                    ><i class="favorite-icon mr-2"></i>
-                    {{ blogs[2].favoriteCount !== null || 0 ? blogs[2].favoriteCount : '25'  }}
+                    ><app-favorite
+                      [readonly]="true"
+                      [rowID]="blogs[2].id"
+                      [tableType]="1"
+                    ></app-favorite>
+                    {{
+                      blogs[2].favoriteCount !== null || 0
+                        ? blogs[2].favoriteCount
+                        : "25"
+                    }}
                   </span>
                   <span class="flex items-baseline"
                     ><i class="eye-icon mr-2"></i>
