@@ -74,6 +74,8 @@ export class CalendarMainPageComponent {
   }
 
   async getCal(filter: FilterEvents, pageIndex: number = 0) {
+    console.log(this.appTableComponent.table);
+
     const apiData = this.ecoCalService.getCalEvents(
       `pageIndex=${pageIndex}&pageSize=10&accending=true`,
       filter
@@ -100,7 +102,6 @@ export class CalendarMainPageComponent {
     }
     if (type == 'getted') {
       this.appTableComponent.setTable(this.appTableComponent.events);
-      console.log(1);
     }
   }
   showLess() {
@@ -126,11 +127,13 @@ export class CalendarMainPageComponent {
     });
 
     this.filteredModel.sectors = data;
+    this.appTableComponent.table = [];
     this.getCal(this.filteredModel);
     this.filter.next(this.filteredModel);
   }
   setSymbolServices(event: string[]) {
     this.filteredModel.currencies = event;
+    this.appTableComponent.table = [];
     this.getCal(this.filteredModel);
     this.filter.next(this.filteredModel);
   }
@@ -141,6 +144,9 @@ export class CalendarMainPageComponent {
       if (currentdate != null) this.filteredModel.currentTime = currentdate;
       this.today = currentdate?.toString();
       this.today = this.today?.replaceAll('.', '/');
+      this.filteredModel.fromTime = '';
+      this.filteredModel.toTime = '';
+      this.appTableComponent.table = [];
       this.getCal(this.filteredModel);
       this.filter.next(this.filteredModel);
     } else {
@@ -151,6 +157,7 @@ export class CalendarMainPageComponent {
       this.filteredModel.currentTime = '';
       if (fromDate != null) this.filteredModel.fromTime = fromDate;
       if (Todate != null) this.filteredModel.toTime = Todate;
+      this.appTableComponent.table = [];
 
       this.getCal(this.filteredModel);
       this.filter.next(this.filteredModel);

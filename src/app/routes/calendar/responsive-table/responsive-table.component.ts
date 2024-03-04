@@ -47,7 +47,7 @@ interface monthDate {
   ],
 })
 export class ResponsiveTableComponent {
-  tranformValue: number;
+  // tranformValue: number;
   resdate: monthDate[] = new Array<monthDate>();
   table: CalEvent[] | undefined = new Array<CalEvent>();
   myState: string = 'select1';
@@ -73,8 +73,8 @@ export class ResponsiveTableComponent {
     const datepipe: DatePipe = new DatePipe('en-US');
     let formattedDate = datepipe.transform(new Date(), 'dd');
     if (formattedDate != null) this.selectedDay = formattedDate;
-    this.tranformValue = Number(formattedDate);
-    this.tranformValue = (this.tranformValue - 15) * 6;
+    // this.tranformValue = Number(formattedDate);
+    // this.tranformValue = (this.tranformValue - 15) * 6;
     this.formatDat(null);
     this.selectedMonth = new Date().getMonth();
   }
@@ -89,7 +89,6 @@ export class ResponsiveTableComponent {
     var curr_month = d.getMonth();
     var curr_year = d.getFullYear();
     this.selectedYear = curr_year;
-    debugger;
     let numberofDays = this.daysInMonth(curr_month + 1, curr_year);
     let week = new Array(
       'يكشنبه',
@@ -157,27 +156,27 @@ export class ResponsiveTableComponent {
     this.setCalDate(selectedDate);
   }
 
-  dragd(e: TouchEvent) {
-    if (this.pageXKeeper == 0) {
-      this.pageXKeeper = e.changedTouches[0].pageX;
-    }
-  }
-  dragOver(e: TouchEvent) {
-    if (this.pageXKeeper != 0) {
-      if (
-        e.changedTouches[0].pageX < this.pageXKeeper &&
-        this.tranformValue > -78
-      ) {
-        this.tranformValue -= 6;
-      } else if (
-        e.changedTouches[0].pageX > this.pageXKeeper &&
-        this.tranformValue < 78
-      ) {
-        this.tranformValue += 6;
-      }
-      this.pageXKeeper = 0;
-    }
-  }
+  // dragd(e: TouchEvent) {
+  //   if (this.pageXKeeper == 0) {
+  //     this.pageXKeeper = e.changedTouches[0].pageX;
+  //   }
+  // }
+  // dragOver(e: TouchEvent) {
+  //   if (this.pageXKeeper != 0) {
+  //     if (
+  //       e.changedTouches[0].pageX < this.pageXKeeper &&
+  //       this.tranformValue > -78
+  //     ) {
+  //       this.tranformValue -= 6;
+  //     } else if (
+  //       e.changedTouches[0].pageX > this.pageXKeeper &&
+  //       this.tranformValue < 78
+  //     ) {
+  //       this.tranformValue += 6;
+  //     }
+  //     this.pageXKeeper = 0;
+  //   }
+  // }
   openModal(type: string) {
     this.openingModal.emit(type);
     this.modal.open().subscribe({
@@ -198,11 +197,10 @@ export class ResponsiveTableComponent {
     const datepipe: DatePipe = new DatePipe('en-US');
     let currentdate = datepipe.transform(event[0], 'yyyy.MM.dd');
     let formattedDate = datepipe.transform(event[0], 'dd');
-    this.tranformValue = Number(formattedDate);
-    this.tranformValue = (this.tranformValue - 15) * 6;
+    // this.tranformValue = Number(formattedDate);
+    // this.tranformValue = (this.tranformValue - 15) * 6;
     if (formattedDate != undefined) {
       this.selectedDay = formattedDate;
-      debugger;
     }
     if (event[1] == undefined) {
       this.selectedYear = event[0].getFullYear();

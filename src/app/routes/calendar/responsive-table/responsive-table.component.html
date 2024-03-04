@@ -60,44 +60,38 @@
           <i class="ie-icon ie-calendar h-4" (click)="choosRangeDate()"></i>
         </div>
       </div>
-      <div
-        class="cal-date px-3 cursor-grabbing"
-        (touchmove)="dragd($event)"
-        (touchend)="dragOver($event)"
-      >
-        <div
-          class="flex"
-          style="position: relative; display: flex"
-          [ngStyle]="{ transform: 'translateX(' + tranformValue + 'rem)' }"
-        >
-          <div
-            class="cal-date-field w-[6rem] py-3 cursor-grabbing"
-            *ngFor="let item of resdate"
-            (click)="selectDate(item.day)"
-            [ngClass]="{ calActive: item.day == selectedDay }"
-          >
-            <span class="text-xl">{{ item.day }}</span>
-            <small>{{ item.name }}</small>
+      <div class="cal-date px-3 cursor-grabbing">
+        <div class="flex relative overflow-x-scroll">
+          <div class="flex">
+            <div
+              class="cal-date-field w-[6rem] py-3 cursor-grabbing"
+              *ngFor="let item of resdate"
+              (click)="selectDate(item.day)"
+              [ngClass]="{ calActive: item.day == selectedDay }"
+            >
+              <span class="text-xl">{{ item.day }}</span>
+              <small>{{ item.name }}</small>
+            </div>
           </div>
-        </div>
 
-        <!-- 
-        <div class="cal-date-field w-1/5 py-3">
-          <span class="text-xl"> 12</span>
-          <small>پنج شنبه</small>
+          <!-- 
+          <div class="cal-date-field w-1/5 py-3">
+            <span class="text-xl"> 12</span>
+            <small>پنج شنبه</small>
+          </div>
+          <div class="cal-date-field w-1/5 py-3">
+            <span class="text-xl"> 11</span>
+            <small>چهار شنبه</small>
+          </div>
+          <div class="cal-date-field w-1/5 py-3">
+            <span class="text-xl"> 10</span>
+            <small>سه شنبه</small>
+          </div>
+          <div class="cal-date-field w-1/5 py-3">
+            <span class="text-xl"> 09</span>
+            <small>دو شنبه</small>
+          </div> -->
         </div>
-        <div class="cal-date-field w-1/5 py-3">
-          <span class="text-xl"> 11</span>
-          <small>چهار شنبه</small>
-        </div>
-        <div class="cal-date-field w-1/5 py-3">
-          <span class="text-xl"> 10</span>
-          <small>سه شنبه</small>
-        </div>
-        <div class="cal-date-field w-1/5 py-3">
-          <span class="text-xl"> 09</span>
-          <small>دو شنبه</small>
-        </div> -->
       </div>
     </div>
     <app-calendar-card-responsive
