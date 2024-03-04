@@ -2,7 +2,7 @@
   <ng-container *ngIf="!loading">
 
   <div class="cart flex-col flex justify-between">
-    <a target="_blank" class="img-box flex justify-center mr-4 mt-4 mb-4 ml-4" [routerLink]="link + url">
+    <a target="_blank" class="img-box flex justify-center mr-4 mt-4 mb-4 ml-4" [href]="link + url">
       <img
         class="img-card h-full"
         [src]="contentUrl + item.cardImagePath"
@@ -15,7 +15,7 @@
         <a
         target="_blank"
           class="title-cart flex-wrap whitespace-normal"
-          [routerLink]="link + url"
+          [href]="link + url"
         >
           {{ item.title }}
         </a>
@@ -60,7 +60,7 @@
 
   <div class="grid grid-cols-4 mb-8">
     <div class="w-28">
-      <a [routerLink]="this.url">
+      <a [href]="this.url">
         <img
           class="img-card2 w-full"
           [src]="contentUrl + item.cardImagePath"
