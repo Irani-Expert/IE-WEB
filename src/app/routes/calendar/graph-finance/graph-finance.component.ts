@@ -2,13 +2,17 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChartConfiguration, ChartOptions } from 'chart.js';
 import { NgChartsModule } from 'ng2-charts';
-import { BaseService } from 'src/app/classes/services/base.service';
-import { GraphFinance } from 'src/app/classes/interfaces/graph.interface';
-import { lastValueFrom } from 'rxjs';
 import { AppComponent } from 'src/app/app.component';
-// import { AppComponent } from 'src/app/app.component';
-// import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
 
+import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
+import { GraphFinance } from 'src/app/classes/interfaces/graph.interface';
+import { Quotes } from 'src/app/classes/interfaces/Quotes';
+const cardDataInit: GraphFinance = {
+  currencyPairID: 0,
+  percentChange: 0,
+  pip: 0,
+  transactions: new Array<Quotes>(),
+};
 @Component({
   selector: 'app-graph-finance',
   standalone: true,
@@ -17,8 +21,8 @@ import { AppComponent } from 'src/app/app.component';
   styleUrls: ['./graph-finance.component.scss'],
 })
 export class GraphFinanceComponent {
-  gradient: CanvasGradient;
   showGraph = false;
+  card_data: GraphFinance = cardDataInit;
   lineChartData: ChartConfiguration<'line'>['data'] = {
     // xLabels: [],
     labels: [],
@@ -60,32 +64,30 @@ export class GraphFinanceComponent {
       },
     },
   };
-  constructor(private baseService: BaseService<GraphFinance>) {
+  constructor(private _ecoCalService: EcoCalService) {
     if (AppComponent.isBrowser.value) {
-      const ctx = document.createElement('canvas').getContext('2d')!;
-      this.gradient = ctx.createLinearGradient(0, 0, 0, 400);
-      this.gradient.addColorStop(0, 'rgba(47,206,122,0.5108018207282913)');
-      this.gradient.addColorStop(0.08, 'rgba(172,242,205,0.7780287114845938)');
-      this.gradient.addColorStop(0.15, 'rgba(255,255,255,0.8780287114845938)');
-      this.lineChartData.datasets[0].backgroundColor = this.gradient;
+      this.lineChartData.datasets[0].backgroundColor = this.setGradient();
     }
   }
 
   ngOnInit() {
-    this.getLocalSavedData();
-    // this.getGraphData();
+    // this.getLocalSavedData();
+    this.getDataFromApi();
   }
 
-  async getLocalSavedData() {
-    const result = await lastValueFrom(
-      this.baseService.http.get<GraphFinance>('../assets/graph-data.json')
-    );
-    result.quotes.forEach((it) => {
-      this.lineChartData.datasets[0].data.push(it.close);
-      this.lineChartData.labels?.push('');
-    });
-    this.showGraph = true;
-  }
+  // async getLocalSavedData() {
+  //   const result = await lastValueFrom(
+  //     this.baseService.http.post<GraphFinance>(
+  //       `${environment.apiUrl}CurrencyPairTransaction/Get`,
+  //       [14]
+  //     )
+  //   );
+  //   result.quotes.forEach((it) => {
+  //     this.lineChartData.datasets[0].data.push(it.close);
+  //     this.lineChartData.labels?.push('');
+  //   });
+  //   this.showGraph = true;
+  // }
   // private async getGraphData() {
   //   const result = await this._ecoCalService.getTimeSeriesData('eurusd');
   //   console.log(result);
@@ -96,4 +98,28 @@ export class GraphFinanceComponent {
   //   });
   //   this.showGraph = true;
   // }
+
+  async getDataFromApi(id: number = 14) {
+    const res = await this._ecoCalService.getCurrencyPairStatus([id]);
+    if (res.data) {
+      this.card_data = res.data[0];
+      res.data[0].transactions.forEach((it) => {
+        this.lineChartData.datasets[0].data.push(it.close);
+        this.lineChartData.labels?.push('');
+      });
+      this.showGraph = true;
+    }
+  }
+
+  setGradient(type: 'red' | 'green' = 'green') {
+    let ctx = document.createElement('canvas').getContext('2d')!;
+    let gradient = ctx.createLinearGradient(0, 0, 0, 400);
+    if (type == 'green') {
+      gradient.addColorStop(0, 'rgba(47,206,122,0.5108018207282913)');
+      gradient.addColorStop(0.08, 'rgba(172,242,205,0.7780287114845938)');
+      gradient.addColorStop(0.15, 'rgba(255,255,255,0.8780287114845938)');
+    }
+
+    return gradient;
+  }
 }

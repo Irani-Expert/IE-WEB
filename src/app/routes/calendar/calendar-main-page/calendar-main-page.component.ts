@@ -85,7 +85,7 @@ export class CalendarMainPageComponent {
     console.log(this.appTableComponent.table);
 
     const apiData = this.ecoCalService.getCalEvents(
-      `pageIndex=${pageIndex}&pageSize=10&accending=true`,
+      `pageIndex=${pageIndex}&pageSize=16&accending=true`,
       filter
     );
 

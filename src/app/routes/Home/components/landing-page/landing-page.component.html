@@ -201,8 +201,10 @@
 
   <app-banners> </app-banners>
   <h2 class="sr-only">آخرین بلاگ های به روز</h2>
-  <div class="bg-[#F5F5F5] rounded-b-[2.5rem] pb-16">
-    <div class="flex overflow-y-scroll">
+  <div
+    class="bg-[#F5F5F5] sm:bg-white rounded-b-[2.5rem] pb-16 block lg:hidden"
+  >
+    <div class="flex overflow-x-scroll articles-responsive">
       <app-landing-article-responsive
         *ngFor="let i of blogData"
         [blogs]="i"

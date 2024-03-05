@@ -4,24 +4,30 @@
   <div class="data-container flex-row flex p-2">
     <div class="right-container flex-col flex basis-1/2">
       <span class="block text-base text-[#0080FF]"> 1H </span>
-      <span class="inline-flex text-base text-[#2FCE7A] scale-95">
+      <span
+        dir="rtl"
+        [ngClass]="
+          card_data.percentChange > 0 ? 'text-[#2FCE7A] ' : 'text-[#ff2a2a]'
+        "
+        class="inline-flex text-base scale-95"
+      >
         <i
-          [ngClass]="showGraph ? 'upTrend' : 'downTrend'"
+          [ngClass]="card_data.percentChange > 0 ? 'upTrend' : 'downTrend'"
           class="ie-icon mx-1 pb-1.5"
         ></i>
-        %0.24</span
-      >
+        <span dir="ltr">
+          %{{ card_data.percentChange | number : "1.1-3" }}</span
+        >
+      </span>
     </div>
     <div class="left-container basis-1/2 text-end">
       <span class="block text-base"> EUR USD </span>
       <span class="block text-base font-light" *ngIf="showGraph">
-        {{
-          lineChartData.datasets[0].data[
-            lineChartData.datasets[0].data.length - 1
-          ]
-        }}
+        {{ card_data.transactions[card_data.transactions.length - 1].close }}
       </span>
-      <span class="block text-base font-light"> 21Pip </span>
+      <span class="block text-base font-light text-start" dir="ltr">
+        {{ card_data.pip }}Pip
+      </span>
     </div>
   </div>
   <div class="chart-container">

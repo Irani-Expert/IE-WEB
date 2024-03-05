@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BaseService } from './base.service';
 import { PageInterface } from '../page.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { CurrencyData } from '../interfaces/currency-data';
 import { Result } from '../result';
@@ -12,6 +12,7 @@ import { Filter as FilterCalendar } from 'src/app/routes/calendar/calendar-main-
 import { environment } from 'src/environments/environment.dev';
 import { Country } from 'src/app/routes/calendar/map/map-country/country';
 import { GraphFinance } from '../interfaces/graph.interface';
+import { Quotes } from '../interfaces/Quotes';
 
 @Injectable({
   providedIn: 'root',
@@ -112,39 +113,58 @@ export class EcoCalService extends BaseService<PageInterface<CalEvent[]>> {
   //   return new Array<CalEvent>();
   // }
 
-  async getTimeSeriesData(
-    currency: string,
-    interval: 'daily' | 'hourly' | 'minute' = 'hourly',
-    period: number = 1
-  ) {
-    if (period == 0) {
-      period = 1;
-    }
-    const today = new Date().toISOString();
-    const yesterday = this._yesterday.toISOString();
-    let apiUrl =
-      'https://marketdata.tradermade.com/api/v1/timeseries?api_key=towIuR6GzzXkN8dp2pZ5';
+  // async getTimeSeriesData(
+  //   currency: string,
+  //   interval: 'daily' | 'hourly' | 'minute' = 'hourly',
+  //   period: number = 1
+  // ) {
+  //   if (period == 0) {
+  //     period = 1;
+  //   }
+  //   const today = new Date().toISOString();
+  //   const yesterday = this._yesterday.toISOString();
+  //   let apiUrl =
+  //     'https://marketdata.tradermade.com/api/v1/timeseries?api_key=towIuR6GzzXkN8dp2pZ5';
 
-    // &currency=EURUSD&format=records&start_date=2024-02-19&end_date=2024-02-20&interval=hourly&period=1
-    const options: any = {
-      currency: currency.toUpperCase(),
-      format: 'records',
-      start_date: yesterday.split('T')[0],
-      end_date: today.split('T')[0],
-      interval: interval,
-      period: period,
-    };
-    for (let k in options) {
-      apiUrl += `&${k}=${options[k]}`;
-    }
+  //   // &currency=EURUSD&format=records&start_date=2024-02-19&end_date=2024-02-20&interval=hourly&period=1
+  //   const options: any = {
+  //     currency: currency.toUpperCase(),
+  //     format: 'records',
+  //     start_date: yesterday.split('T')[0],
+  //     end_date: today.split('T')[0],
+  //     interval: interval,
+  //     period: period,
+  //   };
+  //   for (let k in options) {
+  //     apiUrl += `&${k}=${options[k]}`;
+  //   }
 
-    const result = this.http.get<GraphFinance>(apiUrl);
-    return await lastValueFrom(result);
+  //   const result = this.http.get<GraphFinance>(apiUrl);
+  //   return await lastValueFrom(result);
+  // }
+
+  // private get _yesterday() {
+  //   const date = new Date();
+  //   date.setDate(date.getDate() - 1);
+  //   return date;
+  // }
+
+  getCurrencyPairs() {
+    console.log('Method Not Implemented');
   }
 
-  private get _yesterday() {
-    const date = new Date();
-    date.setDate(date.getDate() - 1);
-    return date;
+  async getCurrencyPairStatus(pairs: number[]) {
+    let body = {
+      currencyPairIDs: pairs,
+    };
+    this.headers.append('accept', 'text/plain');
+    const req = this.http.post<Result<GraphFinance[]>>(
+      `${environment.apiUrl}CurrencyPairTransaction/Get`,
+      body,
+      {
+        headers: this.headers,
+      }
+    );
+    return await lastValueFrom(req);
   }
 }

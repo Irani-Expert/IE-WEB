@@ -84,7 +84,7 @@
   <ng-container *ngIf="!loading">
     <div class="grid grid-cols-4 mb-8">
       <div class="w-28">
-        <a [href]="this.url">
+        <a [href]="link + url" target="_blank">
           <img
             class="img-card2 w-full"
             [src]="contentUrl + item.cardImagePath"
@@ -96,7 +96,7 @@
       </div>
       <div class="col-span-3 mr-12 flex items-center">
         <div>
-          <a [routerLink]="this.url">{{ item.title }}</a>
+          <a [href]="link + url" target="_blank">{{ item.title }}</a>
           <div class="flex mt-6 flex-wrap">
             <p class="date-card ml-8">
               زمان انتشار: {{ item.publishDate | date }}

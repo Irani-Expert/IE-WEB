@@ -14,7 +14,7 @@ import { TableDetailComponent } from 'src/app/routes/table-detail/table-detail.c
   styles: [
     `
       .table-holder {
-        height: 814px;
+        height: 1260px;
         position: relative;
       }
       .line-h-custom {

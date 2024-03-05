@@ -8,7 +8,7 @@
             <span class="divid-h lg:!text-base"
               >با ایرانی اکسپرت مطمئن و آسان ترید کن
             </span>
-            <br>
+            <br />
             <span class="faq-h mb-4 lg:!text-2xl">مقالات آموزشی فارکس</span>
           </div>
         </div>
@@ -58,7 +58,9 @@
               <i class="article-icon scale-90 ml-1"></i>
               <p class="row-p">مقالات ایرانی اکسپرت</p>
             </div>
-            <span class="title2 mt-2">جدیدترین و آخرین مقالات ایرانی اکسپرت</span>
+            <span class="title2 mt-2"
+              >جدیدترین و آخرین مقالات ایرانی اکسپرت</span
+            >
           </div>
         </div>
         <div class="flex justify-start">
@@ -140,7 +142,7 @@
             <span class="dividr-title"
               >با ایرانی اکسپرت مطمئن و آسان ترید کن
             </span>
-            <br>
+            <br />
             <span class="title-baner">مقالات آموزشی فارکس</span>
           </div>
         </div>
@@ -185,8 +187,11 @@
 
   <ng-container *ngIf="!loading">
     <div class="flex justify-start mt-5 mr-6 ml-6">
-      <div>
-        <div class="mb-4" *ngFor="let blog of page._items! | paginate : config">
+      <div class="flex flex-row flex-wrap justify-between">
+        <div
+          class="mb-4 basis-full max-w-[381px]"
+          *ngFor="let blog of page._items! | paginate : config"
+        >
           <app-blog-cart [data]="blog"></app-blog-cart>
         </div>
       </div>
