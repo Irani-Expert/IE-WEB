@@ -1,13 +1,6 @@
 .box-main {
   position: relative;
-}
-@media (max-width: 1400px) {
-  .box-main {
-    max-width: 9rem;
-    max-height: 12rem;
-    margin-left: 11px;
-    min-width: 8rem;
-  }
+  min-width: 180px;
 }
 
 .bg-linear-yellow {

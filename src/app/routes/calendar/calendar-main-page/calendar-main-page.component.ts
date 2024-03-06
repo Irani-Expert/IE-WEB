@@ -1,4 +1,4 @@
-import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
 import { BehaviorSubject, lastValueFrom } from 'rxjs';
@@ -20,7 +20,6 @@ interface trend_data {
   selector: 'app-calendar-main-page',
   templateUrl: './calendar-main-page.component.html',
   styleUrls: ['./calendar-main-page.component.scss'],
-  encapsulation: ViewEncapsulation.None,
 })
 export class CalendarMainPageComponent {
   eventsHolder = new Array<CalEvent>();
