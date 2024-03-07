@@ -66,10 +66,17 @@ export class GraphFinanceComponent {
   };
   constructor(private _ecoCalService: EcoCalService) {
     if (AppComponent.isBrowser.value) {
-      this.lineChartData.datasets[0].backgroundColor = this.setGradient();
+      this.graphBg = this.setGradient().gradient;
     }
   }
-
+  set graphBg(gradient: CanvasGradient) {
+    this.lineChartData.datasets[0].backgroundColor = gradient;
+  }
+  set graphBordersColor(color: string) {
+    this.lineChartData.datasets[0].borderColor = color;
+    this.lineChartData.datasets[0].pointBorderColor = color;
+    this.lineChartData.datasets[0].pointBackgroundColor = color;
+  }
   ngOnInit() {
     // this.getLocalSavedData();
     this.getDataFromApi();
@@ -100,6 +107,7 @@ export class GraphFinanceComponent {
   // }
 
   async getDataFromApi(id: number = 14) {
+    let graphColor;
     const res = await this._ecoCalService.getCurrencyPairStatus([id]);
     if (res.data) {
       this.card_data = res.data[0];
@@ -107,19 +115,34 @@ export class GraphFinanceComponent {
         this.lineChartData.datasets[0].data.push(it.close);
         this.lineChartData.labels?.push('');
       });
+
+      if (res.data[0].percentChange > 0) {
+        graphColor = this.setGradient('green');
+      } else {
+        graphColor = this.setGradient('red');
+      }
+      this.graphBg = graphColor.gradient;
+      this.graphBordersColor = graphColor.borderColor;
       this.showGraph = true;
     }
   }
 
   setGradient(type: 'red' | 'green' = 'green') {
+    let borderColor: '#2FCE7A' | '#FF2A2A' = '#2FCE7A';
     let ctx = document.createElement('canvas').getContext('2d')!;
-    let gradient = ctx.createLinearGradient(0, 0, 0, 400);
+    let gradient = ctx.createLinearGradient(0, 0, 0, 117);
     if (type == 'green') {
       gradient.addColorStop(0, 'rgba(47,206,122,0.5108018207282913)');
-      gradient.addColorStop(0.08, 'rgba(172,242,205,0.7780287114845938)');
-      gradient.addColorStop(0.15, 'rgba(255,255,255,0.8780287114845938)');
+      gradient.addColorStop(0.1, 'rgba(47,206,122,0.2082808123249299)');
+      gradient.addColorStop(0.7, 'rgba(255,255,255,0.1903536414565826)');
+      borderColor = '#2FCE7A';
     }
-
-    return gradient;
+    if (type == 'red') {
+      gradient.addColorStop(0, 'rgba(255,42,42,1)');
+      gradient.addColorStop(0.1, 'rgba(255,42,42,0.2082808123249299)');
+      gradient.addColorStop(0.7, 'rgba(255,255,255,0.1903536414565826)');
+      borderColor = '#FF2A2A';
+    }
+    return { gradient: gradient, borderColor: borderColor };
   }
 }
