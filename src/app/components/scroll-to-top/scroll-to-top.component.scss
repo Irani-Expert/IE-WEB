@@ -1,0 +1,13 @@
+.badge-app-toTop {
+  height: 40px;
+  width: 40px;
+  background-color: #3246d3;
+  border-radius: 50px;
+  position: fixed;
+  bottom: 50px;
+  left: 50px;
+  z-index: 10;
+}
+i {
+  filter: invert(1) brightness(2);
+}

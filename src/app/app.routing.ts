@@ -2,6 +2,7 @@ import { NgModule, inject } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { CanActivate } from './classes/can-activate';
+import { environment } from 'src/environments/environment.dev';
 
 const routes: Routes = [
   // Here You Add Your Lazy Loading Modules
@@ -53,6 +54,8 @@ const routes: Routes = [
       ),
   },
   {
+    canActivate: [() => (environment.production ? false : true)],
+    redirectTo: environment.production ? '' : undefined,
     path: 'economic-calendar',
     title:
       'اخبار فاندامنتال فارکس  آنلاین  و لحظه ای در سایت فارسی + آپدیت 24 ساعته',
