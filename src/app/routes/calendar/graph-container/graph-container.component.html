@@ -1,1 +1,33 @@
-<app-graph-finance></app-graph-finance>
+<div
+  class="flex flex-col bg-white p-3 border border-[#EAEAEA] rounded-2xl gap-5"
+>
+  <div class="flex flex-row justify-between items-center">
+    <p>لیست مورد علاقه</p>
+    <div class="inline-flex items-center gap-2 ml-4 cursor-pointer">
+      <p class="text-[#0080FF]">مدیریت لیست</p>
+      <span class="inline-flex"><i class="ie-icon ie-config"></i></span>
+    </div>
+  </div>
+  <div class="basis-full">
+    <ng-container *ngFor="let currency of currencies">
+      <!-- Each Graph -->
+      <div class="relative inline-block">
+        <app-graph-finance
+          [currency]="currency"
+          [ngClass]="changingList ? 'blur-[1px]' : ''"
+        ></app-graph-finance>
+        <div *ngIf="changingList" class="fav-card-container">
+          <div
+            class="flex justify-center items-center flex-col h-full select-none"
+          >
+            <span class="delete-fav-btn" (click)="changingList = false"
+              >&times;</span
+            >
+            <p class="text-[#888888] font-medium text-lg">حذف از علاقه مندی</p>
+          </div>
+        </div>
+      </div>
+      <!-- Each Graph -->
+    </ng-container>
+  </div>
+</div>

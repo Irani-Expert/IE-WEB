@@ -1,10 +1,11 @@
 <div
-  class="data-chart-card select-none bg-white inline-flex flex-col items-stretch border-[#EAEAEA] border-2 overflow-hidden rounded-xl justify-center mx-auto my-10"
+  class="data-chart-card select-none bg-white inline-flex flex-col items-stretch border-[#EAEAEA] border-2 overflow-hidden rounded-xl justify-center mx-auto"
 >
   <div class="data-container flex-row flex p-2">
     <div class="right-container flex-col flex basis-1/2">
       <span class="block text-base text-[#0080FF]"> 1H </span>
       <span
+        *ngIf="card_data"
         dir="rtl"
         [ngClass]="
           card_data.percentChange > 0 ? 'text-[#2FCE7A] ' : 'text-[#ff2a2a]'
@@ -21,11 +22,17 @@
       </span>
     </div>
     <div class="left-container basis-1/2 text-end">
-      <span class="block text-base"> EUR USD </span>
+      <span class="block text-base"
+        >{{ currency.title.slice(0, 3) + " " + currency.title.slice(3) }}
+      </span>
       <span class="block text-base font-light" *ngIf="showGraph">
         {{ card_data.transactions[card_data.transactions.length - 1].close }}
       </span>
-      <span class="block text-base font-light text-start" dir="ltr">
+      <span
+        class="block text-base font-light text-start"
+        dir="ltr"
+        *ngIf="card_data"
+      >
         {{ card_data.pip }}Pip
       </span>
     </div>

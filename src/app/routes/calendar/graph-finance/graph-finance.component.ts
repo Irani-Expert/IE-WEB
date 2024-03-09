@@ -1,15 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChartConfiguration, ChartOptions } from 'chart.js';
 import { NgChartsModule } from 'ng2-charts';
 import { AppComponent } from 'src/app/app.component';
 
-import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
 import { GraphFinance } from 'src/app/classes/interfaces/graph.interface';
-import { Quotes } from 'src/app/classes/interfaces/Quotes';
+import { Quotes } from 'src/app/classes/interfaces/quotes';
+import { Currency } from 'src/app/classes/interfaces/currency.interface';
+import { CurrencyService } from 'src/app/classes/services/currency.service';
+import { resolve } from 'path';
 const cardDataInit: GraphFinance = {
   currencyPairID: 0,
   percentChange: 0,
+  title: '',
   pip: 0,
   transactions: new Array<Quotes>(),
 };
@@ -21,6 +24,7 @@ const cardDataInit: GraphFinance = {
   styleUrls: ['./graph-finance.component.scss'],
 })
 export class GraphFinanceComponent {
+  @Input('currency') currency: Currency = {} as Currency;
   showGraph = false;
   card_data: GraphFinance = cardDataInit;
   lineChartData: ChartConfiguration<'line'>['data'] = {
@@ -64,7 +68,7 @@ export class GraphFinanceComponent {
       },
     },
   };
-  constructor(private _ecoCalService: EcoCalService) {
+  constructor(private _currecnyService: CurrencyService) {
     if (AppComponent.isBrowser.value) {
       this.graphBg = this.setGradient().gradient;
     }
@@ -79,7 +83,7 @@ export class GraphFinanceComponent {
   }
   ngOnInit() {
     // this.getLocalSavedData();
-    this.getDataFromApi();
+    this.getCurrencyStatus(this.currency.id);
   }
 
   // async getLocalSavedData() {
@@ -106,17 +110,18 @@ export class GraphFinanceComponent {
   //   this.showGraph = true;
   // }
 
-  async getDataFromApi(id: number = 14) {
+  async getCurrencyStatus(id: number = 14) {
+    //14 == EURUSD
     let graphColor;
-    const res = await this._ecoCalService.getCurrencyPairStatus([id]);
-    if (res.data) {
-      this.card_data = res.data[0];
-      res.data[0].transactions.forEach((it) => {
+    const res = this._currecnyService.getGraphData(id);
+    if (res) {
+      this.card_data = res;
+      res.transactions.forEach((it) => {
         this.lineChartData.datasets[0].data.push(it.close);
         this.lineChartData.labels?.push('');
       });
 
-      if (res.data[0].percentChange > 0) {
+      if (res.percentChange > 0) {
         graphColor = this.setGradient('green');
       } else {
         graphColor = this.setGradient('red');

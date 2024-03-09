@@ -50,42 +50,47 @@
       </div>
     </div>
 
-    <div
-      class="basis-[72%] bg-white px-2 py-1 rounded-2xl shadow-sm border border-[#EAEAEA] relative"
-    >
-      <div class="w-full my-2 mx-2 flex items-center">
-        <div class="mx-2">
-          <i class="ie-news"></i>
-        </div>
-        <div class="mx-2">
-          <span class="block text-sm">تقویم اقتصادی</span>
-          <span class="inline-block text-[#0498FB] text-sm font-medium">
-            {{ today }}
-          </span>
-        </div>
-        <div class="flex items-center ml-4 mr-auto space-x-2">
-          <span class="block text-sm ml-4"> اهمیت</span>
-          <ng-container *ngFor="let i of importances">
-            <span
-              (click)="i.active = !i.active; setImportance(i)"
-              class="rounded-md border-[1.5px] holder-icon cursor-pointer hover:bg-slate-200"
-              [ngClass]="
-                i.active
-                  ? 'bg-[#E7F3FB] border-[#0498FB]'
-                  : 'bg-white border-[#BCBCBC]'
-              "
-            >
-              <span
-                class="scale-95 block w-full"
-                [ngStyle]="{ '--importance-color': i.color }"
-              >
-                <app-importance />
-              </span>
+    <div class="basis-[72%] flex flex-col gap-6">
+      <div
+        class="bg-white px-2 py-1 rounded-2xl shadow-sm border border-[#EAEAEA] relative"
+      >
+        <div class="w-full my-2 mx-2 flex items-center">
+          <div class="mx-2">
+            <i class="ie-news"></i>
+          </div>
+          <div class="mx-2">
+            <span class="block text-sm">تقویم اقتصادی</span>
+            <span class="inline-block text-[#0498FB] text-sm font-medium">
+              {{ today }}
             </span>
-          </ng-container>
+          </div>
+          <div class="flex items-center ml-4 mr-auto space-x-2">
+            <span class="block text-sm ml-4"> اهمیت</span>
+            <ng-container *ngFor="let i of importances">
+              <span
+                (click)="i.active = !i.active; setImportance(i)"
+                class="rounded-md border-[1.5px] holder-icon cursor-pointer hover:bg-slate-200"
+                [ngClass]="
+                  i.active
+                    ? 'bg-[#E7F3FB] border-[#0498FB]'
+                    : 'bg-white border-[#BCBCBC]'
+                "
+              >
+                <span
+                  class="scale-95 block w-full"
+                  [ngStyle]="{ '--importance-color': i.color }"
+                >
+                  <app-importance />
+                </span>
+              </span>
+            </ng-container>
+          </div>
         </div>
+        <table-calendar />
       </div>
-      <table-calendar />
+      <div>
+        <app-graph-container></app-graph-container>
+      </div>
     </div>
   </div>
   <div class="flex items-center justify-center">
@@ -110,8 +115,6 @@
       کمش کن
     </button>
   </div> -->
-
   <!-- <app-trading-view lazy="true" /> -->
-  <app-graph-container></app-graph-container>
   <app-calendar-description />
 </div>
