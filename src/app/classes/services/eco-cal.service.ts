@@ -112,39 +112,39 @@ export class EcoCalService extends BaseService<PageInterface<CalEvent[]>> {
   //   return new Array<CalEvent>();
   // }
 
-  async getTimeSeriesData(
-    currency: string,
-    interval: 'daily' | 'hourly' | 'minute' = 'hourly',
-    period: number = 1
-  ) {
-    if (period == 0) {
-      period = 1;
-    }
-    const today = new Date().toISOString();
-    const yesterday = this._yesterday.toISOString();
-    let apiUrl =
-      'https://marketdata.tradermade.com/api/v1/timeseries?api_key=towIuR6GzzXkN8dp2pZ5';
+  // async getTimeSeriesData(
+  //   currency: string,
+  //   interval: 'daily' | 'hourly' | 'minute' = 'hourly',
+  //   period: number = 1
+  // ) {
+  //   if (period == 0) {
+  //     period = 1;
+  //   }
+  //   const today = new Date().toISOString();
+  //   const yesterday = this._yesterday.toISOString();
+  //   let apiUrl =
+  //     'https://marketdata.tradermade.com/api/v1/timeseries?api_key=towIuR6GzzXkN8dp2pZ5';
 
-    // &currency=EURUSD&format=records&start_date=2024-02-19&end_date=2024-02-20&interval=hourly&period=1
-    const options: any = {
-      currency: currency.toUpperCase(),
-      format: 'records',
-      start_date: yesterday.split('T')[0],
-      end_date: today.split('T')[0],
-      interval: interval,
-      period: period,
-    };
-    for (let k in options) {
-      apiUrl += `&${k}=${options[k]}`;
-    }
+  //   // &currency=EURUSD&format=records&start_date=2024-02-19&end_date=2024-02-20&interval=hourly&period=1
+  //   const options: any = {
+  //     currency: currency.toUpperCase(),
+  //     format: 'records',
+  //     start_date: yesterday.split('T')[0],
+  //     end_date: today.split('T')[0],
+  //     interval: interval,
+  //     period: period,
+  //   };
+  //   for (let k in options) {
+  //     apiUrl += `&${k}=${options[k]}`;
+  //   }
 
-    const result = this.http.get<GraphFinance>(apiUrl);
-    return await lastValueFrom(result);
-  }
+  //   const result = this.http.get<GraphFinance>(apiUrl);
+  //   return await lastValueFrom(result);
+  // }
 
-  private get _yesterday() {
-    const date = new Date();
-    date.setDate(date.getDate() - 1);
-    return date;
-  }
+  // private get _yesterday() {
+  //   const date = new Date();
+  //   date.setDate(date.getDate() - 1);
+  //   return date;
+  // }
 }

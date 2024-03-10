@@ -18,7 +18,7 @@
             [id]="control.name"
             autocomplete="off"
             [ngClass]="control.hasErr == true ? '  hasError' : '!border-none'"
-            class="input-with-icon !text-lg font-semibold bg-[#f3f3f3]"
+            class="input-with-icon !text-lg font-semibold bg-[#f3f3f3] sm:bg-white"
             [type]="control?.type ? control.type : 'text'"
             formControlName="{{ control.name }}"
             [placeholder]="control?.placeholder ? control.placeholder : ''"

@@ -1,14 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChartConfiguration, ChartOptions } from 'chart.js';
 import { NgChartsModule } from 'ng2-charts';
-import { BaseService } from 'src/app/classes/services/base.service';
-import { GraphFinance } from 'src/app/classes/interfaces/graph.interface';
-import { lastValueFrom } from 'rxjs';
 import { AppComponent } from 'src/app/app.component';
-// import { AppComponent } from 'src/app/app.component';
-// import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
 
+import { GraphFinance } from 'src/app/classes/interfaces/graph.interface';
+import { Quotes } from 'src/app/classes/interfaces/quotes';
+import { Currency } from 'src/app/classes/interfaces/currency.interface';
+import { CurrencyService } from 'src/app/classes/services/currency.service';
+import { resolve } from 'path';
+const cardDataInit: GraphFinance = {
+  currencyPairID: 0,
+  percentChange: 0,
+  title: '',
+  pip: 0,
+  transactions: new Array<Quotes>(),
+};
 @Component({
   selector: 'app-graph-finance',
   standalone: true,
@@ -17,8 +24,9 @@ import { AppComponent } from 'src/app/app.component';
   styleUrls: ['./graph-finance.component.scss'],
 })
 export class GraphFinanceComponent {
-  gradient: CanvasGradient;
+  @Input('currency') currency: Currency = {} as Currency;
   showGraph = false;
+  card_data: GraphFinance = cardDataInit;
   lineChartData: ChartConfiguration<'line'>['data'] = {
     // xLabels: [],
     labels: [],
@@ -60,32 +68,37 @@ export class GraphFinanceComponent {
       },
     },
   };
-  constructor(private baseService: BaseService<GraphFinance>) {
+  constructor(private _currecnyService: CurrencyService) {
     if (AppComponent.isBrowser.value) {
-      const ctx = document.createElement('canvas').getContext('2d')!;
-      this.gradient = ctx.createLinearGradient(0, 0, 0, 400);
-      this.gradient.addColorStop(0, 'rgba(47,206,122,0.5108018207282913)');
-      this.gradient.addColorStop(0.08, 'rgba(172,242,205,0.7780287114845938)');
-      this.gradient.addColorStop(0.15, 'rgba(255,255,255,0.8780287114845938)');
-      this.lineChartData.datasets[0].backgroundColor = this.gradient;
+      this.graphBg = this.setGradient().gradient;
     }
   }
-
+  set graphBg(gradient: CanvasGradient) {
+    this.lineChartData.datasets[0].backgroundColor = gradient;
+  }
+  set graphBordersColor(color: string) {
+    this.lineChartData.datasets[0].borderColor = color;
+    this.lineChartData.datasets[0].pointBorderColor = color;
+    this.lineChartData.datasets[0].pointBackgroundColor = color;
+  }
   ngOnInit() {
-    this.getLocalSavedData();
-    // this.getGraphData();
+    // this.getLocalSavedData();
+    this.getCurrencyStatus(this.currency.id);
   }
 
-  async getLocalSavedData() {
-    const result = await lastValueFrom(
-      this.baseService.http.get<GraphFinance>('../assets/graph-data.json')
-    );
-    result.quotes.forEach((it) => {
-      this.lineChartData.datasets[0].data.push(it.close);
-      this.lineChartData.labels?.push('');
-    });
-    this.showGraph = true;
-  }
+  // async getLocalSavedData() {
+  //   const result = await lastValueFrom(
+  //     this.baseService.http.post<GraphFinance>(
+  //       `${environment.apiUrl}CurrencyPairTransaction/Get`,
+  //       [14]
+  //     )
+  //   );
+  //   result.quotes.forEach((it) => {
+  //     this.lineChartData.datasets[0].data.push(it.close);
+  //     this.lineChartData.labels?.push('');
+  //   });
+  //   this.showGraph = true;
+  // }
   // private async getGraphData() {
   //   const result = await this._ecoCalService.getTimeSeriesData('eurusd');
   //   console.log(result);
@@ -96,4 +109,45 @@ export class GraphFinanceComponent {
   //   });
   //   this.showGraph = true;
   // }
+
+  async getCurrencyStatus(id: number = 14) {
+    //14 == EURUSD
+    let graphColor;
+    const res = this._currecnyService.getGraphData(id);
+    if (res) {
+      this.card_data = res;
+      res.transactions.forEach((it) => {
+        this.lineChartData.datasets[0].data.push(it.close);
+        this.lineChartData.labels?.push('');
+      });
+
+      if (res.percentChange > 0) {
+        graphColor = this.setGradient('green');
+      } else {
+        graphColor = this.setGradient('red');
+      }
+      this.graphBg = graphColor.gradient;
+      this.graphBordersColor = graphColor.borderColor;
+      this.showGraph = true;
+    }
+  }
+
+  setGradient(type: 'red' | 'green' = 'green') {
+    let borderColor: '#2FCE7A' | '#FF2A2A' = '#2FCE7A';
+    let ctx = document.createElement('canvas').getContext('2d')!;
+    let gradient = ctx.createLinearGradient(0, 0, 0, 117);
+    if (type == 'green') {
+      gradient.addColorStop(0, 'rgba(47,206,122,0.5108018207282913)');
+      gradient.addColorStop(0.1, 'rgba(47,206,122,0.2082808123249299)');
+      gradient.addColorStop(0.7, 'rgba(255,255,255,0.1903536414565826)');
+      borderColor = '#2FCE7A';
+    }
+    if (type == 'red') {
+      gradient.addColorStop(0, 'rgba(255,42,42,1)');
+      gradient.addColorStop(0.1, 'rgba(255,42,42,0.2082808123249299)');
+      gradient.addColorStop(0.7, 'rgba(255,255,255,0.1903536414565826)');
+      borderColor = '#FF2A2A';
+    }
+    return { gradient: gradient, borderColor: borderColor };
+  }
 }

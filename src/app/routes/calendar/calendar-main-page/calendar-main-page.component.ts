@@ -1,4 +1,4 @@
-import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
 import { BehaviorSubject, lastValueFrom } from 'rxjs';
@@ -9,7 +9,7 @@ import { TableCalendar } from 'src/app/shared/table-calendar/table-calendar.comp
 import { DatePipe } from '@angular/common';
 
 import { CalEvent } from './cal-event.model';
-import { TradingViewComponent } from 'src/app/components/trading-view/trading-view.component';
+// import { TradingViewComponent } from 'src/app/components/trading-view/trading-view.component';
 import { LinkService } from 'src/app/classes/services/link.service';
 interface trend_data {
   currency: string;
@@ -20,7 +20,6 @@ interface trend_data {
   selector: 'app-calendar-main-page',
   templateUrl: './calendar-main-page.component.html',
   styleUrls: ['./calendar-main-page.component.scss'],
-  encapsulation: ViewEncapsulation.None,
 })
 export class CalendarMainPageComponent {
   eventsHolder = new Array<CalEvent>();
@@ -66,7 +65,7 @@ export class CalendarMainPageComponent {
     AppComponent.changeMainBg('creamy');
   }
   async ngAfterViewInit() {
-    TradingViewComponent.createView();
+    // TradingViewComponent.createView();
     this.filter$.subscribe({
       next: async (item) => {
         this.appTableComponent.tableIsLoading = true;
@@ -83,7 +82,7 @@ export class CalendarMainPageComponent {
 
   async getCal(filter: FilterEvents, pageIndex: number = 0) {
     const apiData = this.ecoCalService.getCalEvents(
-      `pageIndex=${pageIndex}&pageSize=10&accending=true`,
+      `pageIndex=${pageIndex}&pageSize=16&accending=true`,
       filter
     );
 

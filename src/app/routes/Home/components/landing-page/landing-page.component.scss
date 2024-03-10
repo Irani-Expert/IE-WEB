@@ -46,3 +46,21 @@
     z-index: -1;
   }
 }
+
+.articles-responsive {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 7px;
+    background: transparent;
+    display: inline-block;
+
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #707070;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+}

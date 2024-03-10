@@ -23,7 +23,7 @@ import { ModalComponent } from 'src/app/shared/modal/modal.component';
 import { TradingViewComponent } from 'src/app/components/trading-view/trading-view.component';
 import { MapComponent } from '../map/map/map.component';
 import { CountryDetailComponent } from '../country-detail/country-detail.component';
-import { GraphFinanceComponent } from '../graph-finance/graph-finance.component';
+import { GraphContainerComponent } from '../graph-container/graph-container.component';
 
 const components = [
   CalendarMainPageComponent,
@@ -42,10 +42,10 @@ const components = [
 @NgModule({
   declarations: [components],
   imports: [
+    GraphContainerComponent,
     ModalComponent,
     MapComponent,
     CommonModule,
-    GraphFinanceComponent,
     TradingViewComponent,
     NgChartsModule,
     Toggler,

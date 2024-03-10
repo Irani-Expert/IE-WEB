@@ -26,6 +26,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { ToastrModule } from 'ngx-toastr';
 import { JWTInterceptor } from './classes/jwt.interceptor';
 import { NgChartsModule } from 'ng2-charts';
+import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
 export function playerFactory(): any {
   return import('lottie-web');
 }
@@ -41,6 +42,7 @@ const footer = [FooterComponent];
 @NgModule({
   declarations: [AppComponent, header, footer],
   imports: [
+    ScrollToTopComponent,
     ModalComponent,
     AuthModule,
     HttpClientModule,

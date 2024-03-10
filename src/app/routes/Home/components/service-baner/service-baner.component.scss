@@ -1,7 +1,6 @@
 @media (max-width: 640px) {
   .cart-box {
     min-height: 7rem !important;
-    max-width: 18rem !important;
   }
   .cart-row {
     bottom: 60px;
@@ -72,6 +71,9 @@
 }
 
 .cart-box {
+  min-width: 222px;
+  flex-basis: 33%;
+  max-width: 16rem !important;
   margin-right: 5px;
   padding: 25px 16px 0px 21px;
   border-radius: 20px;

@@ -18,9 +18,8 @@ class BlogModel implements Blog {
   publishDate: string = '';
   browserTitle: string = '';
   brief: string = '';
-  favoriteCount : number = 0;
+  favoriteCount: number = 0;
   colorCode: string;
-
 }
 @Component({
   selector: 'app-blog-cart',
@@ -28,10 +27,8 @@ class BlogModel implements Blog {
   styleUrls: ['./blog-cart.component.scss'],
 })
 export class BlogCartComponent {
-
   // @Input('linkType') linkType : number;
-  link : string = '';
-
+  link: string = '';
 
   loading: boolean = true;
 
@@ -39,7 +36,6 @@ export class BlogCartComponent {
   url = '';
   @Input('data') item: Blog = new BlogModel();
 
-  like : number;
   // =======================[رسپانسیو]==========
 
   device: 'sm' | 'lg' = 'lg';
@@ -47,18 +43,11 @@ export class BlogCartComponent {
     this.updateDeviceValue();
     this.loading = false;
     this.getUrl();
-    if( this.item.favoriteCount ==  null || 0){
-      this.like = 25
+    if (this.item.studyTime == null || undefined) {
+      this.item.studyTime = '00:15:00';
     }
-    else {
-      this.like = this.item.favoriteCount;
-    }
-
-    if (this.item.studyTime == null || undefined){
-      this.item.studyTime = '00:15:00'
-    }     
   }
-  getUrl(){
+  getUrl() {
     let language = this.item.isRTL ? 'fa' : 'en';
     // if( this.linkType == 2 ){
     // }

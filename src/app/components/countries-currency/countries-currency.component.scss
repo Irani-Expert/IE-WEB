@@ -1,13 +1,7 @@
 .box-main {
   position: relative;
-}
-@media (max-width: 1400px) {
-  .box-main {
-    max-width: 9rem;
-    max-height: 12rem;
-    margin-left: 11px;
-    min-width: 8rem;
-  }
+  min-width: 138px;
+  max-width: 160px;
 }
 
 .bg-linear-yellow {
@@ -67,7 +61,7 @@
   height: 100%;
 }
 .currencyInfo {
-  transform: translateY(-4rem);
+  transform: translateY(-100%);
   line-height: 24px;
   position: absolute;
 }
