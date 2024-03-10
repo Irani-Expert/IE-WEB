@@ -1,5 +1,12 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  HostListener,
+  Input,
+  OnInit,
+} from '@angular/core';
+import { log } from 'console';
 import { AppComponent } from 'src/app/app.component';
 
 @Component({
@@ -15,7 +22,7 @@ import { AppComponent } from 'src/app/app.component';
     ]),
   ],
 })
-export class VideoPlayerComponent implements OnInit, AfterViewInit {
+export class VideoPlayerComponent implements OnInit {
   @Input({ required: true }) VideoId!: number;
   @Input('Link') videoLink: string;
 
@@ -29,9 +36,27 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit {
   progressValue: number = 0;
   element: any;
   isFullScreen: boolean = false;
+  mousePosition: number;
+  mouseDisplay: string;
   progressbarLeft: string = 'calc(0%);';
-  ngAfterViewInit() {}
+
+  @HostListener('document:keydown.escape', ['$event'])
+  @HostListener('window:mousemove', ['$event'])
+  onMouseMove(e: any) {
+    console.log(e);
+
+    if (e.clientX + e.clientY != this.mousePosition && this.isFullScreen) {
+      this.mouseDisplay = 'auto';
+    }
+    this.mousePosition = e.clientX + e.clientY;
+  }
+
   ngOnInit(): void {
+    setInterval(() => {
+      if (this.isFullScreen && this.pauseplay) {
+        this.mouseDisplay = 'none';
+      }
+    }, 4000);
     this.vId = 'vId' + this.VideoId;
 
     if (AppComponent.isBrowser.value) {
@@ -46,7 +71,7 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit {
 
       this.progressbarLeft = this.percentage + '%';
       if (this.percentage > 0.2) {
-        this.progressValue = this.percentage + 0.4;
+        this.progressValue = this.percentage + 0.8;
       } else {
         this.progressValue = 0;
       }
@@ -109,6 +134,8 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit {
   }
 
   fullScreen() {
+    console.log('ok');
+
     var vid = <HTMLVideoElement>document.getElementById('main' + this.vId);
     if (!this.isFullScreen) {
       vid.requestFullscreen();

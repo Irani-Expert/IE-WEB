@@ -1,4 +1,9 @@
-<div id="main{{ this.vId }}" class="box-shadow-ac h-full">
+<div
+  id="main{{ this.vId }}"
+  class="box-shadow-ac h-full"
+  [ngClass]="{ 'onFullScreen-change': isFullScreen }"
+  [ngStyle]="{ cursor: mouseDisplay }"
+>
   <div class="absolute h-full w-full">
     <video
       width="100%"
@@ -41,25 +46,32 @@
     </div>
 
     <div
-      class="flex items-center p-div text-2xl p-2"
-      style="height: 37px; bottom: 22px; background-color: #0000ff73"
+      class="flex flex-start items-center p-div text-2xl p-2"
+      [ngClass]="{ 'hidden-hover': pauseplay }"
+      style="height: 37px; bottom: 22px"
     >
       <i
-        class="ie-icon ie-expand text-base text-white flex items-center cursor-pointer drop-shadow-md ml-3"
+        class="ie-icon text-base text-white flex items-center cursor-pointer drop-shadow-md ml-5 pt-2.5 opacity-80"
         style="height: inherit"
+        [ngClass]="{
+          'ie-expand ': !isFullScreen,
+          'ie-compress ': isFullScreen
+        }"
         (click)="fullScreen()"
       ></i>
+
       <span
-        class="text-white items-center drop-shadow-md ml-3"
+        class="items-center drop-shadow-md ml-3 text-[#464646b7] font-bold"
         style="height: inherit; height: 38px; line-height: 47px"
       >
         {{ videoCurrentTime }}
       </span>
-      <div class="w-[32rem] ml-3">
+
+      <div class="w-full">
         <progress
           dir="ltr"
           (drag)="dragFiunction($event)"
-          class="pr-Before cursor-pointer w-full"
+          class="pr-Before cursor-pointer w-full mt-3.5"
           (click)="handleClick($event)"
           [value]="progressValue"
           min="0"
@@ -67,18 +79,21 @@
           [ngStyle]="{ '--movement': progressbarLeft }"
         ></progress>
       </div>
-      <i
-        class="ie-icon text-white flex items-center text-base small cursor-pointer drop-shadow-md play-icon"
-        style="height: inherit"
-        [ngClass]="{
-          'ie-puase max-w-[14px] mb-2': pauseplay,
-          'ie-Polygon ': !pauseplay
-        }"
-        (click)="puasePaceVideo()"
-      ></i>
+      <div style="width: 50px">
+        <i
+          class="ie-icon text-white flex items-center text-base cursor-pointer drop-shadow-md play-icon mr-4"
+          style="height: inherit"
+          [ngClass]="{
+            'ie-puase w-[14px]': pauseplay,
+            'ie-Polygon  small-polygon pt-1.5': !pauseplay
+          }"
+          (click)="puasePaceVideo()"
+        ></i>
+      </div>
+
       <!-- 
 
-
+   
      
 
     --></div>

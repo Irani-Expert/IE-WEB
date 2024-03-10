@@ -28,22 +28,29 @@
   transition: transform 0.3s ease;
 }
 .ie-Polygon {
-  &.small::before {
-    width: 17px !important;
+  &.small-polygon::before {
+    min-height: 24px;
+    min-width: 15px;
   }
   &::before {
-    width: 40px;
     display: block;
     content: url(../assets/icon/Polygon.svg);
   }
   transition: transform 0.3s ease;
 }
 .ie-expand {
+  max-height: 15px !important;
+  max-width: 15px !important;
+
   &::before {
-    transform: rotate(-90deg);
     content: url(../assets/icon/expand.svg);
   }
   transition: transform 0.3s ease;
+}
+.ie-compress {
+  &::before {
+    content: url(../assets/icon/compress.svg);
+  }
 }
 .ie-pause {
   &.small::before {

@@ -4,13 +4,45 @@
   position: relative;
   width: 100%;
 }
+.onFullScreen-change {
+  // animation: hideMouse 2s ease 0s 1 forwards;
 
-.box-shadow-ac:hover {
-  box-shadow: -6px 5px 4px 0px #d8d8d8;
-  transform: translate(2px, -2px);
-  border-color: #3246d3;
-  .video-opa {
-    opacity: 1;
+  border-radius: 0px !important;
+  .hidden-hover:not(:hover) {
+    animation: fade-out 2s ease 0s 1 forwards;
+  }
+}
+
+@media (min-width: 1024px) {
+  .box-shadow-ac {
+    width: 100%;
+  }
+  .home-height {
+    height: 35rem !important;
+  }
+  .box-shadow-ac:not(:hover) {
+    .hidden-hover {
+      animation: fade-in 2s ease 0s 1 forwards;
+    }
+  }
+  .box-shadow-ac:hover {
+    box-shadow: -6px 5px 4px 0px #d8d8d8;
+    transform: translate(2px, -2px);
+    border-color: #3246d3;
+    .video-opa {
+      opacity: 1;
+    }
+  }
+}
+@media (max-width: 1024px) {
+  .box-shadow-ac:not(:hover),
+  .box-shadow-ac:not(:active) {
+    .hidden-hover {
+      animation: fade-out 1s ease-out 4.5s 1 forwards;
+    }
+  }
+  .box-shadow-ac {
+    border-color: #d8d8d8 !important;
   }
 }
 
@@ -27,18 +59,10 @@
   border-color: #d8d8d8;
 }
 
-@media (min-width: 640px) {
-  .box-shadow-ac {
-    width: 100%;
-  }
-  .home-height {
-    height: 35rem !important;
-  }
-}
-
 progress::-webkit-progress-bar {
   border: 0;
   border-radius: 20px;
+  background-color: #464646b7;
 }
 progress::-webkit-progress-value {
   border: 0;
@@ -47,18 +71,17 @@ progress::-webkit-progress-value {
 }
 progress {
   border: none;
-  height: 6px;
+  height: 11px;
   position: relative;
   border: none;
 }
 progress:before {
   content: "";
   position: absolute;
-  top: -3px;
-  width: 12px;
-  height: 12px;
+  width: 11px;
+  height: 11px;
   border-radius: 50%;
-  background-color: $blue; /* Adjust the color of the dot */
+  background-color: white; /* Adjust the color of the dot */
 }
 .pr-Before:before {
   left: calc(var(--movement));
@@ -71,4 +94,28 @@ video {
 }
 .play-icon::before {
   height: 20px;
+}
+
+@keyframes fade-in {
+  100% {
+    opacity: 0;
+  }
+
+  0% {
+    opacity: 1 !important;
+  }
+}
+@keyframes fade-out {
+  100% {
+    opacity: 0;
+  }
+
+  0% {
+    opacity: 1;
+  }
+}
+@keyframes hideMouse {
+  100% {
+    cursor: none;
+  }
 }
