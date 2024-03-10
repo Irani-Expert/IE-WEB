@@ -45,7 +45,9 @@ export class CurrencyService extends BaseService<any> {
       )
       .pipe(
         map((it) => {
-          if (it.data) this.currenciesPairStatus.next(it.data);
+          if (it.data) {
+            this.currenciesPairStatus.next(it.data);
+          }
           return it.success;
         })
       );

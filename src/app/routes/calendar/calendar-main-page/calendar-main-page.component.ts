@@ -76,6 +76,8 @@ export class CalendarMainPageComponent {
       },
     });
   }
+
+  ngAfterContentInit() {}
   ngOnDestroy() {
     AppComponent.changeMainBg('white');
   }

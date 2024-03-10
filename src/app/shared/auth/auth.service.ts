@@ -119,7 +119,9 @@ export class AuthService extends BaseService<User | ILogin | IForgetPassword> {
     this.userSubject.next(userInit);
     this.localStorage.removeItem('info');
     this.localStorage.removeItem('token');
-    this._userClaimService.removeOnLogOut();
+    
+      this._userClaimService.removeOnLogOut();
+    
     AuthService.loggedIn.next(false);
   }
   async checkValidToken() {
