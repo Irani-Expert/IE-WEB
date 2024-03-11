@@ -87,7 +87,7 @@ export class AuthService extends BaseService<User | ILogin | IForgetPassword> {
     );
     return await lastValueFrom(result);
   }
-  saveForOneSession(data: any) {
+  async saveForOneSession(data: any) {
     let user: User = {
       id: data.userID,
       username: data.subject,
@@ -96,10 +96,10 @@ export class AuthService extends BaseService<User | ILogin | IForgetPassword> {
       token: data.token,
     };
     this.userSubject.next(user);
-    this._userClaimService.getFavs(user.id);
+    await this._userClaimService.getFavs(user.id);
     AuthService.loggedIn.next(true);
   }
-  rememberUser(data: any) {
+  async rememberUser(data: any) {
     let info: User = {
       id: data.userID,
       username: data.subject,
@@ -112,16 +112,16 @@ export class AuthService extends BaseService<User | ILogin | IForgetPassword> {
     this.localStorage.setItem('info', JSON.stringify(info));
     this.localStorage.setItem('token', token);
     this.userSubject.next(info);
-    this._userClaimService.getFavs(info.id);
+    await this._userClaimService.getFavs(info.id);
     AuthService.loggedIn.next(true);
   }
   logOutUser() {
     this.userSubject.next(userInit);
     this.localStorage.removeItem('info');
     this.localStorage.removeItem('token');
-    
-      this._userClaimService.removeOnLogOut();
-    
+
+    this._userClaimService.removeOnLogOut();
+
     AuthService.loggedIn.next(false);
   }
   async checkValidToken() {

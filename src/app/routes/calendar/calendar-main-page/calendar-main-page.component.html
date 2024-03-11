@@ -88,7 +88,7 @@
         </div>
         <table-calendar />
       </div>
-      <div>
+      <div *ngIf="device == 'lg'">
         <app-graph-container></app-graph-container>
       </div>
     </div>
@@ -96,8 +96,8 @@
   <div class="flex flex-col items-center justify-center lg:hidden">
     <app-responsive-table></app-responsive-table>
 
-    <div class="p-5 basis-full w-full">
-      <!-- <app-graph-container></app-graph-container> -->
+    <div *ngIf="device == 'md'" class="p-5 basis-full w-full">
+      <app-graph-container></app-graph-container>
     </div>
   </div>
   <!-- <div>
