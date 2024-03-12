@@ -1,8 +1,11 @@
 <div
   id="main{{ this.vId }}"
-  class="box-shadow-ac h-full"
-  [ngClass]="{ 'onFullScreen-change': isFullScreen }"
+  class="box-shadow-ac h-full onFullScreen-change"
+  [ngClass]="{ 'border-change': isFullScreen }"
   [ngStyle]="{ cursor: mouseDisplay }"
+  (mouseenter)="aftermouseenter()"
+  (mousemove)="aftermouseMoved()"
+  (keydown.esc)="onMouseMove($event)"
 >
   <div class="absolute h-full w-full">
     <video
@@ -19,7 +22,7 @@
       type="video/mp4"
       title="video"
     >
-      <source src="{{ videoLink }}" type="video/mp4" />
+      <source *ngIf="firstPlay" src="{{ videoLink }}" type="video/mp4" />
     </video>
   </div>
 
@@ -27,17 +30,19 @@
     <div class="p-div d-flex justify-center align-middle btn-span h-[60%]">
       <span
         class="fa-stack fa-4x opacity-100 flex justify-center items-center"
-        [@fade]
-        *ngIf="!hidePuase"
+        [ngClass]="{
+          'hide-centerVideobtn ': hidePuase
+        }"
       >
         <div
-          class="flex justify-center items-center bg-[#3246d3] sm:pt-2.5 md:w-28 md:h-28 w-20 h-20 rounded-full"
+          class="flex justify-center items-center bg-[#3246d3] md:w-28 md:h-28 w-20 h-20 rounded-full"
         >
           <i
             class="ie-icon cursor-pointer"
             [ngClass]="{
-              'ie-puase ': pauseplay,
-              'ie-Polygon    me-2 max-md:mt-2': !pauseplay
+              'ie-puase-xl mt-1': pauseplay,
+              'ie-Polygon large-polygon  white-filter max-md:mt-2 me-1.5 mt-2.5':
+                !pauseplay
             }"
             (click)="puasePaceVideo()"
           ></i>
@@ -47,8 +52,8 @@
 
     <div
       class="flex flex-start items-center p-div text-2xl p-2"
-      [ngClass]="{ 'hidden-hover': pauseplay }"
-      style="height: 37px; bottom: 22px"
+      [ngClass]="{ 'hidden-hover': mouseDisplay == 'none' }"
+      style="height: 37px; bottom: 3vh"
     >
       <i
         class="ie-icon text-base text-white flex items-center cursor-pointer drop-shadow-md ml-5 pt-2.5 opacity-80"
@@ -70,9 +75,14 @@
       <div class="w-full">
         <progress
           dir="ltr"
-          (drag)="dragFiunction($event)"
           class="pr-Before cursor-pointer w-full mt-3.5"
           (click)="handleClick($event)"
+          (mousedown)="startUpdateSlider()"
+          (mouseup)="endUpdateSlider()"
+          (mouseleave)="endUpdateSlider()"
+          (mousemove)="updateSlider($event)"
+          (touchstart)="startUpdateSlider()"
+          (touchmove)="updateSlider($event)"
           [value]="progressValue"
           min="0"
           max="100"
@@ -84,19 +94,13 @@
           class="ie-icon text-white flex items-center text-base cursor-pointer drop-shadow-md play-icon mr-4"
           style="height: inherit"
           [ngClass]="{
-            'ie-puase w-[14px]': pauseplay,
-            'ie-Polygon  small-polygon pt-1.5': !pauseplay
+            'ie-puase w-[14px] ': pauseplay,
+            'ie-Polygon  small-polygon pt-1.5 blue-filter ': !pauseplay
           }"
           (click)="puasePaceVideo()"
         ></i>
       </div>
-
-      <!-- 
-
-   
-     
-
-    --></div>
+    </div>
   </div>
 </div>
 <ng-content></ng-content>

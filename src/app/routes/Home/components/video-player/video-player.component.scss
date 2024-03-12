@@ -5,14 +5,13 @@
   width: 100%;
 }
 .onFullScreen-change {
-  // animation: hideMouse 2s ease 0s 1 forwards;
-
-  border-radius: 0px !important;
   .hidden-hover:not(:hover) {
-    animation: fade-out 2s ease 0s 1 forwards;
+    animation: fade-out 1s ease 0s 1 forwards;
   }
 }
-
+.border-change {
+  border-radius: 0px !important;
+}
 @media (min-width: 1024px) {
   .box-shadow-ac {
     width: 100%;
@@ -20,11 +19,16 @@
   .home-height {
     height: 35rem !important;
   }
-  .box-shadow-ac:not(:hover) {
-    .hidden-hover {
-      animation: fade-in 2s ease 0s 1 forwards;
-    }
-  }
+  // .white-filter {
+  //   filter: invert(95%) sepia(0%) saturate(7475%) hue-rotate(112deg)
+  //     brightness(106%) contrast(98%);
+  // }
+
+  // .box-shadow-ac:not(:hover) {
+  //   .hidden-hover {
+  //     animation: fade-in 2s ease 0s 1 forwards;
+  //   }
+  // }
   .box-shadow-ac:hover {
     box-shadow: -6px 5px 4px 0px #d8d8d8;
     transform: translate(2px, -2px);
@@ -118,4 +122,14 @@ video {
   100% {
     cursor: none;
   }
+}
+
+.onFullScreen-change:not(:active) {
+  .hide-centerVideobtn {
+    animation: fade-out 0.5s ease 1s 1 normal forwards;
+  }
+}
+.blue-filter {
+  filter: brightness(0) saturate(100%) invert(22%) sepia(100%) saturate(3161%)
+    hue-rotate(228deg) brightness(97%) contrast(98%);
 }
