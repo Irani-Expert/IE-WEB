@@ -33,7 +33,7 @@
   <app-countries-currency></app-countries-currency>
   <!-- <app-voice-player></app-voice-player> -->
 
-  <div class="flex max-lg:hidden gap-5 items-start justify-center">
+  <div class="lg:flex hidden gap-5 items-start justify-center">
     <div class="flex flex-col basis-[26%]">
       <div class="bg-white rounded-2xl shadow-sm p-5">
         <app-date-picker (calDate)="setCalDate($event)"></app-date-picker>
@@ -88,14 +88,16 @@
         </div>
         <table-calendar />
       </div>
-      <div>
+      <div *ngIf="device == 'lg'">
         <app-graph-container></app-graph-container>
       </div>
     </div>
   </div>
-  <div class="flex items-center justify-center">
-    <div class="lg:hidden">
-      <app-responsive-table></app-responsive-table>
+  <div class="flex flex-col items-center justify-center lg:hidden">
+    <app-responsive-table></app-responsive-table>
+
+    <div *ngIf="device == 'md'" class="p-5 basis-full w-full">
+      <app-graph-container></app-graph-container>
     </div>
   </div>
   <!-- <div>

@@ -3,31 +3,112 @@
 >
   <div class="flex flex-row justify-between items-center">
     <p>لیست مورد علاقه</p>
-    <div class="inline-flex items-center gap-2 ml-4 cursor-pointer">
-      <p class="text-[#0080FF]">مدیریت لیست</p>
+    <button
+      (click)="changingList = !changingList"
+      [ngClass]="
+        changingList
+          ? 'border border-[#0080FF] bg-[#d2e9e6]'
+          : 'border border-transparent hover:border-[#0080FF]'
+      "
+      class="inline-flex items-center gap-2 ml-4 rounded-full px-3 pt-1 pb-0.5 transition-colors text-[#0080FF]"
+    >
+      <p class="text-inherit">مدیریت لیست</p>
       <span class="inline-flex"><i class="ie-icon ie-config"></i></span>
-    </div>
+    </button>
   </div>
-  <div class="basis-full">
-    <ng-container *ngFor="let currency of currencies">
-      <!-- Each Graph -->
-      <div class="relative inline-block">
-        <app-graph-finance
-          [currency]="currency"
-          [ngClass]="changingList ? 'blur-[1px]' : ''"
-        ></app-graph-finance>
-        <div *ngIf="changingList" class="fav-card-container">
-          <div
-            class="flex justify-center items-center flex-col h-full select-none"
-          >
-            <span class="delete-fav-btn" (click)="changingList = false"
-              >&times;</span
+  <div dir="ltr" class="basis-full flex flex-row flex-wrap py-0 px-3 gap-3">
+    <ng-container *ngIf="currencies.length > 0">
+      <ng-container *ngFor="let currency of currencies">
+        <!-- Each Graph -->
+        <div
+          dir="rtl"
+          *ngIf="loadGraphComponent"
+          class="relative inline-block min-h-[202px]"
+        >
+          <app-graph-finance
+            [currency]="currency"
+            [ngClass]="changingList ? 'blur-[1px]' : ''"
+          ></app-graph-finance>
+          <div @fadeIn *ngIf="changingList" class="fav-card-container">
+            <div
+              class="flex justify-center items-center flex-col h-full select-none"
             >
-            <p class="text-[#888888] font-medium text-lg">حذف از علاقه مندی</p>
+              <button
+                [disabled]="disableBtn"
+                [ngClass]="disableBtn ? 'cursor-wait' : ''"
+                class="delete-fav-btn"
+                (click)="deleteFav(currency.id)"
+              >
+                &times;
+              </button>
+              <p class="text-[#888888] font-medium text-lg">
+                حذف از علاقه مندی
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- Each Graph -->
+        <!-- Each Graph -->
+      </ng-container>
     </ng-container>
+
+    <!-- Holder -->
+    <div
+      *ngIf="!loadGraphComponent"
+      class="relative inline-block min-h-[202px] min-w-[200px]"
+    ></div>
+    <!-- Holder -->
+
+    <ng-container *ngIf="currencies.length == 0 && loadGraphComponent">
+      <div
+        class="relative flex flex-col min-h-[202px] w-full items-center justify-center gap-3"
+      >
+        <p class="text-[#0080FF] font-medium text-lg text-center">
+          شما در حال حاضر ارزی را برای نمایش داده انتخاب نکرده‌اید
+        </p>
+        <button
+          (click)="openModal()"
+          class="inline-flex items-center gap-2 ml-4 rounded-full px-3 pt-1 pb-0.5 transition-colors text-[#0080FF] border border-[#0080FF] hover:bg-[#d2e9e6]"
+        >
+          <p class="text-inherit">افزودن به لیست</p>
+          <span class="inline-flex w-fit text-xl font-bold">+</span>
+        </button>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="changingList">
+      <div
+        (click)="openModal()"
+        @fadeIn
+        class="relative flex min-h-[202px] min-w-[200px] h-full cursor-pointer"
+      >
+        <div
+          class="bg-[#FAFAFA] border-[#EAEAEA] border rounded-2xl flex basis-full justify-center items-center"
+        >
+          <span class="block"><i class="ie-icon ie-plus"></i></span>
+        </div>
+      </div>
+    </ng-container>
+    <!-- <div class="relative inline-block">
+      <div class="h-full"></div>
+      <div @fadeIn *ngIf="changingList" class="fav-card-container">
+        <div
+          class="flex justify-center items-center flex-col h-full select-none"
+        >
+          <span class="delete-fav-btn" (click)="changingList = false"
+            >&times;</span
+          >
+          <p class="text-[#888888] font-medium text-lg">حذف از علاقه مندی</p>
+        </div>
+      </div>
+    </div> -->
   </div>
 </div>
+
+<app-modal [header]="true" [overflow]="'auto'" *ngIf="showModal">
+  <div content class="bg-slate-400">
+    <ng-container *ngFor="let currency of allCurrencies">
+      <p (click)="addFav(currency.id)">
+        {{ currency.title }}
+      </p>
+    </ng-container>
+  </div>
+</app-modal>

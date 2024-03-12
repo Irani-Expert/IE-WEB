@@ -31,7 +31,9 @@ export class UserClaimService extends BaseService<
     'Cache-Control':
       'no-cache, no-store, must-revalidate, post-check=0, pre-check=0',
   });
-  favoriteSubject = new BehaviorSubject<Favorite[]>(new Array<Favorite>());
+  favoriteSubject: BehaviorSubject<Favorite[]> = new BehaviorSubject<
+    Favorite[]
+  >(new Array<Favorite>());
   constructor(
     http: HttpClient,
     private toastr: ToastrService,
@@ -41,8 +43,6 @@ export class UserClaimService extends BaseService<
   }
 
   saveFavorites() {
-    console.log(this.toastr);
-
     let favorites: Favorite[] = [
       {
         id: 0,
@@ -58,6 +58,7 @@ export class UserClaimService extends BaseService<
 
   removeOnLogOut() {
     this.favoriteSubject.next(new Array<Favorite>());
+    this.favoriteSubject.complete();
   }
 
   async getFavs(userId: number) {

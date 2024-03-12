@@ -45,13 +45,43 @@ export class CurrencyService extends BaseService<any> {
       )
       .pipe(
         map((it) => {
-          if (it.data) this.currenciesPairStatus.next(it.data);
+          if (it.data) {
+            this.currenciesPairStatus.next(it.data);
+          }
           return it.success;
         })
       );
     return await lastValueFrom(req);
   }
-
+  async addSingleGraph(pairID: number) {
+    let body = {
+      currencyPairIDs: [pairID],
+    };
+    const req = this.http
+      .post<Result<GraphFinance[]>>(
+        `${environment.apiUrl}CurrencyPairTransaction/Get`,
+        body,
+        {
+          headers: this.headers,
+        }
+      )
+      .pipe(
+        map((it) => {
+          if (it.data) {
+            let dataToAdd = it.data[0];
+            let datas = this.currenciesPairStatus.value;
+            let index = datas.findIndex((it) => it.currencyPairID == pairID);
+            if (index !== -1) {
+              datas.splice(index, 1);
+            }
+            datas.push(dataToAdd);
+            this.currenciesPairStatus.next(datas);
+          }
+          return it.success;
+        })
+      );
+    return await lastValueFrom(req);
+  }
   getGraphData(id: number = 14) {
     let data = this.currenciesPairStatus.value.find(
       (it) => it.currencyPairID == id

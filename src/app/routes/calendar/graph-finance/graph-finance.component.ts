@@ -138,13 +138,13 @@ export class GraphFinanceComponent {
     let gradient = ctx.createLinearGradient(0, 0, 0, 117);
     if (type == 'green') {
       gradient.addColorStop(0, 'rgba(47,206,122,0.5108018207282913)');
-      gradient.addColorStop(0.1, 'rgba(47,206,122,0.2082808123249299)');
+      gradient.addColorStop(0.25, 'rgba(47,206,122,0.2082808123249299)');
       gradient.addColorStop(0.7, 'rgba(255,255,255,0.1903536414565826)');
       borderColor = '#2FCE7A';
     }
     if (type == 'red') {
-      gradient.addColorStop(0, 'rgba(255,42,42,1)');
-      gradient.addColorStop(0.1, 'rgba(255,42,42,0.2082808123249299)');
+      gradient.addColorStop(0, 'rgba(255,42,42,0.5108018207282913)');
+      gradient.addColorStop(0.25, 'rgba(255,42,42,0.2082808123249299)');
       gradient.addColorStop(0.7, 'rgba(255,255,255,0.1903536414565826)');
       borderColor = '#FF2A2A';
     }

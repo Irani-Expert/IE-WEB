@@ -12,6 +12,11 @@
     content: url(../assets/icon/calendar.svg);
   }
 }
+.ie-plus {
+  &::before {
+    content: url(../assets/icon/plus.svg);
+  }
+}
 .ie-chevron {
   &.right {
     transform: rotate(-90deg);
@@ -407,6 +412,7 @@
     display: inline-block;
   }
 }
+
 .ie-importance {
   .b {
     fill: #0000ff !important;

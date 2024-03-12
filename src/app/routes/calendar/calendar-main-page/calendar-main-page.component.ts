@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, HostListener, ViewChild } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
 import { BehaviorSubject, lastValueFrom } from 'rxjs';
@@ -11,6 +11,7 @@ import { DatePipe } from '@angular/common';
 import { CalEvent } from './cal-event.model';
 // import { TradingViewComponent } from 'src/app/components/trading-view/trading-view.component';
 import { LinkService } from 'src/app/classes/services/link.service';
+import { Utils } from 'src/app/classes/utils';
 interface trend_data {
   currency: string;
   percent: string;
@@ -22,6 +23,7 @@ interface trend_data {
   styleUrls: ['./calendar-main-page.component.scss'],
 })
 export class CalendarMainPageComponent {
+  device: 'md' | 'lg';
   eventsHolder = new Array<CalEvent>();
   @ViewChild(TableCalendar, { static: false }) appTableComponent: TableCalendar;
   filteredModel = new FilterEvents();
@@ -62,6 +64,7 @@ export class CalendarMainPageComponent {
     },
   ];
   ngOnInit() {
+    this.checkDevice();
     AppComponent.changeMainBg('creamy');
   }
   async ngAfterViewInit() {
@@ -76,6 +79,8 @@ export class CalendarMainPageComponent {
       },
     });
   }
+
+  ngAfterContentInit() {}
   ngOnDestroy() {
     AppComponent.changeMainBg('white');
   }
@@ -166,6 +171,18 @@ export class CalendarMainPageComponent {
 
       this.getCal(this.filteredModel);
       this.filter.next(this.filteredModel);
+    }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.checkDevice();
+  }
+  checkDevice() {
+    if (Utils.isTablet()) {
+      this.device = 'md';
+    } else {
+      this.device = 'lg';
     }
   }
 }

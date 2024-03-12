@@ -12,10 +12,10 @@
   font-size: 3rem;
   color: #816c69;
   display: inline-flex;
-  cursor: pointer;
 }
 .ie-config {
   &::before {
     content: url(../../../../assets/icon/config.svg);
   }
+  line-height: 13px !important;
 }
