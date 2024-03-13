@@ -1,7 +1,7 @@
 <div
   class="flex flex-col bg-white p-3 border border-[#EAEAEA] rounded-2xl gap-5"
 >
-  <div class="flex flex-row justify-between items-center">
+  <div #listFavs class="flex flex-row justify-between items-center">
     <p>لیست مورد علاقه</p>
     <button
       [disabled]="currencies.length == 0"
@@ -75,6 +75,8 @@
         </button>
       </div>
     </ng-container>
+
+    <!-- Add More and Open Modal Button -->
     <ng-container *ngIf="changingList && currencies.length > 0">
       <div
         (click)="openModal()"
@@ -88,19 +90,14 @@
         </div>
       </div>
     </ng-container>
-    <!-- <div class="relative inline-block">
-      <div class="h-full"></div>
-      <div @fadeIn *ngIf="changingList" class="fav-card-container">
-        <div
-          class="flex justify-center items-center flex-col h-full select-none"
-        >
-          <span class="delete-fav-btn" (click)="changingList = false"
-            >&times;</span
-          >
-          <p class="text-[#888888] font-medium text-lg">حذف از علاقه مندی</p>
-        </div>
-      </div>
-    </div> -->
+    <!-- Add More and Open Modal Button -->
+  </div>
+
+  <div
+    *ngIf="tvStatus > 0"
+    [ngClass]="tvStatus == 1 || tvStatus == 3 ? 'block' : 'hidden'"
+  >
+    <app-trading-view />
   </div>
 </div>
 
