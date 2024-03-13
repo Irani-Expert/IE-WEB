@@ -240,6 +240,4 @@ enum ListAction {
 enum TVStatus {
   NotCreated,
   Created,
-  Hidden,
-  Show,
 }
