@@ -1,7 +1,7 @@
 <div
   class="flex flex-col bg-white p-3 border border-[#EAEAEA] rounded-2xl gap-5"
 >
-  <div #listFavs class="flex flex-row justify-between items-center">
+  <div class="flex flex-row justify-between items-center">
     <p>لیست مورد علاقه</p>
     <button
       [disabled]="currencies.length == 0"
@@ -77,7 +77,7 @@
     </ng-container>
 
     <!-- Add More and Open Modal Button -->
-    <ng-container *ngIf="changingList && currencies.length > 0">
+    <ng-container *ngIf="loadGraphComponent && currencies.length > 0">
       <div
         (click)="openModal()"
         @fadeIn
@@ -91,13 +91,6 @@
       </div>
     </ng-container>
     <!-- Add More and Open Modal Button -->
-  </div>
-
-  <div
-    *ngIf="tvStatus > 0"
-    [ngClass]="tvStatus == 1 || tvStatus == 3 ? 'block' : 'hidden'"
-  >
-    <app-trading-view />
   </div>
 </div>
 

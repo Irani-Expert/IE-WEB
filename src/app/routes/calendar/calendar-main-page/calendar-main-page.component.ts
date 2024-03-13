@@ -1,4 +1,4 @@
-import { Component, HostListener, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
 import { BehaviorSubject, lastValueFrom } from 'rxjs';
@@ -12,6 +12,7 @@ import { CalEvent } from './cal-event.model';
 // import { TradingViewComponent } from 'src/app/components/trading-view/trading-view.component';
 import { LinkService } from 'src/app/classes/services/link.service';
 import { Utils } from 'src/app/classes/utils';
+import { TradingViewComponent } from 'src/app/components/trading-view/trading-view.component';
 interface trend_data {
   currency: string;
   percent: string;
@@ -23,6 +24,8 @@ interface trend_data {
   styleUrls: ['./calendar-main-page.component.scss'],
 })
 export class CalendarMainPageComponent {
+  @ViewChild('tradingView') tradingView: ElementRef;
+
   device: 'md' | 'lg';
   eventsHolder = new Array<CalEvent>();
   @ViewChild(TableCalendar, { static: false }) appTableComponent: TableCalendar;
@@ -31,6 +34,7 @@ export class CalendarMainPageComponent {
   filter$ = this.filter.asObservable();
   importances = importances;
   today: string | undefined;
+  tvStatus: number = 0;
   constructor(
     private ecoCalService: EcoCalService,
     public datepipe: DatePipe,
@@ -179,10 +183,42 @@ export class CalendarMainPageComponent {
     this.checkDevice();
   }
   checkDevice() {
-    if (Utils.isTablet()) {
-      this.device = 'md';
+    if (AppComponent.isBrowser.value) {
+      if (Utils.isTablet()) {
+        this.device = 'md';
+      } else {
+        this.device = 'lg';
+      }
     } else {
-      this.device = 'lg';
+      console.log(
+        'App is Running On Server ==> Window Resizing Listening Denied'
+      );
     }
   }
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll() {
+    if (AppComponent.isBrowser.value) {
+      if (
+        Utils.scrollTracker() > this.tradingView.nativeElement.offsetTop &&
+        this.tvStatus == 0
+      ) {
+        this.addTradingView();
+      }
+    } else {
+      console.log('App is On Servers ==>  Tracking the Scroll Denied');
+    }
+  }
+
+  addTradingView() {
+    this.tvStatus = TVStatus.Created;
+    setTimeout(() => {
+      TradingViewComponent.createView();
+    }, 500);
+  }
+}
+
+enum TVStatus {
+  NotCreated,
+  Created,
 }

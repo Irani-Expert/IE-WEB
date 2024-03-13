@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GraphFinanceComponent } from '../graph-finance/graph-finance.component';
 import { CurrencyService } from 'src/app/classes/services/currency.service';
@@ -12,8 +12,6 @@ import { HeaderLayoutComponent } from 'src/app/components/header-layout/header-l
 import { Observable, Subscription } from 'rxjs';
 import { Favorite } from 'src/app/classes/interfaces/favorite';
 import { TradingViewComponent } from 'src/app/components/trading-view/trading-view.component';
-import { Utils } from 'src/app/classes/utils';
-import { AppComponent } from 'src/app/app.component';
 const currencyInit: Currency = {
   currencyPairType: 0,
   currencyPairTypeDescription: 'Crypto',
@@ -24,12 +22,7 @@ const currencyInit: Currency = {
 @Component({
   selector: 'app-graph-container',
   standalone: true,
-  imports: [
-    CommonModule,
-    GraphFinanceComponent,
-    ModalComponent,
-    TradingViewComponent,
-  ],
+  imports: [CommonModule, GraphFinanceComponent, ModalComponent],
   templateUrl: './graph-container.component.html',
   styleUrls: ['./graph-container.component.scss'],
   animations: [
@@ -45,7 +38,6 @@ const currencyInit: Currency = {
   ],
 })
 export class GraphContainerComponent {
-  @ViewChild('listFavs') favsElement: ElementRef;
   disableBtn = false;
   showModal: boolean = false;
   pairs: number[];
@@ -68,11 +60,11 @@ export class GraphContainerComponent {
   ngAfterContentInit() {
     this.userObserver$ = AuthService.loggedIn.asObservable();
     this.userSubscription = this.userObserver$.subscribe({
-      next: (value) => {
+      next: async (value) => {
         if (!value) {
-          this.setStatic();
+          await this.setStatic();
         } else {
-          this.favoritedCurrencies();
+          await this.favoritedCurrencies();
         }
         setTimeout(() => {
           this.loadGraphComponent = true;
@@ -151,26 +143,6 @@ export class GraphContainerComponent {
     this.disableBtn = false;
   }
 
-  addTradingView() {
-    this.tvStatus = TVStatus.Created;
-    setTimeout(() => {
-      TradingViewComponent.createView();
-    }, 500);
-    // switch (this.tvStatus) {
-    //   case 0:
-
-    //   break;
-    // case 1:
-    //   this.tvStatus = TVStatus.Hidden;
-    //   break;
-    // case 2:
-    //   this.tvStatus = TVStatus.Show;
-    //   break;
-    // case 3:
-    //   this.tvStatus = TVStatus.Hidden;
-    //   break;
-    // }
-  }
   async updateList(id: number, type: ListAction) {
     if (type == ListAction.Delete) {
       let index = this.currencies.findIndex((it) => it.id == id);
@@ -216,28 +188,9 @@ export class GraphContainerComponent {
     HeaderLayoutComponent.modalStatus = true;
     HeaderLayoutComponent.modalView = 'login';
   }
-
-  @HostListener('window:scroll', ['$event'])
-  onScroll() {
-    if (AppComponent.isBrowser.value) {
-      if (
-        Utils.scrollTracker() > this.favsElement.nativeElement.offsetTop &&
-        this.tvStatus == 0
-      ) {
-        this.addTradingView();
-      }
-    } else {
-      console.log('App is On Servers ==>  Tracking the Scroll Denied');
-    }
-  }
 }
 
 enum ListAction {
   Delete,
   Add,
-}
-
-enum TVStatus {
-  NotCreated,
-  Created,
 }
