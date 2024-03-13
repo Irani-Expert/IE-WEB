@@ -67,7 +67,7 @@ export class GraphContainerComponent {
         }
         setTimeout(() => {
           this.loadGraphComponent = true;
-        }, 1500);
+        }, 2500);
       },
     });
   }
@@ -125,12 +125,21 @@ export class GraphContainerComponent {
     this.userSubscription.unsubscribe();
   }
   async addFav(id: number) {
+    this.disableBtn = true;
     let userID = this._authService._user.id;
+    let index = this.currencies.findIndex((it) => it.id == id);
+
+    if (index !== -1) {
+      this._currencyService.toastError('این ارز در حال حاضر در لیست موجود است');
+      this.disableBtn = false;
+
+      return;
+    }
     const res = await this._userClaimService.addFav(id, 39, userID);
     if (res) {
       await this.updateList(id, ListAction.Add);
-      this._modal.closeModal();
     }
+    this.disableBtn = false;
   }
 
   async updateList(id: number, type: ListAction) {
@@ -150,6 +159,8 @@ export class GraphContainerComponent {
   openCurrenciesModal() {
     this._modal.open().subscribe({
       complete: () => {
+        this.changingList = false;
+
         this.showModal = false;
       },
     });

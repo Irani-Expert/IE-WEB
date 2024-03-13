@@ -12,7 +12,11 @@ import { AppComponent } from '../app.component';
 
 @Injectable()
 export class LoaderInterceptor implements HttpInterceptor {
-  private loadingDismissers = ['GetActualValByID', 'AspNetUserClaim'];
+  private loadingDismissers = [
+    'GetActualValByID',
+    'AspNetUserClaim',
+    'CurrencyPairTransaction',
+  ];
 
   constructor() {}
   intercept(
