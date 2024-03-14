@@ -323,7 +323,10 @@
   display: block;
 }
 // ======[ایکون های بروکر ]====
-
+.close-cross {
+  content: url(../assets/icon/close-cross.svg);
+  display: block;
+}
 .flag-icon {
   content: url(../assets/icon/uk@2x.svg);
   display: block;

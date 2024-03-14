@@ -14,8 +14,7 @@ interface newsList {
 export class SectorFilterComponent {
   @Output() sections = new EventEmitter<number[]>();
   list: newsList[] = new Array<newsList>();
-  searchItem: string = '';
-  searchedField: string[] = [];
+  searchItem: string;
   isListOpen: boolean = false;
   constructor(private ecoCalService: EcoCalService) {
     this.ecoCalService.get('Public/GetEconomicCalSector').subscribe((x) => {
@@ -32,30 +31,22 @@ export class SectorFilterComponent {
     this.isListOpen = !this.isListOpen;
   }
 
-  selectField(selected: number | null) {
-    if (selected != null) {
-      this.searchItem += this.list[selected].title;
-    }
-    if (this.searchItem != '') {
-      this.searchedField = this.searchItem.split(',');
-      this.searchItem = '';
-      var data: number[] = [];
-      this.searchedField.forEach((x) => {
-        if (!this.searchItem.includes(x)) {
-          this.searchItem += x + ',';
-        }
-        const index = this.list.findIndex((itemIndex) => itemIndex.title === x);
-        if (index != -1) data.push(this.list[index].value);
-      });
-      this.sections.emit(data);
-    } else this.sections.emit([]);
-  }
-  changeText() {
-    this.selectField(null);
-  }
-  responsiveActive(val: number) {
+  responsiveActive(val: number, type: boolean = false) {
     let index = this.list.findIndex((x) => x.value == val);
     this.list[index].isActive = !this.list[index].isActive;
-    this.selectField(val);
+    if (type) this.list[index].isActive = true;
+    this.setData();
+  }
+  setData() {
+    var nums: number[] = [];
+    this.list.forEach((x) => {
+      if (x.isActive) {
+        nums.push(x.value);
+      }
+    });
+    this.sections.emit(nums);
+    this.searchItem = '';
   }
 }
+
+//| filter : searchItem

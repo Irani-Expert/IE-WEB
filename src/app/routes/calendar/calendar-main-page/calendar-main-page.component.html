@@ -43,7 +43,7 @@
           (listOfSelectedItems)="setSymbolServices($event)"
         ></app-symbols>
       </div>
-      <div class="bg-white rounded-2xl shadow-sm p-5">
+      <div class="bg-white rounded-2xl shadow-sm p-2">
         <app-sector-filter
           (sections)="setSectionServices($event)"
         ></app-sector-filter>
@@ -93,7 +93,7 @@
       </div>
     </div>
   </div>
-  <div class="flex flex-col items-center justify-center lg:hidden">
+  <div class="flex flex-col items-center justify-center">
     <app-responsive-table></app-responsive-table>
 
     <div *ngIf="device == 'md'" class="p-5 basis-full w-full">
