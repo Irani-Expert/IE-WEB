@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GraphFinanceComponent } from '../graph-finance/graph-finance.component';
 import { CurrencyService } from 'src/app/classes/services/currency.service';
@@ -11,7 +11,7 @@ import { ModalComponent } from 'src/app/shared/modal/modal.component';
 import { HeaderLayoutComponent } from 'src/app/components/header-layout/header-layout.component';
 import { Observable, Subscription } from 'rxjs';
 import { Favorite } from 'src/app/classes/interfaces/favorite';
-import { User } from 'src/app/shared/auth/user.interface';
+import { TradingViewComponent } from 'src/app/components/trading-view/trading-view.component';
 const currencyInit: Currency = {
   currencyPairType: 0,
   currencyPairTypeDescription: 'Crypto',
@@ -46,6 +46,7 @@ export class GraphContainerComponent {
   currencies = new Array<Currency>();
   userObserver$: Observable<boolean>;
   userSubscription: Subscription;
+  tvStatus = 0;
   constructor(
     private _currencyService: CurrencyService,
     private _userClaimService: UserClaimService,
@@ -59,15 +60,15 @@ export class GraphContainerComponent {
   ngAfterContentInit() {
     this.userObserver$ = AuthService.loggedIn.asObservable();
     this.userSubscription = this.userObserver$.subscribe({
-      next: (value) => {
+      next: async (value) => {
         if (!value) {
-          this.setStatic();
+          await this.setStatic();
         } else {
-          this.favoritedCurrencies();
+          await this.favoritedCurrencies();
         }
         setTimeout(() => {
           this.loadGraphComponent = true;
-        }, 1500);
+        }, 2500);
       },
     });
   }
@@ -125,12 +126,21 @@ export class GraphContainerComponent {
     this.userSubscription.unsubscribe();
   }
   async addFav(id: number) {
+    this.disableBtn = true;
     let userID = this._authService._user.id;
+    let index = this.currencies.findIndex((it) => it.id == id);
+
+    if (index !== -1) {
+      this._currencyService.toastError('این ارز در حال حاضر در لیست موجود است');
+      this.disableBtn = false;
+
+      return;
+    }
     const res = await this._userClaimService.addFav(id, 39, userID);
     if (res) {
       await this.updateList(id, ListAction.Add);
-      this._modal.closeModal();
     }
+    this.disableBtn = false;
   }
 
   async updateList(id: number, type: ListAction) {
@@ -150,6 +160,8 @@ export class GraphContainerComponent {
   openCurrenciesModal() {
     this._modal.open().subscribe({
       complete: () => {
+        this.changingList = false;
+
         this.showModal = false;
       },
     });

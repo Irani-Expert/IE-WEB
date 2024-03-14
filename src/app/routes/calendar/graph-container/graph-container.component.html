@@ -4,13 +4,14 @@
   <div class="flex flex-row justify-between items-center">
     <p>لیست مورد علاقه</p>
     <button
+      [disabled]="currencies.length == 0"
       (click)="changingList = !changingList"
       [ngClass]="
         changingList
           ? 'border border-[#0080FF] bg-[#d2e9e6]'
           : 'border border-transparent hover:border-[#0080FF]'
       "
-      class="inline-flex items-center gap-2 ml-4 rounded-full px-3 pt-1 pb-0.5 transition-colors text-[#0080FF]"
+      class="inline-flex items-center gap-2 ml-4 rounded-full px-3 pt-1 pb-0.5 transition-colors text-[#0080FF] disabled:opacity-25"
     >
       <p class="text-inherit">مدیریت لیست</p>
       <span class="inline-flex"><i class="ie-icon ie-config"></i></span>
@@ -74,7 +75,9 @@
         </button>
       </div>
     </ng-container>
-    <ng-container *ngIf="changingList">
+
+    <!-- Add More and Open Modal Button -->
+    <ng-container *ngIf="loadGraphComponent && currencies.length > 0">
       <div
         (click)="openModal()"
         @fadeIn
@@ -87,28 +90,37 @@
         </div>
       </div>
     </ng-container>
-    <!-- <div class="relative inline-block">
-      <div class="h-full"></div>
-      <div @fadeIn *ngIf="changingList" class="fav-card-container">
-        <div
-          class="flex justify-center items-center flex-col h-full select-none"
-        >
-          <span class="delete-fav-btn" (click)="changingList = false"
-            >&times;</span
-          >
-          <p class="text-[#888888] font-medium text-lg">حذف از علاقه مندی</p>
-        </div>
-      </div>
-    </div> -->
+    <!-- Add More and Open Modal Button -->
   </div>
 </div>
 
-<app-modal [header]="true" [overflow]="'auto'" *ngIf="showModal">
-  <div content class="bg-slate-400">
-    <ng-container *ngFor="let currency of allCurrencies">
-      <p (click)="addFav(currency.id)">
-        {{ currency.title }}
-      </p>
-    </ng-container>
+<app-modal [header]="true" [overflow]="'hidden'" *ngIf="showModal">
+  <div header>
+    <p class="font-black text-lg text-[#0080FF]">تمامی جفت ارزهای سایت</p>
+  </div>
+  <div content class="bg-white my-12 md:w-[50vw] md:max-w-[520px]">
+    <ul class="list-none max-h-[90vh] overflow-auto scroll-custom" dir="ltr">
+      <ng-container *ngFor="let currency of allCurrencies; let i = index">
+        <li class="hover:bg-[#FAFAFA] py-2 cursor-pointer">
+          <button
+            [disabled]="disableBtn"
+            [ngClass]="disableBtn ? 'cursor-wait' : ''"
+            (click)="addFav(currency.id)"
+            class="w-full text-start"
+          >
+            <p class="font-medium pl-6">
+              {{ currency.title.slice(0, 3) + " " + currency.title.slice(3) }}
+            </p>
+          </button>
+        </li>
+
+        <!-- Spacer -->
+        <li
+          *ngIf="i < allCurrencies.length - 1"
+          class="border-b border-[#E8E8E8]"
+        ></li>
+        <!-- Spacer -->
+      </ng-container>
+    </ul>
   </div>
 </app-modal>

@@ -88,8 +88,16 @@
         </div>
         <table-calendar />
       </div>
+      <div #tradingView></div>
       <div *ngIf="device == 'lg'">
         <app-graph-container></app-graph-container>
+      </div>
+
+      <div
+        class="p-5 bg-white rounded-2xl shadow-sm border border-[#EAEAEA]"
+        *ngIf="tvStatus > 0"
+      >
+        <app-trading-view />
       </div>
     </div>
   </div>
