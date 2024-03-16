@@ -37,25 +37,32 @@ export class MapComponent {
     ];
     var myStyle = {
       color: '#ff7800',
-      weight: 1,
+      weight: 0.2,
       fillColor: '#ff7800',
-      opacity: 0.65,
-    };
 
+    };
     L.geoJSON(countries, {
       style: myStyle,
+      zoomControl: false,
+      scrollWheelZoom: false,
+      draggable : false,
     })
       .bindPopup(function (layer: any) {
         return layer.feature.properties.name;
       })
       .addTo(this.map);
+    L.Projection.Mercator()
+
   }
 
   private initMap(): void {
     this.map = L.map('map', {
       center: [51.505, -0.09],
+      draggable : false,
+      scrollWheelZoom: false,
+      zoomControl: false,
+      zoom:2,
     });
 
-    this.map.zoomControl.remove();
   }
 }

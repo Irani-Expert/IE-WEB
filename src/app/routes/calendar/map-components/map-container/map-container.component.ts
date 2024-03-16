@@ -27,8 +27,8 @@ export class MapContainerComponent {
   }
   async ngOnInit() {
     if (AppComponent.isBrowser.value) {
-      this._addScript.createScript('assets/js/worldmap.js');
-      this._addScript.createScript('assets/js/mapdata.js');
+      // this._addScript.createScript('assets/js/worldmap.js');
+      // this._addScript.createScript('assets/js/mapdata.js');
       console.log('Appication is on Browser');
     }
     this.countries = (await this._ecoCalService.getCountriesByEvents()).data!;
