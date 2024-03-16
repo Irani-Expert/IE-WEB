@@ -11,6 +11,8 @@
 @import "./components/header";
 @import "./components/search";
 @import "./components/tooltips";
+@import "leaflet/dist/leaflet.css";
+@import "./components/map";
 body {
   font-family: $font-family-base !important;
   font-size: $font-size-base !important;

@@ -6,11 +6,12 @@ import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
 import { Country } from '../map-country/country';
 import { MapClockComponent } from '../map-clock/map-clock.component';
 import { AddScriptService } from 'src/app/classes/services/add-script.service';
+import { MapComponent } from '../map-itself/map.component';
 
 @Component({
   selector: 'app-map-container',
   standalone: true,
-  imports: [CommonModule, MapCountryComponent, MapClockComponent],
+  imports: [CommonModule, MapCountryComponent, MapClockComponent, MapComponent],
   templateUrl: './map-container.component.html',
   styleUrls: ['./map-container.component.scss'],
 })

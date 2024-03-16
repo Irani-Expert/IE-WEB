@@ -23,7 +23,11 @@
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "allowedCommonJsDependencies": ["lottie-web", "moment-timezone"],
+            "allowedCommonJsDependencies": [
+              "lottie-web",
+              "moment-timezone",
+              "leaflet"
+            ],
             "assets": [
               "./src/sitemap.xml",
               "./src/robots.txt",
