@@ -21,12 +21,13 @@ import { CardFinanceComponent } from '../card-finance/card-finance.component';
 import { NgChartsModule } from 'ng2-charts';
 import { ModalComponent } from 'src/app/shared/modal/modal.component';
 import { TradingViewComponent } from 'src/app/components/trading-view/trading-view.component';
-import { MapComponent } from '../map/map/map.component';
+
 import { CountryDetailComponent } from '../country-detail/country-detail.component';
 import { GraphContainerComponent } from '../graph-container/graph-container.component';
 import { YearSelectorComponent } from 'src/app/shared/year-selector/year-selector.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MapContainerComponent } from '../map-components/map-container/map-container.component';
 
 const components = [
   CalendarMainPageComponent,
@@ -48,7 +49,7 @@ const components = [
   imports: [
     GraphContainerComponent,
     ModalComponent,
-    MapComponent,
+    MapContainerComponent,
     CommonModule,
     TradingViewComponent,
     NgChartsModule,

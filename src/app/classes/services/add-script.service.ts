@@ -6,11 +6,15 @@ import { Inject, Injectable } from '@angular/core';
 })
 export class AddScriptService {
   constructor(@Inject(DOCUMENT) private doc: Document) {}
-  createScript(src: string) {
+  createScript(src: string, loc: 'head' | 'body' = 'head') {
     let script = this.doc.createElement('script');
 
     script.setAttribute('src', src);
-    this.doc.head.appendChild(script);
+    console.log(script);
+
+    loc == 'head'
+      ? this.doc.head.appendChild(script)
+      : this.doc.body.appendChild(script);
 
     return script;
   }

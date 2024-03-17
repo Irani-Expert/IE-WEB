@@ -10,7 +10,7 @@ import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
 import { CalEvent } from 'src/app/routes/calendar/calendar-main-page/cal-event.model';
 import { Filter as FilterCalendar } from 'src/app/routes/calendar/calendar-main-page/filter.model';
 import { environment } from 'src/environments/environment.dev';
-import { Country } from 'src/app/routes/calendar/map/map-country/country';
+import { Country } from 'src/app/routes/calendar/map-components/map-country/country';
 import { GraphFinance } from '../interfaces/graph.interface';
 
 @Injectable({
