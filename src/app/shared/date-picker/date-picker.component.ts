@@ -1,9 +1,11 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {
   DateRange,
   DefaultMatCalendarRangeStrategy,
   MatRangeDateSelectionModel,
 } from '@angular/material/datepicker';
+import { inputs } from '@syncfusion/ej2-angular-maps/src/maps/maps.component';
+import { Moment } from 'moment-timezone';
 
 @Component({
   selector: 'app-date-picker',
@@ -12,7 +14,13 @@ import {
 })
 export class DatePickerComponent {
   selectedDateRange: DateRange<Date> | undefined;
+  @Input() selectorType: string;
   @Output() calDate = new EventEmitter<Date[]>();
+  @Output() yearDate = new EventEmitter<Moment>();
+
+  selectYear(year: Moment) {
+    if (this.selectorType == 'yearOnly') this.yearDate.emit(year);
+  }
   constructor(
     private readonly selectionModel: MatRangeDateSelectionModel<Date>,
     private readonly selectionStrategy: DefaultMatCalendarRangeStrategy<Date>

@@ -200,7 +200,7 @@
                 انصراف
               </button>
               <button
-                [disabled]="formGroup.invalid"
+                [disabled]="!(formGroup.valid && acceptRules)"
                 (click)="nextSession()"
                 type="submit"
                 class="w-full bg-blue-700 rounded-lg h-full text-2xl font-black disabled:opacity-50 text-white"

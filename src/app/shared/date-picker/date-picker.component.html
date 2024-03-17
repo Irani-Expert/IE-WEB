@@ -2,5 +2,14 @@
   <mat-calendar
     [(selected)]="selectedDateRange"
     (selectedChange)="rangeChanged($event)"
-  ></mat-calendar
-></mat-card>
+    (yearSelected)="selectYear($event)"
+    *ngIf="selectorType == 'normal'"
+  ></mat-calendar>
+  <mat-calendar
+    [(selected)]="selectedDateRange"
+    (selectedChange)="rangeChanged($event)"
+    (yearSelected)="selectYear($event)"
+    startView="multi-year"
+    *ngIf="selectorType == 'yearOnly'"
+  ></mat-calendar>
+</mat-card>

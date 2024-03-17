@@ -24,6 +24,9 @@ import { TradingViewComponent } from 'src/app/components/trading-view/trading-vi
 import { MapComponent } from '../map/map/map.component';
 import { CountryDetailComponent } from '../country-detail/country-detail.component';
 import { GraphContainerComponent } from '../graph-container/graph-container.component';
+import { YearSelectorComponent } from 'src/app/shared/year-selector/year-selector.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 const components = [
   CalendarMainPageComponent,
@@ -38,6 +41,7 @@ const components = [
   CalendarDescriptionComponent,
   LandingSingleCountryComponent,
   CardFinanceComponent,
+  YearSelectorComponent,
 ];
 @NgModule({
   declarations: [components],
@@ -55,6 +59,8 @@ const components = [
     ReactiveFormsModule,
     TableCalendar,
     CalendarModuleRouting,
+    MatDatepickerModule, // <----- import(must)
+    MatNativeDateModule, // <----- import for date formating(optional)
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
