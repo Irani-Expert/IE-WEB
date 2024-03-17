@@ -6,6 +6,7 @@
 }
 .leaflet-container {
   background: transparent;
+  font-family: $font-family-base !important;
 }
 .leaflet-grab {
   cursor: default;
@@ -14,9 +15,8 @@
   display: none !important;
 }
 
-
 .translate-custom {
- transform:translateY(-10%) ;
+  transform: translateY(-10%);
 }
 .map {
   overflow: hidden;
@@ -28,29 +28,11 @@
   height: auto;
   aspect-ratio: 16/9;
 }
-.custom-popover {
-  width: 100px;
-  display: block;
-  height: 100px;
-  background-color: blue;
-  position: absolute;
-}
-
-.datamaps-bubble {
-  fill: transparent !important;
-  stroke-width: 0 !important;
-  /* stroke: blue !important; */
-}
 
 .custom-bubble {
-  aspect-ratio: 1/1;
-  width: 20px; /* Adjust width and height as needed */
-  height: 20px;
-  max-height: 20px; /* Adjust width and height as needed */
-  border: 1px solid red;
-  transition: max-height 1.5 linear;
-  border-radius: 50%; /* Creates a circle with a radius of 50% */
-  
+  background-color: red;
+  border-radius: 50%;
+  animation: pulse-cirlce 1.5s linear infinite both;
 }
 
 @keyframes pulse-cirlce {
@@ -62,16 +44,10 @@
   }
 
   75% {
-    width: 35px; /* Adjust width and height as needed */
-    max-height: 35px; /* Adjust width and height as needed */
-    height: 35px;
     opacity: 0.1;
   }
 
   100% {
-    width: 20px; /* Adjust width and height as needed */
-    max-height: 20px; /* Adjust width and height as needed */
-    height: 20px;
     opacity: 0.7;
   }
 }
