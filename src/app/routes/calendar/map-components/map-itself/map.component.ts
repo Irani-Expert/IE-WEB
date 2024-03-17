@@ -16,53 +16,40 @@ export class MapComponent {
 
   ngAfterViewInit(): void {
     this.initMap();
+  }
 
-    var myLines = [
-      {
-        type: 'LineString',
-        coordinates: [
-          [-100, 40],
-          [-105, 45],
-          [-110, 55],
-        ],
-      },
-      {
-        type: 'LineString',
-        coordinates: [
-          [-105, 40],
-          [-110, 45],
-          [-115, 55],
-        ],
-      },
-    ];
+  private initMap(): void {
+    this.map = new L.map('map', {
+      center: [51.505, -0.09],
+      draggable : false,
+      scrollWheelZoom: false,
+      zoomControl: false,
+      dragging: false,
+      zoomDelta: 0.25,
+      zoomSnap: 0,
+      zoom:1.25,
+      tap: false,
+    });
+    this.map.doubleClickZoom.disable(); 
     var myStyle = {
-      color: '#ff7800',
-      weight: 0.2,
-      fillColor: '#ff7800',
+      color: '#ffffff',
+      weight: 1,
+      opacity: 1,
+      fillOpacity: 1,
+      fillColor: '#e2e2e2',
 
     };
+    const customIcon = L.divIcon({
+      className: 'custom-bubble',
+     
+    });
+    L.marker([51.5, -0.09],{icon: customIcon}).addTo(this.map);
     L.geoJSON(countries, {
       style: myStyle,
-      zoomControl: false,
-      scrollWheelZoom: false,
-      draggable : false,
     })
       .bindPopup(function (layer: any) {
         return layer.feature.properties.name;
       })
       .addTo(this.map);
-    L.Projection.Mercator()
-
-  }
-
-  private initMap(): void {
-    this.map = L.map('map', {
-      center: [51.505, -0.09],
-      draggable : false,
-      scrollWheelZoom: false,
-      zoomControl: false,
-      zoom:2,
-    });
-
   }
 }

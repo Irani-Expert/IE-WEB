@@ -14,14 +14,17 @@
   display: none !important;
 }
 
-path {
-  -webkit-tap-highlight-color: rgb(255 255 255 / 0%);
+
+.translate-custom {
+ transform:translateY(-10%) ;
 }
 .map {
+  overflow: hidden;
   position: relative;
-  margin: 0 auto 0 0;
+  margin: 0 auto;
 
   max-width: 100%;
+  max-height: 405px;
   height: auto;
   aspect-ratio: 16/9;
 }
@@ -40,12 +43,17 @@ path {
 }
 
 .custom-bubble {
-  position: relative;
-  animation: pulse 1.5s linear infinite both;
-  animation-delay: var(--animation-delay);
+  aspect-ratio: 1/1;
+  width: 20px; /* Adjust width and height as needed */
+  height: 20px;
+  max-height: 20px; /* Adjust width and height as needed */
+  border: 1px solid red;
+  transition: max-height 1.5 linear;
+  border-radius: 50%; /* Creates a circle with a radius of 50% */
+  
 }
 
-@keyframes pulse {
+@keyframes pulse-cirlce {
   0% {
     opacity: 0.7;
   }
@@ -54,12 +62,16 @@ path {
   }
 
   75% {
-    r: var(--radius-max);
+    width: 35px; /* Adjust width and height as needed */
+    max-height: 35px; /* Adjust width and height as needed */
+    height: 35px;
     opacity: 0.1;
   }
 
   100% {
-    r: var(--radius);
+    width: 20px; /* Adjust width and height as needed */
+    max-height: 20px; /* Adjust width and height as needed */
+    height: 20px;
     opacity: 0.7;
   }
 }
