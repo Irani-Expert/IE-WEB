@@ -5,7 +5,6 @@ import { AppComponent } from 'src/app/app.component';
 import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
 import { Country } from '../map-country/country';
 import { MapClockComponent } from '../map-clock/map-clock.component';
-import { AddScriptService } from 'src/app/classes/services/add-script.service';
 import { MapComponent } from '../map-itself/map.component';
 
 @Component({
@@ -19,16 +18,11 @@ export class MapContainerComponent {
   isLoading = true;
   countries = new Array<Country>();
 
-  constructor(
-    private _ecoCalService: EcoCalService,
-    private _addScript: AddScriptService
-  ) {
+  constructor(private _ecoCalService: EcoCalService) {
     AppComponent.changeMainBg('creamy');
   }
   async ngOnInit() {
     if (AppComponent.isBrowser.value) {
-      // this._addScript.createScript('assets/js/worldmap.js');
-      // this._addScript.createScript('assets/js/mapdata.js');
       console.log('Appication is on Browser');
     }
     this.countries = (await this._ecoCalService.getCountriesByEvents()).data!;

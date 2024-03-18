@@ -1,9 +1,15 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  ComponentRef,
+  ViewChild,
+  ViewContainerRef,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import countries from 'src/assets/custom.geo.json';
 import countries_coordiantes from 'src/assets/countries-coordinates.json';
 //@ts-ignore
 import * as L from 'leaflet';
+import { MapCountryComponent } from '../map-country/map-country.component';
 
 @Component({
   selector: 'app-map',
@@ -14,7 +20,11 @@ import * as L from 'leaflet';
 })
 export class MapComponent {
   map: any;
-
+  popupContent: any;
+  @ViewChild('dynamicComponentContainer', { read: ViewContainerRef })
+  dynamicComponentContainer: ViewContainerRef;
+  dynamicComponentRef: ComponentRef<MapCountryComponent>;
+  constructor() {}
   ngAfterViewInit(): void {
     this.initMap();
   }
@@ -44,19 +54,36 @@ export class MapComponent {
       iconSize: [10, 10],
     });
     countries_coordiantes.forEach((it) => {
-      L.marker(
-        it.coordinates,
-
-        { icon: customIcon }
-      ).addTo(this.map);
+      let marker = L.marker(it.coordinates, { icon: customIcon }).addTo(
+        this.map
+      );
+      this.popupContent = this.createCustomPopupContent();
+      marker.bindPopup(this.popupContent);
     });
 
     L.geoJSON(countries, {
       style: myStyle,
     })
-      .bindPopup(function (layer: any) {
+      .bindPopup((layer: any) => {
         return layer.feature.properties.name_fa;
       })
       .addTo(this.map);
+  }
+
+  createCustomPopupContent(): L.Popup {
+    const popup = L.popup();
+    this.dynamicComponentRef = this.dynamicComponentContainer.createComponent(
+      MapCountryComponent // Pass your dynamic component class directly
+    );
+
+    const div = document.createElement('div');
+    div.appendChild(this.dynamicComponentRef.location.nativeElement);
+    popup.setContent(div);
+
+    // Detach the component on popup close (optional for performance)
+    popup.on('close', () => {
+      this.dynamicComponentRef.destroy();
+    });
+    return popup;
   }
 }
