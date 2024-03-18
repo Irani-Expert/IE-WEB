@@ -6,6 +6,7 @@ export class Order {
   token = '';
   totalPrice = 0;
   transactionCode = '';
+  investorPassword = '';
   constructor() {}
 }
 interface OrderItems {

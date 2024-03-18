@@ -234,6 +234,10 @@ export class LandingCheckoutComponent {
   trxCode(event: string) {
     this.orderModel.transactionCode = event;
   }
+  investMentCode(event: string) {
+    this.orderModel.investorPassword = event;
+  }
+
   async createOrder() {
     this.orderModel.token = this._authService._user.token;
     const res = this._orderService.post(
