@@ -4,7 +4,6 @@ import {
   DefaultMatCalendarRangeStrategy,
   MatRangeDateSelectionModel,
 } from '@angular/material/datepicker';
-import { inputs } from '@syncfusion/ej2-angular-maps/src/maps/maps.component';
 import { Moment } from 'moment-timezone';
 
 @Component({
