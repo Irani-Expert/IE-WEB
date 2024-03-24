@@ -5,12 +5,15 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MapCountryComponent } from '../map-country/map-country.component';
 import countries from 'src/assets/custom.geo.json';
 import countries_coordiantes from 'src/assets/countries-coordinates.json';
 //@ts-ignore
 import * as L from 'leaflet';
-import { MapCountryComponent } from '../map-country/map-country.component';
-
+import { map_config } from './map_config';
+import { icon_config } from './icon_config';
+import { Country } from '../map-country/country';
+import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
 @Component({
   selector: 'app-map',
   standalone: true,
@@ -20,11 +23,11 @@ import { MapCountryComponent } from '../map-country/map-country.component';
 })
 export class MapComponent {
   map: any;
-  popupContent: any;
+  noEventsToday = false;
   @ViewChild('dynamicComponentContainer', { read: ViewContainerRef })
   dynamicComponentContainer: ViewContainerRef;
   dynamicComponentRef: ComponentRef<MapCountryComponent>;
-  constructor() {}
+  constructor(private _ecoCalService: EcoCalService) {}
   ngAfterViewInit(): void {
     this.initMap();
   }
@@ -40,43 +43,26 @@ export class MapComponent {
       zoomSnap: 0,
       zoom: 1.25,
       tap: false,
+      noWrap: true,
+      // maxBounds: [
+      //   [82.97669, -168.354541],
+      //   [-57.762799, 189.538275],
+      // ],
     });
     this.map.doubleClickZoom.disable();
-    var myStyle = {
-      color: '#ffffff',
-      weight: 1,
-      opacity: 1,
-      fillOpacity: 1,
-      fillColor: '#e2e2e2',
-    };
-    const customIcon = L.divIcon({
-      className: 'custom-bubble',
-      iconSize: [10, 10],
-    });
-    countries_coordiantes.forEach((it) => {
-      let marker = L.marker(it.coordinates, { icon: customIcon }).addTo(
-        this.map
-      );
-      this.popupContent = this.createCustomPopupContent();
-      marker.bindPopup(this.popupContent);
-    });
-
-    L.geoJSON(countries, {
-      style: myStyle,
-    })
-      .bindPopup((layer: any) => {
-        return layer.feature.properties.name_fa;
-      })
-      .addTo(this.map);
+    this.countriesLayer(); //Create Countries Layer
+    this.createMarker(); // Create Markers on Map
   }
 
-  createCustomPopupContent(): L.Popup {
+  createMarkerPopupContent(countryName: string): L.Popup {
     const popup = L.popup();
-    this.dynamicComponentRef = this.dynamicComponentContainer.createComponent(
-      MapCountryComponent // Pass your dynamic component class directly
-    );
+    this.dynamicComponentRef =
+      this.dynamicComponentContainer.createComponent(MapCountryComponent);
 
-    const div = document.createElement('div');
+    let country = {} as Country;
+    country.code = countryName;
+    this.dynamicComponentRef.instance.apiData = country;
+    let div = document.createElement('div');
     div.appendChild(this.dynamicComponentRef.location.nativeElement);
     popup.setContent(div);
 
@@ -85,5 +71,33 @@ export class MapComponent {
       this.dynamicComponentRef.destroy();
     });
     return popup;
+  }
+
+  createMarker() {
+    let icon = L.icon(icon_config);
+    this._ecoCalService.mapEvents.value.forEach((it) => {
+      if (it.events) {
+        let coordinates = countries_coordiantes.find(
+          (country) => country.name == it.code
+        )?.coordinates;
+        if (coordinates) {
+          let marker = L.marker(coordinates, {
+            icon: icon,
+          }).addTo(this.map);
+
+          let popup = this.createMarkerPopupContent(it.code);
+
+          marker.bindPopup(popup);
+        }
+      } else {
+        this.noEventsToday = true;
+      }
+    });
+  }
+
+  countriesLayer() {
+    L.geoJSON(countries, {
+      style: map_config,
+    }).addTo(this.map);
   }
 }

@@ -15,7 +15,7 @@
     </div>
   </div>
   <div class="card-footer">
-    <ng-container *ngFor="let item of country.events | keyvalue">
+    <ng-container *ngFor="let item of country.events | keyvalue; let i = index">
       <ng-container *ngIf="item.value.count !== 0">
         <div class="event my-0.5">
           <span dir="ltr" class="inline-block text-sm font-normal pt-0.5"
@@ -35,6 +35,11 @@
               </span></div
           ></span>
         </div>
+      </ng-container>
+      <ng-container *ngIf="item.value.count == 0 && i == 0">
+        <span class="inline-block text-sm font-normal pt-0.5 text-center">
+          امروز خبری موجود نیست
+        </span>
       </ng-container>
     </ng-container>
   </div>

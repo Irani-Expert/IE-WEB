@@ -17,6 +17,7 @@ import { GraphFinance } from '../interfaces/graph.interface';
   providedIn: 'root',
 })
 export class EcoCalService extends BaseService<PageInterface<CalEvent[]>> {
+  mapEvents = new BehaviorSubject<Country[]>(new Array<Country>());
   constructor(http: HttpClient, toastr: ToastrService) {
     super(http, toastr);
   }
@@ -95,14 +96,28 @@ export class EcoCalService extends BaseService<PageInterface<CalEvent[]>> {
   }
 
   async getCountriesByEvents() {
-    const apiRes = this.http.get<Result<Country[]>>(
-      `${environment.apiUrl}CalendarCountry/GetDatailsToday`,
-      {
-        headers: this.headers,
-      }
-    );
+    const apiRes = this.http
+      .get<Result<Country[]>>(
+        `${environment.apiUrl}CalendarCountry/GetDatailsToday`,
+        {
+          headers: this.headers,
+        }
+      )
+      .pipe(
+        map((item) => {
+          this.mapEvents.next(item.data!);
+          return item;
+        })
+      );
 
     return await lastValueFrom(apiRes);
+  }
+
+  getCountryForMapByCode(code: string) {
+    let data = this.mapEvents.value;
+    let index = data.findIndex((it) => it.code == code);
+
+    return index !== -1 ? data[index] : ({} as Country);
   }
 
   // private get getItems() {

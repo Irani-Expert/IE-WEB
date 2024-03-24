@@ -15,9 +15,6 @@
   display: none !important;
 }
 
-.translate-custom {
-  transform: translateY(-10%);
-}
 .map {
   overflow: hidden;
   position: relative;
@@ -29,25 +26,17 @@
   aspect-ratio: 16/9;
 }
 
-.custom-bubble {
-  background-color: red;
-  border-radius: 50%;
-  animation: pulse-cirlce 1.5s linear infinite both;
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: unset !important;
+  box-shadow: unset !important;
 }
 
-@keyframes pulse-cirlce {
-  0% {
-    opacity: 0.7;
-  }
-  50% {
-    opacity: 0.3;
-  }
+.leaflet-popup-content {
+  margin: 0 !important;
+}
 
-  75% {
-    opacity: 0.1;
-  }
-
-  100% {
-    opacity: 0.7;
-  }
+.leaflet-container a.leaflet-popup-close-button {
+  top: 5px;
+  right: 5px;
 }

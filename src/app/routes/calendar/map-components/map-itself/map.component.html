@@ -1,3 +1,7 @@
-<div class="map translate-custom" id="map"></div>
+<div class="map" id="map">
+  <div *ngIf="noEventsToday" class="no-events-div">
+    <p><strong class="text-lg"> امروز اخباری موجود نیست </strong></p>
+  </div>
+</div>
 
 <ng-template #dynamicComponentContainer></ng-template>
