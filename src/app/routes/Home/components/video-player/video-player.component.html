@@ -27,7 +27,9 @@
   </div>
 
   <div class="flex w-full h-full content-end flex-wrap">
-    <div class="p-div d-flex justify-center align-middle btn-span h-[60%]">
+    <div
+      class="p-div d-flex justify-center align-middle btn-span sm:h-[60%] h-[50%]"
+    >
       <span
         class="fa-stack fa-4x opacity-100 flex justify-center items-center"
         [ngClass]="{
@@ -35,16 +37,16 @@
         }"
       >
         <div
-          class="flex justify-center items-center bg-[#3246d3] md:w-28 md:h-28 w-20 h-20 rounded-full"
+          class="flex justify-center items-center bg-[#3246d3] md:w-28 md:h-28 w-20 h-20 rounded-full cursor-pointer"
+          (click)="puasePaceVideo()"
         >
           <i
-            class="ie-icon cursor-pointer"
+            class="ie-icon"
             [ngClass]="{
               'ie-puase-xl mt-1': pauseplay,
               'ie-Polygon large-polygon  white-filter max-md:mt-2 me-1.5 mt-2.5':
                 !pauseplay
             }"
-            (click)="puasePaceVideo()"
           ></i>
         </div>
       </span>
