@@ -24,8 +24,8 @@ import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
 export class MapComponent {
   map: any;
   noEventsToday = false;
-  @ViewChild('dynamicComponentContainer', { read: ViewContainerRef })
-  dynamicComponentContainer: ViewContainerRef;
+  @ViewChild('countriesComponentContainer', { read: ViewContainerRef })
+  countriesComponentContainer: ViewContainerRef;
   dynamicComponentRef: ComponentRef<MapCountryComponent>;
   constructor(private _ecoCalService: EcoCalService) {}
   ngAfterViewInit(): void {
@@ -57,7 +57,7 @@ export class MapComponent {
   createMarkerPopupContent(countryName: string): L.Popup {
     const popup = L.popup();
     this.dynamicComponentRef =
-      this.dynamicComponentContainer.createComponent(MapCountryComponent);
+      this.countriesComponentContainer.createComponent(MapCountryComponent);
 
     let country = {} as Country;
     country.code = countryName;
@@ -89,15 +89,19 @@ export class MapComponent {
 
           marker.bindPopup(popup);
         }
-      } else {
-        this.noEventsToday = true;
       }
     });
   }
 
   countriesLayer() {
+    let popupClasses =
+      'bg-white px-10 pt-3 pb-2 rounded-lg m-1 border border-[#EAEAEA]';
     L.geoJSON(countries, {
       style: map_config,
-    }).addTo(this.map);
+    })
+      .bindPopup((layer: any) => {
+        return `<div class="${popupClasses}">${layer.feature.properties.name_fa}</div>`;
+      })
+      .addTo(this.map);
   }
 }
