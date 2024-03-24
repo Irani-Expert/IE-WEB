@@ -29,11 +29,6 @@ export class ItemsSearchComponent {
   ngOnInit() {
     this.toggle(0);
     this.showingItem = this.allItems;
-
-    // this.searchModel.calendar.forEach((it)=>{
-    //   let item = {...it, tableType: 34};
-    //   this.allItems.push(item);
-    // });
   }
   changeViewItem(tableType: number | null) {
     this.loading = true
@@ -137,6 +132,7 @@ export class ItemsSearchComponent {
           this.allItems.push(item);
 
         });
+        
         this.changeViewItem(null)
         this.toggle(0)
       },

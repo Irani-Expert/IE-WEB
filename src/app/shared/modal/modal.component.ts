@@ -43,7 +43,7 @@ export class ModalComponent {
     private modal: ModalService,
     private _meta: Meta
   ) {
-    this._meta.addTag({ name: 'robots', content: 'none' });
+    this._meta.updateTag({ name: 'robots', content: 'none' });
   }
   ngOnInit() {
     if (AppComponent.isBrowser.value) {
@@ -55,7 +55,7 @@ export class ModalComponent {
     this.el.nativeElement.remove();
   }
   ngOnDestroy() {
-    this._meta.removeTag('content=none');
+    this._meta.updateTag({ name: 'robots', content: 'follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large' });
     this.close();
   }
 }

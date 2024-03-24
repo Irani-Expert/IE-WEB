@@ -17,20 +17,63 @@ import { ChartData, ChartEvent, ChartType } from 'chart.js';
 
 export class CardFinanceComponent {
 
+  @Input('data') data : any;
+  @Input ('type') type : number;
 
+  color = ['#FFC01E','#FBC63D57'];
+  bgColor = ['#3b90ea','#65a7ecf2'];
+  upTrend : boolean;
 
+  // hoverData : string;
+  // hoverData2 : string;
+  chartData : number;
+  chartData2 : number;
+
+constructor(){
+} 
+
+ngOnInit (){
+
+  if (this.data.changePercent >= 0) {
+    this.upTrend = true;
+  }
+  else {
+    this.upTrend =false;
+  }
+  this.pushDataChat();
+
+} 
+
+getChange (){
+}
+
+pushDataChat(){
+  if (this.data.id == 1){
+    this.doughnutChartData.datasets[0].backgroundColor = this.color;
+    this.doughnutChartData.labels = [ 'میزان بیکاری' , 'میزان اشتغال']
+    this.doughnutChartData.datasets[0].data = [this.data.lastValue  , 100-this.data.lastValue];
+
+  }
+  else {    
+    this.doughnutChartData.datasets[0].backgroundColor = this.bgColor;
+    this.doughnutChartData.labels = [ 'افزایش تولید ناخالص ملی' , 'افزایش تولید ناخالص ملی']
+    this.doughnutChartData.datasets[0].data = [this.data.lastValue , 100-this.data.lastValue];
+
+  }
+}
 
   // Doughnut
-  public doughnutChartLabels: string[] = [
-    'Download Sales',
-    'In-Store Sales',
-  ];
+  // public doughnutChartLabels1: string[] = [
+  //   'x',
+  //   'y',
+  // ];
+
   public doughnutChartData: ChartData<'doughnut'> = {
-    labels: this.doughnutChartLabels,
+    // labels: this.doughnutChartLabels1,
     datasets: [
-      { data: [ 96 , 4],
+      { data: [],
         // borderColor : ['#FFC01E' , '#FBC63D57'],
-         backgroundColor: ['#FFC01E' , '#FBC63D57'],
+         backgroundColor: []
       },
     ],
   };
@@ -61,20 +104,5 @@ export class CardFinanceComponent {
 
 
 
-  @Input('data') data : any;
-  @Input ('type') type : number;
 
-  leftPart : boolean;
-
-constructor(){
-} 
-
-ngOnInit (){
-  if( this.type == 2 ){
-    this.leftPart = true;
-  }
-  else{
-    this.leftPart = false;
-  }
-} 
 }

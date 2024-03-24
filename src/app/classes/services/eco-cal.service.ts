@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BaseService } from './base.service';
 import { PageInterface } from '../page.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { CurrencyData } from '../interfaces/currency-data';
 import { Result } from '../result';
@@ -13,10 +13,13 @@ import { environment } from 'src/environments/environment.dev';
 import { Country } from 'src/app/routes/calendar/map/map-country/country';
 import { GraphFinance } from '../interfaces/graph.interface';
 
+
+
 @Injectable({
   providedIn: 'root',
 })
 export class EcoCalService extends BaseService<PageInterface<CalEvent[]>> {
+
   constructor(http: HttpClient, toastr: ToastrService) {
     super(http, toastr);
   }
@@ -64,6 +67,7 @@ export class EcoCalService extends BaseService<PageInterface<CalEvent[]>> {
   paginatedCalendar = new BehaviorSubject<PageInterface<CalEvent[]> | null>(
     null
   );
+
   getCalEvents(
     params: string = '',
     filterModel: FilterCalendar = new FilterCalendar()
@@ -78,6 +82,7 @@ export class EcoCalService extends BaseService<PageInterface<CalEvent[]>> {
       })
     );
   }
+
   async getActualValByID(id: number) {
     const result = this.http
       .get<Result<string>>(
@@ -105,6 +110,23 @@ export class EcoCalService extends BaseService<PageInterface<CalEvent[]>> {
     return await lastValueFrom(apiRes);
   }
 
+
+  getDetailsAndHistory() : Observable<Result<any>> {
+    let _options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Cache-Control':
+          'no-cache, no-store, must-revalidate, post-check=0, pre-check=0',
+        Pragma: 'no-cache',
+        Expires: '0',
+      }),
+    };
+
+    return this.http.get<Result<number>>(
+      `${environment.apiUrl}CalendarCountry/GetDetailsAndHistory?id=840`,
+      _options
+    );
+  }
   // private get getItems() {
   //   if (this.paginatedCalendar.value?.items) {
   //     return this.paginatedCalendar.value.items;
