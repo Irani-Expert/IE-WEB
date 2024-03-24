@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Country } from './country';
 import { ImportanceComponent } from '../../importance/importance.component';
+import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
 const countryInit: Country = { active: false, code: '', id: 0, name: '' };
 @Component({
   selector: 'app-map-country',
@@ -11,10 +12,15 @@ const countryInit: Country = { active: false, code: '', id: 0, name: '' };
   styleUrls: ['./map-country.component.scss'],
 })
 export class MapCountryComponent {
-  @Input('data') apiData: Country;
+  apiData: Country;
   country = countryInit;
-  constructor() {}
-  async ngAfterViewInit() {
+  constructor(private _ecoCalService: EcoCalService) {}
+
+  async ngOnInit() {}
+  ngAfterViewInit() {
+    this.apiData = this._ecoCalService.getCountryForMapByCode(
+      this.apiData.code
+    );
     this.setCountry();
   }
   // getImportanceColor() {
@@ -22,6 +28,7 @@ export class MapCountryComponent {
   // }
   setCountry() {
     this.country = Object.assign({}, this.apiData);
+
     this.country.events = {
       highValues: { count: this.country.highValues!, color: '#FF5B5B' },
       moderateValues: { count: this.country.moderateValues!, color: '#FFD95B' },

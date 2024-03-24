@@ -4,6 +4,7 @@ import {
 } from '@angular/core';
 import { BaseService } from 'src/app/classes/services/base.service';
 import { environment } from 'src/environments/environment.dev';
+import brokers_table from 'src/assets/broker-tables.json';
 
 interface BrokerTable {
   rate: number;
@@ -45,11 +46,10 @@ interface BrokerTableTh {
 export class TableBrokersComponent {
   contentUrl = environment.contentUrl;
   tableLoaded = false;
-  savedJson = '../assets/broker-tables.json';
   tableModel = new BrokerTableModel();
   items: Array<BrokerTable> = new Array<BrokerTable>();
   tableHeaders = new Array<BrokerTableTh>();
-  constructor(private baseService: BaseService<BrokerTableModel>) {
+  constructor() {
     let keys = Object.keys(this.tableModel);
     keys.forEach((it, counter) => {
       this.tableHeaders.push({ engTitle: it, id: counter + 1, title: it });
@@ -61,11 +61,7 @@ export class TableBrokersComponent {
     });
   }
   ngOnInit() {
-    this.baseService.http
-      .get<{ items: BrokerTable[] }>(this.savedJson)
-      .subscribe((it) => {
-        this.items = it.items;
-        this.tableLoaded = true;
-      });
+    this.items = brokers_table.items;
+    this.tableLoaded = true;
   }
 }

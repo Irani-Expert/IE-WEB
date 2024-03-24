@@ -1,0 +1,42 @@
+.leaflet-control {
+  display: none;
+}
+.leaflet-control-zoom {
+  display: none;
+}
+.leaflet-container {
+  background: transparent;
+  font-family: $font-family-base !important;
+}
+.leaflet-grab {
+  cursor: default;
+}
+#map_access {
+  display: none !important;
+}
+
+.map {
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+
+  max-width: 100%;
+  max-height: 405px;
+  height: auto;
+  aspect-ratio: 16/9;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: unset !important;
+  box-shadow: unset !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  top: 5px;
+  right: 5px;
+}

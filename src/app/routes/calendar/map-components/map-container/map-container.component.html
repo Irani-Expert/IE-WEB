@@ -1,9 +1,9 @@
 <!-- <app-map-country *ngIf="!isLoading" [data]="countries[8]" /> -->
 
-<div class="flex flex-row">
+<div class="flex flex-row items-end">
   <app-clock />
 
   <div class="basis-full">
-    <div id="map" class="map"></div>
+    <app-map *ngIf="!isLoading" />
   </div>
 </div>
