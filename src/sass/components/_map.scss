@@ -5,6 +5,9 @@
   display: none;
 }
 .leaflet-container {
+  &:focus {
+    outline: 0 !important;
+  }
   background: transparent;
   font-family: $font-family-base !important;
 }
@@ -21,7 +24,7 @@
   margin: 0 auto;
 
   max-width: 100%;
-  max-height: 405px;
+
   height: auto;
   aspect-ratio: 16/9;
 }
