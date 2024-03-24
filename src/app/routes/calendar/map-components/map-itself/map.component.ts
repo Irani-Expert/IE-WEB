@@ -44,10 +44,10 @@ export class MapComponent {
       zoom: 1.25,
       tap: false,
       noWrap: true,
-      // maxBounds: [
-      //   [82.97669, -168.354541],
-      //   [-57.762799, 189.538275],
-      // ],
+      maxBounds: [
+        [83.845866, -172.743086],
+        [-55.210222, 182.671969],
+      ],
     });
     this.map.doubleClickZoom.disable();
     this.countriesLayer(); //Create Countries Layer
@@ -76,32 +76,26 @@ export class MapComponent {
   createMarker() {
     let icon = L.icon(icon_config);
     this._ecoCalService.mapEvents.value.forEach((it) => {
-      if (it.events) {
-        let coordinates = countries_coordiantes.find(
-          (country) => country.name == it.code
-        )?.coordinates;
-        if (coordinates) {
-          let marker = L.marker(coordinates, {
-            icon: icon,
-          }).addTo(this.map);
+      // if (it.events) {
+      let coordinates = countries_coordiantes.find(
+        (country) => country.name == it.code
+      )?.coordinates;
+      if (coordinates) {
+        let marker = L.marker(coordinates, {
+          icon: icon,
+        }).addTo(this.map);
 
-          let popup = this.createMarkerPopupContent(it.code);
+        let popup = this.createMarkerPopupContent(it.code);
 
-          marker.bindPopup(popup);
-        }
+        marker.bindPopup(popup);
       }
+      // }
     });
   }
 
   countriesLayer() {
-    let popupClasses =
-      'bg-white px-10 pt-3 pb-2 rounded-lg m-1 border border-[#EAEAEA]';
     L.geoJSON(countries, {
       style: map_config,
-    })
-      .bindPopup((layer: any) => {
-        return `<div class="${popupClasses}">${layer.feature.properties.name_fa}</div>`;
-      })
-      .addTo(this.map);
+    }).addTo(this.map);
   }
 }
