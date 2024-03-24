@@ -158,8 +158,8 @@ export class CalendarMainPageComponent {
       if (currentdate != null) this.filteredModel.currentTime = currentdate;
       this.today = currentdate?.toString();
       this.today = this.today?.replaceAll('.', '/');
-      this.filteredModel.fromTime = '';
-      this.filteredModel.toTime = '';
+      this.filteredModel.fromTime = null;
+      this.filteredModel.toTime = null;
       this.appTableComponent.table = [];
       this.getCal(this.filteredModel);
       this.filter.next(this.filteredModel);

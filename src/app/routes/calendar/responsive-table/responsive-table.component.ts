@@ -214,12 +214,12 @@ export class ResponsiveTableComponent {
       this.selectedYear = event[0].getFullYear();
       this.selectedMonth = event[0].getMonth();
 
-      if (currentdate != null) this.filteredModel.currentTime = currentdate;
+      this.filteredModel.currentTime = currentdate;
     } else {
       let todate = datepipe.transform(event[1], 'yyyy.MM.dd');
-      this.filteredModel.currentTime = '';
-      if (currentdate != null) this.filteredModel.fromTime = currentdate;
-      if (todate != null) this.filteredModel.toTime = todate;
+      this.filteredModel.currentTime = null;
+      this.filteredModel.fromTime = currentdate;
+      this.filteredModel.toTime = todate;
     }
 
     this.getCal(this.filteredModel);
