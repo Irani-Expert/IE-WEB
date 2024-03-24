@@ -493,6 +493,20 @@
       "linkSite": "https://nl.trustpilot.com/review/www.tradersway.com",
       "insurance": "--",
       "refCode": "https://www.tradersway.com"
+    },
+    {
+      "name": "کلایمکس پرایم",
+      "regulate": ["ندارد"],
+      "establishedYear": 2021,
+      "minimumDesposit": 10,
+      "leverage": 300,
+      "platform": ["--"],
+      "deposit": ["--"],
+      "rate": 1,
+      "logoSrc": "/uploads/images/article/CLIMAX-1.webp",
+      "linkSite": "https://www.iraniexpert.com/brokers/climax-prime/fa",
+      "insurance": "--",
+      "refCode": "https://www.tradersway.com"
     }
   ]
 }

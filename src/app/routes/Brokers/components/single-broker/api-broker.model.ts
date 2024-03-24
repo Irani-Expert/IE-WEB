@@ -26,6 +26,7 @@ export class ApiBrokerModel {
   seoAccepted: boolean = false;
   isIRSupport: boolean = false;
   referralLink: string;
+  colorCode?: string;
   staticRate: number;
   linkTags: [
     {
