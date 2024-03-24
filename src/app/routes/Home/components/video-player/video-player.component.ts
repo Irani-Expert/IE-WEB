@@ -1,32 +1,36 @@
 import { animate, style, transition, trigger } from '@angular/animations';
+import { AbsoluteSourceSpan } from '@angular/compiler';
 import {
   AfterViewInit,
   Component,
+  ElementRef,
   HostListener,
   Input,
   OnInit,
 } from '@angular/core';
-import { log } from 'console';
+
 import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-video-player',
   templateUrl: './video-player.component.html',
   styleUrls: ['./video-player.component.scss'],
-  animations: [
-    trigger('fade', [
-      transition('* => void', [
-        style({ opacity: 1 }),
-        animate(500, style({ opacity: 0 })),
-      ]),
-    ]),
-  ],
+  // animations: [
+  //   trigger('fade', [
+  //     transition('* => void', [
+  //       style({ opacity: 1, position: 'absolute', left: 0, right: 0 }),
+  //       animate(500, style({ opacity: 0 })),
+  //     ]),
+  //   ]),
+  // ],
 })
 export class VideoPlayerComponent implements OnInit {
   @Input({ required: true }) VideoId!: number;
   @Input('Link') videoLink: string;
+  firstPlay: boolean = false;
+  updateSliderToggle: boolean;
 
-  constructor() {}
+  constructor(private el: ElementRef) {}
   video: any;
   vId!: string;
   videoCurrentTime: string = '00:00';
@@ -40,23 +44,22 @@ export class VideoPlayerComponent implements OnInit {
   mouseDisplay: string;
   progressbarLeft: string = 'calc(0%);';
 
-  @HostListener('document:keydown.escape', ['$event'])
-  @HostListener('window:mousemove', ['$event'])
-  onMouseMove(e: any) {
-    console.log(e);
+  aftermouseenter() {
+    setInterval(() => {
+      if (this.pauseplay) {
+        this.mouseDisplay = 'none';
+      }
+    }, 8000);
+  }
+  aftermouseMoved() {
+    this.mouseDisplay = 'auto';
+  }
 
-    if (e.clientX + e.clientY != this.mousePosition && this.isFullScreen) {
-      this.mouseDisplay = 'auto';
-    }
-    this.mousePosition = e.clientX + e.clientY;
+  onMouseMove(e: any) {
+    console.log('e');
   }
 
   ngOnInit(): void {
-    setInterval(() => {
-      if (this.isFullScreen && this.pauseplay) {
-        this.mouseDisplay = 'none';
-      }
-    }, 4000);
     this.vId = 'vId' + this.VideoId;
 
     if (AppComponent.isBrowser.value) {
@@ -64,7 +67,7 @@ export class VideoPlayerComponent implements OnInit {
     }
   }
   onTimeUpdate() {
-    if (AppComponent.isBrowser.value) {
+    if (AppComponent.isBrowser.value && !isNaN(this.video.duration)) {
       this.video = document.getElementById(this.vId);
 
       this.percentage = (this.video.currentTime / this.video.duration) * 100;
@@ -78,15 +81,13 @@ export class VideoPlayerComponent implements OnInit {
       this.videoCurrentTime = this.video.currentTime;
 
       if (this.video.currentTime > this.video.duration - 0.2) {
-        this.video.currentTime += 0.2;
+        this.video.currentTime = 0;
         this.pauseplay = false;
         this.hidePuase = false;
         this.video.pause();
         this.progressbarLeft = '99%';
       }
       this.NumToTime(this.video.currentTime);
-    } else {
-      console.log('App is Running In Server');
     }
   }
   handleClick(event: any) {
@@ -102,19 +103,48 @@ export class VideoPlayerComponent implements OnInit {
       this.changeVideoEvent(dragW, totalWidth);
     }
   }
+  startUpdateSlider() {
+    this.updateSliderToggle = true;
+  }
 
+  endUpdateSlider() {
+    this.updateSliderToggle = false;
+  }
+
+  updateSlider(event: any) {
+    this.video = document.getElementById(this.vId);
+
+    if (this.updateSliderToggle && true != isNaN(this.video.duration)) {
+      this.percentage = Math.floor(
+        (event.layerX / (event.target.offsetWidth - 3)) * 100
+      );
+
+      if (this.percentage > 100) {
+        this.percentage = 100;
+      } else if (this.percentage < 0) {
+        this.percentage = 0;
+      }
+
+      this.video.currentTime = (this.video.duration / 100) * this.percentage;
+      this.progressValue = this.percentage;
+      this.progressbarLeft = this.percentage - 0.5 + '%';
+    }
+  }
   changeVideoEvent(clickedWidth: number, totalWidth: number) {
     var per = (clickedWidth / totalWidth) * 100;
     per = per;
-
-    this.video.currentTime = (this.video.duration / 100) * per;
+    if (!isNaN(this.video.duration)) {
+      this.video.currentTime = (this.video.duration / 100) * per;
+    }
   }
   puasePaceVideo() {
+    if (!this.firstPlay) this.firstPlay = true;
+    debugger;
     this.video = document.getElementById(this.vId);
     this.pauseplay = !this.pauseplay;
     setTimeout(() => {
       this.hidePuase = !this.hidePuase;
-      if (this.pauseplay) {
+      if (this.pauseplay && !isNaN(this.video.duration)) {
         this.video.play();
       } else {
         this.video.pause();
@@ -134,15 +164,20 @@ export class VideoPlayerComponent implements OnInit {
   }
 
   fullScreen() {
-    console.log('ok');
-
     var vid = <HTMLVideoElement>document.getElementById('main' + this.vId);
+
     if (!this.isFullScreen) {
       vid.requestFullscreen();
-      this.isFullScreen = true;
     } else {
       document.exitFullscreen();
-      this.isFullScreen = false;
     }
+  }
+
+  @HostListener('fullscreenchange', ['$event'])
+  @HostListener('webkitfullscreenchange', ['$event'])
+  @HostListener('mozfullscreenchange', ['$event'])
+  @HostListener('MSFullscreenChange', ['$event'])
+  FSHandler() {
+    this.isFullScreen = !this.isFullScreen;
   }
 }

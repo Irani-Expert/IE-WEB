@@ -28,7 +28,6 @@
     "@angular/platform-server": "^16.1.0",
     "@angular/router": "^16.1.0",
     "@nguniversal/express-engine": "^16.2.0",
-    "@syncfusion/ej2-angular-maps": "23.1.42",
     "angular-material-datepicker": "^1.0.2",
     "chart.js": "^4.4.1",
     "cors": "^2.8.5",

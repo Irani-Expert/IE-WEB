@@ -57,9 +57,10 @@ export class ResponsiveTableComponent {
   pageXKeeper: number = 0;
   selectedMonth: number;
   modalStatus: boolean = false;
+  isYearmodalOpen: boolean = false;
   filteredModel = new FilterEvents();
   filter = new BehaviorSubject<FilterEvents>(new FilterEvents());
-
+  dateType: string;
   @Output('modal') openingModal: EventEmitter<string> = new EventEmitter(false);
 
   constructor(
@@ -177,6 +178,12 @@ export class ResponsiveTableComponent {
   //     this.pageXKeeper = 0;
   //   }
   // }
+
+  openyearselector() {
+    this.dateType = 'yearOnly';
+    this.formatDat(null);
+    this.openModal('login');
+  }
   openModal(type: string) {
     this.openingModal.emit(type);
     this.modal.open().subscribe({
@@ -190,6 +197,7 @@ export class ResponsiveTableComponent {
     this.modalStatus = true;
   }
   choosRangeDate() {
+    this.dateType = 'normal';
     this.formatDat(null);
     this.openModal('login');
   }
@@ -224,5 +232,10 @@ export class ResponsiveTableComponent {
     );
 
     return await lastValueFrom(apiData);
+  }
+  closeYearModal(year: any) {
+    this.selectedYear = year.getFullYear();
+    this.setCalDate([year, undefined]);
+    this.modalStatus = false;
   }
 }

@@ -135,17 +135,17 @@ export class GraphFinanceComponent {
   setGradient(type: 'red' | 'green' = 'green') {
     let borderColor: '#2FCE7A' | '#FF2A2A' = '#2FCE7A';
     let ctx = document.createElement('canvas').getContext('2d')!;
-    let gradient = ctx.createLinearGradient(0, 0, 0, 117);
+    let gradient = ctx.createLinearGradient(0, 0, 0, 130);
     if (type == 'green') {
-      gradient.addColorStop(0, 'rgba(47,206,122,0.5108018207282913)');
-      gradient.addColorStop(0.25, 'rgba(47,206,122,0.2082808123249299)');
-      gradient.addColorStop(0.7, 'rgba(255,255,255,0.1903536414565826)');
+      gradient.addColorStop(0, 'rgba(47,206,122,0.3108018207282913)');
+      gradient.addColorStop(0.15, 'rgba(47,206,122,0.1082808123249299)');
+      gradient.addColorStop(0.6, 'rgba(255,255,255,0.1903536414565826)');
       borderColor = '#2FCE7A';
     }
     if (type == 'red') {
-      gradient.addColorStop(0, 'rgba(255,42,42,0.5108018207282913)');
-      gradient.addColorStop(0.25, 'rgba(255,42,42,0.2082808123249299)');
-      gradient.addColorStop(0.7, 'rgba(255,255,255,0.1903536414565826)');
+      gradient.addColorStop(0, 'rgba(255,42,42,0.3108018207282913)');
+      gradient.addColorStop(0.15, 'rgba(255,42,42,0.1082808123249299)');
+      gradient.addColorStop(0.6, 'rgba(255,255,255,0.1903536414565826)');
       borderColor = '#FF2A2A';
     }
     return { gradient: gradient, borderColor: borderColor };

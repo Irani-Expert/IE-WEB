@@ -33,7 +33,7 @@
       style="width: 30rem"
     >
       <div
-        class="flex flex-row-reverse justify-between h-[2.4rem] bg-[#0498fb] px-8"
+        class="flex flex-row-reverse justify-between h-[2.4rem] bg-[#0498fb] px-8 items-center"
       >
         <div class="flex text-white mt-2">
           <select
@@ -54,11 +54,13 @@
             <option value="10">November</option>
             <option value="11">December</option>
           </select>
-          <strong class="flex items-center text-lg">{{ selectedYear }}</strong>
+          <strong
+            class="flex items-center text-lg cursor-pointer"
+            (click)="openyearselector()"
+            >{{ selectedYear }}</strong
+          >
         </div>
-        <div class="flex items-center">
-          <i class="ie-icon ie-calendar h-4" (click)="choosRangeDate()"></i>
-        </div>
+        <i class="ie-icon ie-calendar h-4" (click)="choosRangeDate()"></i>
       </div>
       <div class="cal-date px-3 cursor-grabbing">
         <div class="flex relative overflow-x-scroll">
@@ -110,6 +112,7 @@
     ></app-sector-filter>
   </div>
 </div>
+
 <app-modal
   [header]="true"
   *ngIf="modalStatus"
@@ -117,6 +120,10 @@
   [width]="'10'"
 >
   <div content>
-    <app-date-picker (calDate)="setCalDate($event)"></app-date-picker>
+    <app-date-picker
+      (yearDate)="closeYearModal($event)"
+      (calDate)="setCalDate($event)"
+      [selectorType]="dateType"
+    ></app-date-picker>
   </div>
 </app-modal>

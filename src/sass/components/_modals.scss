@@ -36,6 +36,7 @@ $xlg: 1270px;
   background-color: $white;
   border-radius: 15px;
   .modal-header {
+    width: 100%;
     position: absolute;
     left: 0;
     @include justify-between;

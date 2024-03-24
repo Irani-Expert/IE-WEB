@@ -31,6 +31,7 @@ import {
   MatRangeDateSelectionModel,
 } from '@angular/material/datepicker';
 import { FavoriteComponent } from './favorite/favorite.component';
+import { YearSelectorComponent } from './year-selector/year-selector.component';
 const components = [
   AcordianComponent,
   CommentsComponent,

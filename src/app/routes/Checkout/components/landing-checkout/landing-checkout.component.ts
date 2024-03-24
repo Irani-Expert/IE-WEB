@@ -29,10 +29,11 @@ export class LandingCheckoutComponent {
   // Order Model ------------------->
   today = '';
   selectedDate: '';
+
   orderModel: Order = new Order();
   basket: BskItem[] = new Array<BskItem>();
   // Order Model ------------------->
-
+  acceptRules: boolean = false;
   // ClipBoard ------------------->
   ticked = false;
   showClipboardContent = false;
@@ -181,6 +182,10 @@ export class LandingCheckoutComponent {
     this.selectedDate = event;
   }
   changeCheckboxValue(event: boolean) {
+    this.acceptRules = event;
+    console.log(this.formGroup.invalid);
+    debugger;
+
     this._formControls['acceptRules'].setValue(event);
   }
   nextSession() {
@@ -229,6 +234,10 @@ export class LandingCheckoutComponent {
   trxCode(event: string) {
     this.orderModel.transactionCode = event;
   }
+  investMentCode(event: string) {
+    this.orderModel.investorPassword = event;
+  }
+
   async createOrder() {
     this.orderModel.token = this._authService._user.token;
     const res = this._orderService.post(

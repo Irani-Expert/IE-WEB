@@ -37,6 +37,11 @@
     min-height: 24px;
     min-width: 15px;
   }
+  &.large-polygon::before {
+    min-height: 26px;
+    min-width: 41px;
+    fill: white;
+  }
   &::before {
     display: block;
     content: url(../assets/icon/Polygon.svg);
@@ -318,7 +323,10 @@
   display: block;
 }
 // ======[ایکون های بروکر ]====
-
+.close-cross {
+  content: url(../assets/icon/close-cross.svg);
+  display: block;
+}
 .flag-icon {
   content: url(../assets/icon/uk@2x.svg);
   display: block;
@@ -376,8 +384,12 @@
   content: url(../assets/icon/up-trend.svg);
   display: block;
 }
+
 .ie-puase {
   content: url(../assets/icon/pause.svg);
+}
+.ie-puase-xl {
+  content: url(../assets/icon/xl-pause.svg);
 }
 .ie-broker-group {
   content: url(../assets/icon/broker-group-icn.svg);

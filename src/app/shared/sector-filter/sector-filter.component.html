@@ -9,12 +9,24 @@
       class="search-input search-sector"
       placeholder="جستجوی بخش"
       [(ngModel)]="searchItem"
-      (change)="changeText()"
     />
     <div class="h-[2rem] flex justify-center" (click)="openList()">
       <i
         class="ie-icon openList open-tab"
         [ngClass]="isListOpen ? 'rotate-90deg' : ''"
+      ></i>
+    </div>
+  </div>
+  <div class="m-1 main-listSelector">
+    <div
+      class="justify-center bg-blue-400 m-2 mx-3 p-1.5 listField"
+      *ngFor="let x of list"
+      [ngClass]="x.isActive ? 'flex' : '!hidden'"
+    >
+      <span> {{ x.title }} </span>
+      <i
+        class="ie-icon close-cross cross-icon cursor-pointer"
+        (click)="responsiveActive(x.value)"
       ></i>
     </div>
   </div>
@@ -26,7 +38,7 @@
       <li
         *ngFor="let item of list | filter : searchItem"
         class="hover:bg-[#FAFAFA] mb-3"
-        (click)="selectField(item.value)"
+        (click)="responsiveActive(item.value, true)"
       >
         {{ item.title }}
       </li>

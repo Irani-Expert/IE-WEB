@@ -26,7 +26,7 @@
         <span class="block text-sm text-[#0498FB]">{{ today }}</span>
       </div>
       <div class="basis-full">
-        <app-map></app-map>
+        <app-map-container></app-map-container>
       </div>
     </div>
   </div>
@@ -36,14 +36,17 @@
   <div class="lg:flex hidden gap-5 items-start justify-center">
     <div class="flex flex-col basis-[26%]">
       <div class="bg-white rounded-2xl shadow-sm p-5">
-        <app-date-picker (calDate)="setCalDate($event)"></app-date-picker>
+        <app-date-picker
+          (calDate)="setCalDate($event)"
+          [selectorType]="'normal'"
+        ></app-date-picker>
       </div>
       <div class="bg-white rounded-2xl shadow-sm p-5 my-5">
         <app-symbols
           (listOfSelectedItems)="setSymbolServices($event)"
         ></app-symbols>
       </div>
-      <div class="bg-white rounded-2xl shadow-sm p-5">
+      <div class="bg-white rounded-2xl shadow-sm p-2">
         <app-sector-filter
           (sections)="setSectionServices($event)"
         ></app-sector-filter>
@@ -88,13 +91,21 @@
         </div>
         <table-calendar />
       </div>
+      <div #tradingView></div>
       <div *ngIf="device == 'lg'">
         <app-graph-container></app-graph-container>
       </div>
+
+      <div
+        class="p-5 bg-white rounded-2xl shadow-sm border border-[#EAEAEA]"
+        *ngIf="tvStatus > 0"
+      >
+        <app-trading-view />
+      </div>
     </div>
   </div>
-  <div class="flex flex-col items-center justify-center lg:hidden">
-    <app-responsive-table></app-responsive-table>
+  <div class="flex flex-col items-center justify-center">
+    <app-responsive-table class="lg:hidden"></app-responsive-table>
 
     <div *ngIf="device == 'md'" class="p-5 basis-full w-full">
       <app-graph-container></app-graph-container>
@@ -118,5 +129,6 @@
     </button>
   </div> -->
   <!-- <app-trading-view lazy="true" /> -->
+
   <app-calendar-description />
 </div>

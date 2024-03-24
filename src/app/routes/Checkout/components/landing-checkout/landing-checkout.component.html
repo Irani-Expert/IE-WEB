@@ -200,7 +200,7 @@
                 انصراف
               </button>
               <button
-                [disabled]="formGroup.invalid"
+                [disabled]="!(formGroup.valid && acceptRules)"
                 (click)="nextSession()"
                 type="submit"
                 class="w-full bg-blue-700 rounded-lg h-full text-2xl font-black disabled:opacity-50 text-white"
@@ -259,7 +259,7 @@
       <div class="seperator-hz-1 lg:hidden mt-4"></div>
 
       <div class="flex flex-row mt-6 mb-2">
-        <div class="basis-1/4 hidden select-none lg:inline-flex items-center">
+        <div class="basis-2/5 hidden select-none lg:inline-flex items-center">
           <img
             class="mt-2 select-none w-full"
             alt="QR-CODE-WAllet"
@@ -315,6 +315,16 @@
                   type="text"
                   class="input-with-icon"
                   (input)="trxCode($any($event.target).value)"
+                />
+              </div>
+            </div>
+            <div class="each-row flex-col lg:flex-row">
+              <div class="relative basis-full lg:basis1/2 space-y-2">
+                <label for="">شماره حساب سرمایه گذاری</label>
+                <input
+                  type="text"
+                  class="input-with-icon"
+                  (input)="investMentCode($any($event.target).value)"
                 />
               </div>
             </div>

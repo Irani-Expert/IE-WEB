@@ -26,7 +26,10 @@
         >{{ currency.title.slice(0, 3) + " " + currency.title.slice(3) }}
       </span>
       <span class="block text-base font-light" *ngIf="showGraph">
-        {{ card_data.transactions[card_data.transactions.length - 1].close }}
+        {{
+          card_data.transactions[card_data.transactions.length - 1].close
+            | number : "1.1-4"
+        }}
       </span>
       <span
         class="block text-base font-light text-start"
