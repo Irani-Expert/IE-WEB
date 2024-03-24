@@ -13,13 +13,11 @@ import { environment } from 'src/environments/environment.dev';
 import { Country } from 'src/app/routes/calendar/map-components/map-country/country';
 import { GraphFinance } from '../interfaces/graph.interface';
 
-
-
 @Injectable({
   providedIn: 'root',
 })
 export class EcoCalService extends BaseService<PageInterface<CalEvent[]>> {
-
+  mapEvents = new BehaviorSubject<Country[]>(new Array<Country>());
   constructor(http: HttpClient, toastr: ToastrService) {
     super(http, toastr);
   }
@@ -100,33 +98,30 @@ export class EcoCalService extends BaseService<PageInterface<CalEvent[]>> {
   }
 
   async getCountriesByEvents() {
-    const apiRes = this.http.get<Result<Country[]>>(
-      `${environment.apiUrl}CalendarCountry/GetDatailsToday`,
-      {
-        headers: this.headers,
-      }
-    );
+    const apiRes = this.http
+      .get<Result<Country[]>>(
+        `${environment.apiUrl}CalendarCountry/GetDatailsToday`,
+        {
+          headers: this.headers,
+        }
+      )
+      .pipe(
+        map((item) => {
+          this.mapEvents.next(item.data!);
+          return item;
+        })
+      );
 
     return await lastValueFrom(apiRes);
   }
 
+  getCountryForMapByCode(code: string) {
+    let data = this.mapEvents.value;
+    let index = data.findIndex((it) => it.code == code);
 
-  getDetailsAndHistory() : Observable<Result<any>> {
-    let _options = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Cache-Control':
-          'no-cache, no-store, must-revalidate, post-check=0, pre-check=0',
-        Pragma: 'no-cache',
-        Expires: '0',
-      }),
-    };
-
-    return this.http.get<Result<number>>(
-      `${environment.apiUrl}CalendarCountry/GetDetailsAndHistory?id=840`,
-      _options
-    );
+    return index !== -1 ? data[index] : ({} as Country);
   }
+
   // private get getItems() {
   //   if (this.paginatedCalendar.value?.items) {
   //     return this.paginatedCalendar.value.items;

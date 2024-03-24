@@ -1,0 +1,22 @@
+[
+  { "name": "US", "coordinates": ["37.090240", "-95.712891"] },
+  { "name": "GB", "coordinates": ["51.507351", "-0.127758"] },
+  { "name": "CH", "coordinates": ["46.818188", "8.227512"] },
+  { "name": "SE", "coordinates": ["60.128162", "18.643501"] },
+  { "name": "ES", "coordinates": ["40.463669", "-3.749220"] },
+  { "name": "AU", "coordinates": ["-25.274399", "133.775131"] },
+  { "name": "IT", "coordinates": ["41.871941", "12.567380"] },
+  { "name": "SG", "coordinates": ["1.352083", "103.819839"] },
+  { "name": "NO", "coordinates": ["60.472023", "8.468946"] },
+  { "name": "NZ", "coordinates": ["-40.900558", "174.885971"] },
+  { "name": "MX", "coordinates": ["23.634501", "-102.552788"] },
+  { "name": "KR", "coordinates": ["35.9078", "127.7669"] },
+  { "name": "JP", "coordinates": ["36.2048", "138.2529"] },
+  { "name": "IN", "coordinates": ["20.5937", "78.9629"] },
+  { "name": "HK", "coordinates": ["22.3193", "114.1694"] },
+  { "name": "DE", "coordinates": ["51.1657", "10.4515"] },
+  { "name": "FR", "coordinates": ["46.2276", "2.2137"] },
+  { "name": "CN", "coordinates": ["35.8617", "104.1954"] },
+  { "name": "CA", "coordinates": ["56.1304", "-106.3468"] },
+  { "name": "BR", "coordinates": ["-14.235004", "-51.925282"] }
+]
