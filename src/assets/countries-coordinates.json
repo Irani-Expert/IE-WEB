@@ -18,5 +18,6 @@
   { "name": "FR", "coordinates": ["46.2276", "2.2137"] },
   { "name": "CN", "coordinates": ["35.8617", "104.1954"] },
   { "name": "CA", "coordinates": ["56.1304", "-106.3468"] },
-  { "name": "BR", "coordinates": ["-14.235004", "-51.925282"] }
+  { "name": "BR", "coordinates": ["-14.235004", "-51.925282"] },
+  { "name": "ZA", "coordinates": ["-30.559483", "22.937506"] }
 ]

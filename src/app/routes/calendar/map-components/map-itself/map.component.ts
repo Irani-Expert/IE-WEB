@@ -23,10 +23,10 @@ import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
 })
 export class MapComponent {
   map: any;
-  noEventsToday = false;
   @ViewChild('countriesComponentContainer', { read: ViewContainerRef })
   countriesComponentContainer: ViewContainerRef;
   dynamicComponentRef: ComponentRef<MapCountryComponent>;
+  weekends: boolean;
   constructor(private _ecoCalService: EcoCalService) {}
   ngAfterViewInit(): void {
     this.initMap();
@@ -51,7 +51,16 @@ export class MapComponent {
     });
     this.map.doubleClickZoom.disable();
     this.countriesLayer(); //Create Countries Layer
-    this.createMarker(); // Create Markers on Map
+
+    let today = new Date().getDay();
+    if (today == 6 || today == 7) {
+      // Sunday and Saturday
+      this.weekends = true;
+    } else {
+      this.weekends = false;
+      //Other Days of Week
+      this.createMarker(); // Create Markers on Map
+    }
   }
 
   createMarkerPopupContent(countryName: string): L.Popup {
@@ -76,20 +85,25 @@ export class MapComponent {
   createMarker() {
     let icon = L.icon(icon_config);
     this._ecoCalService.mapEvents.value.forEach((it) => {
-      // if (it.events) {
-      let coordinates = countries_coordiantes.find(
-        (country) => country.name == it.code
-      )?.coordinates;
-      if (coordinates) {
-        let marker = L.marker(coordinates, {
-          icon: icon,
-        }).addTo(this.map);
+      if (
+        it.highValues !== 0 ||
+        it.lowValues !== 0 ||
+        it.moderateValues !== 0 ||
+        it.noneValues !== 0
+      ) {
+        let coordinates = countries_coordiantes.find(
+          (country) => country.name == it.code
+        )?.coordinates;
+        if (coordinates) {
+          let marker = L.marker(coordinates, {
+            icon: icon,
+          }).addTo(this.map);
 
-        let popup = this.createMarkerPopupContent(it.code);
+          let popup = this.createMarkerPopupContent(it.code);
 
-        marker.bindPopup(popup);
+          marker.bindPopup(popup);
+        }
       }
-      // }
     });
   }
 
