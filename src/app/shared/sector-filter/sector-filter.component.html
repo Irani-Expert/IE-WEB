@@ -37,7 +37,7 @@
     >
       <li
         *ngFor="let item of list | filter : searchItem"
-        class="hover:bg-[#FAFAFA] mb-3"
+        class="hover:bg-[#FAFAFA] mb-3 cursor-pointer"
         (click)="responsiveActive(item.value, true)"
       >
         {{ item.title }}
