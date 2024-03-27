@@ -13,11 +13,8 @@ import { CalEvent } from './cal-event.model';
 import { LinkService } from 'src/app/classes/services/link.service';
 import { Utils } from 'src/app/classes/utils';
 import { TradingViewComponent } from 'src/app/components/trading-view/trading-view.component';
-interface trend_data {
-  currency: string;
-  percent: string;
-  trend: boolean;
-}
+import { ResponsiveTableComponent } from '../responsive-table/responsive-table.component';
+
 @Component({
   selector: 'app-calendar-main-page',
   templateUrl: './calendar-main-page.component.html',
@@ -26,9 +23,12 @@ interface trend_data {
 export class CalendarMainPageComponent {
   @ViewChild('tradingView') tradingView: ElementRef;
 
+  allTableGetted = false;
   device: 'md' | 'lg';
   eventsHolder = new Array<CalEvent>();
   @ViewChild(TableCalendar, { static: false }) appTableComponent: TableCalendar;
+  @ViewChild(ResponsiveTableComponent, { static: false })
+  appResponsiveTableComponent: ResponsiveTableComponent;
   filteredModel = new FilterEvents();
   filter = new BehaviorSubject<FilterEvents>(new FilterEvents());
   filter$ = this.filter.asObservable();
@@ -36,7 +36,7 @@ export class CalendarMainPageComponent {
   today: string | undefined;
   tvStatus: number = 0;
   constructor(
-    private ecoCalService: EcoCalService,
+    private _ecoCalService: EcoCalService,
     public datepipe: DatePipe,
     private _linkService: LinkService
   ) {
@@ -45,28 +45,6 @@ export class CalendarMainPageComponent {
       `https://www.iraniexpert.com/economic-calendar`
     );
   }
-  data: trend_data[] = [
-    {
-      currency: 'XAU USD',
-      percent: '-2',
-      trend: false,
-    },
-    {
-      currency: 'USD JPY',
-      percent: '+1',
-      trend: true,
-    },
-    {
-      currency: 'GBP USD',
-      percent: '-0.2',
-      trend: false,
-    },
-    {
-      currency: 'AUD USD',
-      percent: '+2',
-      trend: true,
-    },
-  ];
   ngOnInit() {
     this.checkDevice();
     AppComponent.changeMainBg('creamy');
@@ -89,9 +67,13 @@ export class CalendarMainPageComponent {
     AppComponent.changeMainBg('white');
   }
 
-  async getCal(filter: FilterEvents, pageIndex: number = 0) {
-    const apiData = this.ecoCalService.getCalEvents(
-      `pageIndex=${pageIndex}&pageSize=16&accending=true`,
+  async getCal(
+    filter: FilterEvents,
+    pageIndex: number = 0,
+    pageSize: number = 16
+  ) {
+    const apiData = this._ecoCalService.getCalEvents(
+      `pageIndex=${pageIndex}&pageSize=${pageSize}&accending=true&pageOrder=Time_`,
       filter
     );
 
@@ -110,23 +92,58 @@ export class CalendarMainPageComponent {
       this.filter.next(this.filteredModel);
     }
   }
-  showMore(index: number = 0, type: 'getted' | 'want-more' = 'want-more') {
-    if (type == 'want-more') {
-      this.getCal(this.filteredModel, index);
+
+  showMoreOrLess(type: any) {
+    if (type == 'more') {
+      this.showMore(this.allTableGetted ? 1 : 0);
+    } else {
+      this.showLess();
     }
-    if (type == 'getted') {
+  }
+  async showMore(type: 0 | 1 = 0) {
+    // 0 == first-time
+    // 1 == getted-already
+    if (type == 0) {
+      let pageSize = this._ecoCalService.paginatedCalendar.value?.totalCount!;
+      this.appTableComponent.table = [];
+      this.appTableComponent.events = [];
+      this.appResponsiveTableComponent.allEvents = [];
+      await this.getCal(this.filteredModel, 0, pageSize);
+      this.allTableGetted = true;
+    } else {
+      this.appTableComponent.table = [];
       this.appTableComponent.setTable(this.appTableComponent.events);
+      this.appResponsiveTableComponent.setTable(
+        this.appResponsiveTableComponent.allEvents
+      );
     }
   }
   showLess() {
-    this.appTableComponent.table.splice(9, this.appTableComponent.table.length);
+    Utils.scrollToView('tableContainer');
+    this.appTableComponent.table.splice(
+      16,
+      this.appTableComponent.table.length
+    );
+    this.appResponsiveTableComponent.table?.splice(
+      16,
+      this.appResponsiveTableComponent.table.length
+    );
   }
   setResTable(items: CalEvent[] = new Array<CalEvent>()) {
     console.log(items);
   }
   get pageNumber() {
-    if (this.ecoCalService.paginatedCalendar.value?.pageNumber) {
-      return this.ecoCalService.paginatedCalendar.value?.pageNumber;
+    if (this._ecoCalService.paginatedCalendar.value?.pageNumber) {
+      return this._ecoCalService.paginatedCalendar.value?.pageNumber;
+    } else {
+      return 0;
+    }
+  }
+
+  get tableLength() {
+    let length = this.appTableComponent?.table.length;
+    if (length) {
+      return length;
     } else {
       return 0;
     }
@@ -142,13 +159,13 @@ export class CalendarMainPageComponent {
 
     this.filteredModel.sectors = data;
     this.appTableComponent.table = [];
-    this.getCal(this.filteredModel);
+
     this.filter.next(this.filteredModel);
   }
   setSymbolServices(event: string[]) {
     this.filteredModel.currencies = event;
     this.appTableComponent.table = [];
-    this.getCal(this.filteredModel);
+
     this.filter.next(this.filteredModel);
   }
   setCalDate(event: Date[]) {
@@ -161,7 +178,7 @@ export class CalendarMainPageComponent {
       this.filteredModel.fromTime = null;
       this.filteredModel.toTime = null;
       this.appTableComponent.table = [];
-      this.getCal(this.filteredModel);
+
       this.filter.next(this.filteredModel);
     } else {
       let fromDate = this.datepipe.transform(event[0], 'yyyy.MM.dd');
@@ -173,10 +190,11 @@ export class CalendarMainPageComponent {
       if (Todate != null) this.filteredModel.toTime = Todate;
       this.appTableComponent.table = [];
 
-      this.getCal(this.filteredModel);
       this.filter.next(this.filteredModel);
     }
   }
+
+  // Is Table Getted Last Page
 
   @HostListener('window:resize', ['$event'])
   onResize() {

@@ -48,6 +48,7 @@ interface monthDate {
 })
 export class ResponsiveTableComponent {
   // tranformValue: number;
+  allEvents = new Array<CalEvent>();
   resdate: monthDate[] = new Array<monthDate>();
   table: CalEvent[] | undefined = new Array<CalEvent>();
   myState: string = 'select1';
@@ -121,7 +122,8 @@ export class ResponsiveTableComponent {
     pageObservable$.subscribe({
       next: (it) => {
         if (it) {
-          this.table = it.items;
+          this.allEvents.push(...it.items!);
+          this.setTable(it.items);
         }
       },
     });
@@ -201,6 +203,7 @@ export class ResponsiveTableComponent {
     this.formatDat(null);
     this.openModal('login');
   }
+
   setCalDate(event: Date[]) {
     const datepipe: DatePipe = new DatePipe('en-US');
     let currentdate = datepipe.transform(event[0], 'yyyy.MM.dd');
@@ -225,13 +228,21 @@ export class ResponsiveTableComponent {
     this.getCal(this.filteredModel);
     this.filter.next(this.filteredModel);
   }
-  async getCal(filter: FilterEvents, pageIndex: number = 0) {
+  async getCal(
+    filter: FilterEvents,
+    pageIndex: number = 0,
+    pageSize: number = 16
+  ) {
     const apiData = this._ecoCalService.getCalEvents(
-      `pageIndex=${pageIndex}&pageSize=10&accending=true`,
+      `pageIndex=${pageIndex}&pageSize=${pageSize}&accending=true&pageOrder=Time_`,
       filter
     );
 
     return await lastValueFrom(apiData);
+  }
+
+  setTable(items: CalEvent[] = new Array<CalEvent>()) {
+    this.table = items;
   }
   closeYearModal(year: any) {
     this.selectedYear = year.getFullYear();
