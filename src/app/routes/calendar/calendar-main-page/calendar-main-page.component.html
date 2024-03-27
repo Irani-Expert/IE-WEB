@@ -17,7 +17,11 @@
         />
       </a>
       <div class="mt-2">
-        <app-voice-player></app-voice-player>
+        <app-voice-player
+          [audioSource]="
+            'https://www.honarist.com/wp-content/uploads/2021/08/Gloomy-Sunday-Billie-Holiday-128.mp3'
+          "
+        ></app-voice-player>
       </div>
     </div>
     <div class="basis-full flex flex-col gap-3 bg-white rounded-2xl p-5">
@@ -105,7 +109,10 @@
     </div>
   </div>
   <div class="flex flex-col items-center justify-center">
-    <app-responsive-table class="lg:hidden"></app-responsive-table>
+    <app-responsive-table
+      class="lg:hidden"
+      style="width: 100vw; max-width: 28rem"
+    ></app-responsive-table>
 
     <div *ngIf="device == 'md'" class="p-5 basis-full w-full">
       <app-graph-container></app-graph-container>

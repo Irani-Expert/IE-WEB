@@ -28,7 +28,8 @@
 
   <div class="flex w-full h-full content-end flex-wrap">
     <div
-      class="p-div d-flex justify-center align-middle btn-span sm:h-[60%] h-[50%]"
+      class="p-div btn-span flex items-center justify-center sm:h-[87%]"
+      [ngClass]="isFullScreen ? 'h-[87%]' : 'h-[39vw] '"
     >
       <span
         class="fa-stack fa-4x opacity-100 flex justify-center items-center"
@@ -53,9 +54,8 @@
     </div>
 
     <div
-      class="flex flex-start items-center p-div text-2xl p-2"
+      class="flex flex-start items-center p-div text-2xl p-2 max-sm:h-[35px]"
       [ngClass]="{ 'hidden-hover': mouseDisplay == 'none' }"
-      style="height: 37px; bottom: 3vh"
     >
       <i
         class="ie-icon text-base text-white flex items-center cursor-pointer drop-shadow-md ml-5 pt-2.5 opacity-80"
