@@ -1,7 +1,6 @@
 User-agent: *
 Disallow: /Blog/*IE
 Disallow: /*.gif$
-Disallow: /contact-us/
 Disallow: /search
 Disallow: /v/
 Disallow: /*?

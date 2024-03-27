@@ -387,7 +387,9 @@
     <h1 class="font-black text-3xl">{{ apiData.title }}</h1>
     <div class="flex mt-3">
       <p class="text-black ml-10">اننتشار :{{ apiData.createDate | date }}</p>
-      <p class="text-black">زمان مطالعه {{ apiData.studyTime }}دقیقه</p>
+      <p class="text-black">
+        زمان مطالعه : {{ apiData.studyTime.slice(3, 5) || "15" }} دقیقه
+      </p>
     </div>
     <div class="flex relative mt-4">
       <img
@@ -399,8 +401,14 @@
       />
       <div class="absolute flex h-full w-full items-center">
         <div class="sm:mt-40 sm:mr-12">
-          <div class="divider" [style]="'background-color:' + '#fff'"></div>
-          <p class="drop-shadow font-extrabold text-3xl text-white">
+          <div
+            class="divider"
+            [style]="'background-color:' + apiData.colorCode"
+          ></div>
+          <p
+            class="drop-shadow font-extrabold text-3xl"
+            [style]="'color:' + apiData.colorCode"
+          >
             {{ apiData.title }}
           </p>
         </div>
@@ -457,10 +465,7 @@
     </div>
     <div class="my-10 opacity-30 select-none relative">
       <!-- <app-vote /> -->
-      <app-comments [tableType]="6" [rowId]="apiData.id" />
-      <div
-        class="absolute w-full h-full z-10 bg-transparent translate-x-[50%] translate-y-[-50%] top-[50%] right-[50%]"
-      ></div>
+      <app-comments [tableType]="32" [rowId]="apiData.id" />
     </div>
   </div>
   <!-- Benefits -->

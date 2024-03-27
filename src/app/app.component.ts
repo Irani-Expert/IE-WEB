@@ -4,6 +4,7 @@ import { PlatformService } from './classes/services/platform.service';
 
 import { AuthService } from './shared/auth/auth.service';
 import { Header } from './components/header-layout/header';
+import { Utils } from './classes/utils';
 
 @Component({
   selector: 'app-root',
@@ -46,12 +47,7 @@ export class AppComponent {
     return AppComponent.isBrowser.value;
   }
   onActivate(_event: any) {
-    if (AppComponent.isBrowser.value)
-      window.scroll({
-        top: 0,
-        left: 0,
-        behavior: 'smooth',
-      });
+    if (AppComponent.isBrowser.value) Utils.scrollTopWindow();
   }
   static changeMainBg(type: 'white' | 'creamy') {
     if (AppComponent.isBrowser.value) {

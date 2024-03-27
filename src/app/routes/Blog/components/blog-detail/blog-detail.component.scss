@@ -6,7 +6,7 @@
 .icon {
   scale: 0.9;
 }
-.table-articles{
+.table-articles {
   background-color: #0080ff;
   border: 1px solid black;
 }
@@ -28,7 +28,6 @@
 .title-blog-img {
   font-weight: 800;
   font-size: 1.8rem;
-  color: white;
 }
 .img-blog {
   object-fit: cover;
@@ -52,11 +51,11 @@
   display: flow-root list-item;
   margin-right: 1.2rem;
 }
- table {
+table {
   border: 1px solid gray;
 }
 tr {
-border: 1px solid gray;
+  border: 1px solid gray;
 }
 // <!-- ===============[ نویسنده]==============     -->
 
@@ -76,7 +75,6 @@ border: 1px solid gray;
   margin-bottom: 0.5rem;
 }
 .title-blog-img-mobile {
-  color: white;
   font-weight: 800;
   font-size: 1.2rem;
   margin-bottom: 2rem;
