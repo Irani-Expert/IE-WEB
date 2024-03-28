@@ -32,12 +32,13 @@
   th {
     color: #000000;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 15px;
   }
   td {
+    width: 83px;
     direction: ltr;
     text-align: center;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 700;
   }
 }
@@ -62,12 +63,10 @@
 }
 @keyframes focus-in-contract {
   0% {
-    filter: blur(3px);
     opacity: 0.7;
   }
 
   100% {
-    filter: blur(0);
     opacity: 1;
     display: block !important;
   }

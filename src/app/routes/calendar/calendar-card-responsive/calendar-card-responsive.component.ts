@@ -24,7 +24,12 @@ export class CalendarCardResponsiveComponent {
         symbol: items.currency,
         currencySymbol: items.currencySymbol,
       },
-      event: { name: items.name, time: items.time_ },
+      event: {
+        name: items.name,
+        time: items.time_,
+        date: items.date_,
+        id: items.eventID,
+      },
       forecast_Value: items.forecast_Value.toString(),
       importance: items.importance,
       impact_Type: items.impact_Type,
