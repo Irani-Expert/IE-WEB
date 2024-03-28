@@ -53,7 +53,7 @@
     <div
       class="flex justify-center py-2 symbol-card cursor-pointer"
       *ngFor="let item of list; last as isLast"
-      [ngClass]="isLast && list.length % 2 == 0 ? 'w-full' : 'min-w-[45%]'"
+      [ngClass]="isLast && list.length % 2 != 0 ? 'w-full' : 'min-w-[45%]'"
     >
       <div
         class="p-2 responsiveField"

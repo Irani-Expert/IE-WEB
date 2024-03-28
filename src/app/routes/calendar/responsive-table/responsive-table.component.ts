@@ -5,7 +5,13 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { Component, EventEmitter, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { CalEvent } from '../calendar-main-page/cal-event.model';
 import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
 import { DatePipe } from '@angular/common';
@@ -58,10 +64,12 @@ export class ResponsiveTableComponent {
   selectedMonth: number;
   modalStatus: boolean = false;
   isYearmodalOpen: boolean = false;
+
   filteredModel = new FilterEvents();
   filter = new BehaviorSubject<FilterEvents>(new FilterEvents());
   dateType: string;
   @Output('modal') openingModal: EventEmitter<string> = new EventEmitter(false);
+  @ViewChild('itemList') itemList: ElementRef;
 
   constructor(
     private _ecoCalService: EcoCalService,
@@ -74,10 +82,12 @@ export class ResponsiveTableComponent {
     const datepipe: DatePipe = new DatePipe('en-US');
     let formattedDate = datepipe.transform(new Date(), 'dd');
     if (formattedDate != null) this.selectedDay = formattedDate;
-    // this.tranformValue = Number(formattedDate);
-    // this.tranformValue = (this.tranformValue - 15) * 6;
+
     this.formatDat(null);
     this.selectedMonth = new Date().getMonth();
+    setTimeout(() => {
+      this.srcollToToday();
+    }, 100);
   }
   daysInMonth(month: number, year: number) {
     return new Date(year, month, 0).getDate();
@@ -237,5 +247,10 @@ export class ResponsiveTableComponent {
     this.selectedYear = year.getFullYear();
     this.setCalDate([year, undefined]);
     this.modalStatus = false;
+  }
+  srcollToToday() {
+    var selectedDateLeftSide = -((2600 / 30) * (Number(this.selectedDay) - 1));
+
+    this.itemList.nativeElement.scrollLeft = selectedDateLeftSide;
   }
 }
