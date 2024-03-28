@@ -48,7 +48,8 @@
           </span> -->
           <td (click)="showDetails(item)" class="event">
             <span *ngIf="!item.active" class="block text-black font-medium">
-              {{ item.event.time.slice(0, 5) }}
+              {{ item.event.time.slice(0, 5) }} &nbsp;
+              {{ item.event.date | date : "YYYY/MM/dd" }}
             </span>
             <p
               [ngClass]="item.active ? 'font-bold' : 'font-medium'"
@@ -118,7 +119,7 @@
         >
           <div *ngIf="item.active" class="absolute max-h-[100%] p-3 w-full">
             <!-- sampleIDForDetail = '276010004'; -->
-            <app-table-detail class="block" [fieldID]="'276010004'" />
+            <app-table-detail class="block" [fieldID]="item.event.id" />
           </div>
         </tr>
       </ng-container>

@@ -54,7 +54,11 @@ export class CalendarMainPageComponent {
         this.appTableComponent.tableIsLoading = true;
         this.appTableComponent.events = [];
         this.appTableComponent.table = [];
-        await this.getCal(item);
+        if (item.currentTime !== '' && item.currentTime) {
+          await this.getCal(item);
+        } else {
+          await this.getCal(item, 0, 16);
+        }
         this.appTableComponent.tableIsLoading = false;
       },
     });

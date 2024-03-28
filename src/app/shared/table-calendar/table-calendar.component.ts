@@ -83,7 +83,12 @@ export class TableCalendar {
           symbol: it.currency,
           currencySymbol: it.currencySymbol,
         },
-        event: { name: it.name, time: it.time_ },
+        event: {
+          name: it.name,
+          time: it.time_,
+          date: it.date_,
+          id: it.eventID,
+        },
         forecast_Value: it.forecast_Value.toString(),
         importance: it.importance,
         impact_Type: it.impact_Type,
