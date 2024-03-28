@@ -65,7 +65,7 @@ export class TableCalendar {
       next: (it) => {
         if (it) {
           this.events.push(...it.items!);
-          this.setTable(it.items);
+          this.setTable(it.items?.slice(0, 16));
         }
       },
     });
@@ -73,6 +73,7 @@ export class TableCalendar {
 
   setTable(items: CalEvent[] = new Array<CalEvent>()) {
     this.tableIsLoading = true;
+    this.table = [];
     items.forEach((it) => {
       const itemToPourInTable: CalendarEventsTable = {
         active: false,

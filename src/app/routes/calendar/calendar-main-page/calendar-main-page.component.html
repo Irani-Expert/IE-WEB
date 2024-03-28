@@ -90,8 +90,9 @@
           </div>
         </div>
         <table-calendar />
+
         <ng-container
-          *ngIf="filteredModel.currentTime != '' || filteredModel.currentTime"
+          *ngIf="filteredModel.currentTime != '' && filteredModel.currentTime"
         >
           <app-show-more
             *ngIf="device == 'lg'"
@@ -100,6 +101,11 @@
           ></app-show-more>
         </ng-container>
       </div>
+
+      <ng-container *ngIf="filteredModel.fromTime">
+        <div></div>
+        <pagination-control (changePage)="setPage($event)"></pagination-control>
+      </ng-container>
       <div #tradingView></div>
       <div *ngIf="device == 'lg'">
         <app-graph-container></app-graph-container>
@@ -116,7 +122,7 @@
   <div class="flex flex-col items-center justify-center">
     <app-responsive-table class="lg:hidden"></app-responsive-table>
     <ng-container
-      *ngIf="filteredModel.currentTime != '' || filteredModel.currentTime"
+      *ngIf="filteredModel.currentTime != '' && filteredModel.currentTime"
     >
       <app-show-more
         *ngIf="device == 'md'"

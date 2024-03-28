@@ -1,0 +1,54 @@
+<div
+  class="w-0 h-0 hidden"
+  *ngFor="let data of page?.items! | paginate : config"
+></div>
+
+<pagination-template
+  #p="paginationApi"
+  id="custom"
+  (pageChange)="changePage($event)"
+>
+  <div class="flex items-center justify-center">
+    <div>
+      <button
+        [disabled]="p.isFirstPage()"
+        class="flex items-center disabled:opacity-25"
+        (click)="p.previous()"
+      >
+        <p class="icon">&lt;</p>
+        <p class="page-btn mr-3 ml-6">صفحه قبلی</p>
+      </button>
+    </div>
+    <div
+      *ngFor="let page of p.pages"
+      [class.current]="p.getCurrent() === page.value"
+    >
+      <a
+        (click)="p.setCurrent(page.value)"
+        *ngIf="p.getCurrent() !== page.value"
+      >
+        <button
+          class="pagination-previous items-end ml-2"
+          [ngClass]="page.value == config.currentPage ? '' : 'isavtive'"
+        >
+          {{ page.label }}
+        </button>
+      </a>
+      <div *ngIf="p.getCurrent() === page.value">
+        <button class="pagination-previous items-end ml-2">
+          {{ page.label }}
+        </button>
+      </div>
+    </div>
+    <div>
+      <button
+        [disabled]="p.isLastPage()"
+        class="flex items-center disabled:opacity-25"
+        (click)="p.next()"
+      >
+        <p class="page-btn ml-3 mr-6">صفحه بعدی</p>
+        <p class="icon">&gt;</p>
+      </button>
+    </div>
+  </div>
+</pagination-template>

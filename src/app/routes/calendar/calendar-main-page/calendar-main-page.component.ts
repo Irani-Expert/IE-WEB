@@ -1,7 +1,7 @@
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
-import { BehaviorSubject, lastValueFrom } from 'rxjs';
+import { BehaviorSubject, lastValueFrom, map } from 'rxjs';
 import { importances } from '../importance/importances';
 import { Importance } from '../importance/importance.interface';
 import { Filter as FilterEvents } from './filter.model';
@@ -22,8 +22,6 @@ import { ResponsiveTableComponent } from '../responsive-table/responsive-table.c
 })
 export class CalendarMainPageComponent {
   @ViewChild('tradingView') tradingView: ElementRef;
-
-  allTableGetted = false;
   device: 'md' | 'lg';
   eventsHolder = new Array<CalEvent>();
   @ViewChild(TableCalendar, { static: false }) appTableComponent: TableCalendar;
@@ -67,13 +65,11 @@ export class CalendarMainPageComponent {
     AppComponent.changeMainBg('white');
   }
 
-  async getCal(
-    filter: FilterEvents,
-    pageIndex: number = 0,
-    pageSize: number = 16
-  ) {
+  async getCal(filter: FilterEvents, pageIndex: number = 0, pageSize?: number) {
     const apiData = this._ecoCalService.getCalEvents(
-      `pageIndex=${pageIndex}&pageSize=${pageSize}&accending=true&pageOrder=Time_`,
+      `pageIndex=${pageIndex}&pageSize=${
+        pageSize ? pageSize : null
+      }&accending=true&pageOrder=Time_`,
       filter
     );
 
@@ -95,28 +91,16 @@ export class CalendarMainPageComponent {
 
   showMoreOrLess(type: any) {
     if (type == 'more') {
-      this.showMore(this.allTableGetted ? 1 : 0);
+      this.showMore();
     } else {
       this.showLess();
     }
   }
-  async showMore(type: 0 | 1 = 0) {
-    // 0 == first-time
-    // 1 == getted-already
-    if (type == 0) {
-      let pageSize = this._ecoCalService.paginatedCalendar.value?.totalCount!;
-      this.appTableComponent.table = [];
-      this.appTableComponent.events = [];
-      this.appResponsiveTableComponent.allEvents = [];
-      await this.getCal(this.filteredModel, 0, pageSize);
-      this.allTableGetted = true;
-    } else {
-      this.appTableComponent.table = [];
-      this.appTableComponent.setTable(this.appTableComponent.events);
-      this.appResponsiveTableComponent.setTable(
-        this.appResponsiveTableComponent.allEvents
-      );
-    }
+  async showMore() {
+    this.appTableComponent.setTable(this.appTableComponent.events);
+    this.appResponsiveTableComponent.setTable(
+      this.appResponsiveTableComponent.events
+    );
   }
   showLess() {
     Utils.scrollToView('tableContainer');
@@ -132,6 +116,10 @@ export class CalendarMainPageComponent {
   setResTable(items: CalEvent[] = new Array<CalEvent>()) {
     console.log(items);
   }
+
+  // Pagination
+
+  // Show More
   get pageNumber() {
     if (this._ecoCalService.paginatedCalendar.value?.pageNumber) {
       return this._ecoCalService.paginatedCalendar.value?.pageNumber;
@@ -149,6 +137,16 @@ export class CalendarMainPageComponent {
     }
   }
 
+  // controls
+
+  async setPage(page: number) {
+    this.appTableComponent.table = [];
+    this.appTableComponent.events = [];
+    this.appResponsiveTableComponent.events = [];
+    await this.getCal(this.filteredModel, page - 1, 16);
+  }
+
+  // Pagination
   ////////////////////////// today
 
   setSectionServices(event: number[]) {
@@ -193,8 +191,6 @@ export class CalendarMainPageComponent {
       this.filter.next(this.filteredModel);
     }
   }
-
-  // Is Table Getted Last Page
 
   @HostListener('window:resize', ['$event'])
   onResize() {

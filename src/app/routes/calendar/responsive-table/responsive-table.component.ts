@@ -48,7 +48,7 @@ interface monthDate {
 })
 export class ResponsiveTableComponent {
   // tranformValue: number;
-  allEvents = new Array<CalEvent>();
+  events = new Array<CalEvent>();
   resdate: monthDate[] = new Array<monthDate>();
   table: CalEvent[] | undefined = new Array<CalEvent>();
   myState: string = 'select1';
@@ -70,8 +70,6 @@ export class ResponsiveTableComponent {
   ) {}
 
   ngOnInit() {
-    this.getCalendarValues();
-
     const datepipe: DatePipe = new DatePipe('en-US');
     let formattedDate = datepipe.transform(new Date(), 'dd');
     if (formattedDate != null) this.selectedDay = formattedDate;
@@ -79,6 +77,10 @@ export class ResponsiveTableComponent {
     // this.tranformValue = (this.tranformValue - 15) * 6;
     this.formatDat(null);
     this.selectedMonth = new Date().getMonth();
+  }
+
+  ngAfterViewInit() {
+    this.getCalendarValues();
   }
   daysInMonth(month: number, year: number) {
     return new Date(year, month, 0).getDate();
@@ -122,8 +124,8 @@ export class ResponsiveTableComponent {
     pageObservable$.subscribe({
       next: (it) => {
         if (it) {
-          this.allEvents.push(...it.items!);
-          this.setTable(it.items);
+          this.events.push(...it.items!);
+          this.setTable(it.items?.slice(0, 16));
         }
       },
     });
@@ -139,16 +141,11 @@ export class ResponsiveTableComponent {
     this.filteredModel.sectors = data;
     this.getCal(this.filteredModel);
     this.filter.next(this.filteredModel);
-    // this.getCal(this.filteredModel);
-    // this.filter.next(this.filteredModel);
   }
   setSymbolServices(event: string[]) {
     this.filteredModel.currencies = event;
     this.getCal(this.filteredModel);
     this.filter.next(this.filteredModel);
-    // this.filteredModel.currencies = event;
-    // this.getCal(this.filteredModel);
-    // this.filter.next(this.filteredModel);
   }
   selectDate(id: string) {
     this.selectedDay = id;
@@ -158,28 +155,6 @@ export class ResponsiveTableComponent {
     );
     this.setCalDate(selectedDate);
   }
-
-  // dragd(e: TouchEvent) {
-  //   if (this.pageXKeeper == 0) {
-  //     this.pageXKeeper = e.changedTouches[0].pageX;
-  //   }
-  // }
-  // dragOver(e: TouchEvent) {
-  //   if (this.pageXKeeper != 0) {
-  //     if (
-  //       e.changedTouches[0].pageX < this.pageXKeeper &&
-  //       this.tranformValue > -78
-  //     ) {
-  //       this.tranformValue -= 6;
-  //     } else if (
-  //       e.changedTouches[0].pageX > this.pageXKeeper &&
-  //       this.tranformValue < 78
-  //     ) {
-  //       this.tranformValue += 6;
-  //     }
-  //     this.pageXKeeper = 0;
-  //   }
-  // }
 
   openyearselector() {
     this.dateType = 'yearOnly';
@@ -231,7 +206,7 @@ export class ResponsiveTableComponent {
   async getCal(
     filter: FilterEvents,
     pageIndex: number = 0,
-    pageSize: number = 16
+    pageSize: number = 0
   ) {
     const apiData = this._ecoCalService.getCalEvents(
       `pageIndex=${pageIndex}&pageSize=${pageSize}&accending=true&pageOrder=Time_`,
@@ -242,7 +217,7 @@ export class ResponsiveTableComponent {
   }
 
   setTable(items: CalEvent[] = new Array<CalEvent>()) {
-    this.table = items;
+    this.table = [...items];
   }
   closeYearModal(year: any) {
     this.selectedYear = year.getFullYear();
