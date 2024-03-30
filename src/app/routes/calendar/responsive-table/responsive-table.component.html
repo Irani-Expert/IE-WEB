@@ -1,4 +1,4 @@
-<div class="w-10/12">
+<div class="px-6">
   <div class="dynamic-list">
     <div
       class="cursor-pointer"
@@ -28,12 +28,9 @@
 </div>
 <div class="flex flex-col mt-3">
   <div [ngClass]="myState == 'select1' ? 'showtab ' : 'hideTab absolute'">
-    <div
-      class="max-[350px]:scale-[0.65] max-[410px]:scale-[0.8]"
-      style="width: 30rem"
-    >
+    <div>
       <div
-        class="flex flex-row-reverse justify-between h-[2.4rem] bg-[#0498fb] px-8 items-center"
+        class="flex flex-row-reverse justify-between h-[2.4rem] bg-[#0498fb] px-6 items-center"
       >
         <div class="flex text-white mt-2">
           <select
@@ -63,11 +60,10 @@
         <i class="ie-icon ie-calendar h-4" (click)="choosRangeDate()"></i>
       </div>
       <div class="cal-date px-3 cursor-grabbing">
-        <div class="flex relative overflow-x-scroll">
-          <div class="flex">
+        <div class="flex relative overflow-x-scroll" #itemList>
+          <div class="flex" *ngFor="let item of resdate">
             <div
               class="cal-date-field w-[6rem] py-3 cursor-grabbing"
-              *ngFor="let item of resdate"
               (click)="selectDate(item.day)"
               [ngClass]="{ calActive: item.day == selectedDay }"
             >

@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { timeconvert } from '../../../ts/NumToTime';
 @Component({
   selector: 'app-voice-player',
@@ -8,13 +8,14 @@ import { timeconvert } from '../../../ts/NumToTime';
 export class VoicePlayerComponent {
   @ViewChild('audioPlayer') audioPlayer!: ElementRef;
   @ViewChild('progressBar', { static: false }) progressBar!: ElementRef;
+  @Input() audioSource: string;
 
   dotMovement: string = ' -0px';
   time: string = '0:00';
   Pause_Play: boolean = false;
   speedNum: number = 1;
-  audioSource: string =
-    'https://www.honarist.com/wp-content/uploads/2021/08/Gloomy-Sunday-Billie-Holiday-128.mp3';
+  // audioSource: string =
+  //   'https://www.honarist.com/wp-content/uploads/2021/08/Gloomy-Sunday-Billie-Holiday-128.mp3';
   isplayed: boolean = false;
   playAudio() {
     this.Pause_Play = !this.Pause_Play;

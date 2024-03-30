@@ -22,6 +22,17 @@ export class Utils {
   static is4k() {
     return window && window.matchMedia('(max-width: 7679px )').matches;
   }
+
+  static scrollToView(
+    selector: string,
+    behavior: 'smooth' | 'instant' = 'instant'
+  ) {
+    if (document) {
+      const element = document.getElementById(selector)!;
+      element.scrollIntoView({ behavior: behavior });
+    }
+  }
+
   static scrollToTop(selector: string) {
     if (document) {
       const element = <HTMLElement>document.querySelector(selector);

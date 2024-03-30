@@ -54,8 +54,8 @@ const routes: Routes = [
       ),
   },
   {
-    canActivate: [() => (environment.production ? false : true)],
-    redirectTo: environment.production ? '' : undefined,
+    // canActivate: [() => (environment.production ? false : true)],
+    // redirectTo: environment.production ? '' : undefined,
     path: 'economic-calendar',
     title:
       'اخبار فاندامنتال فارکس  آنلاین  و لحظه ای در سایت فارسی + آپدیت 24 ساعته',

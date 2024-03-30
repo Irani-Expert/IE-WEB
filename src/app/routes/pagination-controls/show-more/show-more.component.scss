@@ -1,0 +1,48 @@
+.button-container {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  right: 0;
+  transform: translateY(25px);
+
+  justify-content: center;
+  border-radius: 0 0 1rem 1rem;
+
+  button {
+    border-radius: 0 0 1rem 1rem;
+    &.more {
+      background-color: rgb(4 152 251);
+    }
+    &.less {
+      background-color: rgb(255, 0, 0);
+    }
+    padding: 0.5rem 0;
+    width: 100%;
+    color: white;
+    font-weight: 700;
+    i {
+      line-height: 0;
+      margin: 0 0.5rem;
+      filter: invert(1) brightness(2);
+    }
+  }
+}
+
+.btn {
+  min-width: 145px;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  color: white;
+  font-weight: 700;
+  i {
+    line-height: 0;
+    margin: 0 0.5rem;
+    filter: invert(1) brightness(2);
+  }
+  &-more {
+    background-color: rgb(4 152 251);
+  }
+  &-less {
+    background-color: rgb(255, 0, 0);
+  }
+}
