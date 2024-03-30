@@ -152,7 +152,7 @@ export class CalendarMainPageComponent {
     this.filter.next(this.filteredModel);
   }
   setCalDate(event: Date[]) {
-    if (event[1] == undefined) {
+    if (event[1] == undefined || String(event[0]) === String(event[1])) {
       let currentdate = this.datepipe.transform(event[0], 'yyyy.MM.dd');
       this.filteredModel.currentTime = '';
       if (currentdate != null) this.filteredModel.currentTime = currentdate;
