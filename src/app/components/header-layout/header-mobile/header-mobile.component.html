@@ -1,0 +1,125 @@
+<div class="flex pt-2">
+    <!-- ========[هدر بالا]=== -->
+    <div>
+        <i class="avatar-user-icon w-12 aspect-square mr-3 ml-14 rounded-3xl"></i>
+    </div>
+
+    <div class="w-full flex justify-end items-center ">        
+        <a href="https://www.iraniexpert.com" target="_blank" class="inline-flex -mt-2">
+            <span class="sr-only">ایرانی اکسپرت - Irani Expert</span>
+            <img
+              title="ایرانی اکسپرت - Irani Expert"
+              src="assets/icon/logo.svg"
+              class="mr-1 h-14 w-40 pt-2"
+              alt="Irani-Expert-Logo"
+              width="34"
+              height="20"
+            />
+        </a>
+
+        <div class="cursor-pointer ml-4 mr-8">
+            <i class="icon-menu" (click)="openMenu()"></i>
+        </div>
+
+    </div>
+</div>
+    <!-- ==========[منو]======= -->
+    <div class="menu-mobile">
+        
+        <div [ngClass]="hideMenu?'hide-menu':'show-menu'">
+          <div class="absolute z-[100]">
+            <img src="{{imgScreen}}" class="w-48 md:w-[28rem] h-[38rem] rounded-3xl img-menu">
+            <img src="{{imgScreen}}" class="w-48 md:w-[28rem] h-[38rem] rounded-3xl img-menu-2">
+          </div>
+          <ul
+          class="w-full pt-8 fixed h-[50rem] text-1.5xl top-0 left-0 bg-main-blue items-start flex flex-col">
+          <ng-container *ngIf="!hideMenu">
+
+            <!-- ===============[آواتار]========= -->
+            <div class="flex mb-8" *ngIf="loggedIn">
+              <i class="avatar-user-icon w-12 aspect-square mr-3 ml-8 rounded-3xl"></i>
+              <div>
+                <p class="text-white text-lg">{{username}}</p>
+                <p class="text-white">روز خوبی داشته باشی!</p>
+              </div>
+            </div>
+            <!-- ===============[جست و جو]========= -->
+            <div class="flex m-8 items-end cursor-pointer">
+              <i class="search-icon-white scale-75"></i>
+              <p class="text-white pr-4">جستجو</p>
+            </div>
+            <!-- ===============[آیتم های منو]========= -->
+      
+            <ng-container *ngFor="let item of items; let i = index">
+              <li
+                
+                class="justify-end p-2.5 pr-8 flex cursor-pointer hover-menu pl-24 mb-2"
+                [ngClass]="item.active ? 'active-menu' : ''"
+                (click)="dropDownMenu(i)"
+              >
+              <img [src]="item.icon" class="relative bottom-1 w-6 aspect-square ml-2 ">
+              <a [routerLink]="item.path" class="text-white no-underline font-medium"
+              >{{ item.name }}
+              </a>
+              </li>
+              <ng-container *ngIf="dropDownItem == i && item.sub">
+                  <ng-container *ngFor="let sub of item.sub">
+                    <li
+                      [ngClass]="dropDownItem == i && item.sub ? 'drop-down-show':'drop-down-hide'"
+                      class="justify-end p-2.5 pr-8 flex cursor-pointer space-y-5 hover:bg-[#293dc8]"
+                    >
+                      <a
+                        class="text-white no-underline font-medium block"
+                        [routerLink]="sub.path"
+                        >{{ sub.name }}</a
+                      >
+                    </li>
+                  </ng-container>
+              </ng-container>
+            </ng-container>
+        
+            <li class="justify-end p-2.5 pr-8 flex" *ngIf="!loggedIn">
+              <button
+                [disabled]="_btnDisabled"
+                (click)="openModal('login')"
+                class="text-1.5xl header-sm-button font-medium rounded-3xl px-4 !bg-[#7683E2]"
+              >
+                ورود | عضویت
+              </button>
+            </li>
+            <li class="justify-end p-2.5 pr-8 flex flex-col" *ngIf="loggedIn">
+      
+              <a>
+                <button
+                (click)="logout()"
+                  class="text-1.5xl header-panel-button font-medium rounded-3xl pr-4 pl-2 mb-2 py-1 flex !bg-[#7683E2]"
+                >
+                خروج از حساب
+                <i class="icon-menu-log-out mr-1"></i>
+                </button>
+              </a>
+      
+              <a [href]="panelUrl" target="_blank">
+                <button
+                  class="text-1.5xl header-panel-button font-medium rounded-3xl py-1 pr-4 pl-2 !bg-[#7683E2] flex"
+                >
+                ورود به پنل
+                <i class="Arrow-left-icon-white scale-50"></i>
+                </button>
+              </a>
+      
+            </li>
+          </ng-container>
+          </ul>
+
+        </div>
+
+    </div>
+    <span
+    class="absolute bg-[#F6F6F6] d-block w-[103%] -z-10 h-[3.85rem] top-[32px] rounded-[36%]"
+  ></span>
+    <!-- <ng-container *ngIf="!hideDiv">
+      <div class="hide-div" #screen>
+  
+      </div>
+    </ng-container> -->

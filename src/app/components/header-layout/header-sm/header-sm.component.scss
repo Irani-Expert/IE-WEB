@@ -2,3 +2,41 @@
 ul {
   box-shadow: 200px 23px 386px 175px rgb(255 255 255 / 55%);
 }
+.-z-index{
+  z-index: -100;
+}
+.z-index{
+  z-index: 100;
+}
+.hover-menu:hover{
+  background-color: #293dc8;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.active-menu{
+  background-color: #293dc8;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+// .animate-opacity{
+//   animation: display 2s ease-in forwards;
+
+// }
+
+// @keyframes display {
+//   0% {
+//     opacity: 0 !important;
+//   }
+//   25% {
+//     opacity: 0.25 !important;
+//   }
+//   50% {
+//     opacity: 0.5 !important;
+//   }
+//   75% {
+//     opacity: 0.75 !important;
+//   }
+//   100% {
+//     opacity: 1 !important;
+//   }
+// }

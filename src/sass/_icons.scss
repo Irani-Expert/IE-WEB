@@ -451,14 +451,13 @@
   content: url(../assets/icon/arrow.svg);
   display: block;
 }
-// ======[ایکون های هرکشور]====
+// ======[ایکون های منو موبایل]====
 
-// .descending-icon{
-//   content: url(../assets/icon/descending-icon.svg);
-//   display: block;
-// }
-
-// .ascending-icon{
-//   content: url(../assets/icon/ascending-icon.svg);
-//   display: block;
-// }
+.icon-menu{
+  content: url(../assets/icon/menu-icon-mobile-10.svg);
+  display: block;
+}
+.icon-menu-log-out{
+  content: url(../assets/icon/menu-icon-mobile-9.svg);
+  display: block;
+}
