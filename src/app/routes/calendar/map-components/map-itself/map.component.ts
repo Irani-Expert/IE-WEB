@@ -37,6 +37,7 @@ export class MapComponent {
   private initMap(): void {
     this.map = new L.map('map', leaflet_config);
     this.map.doubleClickZoom.disable();
+
     this.countriesLayer(); //Create Countries Layer
 
     let today = new Date().getDay();
