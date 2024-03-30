@@ -1,0 +1,17 @@
+<div class="button-container hidden lg:flex">
+  <button class="more" *ngIf="length <= 16" (click)="emit('more')">
+    نمایش بیشتر <i class="ie-icon ie-chevron down"></i>
+  </button>
+  <button class="less" *ngIf="length > 16" (click)="emit('less')">
+    نمایش کمتر <i class="ie-icon ie-chevron up"></i>
+  </button>
+</div>
+
+<div class="flex lg:hidden">
+  <button class="btn btn-more" *ngIf="length <= 16" (click)="emit('more')">
+    نمایش بیشتر <i class="ie-icon ie-chevron down"></i>
+  </button>
+  <button class="btn btn-less" *ngIf="length > 16" (click)="emit('less')">
+    نمایش کمتر <i class="ie-icon ie-chevron up"></i>
+  </button>
+</div>

@@ -17,7 +17,7 @@ export class TableDetailComponent {
   constructor(private ecoCalService: EcoCalService) {}
   config: PaginationInstance;
   main_data: DetaiCal;
-  @Input() fieldID = '';
+  @Input('fieldID') fieldID: number;
 
   historyTable: DetailCalHistory[] = new Array<DetailCalHistory>();
   ngOnInit() {
@@ -65,8 +65,8 @@ export class TableDetailComponent {
         });
         this.config = {
           currentPage: 1,
-          itemsPerPage: 9!,
-          id: 'custom',
+          itemsPerPage: 7,
+          id: 'custom-2',
           totalItems: this.historyTable.length,
         };
       });
