@@ -1,6 +1,7 @@
 import {
   Component,
   ComponentRef,
+  HostListener,
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
@@ -97,5 +98,10 @@ export class MapComponent {
     L.geoJSON(countries, {
       style: map_config,
     }).addTo(this.map);
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    this.map.invalidateSize();
   }
 }

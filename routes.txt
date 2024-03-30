@@ -3,6 +3,7 @@
 /about-us
 /money-management
 /copy-trade
+/brokers
 /articles/how-to-make-money-in-dollars/fa
 /articles/what-is-forex/fa
 /articles/capital-management/fa
