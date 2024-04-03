@@ -97,6 +97,7 @@ export class LandingSingleCountryComponent {
         it.currency = res.data?.details.currency!;
         it.currencySymbol = res.data?.details.currencySymbol!;
       });
+      this.appTableComponent.showDate = true;
       this.changeValueType(this.valueTypes[0]);
     }
   }

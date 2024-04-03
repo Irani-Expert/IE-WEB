@@ -26,6 +26,7 @@ export class PaginationControlComponent {
       next: (it) => {
         this.page = it;
         this.config.totalItems = this.page?.totalCount;
+        this.config.currentPage = this.page?.pageNumber! + 1;
       },
     });
   }

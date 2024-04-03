@@ -70,10 +70,16 @@ export class CalendarMainPageComponent {
   }
 
   async getCal(filter: FilterEvents, pageIndex: number = 0, pageSize?: number) {
+    let orderType: 'Time_' | 'Date_';
+    if (filter.currentTime !== '' || filter.currentTime) {
+      orderType = 'Time_';
+    } else {
+      orderType = 'Date_';
+    }
     const apiData = this._ecoCalService.getCalEvents(
       `pageIndex=${pageIndex}&pageSize=${
         pageSize ? pageSize : null
-      }&accending=true&pageOrder=Time_`,
+      }&accending=true&pageOrder=${orderType}`,
       filter
     );
 
@@ -180,7 +186,7 @@ export class CalendarMainPageComponent {
       this.filteredModel.fromTime = null;
       this.filteredModel.toTime = null;
       this.appTableComponent.table = [];
-
+      this.appTableComponent.showDate = false;
       this.filter.next(this.filteredModel);
     } else {
       let fromDate = this.datepipe.transform(event[0], 'yyyy.MM.dd');
@@ -191,7 +197,7 @@ export class CalendarMainPageComponent {
       if (fromDate != null) this.filteredModel.fromTime = fromDate;
       if (Todate != null) this.filteredModel.toTime = Todate;
       this.appTableComponent.table = [];
-
+      this.appTableComponent.showDate = true;
       this.filter.next(this.filteredModel);
     }
   }
