@@ -24,14 +24,14 @@ import { AuthService } from 'src/app/shared/auth/auth.service';
         'in',
         style({
           opacity: 0,
-          transform: 'translateX(-300%)',
+          // transform: 'translateX(200%)',
         })
       ),
       state(
         'out',
         style({
           opacity: 1,
-          transform: 'translateX(0)',
+          // transform: 'translateX(25%)',
         })
       ),
       transition('in => out', animate('400ms ease-in-out')),
@@ -40,6 +40,11 @@ import { AuthService } from 'src/app/shared/auth/auth.service';
   ],
 })
 export class HeaderSmComponent extends Header {
+  // ===========[آواتار]=====
+  user$;
+  panelUrl = '';
+  username: string;
+  // ========
   logout() {
     throw new Error('Method not implemented.');
   }
@@ -50,15 +55,18 @@ export class HeaderSmComponent extends Header {
     private auth: AuthService
   ) {
     super(navService);
+    this.user$ = this.auth.userSubject.asObservable();
   }
 
   link: number = 1;
   activeNavBar: boolean = false;
   menuState: string = 'in';
-
-  ngOninit() {
+  
+   ngOninit() {
     this.updateMenu();
+
   }
+
   openandClose() {
     this.menuState = this.menuState === 'out' ? 'in' : 'out';
   }
@@ -89,13 +97,31 @@ export class HeaderSmComponent extends Header {
       },
     });
     HeaderLayoutComponent.modalStatus = true;
+    
+    this.user$.subscribe({
+      next: async (val) => {
+        if (val.token !== '') {
+          this.username = val.firstName + ' ' + val.lastName
+          this.panelUrl = `https://panel.iraniexpert.com/#/checkUserPermission?token=${val.token}`;
+        }
+      },
+    });
+    console.log(this.username);
   }
 
-  get panelUrl() {
-    if (AuthService.loggedIn) {
-      return `https://panel.iraniexpert.com/#/checkUserPermission?token=${this.auth._user.token}`;
-    } else {
-      return '';
-    }
+  // get panelUrl() {
+  //   if (AuthService.loggedIn) {
+  //     return `https://panel.iraniexpert.com/#/checkUserPermission?token=${this.auth._user.token}`;
+  //   } else {
+  //     return '';
+  //   }
+  // }
+
+  zIndex : boolean = false;
+  menuOpen(){
+    this.zIndex = true;
+  }
+  menuClose(){
+    this.zIndex = false;
   }
 }

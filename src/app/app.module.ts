@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HeaderLayoutComponent } from './components/header-layout/header-layout.component';
 import { HeaderLgComponent } from './components/header-layout/header-lg/header-lg.component';
 import { HeaderSmComponent } from './components/header-layout/header-sm/header-sm.component';
+import { HeaderMobileComponent } from './components/header-layout/header-mobile/header-mobile.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderSearchComponent } from './components/header-layout/header-lg/search/search.component';
@@ -27,6 +28,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { JWTInterceptor } from './classes/jwt.interceptor';
 import { NgChartsModule } from 'ng2-charts';
 import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
+import { NgxCaptureModule } from 'ngx-capture';
+
 export function playerFactory(): any {
   return import('lottie-web');
 }
@@ -36,6 +39,7 @@ const header = [
   HeaderLgComponent,
   HeaderSmComponent,
   HeaderSearchComponent,
+  HeaderMobileComponent,
 ];
 // Footer Comps
 const footer = [FooterComponent];
@@ -43,6 +47,7 @@ const footer = [FooterComponent];
   declarations: [AppComponent, header, footer],
   imports: [
     ScrollToTopComponent,
+    NgxCaptureModule,
     ModalComponent,
     AuthModule,
     HttpClientModule,

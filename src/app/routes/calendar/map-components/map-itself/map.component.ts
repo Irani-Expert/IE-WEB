@@ -1,6 +1,7 @@
 import {
   Component,
   ComponentRef,
+  HostListener,
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
@@ -14,6 +15,7 @@ import { map_config } from './map_config';
 import { icon_config } from './icon_config';
 import { Country } from '../map-country/country';
 import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
+import { leaflet_config } from './leaflet_config';
 @Component({
   selector: 'app-map',
   standalone: true,
@@ -33,23 +35,9 @@ export class MapComponent {
   }
 
   private initMap(): void {
-    this.map = new L.map('map', {
-      center: [51.505, -0.09],
-      draggable: false,
-      scrollWheelZoom: false,
-      zoomControl: false,
-      dragging: false,
-      zoomDelta: 0.25,
-      zoomSnap: 0,
-      zoom: 1.25,
-      tap: false,
-      noWrap: true,
-      maxBounds: [
-        [83.845866, -172.743086],
-        [-55.210222, 182.671969],
-      ],
-    });
+    this.map = new L.map('map', leaflet_config);
     this.map.doubleClickZoom.disable();
+
     this.countriesLayer(); //Create Countries Layer
 
     let today = new Date().getDay();
@@ -111,5 +99,10 @@ export class MapComponent {
     L.geoJSON(countries, {
       style: map_config,
     }).addTo(this.map);
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    this.map.invalidateSize();
   }
 }

@@ -14,6 +14,7 @@ export class NavigationService {
       title: 'Home',
       type: 'link',
       path: 'home',
+      icon : 'assets/icon/menu-icon-mobile-5.svg',
     },
     {
       id: 2,
@@ -21,6 +22,7 @@ export class NavigationService {
       title: 'Store',
       type: 'dropdown',
       path: 'shop',
+      icon : 'assets/icon/menu-icon-mobile-8.svg',
       sub: [
         {
           id: 1,
@@ -38,6 +40,7 @@ export class NavigationService {
     //   title: 'Forex News',
     //   type: 'link',
     //   path: 'calendar',
+    // icon : 'assets/icon/menu-icon-mobile-7.svg',
     // },
     {
       id: 4,
@@ -45,12 +48,14 @@ export class NavigationService {
       title: 'Brokers',
       type: 'link',
       path: 'brokers',
+      icon : 'assets/icon/menu-icon-mobile-3.svg',
     },
     {
       id: 5,
       name: 'مدرسه ترید',
       title: 'Trade School',
       type: 'dropdown',
+      icon : 'assets/icon/menu-icon-mobile-4.svg',
       sub: [
         {
           id: 1,
@@ -84,6 +89,7 @@ export class NavigationService {
       title: 'Irani Expert Magazine',
       type: 'dropdown',
       path: 'articles',
+      icon : 'assets/icon/menu-icon-mobile-6.svg',
       sub: [
         {
           id: 1,
@@ -109,6 +115,8 @@ export class NavigationService {
       title: 'copy-trade',
       path: 'copy-trade',
       type: 'link',
+      icon : 'assets/icon/menu-icon-mobile-11.webp',
+
     },
     {
       id: 7,
@@ -116,6 +124,7 @@ export class NavigationService {
       title: 'about-us',
       path: 'about-us',
       type: 'link',
+      icon : 'assets/icon/menu-icon-mobile-2.svg',
     },
   ];
 

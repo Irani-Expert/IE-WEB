@@ -36,7 +36,7 @@ export class LandingSingleCountryComponent {
     this._linkService.createLink(
       `https://www.iraniexpert.com/economic-calendar/${this.title}`
     );
-    const req = this.indicatorservice.get(`CalendarCountry/GetDetailsAndHistory?id=840`);
+    const req = this.indicatorservice.get(`CalendarCountry/GetDetailsAndHistory?browserTitle=${this.title}`);
     const res = (await lastValueFrom(req)); 
     if(res.success) {
       this.indicatorsData = res.data;

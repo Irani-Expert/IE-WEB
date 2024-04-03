@@ -1,89 +1,111 @@
-<a [routerLink]="'home'" class="inline-flex">
-  <span class="sr-only">ایرانی اکسپرت - Irani Expert</span>
-  <img
-    title="ایرانی اکسپرت - Irani Expert"
-    src="assets/icon/logo.svg"
-    class="mr-1 h-14 w-auto pt-2"
-    alt="Irani-Expert Logo"
-    width="34"
-    height="20"
-  />
-</a>
-<nav dir="ltr" class="pl-3.5">
-  <div class="top-6 left-5 absolute">
-    <span (click)="openandClose()" class="w-1/4 colors.red cursor-pointer">
-      <img
-        class="w-[25px]"
-        src="../../../../assets/img/Artbd – 1.webp"
-        alt="menu-icon"
-        width="34"
-        height="20"
-      />
-    </span>
+<div class="flex pt-2">
+  <div>
+    <i class="avatar-user-icon w-12 aspect-square mr-3 ml-14 rounded-3xl"></i>
   </div>
-  <ul
-    style="max-width: 596px !important"
-    [@slideInOut]="menuState"
-    class="fixed text-1.5xl top-0 left-0 h-full max-[480px]:right-[20%] min-[481px]:right-[55%] bg-main-blue z-50"
-  >
-    <li class="mb-12 mt-4 ms-4">
-      <span (click)="openandClose()" class="w-1/4 bg-black" href="#"
-        ><img
-          class="w-[26px]"
-          src="../../../../assets/img/Artbod – 1.webp"
-          alt="menu-icon"
-          width="34"
-          height="20"
-        />
+  <a [routerLink]="'home'" class="inline-flex -mt-2">
+    <span class="sr-only">ایرانی اکسپرت - Irani Expert</span>
+    <img
+      title="ایرانی اکسپرت - Irani Expert"
+      src="assets/icon/logo.svg"
+      class="mr-1 h-14 w-40 pt-2"
+      alt="Irani-Expert Logo"
+      width="34"
+      height="20"
+    />
+  </a>
+  <nav class="pl-3.5">
+    <div class="top-6 left-5 absolute">
+      <span (click)="openandClose()" (click)="menuOpen()" class="w-1/4 colors.red cursor-pointer">
+        <i class="icon-menu"></i>
       </span>
-    </li>
+    </div>
+    <ul
+      [ngClass]="zIndex ? 'z-index' : '-z-index'"
+      [@slideInOut]="menuState"
+      class="w-full fixed text-1.5xl top-0 left-0 h-full bg-main-blue items-start flex flex-col"
+    >
 
-    <ng-container style="margin-top: 50%" *ngFor="let item of items">
-      <li
-        *ngIf="item.path !== undefined"
-        class="justify-end p-2.5 pr-8 flex cursor-pointer hover:bg-[#293dc8]"
-        [ngClass]="item.active ? 'active-tab' : ''"
-        (click)="choosenLink(item.id)"
-      >
-        <a [routerLink]="item.path" class="text-white no-underline font-medium"
-          >{{ item.name }}
-        </a>
+
+      <li class="mb-12 mt-4 ms-4">
+        <span (click)="openandClose()" (click)="menuClose()" class="w-1/4 bg-black" href="#"
+          ><img
+            class="w-[26px]"
+            src="../../../../assets/img/Artbod – 1.webp"
+            alt="menu-icon"
+            width="34"
+            height="20"
+          />
+        </span>
       </li>
-      <ng-container *ngFor="let sub of item.sub">
-        <li
-          class="justify-end p-2.5 pr-8 flex cursor-pointer space-y-5 hover:bg-[#293dc8]"
-          *ngIf="item.path == undefined"
-        >
-          <a
-            class="text-white no-underline font-medium block"
-            [routerLink]="sub.path"
-            >{{ sub.name }}</a
-          >
-        </li>
-      </ng-container>
-    </ng-container>
+  
+      <div class="flex mb-8" *ngIf="loggedIn">
+        <i class="avatar-user-icon w-12 aspect-square mr-3 ml-8 rounded-3xl"></i>
+        <div>
+          <p class="text-white text-lg">{{username}}</p>
+          <p class="text-white">روز خوبی داشته باشی!</p>
+        </div>
+      </div>
 
-    <li class="justify-end p-2.5 pr-8 flex" *ngIf="!loggedIn">
-      <button
-        [disabled]="_btnDisabled"
-        (click)="openModal('login')"
-        class="text-1.5xl header-sm-button font-medium rounded-md"
-      >
-        ورود|عضویت
-      </button>
-    </li>
-    <li class="justify-end p-2.5 pr-8 flex" *ngIf="loggedIn">
-      <a [href]="panelUrl" target="_blank">
-        <button
-          class="text-1.5xl header-panel-button font-medium rounded-md hover:bg-slate-400"
+      <ng-container style="margin-top: 50%" *ngFor="let item of items">
+        <li
+          *ngIf="item.path !== undefined"
+          class="justify-end p-2.5 pr-8 flex cursor-pointer hover-menu pl-24 mb-2"
+          [ngClass]="item.active ? 'active-menu' : ''"
+          (click)="choosenLink(item.id)"
         >
-          <i class="text-2xl align-sub">&leftarrow;</i>
-          ورود به پنل
+        <img [src]="item.icon" class="relative bottom-1 w-6 aspect-square ml-2 ">
+        <a [routerLink]="item.path" class="text-white no-underline font-medium"
+        >{{ item.name }}
+        </a>
+        </li>
+        <ng-container *ngFor="let sub of item.sub">
+          <li
+            class="justify-end p-2.5 pr-8 flex cursor-pointer space-y-5 hover:bg-[#293dc8]"
+            *ngIf="item.path == undefined"
+          >
+            <a
+              class="text-white no-underline font-medium block"
+              [routerLink]="sub.path"
+              >{{ sub.name }}</a
+            >
+          </li>
+        </ng-container>
+      </ng-container>
+  
+      <li class="justify-end p-2.5 pr-8 flex" *ngIf="!loggedIn">
+        <button
+          [disabled]="_btnDisabled"
+          (click)="openModal('login')"
+          class="text-1.5xl header-sm-button font-medium rounded-3xl px-4 !bg-[#7683E2]"
+        >
+          ورود | عضویت
         </button>
-      </a>
-    </li>
-  </ul>
-</nav>
-<span
-  class="absolute bg-[#F6F6F6] d-block w-full -z-10 h-[2.85rem] top-[32px] rounded-[36%]"
-></span>
+      </li>
+      <li class="justify-end p-2.5 pr-8 flex flex-col" *ngIf="loggedIn">
+
+        <a [href]="panelUrl" target="_blank">
+          <button
+            class="text-1.5xl header-panel-button font-medium rounded-3xl pr-4 pl-2 mb-2 py-1 flex !bg-[#7683E2]"
+          >
+          خروج از حساب
+          <i class="icon-menu-log-out mr-1"></i>
+          </button>
+        </a>
+
+        <a [href]="panelUrl" target="_blank">
+          <button
+            class="text-1.5xl header-panel-button font-medium rounded-3xl py-1 pr-4 pl-2 !bg-[#7683E2] flex"
+          >
+          ورود به پنل
+          <i class="Arrow-left-icon-white scale-50"></i>
+          </button>
+        </a>
+
+      </li>
+    </ul>
+  </nav>
+  <span
+    class="absolute bg-[#F6F6F6] d-block w-full -z-10 h-[2.85rem] top-[32px] rounded-[36%]"
+  ></span>
+  
+</div>
