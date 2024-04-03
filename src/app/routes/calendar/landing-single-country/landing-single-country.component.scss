@@ -1,0 +1,43 @@
+.pill-container {
+  width: fit-content;
+  padding: 0.25rem;
+  border: 1px solid;
+  display: inline-flex;
+  border-radius: 9999px;
+  border-color: #dedede;
+  align-items: center;
+  font-size: 0.825rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  user-select: none;
+  p {
+    color: #b2b2b2;
+  }
+  .icon-container {
+    width: 35px;
+    display: inline-flex;
+
+    height: 35px;
+    border-radius: 50%;
+    background: #c2dfff;
+    justify-content: center;
+    align-items: center;
+    i {
+      scale: 0.65;
+      line-height: 0;
+    }
+  }
+  &.active,
+  &:hover {
+    p {
+      color: #007aff;
+    }
+    border-color: #007aff;
+  }
+}
+.holder-icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}

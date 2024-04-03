@@ -172,7 +172,7 @@ export class LandingShopComponent {
                   parseInt(arrayOfUrlSegments[3]) - 1;
 
                 this._linkService.createLink(
-                  `https://www.iraniexpert.com/articles/page/${parseInt(
+                  `https://www.iraniexpert.com/shop/page/${parseInt(
                     arrayOfUrlSegments[3]
                   )}`
                 );
