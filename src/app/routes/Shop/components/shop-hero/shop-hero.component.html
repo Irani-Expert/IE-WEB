@@ -36,7 +36,9 @@
                 <span class="Common">مشترک ها 235</span>
               </p>
             </div>
-            <b class="mb-4 text-base font-semibold block">انتخاب پلن</b>
+            <b class="mb-4 text-base font-semibold block"
+              >انتخاب پلن برای خرید ربات معامله‌گر</b
+            >
             <div class="flex justify-start flex-wrap gap-2 mb-10">
               <div
                 *ngFor="let p of plans; let i = index"
@@ -135,7 +137,7 @@
           </div>
         </div>
         <div class="md:hidden xl:block">
-          <b class="mb-4 text-base font-semibold block">توضیحات</b>
+          <b class="mb-4 text-base font-semibold block">معرفی ربات ATM</b>
           <p class="text-justify ml-8">
             {{ product.description }}
           </p>
@@ -144,7 +146,7 @@
     </div>
   </div>
   <div class="block xl:hidden">
-    <b class="mb-4 text-base font-semibold block">توضیحات</b>
+    <b class="mb-4 text-base font-semibold block">معرفی ربات ATM</b>
     <p class="text-justify ml-8">
       {{ product.description }}
     </p>
@@ -212,7 +214,9 @@
         </p>
       </div>
     </div>
-    <b class="mb-4 text-base font-semibold mr-7">انتخاب پلن</b>
+    <b class="mb-4 text-base font-semibold mr-7"
+      >انتخاب پلن برای خرید ربات معامله‌گر</b
+    >
     <div class="overflow-scroll w-[98vw]">
       <div class="mb-7 min-w-fit">
         <div class="flex flex-row justify-start">
@@ -255,7 +259,7 @@
     <p [ngClass]="animationState ? 'price-animation' : ''" class="mr-7 ml-7">
       {{ selectedPlan.description }}
     </p>
-    <b class="mt-16 mb-4 mr-4 ml-6 text-base font-semibold">توضیخات</b>
+    <b class="mt-16 mb-4 mr-4 ml-6 text-base font-semibold">معرفی ربات ATM</b>
     <p class="mr-7 ml-8 text-justify">
       {{ product.description }}
     </p>
