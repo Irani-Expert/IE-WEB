@@ -53,7 +53,7 @@
   <div class="flex justify-center my-10">
     <div
       id="tableEvents"
-      class="basis-full bg-white px-2 py-1 rounded-2xl shadow-sm border border-[#EAEAEA] relative gap-6 mt-2"
+      class="basis-full bg-white px-2 py-3 rounded-2xl shadow-sm border border-[#EAEAEA] relative gap-6 mt-2"
     >
       <!-- Change Between LastWeek & LastValues  -->
       <div class="flex flex-row items-center gap-2 my-2 mx-2">
@@ -63,7 +63,12 @@
           [ngClass]="item.active ? 'active' : ''"
           *ngFor="let item of valueTypes"
         >
-          <span class="icon-container"><i class="ie-icon ie-news"></i></span>
+          <span class="icon-container"
+            ><i
+              class="ie-icon"
+              [ngClass]="item.key == 0 ? 'ie-calendar' : 'ie-news'"
+            ></i
+          ></span>
           <p class="mx-2">
             {{ item.value }}
           </p>
@@ -98,7 +103,7 @@
       <!-- Table -->
 
       <ng-container *ngIf="hasPagaination">
-        <pagination-control (changePage)="setPage($event)"></pagination-control>
+        <pagination-control (changePage)="setPage($event)" />
       </ng-container>
     </div>
   </div>
