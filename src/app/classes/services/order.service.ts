@@ -52,10 +52,18 @@ export class OrderService extends BaseService<any> {
       );
   }
   pushToBSK(item: BskItem) {
-    let index = this.basket.value.basketItems.findIndex(
+    let bskItems = this.basket.value.basketItems;
+    let productId = bskItems.find((it) => it.tableType == 6)?.id;
+    let itemIndex = bskItems.findIndex(
       (it) => it.rowID == item.rowID && item.tableType == it.tableType
     );
-    if (index == -1) {
+
+    if (itemIndex == -1) {
+      if (productId == 1) {
+        this.basket.value.basketItems = this.basket.value.basketItems.filter(
+          (it) => it.tableType == 6
+        );
+      }
       this.basket.value.basketItems.push(item);
     } else {
       return;

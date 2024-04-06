@@ -16,11 +16,19 @@ export class CheckoutDetailCardComponent {
   discountPrice = '10%';
   data: SingleProduct | null;
   basket: Basket;
-  constructor(private product: ProductService, private order: OrderService) {
-    this.data = this.product._product;
-    this.order.basket$.subscribe((it) => {
-      this.basket = it;
-    });
+  constructor(private product: ProductService, private order: OrderService) {}
+  async ngOnInit() {
+    this.basket = this.order.basket.value;
+    let productItem = this.product._product;
+    if (productItem) {
+      this.data = productItem;
+    } else {
+      let productID = this.basket.basketItems.find(
+        (it) => it.tableType == 6
+      )!.id;
+      this.product.getProduct(productID!).then((result) => {
+        this.data = this.product._product;
+      });
+    }
   }
-  ngOnInit() {}
 }

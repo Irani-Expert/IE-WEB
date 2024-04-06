@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { InputForm, InputInterface } from 'src/app/classes/input';
 import { OrderService } from 'src/app/classes/services/order.service';
@@ -11,6 +11,8 @@ import { BskItem } from 'src/app/classes/interfaces/basket.interface';
 import { Location } from '@angular/common';
 import { AppComponent } from 'src/app/app.component';
 import { Utils } from 'src/app/classes/utils';
+import { LocalStorageService } from 'src/app/classes/local-storage';
+import { CheckoutDetailCardComponent } from '../checkout-detail-card/checkout-detail-card.component';
 interface PaymentMethod {
   id: number;
   title: string;
@@ -26,6 +28,8 @@ interface PaymentMethod {
   styleUrls: ['./landing-checkout.component.scss'],
 })
 export class LandingCheckoutComponent {
+  @ViewChild(CheckoutDetailCardComponent)
+  appCheckoutDetail: CheckoutDetailCardComponent;
   // Order Model ------------------->
   today = '';
   selectedDate: '';
@@ -141,13 +145,18 @@ export class LandingCheckoutComponent {
     return this.formGroup.controls;
   }
   // Forms ------------->
-
+  loadDetailSection = false;
   constructor(
     private _orderService: OrderService,
     private _authService: AuthService,
     private _router: Router,
-    private _location: Location
+    private _location: Location,
+    private _localStorage: LocalStorageService
   ) {
+    if (this._orderService.basket.value.basketItems.length == 0) {
+      let basket = this._localStorage.getItem('user_basket');
+      this._orderService.basket.next(JSON.parse(basket!));
+    }
     this.today = this.getToday();
     // Forms ------------->
 
@@ -159,19 +168,42 @@ export class LandingCheckoutComponent {
     // Forms ------------->
 
     // User -------------->
-    this.user = this._authService._user;
   }
   ngOnInit() {
     AppComponent.isBrowser.value
       ? Utils.scrollTopWindow()
       : console.log('Not-Browser');
 
-    this._orderService.basket$.subscribe((item) => {
-      this.orderModel.orderItems = item.basketItems;
-      this.orderModel.totalPrice = item.totalPrice;
-      this.basket = item.basketItems;
-    });
+    // const userBasket = JSON.parse(this._localStorage.getItem('user_basket')!);
+    // if (userBasket) {
+    //   this.orderModel = { ...userBasket };
+    //   this.basket = { ...userBasket.basketItems };
+    // } else {
+    // this._orderService.basket$.subscribe((item) => {
+    //   this.orderModel.orderItems = item.basketItems;
+    //   this.orderModel.totalPrice = item.totalPrice;
+    //   this.basket = item.basketItems;
+    //   // this._localStorage.setItem(
+    //   //   'user_basket',
+    //   //   JSON.stringify(this.orderModel)
+    //   // );
+    // });
+    // }
+    let orderBasket = this._orderService.basket.value;
+    this.orderModel.orderItems = orderBasket.basketItems;
+    this.orderModel.totalPrice = orderBasket.totalPrice;
+    this.basket = orderBasket.basketItems;
     this.formGroup.controls['discountCode'].disable();
+  }
+
+  ngAfterViewInit() {
+    let subscription = this._authService.userSubject.asObservable();
+    subscription.subscribe({
+      next: (it: User) => {
+        this.user = it;
+      },
+    });
+    this.loadDetailSection = true;
   }
   formToOrderModel() {
     this.orderModel.accountNumber = this._formControls['accountNumber'].value;
@@ -260,6 +292,17 @@ export class LandingCheckoutComponent {
   }
   deleteTimeOut() {
     clearTimeout(this.timeOut);
+  }
+
+  ngOnDestroy() {
+    clearTimeout(this.timeOut);
+  }
+
+  get imageUrl() {
+    let contentUrl = this.appCheckoutDetail?.contentUrl;
+    let url = this.appCheckoutDetail?.data?.cardImagePath;
+    if (url) return contentUrl + url;
+    else return '';
   }
 }
 
