@@ -4,6 +4,7 @@
 /money-management
 /copy-trade
 /brokers
+/shop/page/1
 /articles/how-to-make-money-in-dollars/fa
 /articles/what-is-forex/fa
 /articles/capital-management/fa
