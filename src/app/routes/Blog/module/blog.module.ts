@@ -14,7 +14,7 @@ import { CarouselBlogComponent } from '../components/carousel-blog/carousel-blog
 import { CardResponsiveComponent } from '../components/card-responsive/card-responsive.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { BlogDetailComponent } from '../components/blog-detail/blog-detail.component';
-import { FilterResponsiveComponent } from '../components/filter-responsive/filter-responsive.component';
+// import { FilterResponsiveComponent } from '../components/filter-responsive/filter-responsive.component';
 
 const components = [
   CardResponsiveComponent,
@@ -28,7 +28,7 @@ const components = [
   ArticlesComponent,
   // BlogFilterComponent,
   BlogDetailComponent,
-  FilterResponsiveComponent,
+  // FilterResponsiveComponent,
 ];
 
 @NgModule({

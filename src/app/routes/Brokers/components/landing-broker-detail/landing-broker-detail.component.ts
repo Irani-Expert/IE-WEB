@@ -18,6 +18,8 @@ interface BrokerImgCard<T> {
   styleUrls: ['./landing-broker-detail.component.scss'],
 })
 export class LandingBrokerDetailComponent {
+  categoryDetailIcon: string = 'assets/icon/filter-icon-blog(detail).svg';
+
   @ViewChild(TableBrokersComponent, { static: true })
   tableBrokers: TableBrokersComponent;
   constructor(

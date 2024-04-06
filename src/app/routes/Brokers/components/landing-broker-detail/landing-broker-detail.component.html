@@ -58,11 +58,24 @@
         <p header>دسترسی سریع</p>
       </app-blog-filter>
     </div>
+    <!-- ==========[رسپانسیو دسترسی سریع]===== -->
+    <div class="block lg:hidden">
+      <app-filter-responsive
+      [categoryDetailIcon]="categoryDetailIcon"
+      [data]="'white'"
+      [categoryTags]="tags"
+      [type]="'tags'"
+    >
+      <p header class="text-black w-28">دسترسی سریع</p>
+    </app-filter-responsive>
+    </div>
+    <!-- ==========[]===== -->
+    
+    <div class="basis-full lg:basis3/4 flex flex-col mx-4">
+     <div id="ckeditor" [innerHTML]="articleHtml" class="mt-6 broker"></div>
+    </div>
 
-<div class="basis-full lg:basis3/4 flex flex-col mx-4">
- <div id="ckeditor" [innerHTML]="articleHtml" class="mt-6 broker"></div>
-</div>
-  </ng-container>
+    </ng-container>
   </div>
 
   <!-- <div class="flex flex-col gap-5 justify-center my-14 items-center max-w-6xl mx-6">

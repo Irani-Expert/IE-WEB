@@ -12,6 +12,7 @@ import { ConsultationFormComponent } from '../consultation-form/consultation-for
 import { Meta, SafeHtml } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment.dev';
 import { LinkService } from 'src/app/classes/services/link.service';
+import { ITags } from 'src/app/classes/interfaces/tags.interface';
 
 @Component({
   selector: 'app-landing-page',
@@ -27,22 +28,6 @@ export class LandingPageComponent {
   ) // private _sanitizer : DomSanitizer
   {
     this._linkService.createLink(`https://www.iraniexpert.com`);
-
-    // =================[متاتگ ها]==========
-    this.meta.updateTag({
-      name: 'description',
-      content:
-        'به دنیای ایرانی اکسپرت (iraniexpert) که شامل خدمات آموزش ترید، مشاوره رایگان، خرید ربات  AI-Trader و ترید میباشد خوش آمدید.',
-    });
-    this.meta.updateTag({
-      name: 'author',
-      content: 'مهرنوش کریمی',
-    });
-    this.meta.updateTag({
-      name: 'keywords',
-      content:
-        'اکسپرت ایرانی , ترید, ربات خودکار فارکس,ربات معامله گر فارکس, دستیار ترید,بورس جهانی,نقدینگی سشن های معاملاتی, کارگزاری,درامد, ترید بدون دانش,شغل دوم برای سرمایه گذاری مطمئن, اکسپرت فارکس',
-    });
   }
 
   isRecived: boolean = false;
@@ -163,6 +148,7 @@ export class LandingPageComponent {
   scroll(event: boolean) {
     this.appConsulting.scroll();
   }
+// ==========[هشتگ ها و متاتگ]=======
 
   contentUrl = environment.contentUrl;
   sendDataToChild = false;
@@ -170,13 +156,29 @@ export class LandingPageComponent {
   language: string = '';
   id: number = 0;
   articleHtml: SafeHtml;
+  tags: ITags[];
 
   async ngAfterViewInit() {
     if (await this.getDetail('Home', 'fa')) {
       this.id = Number(this._articleServices._blog?.id);
       this.articleHtml = this._articleServices._blog!.description;
-
+      this.tags = this._articleServices._blog!.sharpLinkTags;
+      this.meta.updateTag({
+        name: 'description',
+        content:
+          'به دنیای ایرانی اکسپرت (iraniexpert) که شامل خدمات آموزش ترید، مشاوره رایگان، خرید ربات  AI-Trader و ترید میباشد خوش آمدید.',
+      });
+      this.meta.updateTag({
+        name: 'author',
+        content: 'مهرنوش کریمی',
+      });
+      this.meta.updateTag({
+        name: 'keywords',
+        content:
+          'اکسپرت ایرانی , ترید, ربات خودکار فارکس,ربات معامله گر فارکس, دستیار ترید,بورس جهانی,نقدینگی سشن های معاملاتی, کارگزاری,درامد, ترید بدون دانش,شغل دوم برای سرمایه گذاری مطمئن, اکسپرت فارکس',
+      });
       this.sendDataToChild = true;
+
     }
   }
 

@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 import { TagService } from 'src/app/classes/services/tag.service';
 import { IArticle } from '../../classes/interfaces/article.interface';
 import { Router } from '@angular/router';
+import { ITags } from 'src/app/classes/interfaces/tags.interface';
+import { BlogService } from 'src/app/classes/services/blog.service';
 
 @Component({
   selector: 'app-tags',
@@ -10,7 +12,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./tags.component.scss'],
 })
 export class TagsComponent {
-  constructor(private _tagServices: TagService, private router: Router) {}
+  @Input ('data') data : ITags[];
+  
+  tags: ITags[];
+
+  constructor(
+    public blogService: BlogService,
+    // private _tagServices: TagService,
+    private router: Router
+    ) {}
+
   searchTag(searchingTag: string) {
     searchingTag = searchingTag.slice();
 
@@ -20,9 +31,11 @@ export class TagsComponent {
   values: IArticle | undefined;
 
   async ngOnInit() {
-    let getData = await lastValueFrom(
-      this._tagServices.get('Article/details?id=1029', undefined)
-    );
-    this.values = getData.data;
+  
+    // let getData = await lastValueFrom(
+    //   this._tagServices.get('Article/details?id=1029', undefined)
+    // );
+    // this.values = getData.data;
   }
+
 }

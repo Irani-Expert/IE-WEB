@@ -8,12 +8,26 @@ import { ToastrService } from 'ngx-toastr';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { NgxCaptureService } from 'ngx-capture';
-import { tap } from 'rxjs';
+import { Subject, Subscription, debounceTime, tap } from 'rxjs';
+import { style, transition, trigger , animate} from '@angular/animations';
+import { BlogService } from 'src/app/classes/services/blog.service';
+import { ITags } from 'src/app/classes/interfaces/tags.interface';
 
 
 @Component({
   selector: 'app-header-mobile',
   templateUrl: './header-mobile.component.html',
+  animations: [
+    trigger('fadeIn', [
+      transition(':enter', [
+        style({ opacity: 0}),
+        animate('500ms ease-in-out', style({ opacity: 1})),
+      ]),
+      transition(':leave', [
+        animate('300ms ease-in-out', style({ opacity: 0})),
+      ]),
+    ]),
+  ],
   styleUrls: ['./header-mobile.component.scss']
 })
 export class HeaderMobileComponent extends Header {
@@ -26,12 +40,13 @@ export class HeaderMobileComponent extends Header {
 
   constructor(
     navService: NavigationService,
+    public _articleServices: BlogService,
     private modal: ModalService,
     private auth: AuthService,
     private router: Router,
     private toastr: ToastrService,
     private location: Location,
-    private captureService: NgxCaptureService
+    private captureService: NgxCaptureService,
   ) {
     super(navService);
     this.user$ = this.auth.userSubject.asObservable();
@@ -47,12 +62,19 @@ export class HeaderMobileComponent extends Header {
 
   getSize(){
     let width = window.visualViewport?.width; 
-    let height = window.visualViewport?.height; 
+    let height = window.visualViewport?.height;
+    let yScroll = window.scrollY;
+    this.yImg = yScroll;     
     this.width = width!;
     this.height = height!;
   }
 
-  ngOninit() {
+  ngOnInit() {
+ this._searchInputSubscription = this._searchinput
+  .pipe(debounceTime(700))
+  .subscribe((value) => {
+    this.searchFilterName(value);
+  });
   }
 
 hideMenu : boolean = true;
@@ -71,16 +93,21 @@ choosenLink(id: number) {
   this.link = id;
 }
 // ===========[اسکرین شات و منو]===========
-openMenu(){
+openCloseMenu(){
   this.getSize();
+
+  
   if(this.width > 769){
     this.xImg = -150;
-    this.yImg = -100;
+    // this.yImg = -100;
   }
   else {
     this.xImg = -250;
-    this.yImg = 0;
+    // this.yImg = 0;
   }
+  
+  this.hideMenu = !this.hideMenu;
+
   this.captureService
   .getImage(document.body, false ,
     {
@@ -91,16 +118,79 @@ openMenu(){
     })
   .pipe(
     tap( (img: string) => {
-      this.imgScreen = img;
+      if( this.hideMenu == false){
+        this.imgScreen = img;
+      }
+      else{
+        this.imgScreen = '';
+      }
       console.log(img);
     })
   )
   .subscribe();
   
-  this.hideMenu = !this.hideMenu;
+  
+}
+// =============[روت]========
+clickRoute(activeRoute : boolean|undefined){
+
+  if(activeRoute == true){
+    console.log('hide is true');
+    this.hideMenu = true;
+  }
+  else{
+    console.log('hide is false');
+    this.hideMenu = false;
+  }
   
 }
 
+// =============[سرچ]========
+hideSearch : boolean = true;
+_searchInputSubscription: Subscription;
+_searchinput: Subject<string> = new Subject<string>();
+
+openSearch(){
+this.hideSearch = false;
+}
+
+closeSearh(){
+this.hideSearch = true;
+}
+
+fillValue(value: string) {
+  this._searchinput.next(value);
+ 
+}
+
+searchFilterName(value: string) {
+  if (value.length <= 2 ) {
+    this.toastr.error('حداقل باید 3 کاراکتر باید برای سرچ ارسال گردد');
+  }
+  else {
+    this.router.navigateByUrl(`search?search=${value}`);
+    this.hideMenu = !this.hideMenu;
+    this.hideSearch = true;
+
+  }
+}
+// ===========[هشتگ ها]=====
+sendDataToChild = false;
+title: string = '';
+language: string = '';
+tagsMenu: ITags[];
+
+async ngAfterViewInit() {
+  if (await this.getDetail('Home', 'fa')) {
+    this.tagsMenu = this._articleServices._blog!.sharpLinkTags;
+    this.sendDataToChild = true;
+  }
+}
+
+async getDetail(title: string, language: string) {
+  const apiRes = await this._articleServices.getBlog(title, language);
+  return apiRes;
+}
 // ===========[دراپ دون]=====
 dropDownMenu(index: number) {
   this.dropDownItem = index;

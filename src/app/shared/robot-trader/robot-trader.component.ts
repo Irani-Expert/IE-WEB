@@ -13,6 +13,7 @@ import { environment } from 'src/environments/environment.dev';
 })
 export class RobotTraderComponent {
   color: string;
+  categoryDetailIcon: string = 'assets/icon/filter-icon-blog(detail).svg';
 
   constructor(
     private _meta: Meta,

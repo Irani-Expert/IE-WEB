@@ -113,6 +113,17 @@
       <h2 class="sr-only">دانلود ربات معامله گر فارکس</h2>
       <h2 class="sr-only">موفقیت های ربات معامله گر</h2>
 
+      <div class="block lg:hidden">
+        <app-filter-responsive
+        [categoryDetailIcon]="categoryDetailIcon"
+        [data]="'white'"
+        [categoryTags]="tags"
+        [type]="'tags'"
+      >
+        <p header class="text-black w-28">دسترسی سریع</p>
+      </app-filter-responsive>
+      </div>
+
       <ng-container *ngIf="isBrowser">
         <app-free-advice></app-free-advice
       ></ng-container>

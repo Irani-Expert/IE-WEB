@@ -7,6 +7,9 @@
   transform: translateY(40px);
 }
 .padding-all {
+  @media (width < 1024px) {
+    padding-top: 5rem;
+  }
   @media (min-width: 1024px) {
     padding: 0px calc(100% - 95vw);
   }

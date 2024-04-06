@@ -27,7 +27,7 @@ export class HeaderSearchComponent {
     event.stopPropagation();
   }
 
-  constructor(private router: Router , private toaster : ToastrService) {}
+  constructor(private router: Router , private toastr : ToastrService) {}
 
   ngOnInit() {
     this.loading = false;
@@ -48,7 +48,7 @@ export class HeaderSearchComponent {
 
   searchFilterName(value: string) {
     if (value.length <= 2 ) {
-      this.toaster.error('حداقل باید 3 کاراکتر باید برای سرچ ارسال گردد');
+      this.toastr.error('حداقل باید 3 کاراکتر باید برای سرچ ارسال گردد');
     }
     else {
       this.router.navigateByUrl(`search?search=${value}`);

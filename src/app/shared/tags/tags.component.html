@@ -1,4 +1,4 @@
-<div class="mr-4 ml-4 translate-y-[61px]">
+<div class="mx-4 translate-y-[61px] -mt-52 lg:-mt-4 mb-40">
   <div class="text-right">
     <b class="font-bold sm:text-3xl text-xl">
       <span class="symbol text-2xl">#</span> موضوعات پرطرفدار و هشتگ های داغ
@@ -6,12 +6,12 @@
     </b>
   </div>
   <div class="flex flex-wrap m-5">
-    <div class="min-w-fit m-2" *ngFor="let x of values?.sharpLinkTags">
+    <div class="min-w-fit m-2" *ngFor="let tags of data">
       <button
-        (click)="searchTag(x.title)"
+        (click)="searchTag(tags.title)"
         class="tag px-5 py-1 rounded-2xl text-lg font-normal mr-3"
       >
-        <span>#</span>{{ x.title | slice : 0 : -1 }}
+        <span>#</span>{{ tags.title}}
       </button>
     </div>
   </div>

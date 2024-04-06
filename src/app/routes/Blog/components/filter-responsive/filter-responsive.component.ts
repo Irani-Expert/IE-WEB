@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ITags } from 'src/app/classes/interfaces/tags.interface';
+import { Utils } from 'src/app/classes/utils';
 
 @Component({
   selector: 'app-filter-responsive',
@@ -46,12 +47,15 @@ export class FilterResponsiveComponent {
     this.emitter.emit(id);
   }
   sorttype: number = 1;
+  
+  // @HostListener('window:scroll', ['$event'])
 
   searchTag(searchingTag:string) {
-    searchingTag = searchingTag.slice(1)
-    console.log(searchingTag);
+    searchingTag = searchingTag;
     
-    this.router.navigateByUrl(`search?someThing=${searchingTag}`)
+    this.router.navigateByUrl(`search?search=${searchingTag}`);
+    // Utils.scrollTopWindow();
+
   }
   // ==========[مدیریت سرمایه]===
   @Input('data') categoryMoneylIcon: string;
