@@ -139,7 +139,6 @@ export class VideoPlayerComponent implements OnInit {
   }
   puasePaceVideo() {
     if (!this.firstPlay) this.firstPlay = true;
-    debugger;
     this.video = document.getElementById(this.vId);
     this.pauseplay = !this.pauseplay;
     setTimeout(() => {

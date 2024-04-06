@@ -184,7 +184,6 @@ export class LandingCheckoutComponent {
   changeCheckboxValue(event: boolean) {
     this.acceptRules = event;
     console.log(this.formGroup.invalid);
-    debugger;
 
     this._formControls['acceptRules'].setValue(event);
   }

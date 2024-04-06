@@ -16,7 +16,7 @@ export class ScrollComponent {
   scroll: Array<any> = [
     {
       id: 1,
-      name: 'معرفی',
+      name: 'توضیحات',
       active: false,
     },
     {

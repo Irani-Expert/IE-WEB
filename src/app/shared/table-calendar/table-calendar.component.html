@@ -49,7 +49,9 @@
           <td (click)="showDetails(item)" class="event">
             <span *ngIf="!item.active" class="block text-black font-medium">
               {{ item.event.time.slice(0, 5) }} &nbsp;
-              {{ item.event.date | date : "YYYY/MM/dd" }}
+              <ng-container *ngIf="showDate">
+                {{ item.event.date | date : "YYYY/MM/dd" }}
+              </ng-container>
             </span>
             <p
               [ngClass]="item.active ? 'font-bold' : 'font-medium'"
