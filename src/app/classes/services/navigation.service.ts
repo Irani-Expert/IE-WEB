@@ -15,6 +15,7 @@ export class NavigationService {
       type: 'link',
       path: 'home',
       icon : 'assets/icon/menu-icon-mobile-5.svg',
+      active : true,
       activeRoute : true,
     },
     {
@@ -24,7 +25,9 @@ export class NavigationService {
       type: 'dropdown',
       path: 'shop',
       icon : 'assets/icon/menu-icon-mobile-8.svg',
+      active : true,
       activeRoute : true,
+      iconDropDown:'assets/icon/chevron-white.webp',
       sub: [
         {
           id: 1,
@@ -33,6 +36,7 @@ export class NavigationService {
           title: 'ATM Expert',
           type: 'link',
           path: `shop/atm-expert`,
+          active : true,
           activeRoute : true,
         },
       ],
@@ -52,8 +56,8 @@ export class NavigationService {
       type: 'link',
       path: 'brokers',
       icon : 'assets/icon/menu-icon-mobile-3.svg',
+      active : true,
       activeRoute : true,
-
     },
     {
       id: 5,
@@ -61,7 +65,9 @@ export class NavigationService {
       title: 'Trade School',
       type: 'dropdown',
       icon : 'assets/icon/menu-icon-mobile-4.svg',
+      active : true,
       activeRoute : false,
+      iconDropDown:'assets/icon/chevron-white.webp',
       sub: [
         {
           id: 1,
@@ -70,6 +76,7 @@ export class NavigationService {
           parentID: 5,
           title: 'Trading Robots',
           type: 'link',
+          active : true,
           activeRoute : true,
         },
         // {
@@ -87,6 +94,7 @@ export class NavigationService {
           parentID: 5,
           title: 'Money Management',
           type: 'link',
+          active : true,
           activeRoute : true,
         },
       ],
@@ -98,6 +106,7 @@ export class NavigationService {
       type: 'dropdown',
       path: 'articles',
       icon : 'assets/icon/menu-icon-mobile-6.svg',
+      active : true,
       activeRoute : true,
       sub: [
         {
@@ -107,6 +116,7 @@ export class NavigationService {
           parentID: 6,
           title: 'َArticles',
           type: 'link',
+          active : true,
           activeRoute : true,
         },
         // {
@@ -126,6 +136,7 @@ export class NavigationService {
       path: 'copy-trade',
       type: 'link',
       icon : 'assets/icon/menu-icon-mobile-11.webp',
+      active : true,
       activeRoute : true,
     },
     {
@@ -135,6 +146,7 @@ export class NavigationService {
       path: 'about-us',
       type: 'link',
       icon : 'assets/icon/menu-icon-mobile-2.svg',
+      active : true,
       activeRoute : true,
     },
   ];

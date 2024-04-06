@@ -132,11 +132,12 @@ openCloseMenu(){
   
 }
 // =============[روت]========
-clickRoute(activeRoute : boolean|undefined){
+clickRoute(activeRoute : boolean|undefined , index : number){
 
   if(activeRoute == true){
     console.log('hide is true');
     this.hideMenu = true;
+    this.items[index].active = !this.items[index].active;
   }
   else{
     console.log('hide is false');
@@ -171,7 +172,6 @@ searchFilterName(value: string) {
     this.router.navigateByUrl(`search?search=${value}`);
     this.hideMenu = !this.hideMenu;
     this.hideSearch = true;
-
   }
 }
 // ===========[هشتگ ها]=====
@@ -191,9 +191,21 @@ async getDetail(title: string, language: string) {
   const apiRes = await this._articleServices.getBlog(title, language);
   return apiRes;
 }
+
+searchTag(searchingTag: string) {
+
+  searchingTag = searchingTag.slice();
+  this.router.navigateByUrl(`search?search=${searchingTag}`);
+  this.hideMenu = !this.hideMenu;
+  this.hideSearch = true;
+  
+}
 // ===========[دراپ دون]=====
+dropDownIcon: boolean;
+
 dropDownMenu(index: number) {
   this.dropDownItem = index;
+  this.items[index].active = !this.items[index].active;
 }
 
 // =======[مدال لاگین]========

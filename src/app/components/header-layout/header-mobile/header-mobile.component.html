@@ -33,7 +33,6 @@
     <!-- ==========[منو]======= -->
     <div class="menu-mobile">
 
-      <!-- <div [ngClass]="hideMenu?'hide-menu':'show-menu'"> -->
         <div @fadeIn *ngIf="!hideMenu" [ngClass]="hideMenu?'hide-menu':'show-menu'">
           <ng-container *ngIf="hideSearch">
             <div class="absolute z-[100] pt-12" [ngClass]="hideMenu?'-z-50':'z-[100]'" @fadeIn>
@@ -47,8 +46,10 @@
           <div @fadeIn class="items-start flex flex-col w-full h-full" *ngIf="hideSearch">
   
               <!-- ===============[ منوآواتار]========= -->
-              <div class="flex mb-8" *ngIf="loggedIn">
-                <i class="avatar-user-icon w-12 aspect-square mr-3 ml-4 rounded-3xl"></i>
+              <div class="flex mb-4" *ngIf="loggedIn">
+                <a [href]="panelUrl" target="_blank">
+                  <i class="avatar-user-icon w-12 aspect-square mr-3 ml-4 rounded-3xl" ></i>
+                </a>
                 <div>
                   <p class="text-white text-lg">{{username}}</p>
                   <p class="text-white text-sm">روز خوبی داشته باشی!</p>
@@ -64,26 +65,27 @@
               <ng-container *ngFor="let item of items; let i = index">
                 <li
                   
-                  class="justify-end p-2.5 pr-4 flex cursor-pointer hover-menu pl-12 mb-2"
+                  class="justify-end p-2.5 pr-4 flex cursor-pointer hover-menu pl-12 mb-2 items-center"
                   [ngClass]="item.active ? 'active-menu' : ''"
-                  (click)="dropDownMenu(i)"
                 >
                 <img [src]="item.icon" class="relative bottom-1 w-6 aspect-square ml-2 ">
                 <a [routerLink]="item.path" class="text-white no-underline font-medium"
-                (click)="clickRoute(item.activeRoute)"
+                (click)="clickRoute(item.activeRoute , i)"
                 >{{ item.name }}
                 </a>
+                <img [src]="item.iconDropDown" (click)="dropDownMenu(i)" [ngClass]="item.active?'drop-down-icon-up':'drop-down-icon'" class="w-5 cursor-pointer mr-2">
                 </li>
-                <ng-container *ngIf="dropDownItem == i && item.sub">
+                <ng-container *ngIf="dropDownItem == i && item.sub && item.active">
                     <ng-container *ngFor="let sub of item.sub">
                       <li
-                        [ngClass]="dropDownItem == i && item.sub ? 'drop-down-show':'drop-down-hide'"
-                        class="justify-end p-2.5 pr-8 flex cursor-pointer space-y-5 hover:bg-[#293dc8]"
+                        [ngClass]="dropDownItem == i && item.sub && item.active ? 'drop-down-show':'drop-down-hide'"
+                        class="justify-end p-2.5 pr-8 flex cursor-pointer space-y-5 "
                       >
                         <a
+
                           class="text-white no-underline font-medium block"
                           [routerLink]="sub.path"
-                          (click)="clickRoute(item.activeRoute)"
+                          (click)="clickRoute(sub.activeRoute , i)"
                           >{{ sub.name }}</a
                         >
                       </li>
@@ -111,21 +113,13 @@
                   <i class="icon-menu-log-out mr-1"></i>
                   </button>
                 </a>
-        
-                <!-- <a [href]="panelUrl" target="_blank">
-                  <button
-                    class="text-1.5xl header-panel-button font-medium rounded-3xl py-1 pr-4 pl-2 !bg-[#7683E2] flex"
-                  >
-                  ورود به پنل
-                  <i class="Arrow-left-icon-white scale-50"></i>
-                  </button>
-                </a> -->
-        
+
               </li>
             </div>
             </ul>
             <!-- ===============[سرچ]========= -->
-          <div *ngIf="!hideSearch" class="relative w-full search-animation">
+          
+          <div *ngIf="!hideSearch" class="relative w-full search-animation" >
 
             <div class="icon-search-close absolute">
               <i class="close-cross w-5 aspect-square cursor-pointer" (click)="closeSearh()"></i>
@@ -144,9 +138,9 @@
               <ng-container *ngIf="sendDataToChild" >
                 <div *ngFor="let tags of tagsMenu" class="mt-8">
                   <button
-                  class=""
+                  class="text-white text-sm font-medium px-4 py-2 rounded-3xl bg-[#202fa0]"
+                  (click)="searchTag(tags.title)"
                   >
-                  <!-- (click)="searchTag(tags.title)" -->
                   <span>#</span>{{ tags.title}}
                   </button>
                 </div>
