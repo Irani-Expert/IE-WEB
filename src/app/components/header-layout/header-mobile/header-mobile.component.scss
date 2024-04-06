@@ -36,7 +36,14 @@
     transform: translate(0rem, 0rem);
     transition: transform 0.2s;
     animation: display 0.47s ease-in forwards;
-  }
+}
+.drop-down-icon{
+  transition: all 0.25s ease-in-out;
+}
+.drop-down-icon-up{
+rotate: 180deg;
+transition: all 0.25s ease-in-out;
+}
 .hide-div{
   width: 100vw;
   height: 100vh;
@@ -59,10 +66,8 @@
   scale: 0.9;
   opacity: 0.5;
 }
+
 .icon-search-close{
-  // width: 1.25rem;
-  // cursor: pointer;
-  // aspect-ratio: 1/1;
   transform: translate(-18.5rem, 3.5rem);
 }
 .box-search{
@@ -71,6 +76,7 @@
 .search-animation{
     animation: display 0.47s ease-in forwards;
 }
+
 .input-search-mobile-header {
   width: 67%;
   height: 2.5rem;
