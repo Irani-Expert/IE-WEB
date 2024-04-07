@@ -18,6 +18,7 @@ import { Subject, Subscription, debounceTime, tap } from 'rxjs';
 import { style, transition, trigger, animate } from '@angular/animations';
 import { BlogService } from 'src/app/classes/services/blog.service';
 import { ITags } from 'src/app/classes/interfaces/tags.interface';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-header-mobile',
@@ -36,7 +37,7 @@ import { ITags } from 'src/app/classes/interfaces/tags.interface';
   styleUrls: ['./header-mobile.component.scss'],
 })
 export class HeaderMobileComponent extends Header {
-  body = document.body;
+  body = AppComponent.isBrowser.value ? document.body : new HTMLElement();
 
   // ===========[آواتار]=====
   user$;
