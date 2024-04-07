@@ -68,12 +68,12 @@ export class HeaderMobileComponent extends Header {
   }
 
   // ==========[به دست آوردن سایز]======
-  @HostListener('window:resize', ['$event'])
   width: number;
   height: number;
   xImg: number;
   yImg: number;
-
+  
+  @HostListener('window:resize', ['$event'])
   getSize() {
     let width = window.visualViewport?.width;
     let height = window.visualViewport?.height;
@@ -83,7 +83,16 @@ export class HeaderMobileComponent extends Header {
     this.height = height!;
   }
 
+  @HostListener('window:resize', ['$event'])
   ngOnInit() {
+
+    let width = window.visualViewport?.width;
+
+    if (width! > 1023){
+      console.log('this width is:', width);
+      document.body.classList.remove('overflow-hidden');
+    }
+
     this._searchInputSubscription = this._searchinput
       .pipe(debounceTime(700))
       .subscribe((value) => {
@@ -146,11 +155,9 @@ export class HeaderMobileComponent extends Header {
   // =============[روت]========
   clickRoute(activeRoute: boolean | undefined, index: number) {
     if (activeRoute == true) {
-      console.log('hide is true');
       this.closeMenu();
       this.items[index].active = !this.items[index].active;
     } else {
-      console.log('hide is false');
       this.hideMenu = false;
     }
   }

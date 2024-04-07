@@ -34,13 +34,22 @@
     <div class="menu-mobile">
 
         <div @fadeIn *ngIf="!hideMenu" [ngClass]="hideMenu?'hide-menu':'show-menu'">
+
+          <!-- ===============[ عکس]========= -->
+
           <ng-container *ngIf="hideSearch">
             <div class="absolute z-[100] pt-12" [ngClass]="hideMenu?'-z-50':'z-[100]'" @fadeIn>
               <img src="{{imgScreen}}" class="w-48 md:w-[28rem] h-[38rem] cursor-pointer rounded-3xl img-menu"
               (click)="closeMenu()">
               <img src="{{imgScreen}}" class="w-48 md:w-[28rem] h-[38rem] rounded-3xl img-menu-2">
+              <div class="absolute text-center w-44 rotate-90 top-96 left-[1.3rem] md:left-[17.3rem]">
+                <p class="bg-[#202fa0] text-white cursor-pointer img-click" (click)="closeMenu()">
+                  جهت ادامه دادن کلیک کنید
+                </p>
+              </div>
             </div>
           </ng-container>
+
           <ul
           class="w-full pt-24 fixed h-[102vh] text-1.5xl top-0 left-0 bg-main-blue ">
           <div @fadeIn class="items-start flex flex-col w-full h-full" *ngIf="hideSearch">
@@ -52,7 +61,7 @@
                 </a>
                 <div>
                   <p class="text-white text-lg">{{username}}</p>
-                  <p class="text-white text-sm">روز خوبی داشته باشی!</p>
+                  <p class="text-white text-sm">جهت ورود به پنل کلیک کنید</p>
                 </div>
               </div>
               <!-- ===============[جست و جو]========= -->

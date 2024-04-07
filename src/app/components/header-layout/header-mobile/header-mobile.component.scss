@@ -83,6 +83,13 @@ transition: all 0.25s ease-in-out;
   color: white;
   max-width: 450px;
 }
+.img-click{
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  border-top-right-radius: 26px;
+  border-top-left-radius: 26px;
+}
   @keyframes display {
     0% {
       opacity: 0;

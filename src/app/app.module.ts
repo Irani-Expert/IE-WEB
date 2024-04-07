@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { HeaderLayoutComponent } from './components/header-layout/header-layout.component';
 import { HeaderLgComponent } from './components/header-layout/header-lg/header-lg.component';
-import { HeaderSmComponent } from './components/header-layout/header-sm/header-sm.component';
+// import { HeaderSmComponent } from './components/header-layout/header-sm/header-sm.component';
 import { HeaderMobileComponent } from './components/header-layout/header-mobile/header-mobile.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -37,7 +37,7 @@ export function playerFactory(): any {
 const header = [
   HeaderLayoutComponent,
   HeaderLgComponent,
-  HeaderSmComponent,
+  // HeaderSmComponent,
   HeaderSearchComponent,
   HeaderMobileComponent,
 ];
