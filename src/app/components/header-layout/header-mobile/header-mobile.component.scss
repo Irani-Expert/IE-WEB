@@ -7,8 +7,6 @@
 .show-menu {
     display: flex !important;
     justify-content: left;
-    // animation: display 0.47s ease-in forwards;
-    // transition: transform 0.2s;
     transform: translate(-1rem, -5rem);
     position: relative;
     z-index: 60;
@@ -16,7 +14,6 @@
   }
   .hide-menu {
     display: block !important;
-    // animation: displayOut 0.25s ease-in forwards;
     position: relative;
     z-index: -10;
     transform: translate(-1rem, 0rem);
@@ -67,9 +64,6 @@ transition: all 0.25s ease-in-out;
   opacity: 0.5;
 }
 
-.icon-search-close{
-  transform: translate(-18.5rem, 3.5rem);
-}
 .box-search{
   transform: translate(-2.5rem, 12.6rem);
 }
@@ -87,6 +81,7 @@ transition: all 0.25s ease-in-out;
   border-radius: 20px;
   background-color: #202fa0;
   color: white;
+  max-width: 450px;
 }
   @keyframes display {
     0% {
