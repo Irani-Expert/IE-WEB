@@ -5,12 +5,13 @@ import { BlogService } from 'src/app/classes/services/blog.service';
 @Component({
   selector: 'app-articles',
   templateUrl: './articles.component.html',
-  styleUrls: ['./articles.component.scss']
+  styleUrls: ['./articles.component.scss'],
 })
 export class ArticlesComponent {
-  constructor (public blogService : BlogService , private _sanitizer : DomSanitizer
-    //  ,private _meta: Meta
-     ){}
+  constructor(
+    public blogService: BlogService,
+    private _sanitizer: DomSanitizer //  ,private _meta: Meta
+  ) {}
   sendDataToChild = false;
   title: string = '';
   language: string = '';
@@ -18,8 +19,7 @@ export class ArticlesComponent {
   articleHtml: SafeHtml;
 
   async ngAfterViewInit() {
-      if (await this.getDetail('Blog', 'fa')) {
-
+    if (await this.getDetail('Blog', 'fa')) {
       this.id = Number(this.blogService._blog?.id);
       this.articleHtml = this._sanitizer.bypassSecurityTrustHtml(
         this.blogService._blog!.description
@@ -28,21 +28,22 @@ export class ArticlesComponent {
       // this.blogService._blog!.linkTags.forEach((item) => {
       //   keywords += `${item.title.replace(/#/g, '')},`;
       // });
-                // =======[متاتگ ها]======
-    // this._meta.updateTag({
-    //   name: 'description',
-    //   content: this.blogService._blog!.metaDescription,
-    // });
-    // this._meta.updateTag({
-    //   name: 'author',
-    //   content:
-    //   this.blogService._blog!.updatedByFirstName +
-    //   this.blogService._blog!.updatedByLastName,
-    // });
-    // this._meta.updateTag({
-    //   name: 'keywords',
-    //   content: keywords,
-    // });
+      // =======[متاتگ ها]======
+      // this._meta.updateTag({
+      //   name: 'description',
+      //   content: this.blogService._blog!.metaDescription,
+      // });
+      // this._meta.updateTag({
+      //   name: 'author',
+      //   content:
+      //   this.blogService._blog!.updatedByFirstName +
+      //   this.blogService._blog!.updatedByLastName,
+      // });
+      // this._meta.updateTag({
+      //   name: 'keywords',
+      //   content: keywords,
+      // });
+      console.log(this.blogService._blog);
 
       this.sendDataToChild = true;
     }

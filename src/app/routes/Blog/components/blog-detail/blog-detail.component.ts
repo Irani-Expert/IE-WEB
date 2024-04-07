@@ -2,6 +2,7 @@ import { Component, HostListener, Input } from '@angular/core';
 import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
 import { AppComponent } from 'src/app/app.component';
 import { SingleBlog } from 'src/app/classes/interfaces/blog.interface';
+import { RouteService } from 'src/app/classes/services/route.service';
 
 import { Utils } from 'src/app/classes/utils';
 import { FAQ } from 'src/app/routes/Home/components/questions/interfaces/faq-interfce';
@@ -50,7 +51,7 @@ export class BlogDetailComponent {
   // =======================[رسپانسیو]==========
 
   device: 'sm' | 'lg' = 'lg';
-  color : string;
+  color: string;
 
   @HostListener('window:resize', ['$event'])
   onResize() {
@@ -69,7 +70,8 @@ export class BlogDetailComponent {
   constructor(
     private _sanitizer: DomSanitizer,
     private _title: Title,
-    private _meta: Meta
+    private _meta: Meta,
+    private _routeService: RouteService
   ) {}
 
   ngOnInit() {
@@ -77,18 +79,20 @@ export class BlogDetailComponent {
 
     this.setArticleDetail();
 
-    if (this.articleModel.colorCode == null || undefined){
+    var titleData = {
+      routename: this.articleModel.title,
+    };
+    this._routeService.changePersianRouteName(titleData);
+
+    if (this.articleModel.colorCode == null || undefined) {
       this.color = '#0066FF';
-    } 
-    else{
-      this.color = this.articleModel.colorCode;        
+    } else {
+      this.color = this.articleModel.colorCode;
     }
 
-    if (this.articleModel.studyTime == null || undefined){
-      
-      this.articleModel.studyTime = '00:15:00'
-    } 
-
+    if (this.articleModel.studyTime == null || undefined) {
+      this.articleModel.studyTime = '00:15:00';
+    }
   }
   setPage() {
     if (AppComponent.isBrowser.value) {
