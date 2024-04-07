@@ -37,8 +37,6 @@ import { AppComponent } from 'src/app/app.component';
   styleUrls: ['./header-mobile.component.scss'],
 })
 export class HeaderMobileComponent extends Header {
-  body = AppComponent.isBrowser.value ? document.body : new HTMLElement();
-
   // ===========[آواتار]=====
   user$;
   panelUrl = '';
@@ -58,6 +56,15 @@ export class HeaderMobileComponent extends Header {
   ) {
     super(navService);
     this.user$ = this.auth.userSubject.asObservable();
+
+    this.user$.subscribe({
+      next: async (val) => {
+        if (val.token !== '') {
+          this.username = val.firstName + ' ' + val.lastName;
+          this.panelUrl = `https://panel.iraniexpert.com/#/checkUserPermission?token=${val.token}`;
+        }
+      },
+    });
   }
 
   // ==========[به دست آوردن سایز]======
@@ -99,7 +106,7 @@ export class HeaderMobileComponent extends Header {
   }
   // ===========[اسکرین شات و منو]===========
   openMenu() {
-    this.body.classList.add('overflow-hidden');
+    document.body.classList.add('overflow-hidden');
 
     this.getSize();
 
@@ -127,7 +134,6 @@ export class HeaderMobileComponent extends Header {
           } else {
             this.imgScreen = '';
           }
-          console.log(img);
         })
       )
       .subscribe();
@@ -135,7 +141,7 @@ export class HeaderMobileComponent extends Header {
 
   closeMenu() {
     this.hideMenu = true;
-    this.body.classList.remove('overflow-hidden');
+    document.body.classList.remove('overflow-hidden');
   }
   // =============[روت]========
   clickRoute(activeRoute: boolean | undefined, index: number) {
@@ -219,15 +225,6 @@ export class HeaderMobileComponent extends Header {
       },
     });
     HeaderLayoutComponent.modalStatus = true;
-
-    this.user$.subscribe({
-      next: async (val) => {
-        if (val.token !== '') {
-          this.username = val.firstName + ' ' + val.lastName;
-          this.panelUrl = `https://panel.iraniexpert.com/#/checkUserPermission?token=${val.token}`;
-        }
-      },
-    });
   }
   // =======[ خروج از حساب کاربری]========
 
