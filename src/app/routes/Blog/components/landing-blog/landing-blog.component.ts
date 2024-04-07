@@ -73,12 +73,14 @@ export class LandingBlogComponent {
     this.updateDeviceValue();
   }
   updateDeviceValue() {
-    if (AppComponent.isBrowser.value) {
+    if (this.isBrowser) {
       if (Utils.isMobileL()) {
         this.device = 'sm';
       } else {
         this.device = 'lg';
       }
+    } else {
+      console.log('SSR => Host Listening Denied');
     }
   }
 
@@ -94,5 +96,9 @@ export class LandingBlogComponent {
   }
   ngOnDestroy() {
     AppComponent.changeMainBg('white');
+  }
+
+  get isBrowser() {
+    return AppComponent.isBrowser.value;
   }
 }

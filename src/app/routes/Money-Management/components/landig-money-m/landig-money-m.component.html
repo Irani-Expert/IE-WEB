@@ -25,6 +25,7 @@
     </div>
   </div>
 </div>
+
 <div class="lg:grid lg:grid-cols-4 lg:mx-4 py-16 px-4">
   <div class="ml-4 lg:block hidden">
     <app-blog-filter [type]="'tags'" [categoryTags]="tags">
@@ -35,6 +36,17 @@
     <ng-container *ngIf="sendDataToChild">
     <app-hero-m [data]="blogService._blog!"></app-hero-m>
     <app-articles-money [data]="blogService._blog!"></app-articles-money>
+    <!-- ======[فیلتر رسپانسیو]===== -->
+    <div class="block lg:hidden">
+      <app-filter-responsive
+      [categoryDetailIcon]="categoryDetailIcon"
+      [data]="color"
+      [categoryTags]="tags"
+      [type]="'tags'"
+    >
+      <p header class="text-black w-28">دسترسی سریع</p>
+    </app-filter-responsive>
+    </div>
     <app-free-advice></app-free-advice>
     <app-vote [data]="blogService._blog!" ></app-vote>
     <app-comments

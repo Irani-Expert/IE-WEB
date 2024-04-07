@@ -117,7 +117,9 @@
 <div class="sm:bg-white bg-[#F5F5F5]">
   <div>
     <app-hero (scroll)="scroll($event)" />
-    <app-tags />
+    <ng-container *ngIf="sendDataToChild" >
+      <app-tags [data]="tags" />
+    </ng-container>
     <app-service-baner />
     <app-instagram-baner />
     <app-trade-beginning />

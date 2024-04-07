@@ -12,7 +12,9 @@ import { environment } from 'src/environments/environment.dev';
   styleUrls: ['./copy-trade.component.scss'],
 })
 export class CopyTradeComponent {
+  categoryDetailIcon: string = 'assets/icon/filter-icon-blog(detail).svg';
   color: string;
+  
   constructor(
     private _meta: Meta,
     public blogService: BlogService,

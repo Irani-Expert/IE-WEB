@@ -90,7 +90,9 @@ export class BlogPaginationComponent {
                   this.savedParams = { ...item };
                 });
                 this._linkService.createLink(
-                  `https://www.iraniexpert.com/articles/page/${parseInt(arrayOfUrlSegments[3])}`
+                  `https://www.iraniexpert.com/articles/page/${parseInt(
+                    arrayOfUrlSegments[3]
+                  )}`
                 );
                 this.blogFilter.pageIndex = parseInt(arrayOfUrlSegments[3]) - 1;
                 this.getBlogs();
@@ -135,7 +137,7 @@ export class BlogPaginationComponent {
     this.updateDeviceValue();
   }
   updateDeviceValue() {
-    if (AppComponent.isBrowser.value) {
+    if (this.isBrowser) {
       if (Utils.isMobileL()) {
         this.device = 'sm';
       } else {
@@ -220,5 +222,9 @@ export class BlogPaginationComponent {
     this.router.navigateByUrl(
       `articles/page/${this.blogFilter.pageIndex + 1}?${this._querystring}`
     );
+  }
+
+  get isBrowser() {
+    return AppComponent.isBrowser.value;
   }
 }

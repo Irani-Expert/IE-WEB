@@ -366,6 +366,7 @@
 </div> -->
 
 <!-- Description -->
+<ng-container *ngIf="sendDataToChild">
 
 <div id="description" class="flex flex-col lg:flex-row mx-4 my-5">
   <div class="basis-full hidden lg:block max-w-[370px] min-w-[270px]">
@@ -374,6 +375,18 @@
     </app-blog-filter>
   </div>
   <div class="basis-full lg:basis3/4 flex flex-col mx-4">
+            <!-- ==========[رسپانسیو دسترسی سریع]===== -->
+            <div class="block lg:hidden">
+              <app-filter-responsive
+              [categoryDetailIcon]="categoryDetailIcon"
+              [data]="'white'"
+              [categoryTags]="tags"
+              [type]="'tags'"
+            >
+              <p header class="text-black w-28">دسترسی سریع</p>
+            </app-filter-responsive>
+            </div>
+            <!-- ==========[]===== -->
     <div class="flex justify-between my-4">
       <div class="flex items-center w-44">
         <i class="ie-icon ie-broker-group scale-90"></i>
@@ -415,6 +428,7 @@
       </div>
     </div>
     <div id="ckeditor" [innerHTML]="brokerDescHtml"></div>
+
     <div
       *ngIf="dataLoaded.value"
       class="flex flex-col md:flex-row justify-center items-stretch gap-10 mt-8"
@@ -477,3 +491,4 @@
   </p>
 </div> -->
 </div>
+</ng-container>

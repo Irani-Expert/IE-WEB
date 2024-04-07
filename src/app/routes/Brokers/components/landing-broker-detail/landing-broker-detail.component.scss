@@ -11,3 +11,25 @@
   top: -4px;
   font-weight: 900;
 }
+
+.broker-titile {
+  .title-b {
+    font-weight: 400;
+    color: black;
+    font-size: 1.1rem;
+  }
+  .broker-h {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: black;
+    &::before {
+      content: "";
+      width: 1.7rem;
+      height: 7px;
+      background-color: #098b41;
+      border-radius: 6px;
+      display: inline-block;
+      margin: 2px 6px;
+    }
+  }
+}

@@ -9,6 +9,7 @@ import { CurrencyPipe } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
 import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
 import { LinkService } from 'src/app/classes/services/link.service';
+import { ITags } from 'src/app/classes/interfaces/tags.interface';
 // import { GetAverageRGB } from 'src/app/classes/tranparent-img';
 // import { base64Maker } from 'src/app/classes/base64Maker';
 
@@ -154,12 +155,20 @@ export class SingleBrokerComponent {
   //   }
   // }, 2000);
   // }
+  
+  tags: ITags[];
+  categoryDetailIcon: string = 'assets/icon/filter-icon-blog(detail).svg';
+  sendDataToChild = false;
+
   setSeo(apiData = new ApiBrokerModel()) {
     let keywords = '';
     apiData.linkTags.forEach((item) => {
       keywords += `${item.title.replace(/#/g, '')},`;
-    });
+    }); 
+    this.tags = apiData.sharpLinkTags;
 
+    console.log(this.tags);
+    
     this._meta.updateTag({
       name: 'description',
       content: apiData.metaDescription,
@@ -177,5 +186,7 @@ export class SingleBrokerComponent {
     this._linkService.createLink(
       `https://www.iraniexpert.com/brokers/${apiData.browserTitle}/${language}`
     );
+
+    this.sendDataToChild = true;
   }
 }

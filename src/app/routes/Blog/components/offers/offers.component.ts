@@ -25,7 +25,7 @@ export class OffersComponent {
     this.updateDeviceValue();
   }
   updateDeviceValue() {
-    if (AppComponent.isBrowser.value) {
+    if (this.isBrowser) {
       if (Utils.isMobileL()) {
         this.device = 'sm';
       } else {
@@ -45,5 +45,9 @@ export class OffersComponent {
       .reverse();
 
     this.popularBlog = sortedArr.slice(0, 5);
+  }
+
+  get isBrowser() {
+    return AppComponent.isBrowser.value;
   }
 }

@@ -7,6 +7,8 @@ export interface IMenuItem {
   icon?: string;
   type: 'dropdown' | 'link';
   active?: boolean;
+  activeRoute?: boolean;
+  iconDropDown?: string;
 }
 interface IChildItem extends IMenuItem {
   parentID: number;

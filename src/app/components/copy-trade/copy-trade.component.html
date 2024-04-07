@@ -52,6 +52,16 @@
     <app-content-menu [data]="listElems" [wid]="100"></app-content-menu>
      <div id="ckeditor" [innerHTML]="articleHtml" class="mt-6 copy-trade money-m"></div>
      <h3 class="sr-only">جمع بندی </h3>
+     <div class="block lg:hidden">
+      <app-filter-responsive
+      [categoryDetailIcon]="categoryDetailIcon"
+      [data]="'white'"
+      [categoryTags]="tags"
+      [type]="'tags'"
+    >
+      <p header class="text-black w-28">دسترسی سریع</p>
+    </app-filter-responsive>
+    </div>
     <app-free-advice></app-free-advice>
     <!-- <app-qa [Q]="'سوال 1'" [A]="'جواب 1'"></app-qa> -->
     <app-vote [data]="blogService._blog!"></app-vote>

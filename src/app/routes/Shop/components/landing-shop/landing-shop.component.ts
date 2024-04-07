@@ -111,6 +111,7 @@ export class LandingShopComponent {
     private meta: Meta,
     private _linkService: LinkService
   ) {
+    this._linkService.createLink(`https://www.iraniexpert.com/shop`);
     this._filterService.filterModelSubject = new BehaviorSubject(
       this.filterModel
     );
@@ -150,34 +151,31 @@ export class LandingShopComponent {
           if (event instanceof Scroll) {
             if (event.routerEvent instanceof NavigationEnd) {
               this.openNav = 0;
+              // let indexOfStartingQueries =
+              //   event.routerEvent.urlAfterRedirects.indexOf('?');
+              // const arrayOfUrlSegments = event.routerEvent.urlAfterRedirects
+              //   .slice(
+              //     0,
+              //     indexOfStartingQueries !== -1
+              //       ? indexOfStartingQueries
+              //       : event.routerEvent.urlAfterRedirects.length
+              //   )
+              //   .split('/');
+              // if (arrayOfUrlSegments[3] == '0') {
+              //   this._router.navigateByUrl('shop');
+              // } else {
+              this._activatedRoute.queryParams.subscribe(async (item) => {
+                await this.fillFilterOnNav(item);
+                this.savedParams = { ...item };
+              });
+              this.filterModel.pageIndex = 0;
 
-              let indexOfStartingQueries =
-                event.routerEvent.urlAfterRedirects.indexOf('?');
-              const arrayOfUrlSegments = event.routerEvent.urlAfterRedirects
-                .slice(
-                  0,
-                  indexOfStartingQueries !== -1
-                    ? indexOfStartingQueries
-                    : event.routerEvent.urlAfterRedirects.length
-                )
-                .split('/');
-              if (arrayOfUrlSegments[3] == '0') {
-                this._router.navigateByUrl('shop');
-              } else {
-                this._activatedRoute.queryParams.subscribe(async (item) => {
-                  await this.fillFilterOnNav(item);
-                  this.savedParams = { ...item };
-                });
-                this.filterModel.pageIndex =
-                  parseInt(arrayOfUrlSegments[3]) - 1;
-
-                this._linkService.createLink(
-                  `https://www.iraniexpert.com/articles/page/${parseInt(
-                    arrayOfUrlSegments[3]
-                  )}`
-                );
-                this.getProducts();
-              }
+              //   page/${parseInt(
+              //     arrayOfUrlSegments[3]
+              //   )}`
+              // );
+              this.getProducts();
+              // }
             }
           }
         },
@@ -229,7 +227,7 @@ export class LandingShopComponent {
 
   setPage(pageNumber: number) {
     this.productService.prdArray.next(null);
-    this._router.navigateByUrl(`shop/page/${pageNumber}?${this._querystring}`);
+    this._router.navigateByUrl(`shop?${this._querystring}`);
   }
 
   // Fill The Filter On Reloads or Navigations  --------------------------------------->
@@ -292,14 +290,10 @@ export class LandingShopComponent {
 
     if (event !== '') {
       this.savedParams = { ...this.savedParams, ...{ productName: event } };
-      this._router.navigateByUrl(
-        `shop/page/${this.filterModel.pageIndex + 1}?${this._querystring}`
-      );
+      this._router.navigateByUrl(`shop?${this._querystring}`);
     } else {
       delete this.savedParams['productName'];
-      this._router.navigateByUrl(
-        `shop/page/${this.filterModel.pageIndex + 1}?${this._querystring}`
-      );
+      this._router.navigateByUrl(`shop?${this._querystring}`);
     }
   }
 
@@ -332,9 +326,7 @@ export class LandingShopComponent {
         ...this.savedParams,
         ...{ category: `[${categoryString}]` },
       };
-      this._router.navigateByUrl(
-        `shop/page/${this.filterModel.pageIndex + 1}?${this._querystring}`
-      );
+      this._router.navigateByUrl(`shop?${this._querystring}`);
     } else {
       let index = this.filterModel.categories.findIndex((it) => it == type);
       this.filterModel.categories.splice(index, 1);
@@ -353,9 +345,7 @@ export class LandingShopComponent {
           ...{ category: `[${categoryString}]` },
         };
       }
-      this._router.navigateByUrl(
-        `shop/page/${this.filterModel.pageIndex + 1}?${this._querystring}`
-      );
+      this._router.navigateByUrl(`shop?${this._querystring}`);
     }
   }
 
@@ -376,9 +366,7 @@ export class LandingShopComponent {
       ...this.savedParams,
       ...{ rates: `[${event[0]}]` },
     };
-    this._router.navigateByUrl(
-      `shop/page/${this.filterModel.pageIndex + 1}?${this._querystring}`
-    );
+    this._router.navigateByUrl(`shop?${this._querystring}`);
   }
   deleteFilters(event: boolean) {
     if (event) {
@@ -386,7 +374,7 @@ export class LandingShopComponent {
       this.ratingConfig.content.currentRate = 0;
       this.productService.prdArray.next(null);
       this.filterModel = new FilterProduct();
-      this._router.navigateByUrl(`shop/page`);
+      this._router.navigateByUrl(`shop`, { onSameUrlNavigation: 'reload' });
     }
   }
   @HostListener('window:resize', ['$event'])

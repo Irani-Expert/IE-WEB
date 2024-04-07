@@ -13,13 +13,15 @@
       </div>
       <!-- ////////////////[اسکرول کارت]////////////////// -->
       <div class="flex flex-nowrap items-center">
-        <drag-scroll>
-          <ng-container *ngFor="let item of popularBlog">
-            <div class="cart" drag-scroll-item>
-              <app-blog-cart [data]="item"></app-blog-cart>
-            </div>
-          </ng-container>
-        </drag-scroll>
+        <ng-container *ngIf="isBrowser">
+          <drag-scroll>
+            <ng-container *ngFor="let item of popularBlog">
+              <div class="cart" drag-scroll-item>
+                <app-blog-cart [data]="item"></app-blog-cart>
+              </div>
+            </ng-container>
+          </drag-scroll>
+        </ng-container>
       </div>
     </div>
     <!-- ==============[جدیدترین]================ -->
@@ -62,8 +64,8 @@
                 جهت دریافت آخرین اخبار و مقالات به خبرنامه بپیوندید
               </span>
               <p class="p-baner">
-                آخرین اخبار دنیای ارزهای دیجیتال،شبکه پرداخت ارزی،کسب درامد دلاری،
-                تکنولوژی و دنیای بازارهای مالی در ایرانی اکسپرت
+                آخرین اخبار دنیای ارزهای دیجیتال،شبکه پرداخت ارزی،کسب درامد
+                دلاری، تکنولوژی و دنیای بازارهای مالی در ایرانی اکسپرت
               </p>
             </div>
           </div>
@@ -78,7 +80,7 @@
               </div>
             </div>
           </div>
-         </div>
+        </div>
       </div>
       <div
         class="absolute w-full h-full z-10 bg-transparent translate-x-[50%] translate-y-[-50%] top-[50%] right-[50%]"

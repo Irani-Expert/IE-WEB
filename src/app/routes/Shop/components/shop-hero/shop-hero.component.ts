@@ -14,9 +14,10 @@ import { Utils } from 'src/app/classes/utils';
 import { AppComponent } from 'src/app/app.component';
 import { environment } from 'src/environments/environment.dev';
 import { OrderService } from 'src/app/classes/services/order.service';
-import { BskItem } from 'src/app/classes/interfaces/basket.interface';
+import { Basket, BskItem } from 'src/app/classes/interfaces/basket.interface';
 import { Router } from '@angular/router';
 import { CarouselImage } from 'src/app/shared/carousel/carousel';
+import { LocalStorageService } from 'src/app/classes/local-storage';
 // import { OrderService } from 'src/app/classes/services/order.service';
 
 const planInit: planInterface = {
@@ -37,7 +38,11 @@ const planInit: planInterface = {
 export class ShopHeroComponent implements OnInit {
   galleryImages: CarouselImage[] = new Array<CarouselImage>();
   contentUrl = environment.contentUrl;
-  constructor(private _orderService: OrderService, private router: Router) {
+  constructor(
+    private _orderService: OrderService,
+    private router: Router,
+    private _localStorage: LocalStorageService
+  ) {
     this._orderService.basket.value.basketItems = [];
   } // private localStorage: LocalStorageService //
   @ViewChild('scroll') scroll: ElementRef;
@@ -53,15 +58,18 @@ export class ShopHeroComponent implements OnInit {
   plans: planInterface[] = new Array<planInterface>();
 
   async ngOnInit() {
-    let product: BskItem = {
-      count: 1,
-      price: 0,
-      rowID: this.product.id,
-      tableType: 6,
-      title: this.product.title,
-      id: this._orderService.basket.value.basketItems.length + 1,
-    };
-    this._orderService.pushToBSK(product);
+    let userBasket = JSON.parse(this._localStorage.getItem('user_basket')!);
+    if (userBasket) {
+      if (this.checkProductSimilarity(userBasket)) {
+        this._orderService.basket.next(userBasket);
+      } else {
+        this._localStorage.removeItem('user_basket');
+        this.addToBsk();
+      }
+    } else {
+      this.addToBsk();
+    }
+
     this.updateDeviceValue();
     this.product.plans
       .filter((it) => it.isActive == true)
@@ -127,7 +135,6 @@ export class ShopHeroComponent implements OnInit {
     return src;
   }
   async toCheckout(item: planInterface) {
-    this._orderService.basket.subscribe();
     let itemForBsk: BskItem = {
       count: 1,
       price: item.price,
@@ -143,7 +150,28 @@ export class ShopHeroComponent implements OnInit {
     //   totalPrice: itemForBsk.price,
     // };
     this._orderService.pushToBSK(itemForBsk);
-
+    this._localStorage.setItem(
+      'user_basket',
+      JSON.stringify(this._orderService.basket.value)
+    );
     this.router.navigateByUrl('checkout');
+  }
+
+  checkProductSimilarity(basket: Basket) {
+    let id = basket.basketItems.find((it) => it.tableType == 6)?.rowID;
+    if (id == this.product.id) return true;
+    else return false;
+  }
+
+  addToBsk() {
+    let product: BskItem = {
+      count: 1,
+      price: 0,
+      rowID: this.product.id,
+      tableType: 6,
+      title: this.product.title,
+      id: this._orderService.basket.value.basketItems.length + 1,
+    };
+    this._orderService.pushToBSK(product);
   }
 }

@@ -10,7 +10,6 @@ export class AddScriptService {
     let script = this.doc.createElement('script');
 
     script.setAttribute('src', src);
-    console.log(script);
 
     loc == 'head'
       ? this.doc.head.appendChild(script)

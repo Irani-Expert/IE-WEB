@@ -16,6 +16,8 @@ export class LandigMoneyMComponent {
   id: number = 0;
   sendDataToChild = false;
   tags: ITags[];
+  categoryDetailIcon: string = 'assets/icon/filter-icon-blog(detail).svg';
+  color = 'white';
 
   constructor(
     private _meta: Meta,

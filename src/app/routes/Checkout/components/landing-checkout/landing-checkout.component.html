@@ -1,14 +1,19 @@
 <div
   class="flex flex-row max-w-screen-2xl justify-center py-5 px-2 md:px-16 lg:px-20 items-start"
 >
-  <checkout-detail-card class="hidden lg:block basis-1/5" />
+  <checkout-detail-card
+    *ngIf="loadDetailSection"
+    class="hidden lg:block basis-1/5"
+  />
 
   <!-- Session User Details -------------------------------------------------------------->
 
   <div class="basis-full lg:basis-4/5" *ngIf="session == 0">
     <div class="flex flex-col px-5">
       <div class="space-y-2">
-        <strong class="text-base md:text-lg lg:text-2xl"
+        <strong
+          *ngIf="loadDetailSection"
+          class="text-base md:text-lg lg:text-2xl"
           >کاربر گرامی {{ user.firstName }} {{ user.lastName }}</strong
         >
         <p class="text-black">
@@ -20,16 +25,19 @@
       <div class="lg:hidden flex flex-row gap-4">
         <div class="basis-full max-w-[6.25rem] rounded-xl">
           <img
-            src="assets/img/Expert 1.webp"
-            class="w-full rounded-xl"
+            [src]="imageUrl"
+            class="w-full rounded-xl aspect-square object-cover"
             alt="product-img"
             width="20"
             height="30"
           />
         </div>
-        <div class="basis-full flex flex-col px-1 py-2">
-          <strong> {{ basket[0].title }}</strong>
-          <small class="block mt-2 mb-1"> {{ basket[1].title }}</small>
+        <div
+          *ngIf="basket.length > 0"
+          class="basis-full flex flex-col px-1 py-2"
+        >
+          <strong> {{ basket[0].title || "" }}</strong>
+          <small class="block mt-2 mb-1"> {{ basket[1].title || "" }}</small>
           <!-- <small class="block">{{ basket[1].title }}</small> -->
           <div class="flex flex-row justify-between items-center mt-auto">
             <p>

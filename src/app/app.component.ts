@@ -5,6 +5,13 @@ import { PlatformService } from './classes/services/platform.service';
 import { AuthService } from './shared/auth/auth.service';
 import { Header } from './components/header-layout/header';
 import { Utils } from './classes/utils';
+import {
+  ActivatedRoute,
+  Event,
+  NavigationEnd,
+  Router,
+  UrlSegment,
+} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -18,13 +25,23 @@ export class AppComponent {
     height: 'auto',
     path: './assets/lottie/loader.json',
   };
+  private routeStatus: NavigationEnd;
   static loaderSubject = new BehaviorSubject(false);
   // modalStatus;
   static isBrowser = new BehaviorSubject<boolean>(false);
   title = 'IE-WEB';
-  constructor(private platform: PlatformService, private auth: AuthService) {
+  constructor(
+    private platform: PlatformService,
+    private auth: AuthService,
+    private _router: Router
+  ) {
     if (this.platform.isPlatformBrowser()) {
       AppComponent.isBrowser.next(true);
+      this._router.events.subscribe({
+        next: (it) => {
+          if (it instanceof NavigationEnd) this.routeStatus = it;
+        },
+      });
     }
   }
   async ngOnInit() {
@@ -35,6 +52,9 @@ export class AppComponent {
         Header._btnDisabled = false;
         this.auth.rememberUser(res[1]);
       } else {
+        if (this.routeStatus.url.includes('checkout')) {
+          this._router.navigateByUrl('shop/atm-expert');
+        }
         Header._btnDisabled = false;
         this.auth.logOutUser();
       }

@@ -32,8 +32,11 @@ import {
 } from '@angular/material/datepicker';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { YearSelectorComponent } from './year-selector/year-selector.component';
+import { FilterResponsiveComponent } from '../routes/Blog/components/filter-responsive/filter-responsive.component';
+
 const components = [
   AcordianComponent,
+  FilterResponsiveComponent,
   CommentsComponent,
   TagsComponent,
   ScrollComponent,

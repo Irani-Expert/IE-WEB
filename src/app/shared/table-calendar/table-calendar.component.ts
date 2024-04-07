@@ -26,6 +26,7 @@ import { TableDetailComponent } from 'src/app/routes/table-detail/table-detail.c
   animations: [],
 })
 export class TableCalendar {
+  showDate = false;
   tableIsLoading = true;
   events: CalEvent[] = new Array<CalEvent>();
   isSyncing = false;
