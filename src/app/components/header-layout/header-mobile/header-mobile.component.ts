@@ -31,6 +31,9 @@ import { ITags } from 'src/app/classes/interfaces/tags.interface';
   styleUrls: ['./header-mobile.component.scss']
 })
 export class HeaderMobileComponent extends Header {
+
+  body = document.body;
+
   // ===========[آواتار]=====
   user$;
   panelUrl = '';
@@ -93,7 +96,10 @@ choosenLink(id: number) {
   this.link = id;
 }
 // ===========[اسکرین شات و منو]===========
-openCloseMenu(){
+openMenu(){
+
+  this.body.classList.add("overflow-hidden");
+
   this.getSize();
 
   
@@ -130,6 +136,11 @@ openCloseMenu(){
   .subscribe();
   
   
+}
+
+closeMenu(){
+  this.hideMenu = !this.hideMenu;
+  this.body.classList.remove("overflow-hidden");
 }
 // =============[روت]========
 clickRoute(activeRoute : boolean|undefined , index : number){

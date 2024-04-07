@@ -26,7 +26,7 @@
         </a>
 
         <div class="cursor-pointer ml-4 mr-8">
-          <i class="icon-menu" (click)="openCloseMenu()"></i>
+          <i class="icon-menu" (click)="openMenu()"></i>
         </div>
     </div>
 </div>
@@ -37,7 +37,7 @@
           <ng-container *ngIf="hideSearch">
             <div class="absolute z-[100] pt-12" [ngClass]="hideMenu?'-z-50':'z-[100]'" @fadeIn>
               <img src="{{imgScreen}}" class="w-48 md:w-[28rem] h-[38rem] cursor-pointer rounded-3xl img-menu"
-              (click)="openCloseMenu()">
+              (click)="closeMenu()">
               <img src="{{imgScreen}}" class="w-48 md:w-[28rem] h-[38rem] rounded-3xl img-menu-2">
             </div>
           </ng-container>
@@ -121,7 +121,7 @@
           
           <div *ngIf="!hideSearch" class="relative w-full search-animation" >
 
-            <div class="icon-search-close absolute">
+            <div class="top-16 left-14 absolute">
               <i class="close-cross w-5 aspect-square cursor-pointer" (click)="closeSearh()"></i>
             </div>
 
@@ -136,7 +136,7 @@
               </div>
 
               <ng-container *ngIf="sendDataToChild" >
-                <div *ngFor="let tags of tagsMenu" class="mt-8">
+                <div *ngFor="let tags of tagsMenu" class="mt-8 max-w-[450px]">
                   <button
                   class="text-white text-sm font-medium px-4 py-2 rounded-3xl bg-[#202fa0]"
                   (click)="searchTag(tags.title)"
