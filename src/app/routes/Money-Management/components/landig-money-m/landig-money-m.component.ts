@@ -42,9 +42,6 @@ export class LandigMoneyMComponent {
       this.blogService._blog!.linkTags.forEach((item) => {
         keywords += `${item.title.replace(/#/g, '')},`;
       });
-      console.log(this.tags);
-      console.log(keywords);
-      
       this._meta.updateTag({
         name: 'description',
         content: this.blogService._blog!.metaDescription,

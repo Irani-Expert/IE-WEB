@@ -17,7 +17,7 @@ export class CarouselBlogComponent {
   ngOnInit() {
     // console.log(this.itemOffers);
 
-    if (AppComponent.isBrowser.value) this.ds = DragScrollComponent;
+    if (this.isBrowser) this.ds = DragScrollComponent;
   }
   items = [
     {
@@ -46,11 +46,13 @@ export class CarouselBlogComponent {
     },
   ];
   moveLeft() {
-    this.ds.moveLeft();
+    if (this.isBrowser) this.ds.moveLeft();
+    else console.log('SSR => DragScroll Denied');
   }
 
   moveRight() {
-    this.ds.moveRight();
+    if (this.isBrowser) this.ds.moveRight();
+    else console.log('SSR => DragScroll Denied');
   }
 
   isRightBoundary(event: any) {
@@ -60,5 +62,9 @@ export class CarouselBlogComponent {
   isLeftBoundary(event: any) {
     if (event) this.leftReached = true;
     else this.leftReached = false;
+  }
+
+  get isBrowser() {
+    return AppComponent.isBrowser.value;
   }
 }

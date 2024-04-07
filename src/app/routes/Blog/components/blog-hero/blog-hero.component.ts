@@ -22,9 +22,8 @@ class BlogModel implements Blog {
   browserTitle: string = '';
   brief: string = '';
   language?: string = '';
-  favoriteCount : number = 0;
+  favoriteCount: number = 0;
   colorCode: string;
-
 }
 @Component({
   selector: 'app-blog-hero',
@@ -32,9 +31,8 @@ class BlogModel implements Blog {
   styleUrls: ['./blog-hero.component.scss'],
 })
 export class BlogHeroComponent {
-
-  @Input('linkType') linkType : number;
-  link : string = '';
+  @Input('linkType') linkType: number;
+  link: string = '';
   // Search Blog
   value: string | null = null;
   _searchInputSubscription: Subscription;
@@ -50,7 +48,7 @@ export class BlogHeroComponent {
 
   ngOnInit() {
     this.getUrl();
-    if (AppComponent.isBrowser.value) {
+    if (this.isBrowser) {
       this.ds = DragScrollComponent;
     }
     this.updateDeviceValue();
@@ -61,8 +59,8 @@ export class BlogHeroComponent {
       });
   }
 
-  getUrl(){
-    if (this.linkType == 2 ){
+  getUrl() {
+    if (this.linkType == 2) {
       this.link = '../../';
     }
     this.setLanguage();
@@ -74,7 +72,7 @@ export class BlogHeroComponent {
     this.updateDeviceValue();
   }
   updateDeviceValue() {
-    if (AppComponent.isBrowser.value) {
+    if (this.isBrowser) {
       if (Utils.isMobileL()) {
         this.device = 'sm';
       } else {
@@ -165,5 +163,9 @@ export class BlogHeroComponent {
   }
   searchFilterName(value: string) {
     this.router.navigateByUrl(`articles/page/1?blogName=${value}`);
+  }
+
+  get isBrowser() {
+    return AppComponent.isBrowser.value;
   }
 }
