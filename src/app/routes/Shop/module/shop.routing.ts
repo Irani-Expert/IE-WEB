@@ -5,9 +5,9 @@ import { LandingShopComponent } from '../components/landing-shop/landing-shop.co
 // import { LandingShopComponent } from '../components/landing-shop/landing-shop.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'page/1' },
-  { path: 'page', redirectTo: 'page/1', pathMatch: 'full' },
-  { path: 'page/:id', pathMatch: 'prefix', component: LandingShopComponent },
+  { path: '', pathMatch: 'prefix', component: LandingShopComponent },
+  // { path: 'page', redirectTo: 'page/1', pathMatch: 'full' },
+  // { path: 'page/:id', pathMatch: 'prefix', component: LandingShopComponent },
   {
     path: ':title',
     // title: 'خرید بهترین ربات ترید فارکس 2024 تضمینی با بستری ساده و امن',
