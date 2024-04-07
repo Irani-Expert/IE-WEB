@@ -90,6 +90,11 @@ export class MapComponent {
           let popup = this.createMarkerPopupContent(it.code);
 
           marker.bindPopup(popup);
+
+          // marker.on('mouseover', (e: any) => {
+          //   marker.bindTooltip(e);
+          //   console.log(e);
+          // });
         }
       }
     });
