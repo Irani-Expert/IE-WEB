@@ -65,6 +65,7 @@ export class LandingBlogDetailComponent extends HttpUrlEncodingCodec {
     if (await this.getItemBlogs(this.blogFilter)) {
       this.itemsBlog = this.blogService._paginatedBlogs?.items!;
       this.loading = false;
+      // console.log(this.itemsBlog);
     }
 
     // this.getItemBlogs(this.blogFilter);

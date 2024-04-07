@@ -29,6 +29,7 @@ import { JWTInterceptor } from './classes/jwt.interceptor';
 import { NgChartsModule } from 'ng2-charts';
 import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
 import { NgxCaptureModule } from 'ngx-capture';
+import { BreadcrumbsComponent } from './shared/breadcrumbs/breadcrumbs.component';
 
 export function playerFactory(): any {
   return import('lottie-web');
@@ -40,6 +41,7 @@ const header = [
   // HeaderSmComponent,
   HeaderSearchComponent,
   HeaderMobileComponent,
+  BreadcrumbsComponent,
 ];
 // Footer Comps
 const footer = [FooterComponent];

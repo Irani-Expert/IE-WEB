@@ -1,0 +1,13 @@
+<div
+  class="text-gray-400 px-6"
+  style="font-size: 15px; font-weight: 500; direction: rtl"
+>
+  <div class="flex">
+    <div *ngFor="let x of browserUrl">
+      {{ x }}
+      <span *ngIf="browserUrl.indexOf(x) !== browserUrl.length - 1"
+        >&#62;
+      </span>
+    </div>
+  </div>
+</div>
