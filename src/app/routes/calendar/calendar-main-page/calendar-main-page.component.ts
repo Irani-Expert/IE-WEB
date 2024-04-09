@@ -27,9 +27,10 @@ export class CalendarMainPageComponent {
   @ViewChild(TableCalendar, { static: false }) appTableComponent: TableCalendar;
   @ViewChild(ResponsiveTableComponent, { static: false })
   appResponsiveTableComponent: ResponsiveTableComponent;
-  filteredModel = new FilterEvents();
-  filter = new BehaviorSubject<FilterEvents>(new FilterEvents());
-  filter$ = this.filter.asObservable();
+  filteredModel: FilterEvents;
+
+  // filter = new BehaviorSubject<FilterEvents>(new FilterEvents());
+  // filter$ = this.filter.asObservable();
   importances = importances;
   today: string | undefined;
   tvStatus: number = 0;
@@ -38,6 +39,9 @@ export class CalendarMainPageComponent {
     public datepipe: DatePipe,
     private _linkService: LinkService
   ) {
+    this._ecoCalService.filter.subscribe((data) => {
+      this.filteredModel = data;
+    });
     this.today = this.datepipe.transform(new Date(), 'yyyy/MM/dd')?.toString();
     this._linkService.createLink(
       `https://www.iraniexpert.com/economic-calendar`
@@ -49,7 +53,7 @@ export class CalendarMainPageComponent {
   }
   async ngAfterViewInit() {
     // TradingViewComponent.createView();
-    this.filter$.subscribe({
+    this._ecoCalService.filter$.subscribe({
       next: async (item) => {
         this.appTableComponent.tableIsLoading = true;
         this.appTableComponent.events = [];
@@ -92,10 +96,10 @@ export class CalendarMainPageComponent {
     );
     if (index == -1) {
       this.filteredModel.importance.push(item.value);
-      this.filter.next(this.filteredModel);
+      this._ecoCalService.filter.next(this.filteredModel);
     } else {
       this.filteredModel.importance.splice(index, 1);
-      this.filter.next(this.filteredModel);
+      this._ecoCalService.filter.next(this.filteredModel);
     }
   }
 
@@ -168,13 +172,13 @@ export class CalendarMainPageComponent {
     this.filteredModel.sectors = data;
     this.appTableComponent.table = [];
 
-    this.filter.next(this.filteredModel);
+    this._ecoCalService.filter.next(this.filteredModel);
   }
   setSymbolServices(event: string[]) {
     this.filteredModel.currencies = event;
     this.appTableComponent.table = [];
 
-    this.filter.next(this.filteredModel);
+    this._ecoCalService.filter.next(this.filteredModel);
   }
   setCalDate(event: Date[]) {
     if (event[1] == undefined || String(event[0]) === String(event[1])) {
@@ -187,7 +191,7 @@ export class CalendarMainPageComponent {
       this.filteredModel.toTime = null;
       this.appTableComponent.table = [];
       this.appTableComponent.showDate = false;
-      this.filter.next(this.filteredModel);
+      this._ecoCalService.filter.next(this.filteredModel);
     } else {
       let fromDate = this.datepipe.transform(event[0], 'yyyy.MM.dd');
       let Todate = this.datepipe.transform(event[1], 'yyyy.MM.dd');
@@ -198,7 +202,7 @@ export class CalendarMainPageComponent {
       if (Todate != null) this.filteredModel.toTime = Todate;
       this.appTableComponent.table = [];
       this.appTableComponent.showDate = true;
-      this.filter.next(this.filteredModel);
+      this._ecoCalService.filter.next(this.filteredModel);
     }
   }
 

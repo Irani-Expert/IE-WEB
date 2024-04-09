@@ -66,8 +66,8 @@ export class ResponsiveTableComponent {
   modalStatus: boolean = false;
   isYearmodalOpen: boolean = false;
 
-  filteredModel = new FilterEvents();
-  filter = new BehaviorSubject<FilterEvents>(new FilterEvents());
+  filteredModel: FilterEvents;
+  // filter = new BehaviorSubject<FilterEvents>(new FilterEvents());
   dateType: string;
   @Output('modal') openingModal: EventEmitter<string> = new EventEmitter(false);
   @ViewChild('itemList') itemList: ElementRef;
@@ -75,7 +75,11 @@ export class ResponsiveTableComponent {
   constructor(
     private _ecoCalService: EcoCalService,
     private modal: ModalService
-  ) {}
+  ) {
+    this._ecoCalService.filter.subscribe((data) => {
+      this.filteredModel = data;
+    });
+  }
 
   ngOnInit() {
     const datepipe: DatePipe = new DatePipe('en-US');
@@ -148,14 +152,17 @@ export class ResponsiveTableComponent {
     event.forEach((x) => {
       data.push(x);
     });
+
     this.filteredModel.sectors = data;
-    this.getCal(this.filteredModel);
-    this.filter.next(this.filteredModel);
+    this._ecoCalService.filter.next(this.filteredModel);
+    debugger;
+    // this.getCal(this.filteredModel);
   }
   setSymbolServices(event: string[]) {
     this.filteredModel.currencies = event;
-    this.getCal(this.filteredModel);
-    this.filter.next(this.filteredModel);
+    this._ecoCalService.filter.next(this.filteredModel);
+    debugger;
+    // this.getCal(this.filteredModel);
   }
   selectDate(id: string) {
     this.selectedDay = id;
@@ -201,17 +208,18 @@ export class ResponsiveTableComponent {
     if (event[1] == undefined) {
       this.selectedYear = event[0].getFullYear();
       this.selectedMonth = event[0].getMonth();
-
+      debugger;
       this.filteredModel.currentTime = currentdate;
     } else {
       let todate = datepipe.transform(event[1], 'yyyy.MM.dd');
+      debugger;
       this.filteredModel.currentTime = null;
       this.filteredModel.fromTime = currentdate;
       this.filteredModel.toTime = todate;
     }
-
-    this.getCal(this.filteredModel);
-    this.filter.next(this.filteredModel);
+    this._ecoCalService.filter.next(this.filteredModel);
+    debugger;
+    // this.getCal(this.filteredModel);
   }
   async getCal(
     filter: FilterEvents,

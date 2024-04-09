@@ -12,12 +12,15 @@ import { Filter as FilterCalendar } from 'src/app/routes/calendar/calendar-main-
 import { environment } from 'src/environments/environment.dev';
 import { Country } from 'src/app/routes/calendar/map-components/map-country/country';
 import { GraphFinance } from '../interfaces/graph.interface';
-
+import { Filter as FilterEvents } from '../../routes/calendar/calendar-main-page/filter.model';
 @Injectable({
   providedIn: 'root',
 })
 export class EcoCalService extends BaseService<PageInterface<CalEvent[]>> {
   mapEvents = new BehaviorSubject<Country[]>(new Array<Country>());
+  filter = new BehaviorSubject<FilterEvents>(new FilterEvents());
+  filter$ = this.filter.asObservable();
+
   constructor(http: HttpClient, toastr: ToastrService) {
     super(http, toastr);
   }
