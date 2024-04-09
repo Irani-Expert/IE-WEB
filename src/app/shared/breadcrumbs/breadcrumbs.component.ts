@@ -39,7 +39,10 @@ export class BreadcrumbsComponent {
     this.browserUrl = this.browserUrl.filter((str) => str !== '');
 
     this.browserUrl.forEach((x) => {
-      if (x == 'articles' && this.persianroute['routename'] != 'data') {
+      if (
+        (x == 'articles' || x == 'shop') &&
+        this.persianroute['routename'] != 'data'
+      ) {
         this.persianRoute();
       }
     });

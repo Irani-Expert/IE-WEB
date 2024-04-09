@@ -72,7 +72,7 @@ export class HeaderMobileComponent extends Header {
   height: number;
   xImg: number;
   yImg: number;
-  
+
   @HostListener('window:resize', ['$event'])
   getSize() {
     let width = window.visualViewport?.width;
@@ -85,11 +85,9 @@ export class HeaderMobileComponent extends Header {
 
   @HostListener('window:resize', ['$event'])
   ngOnInit() {
-
     let width = window.visualViewport?.width;
 
-    if (width! > 1023){
-      console.log('this width is:', width);
+    if (width! > 1023) {
       document.body.classList.remove('overflow-hidden');
     }
 
