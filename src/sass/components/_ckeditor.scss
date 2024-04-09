@@ -1,4 +1,7 @@
 #ckeditor {
+  .table {
+    width: 100%;
+  }
   iframe {
     aspect-ratio: 16/9;
     width: 100%;
@@ -131,9 +134,9 @@
       }
     }
     &.checkmark-green {
-      margin-right: -1rem;
       list-style-type: none;
       li {
+        margin-bottom: 0.25rem;
         display: flex;
         align-items: flex-start;
         list-style: auto;
