@@ -75,27 +75,31 @@ export class HeaderMobileComponent extends Header {
 
   @HostListener('window:resize', ['$event'])
   getSize() {
-    let width = window.visualViewport?.width;
-    let height = window.visualViewport?.height;
-    let yScroll = window.scrollY;
-    this.yImg = yScroll;
-    this.width = width!;
-    this.height = height!;
+    if (AppComponent.isBrowser.value) {
+      let width = window.visualViewport?.width;
+      let height = window.visualViewport?.height;
+      let yScroll = window.scrollY;
+      this.yImg = yScroll;
+      this.width = width!;
+      this.height = height!;
+    }
   }
 
-  @HostListener('window:resize', ['$event'])
   ngOnInit() {
-    let width = window.visualViewport?.width;
+    let width: any;
+    if (AppComponent.isBrowser.value) {
+      width = window.visualViewport?.width;
 
-    if (width! > 1023) {
-      document.body.classList.remove('overflow-hidden');
+      if (width && width > 1023) {
+        document.body.classList.remove('overflow-hidden');
+      }
+
+      this._searchInputSubscription = this._searchinput
+        .pipe(debounceTime(700))
+        .subscribe((value) => {
+          this.searchFilterName(value);
+        });
     }
-
-    this._searchInputSubscription = this._searchinput
-      .pipe(debounceTime(700))
-      .subscribe((value) => {
-        this.searchFilterName(value);
-      });
   }
 
   hideMenu: boolean = true;
@@ -193,16 +197,18 @@ export class HeaderMobileComponent extends Header {
   tagsMenu: ITags[];
 
   async ngAfterViewInit() {
-    if (await this.getDetail('Home', 'fa')) {
-      this.tagsMenu = this._articleServices._blog!.sharpLinkTags;
-      this.sendDataToChild = true;
-    }
+    this._articleServices.singleBlog.asObservable().subscribe((item) => {
+      if (item) {
+        this.tagsMenu = item.sharpLinkTags;
+        this.sendDataToChild = true;
+      }
+    });
   }
 
-  async getDetail(title: string, language: string) {
-    const apiRes = await this._articleServices.getBlog(title, language);
-    return apiRes;
-  }
+  // async getDetail(title: string, language: string) {
+  //   const apiRes = await this._articleServices.getBlog(title, language);
+  //   return apiRes;
+  // }
 
   searchTag(searchingTag: string) {
     searchingTag = searchingTag.slice();
