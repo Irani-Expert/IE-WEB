@@ -3,9 +3,13 @@
   style="font-size: 15px; font-weight: 500; direction: rtl"
 >
   <div class="flex">
-    <div *ngFor="let x of browserUrl">
+    <div class="flex">
+      home
+      <span class="px-1"> &#62; </span>
+    </div>
+    <div class="flex" *ngFor="let x of browserUrl">
       {{ x }}
-      <span *ngIf="browserUrl.indexOf(x) !== browserUrl.length - 1"
+      <span class="px-1" *ngIf="browserUrl.indexOf(x) !== browserUrl.length - 1"
         >&#62;
       </span>
     </div>

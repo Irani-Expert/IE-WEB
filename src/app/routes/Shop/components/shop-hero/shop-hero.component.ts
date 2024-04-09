@@ -18,6 +18,7 @@ import { Basket, BskItem } from 'src/app/classes/interfaces/basket.interface';
 import { Router } from '@angular/router';
 import { CarouselImage } from 'src/app/shared/carousel/carousel';
 import { LocalStorageService } from 'src/app/classes/local-storage';
+import { RouteService } from 'src/app/classes/services/route.service';
 // import { OrderService } from 'src/app/classes/services/order.service';
 
 const planInit: planInterface = {
@@ -41,7 +42,8 @@ export class ShopHeroComponent implements OnInit {
   constructor(
     private _orderService: OrderService,
     private router: Router,
-    private _localStorage: LocalStorageService
+    private _localStorage: LocalStorageService,
+    private _routeService: RouteService
   ) {
     this._orderService.basket.value.basketItems = [];
   } // private localStorage: LocalStorageService //
@@ -58,6 +60,11 @@ export class ShopHeroComponent implements OnInit {
   plans: planInterface[] = new Array<planInterface>();
 
   async ngOnInit() {
+    var titleData = {
+      routename: this.product.title,
+    };
+    this._routeService.changePersianRouteName(titleData);
+
     let userBasket = JSON.parse(this._localStorage.getItem('user_basket')!);
     if (userBasket) {
       if (this.checkProductSimilarity(userBasket)) {
