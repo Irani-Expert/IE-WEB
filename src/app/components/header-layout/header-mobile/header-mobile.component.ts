@@ -100,39 +100,39 @@ export class HeaderMobileComponent extends Header {
           this.searchFilterName(value);
         });
 
-      setInterval(() => {
-        console.log('again');
-        this.getSize();
+      // setInterval(() => {
+      //   console.log('again');
+      //   this.getSize();
 
-        if (this.hideMenu == true) {
-          if (this.width > 769) {
-            this.xImg = -150;
-            // this.yImg = -100;
-          } else {
-            this.xImg = -250;
-            // this.yImg = 0;
-          }
-          // const canvas = document.createElement('canvas')
-          this.captureService
-            .getImage(document.body, false, {
-              x: this.xImg,
-              y: this.yImg,
-              width: 800,
-              height: 1280,
-            })
-            .pipe(
-              tap((img: string) => {
-                // if (this.hideMenu == true) {
-                this.imgScreen = img;
-                // }
-                // } else {
-                //   this.imgScreen = '';
-                // }
-              })
-            )
-            .subscribe();
-        }
-      }, 500);
+      //   if (this.hideMenu == true) {
+      //     if (this.width > 769) {
+      //       this.xImg = -150;
+      //       // this.yImg = -100;
+      //     } else {
+      //       this.xImg = -250;
+      //       // this.yImg = 0;
+      //     }
+      //     // const canvas = document.createElement('canvas')
+      //     this.captureService
+      //       .getImage(document.body, false, {
+      //         x: this.xImg,
+      //         y: this.yImg,
+      //         width: 800,
+      //         height: 1280,
+      //       })
+      //       .pipe(
+      //         tap((img: string) => {
+      //           // if (this.hideMenu == true) {
+      //           this.imgScreen = img;
+      //           // }
+      //           // } else {
+      //           //   this.imgScreen = '';
+      //           // }
+      //         })
+      //       )
+      //       .subscribe();
+      //   }
+      // }, 500);
     }
     // ===========[اسکرین شات]===========
   }
@@ -154,8 +154,35 @@ export class HeaderMobileComponent extends Header {
   openMenu() {
     document.body.classList.add('overflow-hidden');
 
+    this.getSize();
+
+    if (this.width > 769) {
+      this.xImg = -150;
+      // this.yImg = -100;
+    } else {
+      this.xImg = -250;
+      // this.yImg = 0;
+    }
+
     this.hideMenu = !this.hideMenu;
-    // this.getSize();
+
+    this.captureService
+      .getImage(document.body, false, {
+        x: this.xImg,
+        y: this.yImg,
+        width: 800,
+        height: 1280,
+      })
+      .pipe(
+        tap((img: string) => {
+          if (this.hideMenu == false) {
+            this.imgScreen = img;
+          } else {
+            this.imgScreen = '';
+          }
+        })
+      )
+      .subscribe();
   }
 
   closeMenu() {
@@ -205,15 +232,12 @@ export class HeaderMobileComponent extends Header {
   tagsMenu: ITags[];
 
   async ngAfterViewInit() {
-    let sub = this._articleServices.singleBlog
-      .asObservable()
-      .subscribe((item) => {
-        if (item) {
-          this.tagsMenu = [...item.sharpLinkTags];
-          this.sendDataToChild = true;
-          sub.unsubscribe();
-        }
-      });
+    this._articleServices.singleBlog.asObservable().subscribe((item) => {
+      if (item) {
+        this.tagsMenu = [...item.sharpLinkTags];
+        this.sendDataToChild = true;
+      }
+    });
   }
 
   // async getDetail(title: string, language: string) {

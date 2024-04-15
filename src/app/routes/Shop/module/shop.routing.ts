@@ -5,7 +5,7 @@ import { LandingShopComponent } from '../components/landing-shop/landing-shop.co
 // import { LandingShopComponent } from '../components/landing-shop/landing-shop.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'prefix', component: LandingShopComponent },
+  { path: '', component: LandingShopComponent },
   // { path: 'page', redirectTo: 'page/1', pathMatch: 'full' },
   // { path: 'page/:id', pathMatch: 'prefix', component: LandingShopComponent },
   {
