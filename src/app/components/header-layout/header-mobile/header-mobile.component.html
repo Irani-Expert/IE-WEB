@@ -117,11 +117,11 @@
               class="w-5 cursor-pointer mr-2"
             />
           </li>
-          <ng-container *ngIf="dropDownItem == i && item.sub && item.active">
+          <ng-container *ngIf="item.active">
             <ng-container *ngFor="let sub of item.sub">
               <li
                 [ngClass]="
-                  dropDownItem == i && item.sub && item.active
+                  item.active
                     ? 'drop-down-show'
                     : 'drop-down-hide'
                 "

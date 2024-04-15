@@ -99,42 +99,41 @@ export class HeaderMobileComponent extends Header {
         .subscribe((value) => {
           this.searchFilterName(value);
         });
+    // ===========[اسکرین شات]===========
 
-      setInterval(() => {
-        console.log('again');
-        this.getSize();
+      // setInterval(() => {
+      //   this.getSize();
 
-        if (this.hideMenu == true) {
-          if (this.width > 769) {
-            this.xImg = -150;
+      //   if (this.hideMenu == true) {
+      //     if (this.width > 769) {
+      //       this.xImg = -150;
             // this.yImg = -100;
-          } else {
-            this.xImg = -250;
+          // } else {
+            // this.xImg = -250;
             // this.yImg = 0;
-          }
+          // }
           // const canvas = document.createElement('canvas')
-          this.captureService
-            .getImage(document.body, false, {
-              x: this.xImg,
-              y: this.yImg,
-              width: 800,
-              height: 1280,
-            })
-            .pipe(
-              tap((img: string) => {
+          // this.captureService
+          //   .getImage(document.body, false, {
+          //     x: this.xImg,
+          //     y: this.yImg,
+          //     width: 800,
+          //     height: 1280,
+          //   })
+          //   .pipe(
+          //     tap((img: string) => {
                 // if (this.hideMenu == true) {
-                this.imgScreen = img;
+                // this.imgScreen = img;
                 // }
                 // } else {
                 //   this.imgScreen = '';
                 // }
-              })
-            )
-            .subscribe();
-        }
-      }, 500);
+      //         })
+      //       )
+      //       .subscribe();
+      //   }
+      // }, 500);
     }
-    // ===========[اسکرین شات]===========
   }
 
   hideMenu: boolean = true;
@@ -153,9 +152,35 @@ export class HeaderMobileComponent extends Header {
   // ===========[منو]===========
   openMenu() {
     document.body.classList.add('overflow-hidden');
+    this.getSize();
+
+      if (this.width > 769) {
+        this.xImg = -150;
+        // this.yImg = -100;
+      } else {
+        this.xImg = -250;
+        // this.yImg = 0;
+      }
+      // const canvas = document.createElement('canvas')
+      this.captureService
+        .getImage(document.body, false, {
+          x: this.xImg,
+          y: this.yImg,
+          width: 800,
+          height: 1280,
+        })
+        .pipe(
+          tap((img: string) => {
+            // if (this.hideMenu == true) {
+            this.imgScreen = img;
+            // } else {
+            //   this.imgScreen = '';
+            // }
+          })
+        )
+        .subscribe();
 
     this.hideMenu = !this.hideMenu;
-    // this.getSize();
   }
 
   closeMenu() {
