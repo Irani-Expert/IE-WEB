@@ -85,12 +85,14 @@ export class HeaderMobileComponent extends Header {
     }
   }
 
+  @HostListener('window:resize', ['$event'])
   ngOnInit() {
+    
     let width: any;
     if (AppComponent.isBrowser.value) {
       width = window.visualViewport?.width;
 
-      if (width && width > 1023) {
+      if (width > 1023) {
         document.body.classList.remove('overflow-hidden');
       }
 
