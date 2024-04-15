@@ -221,7 +221,7 @@ export class HeaderMobileComponent extends Header {
       this.toastr.error('حداقل باید 3 کاراکتر باید برای سرچ ارسال گردد');
     } else {
       this.router.navigateByUrl(`search?search=${value}`);
-      this.hideMenu = !this.hideMenu;
+      this.closeMenu();
       this.hideSearch = true;
     }
   }
@@ -251,7 +251,7 @@ export class HeaderMobileComponent extends Header {
   searchTag(searchingTag: string) {
     searchingTag = searchingTag.slice();
     this.router.navigateByUrl(`search?search=${searchingTag}`);
-    this.hideMenu = !this.hideMenu;
+    this.closeMenu();
     this.hideSearch = true;
   }
   // ===========[دراپ دون]=====
