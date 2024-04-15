@@ -1,168 +1,200 @@
 <div class="flex pt-2">
-    <!-- ========[هدر بالا]=== -->
+  <!-- ========[هدر بالا]=== -->
 
-      <!-- ===============[آواتار]========= -->
-    <ng-container *ngIf="loggedIn">
-      <div>
-        <a [href]="panelUrl" target="_blank" class="flex flex-col pr-2 w-[65%]">
-          <i class="avatar-user-icon w-12 aspect-square mr-3 ml-14 rounded-3xl"></i>
-          <!-- <p class="text-xs text-[#3246D3] mr-2 mt-1 font-bold">حساب کاربری</p> -->
-        </a>
+  <!-- ===============[آواتار]========= -->
+  <ng-container *ngIf="loggedIn">
+    <div>
+      <a [href]="panelUrl" target="_blank" class="flex flex-col pr-2 w-[65%]">
+        <i
+          class="avatar-user-icon w-12 aspect-square mr-3 ml-14 rounded-3xl"
+        ></i>
+        <!-- <p class="text-xs text-[#3246D3] mr-2 mt-1 font-bold">حساب کاربری</p> -->
+      </a>
+    </div>
+  </ng-container>
+
+  <div class="w-full flex justify-end items-center">
+    <span class="sr-only">ایرانی اکسپرت - Irani Expert</span>
+    <a
+      href="https://www.iraniexpert.com"
+      target="_blank"
+      class="inline-flex -mt-2"
+    >
+      <img
+        title="ایرانی اکسپرت - Irani Expert"
+        src="assets/icon/logo.svg"
+        class="mr-1 h-14 w-40 pt-2"
+        alt="Irani-Expert-Logo"
+        width="34"
+        height="20"
+      />
+    </a>
+
+    <div class="cursor-pointer ml-4 mr-8">
+      <i class="icon-menu" (click)="openMenu()"></i>
+    </div>
+  </div>
+</div>
+<!-- ==========[منو]======= -->
+<div class="menu-mobile">
+  <div @fadeIn *ngIf="!hideMenu" class="show-menu">
+    <!-- ===============[ عکس]========= -->
+
+    <ng-container *ngIf="hideSearch">
+      <div
+        class="absolute z-[100] pt-12"
+        [ngClass]="hideMenu ? '-z-50' : 'z-[100]'"
+        @fadeIn
+      >
+        <img
+          src="{{ imgScreen }}"
+          class="w-48 md:w-[28rem] h-[38rem] cursor-pointer rounded-3xl img-menu"
+          (click)="closeMenu()"
+        />
+        <img
+          src="{{ imgScreen }}"
+          class="w-48 md:w-[28rem] h-[38rem] rounded-3xl img-menu-2"
+        />
+        <div
+          class="absolute text-center w-44 rotate-90 top-96 left-[1.3rem] md:left-[17.3rem]"
+        >
+          <p
+            class="bg-[#202fa0] text-white cursor-pointer img-click"
+            (click)="closeMenu()"
+          >
+            جهت ادامه دادن کلیک کنید
+          </p>
+        </div>
       </div>
     </ng-container>
 
-
-    <div class="w-full flex justify-end items-center ">        
-      <span class="sr-only">ایرانی اکسپرت - Irani Expert</span>
-        <a href="https://www.iraniexpert.com" target="_blank" class="inline-flex -mt-2">
-            <img
-              title="ایرانی اکسپرت - Irani Expert"
-              src="assets/icon/logo.svg"
-              class="mr-1 h-14 w-40 pt-2"
-              alt="Irani-Expert-Logo"
-              width="34"
-              height="20"
-            />
-        </a>
-
-        <div class="cursor-pointer ml-4 mr-8">
-          <i class="icon-menu" (click)="openMenu()"></i>
-        </div>
-    </div>
-</div>
-    <!-- ==========[منو]======= -->
-    <div class="menu-mobile">
-
-        <div @fadeIn *ngIf="!hideMenu" [ngClass]="hideMenu?'hide-menu':'show-menu'">
-
-          <!-- ===============[ عکس]========= -->
-
-          <ng-container *ngIf="hideSearch">
-            <div class="absolute z-[100] pt-12" [ngClass]="hideMenu?'-z-50':'z-[100]'" @fadeIn>
-              <img src="{{imgScreen}}" class="w-48 md:w-[28rem] h-[38rem] cursor-pointer rounded-3xl img-menu"
-              (click)="closeMenu()">
-              <img src="{{imgScreen}}" class="w-48 md:w-[28rem] h-[38rem] rounded-3xl img-menu-2">
-              <div class="absolute text-center w-44 rotate-90 top-96 left-[1.3rem] md:left-[17.3rem]">
-                <p class="bg-[#202fa0] text-white cursor-pointer img-click" (click)="closeMenu()">
-                  جهت ادامه دادن کلیک کنید
-                </p>
-              </div>
-            </div>
-          </ng-container>
-
-          <ul
-          class="w-full pt-24 fixed h-[102vh] text-1.5xl top-0 left-0 bg-main-blue ">
-          <div @fadeIn class="items-start flex flex-col w-full h-full" *ngIf="hideSearch">
-  
-              <!-- ===============[ منوآواتار]========= -->
-              <div class="flex mb-4" *ngIf="loggedIn">
-                <a [href]="panelUrl" target="_blank">
-                  <i class="avatar-user-icon w-12 aspect-square mr-3 ml-4 rounded-3xl" ></i>
-                </a>
-                <div>
-                  <p class="text-white text-lg">{{username}}</p>
-                  <p class="text-white text-sm">جهت ورود به پنل کلیک کنید</p>
-                </div>
-              </div>
-              <!-- ===============[جست و جو]========= -->
-              <div class="flex m-8 items-end cursor-pointer" (click)="openSearch()">
-                <i class="search-icon-white scale-75"></i>
-                <p class="text-white pr-4">جستجو</p>
-              </div>
-              <!-- ===============[آیتم های منو]========= -->
-        
-              <ng-container *ngFor="let item of items; let i = index">
-                <li
-                  
-                  class="justify-end p-2.5 pr-4 flex cursor-pointer hover-menu pl-12 mb-2 items-center"
-                  [ngClass]="item.active ? 'active-menu' : ''"
-                >
-                <img [src]="item.icon" class="relative bottom-1 w-6 aspect-square ml-2 ">
-                <a [routerLink]="item.path" class="text-white no-underline font-medium"
-                (click)="clickRoute(item.activeRoute , i)"
-                >{{ item.name }}
-                </a>
-                <img [src]="item.iconDropDown" (click)="dropDownMenu(i)" [ngClass]="item.active?'drop-down-icon-up':'drop-down-icon'" class="w-5 cursor-pointer mr-2">
-                </li>
-                <ng-container *ngIf="dropDownItem == i && item.sub && item.active">
-                    <ng-container *ngFor="let sub of item.sub">
-                      <li
-                        [ngClass]="dropDownItem == i && item.sub && item.active ? 'drop-down-show':'drop-down-hide'"
-                        class="justify-end p-2.5 pr-8 flex cursor-pointer space-y-5 "
-                      >
-                        <a
-
-                          class="text-white no-underline font-medium block"
-                          [routerLink]="sub.path"
-                          (click)="clickRoute(sub.activeRoute , i)"
-                          >{{ sub.name }}</a
-                        >
-                      </li>
-                    </ng-container>
-                </ng-container>
-              </ng-container>
-          
-              <li class="justify-end p-2.5 pr-8 flex" *ngIf="!loggedIn">
-                <button
-                  [disabled]="_btnDisabled"
-                  (click)="openModal('login')"
-                  class="text-1.5xl header-sm-button font-medium rounded-3xl px-4 !bg-[#7683E2]"
-                >
-                  ورود | عضویت
-                </button>
-              </li>
-              <li class="justify-end p-2.5 pr-8 flex flex-col" *ngIf="loggedIn">
-        
-                <a>
-                  <button
-                  (click)="logout()"
-                    class="text-1.5xl header-panel-button font-medium rounded-3xl pr-4 pl-2 mb-2 py-2 flex !bg-[#7683E2]"
-                  >
-                  خروج از حساب
-                  <i class="icon-menu-log-out mr-1"></i>
-                  </button>
-                </a>
-
-              </li>
-            </div>
-            </ul>
-            <!-- ===============[سرچ]========= -->
-          
-          <div *ngIf="!hideSearch" class="relative w-full search-animation" >
-
-            <div class="top-16 left-14 absolute">
-              <i class="close-cross w-5 aspect-square cursor-pointer" (click)="closeSearh()"></i>
-            </div>
-
-            <div class="box-search flex flex-col">
-
-              <div class="flex items-center">
-                <i class="search-icon-white ml-3 scale-90"></i>
-                <input type="text" 
-                placeholder="مطلبی که بدنبال آن هستید را جستجو کنید"
-                class="input-search-mobile-header"
-                (input)="fillValue($any($event.target).value)" >
-              </div>
-
-              <ng-container *ngIf="sendDataToChild" >
-                <div *ngFor="let tags of tagsMenu" class="mt-8 max-w-[450px]">
-                  <button
-                  class="text-white text-sm font-medium px-4 py-2 rounded-3xl bg-[#202fa0]"
-                  (click)="searchTag(tags.title)"
-                  >
-                  <span>#</span>{{ tags.title}}
-                  </button>
-                </div>
-              </ng-container>
-              
-            </div>
-
+    <ul
+      class="w-full pt-24 fixed h-[102vh] text-1.5xl top-0 left-0 bg-main-blue overflow-auto"
+    >
+      <div
+        @fadeIn
+        class="items-start flex flex-col w-full h-full"
+        *ngIf="hideSearch"
+      >
+        <!-- ===============[ منوآواتار]========= -->
+        <div class="flex mb-4" *ngIf="loggedIn">
+          <a [href]="panelUrl" target="_blank">
+            <i
+              class="avatar-user-icon w-12 aspect-square mr-3 ml-4 rounded-3xl"
+            ></i>
+          </a>
+          <div>
+            <p class="text-white text-lg">{{ username }}</p>
+            <p class="text-white text-sm">جهت ورود به پنل کلیک کنید</p>
           </div>
+        </div>
+        <!-- ===============[جست و جو]========= -->
+        <div class="flex m-8 items-end cursor-pointer" (click)="openSearch()">
+          <i class="search-icon-white scale-75"></i>
+          <p class="text-white pr-4">جستجو</p>
+        </div>
+        <!-- ===============[آیتم های منو]========= -->
 
+        <ng-container *ngFor="let item of items; let i = index">
+          <li
+            class="justify-end p-2.5 pr-4 flex cursor-pointer hover-menu pl-12 mb-2 items-center"
+            [ngClass]="item.active ? 'active-menu' : ''"
+          >
+            <img
+              [src]="item.icon"
+              class="relative bottom-1 w-6 aspect-square ml-2"
+            />
+            <a
+              [routerLink]="item.path"
+              class="text-white no-underline font-medium"
+              (click)="clickRoute(item.activeRoute, i)"
+              >{{ item.name }}
+            </a>
+            <img
+              [src]="item.iconDropDown"
+              (click)="dropDownMenu(i)"
+              [ngClass]="item.active ? 'drop-down-icon-up' : 'drop-down-icon'"
+              class="w-5 cursor-pointer mr-2"
+            />
+          </li>
+          <ng-container *ngIf="item.active">
+            <ng-container *ngFor="let sub of item.sub">
+              <li
+                [ngClass]="
+                  item.active
+                    ? 'drop-down-show'
+                    : 'drop-down-hide'
+                "
+                class="justify-end p-2.5 pr-8 flex cursor-pointer space-y-5"
+              >
+                <a
+                  class="text-white no-underline font-medium block"
+                  [routerLink]="sub.path"
+                  (click)="clickRoute(sub.activeRoute, i)"
+                  >{{ sub.name }}</a
+                >
+              </li>
+            </ng-container>
+          </ng-container>
+        </ng-container>
 
+        <li class="justify-end p-2.5 pr-8 flex" *ngIf="!loggedIn">
+          <button
+            [disabled]="_btnDisabled"
+            (click)="openModal('login')"
+            class="text-1.5xl header-sm-button font-medium rounded-3xl px-4 !bg-[#7683E2]"
+          >
+            ورود | عضویت
+          </button>
+        </li>
+        <li class="justify-end p-2.5 pr-8 flex flex-col" *ngIf="loggedIn">
+          <a>
+            <button
+              (click)="logout()"
+              class="text-1.5xl header-panel-button font-medium rounded-3xl pr-4 pl-2 mb-2 py-2 flex !bg-[#7683E2]"
+            >
+              خروج از حساب
+              <i class="icon-menu-log-out mr-1"></i>
+            </button>
+          </a>
+        </li>
+      </div>
+    </ul>
+    <!-- ===============[سرچ]========= -->
+
+    <div *ngIf="!hideSearch" class="relative w-full search-animation">
+      <div class="top-16 left-14 absolute">
+        <i
+          class="close-cross w-5 aspect-square cursor-pointer"
+          (click)="closeSearh()"
+        ></i>
+      </div>
+
+      <div class="box-search flex flex-col">
+        <div class="flex items-center">
+          <i class="search-icon-white ml-3 scale-90"></i>
+          <input
+            type="text"
+            placeholder="مطلبی که بدنبال آن هستید را جستجو کنید"
+            class="input-search-mobile-header"
+            (input)="fillValue($any($event.target).value)"
+          />
         </div>
 
+        <ng-container *ngIf="sendDataToChild">
+          <div *ngFor="let tags of tagsMenu" class="mt-8 max-w-[450px]">
+            <button
+              class="text-white text-sm font-medium px-4 py-2 rounded-3xl bg-[#202fa0]"
+              (click)="searchTag(tags.title)"
+            >
+              <span>#</span>{{ tags.title }}
+            </button>
+          </div>
+        </ng-container>
+      </div>
     </div>
-    <span
-    class="absolute bg-[#F6F6F6] d-block w-[107vw] -z-10 h-[4.85rem] top-6 rounded-[57%] -right-3"
-  ></span>
+  </div>
+</div>
+<span
+  class="absolute bg-[#F6F6F6] d-block w-[107vw] -z-10 h-[4.85rem] top-6 rounded-[57%] -right-3"
+></span>

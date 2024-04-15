@@ -12,21 +12,31 @@ import { LocalStorageService } from './local-storage';
 export class CanActivate {
   snapShot: any;
   // HeaderLayoutComponent
-  constructor(private router: Router, private modal: ModalService) {}
+  constructor(
+    private router: Router,
+    private modal: ModalService,
+    private _authService: AuthService
+  ) {}
 
   canActivate() {
     // let item = this.orderService.basket.value;
     const userSavedBsk = localStorage.getItem('user_basket');
-    const user = localStorage.getItem('info');
+    let user = localStorage.getItem('info');
     if (!user) {
-      this.modal.open().subscribe({
-        complete: () => {
-          HeaderLayoutComponent.modalStatus = false;
-        },
-      });
-      HeaderLayoutComponent.modalStatus = true;
-      HeaderLayoutComponent.modalView = 'login';
-      return false;
+      if (this._authService._user.token !== '') {
+        user = JSON.stringify(this._authService._user);
+        return true;
+      } else {
+        this.router.navigateByUrl('shop/atm-expert');
+        this.modal.open().subscribe({
+          complete: () => {
+            HeaderLayoutComponent.modalStatus = false;
+          },
+        });
+        HeaderLayoutComponent.modalStatus = true;
+        HeaderLayoutComponent.modalView = 'login';
+        return false;
+      }
     } else {
       if (!userSavedBsk) {
         this.router.navigateByUrl('shop/atm-expert');

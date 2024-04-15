@@ -75,27 +75,66 @@ export class HeaderMobileComponent extends Header {
 
   @HostListener('window:resize', ['$event'])
   getSize() {
-    let width = window.visualViewport?.width;
-    let height = window.visualViewport?.height;
-    let yScroll = window.scrollY;
-    this.yImg = yScroll;
-    this.width = width!;
-    this.height = height!;
+    if (AppComponent.isBrowser.value) {
+      let width = window.visualViewport?.width;
+      let height = window.visualViewport?.height;
+      let yScroll = window.scrollY;
+      this.yImg = yScroll;
+      this.width = width!;
+      this.height = height!;
+    }
   }
 
   @HostListener('window:resize', ['$event'])
   ngOnInit() {
-    let width = window.visualViewport?.width;
+    let width: any;
+    if (AppComponent.isBrowser.value) {
+      width = window.visualViewport?.width;
 
-    if (width! > 1023) {
-      document.body.classList.remove('overflow-hidden');
+      if (width > 1023) {
+        document.body.classList.remove('overflow-hidden');
+      }
+
+      this._searchInputSubscription = this._searchinput
+        .pipe(debounceTime(700))
+        .subscribe((value) => {
+          this.searchFilterName(value);
+        });
+      // ===========[اسکرین شات]===========
+
+      // setInterval(() => {
+      //   this.getSize();
+
+      //   if (this.hideMenu == true) {
+      //     if (this.width > 769) {
+      //       this.xImg = -150;
+      // this.yImg = -100;
+      // } else {
+      // this.xImg = -250;
+      // this.yImg = 0;
+      // }
+      // const canvas = document.createElement('canvas')
+      // this.captureService
+      //   .getImage(document.body, false, {
+      //     x: this.xImg,
+      //     y: this.yImg,
+      //     width: 800,
+      //     height: 1280,
+      //   })
+      //   .pipe(
+      //     tap((img: string) => {
+      // if (this.hideMenu == true) {
+      // this.imgScreen = img;
+      // }
+      // } else {
+      //   this.imgScreen = '';
+      // }
+      //         })
+      //       )
+      //       .subscribe();
+      //   }
+      // }, 500);
     }
-
-    this._searchInputSubscription = this._searchinput
-      .pipe(debounceTime(700))
-      .subscribe((value) => {
-        this.searchFilterName(value);
-      });
   }
 
   hideMenu: boolean = true;
@@ -111,10 +150,9 @@ export class HeaderMobileComponent extends Header {
   choosenLink(id: number) {
     this.link = id;
   }
-  // ===========[اسکرین شات و منو]===========
+  // ===========[منو]===========
   openMenu() {
     document.body.classList.add('overflow-hidden');
-
     this.getSize();
 
     if (this.width > 769) {
@@ -124,9 +162,7 @@ export class HeaderMobileComponent extends Header {
       this.xImg = -250;
       // this.yImg = 0;
     }
-
-    this.hideMenu = !this.hideMenu;
-
+    // const canvas = document.createElement('canvas')
     this.captureService
       .getImage(document.body, false, {
         x: this.xImg,
@@ -136,14 +172,16 @@ export class HeaderMobileComponent extends Header {
       })
       .pipe(
         tap((img: string) => {
-          if (this.hideMenu == false) {
-            this.imgScreen = img;
-          } else {
-            this.imgScreen = '';
-          }
+          // if (this.hideMenu == true) {
+          this.imgScreen = img;
+          // } else {
+          //   this.imgScreen = '';
+          // }
         })
       )
       .subscribe();
+
+    this.hideMenu = !this.hideMenu;
   }
 
   closeMenu() {
@@ -182,7 +220,7 @@ export class HeaderMobileComponent extends Header {
       this.toastr.error('حداقل باید 3 کاراکتر باید برای سرچ ارسال گردد');
     } else {
       this.router.navigateByUrl(`search?search=${value}`);
-      this.hideMenu = !this.hideMenu;
+      this.closeMenu();
       this.hideSearch = true;
     }
   }
@@ -193,21 +231,23 @@ export class HeaderMobileComponent extends Header {
   tagsMenu: ITags[];
 
   async ngAfterViewInit() {
-    if (await this.getDetail('Home', 'fa')) {
-      this.tagsMenu = this._articleServices._blog!.sharpLinkTags;
-      this.sendDataToChild = true;
-    }
+    this._articleServices.singleBlog.asObservable().subscribe((item) => {
+      if (item) {
+        this.tagsMenu = [...item.sharpLinkTags];
+        this.sendDataToChild = true;
+      }
+    });
   }
 
-  async getDetail(title: string, language: string) {
-    const apiRes = await this._articleServices.getBlog(title, language);
-    return apiRes;
-  }
+  // async getDetail(title: string, language: string) {
+  //   const apiRes = await this._articleServices.getBlog(title, language);
+  //   return apiRes;
+  // }
 
   searchTag(searchingTag: string) {
     searchingTag = searchingTag.slice();
     this.router.navigateByUrl(`search?search=${searchingTag}`);
-    this.hideMenu = !this.hideMenu;
+    this.closeMenu();
     this.hideSearch = true;
   }
   // ===========[دراپ دون]=====

@@ -64,6 +64,7 @@ export class VideoPlayerComponent implements OnInit {
 
     if (AppComponent.isBrowser.value) {
       this.element = document.getElementById('main-card');
+      this.setPreview(this.vId, this.videoLink);
     }
   }
   onTimeUpdate() {
@@ -178,5 +179,32 @@ export class VideoPlayerComponent implements OnInit {
   @HostListener('MSFullscreenChange', ['$event'])
   FSHandler() {
     this.isFullScreen = !this.isFullScreen;
+  }
+
+  setPreview(elementIndex: string, link: string, seekTo = 0) {
+    const videoPlayer = document.createElement('video');
+    videoPlayer.setAttribute('src', link);
+    videoPlayer.load();
+    videoPlayer.addEventListener('error', (ex) => {
+      console.log('error when loading video file', ex);
+    });
+    videoPlayer.addEventListener('loadedmetadata', () => {
+      videoPlayer.currentTime = seekTo;
+
+      videoPlayer.addEventListener('seeked', () => {
+        const canvas = document.getElementById(`videoThumbnail${elementIndex}`);
+        if (canvas instanceof HTMLCanvasElement) {
+          // canvas.width = videoPlayer.width;
+          // canvas.height = videoPlayer.height;
+          const ctx = canvas.getContext('2d', { alpha: true });
+          if (ctx) {
+            ctx.drawImage(videoPlayer, 0, 0, canvas.width, canvas.height);
+            setTimeout(() => {
+              videoPlayer.remove();
+            }, 500);
+          }
+        }
+      });
+    });
   }
 }

@@ -43,8 +43,6 @@ export class ArticlesComponent {
       //   name: 'keywords',
       //   content: keywords,
       // });
-      console.log(this.blogService._blog);
-
       this.sendDataToChild = true;
     }
   }
