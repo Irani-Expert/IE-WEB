@@ -147,7 +147,9 @@
         (event)="showMoreOrLess($event)"
       ></app-show-more>
     </ng-container>
-
+    <ng-container *ngIf="filteredModel.fromTime && tableLength > 0">
+      <pagination-control (changePage)="setPage($event)"></pagination-control>
+    </ng-container>
     <div *ngIf="device == 'md'" class="p-5 basis-full w-full">
       <app-graph-container></app-graph-container>
     </div>
