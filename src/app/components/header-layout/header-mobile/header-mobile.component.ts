@@ -87,7 +87,6 @@ export class HeaderMobileComponent extends Header {
 
   @HostListener('window:resize', ['$event'])
   ngOnInit() {
-    
     let width: any;
     if (AppComponent.isBrowser.value) {
       width = window.visualViewport?.width;
@@ -101,7 +100,7 @@ export class HeaderMobileComponent extends Header {
         .subscribe((value) => {
           this.searchFilterName(value);
         });
-    // ===========[اسکرین شات]===========
+      // ===========[اسکرین شات]===========
 
       // setInterval(() => {
       //   this.getSize();
@@ -109,27 +108,27 @@ export class HeaderMobileComponent extends Header {
       //   if (this.hideMenu == true) {
       //     if (this.width > 769) {
       //       this.xImg = -150;
-            // this.yImg = -100;
-          // } else {
-            // this.xImg = -250;
-            // this.yImg = 0;
-          // }
-          // const canvas = document.createElement('canvas')
-          // this.captureService
-          //   .getImage(document.body, false, {
-          //     x: this.xImg,
-          //     y: this.yImg,
-          //     width: 800,
-          //     height: 1280,
-          //   })
-          //   .pipe(
-          //     tap((img: string) => {
-                // if (this.hideMenu == true) {
-                // this.imgScreen = img;
-                // }
-                // } else {
-                //   this.imgScreen = '';
-                // }
+      // this.yImg = -100;
+      // } else {
+      // this.xImg = -250;
+      // this.yImg = 0;
+      // }
+      // const canvas = document.createElement('canvas')
+      // this.captureService
+      //   .getImage(document.body, false, {
+      //     x: this.xImg,
+      //     y: this.yImg,
+      //     width: 800,
+      //     height: 1280,
+      //   })
+      //   .pipe(
+      //     tap((img: string) => {
+      // if (this.hideMenu == true) {
+      // this.imgScreen = img;
+      // }
+      // } else {
+      //   this.imgScreen = '';
+      // }
       //         })
       //       )
       //       .subscribe();
@@ -156,31 +155,31 @@ export class HeaderMobileComponent extends Header {
     document.body.classList.add('overflow-hidden');
     this.getSize();
 
-      if (this.width > 769) {
-        this.xImg = -150;
-        // this.yImg = -100;
-      } else {
-        this.xImg = -250;
-        // this.yImg = 0;
-      }
-      // const canvas = document.createElement('canvas')
-      this.captureService
-        .getImage(document.body, false, {
-          x: this.xImg,
-          y: this.yImg,
-          width: 800,
-          height: 1280,
+    if (this.width > 769) {
+      this.xImg = -150;
+      // this.yImg = -100;
+    } else {
+      this.xImg = -250;
+      // this.yImg = 0;
+    }
+    // const canvas = document.createElement('canvas')
+    this.captureService
+      .getImage(document.body, false, {
+        x: this.xImg,
+        y: this.yImg,
+        width: 800,
+        height: 1280,
+      })
+      .pipe(
+        tap((img: string) => {
+          // if (this.hideMenu == true) {
+          this.imgScreen = img;
+          // } else {
+          //   this.imgScreen = '';
+          // }
         })
-        .pipe(
-          tap((img: string) => {
-            // if (this.hideMenu == true) {
-            this.imgScreen = img;
-            // } else {
-            //   this.imgScreen = '';
-            // }
-          })
-        )
-        .subscribe();
+      )
+      .subscribe();
 
     this.hideMenu = !this.hideMenu;
   }
@@ -232,15 +231,12 @@ export class HeaderMobileComponent extends Header {
   tagsMenu: ITags[];
 
   async ngAfterViewInit() {
-    let sub = this._articleServices.singleBlog
-      .asObservable()
-      .subscribe((item) => {
-        if (item) {
-          this.tagsMenu = [...item.sharpLinkTags];
-          this.sendDataToChild = true;
-          sub.unsubscribe();
-        }
-      });
+    this._articleServices.singleBlog.asObservable().subscribe((item) => {
+      if (item) {
+        this.tagsMenu = [...item.sharpLinkTags];
+        this.sendDataToChild = true;
+      }
+    });
   }
 
   // async getDetail(title: string, language: string) {

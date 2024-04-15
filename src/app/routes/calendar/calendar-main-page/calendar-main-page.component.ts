@@ -127,9 +127,9 @@ export class CalendarMainPageComponent {
       this.appResponsiveTableComponent.table.length
     );
   }
-  setResTable(items: CalEvent[] = new Array<CalEvent>()) {
-    console.log(items);
-  }
+  // setResTable(items: CalEvent[] = new Array<CalEvent>()) {
+  //   console.log(items);
+  // }
 
   // Pagination
 

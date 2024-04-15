@@ -8,12 +8,16 @@
     height: auto;
   }
   &.Home {
-    a::after {
-      content: url(../../assets/icon/Arrow-left-blue-icon.svg);
-      display: block;
-      margin-right: 0.5rem;
-      margin-top: 0.5rem;
-      scale: 1.2;
+    a {
+      &.send-resume {
+        ::after {
+          content: url(../../assets/icon/Arrow-left-blue-icon.svg);
+          display: block;
+          margin-right: 0.5rem;
+          margin-top: 0.5rem;
+          scale: 1.2;
+        }
+      }
     }
   }
   &.blog {
