@@ -87,7 +87,9 @@ export class HeaderMobileComponent extends Header {
 
   ngOnInit() {
     let width: any;
+
     if (AppComponent.isBrowser.value) {
+      
       width = window.visualViewport?.width;
 
       if (width && width > 1023) {
@@ -99,7 +101,46 @@ export class HeaderMobileComponent extends Header {
         .subscribe((value) => {
           this.searchFilterName(value);
         });
+
+
+        setInterval(()=>{
+
+          console.log('again');
+          this.getSize()
+    
+          if( this.hideMenu == true ){
+            if (this.width > 769) {
+              this.xImg = -150;
+              // this.yImg = -100;
+            } else {
+              this.xImg = -250;
+              // this.yImg = 0;
+            }
+        
+        
+            this.captureService
+              .getImage(document.body, false, {
+                x: this.xImg,
+                y: this.yImg,
+                width: 800,
+                height: 1280,
+              })
+              .pipe(
+                tap((img: string) => {
+                  // if (this.hideMenu == false) {
+                    this.imgScreen = img;
+                  // } else {
+                  //   this.imgScreen = '';
+                  // }
+                })
+              )
+              .subscribe();
+          }
+        }, 100);
     }
+  // ===========[اسکرین شات]===========
+
+    
   }
 
   hideMenu: boolean = true;
@@ -115,40 +156,13 @@ export class HeaderMobileComponent extends Header {
   choosenLink(id: number) {
     this.link = id;
   }
-  // ===========[اسکرین شات و منو]===========
+  // ===========[منو]===========
   openMenu() {
     document.body.classList.add('overflow-hidden');
 
-    this.getSize();
-
-    if (this.width > 769) {
-      this.xImg = -150;
-      // this.yImg = -100;
-    } else {
-      this.xImg = -250;
-      // this.yImg = 0;
-    }
-
     this.hideMenu = !this.hideMenu;
-
-    this.captureService
-      .getImage(document.body, false, {
-        x: this.xImg,
-        y: this.yImg,
-        width: 800,
-        height: 1280,
-      })
-      .pipe(
-        tap((img: string) => {
-          if (this.hideMenu == false) {
-            this.imgScreen = img;
-          } else {
-            this.imgScreen = '';
-          }
-        })
-      )
-      .subscribe();
-  }
+    // this.getSize();
+    }
 
   closeMenu() {
     this.hideMenu = true;
@@ -197,10 +211,11 @@ export class HeaderMobileComponent extends Header {
   tagsMenu: ITags[];
 
   async ngAfterViewInit() {
-    this._articleServices.singleBlog.asObservable().subscribe((item) => {
+   let sub =  this._articleServices.singleBlog.asObservable().subscribe((item) => {
       if (item) {
-        this.tagsMenu = item.sharpLinkTags;
+        this.tagsMenu = [...item.sharpLinkTags];
         this.sendDataToChild = true;
+        sub.unsubscribe()
       }
     });
   }
