@@ -133,3 +133,8 @@ video {
   filter: brightness(0) saturate(100%) invert(22%) sepia(100%) saturate(3161%)
     hue-rotate(228deg) brightness(97%) contrast(98%);
 }
+
+.spinner {
+  scale: 3;
+  top: 50%;
+}

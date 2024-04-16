@@ -30,6 +30,18 @@
       [id]="'videoThumbnail' + vId"
       class="w-full h-full rounded-xl absolute top-0"
     ></canvas>
+    <ng-container *ngIf="loading">
+      <svg class="spinner" viewBox="0 0 50 50">
+        <circle
+          class="path"
+          cx="25"
+          cy="25"
+          r="20"
+          fill="none"
+          stroke-width="10"
+        ></circle>
+      </svg>
+    </ng-container>
   </div>
 
   <div class="flex w-full h-full content-end flex-wrap">
@@ -38,22 +50,23 @@
       [ngClass]="isFullScreen ? 'h-[87%]' : 'h-[39vw] '"
     >
       <span
-        class="fa-stack fa-4x opacity-100 flex justify-center items-center"
+        class="opacity-100 flex justify-center items-center"
         [ngClass]="{
           'hide-centerVideobtn ': hidePuase
         }"
       >
         <div
-          class="flex justify-center items-center bg-[#3246d3] md:w-28 md:h-28 w-20 h-20 rounded-full cursor-pointer"
+          [ngClass]="loading ? 'bg-transparent' : ' bg-[#3246d3]'"
+          class="flex justify-center items-center md:w-28 md:h-28 w-20 h-20 rounded-full cursor-pointer"
           (click)="puasePaceVideo()"
         >
           <i
             class="ie-icon"
             [ngClass]="{
-              'ie-puase-xl mt-1': pauseplay,
-              'ie-Polygon large-polygon  white-filter max-md:mt-2 me-1.5 mt-2.5':
-                !pauseplay
-            }"
+                'ie-puase-xl mt-1': pauseplay,
+                'ie-Polygon large-polygon  white-filter max-md:mt-2 me-1.5 mt-2.5':
+                  !pauseplay,
+              }"
           ></i>
         </div>
       </span>
