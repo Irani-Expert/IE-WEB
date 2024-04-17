@@ -43,7 +43,7 @@ export class VideoPlayerComponent implements OnInit {
   mousePosition: number;
   mouseDisplay: string;
   progressbarLeft: string = 'calc(0%);';
-
+  loading: boolean = false;
   aftermouseenter() {
     setInterval(() => {
       if (this.pauseplay) {
@@ -64,13 +64,30 @@ export class VideoPlayerComponent implements OnInit {
 
     if (AppComponent.isBrowser.value) {
       this.element = document.getElementById('main-card');
-      this.setPreview(this.vId, this.videoLink);
     }
+  }
+
+  setLoading() {
+    let videoPlayer: HTMLVideoElement = <HTMLVideoElement>(
+      document.getElementById(this.vId)
+    );
+    videoPlayer.addEventListener('seeking', (e: any) => {
+      this.loading = true;
+    });
+
+    videoPlayer.addEventListener('canplay', (e) => {
+      this.loading = false;
+    });
+    videoPlayer.addEventListener('waiting', (e: any) => {
+      this.loading = true;
+    });
+    videoPlayer.addEventListener('ended', (e: any) => {
+      this.loading = false;
+    });
   }
   onTimeUpdate() {
     if (AppComponent.isBrowser.value && !isNaN(this.video.duration)) {
       this.video = document.getElementById(this.vId);
-
       this.percentage = (this.video.currentTime / this.video.duration) * 100;
 
       this.progressbarLeft = this.percentage + '%';
@@ -141,6 +158,7 @@ export class VideoPlayerComponent implements OnInit {
   puasePaceVideo() {
     if (!this.firstPlay) this.firstPlay = true;
     this.video = document.getElementById(this.vId);
+
     this.pauseplay = !this.pauseplay;
     setTimeout(() => {
       this.hidePuase = !this.hidePuase;
@@ -188,6 +206,7 @@ export class VideoPlayerComponent implements OnInit {
     videoPlayer.addEventListener('error', (ex) => {
       console.log('error when loading video file', ex);
     });
+
     videoPlayer.addEventListener('loadedmetadata', () => {
       videoPlayer.currentTime = seekTo;
 
@@ -196,7 +215,7 @@ export class VideoPlayerComponent implements OnInit {
         if (canvas instanceof HTMLCanvasElement) {
           // canvas.width = videoPlayer.width;
           // canvas.height = videoPlayer.height;
-          const ctx = canvas.getContext('2d', { alpha: true });
+          const ctx = canvas.getContext('2d');
           if (ctx) {
             ctx.drawImage(videoPlayer, 0, 0, canvas.width, canvas.height);
             setTimeout(() => {
@@ -206,5 +225,13 @@ export class VideoPlayerComponent implements OnInit {
         }
       });
     });
+  }
+
+  ngAfterViewInit() {
+    if (AppComponent.isBrowser.value) {
+      this.setPreview(this.vId, this.videoLink);
+
+      this.setLoading();
+    }
   }
 }
