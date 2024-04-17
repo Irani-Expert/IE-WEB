@@ -1,4 +1,58 @@
 #ckeditor {
+  // ==========[شاپ]====
+  .content-static {
+    p:not(.part-seperator) {
+      color: #000;
+    }
+  }
+  .part-seperator {
+    &::before {
+      content: "";
+      width: 28px;
+      height: 8px;
+      background-color: #3246d3;
+      border-radius: 6px;
+      display: inline-block;
+      margin: 0 0 -1px 2px;
+    }
+    margin-bottom: 0.875rem;
+  }
+  .product-link{
+    opacity: 0;
+    
+    @media (width > 1023px) {
+      transform: translate(-11.7rem, 60rem);
+      width: 7.3rem;
+      height: 1.8rem;
+    }
+  
+    @media (width > 639px) {
+      transform: translate(-9.5rem, 49rem);
+      width: 5.8rem;
+      height: 1.7rem;
+    }
+    @media (width < 640px) {
+      transform: translate(-5.2rem, 27rem);
+      width: 3.3rem;
+      height: 1rem;
+    }
+  
+  }
+  .img-table{
+    @media (width > 1023px) {
+      width: 762px;
+      height: 1003px;
+    }
+    @media (width > 639px) {
+      width: 623px;
+      height: 823px;
+    }
+    @media (width < 640px) {
+      width: 344px;
+      height: 454px;
+    }
+  }
+  // =========
   .table {
     width: 100%;
   }

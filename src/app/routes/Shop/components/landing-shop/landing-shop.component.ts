@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import { Meta } from '@angular/platform-browser';
+import { DomSanitizer, Meta, SafeHtml } from '@angular/platform-browser';
 import {
   ActivatedRoute,
   NavigationEnd,
@@ -18,7 +18,9 @@ import {
 import { AppComponent } from 'src/app/app.component';
 import { FilterProduct } from 'src/app/classes/interfaces/filter-product.interface';
 import { Product } from 'src/app/classes/interfaces/product.interface';
+import { ITags } from 'src/app/classes/interfaces/tags.interface';
 import { Page } from 'src/app/classes/page.model';
+import { BlogService } from 'src/app/classes/services/blog.service';
 import { LinkService } from 'src/app/classes/services/link.service';
 import { ProductService } from 'src/app/classes/services/product.service';
 import { Utils } from 'src/app/classes/utils';
@@ -109,7 +111,10 @@ export class LandingShopComponent {
     private _filterService: FilterService<FilterProduct>,
     private _activatedRoute: ActivatedRoute,
     private meta: Meta,
-    private _linkService: LinkService
+    private _linkService: LinkService,
+    public blogService: BlogService,
+    private _sanitizer : DomSanitizer
+
   ) {
     this._linkService.createLink(`https://www.iraniexpert.com/shop`);
     this._filterService.filterModelSubject = new BehaviorSubject(
@@ -143,6 +148,8 @@ export class LandingShopComponent {
   }
   // Init Page Needs and Navigation --------------------------------------->
   async ngOnInit() {
+
+
     this.updateDeviceValue();
     this.routerSubscriber = this._router.events
       .pipe(takeUntil(this.routeSubject))
@@ -196,6 +203,53 @@ export class LandingShopComponent {
         'خرید ربات برای فارکس-خرید ربات تریدر فارکس-مقایسه ها-اکسپرت-ربات خرید و فروش فارکس-خرید ربات هوشمند فارکس-بهترین ربات فارکس-خرید ربات فارکس-قیمت ربات های فارکس-خرید اکسپرت فارکس تضمینی-خرید ربات معامله گر فارکس-',
     });
   }
+
+  title: string = '';
+  language: string = '';
+  id: number = 0;
+  sendDataToChild = false;
+  tags: ITags[];
+  
+  async ngAfterViewInit() {
+    if (await this.getDetail('shop', 'fa')) {
+      this.tags = this.blogService._blog!.sharpLinkTags;
+
+      this.id = Number(this.blogService._blog?.id);
+      let keywords = '';
+      this.blogService._blog!.linkTags.forEach((item) => {
+        keywords += `${item.title.replace(/#/g, '')},`;
+      });
+      // this._meta.updateTag({
+      //   name: 'description',
+      //   content: this.blogService._blog!.metaDescription,
+      // });
+      // this._meta.updateTag({
+      //   name: 'author',
+      //   content:
+      //     this.blogService._blog!.updatedByFirstName +
+      //     this.blogService._blog!.updatedByLastName,
+      // });
+      // this._meta.updateTag({
+      //   name: 'keywords',
+      //   content:
+      //     'مدیریت سرمایه گذاری پیشرفته,مدیریت سرمایه گذاری استراتژیک,مدیریت ریسک و سرمایه در ترید, فرمول مدیریت سرمایه در ترید, مدیریت سرمایه در ترید, مدیریت سرمایه فارکس, مدیریت ریسک و سرمایه گذاری ,مدیریت سرمایه به زبان ساده',
+      //   content: keywords
+      // });
+      this.articleHtml = this._sanitizer.bypassSecurityTrustHtml(
+        this.blogService._blog!.description);
+        
+      this.sendDataToChild = true;
+    }
+  }
+
+  async getDetail(title: string, language: string) {
+    const apiRes = await this.blogService.getBlog(title, language);
+    return apiRes;
+  }
+  // =====[ckeditor]====
+  articleHtml: SafeHtml;
+  
+  // =====[]====
 
   // Call From Api Or Use Latest Value on Saved Subject --------------------------------------->
 
