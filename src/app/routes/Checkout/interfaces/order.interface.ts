@@ -7,6 +7,7 @@ export class Order {
   totalPrice = 0;
   transactionCode = '';
   investorPassword = '';
+  discountCode?: string;
   constructor() {}
 }
 interface OrderItems {

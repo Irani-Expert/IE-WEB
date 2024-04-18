@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { BaseService } from './base.service';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, map } from 'rxjs';
+import { BehaviorSubject, Observable, lastValueFrom, map } from 'rxjs';
 import { Order } from 'src/app/routes/Checkout/interfaces/order.interface';
 import { Basket, BskItem } from '../interfaces/basket.interface';
 import { Result } from '../result';
@@ -94,6 +94,14 @@ export class OrderService extends BaseService<any> {
         Authorization: `Bearer ${token}`,
       },
     });
+  }
+
+  async checkDiscount(
+    code: string
+  ): Promise<Result<{ amount: number; percent: number }>> {
+    const path = `Discount/${code}`;
+    const res = this.get(path);
+    return await lastValueFrom(res);
   }
   // fillBasket() {
   //   let item = JSON.parse(this.localStorage.getItem('basketItems')!);
