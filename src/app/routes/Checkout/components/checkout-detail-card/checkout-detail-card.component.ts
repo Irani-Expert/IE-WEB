@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment.dev';
 export class CheckoutDetailCardComponent {
   contentUrl = environment.contentUrl;
   discount = false;
-  discountPrice = 0;
+  discountPercent = 0;
   data: SingleProduct | null;
   basket: Basket;
   constructor(private product: ProductService, private order: OrderService) {}
@@ -33,7 +33,8 @@ export class CheckoutDetailCardComponent {
   }
 
   get lastPrice() {
-    let price = this.basket.totalPrice + this.discountPrice;
-    return;
+    let price = (this.basket.totalPrice * 100) / (100 - this.discountPercent);
+
+    return price;
   }
 }

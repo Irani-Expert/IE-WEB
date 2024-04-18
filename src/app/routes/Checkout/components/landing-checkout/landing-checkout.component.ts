@@ -328,18 +328,22 @@ export class LandingCheckoutComponent {
   }
 
   calculateAmount(amount: number) {
-    this.orderModel.totalPrice -= amount;
-    this._orderService.basket.value.totalPrice = this.orderModel.totalPrice;
+    this._orderService.basket.value.totalPrice -= amount;
     this.appCheckoutDetail.discount = true;
-    this.appCheckoutDetail.discountPrice = amount;
+    this.appCheckoutDetail.discountPercent =
+      (amount * 100) / this.orderModel.totalPrice;
   }
 
   calculatePercent(percent: number) {
-    let price = (percent * this.orderModel.totalPrice) / 100;
-    this.orderModel.totalPrice -= price;
-    this._orderService.basket.value.totalPrice = this.orderModel.totalPrice;
+    let discountPrice = (percent * this.orderModel.totalPrice) / 100;
+
+    this._orderService.basket.value.totalPrice -= discountPrice;
     this.appCheckoutDetail.discount = true;
-    this.appCheckoutDetail.discountPrice = percent;
+    this.appCheckoutDetail.discountPercent = percent;
+  }
+
+  get price() {
+    return this._orderService.basket.value.totalPrice;
   }
 }
 
