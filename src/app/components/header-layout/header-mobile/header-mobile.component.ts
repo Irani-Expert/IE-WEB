@@ -19,6 +19,8 @@ import { style, transition, trigger, animate } from '@angular/animations';
 import { BlogService } from 'src/app/classes/services/blog.service';
 import { ITags } from 'src/app/classes/interfaces/tags.interface';
 import { AppComponent } from 'src/app/app.component';
+import { TagService } from 'src/app/classes/services/tag.service';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-header-mobile',
@@ -52,7 +54,8 @@ export class HeaderMobileComponent extends Header {
     private router: Router,
     private toastr: ToastrService,
     private location: Location,
-    private captureService: NgxCaptureService
+    private captureService: NgxCaptureService,
+    private _tagService : TagService
   ) {
     super(navService);
     this.user$ = this.auth.userSubject.asObservable();
@@ -77,11 +80,11 @@ export class HeaderMobileComponent extends Header {
   getSize() {
     if (AppComponent.isBrowser.value) {
       let width = window.visualViewport?.width;
-      let height = window.visualViewport?.height;
-      let yScroll = window.scrollY;
-      this.yImg = yScroll;
+      // let height = window.visualViewport?.height;
+      // let yScroll = window.scrollY;
+      // this.yImg = yScroll;
       this.width = width!;
-      this.height = height!;
+      // this.height = height!;
     }
   }
 
@@ -100,40 +103,8 @@ export class HeaderMobileComponent extends Header {
         .subscribe((value) => {
           this.searchFilterName(value);
         });
-      // ===========[اسکرین شات]===========
 
-      // setInterval(() => {
-      //   this.getSize();
-
-      //   if (this.hideMenu == true) {
-      //     if (this.width > 769) {
-      //       this.xImg = -150;
-      // this.yImg = -100;
-      // } else {
-      // this.xImg = -250;
-      // this.yImg = 0;
-      // }
-      // const canvas = document.createElement('canvas')
-      // this.captureService
-      //   .getImage(document.body, false, {
-      //     x: this.xImg,
-      //     y: this.yImg,
-      //     width: 800,
-      //     height: 1280,
-      //   })
-      //   .pipe(
-      //     tap((img: string) => {
-      // if (this.hideMenu == true) {
-      // this.imgScreen = img;
-      // }
-      // } else {
-      //   this.imgScreen = '';
-      // }
-      //         })
-      //       )
-      //       .subscribe();
-      //   }
-      // }, 500);
+       this.getTags();
     }
   }
 
@@ -153,34 +124,6 @@ export class HeaderMobileComponent extends Header {
   // ===========[منو]===========
   openMenu() {
     document.body.classList.add('overflow-hidden');
-    this.getSize();
-
-    if (this.width > 769) {
-      this.xImg = -150;
-      // this.yImg = -100;
-    } else {
-      this.xImg = -250;
-      // this.yImg = 0;
-    }
-    // const canvas = document.createElement('canvas')
-    this.captureService
-      .getImage(document.body, false, {
-        x: this.xImg,
-        y: this.yImg,
-        width: 800,
-        height: 1280,
-      })
-      .pipe(
-        tap((img: string) => {
-          // if (this.hideMenu == true) {
-          this.imgScreen = img;
-          // } else {
-          //   this.imgScreen = '';
-          // }
-        })
-      )
-      .subscribe();
-
     this.hideMenu = !this.hideMenu;
   }
 
@@ -193,6 +136,7 @@ export class HeaderMobileComponent extends Header {
     if (activeRoute == true) {
       this.closeMenu();
       this.items[index].active = !this.items[index].active;
+      this.getScreenShot();
     } else {
       this.hideMenu = false;
     }
@@ -222,6 +166,7 @@ export class HeaderMobileComponent extends Header {
       this.router.navigateByUrl(`search?search=${value}`);
       this.closeMenu();
       this.hideSearch = true;
+     this.getScreenShot();
     }
   }
   // ===========[هشتگ ها]=====
@@ -230,25 +175,62 @@ export class HeaderMobileComponent extends Header {
   language: string = '';
   tagsMenu: ITags[];
 
-  async ngAfterViewInit() {
-    this._articleServices.singleBlog.asObservable().subscribe((item) => {
-      if (item) {
-        this.tagsMenu = [...item.sharpLinkTags];
-        this.sendDataToChild = true;
-      }
-    });
+  async getTags(){
+    const req = this._tagService.get(
+      `LinkTag?pageIndex=0&accending=false&RowID=1066&TableType=1&IsSharp=true`
+    );
+    const res = await lastValueFrom(req);
+    this.tagsMenu = res.data?.items!;
+    this.sendDataToChild = true;
+    console.log(this.tagsMenu);
+    
   }
 
-  // async getDetail(title: string, language: string) {
-  //   const apiRes = await this._articleServices.getBlog(title, language);
-  //   return apiRes;
-  // }
 
   searchTag(searchingTag: string) {
     searchingTag = searchingTag.slice();
     this.router.navigateByUrl(`search?search=${searchingTag}`);
     this.closeMenu();
     this.hideSearch = true;
+    this.getScreenShot();
+  }
+
+  // ===========[اسکرین شات]===========
+  
+  async ngAfterViewInit() {
+    this.getScreenShot();
+  }
+
+  getScreenShot(){
+    this.getSize();
+
+    if (this.width > 769) {
+      this.xImg = -150;
+      // this.yImg = -100;
+    } else {
+      this.xImg = -250;
+      // this.yImg = 0;
+    }
+
+    setTimeout(()=> {
+      this.captureService
+        .getImage(document.body, false, {
+          x: this.xImg,
+          y: -100,
+          width: 800,
+          height: 1280,
+        })
+        .pipe(
+          tap((img: string) => {
+            // if (this.hideMenu == true) {
+            this.imgScreen = img;
+            // } else {
+            //   this.imgScreen = '';
+            // }
+          })
+        )
+        .subscribe();
+    },1500)
   }
   // ===========[دراپ دون]=====
   dropDownIcon: boolean;
