@@ -182,7 +182,6 @@ export class HeaderMobileComponent extends Header {
     const res = await lastValueFrom(req);
     this.tagsMenu = res.data?.items!;
     this.sendDataToChild = true;
-    console.log(this.tagsMenu);
     
   }
 
@@ -216,7 +215,7 @@ export class HeaderMobileComponent extends Header {
       this.captureService
         .getImage(document.body, false, {
           x: this.xImg,
-          y: -100,
+          y: 10,
           width: 800,
           height: 1280,
         })
