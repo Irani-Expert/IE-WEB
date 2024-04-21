@@ -24,6 +24,7 @@
       [activeId]="0"
       (scrollClick1)="scroll(description)"
       (scrollClick2)="scroll(option)"
+      (scrollClick3)="scroll(backtest)"
       (scrollClick4)="scroll(question)"
       (scrollClick5)="scroll(comment)"
     ></app-scroll>
@@ -39,6 +40,7 @@
       [activeId]="1"
       (scrollClick1)="scroll(description)"
       (scrollClick2)="scroll(option)"
+      (scrollClick3)="scroll(backtest)"
       (scrollClick4)="scroll(question)"
       (scrollClick5)="scroll(comment)"
     ></app-scroll>
@@ -49,7 +51,7 @@
   ></app-bot-options>
 
   <!-- ==========[بک تست]=========== -->
-  <!-- <div #backtest>
+  <div #backtest>
     <app-scroll
       [activeId]="2"
       (scrollClick1)="scroll(description)"
@@ -58,16 +60,18 @@
       (scrollClick4)="scroll(question)"
       (scrollClick5)="scroll(comment)"
     ></app-scroll>
-  </div> -->
-
-  <!-- <app-back-test [data]="productService._product?.backTests!"></app-back-test> -->
+  </div>
+  <ng-container *ngIf="!loading">
+   <app-back-test [data]="productService._product?.backTests!"></app-back-test>
+  </ng-container>
 
   <!-- ==========[سوالات]=========== -->
   <div class="pt-10" #question>
     <app-scroll
-      [activeId]="2"
+      [activeId]="3"
       (scrollClick1)="scroll(description)"
       (scrollClick2)="scroll(option)"
+      (scrollClick3)="scroll(backtest)"
       (scrollClick4)="scroll(question)"
       (scrollClick5)="scroll(comment)"
     ></app-scroll>
@@ -78,9 +82,10 @@
   <!-- ==========[نظرات]=========== -->
   <div class="pt-10" #comment>
     <app-scroll
-      [activeId]="3"
+      [activeId]="4"
       (scrollClick1)="scroll(description)"
       (scrollClick2)="scroll(option)"
+      (scrollClick3)="scroll(backtest)"
       (scrollClick4)="scroll(question)"
       (scrollClick5)="scroll(comment)"
     ></app-scroll>
