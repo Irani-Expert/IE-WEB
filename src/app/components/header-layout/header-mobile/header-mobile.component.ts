@@ -55,7 +55,7 @@ export class HeaderMobileComponent extends Header {
     private toastr: ToastrService,
     private location: Location,
     private captureService: NgxCaptureService,
-    private _tagService : TagService
+    private _tagService: TagService
   ) {
     super(navService);
     this.user$ = this.auth.userSubject.asObservable();
@@ -104,7 +104,7 @@ export class HeaderMobileComponent extends Header {
           this.searchFilterName(value);
         });
 
-       this.getTags();
+      this.getTags();
     }
   }
 
@@ -166,7 +166,7 @@ export class HeaderMobileComponent extends Header {
       this.router.navigateByUrl(`search?search=${value}`);
       this.closeMenu();
       this.hideSearch = true;
-     this.getScreenShot();
+      this.getScreenShot();
     }
   }
   // ===========[هشتگ ها]=====
@@ -175,16 +175,14 @@ export class HeaderMobileComponent extends Header {
   language: string = '';
   tagsMenu: ITags[];
 
-  async getTags(){
+  async getTags() {
     const req = this._tagService.get(
       `LinkTag?pageIndex=0&accending=false&RowID=1066&TableType=1&IsSharp=true`
     );
     const res = await lastValueFrom(req);
     this.tagsMenu = res.data?.items!;
     this.sendDataToChild = true;
-    
   }
-
 
   searchTag(searchingTag: string) {
     searchingTag = searchingTag.slice();
@@ -195,12 +193,13 @@ export class HeaderMobileComponent extends Header {
   }
 
   // ===========[اسکرین شات]===========
-  
+
   async ngAfterViewInit() {
     this.getScreenShot();
   }
 
-  getScreenShot(){
+  getScreenShot() {
+    const screenshot = document.getElementById('mainRouterContainer');
     this.getSize();
 
     if (this.width > 769) {
@@ -211,9 +210,9 @@ export class HeaderMobileComponent extends Header {
       // this.yImg = 0;
     }
 
-    setTimeout(()=> {
+    setTimeout(() => {
       this.captureService
-        .getImage(document.body, false, {
+        .getImage(screenshot!, false, {
           x: this.xImg,
           y: 10,
           width: 800,
@@ -229,7 +228,7 @@ export class HeaderMobileComponent extends Header {
           })
         )
         .subscribe();
-    },1500)
+    }, 1500);
   }
   // ===========[دراپ دون]=====
   dropDownIcon: boolean;
