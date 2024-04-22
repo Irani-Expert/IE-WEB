@@ -35,6 +35,7 @@ export class CalendarCardResponsiveComponent {
       impact_Type: items.impact_Type,
       prev_Value: items.prev_Value.toString(),
       actual_Value: items.actual_Value.toString(),
+      type: items.type,
     };
   }
 }

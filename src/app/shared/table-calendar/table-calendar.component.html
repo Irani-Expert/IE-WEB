@@ -28,7 +28,22 @@
                 item.country.symbol | uppercase
               }}</span>
               <span *ngIf="item.active" class="inline-flex flex-col">
-                <p class="text-black text-sm font-medium">
+                <p
+                  *ngIf="item.event.time === '00:00:00' && item.type !== 2"
+                  class="text-black text-sm font-medium"
+                >
+                  &nbsp;
+                </p>
+                <p
+                  *ngIf="item.event.time === '00:00:00' && item.type == 2"
+                  class="text-black text-sm font-medium"
+                >
+                  {{ item.event.time.slice(0, 5) }}
+                </p>
+                <p
+                  *ngIf="item.event.time !== '00:00:00'"
+                  class="text-black text-sm font-medium"
+                >
                   {{ item.event.time.slice(0, 5) }}
                 </p>
                 <p class="text-black text-xs font-medium line-h-custom">
@@ -48,7 +63,20 @@
           </span> -->
           <td (click)="showDetails(item)" class="event">
             <span *ngIf="!item.active" class="block text-black font-medium">
-              {{ item.event.time.slice(0, 5) }} &nbsp;
+              <ng-container
+                *ngIf="item.event.time == '00:00:00' && item.type == 2"
+              >
+                {{ item.event.time.slice(0, 5) }}
+              </ng-container>
+              <ng-container
+                *ngIf="item.event.time == '00:00:00' && item.type !== 2"
+              >
+                {{ "تمام روز" }}
+              </ng-container>
+              <ng-container *ngIf="item.event.time !== '00:00:00'">
+                {{ item.event.time.slice(0, 5) }}
+              </ng-container>
+              &nbsp;
               <ng-container *ngIf="showDate">
                 {{ item.event.date | date : "YYYY/MM/dd" }}
               </ng-container>

@@ -367,128 +367,130 @@
 
 <!-- Description -->
 <ng-container *ngIf="sendDataToChild">
-
-<div id="description" class="flex flex-col lg:flex-row mx-4 my-5">
-  <div class="basis-full hidden lg:block max-w-[370px] min-w-[270px]">
-    <app-blog-filter [type]="'tags'" [categoryTags]="apiData.sharpLinkTags">
-      <p header>دسترسی سریع</p>
-    </app-blog-filter>
-  </div>
-  <div class="basis-full lg:basis3/4 flex flex-col mx-4">
-            <!-- ==========[رسپانسیو دسترسی سریع]===== -->
-            <div class="block lg:hidden">
-              <app-filter-responsive
-              [categoryDetailIcon]="categoryDetailIcon"
-              [data]="'white'"
-              [categoryTags]="tags"
-              [type]="'tags'"
+  <div id="description" class="flex flex-col lg:flex-row mx-4 my-5">
+    <div class="basis-full hidden lg:block max-w-[370px] min-w-[270px]">
+      <app-blog-filter [type]="'tags'" [categoryTags]="apiData.sharpLinkTags">
+        <p header>دسترسی سریع</p>
+      </app-blog-filter>
+    </div>
+    <div class="basis-full lg:basis3/4 flex flex-col mx-4">
+      <!-- ==========[رسپانسیو دسترسی سریع]===== -->
+      <div class="block lg:hidden">
+        <app-filter-responsive
+          [categoryDetailIcon]="categoryDetailIcon"
+          [data]="'white'"
+          [categoryTags]="tags"
+          [type]="'tags'"
+        >
+          <p header class="text-black w-28">دسترسی سریع</p>
+        </app-filter-responsive>
+      </div>
+      <!-- ==========[]===== -->
+      <div class="flex justify-between my-4">
+        <div class="flex items-center w-44">
+          <i class="ie-icon ie-broker-group scale-90"></i>
+          <p class="text-[#098B41] font-bold text-lg mr-3">بررسی بروکر</p>
+        </div>
+        <button
+          disabled
+          class="flex items-center box-share disabled:opacity-25"
+        >
+          <p class="icon-title ml-3">اشتراک گذاری</p>
+          <i class="shared-icon"></i>
+        </button>
+      </div>
+      <h1 class="font-black text-3xl">{{ apiData.title }}</h1>
+      <div class="flex mt-3">
+        <p class="text-black ml-10">اننتشار :{{ apiData.createDate | date }}</p>
+        <p class="text-black">
+          زمان مطالعه : {{ apiData.studyTime.slice(3, 5) || "15" }} دقیقه
+        </p>
+      </div>
+      <div class="flex relative mt-4">
+        <img
+          class="img-blog"
+          [src]="contentUrl + apiData.cardImagePath"
+          alt="{{ apiData.title }}"
+          width="100"
+          height="100"
+        />
+        <div class="absolute flex h-full w-full items-center">
+          <div class="sm:mt-40 sm:mr-12">
+            <div
+              class="divider"
+              [style]="'background-color:' + apiData.colorCode"
+            ></div>
+            <p
+              class="drop-shadow font-extrabold text-3xl"
+              [style]="'color:' + apiData.colorCode"
             >
-              <p header class="text-black w-28">دسترسی سریع</p>
-            </app-filter-responsive>
-            </div>
-            <!-- ==========[]===== -->
-    <div class="flex justify-between my-4">
-      <div class="flex items-center w-44">
-        <i class="ie-icon ie-broker-group scale-90"></i>
-        <p class="text-[#098B41] font-bold text-lg mr-3">بررسی بروکر</p>
-      </div>
-      <button disabled class="flex items-center box-share disabled:opacity-25">
-        <p class="icon-title ml-3">اشتراک گذاری</p>
-        <i class="shared-icon"></i>
-      </button>
-    </div>
-    <h1 class="font-black text-3xl">{{ apiData.title }}</h1>
-    <div class="flex mt-3">
-      <p class="text-black ml-10">اننتشار :{{ apiData.createDate | date }}</p>
-      <p class="text-black">
-        زمان مطالعه : {{ apiData.studyTime.slice(3, 5) || "15" }} دقیقه
-      </p>
-    </div>
-    <div class="flex relative mt-4">
-      <img
-        class="img-blog"
-        [src]="contentUrl + apiData.cardImagePath"
-        alt="{{ apiData.title }}"
-        width="100"
-        height="100"
-      />
-      <div class="absolute flex h-full w-full items-center">
-        <div class="sm:mt-40 sm:mr-12">
-          <div
-            class="divider"
-            [style]="'background-color:' + apiData.colorCode"
-          ></div>
-          <p
-            class="drop-shadow font-extrabold text-3xl"
-            [style]="'color:' + apiData.colorCode"
-          >
-            {{ apiData.title }}
-          </p>
-        </div>
-      </div>
-    </div>
-    <div id="ckeditor" [innerHTML]="brokerDescHtml"></div>
-
-    <div
-      *ngIf="dataLoaded.value"
-      class="flex flex-col md:flex-row justify-center items-stretch gap-10 mt-8"
-    >
-      <div class="inline-flex flex-col space-y-3 basis-1/2">
-        <p class="text-center text-[#098B41] font-medium text-xl">مزایا</p>
-        <div
-          class="bg-white border-2 border-[#EEEEEE] mt-3 px-5 py-4 rounded-2xl flex-col flex space-y-5 h-full"
-        >
-          <div
-            class="flex flex-row items-center gap-3"
-            *ngFor="let advantage of apiData.advantages.split('@')"
-          >
-            <div class="circle-tick">
-              <i class="icon-tick"></i>
-            </div>
-            <p>
-              {{ advantage }}
+              {{ apiData.title }}
             </p>
           </div>
         </div>
       </div>
-      <div class="inline-flex flex-col space-y-3 basis-1/2">
-        <p class="text-center text-[#CC3A39] font-medium text-xl">معایب</p>
-        <div
-          class="bg-white border-2 border-[#EEEEEE] mt-3 px-5 py-4 rounded-2xl flex-col flex space-y-5 h-full"
-        >
+      <div id="ckeditor" [innerHTML]="brokerDescHtml"></div>
+
+      <div
+        *ngIf="dataLoaded.value"
+        class="flex flex-col md:flex-row justify-center items-stretch gap-10 mt-8"
+      >
+        <div class="inline-flex flex-col space-y-3 basis-1/2">
+          <p class="text-center text-[#098B41] font-medium text-xl">مزایا</p>
           <div
-            class="flex flex-row items-center gap-3"
-            *ngFor="let disAdvantages of apiData.disAdvantages.split('@')"
+            class="bg-white border-2 border-[#EEEEEE] mt-3 px-5 py-4 rounded-2xl flex-col flex space-y-5 h-full"
           >
-            <div class="circle-tick !bg-[#CC3A39]">
-              <i class="ie-icon ie-times translate-y-[3px]"></i>
+            <div
+              class="flex flex-row items-center gap-3"
+              *ngFor="let advantage of apiData.advantages.split('@')"
+            >
+              <div class="circle-tick">
+                <i class="icon-tick"></i>
+              </div>
+              <p>
+                {{ advantage }}
+              </p>
             </div>
-            <p>
-              {{ disAdvantages }}
-            </p>
+          </div>
+        </div>
+        <div class="inline-flex flex-col space-y-3 basis-1/2">
+          <p class="text-center text-[#CC3A39] font-medium text-xl">معایب</p>
+          <div
+            class="bg-white border-2 border-[#EEEEEE] mt-3 px-5 py-4 rounded-2xl flex-col flex space-y-5 h-full"
+          >
+            <div
+              class="flex flex-row items-center gap-3"
+              *ngFor="let disAdvantages of apiData.disAdvantages.split('@')"
+            >
+              <div class="circle-tick !bg-[#CC3A39]">
+                <i class="ie-icon ie-times translate-y-[3px]"></i>
+              </div>
+              <p>
+                {{ disAdvantages }}
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="flex items-center my-10">
-      <img src="../../../assets/img/avatar-c.webp" alt="avatar" width="50" />
-      <div class="flex items-center max-md:flex-col">
-        <span class="font-bold text-2xl mx-3">{{ apiData.author }}</span>
-        <small>تعداد بازدید کل : {{ " 135" }} </small>
+      <div class="flex items-center my-10">
+        <img src="../../../assets/img/avatar-c.webp" alt="avatar" width="50" />
+        <div class="flex items-center max-md:flex-col">
+          <span class="font-bold text-2xl mx-3">{{ apiData.author }}</span>
+          <small>تعداد بازدید کل : {{ " 135" }} </small>
+        </div>
+      </div>
+      <div class="my-10">
+        <!-- <app-vote /> -->
+        <app-comments [tableType]="32" [rowId]="apiData.id" />
       </div>
     </div>
-    <div class="my-10 select-none relative">
-      <!-- <app-vote /> -->
-      <app-comments [tableType]="32" [rowId]="apiData.id" />
-    </div>
-  </div>
-  <!-- Benefits -->
+    <!-- Benefits -->
 
-  <!-- Benefits -->
-  <!-- <div class="inline-block border border-gray-400 rounded-[9px] min-w-[26px]">
+    <!-- Benefits -->
+    <!-- <div class="inline-block border border-gray-400 rounded-[9px] min-w-[26px]">
   <p class="mx-4 my-2 text-sm font-medium">
     جدیدترین خبر های بروکر را به من اطلاع بده
   </p>
 </div> -->
-</div>
+  </div>
 </ng-container>
