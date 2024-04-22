@@ -228,7 +228,7 @@ export class HeaderMobileComponent extends Header {
           })
         )
         .subscribe();
-    }, 1500);
+    }, 2500);
   }
   // ===========[دراپ دون]=====
   dropDownIcon: boolean;
