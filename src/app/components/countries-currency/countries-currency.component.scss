@@ -4,7 +4,7 @@
   max-width: 160px;
 }
 
-.show-list{
+.countries-list{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -12,7 +12,9 @@
   padding: 0rem 1rem;
   overflow: hidden;
   transform: none !important;
+}
 
+.show-list{
 @media (width > 1023px) {
 animation: displayOut 1s ease-in forwards;
 width: 922px;
@@ -28,13 +30,6 @@ width: 1376px;
 
 }
 .hiede-list{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 0rem 1rem;
-  overflow: hidden;
-  transform: none !important;
-
   @media (width > 1023px) {
     width: 922px;
     animation: displayIn 1s ease-in forwards;
@@ -118,6 +113,9 @@ width: 1376px;
 scale: 0.45;
 rotate: 180deg;
 transition: all 0.25s ease-in-out;
+}
+.mmm{
+  background-color: aqua;
 }
 @keyframes displayOut {
   0% {
