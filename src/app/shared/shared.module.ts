@@ -33,6 +33,7 @@ import {
 import { FavoriteComponent } from './favorite/favorite.component';
 import { YearSelectorComponent } from './year-selector/year-selector.component';
 import { FilterResponsiveComponent } from '../routes/Blog/components/filter-responsive/filter-responsive.component';
+import { Spinner } from './spinner/spinner.component';
 
 const components = [
   AcordianComponent,
@@ -66,6 +67,7 @@ const components = [
     MatDatepickerModule,
     MatNativeDateModule,
     FavoriteComponent,
+    Spinner,
   ],
   exports: [
     components,

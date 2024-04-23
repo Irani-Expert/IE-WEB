@@ -6,10 +6,12 @@ import {
   trigger,
 } from '@angular/animations';
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 // import { Meta } from '@angular/platform-browser';
 // import { ActivatedRoute } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import { LinkService } from 'src/app/classes/services/link.service';
+import { Utils } from 'src/app/classes/utils';
 
 @Component({
   selector: 'app-about-us',
@@ -27,7 +29,10 @@ import { LinkService } from 'src/app/classes/services/link.service';
 export class AboutUsComponent {
   // private activatedRoute: ActivatedRoute
   // private _meta: Meta
-  constructor(private _linkService: LinkService) {
+  constructor(
+    private _linkService: LinkService,
+    private _activatedRoute: ActivatedRoute
+  ) {
     this._linkService.createLink(`https://www.iraniexpert.com/about-us`);
     // // this._meta.addTag({
     // //   name: 'description',
@@ -62,5 +67,17 @@ export class AboutUsComponent {
 
   get isBrowser() {
     return AppComponent.isBrowser.value;
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this._activatedRoute.queryParams.subscribe({
+        next: (value) => {
+          if (value['counselling']) {
+            Utils.scrollToView('counselling', 'instant');
+          }
+        },
+      });
+    }, 1000);
   }
 }

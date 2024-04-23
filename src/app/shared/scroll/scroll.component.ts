@@ -24,18 +24,18 @@ export class ScrollComponent {
       name: 'امکانات',
       active: false,
     },
-    // {
-    //   id:3,
-    //   name:'بک تست',
-    //   active:false
-    // },
     {
-      id: 3,
+      id:3,
+      name:'بک تست',
+      active:false
+    },
+    {
+      id: 4,
       name: 'سوالات متداول',
       active: false,
     },
     {
-      id: 4,
+      id: 5,
       name: 'نظرات',
       active: false,
     },
@@ -52,10 +52,10 @@ export class ScrollComponent {
         this.scrollClick2.emit(event);
         break;
       case 2:
-        this.scrollClick4.emit(event);
+        this.scrollClick3.emit(event);
         break;
       case 3:
-        this.scrollClick5.emit(event);
+        this.scrollClick4.emit(event);
         break;
       case 4:
         this.scrollClick5.emit(event);

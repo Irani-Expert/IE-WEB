@@ -25,11 +25,11 @@ export class DescriptionComponent {
     },
     {
       id: 3,
-      title: 'Input پارامترهای ورودی گسترده در',
+      title: 'پارامترهای ورودی گسترده در Input',
     },
     {
       id: 4,
-      title: 'Monitoring امکان نظارت انسانی با پنل',
+      title:'امکان نظارت انسانی با پنل Monitoring'
     },
     {
       id: 5,
@@ -89,12 +89,12 @@ export class DescriptionComponent {
     {
       id: 2,
       title: 'HDD',
-      description: '5 GB',
+      description: '5GB',
     },
     {
       id: 3,
       title: 'RAM',
-      description: '2 GB',
+      description: '2GB',
     },
     {
       id: 4,
@@ -123,7 +123,7 @@ export class DescriptionComponent {
     {
       id: 1,
       title:
-        'نام جفت ارز معاملاتی را مطابق مارکت واچ در بروکرتان, در تنظیمات اولیه ربات پارامتر (Symnol Pair) عینا بنویسید',
+        'نام جفت ارز معاملاتی را مطابق مارکت واچ در بروکرتان, در تنظیمات اولیه ربات پارامتر (Symnol Pair) عینا بنویسید.',
     },
     {
       id: 2,
@@ -149,7 +149,7 @@ export class DescriptionComponent {
     {
       id: 9,
       title:
-        '.جهت همکاری در فروش لایسنس، مشارکت در سود، اطلاع از تخفیف‌ها و... با ما ارتباط بگیرید',
+        'جهت همکاری در فروش لایسنس، مشارکت در سود، اطلاع از تخفیف‌ها و... با ما ارتباط بگیرید.',
     },
     {
       id: 10,

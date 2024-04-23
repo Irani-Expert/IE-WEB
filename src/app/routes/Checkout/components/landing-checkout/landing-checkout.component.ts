@@ -131,7 +131,7 @@ export class LandingCheckoutComponent {
       placeholder: 'کد تخفیف دارم',
     },
     {
-      id: 3,
+      id: 4,
       label: 'پذیرش قوانین',
       name: 'acceptRules',
       typeofVlaue: 'boolean',
@@ -193,7 +193,7 @@ export class LandingCheckoutComponent {
     this.orderModel.orderItems = orderBasket.basketItems;
     this.orderModel.totalPrice = orderBasket.totalPrice;
     this.basket = orderBasket.basketItems;
-    this.formGroup.controls['discountCode'].disable();
+    // this.formGroup.controls['discountCode'].disable();
   }
 
   ngAfterViewInit() {
@@ -303,6 +303,47 @@ export class LandingCheckoutComponent {
     let url = this.appCheckoutDetail?.data?.cardImagePath;
     if (url) return contentUrl + url;
     else return '';
+  }
+
+  // Discount
+
+  async checkDiscount() {
+    const code = this._formControls['discountCode'].value;
+    console.log(code);
+
+    const res = await this._orderService.checkDiscount(code);
+    if (res.success) {
+      const { amount, percent } = res.data!;
+      if (percent !== 0) {
+        this.calculatePercent(percent);
+      } else {
+        this.calculateAmount(amount);
+      }
+      this.orderModel.discountCode = code;
+      this.formGroup.controls['discountCode'].disable();
+      this._orderService.toastSuccess('کد تخفیف با موفقیت اعمال شد');
+    } else {
+      this._orderService.toastError(res.message);
+    }
+  }
+
+  calculateAmount(amount: number) {
+    this._orderService.basket.value.totalPrice -= amount;
+    this.appCheckoutDetail.discount = true;
+    this.appCheckoutDetail.discountPercent =
+      (amount * 100) / this.orderModel.totalPrice;
+  }
+
+  calculatePercent(percent: number) {
+    let discountPrice = (percent * this.orderModel.totalPrice) / 100;
+
+    this._orderService.basket.value.totalPrice -= discountPrice;
+    this.appCheckoutDetail.discount = true;
+    this.appCheckoutDetail.discountPercent = percent;
+  }
+
+  get price() {
+    return this._orderService.basket.value.totalPrice;
   }
 }
 

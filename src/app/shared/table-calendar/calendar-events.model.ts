@@ -8,4 +8,5 @@ export interface CalendarEventsTable {
   actual_Value?: string;
   active: boolean;
   impact_Type: string;
+  type: number;
 }

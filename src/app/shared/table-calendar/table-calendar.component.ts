@@ -80,8 +80,8 @@ export class TableCalendar {
         active: false,
         id: it.id,
         country: {
-          flag: it.code,
-          symbol: it.currency,
+          flag: it.code !== 'WW' ? it.code : 'un',
+          symbol: it.currency !== 'WorldWide' ? it.currency : 'جهانی',
           currencySymbol: it.currencySymbol,
         },
         event: {
@@ -95,6 +95,7 @@ export class TableCalendar {
         impact_Type: it.impact_Type,
         prev_Value: it.prev_Value.toString(),
         actual_Value: it.actual_Value.toString(),
+        type: it.type,
       };
       this.table.push(itemToPourInTable);
     });

@@ -172,8 +172,11 @@
   class="overlay3"
   style="width: 100%; opacity: 0.8"
 ></div>
+<ng-container *ngIf="sendDataToChild">
+<div id="ckeditor" [innerHTML]="articleHtml" class="mt-6 money-m"></div>
+</ng-container>
 <!-- ATM Comparison -->
-<section class="content-static mx-2 md:mx-20">
+<!-- <section class="content-static mx-2 md:mx-20">
   <div>
     <p class="part-seperator text-[#3246D3] font-bold text-lg">
       بهترین ربات ترید فارکس 2023
@@ -216,9 +219,9 @@
         و حساب‌های
       </p>
     </div>
-  </div>
+  </div> -->
   <!-- ATM در معرفی ربات معامله گر -->
-  <div class="mt-16">
+  <!-- <div class="mt-16">
     <p class="part-seperator text-[#3246D3] font-bold text-lg">
       در معرفی ربات معامله گر ATM
     </p>
@@ -266,7 +269,10 @@
       جدول مقایسه ربات های معامله گر و ربات ATM
     </b>
     <h2 class="sr-only">ویژگی های محبوب ربات معامله گر فارکس ATM</h2>
-    <app-table-compare></app-table-compare>
+    <div class="relative flex justify-center pt-12 pb-8">
+      <img class="img-table" alt="table-shop" src="../../../../../assets/img/table-shop.webp">
+      <a href="https://www.iraniexpert.com/shop/atm-expert" class="absolute product-link">&nbsp;</a>
+    </div>
     <p class="font-bold text-center mt-10 text-2xl">
       مدعی هستیم که هیچ ربات معامله‌گری، نه تنها در ایران بلکه در کل جهان، این
       همه امکانات را یک‌جا ندارد!!
@@ -296,4 +302,4 @@
       </p>
     </div>
   </div>
-</section>
+</section> -->

@@ -1,22 +1,22 @@
 <div class="lg:!mr-14 row">
   <span class="divid-h lg:!text-base">عملکرد ربات معامله گر ATM </span>
   <h6 class="text-base text-black font-semibold mb-4 lg:!text-2xl">
-    بک تست 6 ماهه با بالانس 500 دلاری (EUR/USD)
+    {{data[0].title}}
   </h6>
 </div>
 <div class="flex justify-center">
   <div class="mt-5 mb-10">
-    <div class="text-center mb-8">
+    <div class="text-center mb-8 mx-4 lg:mx-0">
       <p class="text-black text-sm">
-        چند نکته درباره بک تست:1.در بک تست شما امکان استفاده از پنل مانیتورینگ
-        رو ندارید 2.اخبار در بک تست لحاظ نمیشه
+        {{data[0].description}}
       </p>
     </div>
     <!-- ==========[ویدیو]=========== -->
-    <div>
+    <div class="aspect-video mx-4 lg:mx-0">
       <app-video-player
+        class="lg:w-1/2 sm:h-[27rem] h-[50vw]"
         [VideoId]="0"
-        [Link]="'https://www.w3schools.com/html/mov_bbb.ogg'"
+        [Link]="videoUrl"
       ></app-video-player>
     </div>
   </div>

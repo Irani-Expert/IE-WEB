@@ -28,7 +28,7 @@ export class MapComponent {
   @ViewChild('countriesComponentContainer', { read: ViewContainerRef })
   countriesComponentContainer: ViewContainerRef;
   dynamicComponentRef: ComponentRef<MapCountryComponent>;
-  weekends: boolean;
+  weekends: boolean = false;
   constructor(private _ecoCalService: EcoCalService) {}
   ngAfterViewInit(): void {
     this.initMap();
@@ -40,15 +40,7 @@ export class MapComponent {
 
     this.countriesLayer(); //Create Countries Layer
 
-    let today = new Date().getDay();
-    if (today == 6 || today == 7) {
-      // Sunday and Saturday
-      this.weekends = true;
-    } else {
-      this.weekends = false;
-      //Other Days of Week
-      this.createMarker(); // Create Markers on Map
-    }
+    this.createMarker(); // Create Markers on Map
   }
 
   createMarkerPopupContent(countryName: string): L.Popup {

@@ -129,7 +129,7 @@
               </p>
               <div *ngIf="hvr.tableType == 6" class="flex w-full pl-10 justify-end">
                 <div class="flex mt-8 mb-4 items-center">
-                  <p class="ml-8 text-black text-xl font-black">شروع قیمت از :{{ hvr.minPrice !== 0 ? hvr.minPrice : ("20" | currency) }}</p>
+                  <p class="ml-8 text-black text-xl font-black">شروع قیمت از :{{ hvr.minPrice !== 0 ? hvr.minPrice : "20" }}<strong>$</strong></p>
                   <a href="shop/atm-expert" target="_blank" 
                   class="bg-blue-800 font-bold text-white px-6 py-2 rounded-3xl text-lg">بررسی پلن ها</a>
                 </div>
@@ -169,13 +169,13 @@
                     {{ hvr.brief }}
                   </p>
                   <div *ngIf="hvr.tableType == 1" class="flex flex-row w-full">
+                    <p class="details ml-8">مقالات</p>
                     <p class="details ml-8">نویسنده :{{ hvr.authorName }}</p>
-                    <p class="details ml-8">امتیاز :{{ hvr.rate }}</p>
                   </div>
                   <div *ngIf="hvr.tableType == 6" class="flex flex-row w-full">
                     <p class="details ml-8">محصولات</p>
                     <p class="details ml-8">فروشنده :{{ hvr.seller }}</p>
-                    <p class="details ml-8">کمترین قیمت :{{ hvr.minPrice !== 0 ? hvr.minPrice : ("20" | currency) }}</p>
+                    <p class="details ml-8">کمترین قیمت :{{ hvr.minPrice !== 0 ? hvr.minPrice : "20" }}<strong>$</strong></p>
                   </div>
                   <div *ngIf="hvr.tableType == 36" class="flex flex-row w-full">
                     <p class="details ml-8 flex w-28 "><i class="broker-search ml-2"></i>بررسی بروکر </p>
@@ -228,7 +228,7 @@
                   <p class="details ml-8">کمترین قیمت :{{ hvr.minPrice }}</p>
                 </div>
                 <div *ngIf="hvr.tableType == 36" class="flex flex-row w-full">
-                  <p class="details ml-8"><i class="broker-search ml-2"></i>بررسی بروکر </p>
+                  <p class="details ml-8"><i class="broker-search ml-2"></i> بروکرها </p>
                   <p class="details ml-8">امتیاز :{{ hvr.staticRate }}</p>
                 </div>
                 <div *ngIf="hvr.tableType == 34" class="flex flex-row w-full">

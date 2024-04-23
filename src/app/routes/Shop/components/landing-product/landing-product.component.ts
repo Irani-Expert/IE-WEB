@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { ActivatedRoute } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { ProductService } from 'src/app/classes/services/product.service';
