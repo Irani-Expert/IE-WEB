@@ -13,11 +13,13 @@ import { environment } from 'src/environments/environment.dev';
 import { Country } from 'src/app/routes/calendar/map-components/map-country/country';
 import { GraphFinance } from '../interfaces/graph.interface';
 import { Filter as FilterEvents } from '../../routes/calendar/calendar-main-page/filter.model';
+import { CalendarCountry } from '../interfaces/calendarcountry';
 @Injectable({
   providedIn: 'root',
 })
 export class EcoCalService extends BaseService<PageInterface<CalEvent[]>> {
   mapEvents = new BehaviorSubject<Country[]>(new Array<Country>());
+  // CalendarCountry = new BehaviorSubject<CalendarCountry[]>(new Array<CalendarCountry>());
   filter = new BehaviorSubject<FilterEvents>(new FilterEvents());
   filter$ = this.filter.asObservable();
 
@@ -112,6 +114,23 @@ export class EcoCalService extends BaseService<PageInterface<CalEvent[]>> {
         map((item) => {
           this.mapEvents.next(item.data!);
           return item;
+        })
+      );
+
+    return await lastValueFrom(apiRes);
+  }
+
+  async getCalendarCountry(url : string) {
+    const apiRes = this.http
+      .get<Result<PageInterface<CalendarCountry[]>>>(
+        `${environment.apiUrl}${url}`,
+        {
+          headers: this.headers,
+        }
+      )
+      .pipe(
+        map((item) => {
+          return item.data?.items;
         })
       );
 

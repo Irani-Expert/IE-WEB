@@ -169,8 +169,8 @@
                     {{ hvr.brief }}
                   </p>
                   <div *ngIf="hvr.tableType == 1" class="flex flex-row w-full">
+                    <p class="details ml-8">مقالات</p>
                     <p class="details ml-8">نویسنده :{{ hvr.authorName }}</p>
-                    <p class="details ml-8">امتیاز :{{ hvr.rate }}</p>
                   </div>
                   <div *ngIf="hvr.tableType == 6" class="flex flex-row w-full">
                     <p class="details ml-8">محصولات</p>
@@ -228,7 +228,7 @@
                   <p class="details ml-8">کمترین قیمت :{{ hvr.minPrice }}</p>
                 </div>
                 <div *ngIf="hvr.tableType == 36" class="flex flex-row w-full">
-                  <p class="details ml-8"><i class="broker-search ml-2"></i>بررسی بروکر </p>
+                  <p class="details ml-8"><i class="broker-search ml-2"></i> بروکرها </p>
                   <p class="details ml-8">امتیاز :{{ hvr.staticRate }}</p>
                 </div>
                 <div *ngIf="hvr.tableType == 34" class="flex flex-row w-full">

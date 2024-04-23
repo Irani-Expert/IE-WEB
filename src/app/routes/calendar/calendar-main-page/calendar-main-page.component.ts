@@ -14,6 +14,7 @@ import { LinkService } from 'src/app/classes/services/link.service';
 import { Utils } from 'src/app/classes/utils';
 import { TradingViewComponent } from 'src/app/components/trading-view/trading-view.component';
 import { ResponsiveTableComponent } from '../responsive-table/responsive-table.component';
+import { CalendarCountry } from 'src/app/classes/interfaces/calendarcountry';
 
 @Component({
   selector: 'app-calendar-main-page',
@@ -28,7 +29,7 @@ export class CalendarMainPageComponent {
   @ViewChild(ResponsiveTableComponent, { static: false })
   appResponsiveTableComponent: ResponsiveTableComponent;
   filteredModel: FilterEvents;
-
+  calendarCountry : CalendarCountry[] ;
   // filter = new BehaviorSubject<FilterEvents>(new FilterEvents());
   // filter$ = this.filter.asObservable();
   importances = importances;
@@ -37,7 +38,7 @@ export class CalendarMainPageComponent {
   constructor(
     private _ecoCalService: EcoCalService,
     public datepipe: DatePipe,
-    private _linkService: LinkService
+    private _linkService: LinkService,
   ) {
     this._ecoCalService.filter.subscribe((data) => {
       this.filteredModel = data;
@@ -47,9 +48,13 @@ export class CalendarMainPageComponent {
       `https://www.iraniexpert.com/economic-calendar`
     );
   }
-  ngOnInit() {
+  async ngOnInit() {
     this.checkDevice();
     AppComponent.changeMainBg('creamy');
+
+    if (AppComponent.isBrowser.value) {
+      this.getCalendarCountry();
+    }
   }
   async ngAfterViewInit() {
     // TradingViewComponent.createView();
@@ -66,6 +71,16 @@ export class CalendarMainPageComponent {
         this.appTableComponent.tableIsLoading = false;
       },
     });
+  }
+
+  // =====[هرکشور]====
+  sendDataToChild = false;
+  async getCalendarCountry(){
+    const res = await this._ecoCalService.getCalendarCountry('CalendarCountry?pageIndex=0&accending=false');
+    if(res) {
+      this.calendarCountry = res;
+    }
+    this.sendDataToChild = true;
   }
 
   ngAfterContentInit() {}
@@ -244,6 +259,7 @@ export class CalendarMainPageComponent {
       TradingViewComponent.createView();
     }, 500);
   }
+  // countriesList : Array<string> = ['Usa','England','Sweden','Switzerland','Spain','','Australia','Brazil',]
 }
 
 enum TVStatus {
