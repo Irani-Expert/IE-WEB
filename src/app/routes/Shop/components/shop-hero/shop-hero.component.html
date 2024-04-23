@@ -32,7 +32,9 @@
               </span>
               <p class="bot-rating relative text-sm font-bold">
                 <span class="Common">{{ product.rate }}</span>
-                <span class="view mx-1 px-1">بازدید ها {{product.viewsCount}}</span>
+                <span class="view mx-1 px-1"
+                  >بازدید ها {{ product.viewsCount }}</span
+                >
                 <span class="Common">مشترک ها 253</span>
               </p>
             </div>
@@ -114,13 +116,24 @@
                   >
                 </div>
                 <div class="flex mr-auto items-center justify-end mt-2 pt-3">
-                  <div class="flex items-center">
+                  <div class="flex items-center flex-row-reverse">
                     <p
-                      [ngClass]="animationState ? 'price-animation' : ''"
+                      [ngClass]="{
+                        'price-animation': animationState,
+                        'line-through': selectedPlan.id == 39
+                      }"
                       class="text-black font-black text-2xl"
                     >
                       {{ selectedPlan.price | currency }}
                     </p>
+                    <ng-container *ngIf="selectedPlan.id == 39">
+                      <p
+                        [ngClass]="animationState ? 'price-animation' : ''"
+                        class="text-[#3246d3] font-bold text-lg mx-2"
+                      >
+                        {{ selectedPlan.price - 120 | currency }}
+                      </p>
+                    </ng-container>
                   </div>
                 </div>
                 <br />
@@ -328,11 +341,22 @@
       </div>
       <div class="inline-flex justify-center items-center mt-2 basis-2/3">
         <p
-          [ngClass]="animationState ? 'price-animation' : ''"
-          class="font-black text-black text-2xl"
+          [ngClass]="{
+            'price-animation': animationState,
+            'line-through': selectedPlan.id == 39
+          }"
+          class="text-black font-black text-2xl"
         >
           {{ selectedPlan.price | currency }}
         </p>
+        <ng-container *ngIf="selectedPlan.id == 39">
+          <p
+            [ngClass]="animationState ? 'price-animation' : ''"
+            class="text-[#3246d3] font-bold text-lg mx-2"
+          >
+            {{ selectedPlan.price - 120 | currency }}
+          </p>
+        </ng-container>
       </div>
     </div>
   </div>

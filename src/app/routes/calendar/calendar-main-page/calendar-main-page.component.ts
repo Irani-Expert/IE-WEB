@@ -14,6 +14,7 @@ import { LinkService } from 'src/app/classes/services/link.service';
 import { Utils } from 'src/app/classes/utils';
 import { TradingViewComponent } from 'src/app/components/trading-view/trading-view.component';
 import { ResponsiveTableComponent } from '../responsive-table/responsive-table.component';
+import { FileService } from 'src/app/classes/services/file.service';
 
 @Component({
   selector: 'app-calendar-main-page',
@@ -35,10 +36,12 @@ export class CalendarMainPageComponent {
   today: string | undefined;
   tvStatus: number = 0;
   constructor(
+    private _fileService: FileService,
     private _ecoCalService: EcoCalService,
     public datepipe: DatePipe,
     private _linkService: LinkService
   ) {
+    // this._fileService.getFile(1, 6, 0);
     this._ecoCalService.filter.subscribe((data) => {
       this.filteredModel = data;
     });

@@ -21,6 +21,7 @@ import { ITags } from 'src/app/classes/interfaces/tags.interface';
 import { AppComponent } from 'src/app/app.component';
 import { TagService } from 'src/app/classes/services/tag.service';
 import { lastValueFrom } from 'rxjs';
+import { Utils } from 'src/app/classes/utils';
 
 @Component({
   selector: 'app-header-mobile',
@@ -89,15 +90,17 @@ export class HeaderMobileComponent extends Header {
   }
 
   @HostListener('window:resize', ['$event'])
-  ngOnInit() {
-    let width: any;
+  onResize() {
     if (AppComponent.isBrowser.value) {
-      width = window.visualViewport?.width;
-
-      if (width > 1023) {
+      if (!Utils.isTablet()) {
         document.body.classList.remove('overflow-hidden');
       }
+    }
+  }
 
+  ngOnInit() {
+    this.onResize();
+    if (AppComponent.isBrowser.value) {
       this._searchInputSubscription = this._searchinput
         .pipe(debounceTime(700))
         .subscribe((value) => {
@@ -195,7 +198,9 @@ export class HeaderMobileComponent extends Header {
   // ===========[اسکرین شات]===========
 
   async ngAfterViewInit() {
-    this.getScreenShot();
+    if (AppComponent.isBrowser.value) {
+      this.getScreenShot();
+    }
   }
 
   getScreenShot() {

@@ -66,9 +66,9 @@ export class AppComponent {
   get _platformValue() {
     return AppComponent.isBrowser.value;
   }
-  onActivate(_event: any) {
-    if (AppComponent.isBrowser.value) Utils.scrollTopWindow();
-  }
+  // onActivate(_event: any) {
+  //   if (AppComponent.isBrowser.value) Utils.scrollTopWindow();
+  // }
   static changeMainBg(type: 'white' | 'creamy') {
     if (AppComponent.isBrowser.value) {
       let main = document.body.getElementsByTagName('main')[0];
