@@ -10,12 +10,21 @@ import { CalendarEventsTable } from 'src/app/shared/table-calendar/calendar-even
 export class CalendarCardResponsiveComponent {
   @Input('row') Row: CalEvent = new CalEvent();
   singleRow: CalendarEventsTable;
-  borderColor: string = '#FF0000';
+  borderColor: string;
   ngOnInit() {
     this.setTable(this.Row);
   }
 
   setTable(items: CalEvent) {
+    if (this.Row.importance == 1) {
+      this.borderColor = '#DFFF00';
+    } else if (this.Row.importance == 2) {
+      this.borderColor = '#FFD95B';
+    } else if (this.Row.importance == 3) {
+      this.borderColor = '#FF0000';
+    } else {
+      this.borderColor = '#FCF1F1';
+    }
     this.singleRow = {
       active: false,
       id: items.id,

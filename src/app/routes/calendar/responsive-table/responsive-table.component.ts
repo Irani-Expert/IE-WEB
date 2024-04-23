@@ -155,13 +155,11 @@ export class ResponsiveTableComponent {
 
     this.filteredModel.sectors = data;
     this._ecoCalService.filter.next(this.filteredModel);
-    debugger;
     // this.getCal(this.filteredModel);
   }
   setSymbolServices(event: string[]) {
     this.filteredModel.currencies = event;
     this._ecoCalService.filter.next(this.filteredModel);
-    debugger;
     // this.getCal(this.filteredModel);
   }
   selectDate(id: string) {
@@ -208,17 +206,14 @@ export class ResponsiveTableComponent {
     if (event[1] == undefined) {
       this.selectedYear = event[0].getFullYear();
       this.selectedMonth = event[0].getMonth();
-      debugger;
       this.filteredModel.currentTime = currentdate;
     } else {
       let todate = datepipe.transform(event[1], 'yyyy.MM.dd');
-      debugger;
       this.filteredModel.currentTime = null;
       this.filteredModel.fromTime = currentdate;
       this.filteredModel.toTime = todate;
     }
     this._ecoCalService.filter.next(this.filteredModel);
-    debugger;
     // this.getCal(this.filteredModel);
   }
   async getCal(
