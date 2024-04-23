@@ -74,7 +74,10 @@ export class ConsultationFormComponent {
   form: FormGroup;
 
   formMaker = new InputForm(this.formControlInit);
-  constructor(private giftFormService: UserNeedService , private toaster :ToastrService) {
+  constructor(
+    private giftFormService: UserNeedService,
+    private toaster: ToastrService
+  ) {
     this.form = new FormGroup({});
     this.formMaker.inputs.forEach((item) => {
       this.form.setControl(item.name, this.formMaker.createControl(item));
@@ -102,12 +105,18 @@ export class ConsultationFormComponent {
     formData.email = this._Email;
     if (await this.checkFormValidation(formData)) {
       this.giftFormService.consultation_req(formData);
-      this.toaster.success('با موفقیت ارسال شد')
+      this.formControls.forEach((x) => {
+        const mytest = document.getElementById(x.name) as HTMLInputElement;
+        if (mytest) {
+          mytest.value = '';
+        }
+      });
+      this.toaster.success('با موفقیت ارسال شد');
     } else {
-      this.toaster.error('خطا در عملیات!!!')
+      this.formControls[0].name = '';
+      this.toaster.error('خطا در عملیات!!!');
       console.log('Not Valid');
     }
-
   }
   async checkFormValidation(_formData: GiftInter) {
     const formErrors: { [key: string]: string[] } = {};

@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class RouteService {
-  private persianRoutename = new BehaviorSubject({ routename: 'data' });
+  private persianRoutename = new BehaviorSubject('data');
   //create new Live data
   liveRoute = this.persianRoutename.asObservable();
   changePersianRouteName(val: any) {
