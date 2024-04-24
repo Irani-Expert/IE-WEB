@@ -2,17 +2,18 @@ import { Component, ViewChild } from '@angular/core';
 import { IcardData } from 'src/app/shared/product-card/card-data';
 import { FilterBlog } from 'src/app/classes/interfaces/filter-blog.interface';
 import { BlogService } from 'src/app/classes/services/blog.service';
-import { Blog } from 'src/app/classes/interfaces/blog.interface';
+import { Blog, SingleBlog } from 'src/app/classes/interfaces/blog.interface';
 import { ProductService } from 'src/app/classes/services/product.service';
 import { Page } from 'src/app/classes/page.model';
 import { lastValueFrom } from 'rxjs';
 import { Product } from 'src/app/classes/interfaces/product.interface';
 import { FilterProduct } from 'src/app/classes/interfaces/filter-product.interface';
 import { ConsultationFormComponent } from '../consultation-form/consultation-form.component';
-import { Meta, SafeHtml } from '@angular/platform-browser';
+import { Meta, SafeHtml, Title } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment.dev';
 import { LinkService } from 'src/app/classes/services/link.service';
 import { ITags } from 'src/app/classes/interfaces/tags.interface';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page',
@@ -24,9 +25,9 @@ export class LandingPageComponent {
     public _articleServices: BlogService,
     public productService: ProductService,
     private meta: Meta,
-    private _linkService: LinkService
-  ) // private _sanitizer : DomSanitizer
-  {
+    private _title: Title,
+    private _linkService: LinkService // private _sanitizer : DomSanitizer
+  ) {
     this._linkService.createLink(`https://www.iraniexpert.com`);
   }
 
@@ -148,7 +149,7 @@ export class LandingPageComponent {
   scroll(event: boolean) {
     this.appConsulting.scroll();
   }
-// ==========[هشتگ ها و متاتگ]=======
+  // ==========[هشتگ ها و متاتگ]=======
 
   contentUrl = environment.contentUrl;
   sendDataToChild = false;
@@ -163,27 +164,71 @@ export class LandingPageComponent {
       this.id = Number(this._articleServices._blog?.id);
       this.articleHtml = this._articleServices._blog!.description;
       this.tags = this._articleServices._blog!.sharpLinkTags;
-      this.meta.updateTag({
-        name: 'description',
-        content:
-          'به دنیای ایرانی اکسپرت (iraniexpert) که شامل خدمات آموزش ترید، مشاوره رایگان، خرید ربات  AI-Trader و ترید میباشد خوش آمدید.',
-      });
-      this.meta.updateTag({
-        name: 'author',
-        content: 'مهرنوش کریمی',
-      });
-      this.meta.updateTag({
-        name: 'keywords',
-        content:
-          'اکسپرت ایرانی , ترید, ربات خودکار فارکس,ربات معامله گر فارکس, دستیار ترید,بورس جهانی,نقدینگی سشن های معاملاتی, کارگزاری,درامد, ترید بدون دانش,شغل دوم برای سرمایه گذاری مطمئن, اکسپرت فارکس',
-      });
+      this.setSeo(this._articleServices._blog);
       this.sendDataToChild = true;
-
     }
   }
 
   async getDetail(title: string, language: string) {
     const apiRes = await this._articleServices.getBlog(title, language);
     return apiRes;
+  }
+
+  setSeo(blog?: SingleBlog | null) {
+    let metaTitle = this._title.getTitle();
+    let author: string = '';
+    let keywords: string = '';
+    let canonicalUrl: string = '';
+    if (this._linkService.canonicalLinkValue instanceof HTMLLinkElement) {
+      canonicalUrl = this._linkService.canonicalLinkValue.href;
+    }
+
+    if (blog) {
+      author = blog?.updatedByFirstName + ' ' + blog?.updatedByLastName;
+      keywords = blog.linkTags
+        .map((it) => {
+          return it.title;
+        })
+        .join(',');
+    }
+
+    this.meta.updateTag({
+      name: 'description',
+      content: this._articleServices._blog?.metaDescription || '',
+    });
+    this.meta.updateTag({
+      name: 'author',
+      content: author !== '' ? author : 'ایرانی اکسپرت',
+    });
+    this.meta.updateTag({
+      name: 'keywords',
+      // Add keywords Later when they completed them on panel
+      content:
+        'اکسپرت ایرانی , ترید, ربات خودکار فارکس,ربات معامله گر فارکس, دستیار ترید,بورس جهانی,نقدینگی سشن های معاملاتی, کارگزاری,درامد, ترید بدون دانش,شغل دوم برای سرمایه گذاری مطمئن, اکسپرت فارکس',
+    });
+    this.meta.updateTag({
+      property: 'og:url',
+      content: canonicalUrl,
+    });
+    this.meta.updateTag({
+      property: 'og:title',
+      content: metaTitle,
+    });
+    this.meta.updateTag({
+      property: 'og:description',
+      content: blog?.metaDescription ? blog.metaDescription : '',
+    });
+    this.meta.updateTag({
+      property: 'twitter:site',
+      content: canonicalUrl,
+    });
+    this.meta.updateTag({
+      property: 'twitter:title',
+      content: metaTitle,
+    });
+    this.meta.updateTag({
+      property: 'twitter:description',
+      content: blog?.metaDescription ? blog.metaDescription : '',
+    });
   }
 }

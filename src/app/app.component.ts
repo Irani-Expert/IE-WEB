@@ -29,7 +29,6 @@ export class AppComponent {
   static loaderSubject = new BehaviorSubject(false);
   // modalStatus;
   static isBrowser = new BehaviorSubject<boolean>(false);
-  title = 'IE-WEB';
   constructor(
     private platform: PlatformService,
     private auth: AuthService,

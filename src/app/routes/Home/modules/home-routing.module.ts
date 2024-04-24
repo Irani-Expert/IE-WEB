@@ -12,7 +12,11 @@ const routes: Routes = [
     title: 'ایرانی اکسپرت - آموزش فارکس| ترید فارکس| ربات خودکار فارکس',
     component: LandingPageComponent,
   },
-  { path: 'about-us', title: 'چرا ما؟ ', component: AboutUsComponent },
+  {
+    path: 'about-us',
+    title: 'چرا ما ؟(رضایت مشتری+تماس با ما+ درباره ما+ مشاوره رایگان) ',
+    component: AboutUsComponent,
+  },
   {
     path: 'expert-advisor',
     title:
