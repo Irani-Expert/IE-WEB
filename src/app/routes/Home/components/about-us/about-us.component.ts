@@ -6,10 +6,11 @@ import {
   trigger,
 } from '@angular/animations';
 import { Component } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-// import { Meta } from '@angular/platform-browser';
-// import { ActivatedRoute } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
+import { SingleBlog } from 'src/app/classes/interfaces/blog.interface';
+import { BlogService } from 'src/app/classes/services/blog.service';
 import { LinkService } from 'src/app/classes/services/link.service';
 import { Utils } from 'src/app/classes/utils';
 
@@ -18,7 +19,6 @@ import { Utils } from 'src/app/classes/utils';
   templateUrl: './about-us.component.html',
   styleUrls: ['./about-us.component.scss'],
   animations: [
-    // Animation definition
     trigger('fadeInAnimation', [
       state('show', style({ opacity: 1 })), // Visible state
       state('hide', style({ opacity: 0, display: 'none' })), // Hidden state
@@ -27,43 +27,102 @@ import { Utils } from 'src/app/classes/utils';
   ],
 })
 export class AboutUsComponent {
-  // private activatedRoute: ActivatedRoute
-  // private _meta: Meta
   constructor(
     private _linkService: LinkService,
-    private _activatedRoute: ActivatedRoute
+    private _activatedRoute: ActivatedRoute,
+    private _blogService: BlogService,
+    private _meta: Meta,
+    private _title: Title
   ) {
     this._linkService.createLink(`https://www.iraniexpert.com/about-us`);
-    // // this._meta.addTag({
-    // //   name: 'description',
-    // //   content: '',
-    // // });
-    // // this._meta.addTag({
-    // //   name: 'author',
-    // //   content: '',
-    // // });
-    // this._meta.addTag({
-    //   name: 'keywords',
-    //   content:
-    //     'دستیار ترید,بهترین اکسپرت معامله گر,معامله با ربات کپی ترید, ربات هوش مصنوعی برای ترید, خرید اکسپرت ترید تضمینی, ربات سفارشی قطعا سودده, ربات تریدر رایگان,معامله گری خودکار, ربات خودکار,  بهترین ربات خودکار برای ایرانیان, ',
-    // });
     AppComponent.changeMainBg('creamy');
   }
   ngOnInit() {
-    // var location = this.activatedRoute.snapshot.queryParams['location'];
-    // if (location == 'userSatisfaction') {
-    //   let element = document.getElementById('userSatisfaction');
-    //   element?.scrollIntoView({ behavior: 'smooth' });
-    // }
+    this.getBlog();
   }
+
+  async getBlog() {
+    const res = await this._blogService.getBlog('about-us', 'fa');
+    if (res) {
+      let blog = this._blogService._blog;
+      this.setSeo(blog);
+    }
+  }
+
+  setSeo(blog: SingleBlog | null) {
+    let metaTitle = this._title.getTitle();
+    let author: string = '';
+    let keywords: string = '';
+    let canonicalUrl: string = '';
+    let metaDescription: string = '';
+    let metaKeyWordsTemp: string = '';
+    if (this._linkService.canonicalLinkValue instanceof HTMLLinkElement) {
+      canonicalUrl = this._linkService.canonicalLinkValue.href;
+    }
+
+    if (blog) {
+      author = blog.updatedByFirstName + ' ' + blog.updatedByLastName;
+      keywords = blog.linkTags
+        .map((it) => {
+          return it.title;
+        })
+        .join(',');
+
+      metaKeyWordsTemp =
+        'راز فارکس, ایرانی اکسپرت, تعداد کاربر فعال, مقدار خرید و فروش,کلاهبرداری فارکس,موفقیت در فارکس,نقدینگی در فارکس,خرید و فروش در فارکس,اکسپرت رایگان فارکس,اعتبار فارکس,اهمیت رضایت مشتری,حفظ رضایت مشتری,سود ثابت از فارکس,ترید آنلاین فارکس,تماس با ما, چرا بازار فارکس';
+      metaDescription = blog.metaDescription;
+    }
+
+    this._meta.updateTag({
+      name: 'description',
+      content: metaDescription || '',
+    });
+    this._meta.updateTag({
+      name: 'author',
+      content: author !== '' ? author : 'ایرانی اکسپرت',
+    });
+    this._meta.updateTag({
+      name: 'keywords',
+      // Add keywords Later when they completed them on panel
+      content: metaKeyWordsTemp,
+    });
+    this._meta.updateTag({
+      property: 'og:url',
+      content: canonicalUrl,
+    });
+    this._meta.updateTag({
+      property: 'og:title',
+      content: metaTitle,
+    });
+    this._meta.updateTag({
+      property: 'og:image',
+      content: 'https://dl.iraniexpert.com//uploads/images/article/team1.webp',
+    });
+    this._meta.updateTag({
+      property: 'og:description',
+      content: metaDescription ? metaDescription : '',
+    });
+    this._meta.updateTag({
+      property: 'twitter:site',
+      content: canonicalUrl,
+    });
+    this._meta.updateTag({
+      property: 'twitter:title',
+      content: metaTitle,
+    });
+    this._meta.updateTag({
+      property: 'twitter:description',
+      content: metaDescription ? metaDescription : '',
+    });
+    this._meta.updateTag({
+      property: 'twitter:image',
+      content: 'https://dl.iraniexpert.com//uploads/images/article/team1.webp',
+    });
+  }
+
   ngOnDestroy() {
     AppComponent.changeMainBg('white');
   }
-  // buttonText = 'باز کردن لیست پخش';
-  // isVideoOpend: boolean = false;
-  // openVideoList() {
-  //   this.isVideoOpend = !this.isVideoOpend;
-  // }
 
   get isBrowser() {
     return AppComponent.isBrowser.value;
