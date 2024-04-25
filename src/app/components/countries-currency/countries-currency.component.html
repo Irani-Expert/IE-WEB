@@ -1,29 +1,67 @@
-<div class="flex w-full justify-center">
-  <div id="list" class="countries-list">
+<div class="flex w-full justify-center overflow-line">
+  <div id="list" class="countries-list countries-list-sm grid grid-cols-7 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 gap-36 lg:gap-3">
   
   
+    <!-- ========[لیست کشورها]==== -->
   
     <ng-container *ngFor="let item of calendarCountry">
       <ng-container *ngIf="item.id !== 999 && item.id !== 0">
   
-        <div class="w-40 rounded-3xl relative m-4 h-[183px] overflow-hidden cursor-pointer" (click)="routeCountries(item.browserTitle)">
+        <div class="w-40 rounded-3xl relative m-4 h-[183px] overflow-hidden cursor-pointer scale-[0.7] lg:scale-100 mr-4" (click)="routeCountries(item.browserTitle)">
           <div class="box-color h-full bg-linear-blue"></div>
           <i class="w-full h-full scale-[1.9] rotate-[20deg] relative -z-10 flag fi fi-{{item.code | lowercase}}"></i>
           <div class="font-bold w-full text-white md:px-3 px-1 text-lg currencyInfo max-lg:text-base">
-            <div dir="ltr">{{item.currency}}</div>
+            <p dir="ltr" class="text-white">{{item.currency}}</p>
             <p class="text-white my-3 text-sm">{{item.name}}</p>
           </div>
         </div>
-        
+
       </ng-container>
     </ng-container>
     
   </div>
 </div>
-
-<div class="flex justify-end pl-9">
+<!-- ========[باتن مشاهده بیشتر]==== -->
+<div class="lg:flex justify-end pl-8 hidden">
   <button (click)="hideList()" class="bg-[#0498fb] flex items-center rounded-3xl w-44 h-10 pr-3">
     <p class="text-white font-medium text-[0.85rem]">مشاهده تمامی کشورها</p>
     <i class="chevron-white -mr-1" [ngClass]="activeList ? 'drop-down-icon-up' : 'drop-down-icon'"></i>
   </button>
 </div>
+<!-- ========[باتن مدال ]==== -->
+<div class="lg:hidden flex mt-6">
+  <button (click)="openModal()" class="bg-[#0498fb] flex items-center rounded-3xl w-44 h-10 pr-3 mr-4">
+    <p class="text-white font-medium text-[0.85rem]">مشاهده تمامی کشورها</p>
+    <i class="Arrow-left-icon-white scale-[0.6] mr-1"></i>
+  </button>
+</div>
+<!-- ========[مدال ]==== -->
+<app-modal
+[overflow]="'auto'"
+[width]="modalWidth"
+*ngIf="modalStatus"
+>
+  <div class="flex flex-col overflow-auto lg:hidden bg-white box-modal" content>
+    
+     <strong (click)="closeMdal()" class="text-[#0498fb] cursor-pointer font-medium ml-4 flex justify-end">X</strong>
+  
+     <ng-container *ngFor="let item of calendarCountry">
+      <ng-container *ngIf="item.id !== 999 && item.id !== 0">
+        <div class="flex items-center mt-6">
+          
+          <div class="flex items-center cursor-pointer" (click)="routeCountries(item.browserTitle)">
+            <div class="flex items-center icon-box">
+              <p dir="ltr" class="text-[#0498fb] font-bold">{{item.currency}}</p>
+              <i class="w-10 aspect-square rounded-xl flag mr-2 fi fi-{{item.code | lowercase}}"></i>
+            </div>
+            <p class="mr-2 text-[#0498fb] font-bold">{{item.name}}</p>
+            <!-- <i class="Arrow-left-icon-white scale-75 mr-2"></i> -->
+          </div>
+          
+        </div>
+        <!-- <div class="w-full h-[0.1rem] bg-[#0498fb] relative z-50"></div> -->
+      </ng-container>
+     </ng-container>
+  
+  </div>
+</app-modal>
