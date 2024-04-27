@@ -9,6 +9,12 @@ import { AuthService } from 'src/app/shared/auth/auth.service';
 import { environment } from 'src/environments/environment.dev';
 import { ToastrService } from 'ngx-toastr';
 // import { LocalStorageService } from '../local-storage';
+interface OrderItems {
+  tableType: number;
+  rowID: number;
+  count: number;
+  price: number;
+}
 const bskInit: Basket = {
   basketItems: new Array<BskItem>(),
   totalCount: 0,
@@ -31,10 +37,10 @@ export class OrderService extends BaseService<any> {
     //   this.fillBasket();
     // }
   }
-  override post(path: string, body: any): Observable<Result<{}>> {
+  override post(path: string, body: any): Observable<Result<any>> {
     const token = this.auth._user.token;
     return this.http
-      .post<Result<{}>>(`${environment.apiUrl + path}`, body, {
+      .post<Result<any>>(`${environment.apiUrl + path}`, body, {
         headers: {
           accept: 'application/json',
           Authorization: `Bearer ${token}`,
@@ -97,10 +103,15 @@ export class OrderService extends BaseService<any> {
   }
 
   async checkDiscount(
-    code: string
+    code: string,
+    orderItems: OrderItems[]
   ): Promise<Result<{ amount: number; percent: number }>> {
-    const path = `Discount/${code}`;
-    const res = this.get(path);
+    const path = `Discount/GetByCode?code=${code}`;
+    const res = this.post(path, orderItems).pipe(
+      map((it: Result<{ amount: number; percent: number }>) => {
+        return it;
+      })
+    );
     return await lastValueFrom(res);
   }
   // fillBasket() {

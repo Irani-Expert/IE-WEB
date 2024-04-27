@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ViewContainerRef } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { PlatformService } from './classes/services/platform.service';
 
@@ -12,6 +12,7 @@ import {
   Router,
   UrlSegment,
 } from '@angular/router';
+import { SchemaService } from './classes/services/schema.service';
 
 @Component({
   selector: 'app-root',
@@ -32,7 +33,8 @@ export class AppComponent {
   constructor(
     private platform: PlatformService,
     private auth: AuthService,
-    private _router: Router
+    private _router: Router,
+    private _schemaService: SchemaService
   ) {
     if (this.platform.isPlatformBrowser()) {
       AppComponent.isBrowser.next(true);
@@ -83,7 +85,20 @@ export class AppComponent {
       }
     }
   }
-  ngAfterViewInit() {}
+  ngAfterViewInit() {
+    const schema = {
+      '@context': 'http://schema.org',
+      '@type': 'Organization',
+      url: 'https://www.iraniexpert.com/',
+      name: 'IRani Expert',
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: '+989150502018',
+        contactType: 'تماس با ما و پشتیبانی',
+      },
+    };
+    this._schemaService.createScript(schema);
+  }
 }
 // Get Blogs
 // loading = true;

@@ -309,9 +309,10 @@ export class LandingCheckoutComponent {
 
   async checkDiscount() {
     const code = this._formControls['discountCode'].value;
-    console.log(code);
-
-    const res = await this._orderService.checkDiscount(code);
+    const res = await this._orderService.checkDiscount(
+      code,
+      this.orderModel.orderItems
+    );
     if (res.success) {
       const { amount, percent } = res.data!;
       if (percent !== 0) {
@@ -321,9 +322,10 @@ export class LandingCheckoutComponent {
       }
       this.orderModel.discountCode = code;
       this.formGroup.controls['discountCode'].disable();
-      this._orderService.toastSuccess('کد تخفیف با موفقیت اعمال شد');
     } else {
-      this._orderService.toastError(res.message);
+      console.info('ERR!');
+
+      // this._orderService.toastError(res.message);
     }
   }
 
