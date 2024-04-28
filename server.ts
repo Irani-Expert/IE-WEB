@@ -40,8 +40,7 @@ export function app(): express.Express {
   server.get('*', async (req, res) => {
     let redirectRes = await fetchRedirects(req.originalUrl);
 
-    if (redirectRes.data !== null) {
-      // redirectRes.data = 'https://www.iraniexpert.com' + redirectRes.data;
+    if (redirectRes.data) {
       res.redirect(301, redirectRes.data);
     } else {
       res.render(indexHtml, {
@@ -89,6 +88,8 @@ const fetchRedirects = async (url: string): Promise<Result> => {
   })
     .then((res) => res.json())
     .then((data) => {
+      console.log(data);
+
       let res = { ...apiResult, ...data! };
       return res;
     });
