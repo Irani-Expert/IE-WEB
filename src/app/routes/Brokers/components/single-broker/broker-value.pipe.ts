@@ -1,5 +1,6 @@
 import { Directive, Input, OnInit } from '@angular/core';
 import { SingleBrokerUL } from './single-broker.model';
+import { AppComponent } from 'src/app/app.component';
 interface Data {
   data: { key: keyof SingleBrokerUL; value: string | boolean | number };
   el: string;
@@ -12,19 +13,25 @@ export class BrokerValuePipe implements OnInit {
   @Input('brokerValue') data: Data;
   constructor() {}
   ngOnInit(): void {
-    const x = document.getElementById(this.data.el);
+    if (AppComponent.isBrowser.value) {
+      const x = document.getElementById(this.data.el);
 
-    let type = this.switchCloneMode(this.data);
-    //  Telegram
-    //  Simple Text
-    //  true && false
+      let type = this.switchCloneMode(this.data);
+      //  Telegram
+      //  Simple Text
+      //  true && false
 
-    let data = this.cloneNode(type, x!.id);
-    if (type == 'simple-text') {
-      data.lastChild.outerText = this.data.data.value;
+      let data = this.cloneNode(type, x!.id);
+      if (type == 'simple-text') {
+        data.lastChild.outerText = this.data.data.value;
+      }
+      x?.appendChild(data);
+      console.log('not denied');
+
+      // this.sortList();
+    } else {
+      console.log('Init Denied');
     }
-    x?.appendChild(data);
-    // this.sortList();
   }
 
   cloneNode(id: string, parentId: string) {

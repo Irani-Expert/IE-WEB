@@ -47,11 +47,13 @@ export class SingleBrokerComponent {
     AppComponent.changeMainBg('white');
   }
   async ngOnInit() {
-    this.brokerService.singleBroker$.subscribe((it) => {
-      this.apiData = it;
-    });
-    if (await this.getDetails(this.title)) {
-      this.setDataToUl(this.apiData);
+    if (AppComponent.isBrowser.value) {
+      this.brokerService.singleBroker$.subscribe((it) => {
+        this.apiData = it;
+      });
+      if (await this.getDetails(this.title)) {
+        this.setDataToUl(this.apiData);
+      }
     }
   }
   async getDetails(title: string) {
@@ -155,7 +157,7 @@ export class SingleBrokerComponent {
   //   }
   // }, 2000);
   // }
-  
+
   tags: ITags[];
   categoryDetailIcon: string = 'assets/icon/filter-icon-blog(detail).svg';
   sendDataToChild = false;
@@ -164,11 +166,11 @@ export class SingleBrokerComponent {
     let keywords = '';
     apiData.linkTags.forEach((item) => {
       keywords += `${item.title.replace(/#/g, '')},`;
-    }); 
+    });
     this.tags = apiData.sharpLinkTags;
 
     console.log(this.tags);
-    
+
     this._meta.updateTag({
       name: 'description',
       content: apiData.metaDescription,

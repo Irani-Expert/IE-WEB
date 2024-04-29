@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { CalendarCountry } from 'src/app/classes/interfaces/calendarcountry';
+import { ModalService } from 'src/app/shared/modal/services/modal.service';
 
 @Component({
   selector: 'app-countries-currency',
@@ -15,6 +16,8 @@ activeList = false;
 
 constructor(
   private router: Router,
+  private modal: ModalService,
+
 ){}
 
 hideList(){
@@ -36,5 +39,22 @@ routeCountries(browserTitle : string){
 
 ngOnInit(){
 }
+  // =======[مدال لاگین]========
+  modalStatus: boolean = false;
+  modalWidth : "80%";
 
+  openModal() {
+    this.modal.open().subscribe({
+      next: (action) => {
+        console.log(action);
+      },
+
+    });
+    this.modalStatus = true;
+  }
+  
+  closeMdal(){
+    this.modal.closeModal();
+    this.modalStatus = false;
+  }
 }
