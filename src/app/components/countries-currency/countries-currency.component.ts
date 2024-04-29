@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppComponent } from 'src/app/app.component';
 import { CalendarCountry } from 'src/app/classes/interfaces/calendarcountry';
 import { ModalService } from 'src/app/shared/modal/services/modal.service';
 
@@ -23,13 +24,15 @@ constructor(
 hideList(){
   this.activeList = !this.activeList;
   
-  if (this.activeList == false){
-    document.getElementById("list")?.classList.remove('show-list');
-    document.getElementById("list")?.classList.add('hiede-list');
-  }
-  else {
-    document.getElementById("list")?.classList.remove('hiede-list');
-    document.getElementById("list")?.classList.add('show-list');
+  if (AppComponent.isBrowser.value){
+    if (this.activeList == false){
+      document.getElementById("list")?.classList.remove('show-list');
+      document.getElementById("list")?.classList.add('hiede-list');
+    }
+    else {
+      document.getElementById("list")?.classList.remove('hiede-list');
+      document.getElementById("list")?.classList.add('show-list');
+    }
   }
 }
 
