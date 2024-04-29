@@ -14,15 +14,17 @@
           {{ broker.key.slice() | borkerKey }}
         </p>
       </div>
-      <div
-        *ngIf="dataLoaded"
-        [id]="broker.key"
-        [brokerValue]="{
-          data: { key: broker.key, value: broker.value },
-          el: broker.key
-        }"
-        class="basis-1/2 flex justify-end"
-      ></div>
+      <ng-container *ngIf="dataLoaded">
+        <div
+          [id]="broker.key"
+          [brokerValue]="{
+            data: { key: broker.key, value: broker.value },
+            el: broker.key
+          }"
+          class="basis-1/2 flex justify-end"
+        ></div>
+      </ng-container>
+
       <div *ngIf="!dataLoaded" class="basis-1/2 flex justify-end animate-pulse">
         <p>&nbsp;</p>
       </div>

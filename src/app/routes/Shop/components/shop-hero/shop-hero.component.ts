@@ -1,9 +1,11 @@
 import {
   Component,
   ElementRef,
+  EventEmitter,
   HostListener,
   Input,
   OnInit,
+  Output,
   ViewChild,
 } from '@angular/core';
 import { RatingConfig, StarRating } from 'src/app/shared/rating/rating-config';
@@ -19,6 +21,11 @@ import { Router } from '@angular/router';
 import { CarouselImage } from 'src/app/shared/carousel/carousel';
 import { LocalStorageService } from 'src/app/classes/local-storage';
 import { RouteService } from 'src/app/classes/services/route.service';
+import { HeaderLayoutComponent } from 'src/app/components/header-layout/header-layout.component';
+import { ModalService } from 'src/app/shared/modal/services/modal.service';
+import { InputForm, InputInterface } from 'src/app/classes/input';
+import { FormGroup } from '@angular/forms';
+import { IDemoRequest } from './interfaces/idemo-request';
 // import { OrderService } from 'src/app/classes/services/order.service';
 
 const planInit: planInterface = {
@@ -39,12 +46,84 @@ const planInit: planInterface = {
 export class ShopHeroComponent implements OnInit {
   galleryImages: CarouselImage[] = new Array<CarouselImage>();
   contentUrl = environment.contentUrl;
+  formControls: InputInterface[];
+  formDataInit: IDemoRequest = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNumber: '',
+  };
+  status: number = 0;
+  formControlInit: InputInterface[] = [
+    {
+      id: 1,
+      label: 'نام',
+      name: 'firstName',
+      type: 'text',
+      hasErr: false,
+      class: 'input-with-icon',
+      typeofVlaue: 'string',
+
+      placeholder: 'نام',
+      required: true,
+    },
+    {
+      id: 1,
+      label: 'نام خانوادگی',
+      name: 'lastName',
+      type: 'text',
+      class: 'input-with-icon',
+      typeofVlaue: 'string',
+      hasErr: false,
+      placeholder: 'نام خانوادگی',
+      required: true,
+    },
+    {
+      id: 1,
+      label: 'ایمیل',
+      name: 'email',
+      type: 'email',
+      class: 'input-with-icon',
+      hasErr: false,
+      typeofVlaue: 'string',
+      icon: [
+        {
+          id: 1,
+          placement: 'right-icon',
+          src: 'assets/icon/email.svg',
+          alt: 'email-icon',
+        },
+      ],
+      placeholder: 'ایمیل',
+      required: true,
+    },
+    {
+      id: 1,
+      label: 'شماره تماس',
+      name: 'phoneNumber',
+      type: 'text',
+      class: 'input-with-icon',
+      typeofVlaue: 'string',
+      hasErr: false,
+      placeholder: 'شماره تماس',
+      required: true,
+    },
+  ];
+  formMaker = new InputForm(this.formControlInit);
+  form: FormGroup;
+
   constructor(
     private _orderService: OrderService,
     private router: Router,
     private _localStorage: LocalStorageService,
-    private _routeService: RouteService
+    private _routeService: RouteService,
+    private _modal: ModalService
   ) {
+    this.form = new FormGroup({});
+    this.formMaker.inputs.forEach((item) => {
+      this.form.setControl(item.name, this.formMaker.createControl(item));
+    });
+    this.formControls = this.formMaker.inputs;
     this._orderService.basket.value.basketItems = [];
   } // private localStorage: LocalStorageService //
   @ViewChild('scroll') scroll: ElementRef;
@@ -58,7 +137,19 @@ export class ShopHeroComponent implements OnInit {
   // ============[سرویس ]==================
   selectedPlan: planInterface = planInit;
   plans: planInterface[] = new Array<planInterface>();
-
+  modalStatus: boolean = false;
+  get _firstName(): string {
+    return this.form.controls['firstName'].value;
+  }
+  get _lastName(): string {
+    return this.form.controls['lastName'].value;
+  }
+  get _email(): string {
+    return this.form.controls['email'].value;
+  }
+  get _phoneNumber(): string {
+    return this.form.controls['phoneNumber'].value;
+  }
   async ngOnInit() {
     var titleData = {
       routename: this.product.title,
@@ -101,7 +192,9 @@ export class ShopHeroComponent implements OnInit {
       });
     });
   }
-
+  // get _modalStatus() {
+  //   return ShopHeroComponent.modalStatus;
+  // }
   // ==========={اکتیو}=========
   toggle(plan: planInterface) {
     if (this.selectedPlan.id == plan.id) {
@@ -180,5 +273,64 @@ export class ShopHeroComponent implements OnInit {
       id: this._orderService.basket.value.basketItems.length + 1,
     };
     this._orderService.pushToBSK(product);
+  }
+  //for demo modal
+  openDemoModal() {
+    this.modalStatus = true;
+  }
+  modalClosed(status: boolean) {
+    this.modalStatus = status;
+  }
+  getUserneedRequest() {
+    let formData = this.formDataInit;
+    formData.firstName = this._firstName;
+    formData.lastName = this._lastName;
+    formData.email = this._email;
+    formData.phoneNumber = this._phoneNumber;
+
+    if (this.isValidEmail(formData)) {
+      console.log('ok');
+      this.status = 1;
+      this.form.controls['firstName'].disable();
+      this.form.controls['lastName'].disable();
+      this.form.controls['email'].disable();
+      this.form.controls['phoneNumber'].disable();
+    } else {
+      console.log(this.formControls);
+      setTimeout(() => {
+        this.formControls.forEach((it) => (it.hasErr = false));
+      }, 2000);
+      console.log('not valid');
+    }
+  }
+  checkFormValidation(_formData: IDemoRequest) {
+    return true;
+  }
+  isValidEmail(_formData: IDemoRequest): boolean {
+    const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    let isNull = false;
+    let anyValue = false;
+
+    if (!emailRegex.test(_formData.email)) {
+      let emailEr = this.formControls.findIndex((x) => x.name == 'email');
+      this.formControls[emailEr].hasErr = true;
+
+      anyValue = true;
+    }
+    Object.entries(_formData).forEach(([key, value]) => {
+      if (value == '' || value == null) {
+        anyValue = true;
+        let index = this.formControls.findIndex((x) => x.name == key);
+
+        if (index != -1) {
+          this.formControls[index].hasErr = true;
+        }
+      }
+    });
+    if (anyValue) {
+      return false;
+    }
+
+    return true;
   }
 }

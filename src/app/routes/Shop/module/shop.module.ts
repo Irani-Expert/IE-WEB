@@ -20,6 +20,8 @@ import { DiscountBannerComponent } from 'src/app/shared/discount-banner/discount
 import { SliderComponent } from '../../Home/components/slider/slider.component';
 import { ProductProperties } from 'src/app/shared/product-properties/product-properties.component';
 import { TableCompareComponent } from '../components/table-compare/table-compare.component';
+import { ModalComponent } from 'src/app/shared/modal/modal.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const components = [
   SliderComponent,
@@ -41,6 +43,8 @@ const components = [
     ProductProperties,
     SmoothWidthDirective,
     CarouselComponent,
+    ModalComponent,
+    ReactiveFormsModule,
     CommonModule,
     ShopRoutingModule,
     SharedModule,

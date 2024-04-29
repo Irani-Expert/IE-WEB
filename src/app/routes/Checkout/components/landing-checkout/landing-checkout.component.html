@@ -176,6 +176,7 @@
               </div>
               <button
                 [disabled]="
+                  orderModel.discountCode ||
                   formGroup.controls[formsControlInit[2].name].value ==
                     undefined ||
                   formGroup.controls[formsControlInit[2].name].value == '' ||

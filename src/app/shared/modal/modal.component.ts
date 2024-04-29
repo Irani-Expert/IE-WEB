@@ -1,9 +1,16 @@
-import { Component, ElementRef, Input } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { ModalService } from './services/modal.service';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { Meta } from '@angular/platform-browser';
+import { ShopHeroComponent } from 'src/app/routes/Shop/components/shop-hero/shop-hero.component';
 
 @Component({
   selector: 'app-modal',
@@ -38,6 +45,7 @@ export class ModalComponent {
   @Input('header') header: boolean = true;
   @Input('overflow') overflow!: string;
   @Input('width') width: string = 'auto';
+  @Output('modalStatus') status = new EventEmitter<boolean>();
   constructor(
     private el: ElementRef,
     private modal: ModalService,
@@ -53,9 +61,14 @@ export class ModalComponent {
   close() {
     this.modal.closeModal();
     this.el.nativeElement.remove();
+    this.status.emit(false);
   }
   ngOnDestroy() {
-    this._meta.updateTag({ name: 'robots', content: 'follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large' });
+    this._meta.updateTag({
+      name: 'robots',
+      content:
+        'follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large',
+    });
     this.close();
   }
 }
