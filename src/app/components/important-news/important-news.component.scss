@@ -6,3 +6,17 @@
 
   transform: translateX(50%);
 }
+.animation-ss {
+  animation: pulse 10s infinite;
+}
+@keyframes pulse {
+  0% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(40%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}

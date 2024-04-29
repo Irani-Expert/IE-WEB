@@ -2,24 +2,26 @@
   class="app-container flex items-center bg-white px-8 pt-12 top-[-5px] lg:top-0 pb-4 lg:py-4 border-y-2 xl:justify-center"
 >
   <ng-content></ng-content>
-  <div class="flex">
-    <div
-      class="flex flex-row-reverse items-center lg:ms-4 min-w-[9rem]"
-      *ngFor="let x of currencyTrend"
-    >
-      <span class="text-base font-light text-gray-800 lg:me-3">{{
-        x.currency
-      }}</span>
-      <i
-        class="ie-icon mx-1 pb-1.5"
-        [ngClass]="x.trend ? 'upTrend' : 'downTrend'"
-      ></i>
-      <span
-        class="font-light"
-        [ngClass]="x.trend ? 'text-[#00CB86] ' : 'text-[#FF2A2A]'"
-        dir="ltr"
-        >{{ x.percent }}%</span
+  <div class="mt-[7px]" style="max-width: 78rem; overflow: hidden">
+    <div class="flex animation-ss" style="position: relative">
+      <div
+        class="flex flex-row-reverse items-center lg:ms-4 min-w-[9rem]"
+        *ngFor="let x of currencyTrend"
       >
+        <span class="text-base font-light text-gray-800 lg:me-3">{{
+          x.currency
+        }}</span>
+        <i
+          class="ie-icon mx-1 pb-1.5"
+          [ngClass]="x.trend ? 'upTrend' : 'downTrend'"
+        ></i>
+        <span
+          class="font-light"
+          [ngClass]="x.trend ? 'text-[#00CB86] ' : 'text-[#FF2A2A]'"
+          dir="ltr"
+          >{{ x.percent }}%</span
+        >
+      </div>
     </div>
   </div>
 </div>

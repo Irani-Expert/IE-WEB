@@ -108,8 +108,7 @@
                 <div class="pt-3 pb-3">
                   <a
                     class="demo-download text-sm font-extrabold"
-                    [href]="contentUrl + demoFile"
-                    download=""
+                    (click)="downloadDemo()"
                     ><span
                       ><i class="ie-download"></i>دانلود رایگان دموی محصول
                     </span></a
@@ -297,7 +296,7 @@
       <p class="demo-download font-black">
         <a
           class="demo-download text-sm font-extrabold"
-          [href]="contentUrl + demoFile"
+          (click)="downloadDemo()"
           download=""
           ><span><i class="ie-download"></i>دانلود رایگان دموی محصول </span></a
         >

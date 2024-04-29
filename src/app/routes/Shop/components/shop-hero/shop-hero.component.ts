@@ -27,6 +27,7 @@ import { InputForm, InputInterface } from 'src/app/classes/input';
 import { FormGroup } from '@angular/forms';
 import { IDemoRequest } from './interfaces/idemo-request';
 // import { OrderService } from 'src/app/classes/services/order.service';
+import { AuthService } from 'src/app/shared/auth/auth.service';
 
 const planInit: planInterface = {
   active: false,
@@ -235,6 +236,7 @@ export class ShopHeroComponent implements OnInit {
     return src;
   }
   async toCheckout(item: planInterface) {
+    debugger;
     let itemForBsk: BskItem = {
       count: 1,
       price: item.price,
@@ -273,6 +275,13 @@ export class ShopHeroComponent implements OnInit {
       id: this._orderService.basket.value.basketItems.length + 1,
     };
     this._orderService.pushToBSK(product);
+  }
+  downloadDemo() {
+    if (AuthService.loggedIn.value) {
+      window.open(this.contentUrl + this.demoFile, '_blank');
+    } else {
+      this.router.navigateByUrl('checkout');
+    }
   }
   //for demo modal
   openDemoModal() {

@@ -24,6 +24,10 @@ export class ImportantNewsComponent {
     'C:USDCAD',
     'C:NZDUSD',
     'C:AUDUSD',
+    'C:AUDCAD',
+    'C:AUDJPY',
+    'C:AUDSGD',
+    'C:CADHKD',
   ];
   constructor(private _calService: EcoCalService) {}
   currencyTrend: trend_data[] = new Array<trend_data>();
