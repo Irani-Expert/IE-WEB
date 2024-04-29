@@ -295,9 +295,12 @@
     </properties>
     <div class="pt-3 pb-3">
       <p class="demo-download font-black">
-        <a [href]="contentUrl + demoFile" download=""
-          ><i class="ie-download"></i>دانلود رایگان دموی محصول
-        </a>
+        <a
+          class="demo-download text-sm font-extrabold"
+          [href]="contentUrl + demoFile"
+          download=""
+          ><span><i class="ie-download"></i>دانلود رایگان دموی محصول </span></a
+        >
       </p>
     </div>
   </div>
@@ -361,3 +364,40 @@
     </div>
   </div>
 </div>
+
+<!-- <app-modal
+  [header]="true"
+  [overflow]="'auto'"
+  [width]="'23rem'"
+  (modalStatus)="modalClosed($event)"
+  *ngIf="modalStatus"
+>
+  <div content class="py-6 px-12">
+    <form [formGroup]="form" (ngSubmit)="getUserneedRequest()">
+      <ng-container *ngFor="let control of formControls">
+        <div class="input-container mt-4">
+          <div class="relative">
+            <label [for]="control.name"></label>
+            <input
+              [id]="control.name"
+              [disabled]="true"
+              [ngClass]="control?.hasErr ? 'has-error' : ''"
+              autocomplete="off"
+              [type]="control?.type ? control.type : 'text'"
+              class="input-with-icon"
+              formControlName="{{ control.name }}"
+              [placeholder]="control?.placeholder ? control.placeholder : ''"
+            />
+   
+          </div>
+        </div>
+      </ng-container>
+      <button
+        type="submit"
+        class="w-full mt-4 button-submit relative rounded-lg text-white font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 col-span-2"
+      >
+        {{ status == 0 ? "ثبت" : "دانلود" }}
+      </button>
+    </form>
+  </div>
+</app-modal> -->
