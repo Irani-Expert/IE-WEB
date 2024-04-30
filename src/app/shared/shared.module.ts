@@ -21,7 +21,6 @@ import { ConsultationFormComponent } from '../routes/Home/components/consultatio
 import { ShareLinkBoxComponent } from './share-link-box/share-link-box.component';
 import { SectorFilterComponent } from './sector-filter/sector-filter.component';
 import { FilterPipe } from 'src/ts/filterNgfor.pipe';
-import { SymbolsComponent } from '../routes/calendar/symbols/symbols.component';
 import { NgxTippyModule } from 'ngx-tippy-wrapper';
 import { DatePickerComponent } from './date-picker/date-picker.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -54,7 +53,6 @@ const components = [
   ConsultationFormComponent,
   ShareLinkBoxComponent,
   SectorFilterComponent,
-  SymbolsComponent,
 ];
 @NgModule({
   imports: [

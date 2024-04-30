@@ -5,7 +5,7 @@ import { BehaviorSubject, lastValueFrom, map } from 'rxjs';
 import { importances } from '../importance/importances';
 import { Importance } from '../importance/importance.interface';
 import { Filter as FilterEvents } from './filter.model';
-import { TableCalendar } from 'src/app/shared/table-calendar/table-calendar.component';
+import { TableCalendar } from 'src/app/routes/calendar/table-calendar/table-calendar.component';
 import { DatePipe } from '@angular/common';
 
 import { CalEvent } from './cal-event.model';
@@ -32,14 +32,14 @@ export class CalendarMainPageComponent {
   @ViewChild(ResponsiveTableComponent, { static: false })
   appResponsiveTableComponent: ResponsiveTableComponent;
   filteredModel: FilterEvents;
-  calendarCountry : CalendarCountry[] ;
+  calendarCountry: CalendarCountry[];
   // filter = new BehaviorSubject<FilterEvents>(new FilterEvents());
   // filter$ = this.filter.asObservable();
   importances = importances;
   today: string | undefined;
   tvStatus: number = 0;
   constructor(
-    public blogService : BlogService,
+    public blogService: BlogService,
     private _fileService: FileService,
     private _ecoCalService: EcoCalService,
     public datepipe: DatePipe,
@@ -63,7 +63,6 @@ export class CalendarMainPageComponent {
       this.getCalendarCountry();
     }
   }
-
 
   sendData = false;
 
@@ -89,37 +88,37 @@ export class CalendarMainPageComponent {
     });
 
     if (await this.getDetail('calendar', 'fa')) {
-
       let keywords = '';
       this.blogService._blog!.linkTags.forEach((item) => {
         keywords += `${item.title.replace(/#/g, '')},`;
       });
-    // =======[متاتگ ها]======
-    this._meta.updateTag({
-      name: 'description',
-      content: this.blogService._blog!.metaDescription,
-    });
-    this._meta.updateTag({
-      name: 'author',
-      content:
-      this.blogService._blog!.updatedByFirstName +
-      this.blogService._blog!.updatedByLastName,
-    });
-    this._meta.updateTag({
-      name: 'keywords',
-      content: keywords,
-    });
+      // =======[متاتگ ها]======
+      this._meta.updateTag({
+        name: 'description',
+        content: this.blogService._blog!.metaDescription,
+      });
+      this._meta.updateTag({
+        name: 'author',
+        content:
+          this.blogService._blog!.updatedByFirstName +
+          this.blogService._blog!.updatedByLastName,
+      });
+      this._meta.updateTag({
+        name: 'keywords',
+        content: keywords,
+      });
 
       this.sendData = true;
     }
-
   }
 
   // =====[هرکشور]====
   sendDataToChild = false;
-  async getCalendarCountry(){
-    const res = await this._ecoCalService.getCalendarCountry('CalendarCountry?pageIndex=0&accending=false');
-    if(res) {
+  async getCalendarCountry() {
+    const res = await this._ecoCalService.getCalendarCountry(
+      'CalendarCountry?pageIndex=0&accending=false'
+    );
+    if (res) {
       this.calendarCountry = res;
     }
     this.sendDataToChild = true;
