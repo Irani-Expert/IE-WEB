@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Range, Rating, RatingConfig, StarRating } from './rating-config';
-import { PriceRangeComponent } from '../../routes/Home/components/price-rang/price-range.component';
+import { PriceRangeComponent } from '../price-rang/price-range.component';
 import { StarRatingComponent } from '../star-rating/star-rating.component';
 
 @Component({

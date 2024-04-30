@@ -2,7 +2,6 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { LandingPageComponent } from '../components/landing-page/landing-page.component';
-import { SellInfoComponent } from '../components/sell-info/sell-info.component';
 import { HeroComponent } from '../components/hero/hero.component';
 // import { CounterNumberComponent } from '../components/counter-number/counter-number.component';
 // import { SliderComponent } from '../components/slider/slider.component';
@@ -11,9 +10,7 @@ import { BotAdvantagesComponent } from '../components/bot-advantages/bot-advanta
 import { LandingArticleComponent } from '../components/landing-article/landing-article.component';
 // import { ConsultationFormComponent } from '../components/consultation-form/consultation-form.component';
 import { BannersComponent } from '../components/banners/banners.component';
-import { ProductsComponent } from '../components/products/products.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TypeFilterComponent } from '../components/type-filter/type-filter.component';
 import { NgxSliderModule } from 'ngx-slider-v2';
 import { AboutUsComponent } from '../components/about-us/about-us.component';
 import { OrderFilterComponent } from 'src/app/shared/order-filter/order-filter.component';
@@ -35,7 +32,7 @@ import { SearchModule } from '../../Search/module/search.module';
 import { AboutusTargetsResponsiveComponent } from '../components/aboutus-targets-responsive/aboutus-targets-responsive.component';
 import { RobotTraderComponent } from 'src/app/shared/robot-trader/robot-trader.component';
 import { BlueCardsComponent } from 'src/app/shared/blue-cards/blue-cards.component';
-import { QAComponent } from 'src/app/shared/qa/qa.component';
+import { QAComponent } from 'src/app/routes/Home/components/qa/qa.component';
 import { QuickAccessComponent } from 'src/app/shared/quick-access/quick-access.component';
 import { CopyTradeComponent } from 'src/app/components/copy-trade/copy-trade.component';
 
@@ -48,7 +45,6 @@ const components = [
   LandingPageComponent,
   // FreeAdviceComponent,
   HeroComponent,
-  SellInfoComponent,
   BotShowcaseComponent,
   CommentSliderComponent,
   // BotFacilitiesComponent,
@@ -59,8 +55,6 @@ const components = [
   // ConsultationFormComponent,
   BannersComponent,
   ProductCardComponent,
-  ProductsComponent,
-  TypeFilterComponent,
   AboutUsComponent,
   OrderFilterComponent,
   SearchFeildComponent,

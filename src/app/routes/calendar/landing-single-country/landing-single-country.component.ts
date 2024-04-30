@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import { LinkService } from 'src/app/classes/services/link.service';
-import { TableCalendar } from 'src/app/routes/calendar/table-calendar/table-calendar.component';
+import { TableCalendar } from 'src/app/shared/table-calendar/table-calendar.component';
 import { Indicatorservice } from 'src/app/classes/services/Indicators.service';
 import { lastValueFrom } from 'rxjs';
 import { EcoCalService } from 'src/app/classes/services/eco-cal.service';

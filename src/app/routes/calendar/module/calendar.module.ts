@@ -11,7 +11,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { ImportantNewsComponent } from 'src/app/components/important-news/important-news.component';
 import { CountriesCurrencyComponent } from 'src/app/components/countries-currency/countries-currency.component';
 import { CalendarDescriptionComponent } from '../calendar-description/calendar-description.component';
-import { TableCalendar } from 'src/app/routes/calendar/table-calendar/table-calendar.component';
+import { TableCalendar } from 'src/app/shared/table-calendar/table-calendar.component';
 import { ImportanceComponent } from '../importance/importance.component';
 import { ResponsiveTableComponent } from '../responsive-table/responsive-table.component';
 import { LandingSingleCountryComponent } from '../landing-single-country/landing-single-country.component';

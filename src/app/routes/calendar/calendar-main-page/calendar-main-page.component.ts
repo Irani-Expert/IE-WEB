@@ -5,7 +5,7 @@ import { BehaviorSubject, lastValueFrom, map } from 'rxjs';
 import { importances } from '../importance/importances';
 import { Importance } from '../importance/importance.interface';
 import { Filter as FilterEvents } from './filter.model';
-import { TableCalendar } from 'src/app/routes/calendar/table-calendar/table-calendar.component';
+import { TableCalendar } from 'src/app/shared/table-calendar/table-calendar.component';
 import { DatePipe } from '@angular/common';
 
 import { CalEvent } from './cal-event.model';
