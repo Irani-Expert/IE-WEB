@@ -37,6 +37,9 @@
       <div class="col-span-3 mr-4 ml-4">
         <ng-container *ngIf="sendDataToChild">
           <app-blog-detail [data]="blogService._blog!"></app-blog-detail>
+          <ng-container *ngIf="sendDataToChild">
+            <app-faq-blog [data]="blogService._blog?.faQs!"></app-faq-blog>
+          </ng-container>
           <app-share-link-box></app-share-link-box>
           <ng-container *ngIf="isBrowser">
             <app-comments

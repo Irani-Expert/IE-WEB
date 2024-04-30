@@ -36,6 +36,7 @@
     <ng-container *ngIf="sendDataToChild">
     <app-hero-m [data]="blogService._blog!"></app-hero-m>
     <app-articles-money [data]="blogService._blog!"></app-articles-money>
+    <app-faq-blog [data]="blogService._blog?.faQs!"></app-faq-blog>
     <!-- ======[فیلتر رسپانسیو]===== -->
     <div class="block lg:hidden">
       <app-filter-responsive

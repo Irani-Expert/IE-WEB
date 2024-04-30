@@ -127,7 +127,7 @@
       <ng-container *ngIf="isBrowser">
         <app-free-advice></app-free-advice
       ></ng-container>
-      <!-- <app-qa [Q]="'سوال 1'" [A]="'جواب 1'"></app-qa> -->
+      <app-faq-blog [data]="blogService._blog?.faQs!"></app-faq-blog>
       <ng-container *ngIf="isBrowser">
         <app-vote [data]="blogService._blog!"></app-vote>
       </ng-container>

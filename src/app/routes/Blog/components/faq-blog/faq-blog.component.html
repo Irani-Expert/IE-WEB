@@ -1,0 +1,32 @@
+<ng-container *ngIf="data.length !== 0">
+
+  <div class="flex justify-center mt-5">
+    <b class="title-h">سوالات پرتکرار شما</b>
+  </div>
+  
+  <div class="pb-8 flex justify-center">
+      <ul id="accordion " class="accordion max-w-4xl mr-3 ml-3">
+        <li
+          class="border"
+          *ngFor="let menu of data; let i = index"
+          [class.active]="menu.isActive"
+        >
+          <div class="menu" (click)="toggle(i, !menu.isActive)">
+            <i *ngIf="!menu.isActive" class="chevron"></i>
+            <span *ngIf="menu.isActive">&times;</span>
+            {{ menu.question }}
+          </div>
+          <ul
+            class="submenu"
+            #submenu
+            [style.height.px]="menu.isActive ? submenu.scrollHeight : 0"
+          >
+            <li>
+              <p [innerHTML]="menu.answer"></p>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    
+</ng-container>

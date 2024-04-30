@@ -63,7 +63,7 @@
     </app-filter-responsive>
     </div>
     <app-free-advice></app-free-advice>
-    <!-- <app-qa [Q]="'سوال 1'" [A]="'جواب 1'"></app-qa> -->
+    <app-faq-blog [data]="blogService._blog?.faQs!"></app-faq-blog>
     <app-vote [data]="blogService._blog!"></app-vote>
     <!-- <div class="bg-[#ECECEC] rounded-3xl p-5 text-[#4D4D4D]">
       <div class="flex flex-row-reverse items-center">
