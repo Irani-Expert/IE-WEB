@@ -175,6 +175,7 @@
     </button>
   </div> -->
   <!-- <app-trading-view lazy="true" /> -->
-
-  <app-calendar-description />
+  <ng-container *ngIf="sendData">
+    <app-calendar-description [data]="blogService._blog!"/>
+  </ng-container>
 </div>

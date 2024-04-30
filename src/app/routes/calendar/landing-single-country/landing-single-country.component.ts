@@ -12,6 +12,7 @@ import { IndicatorsModel } from 'src/app/classes/interfaces/indicators.interface
 import { Utils } from 'src/app/classes/utils';
 import { importances } from '../importance/importances';
 import { Importance } from '../importance/importance.interface';
+import { Meta } from '@angular/platform-browser';
 
 interface ValueType {
   active: boolean;
@@ -46,6 +47,7 @@ export class LandingSingleCountryComponent {
   @ViewChild(TableCalendar, { static: false }) appTableComponent: TableCalendar;
 
   constructor(
+    private _meta: Meta,
     private indicatorservice: Indicatorservice,
     private _state: ActivatedRoute,
     private _linkService: LinkService,
@@ -100,6 +102,24 @@ export class LandingSingleCountryComponent {
       this.appTableComponent.showDate = true;
       this.changeValueType(this.valueTypes[0]);
     }
+
+    let keywords = '';
+    this.indicatorsData.linkTags.forEach((item) => {
+      keywords += `${item.title.replace(/#/g, '')},`;
+    });
+
+    this._meta.updateTag({
+      name: 'description',
+      content: this.indicatorsData.details.metaDescription
+    });
+    this._meta.updateTag({
+      name: 'author',
+      content: 'مهرنوش کریمی'
+    });
+    this._meta.updateTag({
+      name: 'keywords',
+      content: keywords
+    });
   }
 
   // =======[ آیکون ها و تایتل های کارت ها ]=======

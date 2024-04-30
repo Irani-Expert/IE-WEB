@@ -7,9 +7,10 @@
 <div class="flex justify-center">
   <div class="mt-5 mb-10">
     <div class="text-center mb-8 mx-4 lg:mx-0">
-      <p class="text-black text-sm">
+      <div id="ckeditor" [innerHTML]="articleHtml" class="mt-6"></div>
+      <!-- <p class="text-black text-sm">
         {{data[0].description}}
-      </p>
+      </p> -->
     </div>
     <!-- ==========[ویدیو]=========== -->
     <div class="aspect-video mx-4 lg:mx-0">

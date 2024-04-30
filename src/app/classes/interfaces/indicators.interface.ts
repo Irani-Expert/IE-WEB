@@ -18,6 +18,7 @@ export interface IndicatorsDetails {
   title: string;
   browserTitle: string;
   description: string;
+  metaDescription :string;
 }
 
 export interface IndicatorsCalendar {

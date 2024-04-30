@@ -44,6 +44,14 @@ export interface Product {
   viewsCount: number;
 }
 export interface SingleProduct {
+  versionHistory: string;
+  colorCode: string;
+  isRTL: boolean;
+  secondTitle: string;
+  authorizeAccepted: boolean;
+  managementAccepted: boolean;
+  seoAccepted: boolean;
+  metaDescription: string;
   browserTitle?: string;
   id: number;
   updateDate: string;
@@ -77,7 +85,7 @@ export interface SingleProduct {
   linkTags: [
     {
       title: string;
-      value: 0;
+      value: number;
     }
   ];
 }

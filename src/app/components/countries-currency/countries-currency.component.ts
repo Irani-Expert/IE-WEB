@@ -23,7 +23,7 @@ constructor(
 
 hideList(){
   this.activeList = !this.activeList;
-  
+
   if (AppComponent.isBrowser.value){
     if (this.activeList == false){
       document.getElementById("list")?.classList.remove('show-list');
@@ -42,7 +42,7 @@ routeCountries(browserTitle : string){
 
 ngOnInit(){
 }
-  // =======[مدال لاگین]========
+  // =======[مدال]========
   modalStatus: boolean = false;
   modalWidth : "80%";
 

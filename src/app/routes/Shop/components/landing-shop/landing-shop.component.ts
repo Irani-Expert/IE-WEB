@@ -219,6 +219,7 @@ export class LandingShopComponent {
       this.blogService._blog!.linkTags.forEach((item) => {
         keywords += `${item.title.replace(/#/g, '')},`;
       });
+
       // this._meta.updateTag({
       //   name: 'description',
       //   content: this.blogService._blog!.metaDescription,
@@ -232,7 +233,6 @@ export class LandingShopComponent {
       // this._meta.updateTag({
       //   name: 'keywords',
       //   content:
-      //     'مدیریت سرمایه گذاری پیشرفته,مدیریت سرمایه گذاری استراتژیک,مدیریت ریسک و سرمایه در ترید, فرمول مدیریت سرمایه در ترید, مدیریت سرمایه در ترید, مدیریت سرمایه فارکس, مدیریت ریسک و سرمایه گذاری ,مدیریت سرمایه به زبان ساده',
       //   content: keywords
       // });
       this.articleHtml = this._sanitizer.bypassSecurityTrustHtml(

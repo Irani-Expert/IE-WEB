@@ -16,6 +16,8 @@ import { TradingViewComponent } from 'src/app/components/trading-view/trading-vi
 import { ResponsiveTableComponent } from '../responsive-table/responsive-table.component';
 import { FileService } from 'src/app/classes/services/file.service';
 import { CalendarCountry } from 'src/app/classes/interfaces/calendarcountry';
+import { BlogService } from 'src/app/classes/services/blog.service';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-calendar-main-page',
@@ -37,10 +39,12 @@ export class CalendarMainPageComponent {
   today: string | undefined;
   tvStatus: number = 0;
   constructor(
+    public blogService : BlogService,
     private _fileService: FileService,
     private _ecoCalService: EcoCalService,
     public datepipe: DatePipe,
     private _linkService: LinkService,
+    private _meta: Meta
   ) {
     // this._fileService.getFile(1, 6, 0);
     this._ecoCalService.filter.subscribe((data) => {
@@ -59,6 +63,15 @@ export class CalendarMainPageComponent {
       this.getCalendarCountry();
     }
   }
+
+
+  sendData = false;
+
+  async getDetail(title: string, language: string) {
+    const apiRes = await this.blogService.getBlog(title, language);
+    return apiRes;
+  }
+
   async ngAfterViewInit() {
     // TradingViewComponent.createView();
     this._ecoCalService.filter$.subscribe({
@@ -74,6 +87,32 @@ export class CalendarMainPageComponent {
         this.appTableComponent.tableIsLoading = false;
       },
     });
+
+    if (await this.getDetail('calendar', 'fa')) {
+
+      let keywords = '';
+      this.blogService._blog!.linkTags.forEach((item) => {
+        keywords += `${item.title.replace(/#/g, '')},`;
+      });
+    // =======[متاتگ ها]======
+    this._meta.updateTag({
+      name: 'description',
+      content: this.blogService._blog!.metaDescription,
+    });
+    this._meta.updateTag({
+      name: 'author',
+      content:
+      this.blogService._blog!.updatedByFirstName +
+      this.blogService._blog!.updatedByLastName,
+    });
+    this._meta.updateTag({
+      name: 'keywords',
+      content: keywords,
+    });
+
+      this.sendData = true;
+    }
+
   }
 
   // =====[هرکشور]====
