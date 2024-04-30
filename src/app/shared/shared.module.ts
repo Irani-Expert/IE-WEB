@@ -31,7 +31,7 @@ import {
   MatRangeDateSelectionModel,
 } from '@angular/material/datepicker';
 import { FavoriteComponent } from './favorite/favorite.component';
-import { FilterResponsiveComponent } from '../routes/Blog/components/filter-responsive/filter-responsive.component';
+import { FilterResponsiveComponent } from './filter-responsive/filter-responsive.component';
 import { Spinner } from './spinner/spinner.component';
 import { FaqBlogComponent } from '../routes/Blog/components/faq-blog/faq-blog.component';
 
