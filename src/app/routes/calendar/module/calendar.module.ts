@@ -28,9 +28,10 @@ import { YearSelectorComponent } from 'src/app/shared/year-selector/year-selecto
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MapContainerComponent } from '../map-components/map-container/map-container.component';
-import { ShowMoreComponent } from '../../pagination-controls/show-more/show-more.component';
-import { PaginationControlComponent } from '../../pagination-controls/pagination-control/pagination-control.component';
+
 import { SymbolsComponent } from '../symbols/symbols.component';
+import { PaginationControlComponent } from '../pagination-controls/pagination-control/pagination-control.component';
+import { ShowMoreComponent } from '../pagination-controls/show-more/show-more.component';
 
 const components = [
   CalendarMainPageComponent,
