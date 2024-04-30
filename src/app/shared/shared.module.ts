@@ -12,7 +12,7 @@ import { LottieModule } from 'ngx-lottie';
 import { ContentMenuComponent } from './content-menu/content-menu.component';
 import { InstagramBanerComponent } from '../routes/Home/components/instagram-baner/instagram-baner.component';
 import { DragScrollModule } from 'ngx-drag-scroll';
-import { BlogFilterComponent } from '../routes/Blog/components/blog-filter/blog-filter.component';
+import { BlogFilterComponent } from './blog-filter/blog-filter.component';
 import { VoicePlayerComponent } from './voice-player/voice-player.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VoteComponent } from './vote/vote.component';
