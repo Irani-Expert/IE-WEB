@@ -3,7 +3,6 @@ import { AcordianComponent } from './acordian/acordian.component';
 import { CommonModule, DatePipe } from '@angular/common';
 import { CommentsComponent } from './comments/comments.component';
 import { Toggler } from './toggler/toggler.component';
-import { ScrollComponent } from './scroll/scroll.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { VideoPlayerComponent } from './video-player/video-player.component';
 import { TagsComponent } from './tags/tags.component';
@@ -18,11 +17,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VoteComponent } from './vote/vote.component';
 import { FreeAdviceComponent } from './free-advice/free-advice.component';
 import { ConsultationFormComponent } from '../routes/Home/components/consultation-form/consultation-form.component';
-import { ShareLinkBoxComponent } from './share-link-box/share-link-box.component';
-import { SectorFilterComponent } from './sector-filter/sector-filter.component';
+import { SectorFilterComponent } from '../routes/calendar/sector-filter/sector-filter.component';
 import { FilterPipe } from 'src/ts/filterNgfor.pipe';
 import { NgxTippyModule } from 'ngx-tippy-wrapper';
-import { DatePickerComponent } from './date-picker/date-picker.component';
+import { DatePickerComponent } from '../routes/calendar/date-picker/date-picker.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {
@@ -40,7 +38,6 @@ const components = [
   FilterResponsiveComponent,
   CommentsComponent,
   TagsComponent,
-  ScrollComponent,
   DatePickerComponent,
   VideoPlayerComponent,
   LottieComponent,
@@ -51,7 +48,6 @@ const components = [
   VoteComponent,
   FreeAdviceComponent,
   ConsultationFormComponent,
-  ShareLinkBoxComponent,
   SectorFilterComponent,
 ];
 @NgModule({
@@ -77,10 +73,8 @@ const components = [
   ],
   declarations: [
     components,
-    ScrollComponent,
     NotFoundComponent,
     ContentMenuComponent,
-    ShareLinkBoxComponent,
     FilterPipe,
   ],
   providers: [

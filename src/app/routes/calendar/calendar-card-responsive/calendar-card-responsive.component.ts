@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CalEvent } from '../calendar-main-page/cal-event.model';
-import { CalendarEventsTable } from 'src/app/shared/table-calendar/calendar-events.model';
+import { CalendarEventsTable } from 'src/app/routes/calendar/table-calendar/calendar-events.model';
 
 @Component({
   selector: 'app-calendar-card-responsive',

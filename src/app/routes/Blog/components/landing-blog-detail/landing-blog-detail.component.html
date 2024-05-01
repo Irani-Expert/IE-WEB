@@ -40,7 +40,7 @@
           <ng-container *ngIf="sendDataToChild">
             <app-faq-blog [data]="blogService._blog?.faQs!"></app-faq-blog>
           </ng-container>
-          <app-share-link-box></app-share-link-box>
+          <!-- <app-share-link-box></app-share-link-box> -->
           <ng-container *ngIf="isBrowser">
             <app-comments
               [rowId]="blogService._blog!.id"
@@ -87,7 +87,7 @@
             </div>
           </div>
         </div>
-        <app-share-link-box></app-share-link-box>
+        <!-- <app-share-link-box></app-share-link-box> -->
         <app-comments
           [rowId]="blogService._blog!.id"
           [tableType]="1"

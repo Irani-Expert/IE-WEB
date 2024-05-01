@@ -24,17 +24,15 @@ import { BlogService } from 'src/app/classes/services/blog.service';
 import { LinkService } from 'src/app/classes/services/link.service';
 import { ProductService } from 'src/app/classes/services/product.service';
 import { Utils } from 'src/app/classes/utils';
-import { FilterService } from 'src/app/shared/filter/filter.service';
-import {
-  IFilterGroup,
-  Type,
-} from 'src/app/shared/filter/models/filter.interface';
+
 import {
   Range,
   RatingConfig,
   StarRating,
 } from 'src/app/shared/rating/rating-config';
 import { environment } from 'src/environments/environment.dev';
+import { IFilterGroup, Type } from '../filter/models/filter.interface';
+import { FilterService } from '../filter/filter.service';
 
 @Component({
   selector: 'app-landing-shop',
@@ -113,8 +111,7 @@ export class LandingShopComponent {
     private meta: Meta,
     private _linkService: LinkService,
     public blogService: BlogService,
-    private _sanitizer : DomSanitizer
-
+    private _sanitizer: DomSanitizer
   ) {
     this._linkService.createLink(`https://www.iraniexpert.com/shop`);
     this._filterService.filterModelSubject = new BehaviorSubject(
@@ -148,8 +145,6 @@ export class LandingShopComponent {
   }
   // Init Page Needs and Navigation --------------------------------------->
   async ngOnInit() {
-
-
     this.updateDeviceValue();
     this.routerSubscriber = this._router.events
       .pipe(takeUntil(this.routeSubject))
@@ -209,7 +204,7 @@ export class LandingShopComponent {
   id: number = 0;
   sendDataToChild = false;
   tags: ITags[];
-  
+
   async ngAfterViewInit() {
     if (await this.getDetail('shop', 'fa')) {
       this.tags = this.blogService._blog!.sharpLinkTags;
@@ -236,8 +231,9 @@ export class LandingShopComponent {
       //   content: keywords
       // });
       this.articleHtml = this._sanitizer.bypassSecurityTrustHtml(
-        this.blogService._blog!.description);
-        
+        this.blogService._blog!.description
+      );
+
       this.sendDataToChild = true;
     }
   }
@@ -248,7 +244,7 @@ export class LandingShopComponent {
   }
   // =====[ckeditor]====
   articleHtml: SafeHtml;
-  
+
   // =====[]====
 
   // Call From Api Or Use Latest Value on Saved Subject --------------------------------------->

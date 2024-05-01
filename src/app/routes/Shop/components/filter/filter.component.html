@@ -1,0 +1,49 @@
+<div
+  class="flex-col gap-3 w-full"
+  [ngClass]="classList !== '' ? classList : 'filter-default-container'"
+>
+  <ng-container *ngIf="search">
+    <div class="search-box-container">
+      <b>جستجو</b>
+      <ng-content select="[searchBar]"></ng-content>
+    </div>
+  </ng-container>
+  <div
+    [ngClass]="filterBoxClass !== '' ? filterBoxClass : 'filter-box-default'"
+  >
+    <div class="header-container hidden sm:block">
+      <b class="hidden sm:block">فیلترها</b>
+      <button class="hidden sm:block" (click)="deleteFilters()">
+        حذف فیلترها
+      </button>
+    </div>
+    <div class="content-container">
+      <ng-container *ngFor="let item of filterModel; let i = index">
+        <div class="filter-group-item" [smoothHeight]="changed">
+          <div class="group-title" (click)="changeActiveMenu(item)">
+            <p>{{ item.title }}</p>
+            <span
+              [ngClass]="item.chevronState == 'default' ? '' : 'rotated'"
+            ></span>
+          </div>
+
+          <ng-container *ngIf="item.active">
+            <ng-container *ngIf="item.type == 0">
+              <ng-content select="[category]"></ng-content>
+            </ng-container>
+            <ng-container *ngIf="item.type == 1">
+              <ng-content select="[rating]"></ng-content>
+            </ng-container>
+            <ng-container *ngIf="item.type == 2">
+              <ng-content select="[priceRange]"></ng-content>
+            </ng-container>
+            <ng-container *ngIf="item.type == 3">
+              <ng-content select="[producer]"></ng-content>
+            </ng-container>
+          </ng-container>
+          <hr />
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

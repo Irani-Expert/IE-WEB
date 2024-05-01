@@ -1,0 +1,11 @@
+<div class="relative">
+  <div class="absolute search-icon cursor-pointer" (click)="searchedInput()">
+    <i class="ie-search-page"></i>
+  </div>
+  <input
+    (input)="fillValue($any($event.target).value)"
+    type="text"
+    class="search-input"
+    [placeholder]="placeholder"
+  />
+</div>

@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LandingPageComponent } from '../components/landing-page/landing-page.component';
 import { AboutUsComponent } from '../components/about-us/about-us.component';
 import { LandingSearchComponent } from '../../Search/components/landing-search/landing-search.component';
-import { RobotTraderComponent } from 'src/app/shared/robot-trader/robot-trader.component';
+import { RobotTraderComponent } from 'src/app/routes/Home/components/robot-trader/robot-trader.component';
 import { CopyTradeComponent } from 'src/app/components/copy-trade/copy-trade.component';
 
 const routes: Routes = [

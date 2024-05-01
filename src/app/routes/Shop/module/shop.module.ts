@@ -8,8 +8,6 @@ import { QuestionShopComponent } from '../components/question-shop/question-shop
 import { RatingComponent } from 'src/app/shared/rating/rating.component';
 import { DetailCardComponent } from '../components/detail-card/detail-card.component';
 import { Checkbox } from 'src/app/shared/checkbox/checkbox.component';
-import { FilterComponent } from 'src/app/shared/filter/filter.component';
-import { SearchComponent } from 'src/app/shared/filter/search-bar/search.component';
 import { BotOptionsComponent } from '../components/bot-options/bot-options.component';
 import { DescriptionComponent } from '../components/description/description.component';
 import { LandingProductComponent } from '../components/landing-product/landing-product.component';
@@ -22,6 +20,9 @@ import { ProductProperties } from 'src/app/shared/product-properties/product-pro
 import { TableCompareComponent } from '../components/table-compare/table-compare.component';
 import { ModalComponent } from 'src/app/shared/modal/modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FilterComponent } from '../components/filter/filter.component';
+import { SearchComponent } from '../components/filter/search-bar/search.component';
+import { ShareLinkBoxComponent } from '../components/share-link-box/share-link-box.component';
 
 const components = [
   SliderComponent,
@@ -35,12 +36,15 @@ const components = [
   LandingProductComponent,
   DiscountBannerComponent,
   TableCompareComponent,
+  ShareLinkBoxComponent,
 ];
 
 @NgModule({
   declarations: [components],
   imports: [
     ProductProperties,
+    FilterComponent,
+    SearchComponent,
     SmoothWidthDirective,
     CarouselComponent,
     ModalComponent,
@@ -49,9 +53,7 @@ const components = [
     ShopRoutingModule,
     SharedModule,
     RatingComponent,
-    FilterComponent,
     Checkbox,
-    SearchComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

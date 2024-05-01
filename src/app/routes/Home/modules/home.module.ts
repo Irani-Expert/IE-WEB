@@ -14,15 +14,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSliderModule } from 'ngx-slider-v2';
 import { AboutUsComponent } from '../components/about-us/about-us.component';
 import { OrderFilterComponent } from 'src/app/shared/order-filter/order-filter.component';
-import { SearchFeildComponent } from 'src/app/shared/search-feild/search-feild.component';
 import { TradeBeginningComponent } from '../components/trade-beginning/trade-beginning.component';
-import { CardTitleComponent } from 'src/app/shared/card-title/card-title.component';
-import { CardLinkComponent } from 'src/app/shared/card-link/card-link.component';
+import { CardTitleComponent } from 'src/app/routes/Home/components/card-title/card-title.component';
+import { CardLinkComponent } from 'src/app/routes/Home/components/card-link/card-link.component';
 import { BotShowcaseComponent } from '../components/bot-showcase/bot-showcase.component';
 import { ServiceBanerComponent } from '../components/service-baner/service-baner.component';
 import { QuestionsComponent } from '../components/questions/questions.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { ProductCardComponent } from 'src/app/shared/product-card/product-card.component';
+import { ProductCardComponent } from 'src/app/routes/Home/product-card/product-card.component';
 import { LandingArticleResponsiveComponent } from '../components/landing-article-responsive/landing-article-responsive.component';
 import { AboutusTargetsComponent } from '../components/aboutus-targets/aboutus-targets.component';
 import { CommentSliderComponent } from '../components/comment-slider/comment-slider.component';
@@ -30,8 +29,8 @@ import { VideoSliderComponent } from '../components/video-slider/video-slider.co
 import { SearchModule } from '../../Search/module/search.module';
 // import { FreeAdviceComponent } from '../free-advice/free-advice.component';
 import { AboutusTargetsResponsiveComponent } from '../components/aboutus-targets-responsive/aboutus-targets-responsive.component';
-import { RobotTraderComponent } from 'src/app/shared/robot-trader/robot-trader.component';
-import { BlueCardsComponent } from 'src/app/shared/blue-cards/blue-cards.component';
+import { RobotTraderComponent } from 'src/app/routes/Home/components/robot-trader/robot-trader.component';
+import { BlueCardsComponent } from 'src/app/routes/Home/blue-cards/blue-cards.component';
 import { QAComponent } from 'src/app/routes/Home/components/qa/qa.component';
 import { QuickAccessComponent } from 'src/app/shared/quick-access/quick-access.component';
 import { CopyTradeComponent } from 'src/app/components/copy-trade/copy-trade.component';
@@ -57,7 +56,6 @@ const components = [
   ProductCardComponent,
   AboutUsComponent,
   OrderFilterComponent,
-  SearchFeildComponent,
   TradeBeginningComponent,
   CardTitleComponent,
   CardLinkComponent,

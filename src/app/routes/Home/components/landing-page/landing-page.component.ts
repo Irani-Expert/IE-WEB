@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IcardData } from 'src/app/shared/product-card/card-data';
+import { IcardData } from 'src/app/routes/Home/product-card/card-data';
 import { FilterBlog } from 'src/app/classes/interfaces/filter-blog.interface';
 import { BlogService } from 'src/app/classes/services/blog.service';
 import { Blog, SingleBlog } from 'src/app/classes/interfaces/blog.interface';
