@@ -6,10 +6,10 @@
 
   transform: translateX(50%);
 }
-.animation-ss {
-  animation: pulse 10s infinite;
+.animation-move {
+  animation: autoScroll 40s infinite;
 }
-@keyframes pulse {
+@keyframes autoScroll {
   0% {
     transform: translateX(0%);
   }
