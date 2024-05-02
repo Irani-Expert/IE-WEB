@@ -36,6 +36,17 @@ export class ConsultationFormComponent {
       required: true,
       hasErr: false,
     },
+
+    {
+      id: 3,
+      label: 'نام خانوادگی',
+      name: 'lastName',
+      typeofVlaue: 'string',
+      class: 'input-with-icon',
+      required: true,
+      placeholder: 'نام خانوادگی',
+      hasErr: false,
+    },
     {
       id: 2,
       label: 'شماره تماس',
@@ -45,16 +56,6 @@ export class ConsultationFormComponent {
       typeofVlaue: 'string',
       placeholder: 'شماره تماس',
       required: true,
-      hasErr: false,
-    },
-    {
-      id: 3,
-      label: 'نام خانوادگی',
-      name: 'lastName',
-      typeofVlaue: 'string',
-      class: 'input-with-icon',
-      required: true,
-      placeholder: 'نام خانوادگی',
       hasErr: false,
     },
 
@@ -104,17 +105,18 @@ export class ConsultationFormComponent {
     formData.phoneNumber = this._phoneNumber;
     formData.email = this._Email;
     if (await this.checkFormValidation(formData)) {
-      this.giftFormService.consultation_req(formData);
+      const res = await this.giftFormService.consultation_req(formData);
       this.formControls.forEach((x) => {
         const mytest = document.getElementById(x.name) as HTMLInputElement;
         if (mytest) {
           mytest.value = '';
         }
       });
-      this.toaster.success('با موفقیت ارسال شد');
+      if (res) this.giftFormService.toastSuccess('با موفقیت ارسال شد');
+      else this.giftFormService.toastError('خطا در انحجام عملیات');
     } else {
       this.formControls[0].name = '';
-      this.toaster.error('خطا در عملیات!!!');
+      this.toaster.error('خطا در فرم درخواست!!!');
       console.log('Not Valid');
     }
   }
