@@ -2,7 +2,6 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CalendarModuleRouting } from './calendar-routing.module';
 import { CalendarMainPageComponent } from '../calendar-main-page/calendar-main-page.component';
-import { AutoplaySliderComponent } from 'src/app/shared/autoplay-slider/autoplay-slider.component';
 import { AudioPlayerComponent } from 'src/app/shared/audio-player/audio-player.component';
 import { CalDetailComponent } from 'src/app/routes/calendar/cal-detail/cal-detail.component';
 // import { EcoCalFiltersComponent } from 'src/app/shared/eco-cal-filters/eco-cal-filters.component';
@@ -37,7 +36,6 @@ const components = [
   CalendarMainPageComponent,
   ResponsiveTableComponent,
   CountryDetailComponent,
-  AutoplaySliderComponent,
   AudioPlayerComponent,
   CalendarCardResponsiveComponent,
   CalDetailComponent,
