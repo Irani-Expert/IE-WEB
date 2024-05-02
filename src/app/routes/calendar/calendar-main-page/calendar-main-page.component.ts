@@ -300,6 +300,10 @@ export class CalendarMainPageComponent {
       TradingViewComponent.createView();
     }, 500);
   }
+
+  get isBrowser() {
+    return AppComponent.isBrowser.value;
+  }
   // countriesList : Array<string> = ['Usa','England','Sweden','Switzerland','Spain','','Australia','Brazil',]
 }
 
