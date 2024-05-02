@@ -26,7 +26,7 @@ import { YearSelectorComponent } from 'src/app/routes/calendar/year-selector/yea
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MapContainerComponent } from '../map-components/map-container/map-container.component';
-
+import { ModalComponent } from 'src/app/shared/modal/modal.component';
 import { SymbolsComponent } from '../symbols/symbols.component';
 import { PaginationControlComponent } from '../pagination-controls/pagination-control/pagination-control.component';
 import { ShowMoreComponent } from '../pagination-controls/show-more/show-more.component';
@@ -45,6 +45,7 @@ const components = [
   CardFinanceComponent,
   YearSelectorComponent,
   SymbolsComponent,
+  
 ];
 @NgModule({
   declarations: [components],
@@ -54,6 +55,7 @@ const components = [
     ShowMoreComponent,
     MapContainerComponent,
     CommonModule,
+    ModalComponent,
     TradingViewComponent,
     NgChartsModule,
     Toggler,
