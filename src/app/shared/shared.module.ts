@@ -31,9 +31,12 @@ import { FavoriteComponent } from './favorite/favorite.component';
 import { FilterResponsiveComponent } from './filter-responsive/filter-responsive.component';
 import { Spinner } from './spinner/spinner.component';
 import { FaqBlogComponent } from '../routes/Blog/components/faq-blog/faq-blog.component';
+import { ProductProperties } from './product-properties/product-properties.component';
+import { RatingComponent } from './rating/rating.component';
 
 const components = [
   AcordianComponent,
+
   FaqBlogComponent,
   FilterResponsiveComponent,
   CommentsComponent,
@@ -62,6 +65,8 @@ const components = [
     MatDatepickerModule,
     MatNativeDateModule,
     FavoriteComponent,
+    ProductProperties,
+    RatingComponent,
     Spinner,
   ],
   exports: [
@@ -70,6 +75,9 @@ const components = [
     DragScrollModule,
     NgxTippyModule,
     FavoriteComponent,
+    ProductProperties,
+    RatingComponent,
+    Spinner,
   ],
   declarations: [
     components,

@@ -17,7 +17,6 @@ import { BaseService } from './classes/services/base.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ModalComponent } from './shared/modal/modal.component';
 import { AuthModule } from './shared/auth/auth.module';
-import { RatingComponent } from './shared/rating/rating.component';
 import { Checkbox } from './shared/checkbox/checkbox.component';
 
 import { LoaderInterceptor } from './classes/loader.interceptor';
@@ -56,7 +55,6 @@ const footer = [FooterComponent];
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    RatingComponent,
     Checkbox,
     LoaderComponent,
     NgChartsModule,

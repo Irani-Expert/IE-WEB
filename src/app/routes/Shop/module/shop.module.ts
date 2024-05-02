@@ -5,7 +5,6 @@ import { LandingShopComponent } from '../components/landing-shop/landing-shop.co
 import { ShopHeroComponent } from '../components/shop-hero/shop-hero.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { QuestionShopComponent } from '../components/question-shop/question-shop.component';
-import { RatingComponent } from 'src/app/shared/rating/rating.component';
 import { DetailCardComponent } from '../components/detail-card/detail-card.component';
 import { Checkbox } from 'src/app/shared/checkbox/checkbox.component';
 import { BotOptionsComponent } from '../components/bot-options/bot-options.component';
@@ -16,9 +15,7 @@ import { BackTestComponent } from '../components/back-test/back-test.component';
 import { SmoothWidthDirective } from 'src/app/classes/directives/smooth-width.directive';
 import { DiscountBannerComponent } from 'src/app/shared/discount-banner/discount-banner.component';
 import { SliderComponent } from '../../Home/components/slider/slider.component';
-import { ProductProperties } from 'src/app/shared/product-properties/product-properties.component';
 import { TableCompareComponent } from '../components/table-compare/table-compare.component';
-import { ModalComponent } from 'src/app/shared/modal/modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FilterComponent } from '../components/filter/filter.component';
 import { SearchComponent } from '../components/filter/search-bar/search.component';
@@ -42,17 +39,14 @@ const components = [
 @NgModule({
   declarations: [components],
   imports: [
-    ProductProperties,
     FilterComponent,
     SearchComponent,
     SmoothWidthDirective,
     CarouselComponent,
-    ModalComponent,
     ReactiveFormsModule,
     CommonModule,
     ShopRoutingModule,
     SharedModule,
-    RatingComponent,
     Checkbox,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

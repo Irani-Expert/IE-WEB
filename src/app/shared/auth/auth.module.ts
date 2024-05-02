@@ -8,7 +8,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SmoothHeightDirective } from 'src/app/classes/directives/smooth-height.directive';
 import { Toggler } from '../toggler/toggler.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
-import { Spinner } from '../spinner/spinner.component';
 import { NgOtpInputModule } from 'ng-otp-input';
 import { SharedModule } from '../shared.module';
 
@@ -24,7 +23,6 @@ const components = [
     ReactiveFormsModule,
     SmoothHeightDirective,
     Toggler,
-    Spinner,
     NgOtpInputModule,
     SharedModule,
   ],

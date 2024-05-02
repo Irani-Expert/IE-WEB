@@ -37,7 +37,10 @@
         />
         <div class="absolute flex h-full w-full items-end">
           <div class="mr-8 max-sm:mb-4">
-            <div class="divider w-1/4 h-1" [style]="'background-color:' + color"></div>
+            <div
+              class="divider w-1/4 h-1"
+              [style]="'background-color:' + color"
+            ></div>
             <span class="text-2xl block font-bold text-white">
               {{ blogService._blog!.title }}
             </span>
@@ -71,7 +74,8 @@
           >انتشار : {{ blogService._blog?.publishDate | date }}</small
         >
         <small class="ms-6 font-light"
-          >زمان مطالعه {{ blogService._blog!.studyTime.split(':')[1] }} دقیقه</small
+          >زمان مطالعه
+          {{ blogService._blog!.studyTime.split(":")[1] }} دقیقه</small
         >
       </div>
       <div
@@ -86,7 +90,10 @@
         />
         <div class="absolute flex h-full w-full items-end">
           <div class="mb-8 mr-12">
-            <div class="divider blue-back w-1/4 h-1" [style]="'background-color:' + color"></div>
+            <div
+              class="divider blue-back w-1/4 h-1"
+              [style]="'background-color:' + color"
+            ></div>
             <span class="title-blog-img text-white block">
               {{ blogService._blog!.title }}
             </span>
@@ -105,7 +112,7 @@
         [innerHTML]="articleHtml"
         class="mt-6 expert-advisor money-m"
       ></div>
-      
+
       <h2 class="sr-only">خرید ربات معامله گر فارکس</h2>
       <h2 class="sr-only">آموزش ساخت ربات معامله گر فارکس</h2>
       <h2 class="sr-only">طراحی ربات معامله گر</h2>
@@ -115,13 +122,13 @@
 
       <div class="block lg:hidden">
         <app-filter-responsive
-        [categoryDetailIcon]="categoryDetailIcon"
-        [data]="'white'"
-        [categoryTags]="tags"
-        [type]="'tags'"
-      >
-        <p header class="text-black w-28">دسترسی سریع</p>
-      </app-filter-responsive>
+          [categoryDetailIcon]="categoryDetailIcon"
+          [data]="'white'"
+          [categoryTags]="tags"
+          [type]="'tags'"
+        >
+          <p header class="text-black w-28">دسترسی سریع</p>
+        </app-filter-responsive>
       </div>
 
       <ng-container *ngIf="isBrowser">
@@ -149,7 +156,6 @@
         </app-blog-filter>
       </ng-container>
 
-      <!-- <app-quick-access [strText]="qA"></app-quick-access> -->
       <!-- ===================[مدرسه فارکس ]=================== -->
       <!-- <div class="flex justify-center mt-8 m-2">
       <div class="school-box">

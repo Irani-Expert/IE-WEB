@@ -5,7 +5,6 @@ import { HeroSearchComponent } from '../components/hero-search/hero-search.compo
 import { ItemsSearchComponent } from '../components/items-search/items-search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { RatingComponent } from 'src/app/shared/rating/rating.component';
 
 const components = [
   LandingSearchComponent,
@@ -16,13 +15,6 @@ const components = [
 @NgModule({
   declarations: [components],
   exports: [components],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    SharedModule,
-    RatingComponent
-
-  ],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, SharedModule],
 })
 export class SearchModule {}

@@ -13,7 +13,6 @@ import { BannersComponent } from '../components/banners/banners.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSliderModule } from 'ngx-slider-v2';
 import { AboutUsComponent } from '../components/about-us/about-us.component';
-import { OrderFilterComponent } from 'src/app/shared/order-filter/order-filter.component';
 import { TradeBeginningComponent } from '../components/trade-beginning/trade-beginning.component';
 import { CardTitleComponent } from 'src/app/routes/Home/components/card-title/card-title.component';
 import { CardLinkComponent } from 'src/app/routes/Home/components/card-link/card-link.component';
@@ -32,7 +31,6 @@ import { AboutusTargetsResponsiveComponent } from '../components/aboutus-targets
 import { RobotTraderComponent } from 'src/app/routes/Home/components/robot-trader/robot-trader.component';
 import { BlueCardsComponent } from 'src/app/routes/Home/blue-cards/blue-cards.component';
 import { QAComponent } from 'src/app/routes/Home/components/qa/qa.component';
-import { QuickAccessComponent } from 'src/app/shared/quick-access/quick-access.component';
 import { CopyTradeComponent } from 'src/app/components/copy-trade/copy-trade.component';
 
 const components = [
@@ -55,11 +53,9 @@ const components = [
   BannersComponent,
   ProductCardComponent,
   AboutUsComponent,
-  OrderFilterComponent,
   TradeBeginningComponent,
   CardTitleComponent,
   CardLinkComponent,
-  QuickAccessComponent,
   AboutusTargetsComponent,
   // DiscountBannerComponent,
   BlueCardsComponent,

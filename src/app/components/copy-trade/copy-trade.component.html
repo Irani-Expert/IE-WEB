@@ -1,92 +1,100 @@
 <ng-container *ngIf="sendDataToChild">
-<div class="flex flex-row-reverse w-full p-5 bg-page">
-  <div class="xl:w-9/12 w-full">
-    <img
-      class="img-blog md:hidden w-full"
-      [src]=" contentUrl + blogService._blog!.cardImagePath"
-      />
-    <div class="flex justify-between mt-4">
-      <div class="flex items-center blue-font font-semibold">
-        <i class="ie-folder"></i>
-        <div class="mt-2 ms-2">ترید فارکس</div>
-      </div>
-      <div
-        class="flex items-center blue-font font-semibold bg-gray-100 p-1 px-4 rounded-full"
-      >
-      <button disabled class="flex items-center box-share disabled:opacity-25">
-        <p class="icon-title ml-3">اشتراک گذاری</p>
-        <i class="shared-icon icon"></i>
-      </button>
-      </div>
-    </div>
-    <h1 class="text-black font-bold text-4xl mt-3 mb-1 max-sm:text-2xl">
-    {{blogService._blog!.title}}  
-    </h1>
-    <div>
-      <span class="text-base text-gray-600 font-light me-10"
-        >انتشار : {{blogService._blog!.publishDate | date}}</span
-      >
-      <span class="text-base text-gray-600 font-light"
-        >زمان مطالعه {{blogService._blog!.studyTime.split(':')[1]}} دقیقه</span
-      >
-    </div>
-    <div
-      class="flex relative mb-8 mt-2 bg-[#CFCFCF] rounded-2xl inside-box-shadow max-md:hidden"
-    >
+  <div class="flex flex-row-reverse w-full p-5 bg-page">
+    <div class="xl:w-9/12 w-full">
       <img
-        class="img-blog rounded-xl"
-        [src]=" contentUrl + blogService._blog!.cardImagePath"
+        class="img-blog md:hidden w-full"
+        [src]="contentUrl + blogService._blog!.cardImagePath"
       />
-      <div class="absolute flex h-full w-full items-center mb-10">
-        <div class="mt-60 mr-12">
-          <div class="divider w-1/4 h-1" [style]="'background-color:' + color"></div>
-          <span class="title-blog-img text-white text-4xl font-semibold">
-          {{blogService._blog!.title}}  
-          </span>
+      <div class="flex justify-between mt-4">
+        <div class="flex items-center blue-font font-semibold">
+          <i class="ie-folder"></i>
+          <div class="mt-2 ms-2">ترید فارکس</div>
+        </div>
+        <div
+          class="flex items-center blue-font font-semibold bg-gray-100 p-1 px-4 rounded-full"
+        >
+          <button
+            disabled
+            class="flex items-center box-share disabled:opacity-25"
+          >
+            <p class="icon-title ml-3">اشتراک گذاری</p>
+            <i class="shared-icon icon"></i>
+          </button>
         </div>
       </div>
-    </div>
-    <p class="text-justify text-lg text-gray-500 font-medium mt-2 mb-4">
-      {{blogService._blog!.brief}}
-    </p>
-    <app-content-menu [data]="listElems" [wid]="100"></app-content-menu>
-     <div id="ckeditor" [innerHTML]="articleHtml" class="mt-6 copy-trade money-m"></div>
-     <h3 class="sr-only">جمع بندی </h3>
-     <div class="block lg:hidden">
-      <app-filter-responsive
-      [categoryDetailIcon]="categoryDetailIcon"
-      [data]="'white'"
-      [categoryTags]="tags"
-      [type]="'tags'"
-    >
-      <p header class="text-black w-28">دسترسی سریع</p>
-    </app-filter-responsive>
-    </div>
-    <app-free-advice></app-free-advice>
-    <app-faq-blog [data]="blogService._blog?.faQs!"></app-faq-blog>
-    <app-vote [data]="blogService._blog!"></app-vote>
-    <!-- <div class="bg-[#ECECEC] rounded-3xl p-5 text-[#4D4D4D]">
+      <h1 class="text-black font-bold text-4xl mt-3 mb-1 max-sm:text-2xl">
+        {{ blogService._blog!.title }}
+      </h1>
+      <div>
+        <span class="text-base text-gray-600 font-light me-10"
+          >انتشار : {{ blogService._blog!.publishDate | date }}</span
+        >
+        <span class="text-base text-gray-600 font-light"
+          >زمان مطالعه
+          {{ blogService._blog!.studyTime.split(":")[1] }} دقیقه</span
+        >
+      </div>
+      <div
+        class="flex relative mb-8 mt-2 bg-[#CFCFCF] rounded-2xl inside-box-shadow max-md:hidden"
+      >
+        <img
+          class="img-blog rounded-xl"
+          [src]="contentUrl + blogService._blog!.cardImagePath"
+        />
+        <div class="absolute flex h-full w-full items-center mb-10">
+          <div class="mt-60 mr-12">
+            <div
+              class="divider w-1/4 h-1"
+              [style]="'background-color:' + color"
+            ></div>
+            <span class="title-blog-img text-white text-4xl font-semibold">
+              {{ blogService._blog!.title }}
+            </span>
+          </div>
+        </div>
+      </div>
+      <p class="text-justify text-lg text-gray-500 font-medium mt-2 mb-4">
+        {{ blogService._blog!.brief }}
+      </p>
+      <app-content-menu [data]="listElems" [wid]="100"></app-content-menu>
+      <div
+        id="ckeditor"
+        [innerHTML]="articleHtml"
+        class="mt-6 copy-trade money-m"
+      ></div>
+      <h3 class="sr-only">جمع بندی</h3>
+      <div class="block lg:hidden">
+        <app-filter-responsive
+          [categoryDetailIcon]="categoryDetailIcon"
+          [data]="'white'"
+          [categoryTags]="tags"
+          [type]="'tags'"
+        >
+          <p header class="text-black w-28">دسترسی سریع</p>
+        </app-filter-responsive>
+      </div>
+      <app-free-advice></app-free-advice>
+      <app-faq-blog [data]="blogService._blog?.faQs!"></app-faq-blog>
+      <app-vote [data]="blogService._blog!"></app-vote>
+      <!-- <div class="bg-[#ECECEC] rounded-3xl p-5 text-[#4D4D4D]">
       <div class="flex flex-row-reverse items-center">
         <div class="text-2xl font-medium">اشتراک گزاری مطلب</div>
         <i class="ie-meta-trader"></i>
       </div>
       <div></div>
     </div> -->
-    <div class="my-10">
-      <app-comments [rowId]="1061" [tableType]="1"></app-comments>
+      <div class="my-10">
+        <app-comments [rowId]="1061" [tableType]="1"></app-comments>
+      </div>
     </div>
-  </div>
 
-  <div class="w-3/12 max-xl:hidden ml-4">
-    <app-blog-filter [type]="'tags'" [categoryTags]="tags">
-      <p header class="text-black">دسترسی سریع</p>
-    </app-blog-filter>
-    
-    <!-- <app-quick-access [strText]="qA"
-      ><div class="m-2 text-gray-600 text-lg">دسترسی سریع</div>
-    </app-quick-access> -->
-    <!-- ===================[مدرسه فارکس ]=================== -->
-    <!-- <div class="flex justify-center mt-8 m-2">
+    <div class="w-3/12 max-xl:hidden ml-4">
+      <app-blog-filter [type]="'tags'" [categoryTags]="tags">
+        <p header class="text-black">دسترسی سریع</p>
+      </app-blog-filter>
+
+      <!-- ===================[مدرسه فارکس ]=================== -->
+      <!-- <div class="flex justify-center mt-8 m-2">
       <div class="school-box">
         <div class="flex justify-start">
           <div class="mb-4 mt-4">
@@ -109,6 +117,6 @@
         </div>
       </div>
     </div> -->
+    </div>
   </div>
-</div>
 </ng-container>

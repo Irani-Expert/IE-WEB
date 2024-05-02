@@ -18,12 +18,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalendarCardResponsiveComponent } from '../calendar-card-responsive/calendar-card-responsive.component';
 import { CardFinanceComponent } from '../card-finance/card-finance.component';
 import { NgChartsModule } from 'ng2-charts';
-import { ModalComponent } from 'src/app/shared/modal/modal.component';
 import { TradingViewComponent } from 'src/app/components/trading-view/trading-view.component';
 
 import { CountryDetailComponent } from '../country-detail/country-detail.component';
 import { GraphContainerComponent } from '../graph-container/graph-container.component';
-import { YearSelectorComponent } from 'src/app/shared/year-selector/year-selector.component';
+import { YearSelectorComponent } from 'src/app/routes/calendar/year-selector/year-selector.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MapContainerComponent } from '../map-components/map-container/map-container.component';
@@ -52,7 +51,6 @@ const components = [
   imports: [
     PaginationControlComponent,
     GraphContainerComponent,
-    ModalComponent,
     ShowMoreComponent,
     MapContainerComponent,
     CommonModule,
