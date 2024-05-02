@@ -17,3 +17,14 @@
     height: 0.5rem;
     border-radius: 10px;
 }
+.chart-text{
+    display: flex;
+    justify-content: end;
+    font-weight: 500;
+    align-items: baseline;
+    margin-right: -0.75rem;
+    width: 12rem;
+    color: #919191;
+    font-size: 0.75rem;
+    // line-height: 2.5rem;
+}
