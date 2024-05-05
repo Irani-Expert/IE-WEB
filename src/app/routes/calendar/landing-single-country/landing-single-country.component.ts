@@ -12,7 +12,7 @@ import { IndicatorsModel } from 'src/app/classes/interfaces/indicators.interface
 import { Utils } from 'src/app/classes/utils';
 import { importances } from '../importance/importances';
 import { Importance } from '../importance/importance.interface';
-import { Meta } from '@angular/platform-browser';
+import { DomSanitizer, Meta, SafeHtml } from '@angular/platform-browser';
 
 interface ValueType {
   active: boolean;
@@ -43,6 +43,7 @@ export class LandingSingleCountryComponent {
   title: string = '';
   language: string = '';
   indicatorsData: IndicatorsModel;
+  articleHtml: SafeHtml;
 
   @ViewChild(TableCalendar, { static: false }) appTableComponent: TableCalendar;
 
@@ -51,7 +52,9 @@ export class LandingSingleCountryComponent {
     private indicatorservice: Indicatorservice,
     private _state: ActivatedRoute,
     private _linkService: LinkService,
-    private _ecoCalService: EcoCalService
+    private _ecoCalService: EcoCalService,
+    private _sanitizer : DomSanitizer
+
   ) {
     AppComponent.changeMainBg('creamy');
     this._state.url.subscribe((it) => {
@@ -120,6 +123,10 @@ export class LandingSingleCountryComponent {
       name: 'keywords',
       content: keywords,
     });
+
+    this.articleHtml = this._sanitizer.bypassSecurityTrustHtml(
+      this.indicatorsData.details.description
+    );
   }
 
   // =======[ آیکون ها و تایتل های کارت ها ]=======
