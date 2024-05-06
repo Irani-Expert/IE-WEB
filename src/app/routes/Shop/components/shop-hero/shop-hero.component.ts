@@ -236,7 +236,6 @@ export class ShopHeroComponent implements OnInit {
     return src;
   }
   async toCheckout(item: planInterface) {
-    debugger;
     let itemForBsk: BskItem = {
       count: 1,
       price: item.price,
