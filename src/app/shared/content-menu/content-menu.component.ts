@@ -31,9 +31,17 @@ export class ContentMenuComponent {
   }
 
   // =======[اسکرول]======
+  element :HTMLHeadingElement;
   constructor(private scrollService: ScrollService) {}
 
   scrollToId(id: string) {
+    // const scrollElementH2 = document.getElementsByTagName('h2')
+    // for (let index = 0; index < scrollElementH2.length; index++) {
+    //   this.element = scrollElementH2[index];
+    //   this.element.id = `h2-${index}`
+    // }
+    // this.scrollService.scrollToElement(this.element);
+    
     this.scrollService.scrollToElementById(id);
   }
 

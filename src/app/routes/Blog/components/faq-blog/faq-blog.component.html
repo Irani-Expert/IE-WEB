@@ -22,7 +22,9 @@
             [style.height.px]="menu.isActive ? submenu.scrollHeight : 0"
           >
             <li>
-              <p [innerHTML]="menu.answer"></p>
+               <ng-container *ngIf="loading">
+                <p [innerHTML]="menu.answer"></p>
+               </ng-container>
             </li>
           </ul>
         </li>

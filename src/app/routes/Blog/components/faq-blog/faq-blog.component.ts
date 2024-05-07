@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
 import { FAQ } from 'src/app/routes/Home/components/questions/interfaces/faq-interfce';
 import { config } from 'src/app/shared/acordian/types';
 
@@ -9,13 +10,15 @@ import { config } from 'src/app/shared/acordian/types';
 })
 export class FaqBlogComponent {
 @Input('data') data : FAQ[];
-
 @Input() options : any;
+loading = false;
 config: config;
 ngOnInit() {
   this.config = this.mergeConfig(this.options);
   console.log(this.data);
-  
+  if (AppComponent.isBrowser.value){
+    this.loading = true;
+  }
 }
 
 mergeConfig(options: config) {
