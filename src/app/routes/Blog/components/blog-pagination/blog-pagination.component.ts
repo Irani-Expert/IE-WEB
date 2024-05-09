@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 import {
   ActivatedRoute,
   NavigationEnd,
@@ -22,6 +22,7 @@ import { Page } from 'src/app/classes/page.model';
 import { BlogService } from 'src/app/classes/services/blog.service';
 import { Utils } from 'src/app/classes/utils';
 import { LinkService } from 'src/app/classes/services/link.service';
+import { ILottieConfig } from 'src/app/shared/lottie/lottie-config';
 
 @Component({
   selector: 'app-blog-pagination',
@@ -121,6 +122,7 @@ export class BlogPaginationComponent {
       content:
         'مقاله فارکس pdf- مقاله در مورد فارکس-دانلود مقاله در مورد فارکس-مقاله آموزشی فارکس-مقاله انگلیسی در مورد فارکس-مقاله های فارکس-فارکس چیست به زبان ساده-تحلیل تکنیکال فارکس-صفر تا صد فارکس رایگان-آموزش جامع فارکس-مقاله درباره فارکس-همه چیز در مورد فارکس-مقاله های ایران بورس آنلاین-فارکس چیست-بازار فارکس-تحقیق در مورد بازار فارکس-داده های فارکس-بهترین دوره های فارکس-خبر های مهم بازار فارکس',
     });
+    
   }
 
   config: PaginationInstance;
@@ -227,4 +229,15 @@ export class BlogPaginationComponent {
   get isBrowser() {
     return AppComponent.isBrowser.value;
   }
+  // ===========[لاتی]=========
+  // @Input('massage') massage : boolean;
+  // massage : boolean;
+  lottieConfig: ILottieConfig = {
+    width: '100%',
+    max_w: '320px',
+    height: 'auto',
+    path: 'assets/lottie/no-info.json',
+  };
+  
+
 }
