@@ -20,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FilterComponent } from '../components/filter/filter.component';
 import { SearchComponent } from '../components/filter/search-bar/search.component';
 import { ShareLinkBoxComponent } from '../components/share-link-box/share-link-box.component';
+import { ScrollComponent } from '../components/scroll/scroll.component';
 
 const components = [
   SliderComponent,
@@ -34,6 +35,7 @@ const components = [
   DiscountBannerComponent,
   TableCompareComponent,
   ShareLinkBoxComponent,
+  ScrollComponent
 ];
 
 @NgModule({

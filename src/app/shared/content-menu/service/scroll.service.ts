@@ -17,7 +17,7 @@ export class ScrollService {
     return element;
   }
 
-  scrollToElement(element: HTMLElement) {
+  scrollToElement(element: HTMLHeadingElement) {
     element.scrollIntoView({ behavior: "smooth" });
   }
 }

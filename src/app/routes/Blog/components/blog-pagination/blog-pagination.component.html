@@ -25,9 +25,7 @@
                 : 'مقاله مورد نظر را جستجو کنید'
             "
           />
-          <a href="">
             <i class="search-icon-blog"></i>
-          </a>
         </div>
       </div>
       <div class="basis-1/3 relative flex justify-end">
@@ -52,24 +50,41 @@
     <ng-container *ngIf="!loading">
       <div class="col-span-3 mr-4">
         <!-- =======================[پیجینیشن]========== -->
-        <div class="flex justify-start">
-          <div class="">
-            <div class="flex items-center">
-              <i class="article-icon scale-90 ml-1"></i>
-              <p class="row-p">مقالات ایرانی اکسپرت</p>
-            </div>
-            <span class="title2 mt-2"
-              >جدیدترین و آخرین مقالات ایرانی اکسپرت</span
-            >
-          </div>
-        </div>
-        <div class="flex justify-start">
-          <div class="grid md:grid-cols-2 xl:grid-cols-3 grid-cols-2 gap-2">
-            <div class="" *ngFor="let blog of page._items! | paginate : config">
-              <app-blog-cart [data]="blog"></app-blog-cart>
+        <ng-container *ngIf="page._items?.length !== 0 && page._items ">
+          
+          <div class="flex justify-start">
+            <div class="">
+              <div class="flex items-center">
+                <i class="article-icon scale-90 ml-1"></i>
+                <p class="row-p">مقالات ایرانی اکسپرت</p>
+              </div>
+              <span class="title2 mt-2"
+                >جدیدترین و آخرین مقالات ایرانی اکسپرت</span
+              >
             </div>
           </div>
-        </div>
+  
+          <div class="flex justify-start">
+            <div class="grid md:grid-cols-2 xl:grid-cols-3 grid-cols-2 gap-2">
+              <div class="" *ngFor="let blog of page._items! | paginate : config">
+                <app-blog-cart [data]="blog"></app-blog-cart>
+              </div>
+            </div>
+          </div>
+
+        </ng-container>
+        <ng-container *ngIf="page._items?.length == 0 && page._items ">
+          <div>
+            <app-lottie [config]="lottieConfig" />
+            <p class="rounded-3xl mx-4 bg-[#e6effd] text-[#2f65b9] text-3xl py-2 px-4 w-1/2">
+              متاسفانه هیچ مطلبی در این رابطه پیدا نشد
+            </p>
+          </div>
+
+        </ng-container>
+
+
+        <!-- ============[pagination]======= -->
         <div
           class="justify-center mt-7"
           [ngClass]="page._items?.length == 0 ? 'hidden' : 'flex'"
@@ -168,9 +183,7 @@
                 : 'مقاله مورد نظر را جستجو کنید'
             "
           />
-          <a href="">
             <i class="icon-search search-icon-blog"></i>
-          </a>
         </div>
       </div>
     </div>
