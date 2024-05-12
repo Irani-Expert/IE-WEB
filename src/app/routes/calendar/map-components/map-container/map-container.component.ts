@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MapCountryComponent } from '../map-country/map-country.component';
 import { AppComponent } from 'src/app/app.component';
 import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
 import { Country } from '../map-country/country';
@@ -10,7 +9,7 @@ import { MapComponent } from '../map-itself/map.component';
 @Component({
   selector: 'app-map-container',
   standalone: true,
-  imports: [CommonModule, MapCountryComponent, MapClockComponent, MapComponent],
+  imports: [CommonModule, MapClockComponent, MapComponent],
   templateUrl: './map-container.component.html',
   styleUrls: ['./map-container.component.scss'],
 })
@@ -23,10 +22,14 @@ export class MapContainerComponent {
   }
   async ngOnInit() {
     if (AppComponent.isBrowser.value) {
-      console.log('Appication is on Browser');
+      if (window) {
+        console.log('Appication is on Browser');
+        this.countries = (
+          await this._ecoCalService.getCountriesByEvents()
+        ).data!;
+        this.isLoading = false;
+      }
     }
-    this.countries = (await this._ecoCalService.getCountriesByEvents()).data!;
-    this.isLoading = false;
   }
   ngAfterViewInit() {}
   ngOnDestroy() {
