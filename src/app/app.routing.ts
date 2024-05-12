@@ -62,6 +62,24 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'expert-advisor',
+    title:
+      'موفقیت های ربات های معامله ‎گر در سال 2023 چیست ؟ نحوه عملکرد + دانلود ',
+    loadChildren: () =>
+      import('./routes/Robot-trader/module/robot-trader.module').then(
+        (m) => m.RobotTraderModule
+      ),
+  },
+  {
+    path: 'copy-trade',
+    title:
+      ' بهترین کپی تریدینگ (copytrading) فارکس در بازارهای مالی 2023| سود تضمینی',
+    loadChildren: () =>
+      import('./routes/Copy-trade/module/copy-trade.module').then(
+        (m) => m.CopyTradeModule
+      ),
+  },
+  {
     // canActivate: [() => (environment.production ? false : true)],
     // redirectTo: environment.production ? '' : undefined,
     path: 'economic-calendar',

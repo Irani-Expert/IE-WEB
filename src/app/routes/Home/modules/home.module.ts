@@ -15,15 +15,11 @@ import { BotShowcaseComponent } from '../components/bot-showcase/bot-showcase.co
 import { ServiceBanerComponent } from '../components/service-baner/service-baner.component';
 import { QuestionsComponent } from '../components/questions/questions.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { ProductCardComponent } from 'src/app/routes/Home/product-card/product-card.component';
 import { LandingArticleResponsiveComponent } from '../components/landing-article-responsive/landing-article-responsive.component';
 import { SearchModule } from '../../Search/module/search.module';
-import { RobotTraderComponent } from 'src/app/routes/Home/components/robot-trader/robot-trader.component';
-import { CopyTradeComponent } from 'src/app/components/copy-trade/copy-trade.component';
+import { ProductCardComponent } from '../components/product-card/product-card.component';
 
 const components = [
-  CopyTradeComponent,
-  RobotTraderComponent,
   ServiceBanerComponent,
   QuestionsComponent,
   LandingPageComponent,

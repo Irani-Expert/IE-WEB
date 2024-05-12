@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IcardData } from 'src/app/routes/Home/product-card/card-data';
+
 import { FilterBlog } from 'src/app/classes/interfaces/filter-blog.interface';
 import { BlogService } from 'src/app/classes/services/blog.service';
 import { Blog, SingleBlog } from 'src/app/classes/interfaces/blog.interface';
@@ -14,6 +14,7 @@ import { environment } from 'src/environments/environment.dev';
 import { LinkService } from 'src/app/classes/services/link.service';
 import { ITags } from 'src/app/classes/interfaces/tags.interface';
 import { ActivatedRoute } from '@angular/router';
+import { IcardData } from '../product-card/card-data';
 
 @Component({
   selector: 'app-landing-page',

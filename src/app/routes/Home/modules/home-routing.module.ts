@@ -2,27 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingPageComponent } from '../components/landing-page/landing-page.component';
 import { LandingSearchComponent } from '../../Search/components/landing-search/landing-search.component';
-import { RobotTraderComponent } from 'src/app/routes/Home/components/robot-trader/robot-trader.component';
-import { CopyTradeComponent } from 'src/app/components/copy-trade/copy-trade.component';
 
 const routes: Routes = [
   {
     path: '',
     title: 'ایرانی اکسپرت - آموزش فارکس| ترید فارکس| ربات خودکار فارکس',
     component: LandingPageComponent,
-  },
-  {
-    path: 'expert-advisor',
-    title:
-      'موفقیت های ربات های معامله ‎گر در سال 2023 چیست ؟ نحوه عملکرد + دانلود ',
-    component: RobotTraderComponent,
-  },
-  //موفقیت ربات های معامله گر (traderbot)در سال 2023 چیست؟ نحوه عملکرد +دانلود
-  {
-    path: 'copy-trade',
-    title:
-      ' بهترین کپی تریدینگ (copytrading) فارکس در بازارهای مالی 2023| سود تضمینی',
-    component: CopyTradeComponent,
   },
   {
     path: 'search',
