@@ -1,7 +1,7 @@
 <!-- <app-map-country *ngIf="!isLoading" [data]="countries[8]" /> -->
 
 <div class="flex flex-col-reverse md:flex-row items-stretch md:items-end gap-4">
-  <app-clock class="hidden md:block" />
+  <app-clock *ngIf="!isLoading" class="hidden md:block" />
 
   <div class="basis-full">
     <app-map *ngIf="!isLoading" />

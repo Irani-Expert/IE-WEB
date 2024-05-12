@@ -16,6 +16,7 @@ import { icon_config } from './icon_config';
 import { Country } from '../map-country/country';
 import { EcoCalService } from 'src/app/classes/services/eco-cal.service';
 import { leaflet_config } from './leaflet_config';
+import { AppComponent } from 'src/app/app.component';
 @Component({
   selector: 'app-map',
   standalone: true,
@@ -31,7 +32,9 @@ export class MapComponent {
   weekends: boolean = false;
   constructor(private _ecoCalService: EcoCalService) {}
   ngAfterViewInit(): void {
-    this.initMap();
+    if (AppComponent.isBrowser.value) {
+      this.initMap();
+    }
   }
 
   private initMap(): void {
