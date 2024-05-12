@@ -54,6 +54,14 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'about-us',
+    title: 'تکنیک های مدیریت سرمایه (CM) چیست؟اصول مدیریت ریسک و سرمایه گذاری',
+    loadChildren: () =>
+      import('./routes/About-us/module/about-us.module').then(
+        (m) => m.AboutUsModule
+      ),
+  },
+  {
     // canActivate: [() => (environment.production ? false : true)],
     // redirectTo: environment.production ? '' : undefined,
     path: 'economic-calendar',

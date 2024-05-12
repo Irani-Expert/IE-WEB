@@ -3,16 +3,11 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { LandingPageComponent } from '../components/landing-page/landing-page.component';
 import { HeroComponent } from '../components/hero/hero.component';
-// import { CounterNumberComponent } from '../components/counter-number/counter-number.component';
-// import { SliderComponent } from '../components/slider/slider.component';
-// import { BotFacilitiesComponent } from '../components/bot-facilities/bot-facilities.component';
 import { BotAdvantagesComponent } from '../components/bot-advantages/bot-advantages.component';
 import { LandingArticleComponent } from '../components/landing-article/landing-article.component';
-// import { ConsultationFormComponent } from '../components/consultation-form/consultation-form.component';
 import { BannersComponent } from '../components/banners/banners.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSliderModule } from 'ngx-slider-v2';
-import { AboutUsComponent } from '../components/about-us/about-us.component';
 import { TradeBeginningComponent } from '../components/trade-beginning/trade-beginning.component';
 import { CardTitleComponent } from 'src/app/routes/Home/components/card-title/card-title.component';
 import { CardLinkComponent } from 'src/app/routes/Home/components/card-link/card-link.component';
@@ -22,44 +17,26 @@ import { QuestionsComponent } from '../components/questions/questions.component'
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ProductCardComponent } from 'src/app/routes/Home/product-card/product-card.component';
 import { LandingArticleResponsiveComponent } from '../components/landing-article-responsive/landing-article-responsive.component';
-import { AboutusTargetsComponent } from '../components/aboutus-targets/aboutus-targets.component';
-import { CommentSliderComponent } from '../components/comment-slider/comment-slider.component';
-import { VideoSliderComponent } from '../components/video-slider/video-slider.component';
 import { SearchModule } from '../../Search/module/search.module';
-// import { FreeAdviceComponent } from '../free-advice/free-advice.component';
-import { AboutusTargetsResponsiveComponent } from '../components/aboutus-targets-responsive/aboutus-targets-responsive.component';
 import { RobotTraderComponent } from 'src/app/routes/Home/components/robot-trader/robot-trader.component';
-// import { BlueCardsComponent } from 'src/app/routes/Home/blue-cards/blue-cards.component';
-// import { QAComponent } from 'src/app/routes/Home/components/qa/qa.component';
 import { CopyTradeComponent } from 'src/app/components/copy-trade/copy-trade.component';
 
 const components = [
   CopyTradeComponent,
   RobotTraderComponent,
   ServiceBanerComponent,
-  AboutusTargetsResponsiveComponent,
   QuestionsComponent,
   LandingPageComponent,
-  // FreeAdviceComponent,
   HeroComponent,
   BotShowcaseComponent,
-  CommentSliderComponent,
-  // BotFacilitiesComponent,
   LandingArticleResponsiveComponent,
   BotAdvantagesComponent,
   LandingArticleComponent,
-  VideoSliderComponent,
-  // ConsultationFormComponent,
   BannersComponent,
   ProductCardComponent,
-  AboutUsComponent,
   TradeBeginningComponent,
   CardTitleComponent,
   CardLinkComponent,
-  AboutusTargetsComponent,
-  // DiscountBannerComponent,
-  // BlueCardsComponent,
-  // QAComponent,
 ];
 @NgModule({
   declarations: [components],
