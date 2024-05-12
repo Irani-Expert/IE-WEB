@@ -118,21 +118,20 @@
                   <div class="flex items-center flex-row-reverse">
                     <p
                       [ngClass]="{
-                        'price-animation': animationState,
-                        'line-through': selectedPlan.id == 39
+                        'price-animation': animationState
                       }"
                       class="text-black font-black text-2xl"
                     >
                       {{ selectedPlan.price | currency }}
                     </p>
-                    <ng-container *ngIf="selectedPlan.id == 39">
+                    <!-- <ng-container *ngIf="selectedPlan.id == 39">
                       <p
                         [ngClass]="animationState ? 'price-animation' : ''"
                         class="text-[#3246d3] font-bold text-lg mx-2"
                       >
                         {{ selectedPlan.price - 120 | currency }}
                       </p>
-                    </ng-container>
+                    </ng-container> -->
                   </div>
                 </div>
                 <br />
@@ -345,20 +344,19 @@
         <p
           [ngClass]="{
             'price-animation': animationState,
-            'line-through': selectedPlan.id == 39
           }"
           class="text-black font-black text-2xl"
         >
           {{ selectedPlan.price | currency }}
         </p>
-        <ng-container *ngIf="selectedPlan.id == 39">
+        <!-- <ng-container *ngIf="selectedPlan.id == 39">
           <p
             [ngClass]="animationState ? 'price-animation' : ''"
             class="text-[#3246d3] font-bold text-lg mx-2"
           >
             {{ selectedPlan.price - 120 | currency }}
           </p>
-        </ng-container>
+        </ng-container> -->
       </div>
     </div>
   </div>

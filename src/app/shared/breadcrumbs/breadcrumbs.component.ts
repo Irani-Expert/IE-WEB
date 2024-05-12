@@ -21,9 +21,9 @@ export class BreadcrumbsComponent {
   routeInfoModel: IBreadcumbs[] = new Array<IBreadcumbs>();
   autoUnderRoute: boolean = false;
   constructor(
-    private location: Location,
-    private router: Router,
-    private routePersianName: RouteService,
+    location: Location,
+    router: Router,
+    routePersianName: RouteService,
     private navigation: NavigationService
   ) {
     routePersianName.liveRoute.subscribe((data: any) => {
@@ -52,7 +52,6 @@ export class BreadcrumbsComponent {
   }
 
   convertRouteToPersian(str: string[]) {
-    var defualt: IBreadcumbs[] = new Array<IBreadcumbs>();
     this.browserUrl = [];
     str.forEach(async (x) => {
       var data: IBreadcumbs = {
@@ -75,7 +74,7 @@ export class BreadcrumbsComponent {
     var index = defaultMenu.findIndex((x) => x.path == route);
 
     if (index == -1) {
-      return new Promise<string>((resolve, reject) => {
+      return new Promise<string>((resolve) => {
         setTimeout(() => {
           resolve(this.persianNameOfRoute);
         }, 2000);
