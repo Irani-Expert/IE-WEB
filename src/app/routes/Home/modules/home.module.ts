@@ -29,8 +29,8 @@ import { SearchModule } from '../../Search/module/search.module';
 // import { FreeAdviceComponent } from '../free-advice/free-advice.component';
 import { AboutusTargetsResponsiveComponent } from '../components/aboutus-targets-responsive/aboutus-targets-responsive.component';
 import { RobotTraderComponent } from 'src/app/routes/Home/components/robot-trader/robot-trader.component';
-import { BlueCardsComponent } from 'src/app/routes/Home/blue-cards/blue-cards.component';
-import { QAComponent } from 'src/app/routes/Home/components/qa/qa.component';
+// import { BlueCardsComponent } from 'src/app/routes/Home/blue-cards/blue-cards.component';
+// import { QAComponent } from 'src/app/routes/Home/components/qa/qa.component';
 import { CopyTradeComponent } from 'src/app/components/copy-trade/copy-trade.component';
 
 const components = [
@@ -58,8 +58,8 @@ const components = [
   CardLinkComponent,
   AboutusTargetsComponent,
   // DiscountBannerComponent,
-  BlueCardsComponent,
-  QAComponent,
+  // BlueCardsComponent,
+  // QAComponent,
 ];
 @NgModule({
   declarations: [components],
