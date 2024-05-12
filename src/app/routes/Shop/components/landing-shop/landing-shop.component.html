@@ -154,7 +154,7 @@
       <!-- <app-rating priceRange [config]="rangeConfig"></app-rating> -->
     </app-filter>
   </div>
-  <div [ngClass]="openNav == 2 ? 'block' : 'hidden'">
+  <div [ngClass]="openNav == 2 ? 'block transform-translate' : 'hidden'">
     <div *ngFor="let item of sortFilter">
       <p
         class="text-xl p-3.5 border-b border-solid border-gray-200"

@@ -1,6 +1,6 @@
 <!-- ==================[فیلتر تگ ها]======== -->
 <div
-  class="hidden sm:flex sm:justify-center items-center mr-4 mb-6 sm:mt-20"
+  class="hidden md:flex sm:justify-center items-center mr-4 mb-6 sm:mt-20"
 >
   <div class="flex xl:flex-nowrap sm:flex-wrap ">
     <ng-container *ngFor="let item of tags; let i = index">
@@ -20,7 +20,7 @@
 </div>
 <!-- =========[فیلتر تگ ها رسپانسیو]========= -->
 <div
-  class="sm:hidden overflow-scroll w-[98vw] flex flex-nowrap mr-4 items-center mt-7 pb-4"
+  class="md:hidden overflow-scroll w-[98vw] flex flex-nowrap mr-4 items-center mt-7 pb-4"
 >
   <ng-container *ngFor="let item of tags; let i = index">
     <button
@@ -28,8 +28,8 @@
       (click)="changeViewItem(item.tableType)"
       [ngClass]="
         tags[i].active
-          ? 'btn-tags-actived h-auto pr-4 pl-4'
-          : 'btn-tags h-auto pr-4 pl-4'
+          ? 'btn-tags-actived h-9 pr-4 pl-4'
+          : 'btn-tags h-9 pr-4 pl-4'
       "
     >
       {{ item.name }}

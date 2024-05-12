@@ -73,6 +73,8 @@
           </div>
 
         </ng-container>
+
+        <!-- ======[lotti]===== -->
         <ng-container *ngIf="page._items?.length == 0 && page._items ">
           <div>
             <app-lottie [config]="lottieConfig" />
@@ -80,7 +82,6 @@
               متاسفانه هیچ مطلبی در این رابطه پیدا نشد
             </p>
           </div>
-
         </ng-container>
 
 
@@ -199,16 +200,30 @@
   <div class="divider mt-4 mb-7"></div>
 
   <ng-container *ngIf="!loading">
-    <div class="flex justify-start mt-5 mr-6 ml-6">
-      <div class="flex flex-row flex-wrap justify-between">
-        <div
-          class="mb-4 basis-full max-w-[381px]"
-          *ngFor="let blog of page._items! | paginate : config"
-        >
-          <app-blog-cart [data]="blog"></app-blog-cart>
+
+    <ng-container *ngIf="page._items?.length !== 0 && page._items ">
+      <div class="flex justify-start mt-5 mr-6 ml-6">
+        <div class="flex flex-row flex-wrap justify-between">
+          <div
+            class="mb-4 basis-full max-w-[381px]"
+            *ngFor="let blog of page._items! | paginate : config"
+          >
+            <app-blog-cart [data]="blog"></app-blog-cart>
+          </div>
         </div>
       </div>
-    </div>
+    </ng-container>
+
+        <!-- ======[lotti]===== -->
+        <ng-container *ngIf="page._items?.length == 0 && page._items ">
+          <div>
+            <app-lottie [config]="lottieConfig" />
+            <p class="rounded-3xl mx-4 bg-[#e6effd] text-[#2f65b9] text-3xl py-2 px-4 ">
+              متاسفانه هیچ مطلبی در این رابطه پیدا نشد
+            </p>
+          </div>
+        </ng-container>
+
     <div
       class="justify-center mt-7 mb-7"
       [ngClass]="page._items?.length == 0 ? 'hidden' : 'flex'"

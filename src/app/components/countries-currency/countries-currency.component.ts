@@ -22,17 +22,17 @@ constructor(
 ){}
 
 hideList(){
-  this.activeList = !this.activeList;
-
+  
   if (AppComponent.isBrowser.value){
-    if (this.activeList == false){
-      document.getElementById("list")?.classList.remove('show-list');
-      document.getElementById("list")?.classList.add('hiede-list');
-    }
-    else {
-      document.getElementById("list")?.classList.remove('hiede-list');
-      document.getElementById("list")?.classList.add('show-list');
-    }
+    this.activeList = !this.activeList;
+    // if (this.activeList == false){
+    //   document.getElementById("list")?.classList.remove('show-list');
+    //   document.getElementById("list")?.classList.add('hiede-list');
+    // }
+    // else {
+    //   document.getElementById("list")?.classList.remove('hiede-list');
+    //   document.getElementById("list")?.classList.add('show-list');
+    // }
   }
 }
 
