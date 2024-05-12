@@ -1,0 +1,20 @@
+.animation-hover:hover {
+  .h-img {
+    animation: shrink 1s ease 0s 0.5 normal forwards;
+  }
+}
+.animation-hover:not(:hover) {
+  .h-bottom {
+    background-color: #e6e6e6 !important;
+  }
+}
+
+@keyframes shrink {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.1);
+  }
+}
