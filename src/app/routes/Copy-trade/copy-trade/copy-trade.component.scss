@@ -1,4 +1,4 @@
-@import "../../../sass/colors";
+@import "../../../../sass/colors";
 .bg-page{
   background-color: #FBFBFB;
 }
@@ -138,5 +138,5 @@ ul li::before {
   margin-left: -1.3em;
   padding: 6px;
   padding-top: 0px;
-  content: url(../../../assets/icon/Tick-circle.svg);
+  content: url(../../../../assets/icon/Tick-circle.svg);
 }
