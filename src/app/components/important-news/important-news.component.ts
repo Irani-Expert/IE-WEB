@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { debounceTime } from 'rxjs';
 import { CurrencyData } from 'src/app/classes/interfaces/currency-data';
 // import { PageInterface } from 'src/app/classes/page.model';
 import { Result } from 'src/app/classes/result';
@@ -54,8 +55,22 @@ export class ImportantNewsComponent {
               trend: valuec > 0 ? true : false,
             };
             this.currencyTrend.push(trend);
+            // this.activeZone();
+
           }
         });
+    
       });
   }
-}
+
+  changing : boolean;
+
+  activeZone() {
+    // // this.changing = true;
+    // setInterval(() => {
+      
+      // this.currencyTrend = [...this.currencyTrend.slice(1), this.currencyTrend[0]];
+    //   // this.changing = false;
+    // }, 3000);
+    }
+  }

@@ -3,10 +3,10 @@
 >
   <ng-content></ng-content>
   <div class="mt-[7px] overflow-hidden" style="max-width: 78rem">
-    <div class="flex animation-move" style="position: relative">
+    <div class="flex animation-move relative " >
       <div
         class="flex flex-row-reverse items-center lg:ms-4 min-w-[9rem]"
-        *ngFor="let x of currencyTrend"
+        *ngFor="let x of currencyTrend.concat(currencyTrend)"
       >
         <span class="text-base font-light text-gray-800 lg:me-3">{{
           x.currency

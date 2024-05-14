@@ -3,20 +3,35 @@
   width: 98vw;
   overflow: hidden;
   right: 50%;
-
   transform: translateX(50%);
 }
+
 .animation-move {
-  animation: autoScroll 40s infinite;
+  @media (width < 800px) {
+    animation: autoScrollSm 15s linear infinite;
+  }
+  @media (width > 800px) {
+    animation: autoScroll 20s linear infinite;
+  }
+}
+@keyframes autoScrollSm {
+  to {
+    transform: translateX(3000%);
+}
 }
 @keyframes autoScroll {
-  0% {
-    transform: translateX(0%);
+
+  to {
+      transform: translateX(150%);
   }
-  50% {
-    transform: translateX(40%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
+  
+  // 0% {
+  //   transform: translateX(0%);
+  // }
+  // 50% {
+  //   transform: translateX(40%);
+  // }
+  // 100% {
+  //   transform: translateX(0%);
+  // }
 }
