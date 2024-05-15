@@ -55,7 +55,7 @@ const routes: Routes = [
   },
   {
     path: 'about-us',
-    title: 'تکنیک های مدیریت سرمایه (CM) چیست؟اصول مدیریت ریسک و سرمایه گذاری',
+    title: 'چرا ما ؟(رضایت مشتری+تماس با ما+ درباره ما+ مشاوره رایگان) ',
     loadChildren: () =>
       import('./routes/About-us/module/about-us.module').then(
         (m) => m.AboutUsModule

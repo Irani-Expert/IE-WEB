@@ -28,6 +28,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
 import { NgxCaptureModule } from 'ngx-capture';
 import { BreadcrumbsComponent } from './shared/breadcrumbs/breadcrumbs.component';
+import { BreadCrumbComponent } from './components/bread-crumb/bread-crumb.component';
 
 export function playerFactory(): any {
   return import('lottie-web');
@@ -40,6 +41,7 @@ const header = [
   HeaderSearchComponent,
   HeaderMobileComponent,
   BreadcrumbsComponent,
+  BreadCrumbComponent,
 ];
 // Footer Comps
 const footer = [FooterComponent];

@@ -51,6 +51,8 @@ export class BreadcrumbsComponent {
     });
   }
 
+  activeRoute : boolean;
+
   convertRouteToPersian(str: string[]) {
     this.browserUrl = [];
     str.forEach(async (x) => {
@@ -62,10 +64,15 @@ export class BreadcrumbsComponent {
       data.route = x;
 
       data.persianRoute = this.getPersianRoute(x);
-
       data.url = this.getLink(str, x);
 
       this.browserUrl.push(data);
+      if(this.browserUrl.length - 1){
+        this.activeRoute = false;
+      } 
+      else {
+        this.activeRoute =true;
+      }
     });
   }
   async getPromise() {}

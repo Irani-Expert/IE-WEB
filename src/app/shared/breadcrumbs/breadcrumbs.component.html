@@ -4,13 +4,21 @@
 >
   <div class="flex">
     <div class="flex">
-      <a href="#">خانه</a>
+      <a href="https://www.iraniexpert.com">خانه</a>
       <span class="px-1"> &#62; </span>
     </div>
     <div class="flex" *ngFor="let x of browserUrl; let i = index">
-      <a href="{{ x.url }}">{{ x.persianRoute | async }}</a>
-      <span class="px-1" *ngIf="browserUrl.indexOf(x) !== browserUrl.length - 1"
-        >&#62;
+
+      <ng-container *ngIf="!activeRoute">
+        <a href="{{ x.url }}">{{ x.persianRoute | async }}</a>
+      </ng-container>
+      <ng-container *ngIf="activeRoute">
+        <p>{{ x.persianRoute | async }}</p>
+      </ng-container>
+      
+
+      <span class="px-1" *ngIf="browserUrl.indexOf(x) !== browserUrl.length - 1">
+        &#62;
       </span>
     </div>
   </div>

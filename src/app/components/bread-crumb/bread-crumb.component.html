@@ -1,0 +1,28 @@
+<div class="flex">
+
+    <div class="">
+        <a [routerLink]="">
+            خانه
+        </a>
+    </div>
+    <span class="px-1"> &#62; </span>
+    
+    <div class="" *ngFor="let item of breadCrumb">
+
+        <ng-container *ngIf="item.path == route">
+            <a [routerLink]="">
+                {{item.name}}
+            </a>
+        </ng-container>
+
+    </div>
+    <ng-container *ngIf="!hide">
+        <span class="px-1"> &#62; </span>
+        <div class="">
+            <p>
+                {{pageTitle}}
+            </p>
+        </div>
+    </ng-container>
+
+</div>
