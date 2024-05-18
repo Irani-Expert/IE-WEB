@@ -86,18 +86,12 @@ export class AppComponent {
     }
   }
   ngAfterViewInit() {
-    const schema = {
-      '@context': 'http://schema.org',
-      '@type': 'Organization',
-      url: 'https://www.iraniexpert.com/',
-      name: 'IRani Expert',
-      contactPoint: {
-        '@type': 'ContactPoint',
-        telephone: '+989150502018',
-        contactType: 'تماس با ما و پشتیبانی',
-      },
-    };
-    this._schemaService.createScript(schema);
+    const schema =
+      '{"@context":"http://schema.org","@type":"Organization","url":"https://www.iraniexpert.com/","name":"IRani Expert","contactPoint":{"@type":"ContactPoint","telephone":"+989150502018","contactType":"تماس با ما و پشتیبانی"}}';
+
+    let parsed = JSON.parse(schema);
+
+    this._schemaService.createScript(parsed);
   }
 }
 // Get Blogs
