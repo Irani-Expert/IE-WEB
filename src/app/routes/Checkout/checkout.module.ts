@@ -8,6 +8,7 @@ import { Checkbox } from 'src/app/shared/checkbox/checkbox.component';
 import { PaymentResultComponent } from './components/payment-result/payment-result.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ModalComponent } from 'src/app/shared/modal/modal.component';
 
 const components = [
   LandingCheckoutComponent,
@@ -17,6 +18,7 @@ const components = [
 @NgModule({
   declarations: [components],
   imports: [
+    ModalComponent,
     CommonModule,
     CheckoutRoutingModule,
     Checkbox,
