@@ -13,6 +13,8 @@ import { AppComponent } from 'src/app/app.component';
 import { Utils } from 'src/app/classes/utils';
 import { LocalStorageService } from 'src/app/classes/local-storage';
 import { CheckoutDetailCardComponent } from '../checkout-detail-card/checkout-detail-card.component';
+import { ModalService } from 'src/app/shared/modal/services/modal.service';
+import { Checkbox } from 'src/app/shared/checkbox/checkbox.component';
 interface PaymentMethod {
   id: number;
   title: string;
@@ -147,6 +149,7 @@ export class LandingCheckoutComponent {
   // Forms ------------->
   loadDetailSection = false;
   constructor(
+    private modal: ModalService,
     private _orderService: OrderService,
     private _authService: AuthService,
     private _router: Router,
@@ -347,6 +350,25 @@ export class LandingCheckoutComponent {
 
   get price() {
     return this._orderService.basket.value.totalPrice;
+  }
+
+  @ViewChild(Checkbox) checkboxComp: Checkbox;
+  modalStatus = false;
+  rulesModal() {
+    this.modalStatus = true;
+    this.modal.open().subscribe({
+      next: (action) => {
+        if (action == 'confirm') {
+          this.checkboxComp.inputStatus(true);
+        }
+      },
+      complete: () => {
+        this.modalStatus = false;
+      },
+    });
+  }
+  submitModal() {
+    this.modal.submitModal();
   }
 }
 
