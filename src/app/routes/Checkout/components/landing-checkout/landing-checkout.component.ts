@@ -173,7 +173,6 @@ export class LandingCheckoutComponent {
     // User -------------->
   }
   ngOnInit() {
-    debugger;
     AppComponent.isBrowser.value
       ? Utils.scrollTopWindow()
       : console.log('Not-Browser');

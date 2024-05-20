@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
-import { OrderService } from './services/order.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../shared/auth/auth.service';
 import { ModalService } from '../shared/modal/services/modal.service';
 import { HeaderLayoutComponent } from '../components/header-layout/header-layout.component';
-import { LocalStorageService } from './local-storage';
 
 @Injectable({
   providedIn: 'root',
