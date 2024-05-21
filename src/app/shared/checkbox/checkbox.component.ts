@@ -22,6 +22,7 @@ export class Checkbox {
   height: string = '10px';
   inputStatus(value: boolean) {
     this.checked.emit(value);
+    this.fillTheBox = value;
   }
   ngOnInit() {
     if (this.size == 'lg') {

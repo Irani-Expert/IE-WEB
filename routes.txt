@@ -19,3 +19,8 @@
 /articles/catalog/en
 /articles/free-forex-robot/fa
 /articles/best-expert/fa
+/brokers/windsor/fa
+/brokers/ifcmarkets/fa
+/brokers/alpari/fa
+/brokers/opofinance/fa
+/brokers/amarkets/fa

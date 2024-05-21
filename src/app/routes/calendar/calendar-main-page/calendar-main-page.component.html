@@ -14,7 +14,7 @@
       <div *ngIf="isBrowser" class="mt-2">
         <app-voice-player
           [audioSource]="
-            'https://www.honarist.com/wp-content/uploads/2021/08/Gloomy-Sunday-Billie-Holiday-128.mp3'
+            'https://dl.iraniexpert.com//uploads/images/audio/Economic-Calendar_20240519.mp3'
           "
         ></app-voice-player>
       </div>
@@ -146,7 +146,10 @@
       ></app-show-more>
     </ng-container>
     <ng-container *ngIf="filteredModel.fromTime && tableLength > 0">
-      <pagination-control (changePage)="setPage($event)"></pagination-control>
+      <pagination-control
+        *ngIf="device == 'md'"
+        (changePage)="setPage($event)"
+      ></pagination-control>
     </ng-container>
     <div *ngIf="device == 'md'" class="p-5 basis-full w-full">
       <app-graph-container></app-graph-container>

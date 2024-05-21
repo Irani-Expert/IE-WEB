@@ -42,16 +42,21 @@ export class SingleBrokerComponent {
     this._state.url.subscribe(
       (it) => (this.title = it[0].path.split('_').join(' '))
     );
+    this._linkService.createLink(
+      `https://www.iraniexpert.com/brokers/${this.title}/fa`
+    );
   }
   ngOnDestroy() {
     AppComponent.changeMainBg('white');
   }
   async ngOnInit() {
-    if (AppComponent.isBrowser.value) {
-      this.brokerService.singleBroker$.subscribe((it) => {
-        this.apiData = it;
-      });
-      if (await this.getDetails(this.title)) {
+    this.brokerService.singleBroker$.subscribe((it) => {
+      this.apiData = it;
+    });
+    if (await this.getDetails(this.title)) {
+      this.setSeo(this.apiData);
+
+      if (AppComponent.isBrowser.value) {
         this.setDataToUl(this.apiData);
       }
     }
@@ -60,7 +65,6 @@ export class SingleBrokerComponent {
     return this.brokerService.getDetails(title);
   }
   setDataToUl(apiData: ApiBrokerModel) {
-    this.setSeo(apiData);
     const tempData: any = { ...apiData };
     let keysOfULModel = Object.keys(this.brokerData);
     let keys: [keyof ApiBrokerModel] | string[] = Object.keys(tempData);
@@ -144,6 +148,7 @@ export class SingleBrokerComponent {
       apiData.description
     );
     this.dataLoaded.next(true);
+    this.sendDataToChild = true;
     // this.dataLoaded.complete();
   }
   // async transparentImg(id: number | string) {
@@ -188,7 +193,5 @@ export class SingleBrokerComponent {
     this._linkService.createLink(
       `https://www.iraniexpert.com/brokers/${apiData.browserTitle}/${language}`
     );
-
-    this.sendDataToChild = true;
   }
 }
