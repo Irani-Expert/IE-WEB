@@ -14,9 +14,10 @@ export class BreadCrumbComponent {
   breadCrumb : Array<IMenuItem> = new Array<IMenuItem>;
   url: string;
   route: any;
-  hide : boolean;
+  hideBreadCrumb : boolean;
   nameRoute : string;
   pageTitle : any;
+  lastIndex : boolean;
 
 constructor(
   private _router: Router,
@@ -28,36 +29,45 @@ constructor(
   }
   ngOnInit(){   
     this.pushbreadCrumb();
+    this.pushRoute();
   }
 
   pushbreadCrumb(){
     this.navigation.defaultMenu.forEach((it) => {
-      
+      this.breadCrumb.push(it);
+    });
+  }
+
+  pushRoute(){
       this._router.events.subscribe({
         next: (event) => {
           if(event instanceof NavigationEnd) {
             this.route = event.urlAfterRedirects.slice(1);
-            // console.log(this.route);
-            
-
-            // if (it.path == this.route){
-              //   this.nameRoute = it.name;              
-              // }
-              if (it.path == this.route){
-              this.breadCrumb.push(it);
-              this.hide = true;
+            if(this.route == ''){
+              this.hideBreadCrumb = true;
             }
-            else {
-              this.hide = false;
-              setTimeout(() => {
-                this.pageTitle = this._title.getTitle();
-              },2000)  
+            else{
+              this.hideBreadCrumb = false;
             }
-
+            this.pushTitle();
           }
         }
-      })
+      });      
+  }
 
-    });      
+  pushTitle(){
+    let persianPath = this.navigation.defaultMenu.find(it=> it.path == this.route)?.name;
+    if(persianPath) {                            
+      this.pageTitle = "";
+      console.log("این شرط صحیح است");
+      this.lastIndex = true;
+    }
+    else {
+      console.log("این شرط غلط است");
+      this.lastIndex = false;
+      setTimeout(() => {
+        this.pageTitle = this._title.getTitle();
+      },2500)  
+    }
   }
 }
