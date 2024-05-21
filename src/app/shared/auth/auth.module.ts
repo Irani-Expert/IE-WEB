@@ -10,6 +10,7 @@ import { Toggler } from '../toggler/toggler.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { NgOtpInputModule } from 'ng-otp-input';
 import { SharedModule } from '../shared.module';
+// import {MatRadioModule} from '@angular/material/radio';
 
 const components = [
   AuthComponent,
@@ -25,6 +26,7 @@ const components = [
     Toggler,
     NgOtpInputModule,
     SharedModule,
+    // MatRadioModule
   ],
   declarations: [components, SwitchComponent],
   exports: [components],

@@ -19,6 +19,7 @@ const formDataInit: ISignUp = {
   id: 0,
   lastName: '',
   phoneNumber: '',
+  wayKnowType: 0
 };
 @Component({
   selector: 'app-signup',
@@ -39,6 +40,47 @@ export class SignupComponent {
     new EventEmitter<boolean>(false);
   loading = false;
   iconSrc = 'assets/icon/eye-off.svg';
+
+  // <!-- ==========[نحوه آشنایی]======== -->
+
+  wayKnowType : Array<any> = [
+    {
+      id : 0,
+      label : 'گوگل',
+      active : false,
+      icon : 'assets/icon/chrome-icon.svg',
+    },
+    {
+      id : 1,
+      label : 'اینستاگرام',
+      active : false,
+      icon : 'assets/icon/ins-icon.svg',
+    },
+    {
+      id : 2,
+      label : 'تلگرام',
+      active : false,
+      icon : 'assets/icon/telegram-icon.svg',
+    },
+    {
+      id : 3,
+      label : 'دوستان',
+      active : false,
+      icon : 'assets/icon/people-icon.svg',
+    },
+  ];
+  dropDown : boolean;
+  toggleDropDown(){
+    this.dropDown = !this.dropDown;
+  }
+
+  toggle(index : number){
+    this.wayKnowType.filter(
+      (it , i) => i !== index && it.active)
+      .forEach(it => it.active = !it.active);
+      this.wayKnowType[index].active = !this.wayKnowType[index].active;
+  }
+
   formsControlInit: InputInterface[] = [
     {
       id: 1,
@@ -137,6 +179,7 @@ export class SignupComponent {
     formData.email = this._formcontrol['email'].value;
     formData.firstName = this._formcontrol['firstName'].value;
     formData.lastName = this._formcontrol['lastName'].value;
+    
     this._formcontrol['parentReferralCode'].value
       ? (formData.parentReferralCode =
           this._formcontrol['parentReferralCode'].value)

@@ -24,3 +24,25 @@
     transform: translate(0px, -2px);
   }
 }
+.box-wayknowtype{
+  border-radius: 20px;
+  border: gray 1px solid;
+}
+.icon-down {
+  scale: 0.8;
+  rotate: -90deg;
+  transition: all 0.245s ease-in-out ;
+}
+.icon-up {
+  scale: 0.8;
+  transition: all 0.245s ease-in-out ;
+}
+.drop-down{
+  border: #e3e3e3 2px solid;
+  padding: 0.5rem;
+  border-radius: 10px;
+  transition: all 0.25s ease-in-out;
+}
+.drop-down:hover{
+  border: gray 2px solid;
+}

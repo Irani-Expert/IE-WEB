@@ -3,6 +3,7 @@ import { config } from 'src/app/shared/acordian/types';
 import { FAQ } from './interfaces/faq-interfce';
 import { FaqService } from './service/faq.service';
 import {lastValueFrom} from 'rxjs';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-questions',
@@ -17,8 +18,10 @@ export class QuestionsComponent {
   questionFaq : FAQ[];
 
   async ngOnInit(){
-   const res = this.faq.get('FAQ/GetByTableTypeAndRowID/1/6');
-    this.questionFaq = (await lastValueFrom(res)).data!;
+  if (AppComponent.isBrowser.value){    
+    const res = this.faq.get('FAQ/GetByTableTypeAndRowID/1/6');
+     this.questionFaq = (await lastValueFrom(res)).data!;
+  }
   }
   options: config = { multi: false };
   
