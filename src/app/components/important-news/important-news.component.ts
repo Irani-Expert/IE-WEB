@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { debounceTime } from 'rxjs';
+import { AppComponent } from 'src/app/app.component';
 import { CurrencyData } from 'src/app/classes/interfaces/currency-data';
 // import { PageInterface } from 'src/app/classes/page.model';
 import { Result } from 'src/app/classes/result';
@@ -31,10 +32,14 @@ export class ImportantNewsComponent {
     'C:CADHKD',
   ];
   constructor(private _calService: EcoCalService) {}
+
   currencyTrend: trend_data[] = new Array<trend_data>();
+
   ngOnInit(): void {
     // this._calService.connect();
-    this.getData();
+    if (AppComponent.isBrowser.value){
+      this.getData();
+    }
   }
 
   async getData() {

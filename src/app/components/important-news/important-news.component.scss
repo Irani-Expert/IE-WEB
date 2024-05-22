@@ -8,16 +8,23 @@
 
 .animation-move {
   @media (width < 800px) {
-    animation: autoScrollSm 15s linear infinite;
+    animation: autoScrollSm 60s linear infinite;
   }
   @media (width > 800px) {
     animation: autoScroll 20s linear infinite;
   }
 }
 @keyframes autoScrollSm {
-  to {
-    transform: translateX(3000%);
-}
+  0% {
+    transform: translateX(-56%);
+  }
+  50%{
+    transform: translateX(354%);
+  }
+  100%{
+    transform: translateX(828%);
+
+  }
 }
 @keyframes autoScroll {
 
