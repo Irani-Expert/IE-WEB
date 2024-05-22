@@ -1,6 +1,7 @@
 import { Component , OnInit , Input } from '@angular/core';
 import { config  } from './types';
 import { FAQ } from 'src/app/routes/Home/components/questions/interfaces/faq-interfce';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-acordian',
@@ -8,11 +9,15 @@ import { FAQ } from 'src/app/routes/Home/components/questions/interfaces/faq-int
   styleUrls: ['./acordian.component.scss']
 })
 export class AcordianComponent implements OnInit {
-
+  loading = false;
   @Input() options : any;
   @Input() faq: FAQ[];
   config: config;
   ngOnInit() {
+
+    if (AppComponent.isBrowser.value){
+      this.loading = true;
+    }
 
     this.config = this.mergeConfig(this.options);
   }

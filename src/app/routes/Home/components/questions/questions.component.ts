@@ -11,6 +11,7 @@ import { AppComponent } from 'src/app/app.component';
   styleUrls: ['./questions.component.scss']
 })
 export class QuestionsComponent {
+  options: config = { multi: false };
 
   constructor(private faq : FaqService){
   }
@@ -23,6 +24,5 @@ export class QuestionsComponent {
      this.questionFaq = (await lastValueFrom(res)).data!;
   }
   }
-  options: config = { multi: false };
   
 }
