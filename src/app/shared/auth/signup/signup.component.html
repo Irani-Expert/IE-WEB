@@ -42,26 +42,33 @@
     </ng-container>
 
     <!-- ==========[نحوه آشنایی]======== -->
-    <div class="flex drop-down flex-col overflow-hidden w-[268px] max-w-[287px]"  [ngClass]="dropDown ? 'h-[9.5rem]' : 'h-12'">
-      <div class="flex items-center justify-between mt-1 cursor-pointer" (click)="toggleDropDown()">
-        <p class="">نحوه آشنایی با ما</p>
-        <i class="icon-modal" [ngClass]="dropDown ? 'icon-up' : 'icon-down'"></i>
-      </div>
-
-      <div class="grid grid-cols-2 gap-6 mb-3 mt-6 w-[250px] max-w-[287px]">
-          <ng-container *ngFor="let item of wayKnowType; let i = index">
-            <div class="flex mx-2 cursor-pointer hover:opacity-100" [ngClass]="item.active ? 'opacity-100' : 'opacity-25'" (click)="toggle(i)">
-              <img [src]="item.icon" alt="icon-modal">
-              <p class="mr-2 text-black">{{item.label}}</p>
-            </div>
-          </ng-container>
+    <div>
+      <div class="flex drop-down flex-col overflow-hidden w-[268px] max-w-[287px]"  [ngClass]="!dropDown ? 'h-[9.5rem]' : 'h-12'">
+        <div class="flex items-center justify-between mt-1 cursor-pointer" (click)="toggleDropDown()">
+          <p class="">نحوه آشنایی با ما</p>
+          <i class="icon-modal" [ngClass]="!dropDown ? 'icon-up' : 'icon-down'"></i>
         </div>
+  
+        <div class="grid grid-cols-2 gap-6 mb-3 mt-6 w-[250px] max-w-[287px]">
+            <ng-container *ngFor="let item of wayKnowType; let i = index">
+              <div class="flex mx-2 cursor-pointer hover:opacity-100" [ngClass]="item.active ? 'opacity-100' : 'opacity-25'" (click)="toggle(i)">
+                <img [src]="item.icon" alt="icon-modal">
+                <p class="mr-2 text-black">{{item.label}}</p>
+              </div>
+            </ng-container>
+          </div>
+      </div>
+      <ng-container *ngIf="activeError1">
+        <p class="text-red-700 md:text-base text-sm w-56 mt-3">لطفا نحوه آشنایی با ما را بیان کنید</p>
+      </ng-container>
+      <!-- <ng-container *ngIf="activeError2">
+        <p class="text-red-700 md:text-base text-sm w-56 mt-3">لطفا کد معرف ار وارد کنید</p>
+      </ng-container> -->
     </div>
 
-
     <button
-      [disabled]="loading"
-      class="button-submit rounded-lg text-white font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 col-span-2"
+    class="button-submit rounded-lg text-white font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 col-span-2"
+    
       type="submit"
     >
       عضویت
