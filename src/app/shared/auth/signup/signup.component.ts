@@ -84,7 +84,6 @@ export class SignupComponent {
       this.wayKnowType[index].active = true;
       this.saveType = index;
       if(this.saveType == 3){
-        debugger
         this._formcontrol['parentReferralCode'].addValidators([Validators.required,Validators.minLength(2)])
         this._formcontrol['parentReferralCode'].updateValueAndValidity({onlySelf: true})
       }   

@@ -12,7 +12,7 @@ import { NavigationService } from 'src/app/classes/services/navigation.service';
 export class BreadCrumbComponent {
 
   breadCrumb : Array<IMenuItem> = new Array<IMenuItem>;
-  url: string;
+  url: string | undefined;
   route: any;
   hideBreadCrumb : boolean;
   nameRoute : string;
@@ -28,14 +28,44 @@ constructor(
     
   }
   ngOnInit(){   
-    this.pushbreadCrumb();
     this.pushRoute();
   }
 
   pushbreadCrumb(){
+    
     this.navigation.defaultMenu.forEach((it) => {
       this.breadCrumb.push(it);
+
+      if (it.path == this.route){
+        this.nameRoute = it.name;
+        this.url == it.path;
+      }
+      else {
+
+        if (this.route == this.navigation.defaultMenu[1].path){
+          this.nameRoute = this.navigation.defaultMenu[1].name;
+          this.url = this.navigation.defaultMenu[1].path;
+        }
+        if (this.route?.startsWith('brokers')){
+          this.nameRoute = this.navigation.defaultMenu[2].name;
+          this.url = this.navigation.defaultMenu[2].path;
+        }
+        if (this.route?.startsWith('economic-calendar')){
+          this.nameRoute = this.navigation.defaultMenu[3].name;
+          this.url = this.navigation.defaultMenu[3].path;
+        }
+        if(this.route == 'expert-advisor' || this.route == 'money-management'){
+          this.nameRoute = this.navigation.defaultMenu[4].name;
+          this.url = undefined;
+        }
+        if (this.route?.startsWith('articles')){
+          this.nameRoute = this.navigation.defaultMenu[5].name;
+          this.url = this.navigation.defaultMenu[5].path;
+        }
+
+      }
     });
+    
   }
 
   pushRoute(){
@@ -50,20 +80,19 @@ constructor(
               this.hideBreadCrumb = false;
             }
             this.pushTitle();
+            this.pushbreadCrumb();
           }
         }
-      });      
+      });   
   }
 
   pushTitle(){
     let persianPath = this.navigation.defaultMenu.find(it=> it.path == this.route)?.name;
     if(persianPath) {                            
       this.pageTitle = "";
-      console.log("این شرط صحیح است");
       this.lastIndex = true;
     }
     else {
-      console.log("این شرط غلط است");
       this.lastIndex = false;
       setTimeout(() => {
         this.pageTitle = this._title.getTitle();

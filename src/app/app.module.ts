@@ -27,7 +27,7 @@ import { JWTInterceptor } from './classes/jwt.interceptor';
 import { NgChartsModule } from 'ng2-charts';
 import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
 import { NgxCaptureModule } from 'ngx-capture';
-import { BreadcrumbsComponent } from './shared/breadcrumbs/breadcrumbs.component';
+// import { BreadcrumbsComponent } from './shared/breadcrumbs/breadcrumbs.component';
 import { BreadCrumbComponent } from './components/bread-crumb/bread-crumb.component';
 
 export function playerFactory(): any {
@@ -40,7 +40,7 @@ const header = [
   // HeaderSmComponent,
   HeaderSearchComponent,
   HeaderMobileComponent,
-  BreadcrumbsComponent,
+  // BreadcrumbsComponent,
   BreadCrumbComponent,
 ];
 // Footer Comps

@@ -7,30 +7,22 @@
                 خانه
             </a>
         </div>
-        <span class="px-1"> &#62; </span>
+        <span class="px-2"> &#62; </span>
 
-
-        <div class="" *ngFor="let item of breadCrumb">
-            
-            <ng-container *ngIf="item.path == route">
-                
                 <ng-container *ngIf="!lastIndex">
-                    <a [routerLink]="item.path">
-                        {{item.name}}
+                    <a [routerLink]="url">
+                        {{nameRoute}}
                     </a>
                 </ng-container>
 
                 <ng-container *ngIf="lastIndex">
-                    <p [routerLink]="item.path">
-                        {{item.name}}
+                    <p>
+                        {{nameRoute}}
                     </p>
                 </ng-container>
 
-            </ng-container>
-    
-        </div>
         <ng-container *ngIf="!lastIndex">
-            <span class="px-1"> &#62; </span>
+            <span class="px-2"> &#62; </span>
             <div class="">
                 <p>
                     {{pageTitle}}
