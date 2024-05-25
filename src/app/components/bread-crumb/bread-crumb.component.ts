@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { IMenuItem } from 'src/app/classes/interfaces/menu-item';
+import { NavigationEnd, Router } from '@angular/router';
 import { NavigationService } from 'src/app/classes/services/navigation.service';
 
 @Component({
@@ -11,7 +10,6 @@ import { NavigationService } from 'src/app/classes/services/navigation.service';
 })
 export class BreadCrumbComponent {
 
-  breadCrumb : Array<IMenuItem> = new Array<IMenuItem>;
   url: string | undefined;
   route: any;
   hideBreadCrumb : boolean;
@@ -34,7 +32,6 @@ constructor(
   pushbreadCrumb(){
     
     this.navigation.defaultMenu.forEach((it) => {
-      this.breadCrumb.push(it);
 
       if (it.path == this.route){
         this.nameRoute = it.name;
