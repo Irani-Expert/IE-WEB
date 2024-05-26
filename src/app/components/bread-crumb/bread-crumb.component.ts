@@ -29,7 +29,7 @@ constructor(
     this.pushRoute();
   }
 
-  pushbreadCrumb(){
+  pushBreadCrumb(){
     
     this.navigation.defaultMenu.forEach((it) => {
 
@@ -39,7 +39,7 @@ constructor(
       }
       else {
 
-        if (this.route == this.navigation.defaultMenu[1].path){
+        if (this.route == 'shop/atm-expert'){
           this.nameRoute = this.navigation.defaultMenu[1].name;
           this.url = this.navigation.defaultMenu[1].path;
         }
@@ -59,7 +59,6 @@ constructor(
           this.nameRoute = this.navigation.defaultMenu[5].name;
           this.url = this.navigation.defaultMenu[5].path;
         }
-
       }
     });
     
@@ -70,14 +69,14 @@ constructor(
         next: (event) => {
           if(event instanceof NavigationEnd) {
             this.route = event.urlAfterRedirects.slice(1);
-            if(this.route == ''){
+            if(this.route == '' || this.route?.startsWith('search')){
               this.hideBreadCrumb = true;
             }
             else{
               this.hideBreadCrumb = false;
             }
             this.pushTitle();
-            this.pushbreadCrumb();
+            this.pushBreadCrumb();
           }
         }
       });   
