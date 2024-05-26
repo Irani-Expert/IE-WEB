@@ -1,5 +1,7 @@
 <div class="flex flex-col gap-10 scrollbar-custom">
-  <app-important-news></app-important-news>
+  <ng-container *ngIf="isBrowserCountries">
+    <app-important-news></app-important-news>
+  </ng-container>
   <div
     class="flex flex-col-reverse xl:flex-row justify-center items-center xl:items-stretch gap-5"
   >
@@ -31,8 +33,11 @@
       </div>
     </div>
   </div>
-  <ng-container *ngIf="sendDataToChild">
-    <app-countries-currency [data]="calendarCountry!"></app-countries-currency>
+
+  <ng-container *ngIf="isBrowserCountries">
+    <ng-container *ngIf="sendDataToChild">
+      <app-countries-currency [data]="calendarCountry!"></app-countries-currency>
+    </ng-container>
   </ng-container>
 
   <!-- <app-voice-player></app-voice-player> -->

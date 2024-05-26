@@ -38,6 +38,8 @@ export class CalendarMainPageComponent {
   importances = importances;
   today: string | undefined;
   tvStatus: number = 0;
+  isBrowserCountries = false;
+
   constructor(
     public blogService: BlogService,
     private _fileService: FileService,
@@ -61,6 +63,7 @@ export class CalendarMainPageComponent {
 
     if (AppComponent.isBrowser.value) {
       this.getCalendarCountry();
+      this.isBrowserCountries = true;
     }
   }
 
@@ -113,6 +116,7 @@ export class CalendarMainPageComponent {
   }
 
   // =====[هرکشور]====
+
   sendDataToChild = false;
   async getCalendarCountry() {
     const res = await this._ecoCalService.getCalendarCountry(
