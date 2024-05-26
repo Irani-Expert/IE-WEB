@@ -1,6 +1,6 @@
 <div @scaleIn #viewModal [ngStyle]="{ '--overflow': overflow }" class="modal">
   <div class="modal-header" *ngIf="header">
-    <span class="modal-close z-10" (click)="close()"><span>&times;</span></span>
+    <span class="modal-close z-10 ml-4" (click)="close()"><span>&times;</span></span>
     <ng-content select="[header]"></ng-content>
   </div>
   <div
