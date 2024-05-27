@@ -1,0 +1,30 @@
+.app-container {
+  position: relative;
+  width: 98vw;
+  overflow: hidden;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.animation-move {
+  @media screen and (max-width: 800px) {
+    animation: autoScrollSm 60s linear infinite;
+  }
+  animation: autoScroll 20s linear infinite;
+}
+@keyframes autoScrollSm {
+  0% {
+    transform: translateX(-56%);
+  }
+  50% {
+    transform: translateX(354%);
+  }
+  100% {
+    transform: translateX(828%);
+  }
+}
+@keyframes autoScroll {
+  to {
+    transform: translateX(150%);
+  }
+}

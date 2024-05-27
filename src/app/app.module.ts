@@ -59,6 +59,7 @@ const footer = [FooterComponent];
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
+    provideClientHydration(),
     BaseService,
     {
       provide: HTTP_INTERCEPTORS,
