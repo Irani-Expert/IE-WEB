@@ -12,7 +12,7 @@ import { IndicatorsModel } from 'src/app/classes/interfaces/indicators.interface
 import { Utils } from 'src/app/classes/utils';
 import { importances } from '../importance/importances';
 import { Importance } from '../importance/importance.interface';
-import { DomSanitizer, Meta, SafeHtml } from '@angular/platform-browser';
+import { DomSanitizer, Meta, SafeHtml, Title } from '@angular/platform-browser';
 
 interface ValueType {
   active: boolean;
@@ -44,6 +44,7 @@ export class LandingSingleCountryComponent {
   language: string = '';
   indicatorsData: IndicatorsModel;
   articleHtml: SafeHtml;
+  titleTab : string;
 
   @ViewChild(TableCalendar, { static: false }) appTableComponent: TableCalendar;
 
@@ -53,7 +54,8 @@ export class LandingSingleCountryComponent {
     private _state: ActivatedRoute,
     private _linkService: LinkService,
     private _ecoCalService: EcoCalService,
-    private _sanitizer : DomSanitizer
+    private _sanitizer : DomSanitizer,
+    private _title : Title,
 
   ) {
     AppComponent.changeMainBg('creamy');
@@ -73,6 +75,9 @@ export class LandingSingleCountryComponent {
     const res = await lastValueFrom(req);
     if (res.success) {
       this.indicatorsData = res.data!;
+
+      this.titleTab = this.indicatorsData.details.name;
+      this.pushTitle();
       // =======[ جایگذاری changePercent ]=======
       for (let i = 0; i <= 3; i++) {
         this.groupCardPart1.items[i].changePercent =
@@ -129,6 +134,10 @@ export class LandingSingleCountryComponent {
     );
   }
 
+  // =======[ تایتل]=======
+  pushTitle(){
+    this._title.setTitle(this.titleTab);
+  }
   // =======[ آیکون ها و تایتل های کارت ها ]=======
   groupCardPart1 = {
     type: 1,

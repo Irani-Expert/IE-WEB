@@ -14,7 +14,7 @@ export class BreadCrumbComponent {
   route: any;
   hideBreadCrumb : boolean;
   nameRoute : string;
-  pageTitle : any;
+  pageTitle : string;
   lastIndex : boolean;
 
 constructor(

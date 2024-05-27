@@ -8,7 +8,7 @@ const routes: Routes = [
   {
     path: ':country',
     component: LandingSingleCountryComponent,
-    title: 'کشور ها',
+    // title: 'کشور ها',
   },
 ];
 
