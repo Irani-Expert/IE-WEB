@@ -36,8 +36,7 @@ export class ImportantNewsComponent {
   currencyTrend: trend_data[] = new Array<trend_data>();
 
   ngOnInit(): void {
-    // this._calService.connect();
-    if (AppComponent.isBrowser.value){
+    if (AppComponent.isBrowser.value) {
       this.getData();
     }
   }
@@ -60,22 +59,10 @@ export class ImportantNewsComponent {
               trend: valuec > 0 ? true : false,
             };
             this.currencyTrend.push(trend);
-            // this.activeZone();
-
           }
         });
-    
       });
   }
 
-  changing : boolean;
-
-  activeZone() {
-    // // this.changing = true;
-    // setInterval(() => {
-      
-      // this.currencyTrend = [...this.currencyTrend.slice(1), this.currencyTrend[0]];
-    //   // this.changing = false;
-    // }, 3000);
-    }
-  }
+  changing: boolean;
+}

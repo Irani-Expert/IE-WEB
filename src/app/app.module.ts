@@ -1,8 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import {
-  BrowserModule,
-  provideClientHydration,
-} from '@angular/platform-browser';
+import { provideClientHydration } from '@angular/platform-browser';
 import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { HeaderLayoutComponent } from './components/header-layout/header-layout.component';
@@ -12,7 +9,6 @@ import { HeaderMobileComponent } from './components/header-layout/header-mobile/
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderSearchComponent } from './components/header-layout/header-lg/search/search.component';
-import { SharedModule } from './shared/shared.module';
 import { BaseService } from './classes/services/base.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ModalComponent } from './shared/modal/modal.component';
@@ -63,7 +59,6 @@ const footer = [FooterComponent];
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
-    provideClientHydration(),
     BaseService,
     {
       provide: HTTP_INTERCEPTORS,

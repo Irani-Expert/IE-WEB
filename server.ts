@@ -88,8 +88,6 @@ const fetchRedirects = async (url: string): Promise<Result> => {
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
-
       let res = { ...apiResult, ...data! };
       return res;
     });
