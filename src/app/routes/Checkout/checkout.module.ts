@@ -6,7 +6,7 @@ import { LandingCheckoutComponent } from './components/landing-checkout/landing-
 import { CheckoutDetailCardComponent } from './components/checkout-detail-card/checkout-detail-card.component';
 import { Checkbox } from 'src/app/shared/checkbox/checkbox.component';
 import { PaymentResultComponent } from './components/payment-result/payment-result.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ModalComponent } from 'src/app/shared/modal/modal.component';
 
@@ -23,6 +23,7 @@ const components = [
     CheckoutRoutingModule,
     Checkbox,
     ReactiveFormsModule,
+    FormsModule,
     SharedModule,
   ],
 })
