@@ -8,6 +8,7 @@ export class Order {
   transactionCode = '';
   investorPassword = '';
   discountCode?: string;
+  description?: string;
   constructor() {}
 }
 interface OrderItems {

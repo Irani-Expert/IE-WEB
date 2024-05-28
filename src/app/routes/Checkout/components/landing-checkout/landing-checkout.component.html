@@ -122,13 +122,18 @@
             <div
               class="basis-full lg:basis1/2 discount-container justify-around flex flex-col gap-4"
             >
-              <strong>روش پرداخت خود را مشخص کنید</strong>
+              <strong
+                [ngClass]="orderModel.totalPrice == 0 ? 'line-through' : ''"
+                >روش پرداخت خود را مشخص کنید</strong
+              >
               <div class="flex flex-row gap-5">
                 <ng-container *ngFor="let item of paymentMethods">
                   <div
                     (click)="changePaymentMethod(item)"
-                    [class.disabled]="item.disabled"
-                    [ngClass]="item.active ? 'active' : ''"
+                    [class.disabled]="
+                      item.disabled || orderModel.totalPrice == 0
+                    "
+                    [class.active]="item.active"
                     class="basis-1/2 gap-2 px-5 py-1 payment-method-container"
                   >
                     <span class="right-section">
@@ -219,14 +224,26 @@
               >
                 انصراف
               </button>
-              <button
-                [disabled]="!(formGroup.valid && acceptRules)"
-                (click)="nextSession()"
-                type="submit"
-                class="w-full bg-blue-700 rounded-lg h-full text-2xl font-black disabled:opacity-50 text-white"
-              >
-                مرحله بعد
-              </button>
+              <ng-container *ngIf="orderModel.totalPrice !== 0">
+                <button
+                  [disabled]="!(formGroup.valid && acceptRules)"
+                  (click)="nextSession()"
+                  type="submit"
+                  class="w-full bg-blue-700 rounded-lg h-full text-2xl font-black disabled:opacity-50 text-white"
+                >
+                  مرحله بعد
+                </button>
+              </ng-container>
+              <ng-container *ngIf="orderModel.totalPrice == 0">
+                <button
+                  [disabled]="!(formGroup.valid && acceptRules)"
+                  type="button"
+                  (click)="formToOrderModel(); createOrder()"
+                  class="w-full bg-blue-700 rounded-lg h-full text-2xl font-black disabled:opacity-50 text-white"
+                >
+                  ثبت سفارش
+                </button>
+              </ng-container>
             </div>
           </div>
         </form>
@@ -354,6 +371,7 @@
       <div class="h-52 space-y-2">
         <strong class="block font-medium">توضیحات</strong>
         <textarea
+          [(ngModel)]="orderModel.description"
           class="w-full h-full max-h-44 rounded-lg"
           placeholder="اگر نیاز به ارائه توضیح دارید در این قسمت قرار دهید"
         ></textarea>
@@ -362,8 +380,8 @@
         <div class="basis-1/2">
           <p class="text-sm font-normal pl-5 text-black text-justify">
             ایرانی اکسپـــرت هیچ مسئولیتـی نسبــت به واریزی هــای اشتبــاه شما
-            ندارد لـذا نسبـت به انتخاب شبکه تتر و آدرس کیف پول درسـت اطمینان حاصل
-            فرمایید
+            ندارد لـذا نسبـت به انتخاب شبکه تتر و آدرس کیف پول درسـت اطمینان
+            حاصل فرمایید
           </p>
         </div>
         <div class="basis-1/2 flex items-center h-14 gap-4 mt-2">

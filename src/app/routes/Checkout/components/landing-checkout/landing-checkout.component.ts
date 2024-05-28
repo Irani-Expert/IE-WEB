@@ -196,6 +196,7 @@ export class LandingCheckoutComponent {
     this.orderModel.orderItems = orderBasket.basketItems;
     this.orderModel.totalPrice = orderBasket.totalPrice;
     this.basket = orderBasket.basketItems;
+
     // this.formGroup.controls['discountCode'].disable();
   }
 
@@ -218,8 +219,6 @@ export class LandingCheckoutComponent {
   }
   changeCheckboxValue(event: boolean) {
     this.acceptRules = event;
-    console.log(this.formGroup.invalid);
-
     this._formControls['acceptRules'].setValue(event);
   }
   nextSession() {
@@ -274,6 +273,7 @@ export class LandingCheckoutComponent {
 
   async createOrder() {
     this.orderModel.token = this._authService._user.token;
+
     const res = this._orderService.post(
       'OrderNew/CreateOrder',
       this.orderModel
