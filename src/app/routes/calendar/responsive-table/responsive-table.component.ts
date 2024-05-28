@@ -18,6 +18,7 @@ import { DatePipe } from '@angular/common';
 import { ModalService } from 'src/app/shared/modal/services/modal.service';
 import { Filter as FilterEvents } from '../calendar-main-page/filter.model';
 import { BehaviorSubject, lastValueFrom } from 'rxjs';
+import { AppComponent } from 'src/app/app.component';
 
 interface monthDate {
   name: string;
@@ -241,5 +242,9 @@ export class ResponsiveTableComponent {
     var selectedDateLeftSide = -((2600 / 30) * (Number(this.selectedDay) - 1));
 
     this.itemList.nativeElement.scrollLeft = selectedDateLeftSide;
+  }
+
+  get isBrowser() {
+    return AppComponent.isBrowser.value;
   }
 }

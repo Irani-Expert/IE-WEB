@@ -4,13 +4,12 @@ import {
   HostListener,
   ViewChild,
   ViewContainerRef,
+  afterNextRender,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MapCountryComponent } from '../map-country/map-country.component';
 import countries from 'src/assets/custom.geo.json';
 import countries_coordiantes from 'src/assets/countries-coordinates.json';
-//@ts-ignore
-import * as L from 'leaflet';
 import { map_config } from './map_config';
 import { icon_config } from './icon_config';
 import { Country } from '../map-country/country';
@@ -26,19 +25,23 @@ import { AppComponent } from 'src/app/app.component';
 })
 export class MapComponent {
   map: any;
+  L: any;
   @ViewChild('countriesComponentContainer', { read: ViewContainerRef })
   countriesComponentContainer: ViewContainerRef;
   dynamicComponentRef: ComponentRef<MapCountryComponent>;
   weekends: boolean = false;
-  constructor(private _ecoCalService: EcoCalService) {}
-  ngAfterViewInit(): void {
-    if (AppComponent.isBrowser.value) {
-      this.initMap();
-    }
+  constructor(private _ecoCalService: EcoCalService) {
+    afterNextRender(() => {
+      //@ts-ignore
+      this.L = require('leaflet');
+      if (AppComponent.isBrowser.value) {
+        this.initMap();
+      }
+    });
   }
 
   private initMap(): void {
-    this.map = new L.map('map', leaflet_config);
+    this.map = new this.L.map('map', leaflet_config);
     this.map.doubleClickZoom.disable();
 
     this.countriesLayer(); //Create Countries Layer
@@ -46,8 +49,8 @@ export class MapComponent {
     this.createMarker(); // Create Markers on Map
   }
 
-  createMarkerPopupContent(countryName: string): L.Popup {
-    const popup = L.popup();
+  createMarkerPopupContent(countryName: string) {
+    const popup = this.L.popup();
     this.dynamicComponentRef =
       this.countriesComponentContainer.createComponent(MapCountryComponent);
 
@@ -66,7 +69,7 @@ export class MapComponent {
   }
 
   createMarker() {
-    let icon = L.icon(icon_config);
+    let icon = this.L.icon(icon_config);
     this._ecoCalService.mapEvents.value.forEach((it) => {
       if (
         it.highValues !== 0 ||
@@ -78,7 +81,7 @@ export class MapComponent {
           (country) => country.name == it.code
         )?.coordinates;
         if (coordinates) {
-          let marker = L.marker(coordinates, {
+          let marker = this.L.marker(coordinates, {
             icon: icon,
           }).addTo(this.map);
 
@@ -96,7 +99,7 @@ export class MapComponent {
   }
 
   countriesLayer() {
-    L.geoJSON(countries, {
+    this.L.geoJSON(countries, {
       style: map_config,
     }).addTo(this.map);
   }

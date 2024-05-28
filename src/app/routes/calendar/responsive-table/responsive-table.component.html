@@ -116,10 +116,12 @@
   [width]="'10'"
 >
   <div content>
-    <app-date-picker
-      (yearDate)="closeYearModal($event)"
-      (calDate)="setCalDate($event)"
-      [selectorType]="dateType"
-    ></app-date-picker>
+    <ng-container *ngIf="isBrowser">
+      <app-date-picker
+        (yearDate)="closeYearModal($event)"
+        (calDate)="setCalDate($event)"
+        [selectorType]="dateType"
+      ></app-date-picker>
+    </ng-container>
   </div>
 </app-modal>
