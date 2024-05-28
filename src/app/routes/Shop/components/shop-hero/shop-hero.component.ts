@@ -45,6 +45,7 @@ const planInit: planInterface = {
   animations: [smoothWidth],
 })
 export class ShopHeroComponent implements OnInit {
+  
   galleryImages: CarouselImage[] = new Array<CarouselImage>();
   contentUrl = environment.contentUrl;
   formControls: InputInterface[];
@@ -112,6 +113,17 @@ export class ShopHeroComponent implements OnInit {
   ];
   formMaker = new InputForm(this.formControlInit);
   form: FormGroup;
+  
+  test(){
+    var a = [1, 2, 5, 4, 3];
+    console.log(a);
+    a.splice(4,0,a.splice(2,1)[0]);
+    
+    var b = [1, 2, 5, 4, 3];
+    b.splice(0,0,b.splice(4,1)[0]);
+    console.log(b);
+        
+  }
 
   constructor(
     private _orderService: OrderService,
@@ -120,6 +132,7 @@ export class ShopHeroComponent implements OnInit {
     private _routeService: RouteService,
     private _modal: ModalService
   ) {
+    this.test();
     this.form = new FormGroup({});
     this.formMaker.inputs.forEach((item) => {
       this.form.setControl(item.name, this.formMaker.createControl(item));
@@ -170,6 +183,7 @@ export class ShopHeroComponent implements OnInit {
     }
 
     this.updateDeviceValue();
+    this.product.plans.splice(0,0,this.product.plans.splice(6,1)[0]);
     this.product.plans
       .filter((it) => it.isActive == true)
       .forEach((it) => {

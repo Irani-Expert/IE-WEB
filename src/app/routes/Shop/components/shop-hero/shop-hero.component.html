@@ -47,8 +47,8 @@
                 class="max-w-[4.5rem] w-full aspect-square"
               >
                 <div class="h-full w-full">
+                  <!-- [disabled]="i == plans.length - 1" -->
                   <button
-                    [disabled]="i == plans.length - 1"
                     (click)="toggle(p)"
                     class="rounded-[18px] p-2 h-full w-full transition-all disabled:opacity-50"
                     [ngClass]="p.active ? ' bg-[#3246d3]' : ' bg-[#f3f3f3]'"
