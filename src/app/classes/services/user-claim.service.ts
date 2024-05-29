@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { BaseService } from './base.service';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
-import { LocalStorageService } from '../local-storage';
 import { Favorite } from '../interfaces/favorite';
 import {
   BehaviorSubject,
@@ -34,31 +33,26 @@ export class UserClaimService extends BaseService<
   favoriteSubject: BehaviorSubject<Favorite[]> = new BehaviorSubject<
     Favorite[]
   >(new Array<Favorite>());
-  constructor(
-    http: HttpClient,
-    private toastr: ToastrService,
-    private localStorage: LocalStorageService
-  ) {
+  constructor(http: HttpClient, toastr: ToastrService) {
     super(http, toastr);
   }
 
-  saveFavorites() {
-    let favorites: Favorite[] = [
-      {
-        id: 0,
-        claimType: 0,
-        userId: 54,
-        rowID: 1059,
-        tableType: 1,
-        createDate: '',
-      },
-    ];
-    this.localStorage.setItem('favorites', JSON.stringify(favorites));
-  }
+  // saveFavorites() {
+  //   let favorites: Favorite[] = [
+  //     {
+  //       id: 0,
+  //       claimType: 0,
+  //       userId: 54,
+  //       rowID: 1059,
+  //       tableType: 1,
+  //       createDate: '',
+  //     },
+  //   ];
+  //   this.localStorage.setItem('favorites', JSON.stringify(favorites));
+  // }
 
   removeOnLogOut() {
     this.favoriteSubject.next(new Array<Favorite>());
-    this.favoriteSubject.complete();
   }
 
   async getFavs(userId: number) {

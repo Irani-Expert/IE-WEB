@@ -70,6 +70,7 @@
               <app-favorite
                 [readonly]="false"
                 [rowID]="item.id"
+                (liked)="like($event)"
                 [tableType]="1"
               ></app-favorite>
             </span>

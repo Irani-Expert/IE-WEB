@@ -1,13 +1,13 @@
 <ng-container *ngIf="contentLoaded">
   <button
-    *ngIf="favId !== 0"
+    *ngIf="checkFavorited() !== 0"
     [disabled]="componentDisable || readonly"
     (click)="removeFav()"
   >
     <i class="ie-icon favorite-icon-filled"></i>
   </button>
   <button
-    *ngIf="favId == 0"
+    *ngIf="checkFavorited() == 0"
     [disabled]="componentDisable || readonly"
     (click)="addFav()"
   >

@@ -11,7 +11,6 @@ import { ModalComponent } from 'src/app/shared/modal/modal.component';
 import { HeaderLayoutComponent } from 'src/app/components/header-layout/header-layout.component';
 import { Observable, Subscription } from 'rxjs';
 import { Favorite } from 'src/app/classes/interfaces/favorite';
-import { TradingViewComponent } from 'src/app/components/trading-view/trading-view.component';
 const currencyInit: Currency = {
   currencyPairType: 0,
   currencyPairTypeDescription: 'Crypto',

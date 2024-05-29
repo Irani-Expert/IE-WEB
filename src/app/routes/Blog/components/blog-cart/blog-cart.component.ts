@@ -67,4 +67,9 @@ export class BlogCartComponent {
       }
     }
   }
+
+  like(value: boolean) {
+    if (value) this.item.favoriteCount += 1;
+    else this.item.favoriteCount -= 1;
+  }
 }
