@@ -4,7 +4,6 @@ import { UserClaimService } from 'src/app/classes/services/user-claim.service';
 import { AuthService } from '../auth/auth.service';
 import { ModalService } from '../modal/services/modal.service';
 import { HeaderLayoutComponent } from 'src/app/components/header-layout/header-layout.component';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-favorite',
@@ -24,7 +23,7 @@ export class FavoriteComponent {
   favId = 0;
   // favSubescription: Subscription;
   componentDisable: boolean = false;
-  userSubsciption: Subscription;
+  // userSubsciption: Subscription;
   constructor(
     private _userClaimService: UserClaimService,
     private _auth: AuthService,
@@ -42,7 +41,7 @@ export class FavoriteComponent {
 
   ngOnDestroy() {
     // this.favSubescription.unsubscribe();
-    this.userSubsciption.unsubscribe();
+    // this.userSubsciption.unsubscribe();
   }
 
   async addFav() {
