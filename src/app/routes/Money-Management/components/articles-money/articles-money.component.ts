@@ -45,14 +45,13 @@ class SingleBlogModel implements SingleBlog {
 
 export class ArticlesMoneyComponent {
 
-  articleHtml: SafeHtml;
-
+  
   @Input('data') articleModel: SingleBlogModel = new SingleBlogModel();
-
+  articleHtml: SafeHtml;
+  
   constructor(
     private _sanitizer : DomSanitizer
   ){
-  
   }
   
   color = '#ECECEC';

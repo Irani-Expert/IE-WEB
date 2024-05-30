@@ -69,7 +69,7 @@ constructor(
         next: (event) => {
           if(event instanceof NavigationEnd) {
             this.route = event.urlAfterRedirects.slice(1);
-            if(this.route == '' || this.route?.startsWith('search')){
+            if(this.route == '' || this.route?.startsWith('search') || this.route?.startsWith('rules')){
               this.hideBreadCrumb = true;
             }
             else{

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LandingPageComponent } from '../components/landing-page/landing-page.component';
 import { LandingSearchComponent } from '../../Search/components/landing-search/landing-search.component';
 import { AuthMailComponent } from 'src/app/components/auth-mail/auth-mail.component';
+import { RulesPageComponent } from 'src/app/components/rules-page/rules-page.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,12 @@ const routes: Routes = [
     title: 'تایید ایمیل',
     component: AuthMailComponent,
   },
+  {
+    path: 'rules',
+    title: 'قوانین سایت',
+    component: RulesPageComponent,
+  },
+
 ];
 
 @NgModule({
