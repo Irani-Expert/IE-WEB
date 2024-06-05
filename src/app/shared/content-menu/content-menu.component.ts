@@ -16,8 +16,8 @@ import { ScrollService } from './service/scroll.service';
 export class ContentMenuComponent {
   menuOpen: boolean = false;
   iconActive: boolean = false;
-  @Input('wid') wi: number;
 
+  @Input('wid') wi: number;
   @ViewChild('listElem') listElem: ElementRef;
   @ViewChild('listElemHide') listElemHide: ElementRef;
   @Input('data') listElems: Array<any>;
@@ -34,6 +34,8 @@ export class ContentMenuComponent {
   element :HTMLHeadingElement;
   constructor(private scrollService: ScrollService) {}
 
+  hTagText : Array<any> | null = new Array<any>;
+
   scrollToId(id: string) {
     // const scrollElementH2 = document.getElementsByTagName('h2')
     // for (let index = 0; index < scrollElementH2.length; index++) {
@@ -44,7 +46,61 @@ export class ContentMenuComponent {
     
     this.scrollService.scrollToElementById(id);
   }
+  ngOnInit(){
+    setTimeout(() => {
+      this.pushHTags();
+    },2000)
+  }
 
+  pushHTags(){
+
+   var h2 = document.querySelectorAll('h2');   
+   h2.forEach((it,counter) =>{
+    it.id = `h2-${counter}`
+    this.hTagText?.push({
+      id: it.id,
+      text: it.textContent
+    })
+   });
+
+   var h3 = document.querySelectorAll('h3');   
+   h3.forEach((it,counter) =>{
+    it.id = `h3-${counter}`
+    this.hTagText?.push({
+      id: it.id,
+      text: it.textContent
+    })
+   });
+
+   var h4 = document.querySelectorAll('h4');   
+   h4.forEach((it,counter) =>{
+    it.id = `h4-${counter}`
+    this.hTagText?.push({
+      id: it.id,
+      text: it.textContent
+    })
+   });
+
+   var h5 = document.querySelectorAll('h5');   
+   h5.forEach((it,counter) =>{
+    it.id = `h5-${counter}`
+    this.hTagText?.push({
+      id: it.id,
+      text: it.textContent
+    })
+   });
+
+   var h6 = document.querySelectorAll('h6');   
+   h6.forEach((it,counter) =>{
+    it.id = `h6-${counter}`
+    this.hTagText?.push({
+      id: it.id,
+      text: it.textContent
+    })
+   });
+
+        
+  }
   @Output('scroll') isEmited = new EventEmitter<boolean>();
 
   scrollToView() {

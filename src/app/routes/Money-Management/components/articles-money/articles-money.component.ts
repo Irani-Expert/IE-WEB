@@ -48,7 +48,12 @@ export class ArticlesMoneyComponent {
   
   @Input('data') articleModel: SingleBlogModel = new SingleBlogModel();
   articleHtml: SafeHtml;
-  
+
+  h1Text : string | null;
+  h2Text : string | null;
+  h3Text : string | null;
+  h4Text : string | null;
+
   constructor(
     private _sanitizer : DomSanitizer
   ){
@@ -153,8 +158,20 @@ export class ArticlesMoneyComponent {
     },
   ];
   ngOnInit(){
+
     this.articleHtml = this._sanitizer.bypassSecurityTrustHtml(
       this.articleModel.description
     );
+
+    setTimeout(() => {
+      // let h1 = document.querySelector('h1')?.textContent;
+      let h1 = document.getElementsByTagName('h1');
+      let h2 = document.getElementsByTagName('h2');
+      
+      for (let i=0; i < h2.length; i++) {
+        this.h2Text = h2[i].textContent;
+      }
+      
+    },1000);
   }
 }
