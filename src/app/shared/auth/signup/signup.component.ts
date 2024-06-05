@@ -13,7 +13,7 @@ import { AuthService } from '../auth.service';
 const formDataInit: ISignUp = {
   password: '',
   userName: '',
-  accountNumber: '',
+  // accountNumber: '',
   email: '',
   firstName: '',
   id: 0,
@@ -130,14 +130,14 @@ export class SignupComponent {
       minLength: 11,
       maxLength: 11,
     },
-    {
-      id: 7,
-      label: 'شماره حساب',
-      name: 'accountNumber',
-      typeofVlaue: 'string',
-      required: true,
-      placeholder: 'شماره حساب',
-    },
+    // {
+    //   id: 7,
+    //   label: 'شماره حساب',
+    //   name: 'accountNumber',
+    //   typeofVlaue: 'string',
+    //   required: true,
+    //   placeholder: 'شماره حساب',
+    // },
     {
       id: 5,
       label: 'ایمیل',
@@ -193,7 +193,7 @@ export class SignupComponent {
     let formData = formDataInit;
     formData.wayKnowType = this.saveType;
     formData.password = this._formcontrol['password'].value;
-    formData.accountNumber = this._formcontrol['accountNumber'].value;
+    // formData.accountNumber = this._formcontrol['accountNumber'].value;
     formData.email = this._formcontrol['email'].value;
     formData.firstName = this._formcontrol['firstName'].value;
     formData.lastName = this._formcontrol['lastName'].value;
