@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import moment from 'moment-timezone';
 
 @Component({
   selector: 'app-audio-player',
@@ -54,5 +55,9 @@ export class AudioPlayerComponent {
         this.percentage +
         '%,  rgb(115, 115, 115) 2.91093%, rgb(115, 115, 115) 100%);';
     }
+  }
+
+  get today() {
+    return moment().format('YYYY-MM-dd');
   }
 }

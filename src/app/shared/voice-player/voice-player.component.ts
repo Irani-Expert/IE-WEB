@@ -10,11 +10,11 @@ export class VoicePlayerComponent {
   @ViewChild('progressBar', { static: false }) progressBar!: ElementRef;
   @Input() audioSource: string;
 
-  dotMovement: string = ' -0px';
+  dotMovement: string = ' 0px';
   time: string = '0:00';
   Pause_Play: boolean = false;
   speedNum: number = 1;
-  // audioSource: string =
+  // audioSource2: string =
   //   'https://www.honarist.com/wp-content/uploads/2021/08/Gloomy-Sunday-Billie-Holiday-128.mp3';
   isplayed: boolean = false;
   playAudio() {
@@ -32,19 +32,21 @@ export class VoicePlayerComponent {
     const audio = this.audioPlayer.nativeElement;
     const progress = this.progressBar.nativeElement;
     const value = (audio.currentTime / audio.duration) * 100;
-
     progress.value = value;
     let dotvalue = ((progress.offsetWidth - 3.5) * value) / 100;
+    console.log(audio.currentTime);
 
     this.dotMovement = dotvalue.toString() + 'px';
     this.time = convertTime.NumToTime(Math.round(audio.currentTime));
   }
 
-  initializeProgressBar() {
-    const audio = this.audioPlayer.nativeElement;
-    const progress = this.progressBar.nativeElement;
-    progress.max = audio.duration;
-  }
+  // initializeProgressBar() {
+  //   const convertTime = new timeconvert();
+
+  //   const audio = this.audioPlayer.nativeElement;
+  //   const progress = this.progressBar.nativeElement;
+  //   progress.max = convertTime.NumToTime(Math.round(audio.duration));
+  // }
 
   seekToPosition(event: MouseEvent) {
     const progressBar = event.target as HTMLProgressElement;
@@ -53,7 +55,6 @@ export class VoicePlayerComponent {
     const seekPosition =
       (clickedplace * this.audioPlayer.nativeElement.duration) /
       progressBar.offsetWidth;
-    this.audioPlayer.nativeElement.currentTime = seekPosition;
   }
   changeSpeed(): void {
     if (this.speedNum == 3) {

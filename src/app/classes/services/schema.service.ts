@@ -12,8 +12,8 @@ export class SchemaService {
 
     script.type = 'application/ld+json';
     script.innerHTML = this.getHtml(schema);
-    let previousFirst = this.doc.body.firstChild;
-    this.doc.body.insertBefore(script, previousFirst);
+    let previousFirst = this.doc.body.querySelector('noscript')!;
+    previousFirst.after(script);
   }
 
   getHtml(schema: any) {

@@ -29,7 +29,7 @@
         alt=""
       />
     </div>
-    <div class="my-2 min-h-[2rem] flex items-center justify-evenly">
+    <div class="my-2 min-h-[2rem] flex items-center justify-evenly contrast-50">
       <audio #audioPlayer controls (timeupdate)="updateProgress()">
         <source [src]="audioSource" type="audio/mp3" />
         Your browser does not support the audio element.
@@ -70,12 +70,14 @@
       </div>
       <progress
         #progressBar
-        max="100"
         class="me-2 h-6 cursor-pointer"
         (click)="seekToPosition($event)"
         [ngStyle]="{ '--dotMovement': dotMovement }"
       ></progress>
-      <button class="h-6 cursor-pointer" (click)="playAudio()">
+      <button
+        class="h-6 cursor-pointer w-6 mr-2 inline-flex justify-center items-center"
+        (click)="playAudio()"
+      >
         <i
           class="ie-icon"
           [ngClass]="Pause_Play ? 'icon-pause-voice' : 'icon-play-voice'"
