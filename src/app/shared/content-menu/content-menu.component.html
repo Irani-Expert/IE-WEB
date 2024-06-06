@@ -16,21 +16,23 @@
     </div>
     <div class="menu-wrapper">
       <ul #listElem #listElemHide>
-        <li *ngFor="let item of listElems">
+
+        <li *ngFor="let item of hTagText">
           <div class="divider"></div>
           <div class="flex flex-col justify-around">
             <button (click)="scrollToId(item.id)" class="text-right">
               <p class="flex title-menu text-base lg:!text-xl">
-                {{ item.title }}
+                {{ item.text }}
               </p>
             </button>
-            <ng-container *ngFor="let item of item.sub">
-              <button (click)="scrollToId(item.id)" class="text-right">
-                <p class="flex title2-menu lg:!text-base">{{ item.title }}</p>
-              </button>
-            </ng-container>
           </div>
+          <!-- <ng-container *ngFor="let item of item.sub">
+            <button (click)="scrollToId(item.id)" class="text-right">
+              <p class="flex title2-menu lg:!text-base">{{ item.title }}</p>
+            </button>
+          </ng-container> -->
         </li>
+
       </ul>
     </div>
   </div>
