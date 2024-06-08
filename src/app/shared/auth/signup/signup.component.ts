@@ -40,11 +40,15 @@ export class SignupComponent {
     new EventEmitter<boolean>(false);
   loading = false;
   iconSrc = 'assets/icon/eye-off.svg';
-  activeError1 : boolean;
-  activeError2 : boolean;
+  activeError : boolean;
+  
   // <!-- ==========[نحوه آشنایی]======== -->
   
-  saveType : number;
+  saveWayKnowType : number;
+  dropDown : boolean;
+  wayKnowTypeName : string = 'نحوه آشنایی با ما';
+  wayKnowTypeIcon : string;
+
   wayKnowType : Array<any> = [
     {
       id : 0,
@@ -72,18 +76,23 @@ export class SignupComponent {
     },
   ];
 
-  dropDown : boolean;
 
   toggleDropDown(){
     this.dropDown = !this.dropDown;
   }
-  toggle(index : number){
+  toggle(index : number , lable : string , icon : string){
+
+    this.wayKnowTypeName = '';
+    this.wayKnowTypeName = lable;
+    this.wayKnowTypeIcon = icon;
+
     this.wayKnowType.filter(
       (it , i) => i !== index && it.active)
       .forEach(it => it.active = !it.active);
+      this.dropDown = !this.dropDown;
       this.wayKnowType[index].active = true;
-      this.saveType = index;
-      if(this.saveType == 3){
+      this.saveWayKnowType = index;
+      if(this.saveWayKnowType == 3){
         this._formcontrol['parentReferralCode'].addValidators([Validators.required,Validators.minLength(2)])
         this._formcontrol['parentReferralCode'].updateValueAndValidity({onlySelf: true})
       }   
@@ -191,7 +200,7 @@ export class SignupComponent {
 
 
     let formData = formDataInit;
-    formData.wayKnowType = this.saveType;
+    formData.wayKnowType = this.saveWayKnowType;
     formData.password = this._formcontrol['password'].value;
     // formData.accountNumber = this._formcontrol['accountNumber'].value;
     formData.email = this._formcontrol['email'].value;
@@ -219,13 +228,13 @@ export class SignupComponent {
     var valid = true;
     let email = _formData.email.split('@');
 
-    if(this.saveType == null){
-      this.activeError1 = true;
+    if(this.saveWayKnowType == null){
+      this.activeError = true;
       valid = false
       return valid
     }
     else{
-      this.activeError1 = false;
+      this.activeError = false;
     } 
 
     if (this.form.valid) {
