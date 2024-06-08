@@ -58,10 +58,7 @@
           <div class="flex-grow mt-5">
             <a
               *ngIf="dataLoaded.value"
-              [href]="
-                'https://' +
-                apiData.webSiteLink.slice(10, apiData.webSiteLink.length)
-              "
+              [href]="apiData.webSiteLink"
               target="_blank"
             >
               <button
@@ -129,10 +126,7 @@
         <a
           class="basis-full"
           *ngIf="dataLoaded.value"
-          [href]="
-            'https://' +
-            apiData.webSiteLink.slice(10, apiData.webSiteLink.length)
-          "
+          [href]="apiData.webSiteLink"
           target="_blank"
         >
           <button
@@ -318,10 +312,7 @@
         <a
           target="_blank"
           class="w-full h-full absolute"
-          [href]="
-            'https://' +
-            apiData.webSiteLink.slice(10, apiData.webSiteLink.length)
-          "
+          [href]="apiData.webSiteLink"
         ></a>
       </div>
     </div>

@@ -45,7 +45,6 @@ const planInit: planInterface = {
   animations: [smoothWidth],
 })
 export class ShopHeroComponent implements OnInit {
-  
   galleryImages: CarouselImage[] = new Array<CarouselImage>();
   contentUrl = environment.contentUrl;
   formControls: InputInterface[];
@@ -113,16 +112,16 @@ export class ShopHeroComponent implements OnInit {
   ];
   formMaker = new InputForm(this.formControlInit);
   form: FormGroup;
-  
+
   // test(){
   //   var a = [1, 2, 5, 4, 3];
   //   console.log(a);
   //   a.splice(4,0,a.splice(2,1)[0]);
-    
+
   //   var b = [1, 2, 5, 4, 3];
   //   b.splice(0,0,b.splice(4,1)[0]);
   //   console.log(b);
-        
+
   // }
 
   constructor(
@@ -184,9 +183,7 @@ export class ShopHeroComponent implements OnInit {
 
     this.updateDeviceValue();
     // this.product.plans.splice(0,0,this.product.plans.splice(7,1)[0]);
-    this.product.plans.sort((a,b)=> 
-      a.orderID - b.orderID
-    )
+    this.product.plans.sort((a, b) => a.orderID - b.orderID);
     this.product.plans
       .filter((it) => it.isActive == true)
       .forEach((it) => {
@@ -296,7 +293,9 @@ export class ShopHeroComponent implements OnInit {
     if (AuthService.loggedIn.value) {
       window.open(this.contentUrl + this.demoFile, '_blank');
     } else {
-      this.router.navigateByUrl('checkout');
+      this._orderService.toastError(
+        'برای دانلود باید وارد حساب کاربری خود شوید'
+      );
     }
   }
   //for demo modal

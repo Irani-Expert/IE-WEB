@@ -30,7 +30,7 @@
       />
     </div>
     <div class="my-2 min-h-[2rem] flex items-center justify-evenly contrast-50">
-      <audio #audioPlayer controls (timeupdate)="updateProgress()">
+      <audio #audioPlayer controls (timeupdate)="updateTimeDisplay($event)">
         <source [src]="audioSource" type="audio/mp3" />
         Your browser does not support the audio element.
       </audio>
@@ -49,7 +49,7 @@
           ]"
         ></i>
       </button>
-      <span class="ms-1 h-6 w-8">{{ time }}</span>
+      <span class="me-1 mt-1 text-sm">{{ time }}</span>
       <div class="absolute moveMent-line">
         <div class="left-[-50px] relative">
           <div class="line-s"></div>
@@ -68,12 +68,9 @@
           <div class="line-e"></div>
         </div>
       </div>
-      <progress
-        #progressBar
-        class="me-2 h-6 cursor-pointer"
-        (click)="seekToPosition($event)"
-        [ngStyle]="{ '--dotMovement': dotMovement }"
-      ></progress>
+      <div #progressBar class="progress-bar" (mousedown)="startSeek($event)">
+        <div class="progress" [style.width]="progressBarValue + '%'"></div>
+      </div>
       <button
         class="h-6 cursor-pointer w-6 mr-2 inline-flex justify-center items-center"
         (click)="playAudio()"
