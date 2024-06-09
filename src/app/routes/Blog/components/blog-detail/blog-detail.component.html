@@ -35,24 +35,6 @@
     </div>
   </div>
   <p class="mt-8">{{ articleModel.brief }}</p>
-
-  <!-- =================[آرتیکلز]========= -->
-  <app-content-menu  [wid]="100"></app-content-menu>
-  <!-- =================[آرتیکلز]========= -->
-  <div id="ckeditor" [innerHTML]="articleHtml" class="mt-6"></div>
-
-  <!-- ===============[سوالات متداول]==============     -->
-  <!-- ===============[ نویسنده]==============     -->
-  <div class="flex mt-8 items-center flex-wrap gap-2">
-    <img src="assets/img/avatar-2.webp" alt="avatar" width="74" height="74" />
-    <div class="basis-3/4 flex flex-col gap-2">
-      <p class="ml-4 writer">
-        {{ articleModel.updatedByFirstName }}&nbsp;
-        {{ articleModel.updatedByLastName }}
-      </p>
-      <p class="writer-date">تعداد بازدید کل:{{ articleModel.viewsCount }}</p>
-    </div>
-  </div>
 </div>
 
 <!-- ====================[رسپانسیو]========= -->
@@ -99,8 +81,14 @@
   <p class="mt-8">
     {{ articleModel.brief }}
   </p>
+</div>
+
+  <!-- =================[منو تایتل ها]========= -->
+  <app-content-menu  [wid]="100"></app-content-menu>
   <!-- =================[آرتیکلز]========= -->
   <div id="ckeditor" [innerHTML]="articleHtml" class="mt-6"></div>
+
+  <!-- ===============[ نویسنده]==============     -->
   <div class="flex mt-8 items-center flex-wrap gap-2">
     <img src="assets/img/avatar-2.webp" alt="avatar" width="74" height="74" />
     <div class="basis-3/4 flex flex-col gap-2">
@@ -111,4 +99,3 @@
       <p class="writer-date">تعداد بازدید کل:{{ articleModel.viewsCount }}</p>
     </div>
   </div>
-</div>
