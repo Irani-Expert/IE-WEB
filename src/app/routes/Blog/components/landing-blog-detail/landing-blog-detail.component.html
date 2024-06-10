@@ -1,5 +1,6 @@
-<div class="mt-10 lg:block hidden">
-  <div class="flex justify-center">
+
+<!-- ==========[بنر]=========== -->
+  <div class="justify-center hidden xl:flex">
     <div class="baner flex flex-row ml-4 mr-4">
       <div class="basis-2/3 flex items-center">
         <div class="mr-12">
@@ -24,30 +25,108 @@
     </div>
   </div>
 
+  <div class="xl:grid xl:grid-cols-4 xl:mx-4 py-16 px-4">
+
+   <!-- ==========[فیلتر دسکتاپ]=========== -->
+    <div class="ml-4 xl:block hidden max-w-[22rem]">
+      <ng-container *ngIf="isBrowser">
+        <app-blog-filter [type]="'tags'" [categoryTags]="tags">
+          <p header class="text-black">دسترسی سریع</p>
+        </app-blog-filter>
+      </ng-container>
+    </div>
+
+    <div class="xl:col-span-3 xl:mr-4">
+      <ng-container *ngIf="sendDataToChild">
+  
+        <app-blog-detail [data]="blogService._blog!"></app-blog-detail>
+        <app-faq-blog [data]="blogService._blog?.faQs!"></app-faq-blog>
+        <!-- <app-share-link-box></app-share-link-box> -->
+
+        <!-- ======[فیلتر رسپانسیو]===== -->
+        <div class="block xl:hidden">
+          <app-filter-responsive
+          [categoryDetailIcon]="categoryDetailIcon"
+          [data]="color"
+          [categoryTags]="tags"
+          [type]="'tags'">
+             <p header class="text-black w-28">دسترسی سریع</p>
+          </app-filter-responsive>
+        </div>
+
+       <!-- ==========[بنر]=========== -->
+
+        <div class="flex justify-center my-16 xl:hidden">
+          <div class="baner flex flex-row ml-2 mr-2 h-28">
+            <div class="basis-1/2 flex items-center">
+              <div class="mr-3">
+                <span class="divid-h lg:!text-base"
+                  >در مجله ایرانی اکسپرت
+                </span>
+                <p class="title-h mb-4 lg:!text-3xl">
+                  تازه ترین مقالات بازارهای مالی
+                </p>
+              </div>
+            </div>
+            <div class="flex justify-center basis-1/2">
+              <img
+                class="mr-2 logo-mobile"
+                src="assets/img/baner-detail.webp"
+                alt="logo"
+                height="162"
+                width="224"
+              />
+            </div>
+          </div>
+        </div>
+
+        <app-free-advice></app-free-advice>
+        <app-vote [data]="blogService._blog!" ></app-vote>
+        <ng-container *ngIf="isBrowser">
+          <app-comments
+            [rowId]="blogService._blog!.id"
+            [tableType]="1"
+          ></app-comments>
+        </ng-container>
+
+        <div class="hidden xl:flex">
+          <ng-container *ngIf="isBrowser">
+            <app-carousel-blog
+            [data]="itemsBlog.slice(0, 5)"
+            ></app-carousel-blog>
+          </ng-container>
+        </div>
+
+      </ng-container>
+    </div>
+
+  </div>
+
+
+  <!-- <div class="mt-10 lg:block hidden"> -->
   <!-- =============[کامپوننت ها]========= -->
-  <div class="flex justify-center mt-16 mr-4">
-    <div class="grid grid-cols-4">
-      <div class="part-1">
+  <!-- <div class="flex justify-center mt-16 mr-4">
+    <div class="grid grid-cols-4"> -->
+      <!-- <div class="part-1">
         <ng-container *ngIf="isBrowser">
           <app-blog-filter [type]="'tags'" [categoryTags]="tags">
             <p header class="text-black">دسترسی سریع</p>
           </app-blog-filter>
         </ng-container>
-      </div>
-      <div class="col-span-3 mr-4 ml-4">
-        <ng-container *ngIf="sendDataToChild">
+      </div> -->
+      <!-- <div class="col-span-3 mr-4 ml-4"> -->
+        <!-- <ng-container *ngIf="sendDataToChild">
           <app-blog-detail [data]="blogService._blog!"></app-blog-detail>
           <ng-container *ngIf="sendDataToChild">
             <app-faq-blog [data]="blogService._blog?.faQs!"></app-faq-blog>
-          </ng-container>
-          <!-- <app-share-link-box></app-share-link-box> -->
-          <ng-container *ngIf="isBrowser">
+          </ng-container> -->
+          <!-- <ng-container *ngIf="isBrowser">
             <app-comments
               [rowId]="blogService._blog!.id"
               [tableType]="1"
             ></app-comments>
-          </ng-container>
-          <ng-container *ngIf="isBrowser">
+          </ng-container> -->
+          <!-- <ng-container *ngIf="isBrowser">
             <app-carousel-blog
               [data]="itemsBlog.slice(0, 5)"
             ></app-carousel-blog>
@@ -56,13 +135,23 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <!-- ====================[رسپانسیو]========= -->
-<div class="lg:hidden block px-1 lg:px-0">
-  <div class="mt-20 mr-4 ml-4">
+<!-- <div class="lg:hidden block px-1 lg:px-0">
+  <div class="mt-20 mr-4 ml-4"> -->
     <!-- =========[دسته بندی]====== -->
-    <ng-container *ngIf="sendDataToChild">
+    <!-- <ng-container *ngIf="sendDataToChild">
+      
       <app-blog-detail [data]="blogService._blog!"></app-blog-detail>
+
+      <app-filter-responsive
+      [categoryDetailIcon]="categoryDetailIcon"
+      [data]="color"
+      [categoryTags]="tags"
+      [type]="'tags'">
+         <p header class="text-black w-28">دسترسی سریع</p>
+      </app-filter-responsive>
+
       <ng-container *ngIf="isBrowser">
         <div class="flex justify-center my-16">
           <div class="baner flex flex-row ml-2 mr-2 h-28">
@@ -86,26 +175,19 @@
               />
             </div>
           </div>
-        </div>
+        </div> -->
         <!-- <app-share-link-box></app-share-link-box> -->
-        <app-comments
+        <!-- <app-comments
           [rowId]="blogService._blog!.id"
           [tableType]="1"
-        ></app-comments>
-        <app-filter-responsive
-          [categoryDetailIcon]="categoryDetailIcon"
-          [data]="color"
-          [categoryTags]="tags"
-          [type]="'tags'"
-        >
-          <p header class="text-black w-28">دسترسی سریع</p>
-        </app-filter-responsive>
+        ></app-comments> -->
+
         <!-- <app-blog-hero
           [linkType]="2"
           [data]="itemsBlog.slice(0, 5)"
         ></app-blog-hero> -->
-      </ng-container>
-    </ng-container>
+      <!-- </ng-container>
+    </ng-container> -->
 
     <!-- <div class="flex justify-center mt-12">
       <div class="baner flex flex-row">
@@ -124,7 +206,7 @@
         </div>
       </div>
     </div> -->
-  </div>
+  <!-- </div> -->
   <!-- =========[دسته بندی]====== -->
   <!-- <app-filter-responsive
     [categoryDetailIcon]="categoryDetailIcon"
@@ -172,4 +254,4 @@
   <!-- =============[کاروسل]========= -->
   <!-- <app-blog-hero></app-blog-hero> -->
   <!-- </div> -->
-</div>
+<!-- </div> -->
