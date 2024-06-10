@@ -54,6 +54,11 @@
   table {
     width: 100% !important;
   }
+  figure {
+    &.table {
+      margin: 0 auto;
+    }
+  }
   ul {
     padding-inline-start: inherit !important;
   }
@@ -81,7 +86,7 @@
         padding: 12px 5px;
 
         background: #f3f3f3;
-        border: none;
+        border: 1px solid #b1b1b1;
         vertical-align: middle;
       }
     }
@@ -112,7 +117,7 @@
       th,
       td {
         text-align: center;
-        border: none;
+        border: 1px solid #b1b1b1;
       }
 
       &:hover {
@@ -122,6 +127,7 @@
   }
   img {
     width: fit-content;
+    object-fit: contain;
     margin: 0 auto !important;
   }
   // =======[مدیریت سرمایه]====
