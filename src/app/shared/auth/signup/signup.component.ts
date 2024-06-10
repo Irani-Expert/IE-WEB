@@ -19,7 +19,8 @@ const formDataInit: ISignUp = {
   id: 0,
   lastName: '',
   phoneNumber: '',
-  wayKnowType: 0
+  wayKnowType: 0,
+  parentReferralCode:''
 };
 @Component({
   selector: 'app-signup',
@@ -78,7 +79,13 @@ export class SignupComponent {
 
 
   toggleDropDown(){
-    this.dropDown = !this.dropDown;
+    
+    if(this._formcontrol['parentReferralCode'].value){
+      this.dropDown = true;
+    }
+    else {
+      this.dropDown = !this.dropDown;
+    }
   }
   toggle(index : number , lable : string , icon : string){
 
@@ -206,14 +213,18 @@ export class SignupComponent {
     formData.email = this._formcontrol['email'].value;
     formData.firstName = this._formcontrol['firstName'].value;
     formData.lastName = this._formcontrol['lastName'].value;
+    formData.parentReferralCode  = this._formcontrol['parentReferralCode'].value;
     
-    
-    this._formcontrol['parentReferralCode'].value
-      ? (formData.parentReferralCode =
-          this._formcontrol['parentReferralCode'].value)
-      : undefined;
+    // this._formcontrol['parentReferralCode'].value
+    //   ? (formData.parentReferralCode =
+    //       this._formcontrol['parentReferralCode'].value)
+    //   : undefined;
     formData.phoneNumber = this._formcontrol['phoneNumber'].value;
     formData.userName = formData.email;
+    if(formData.parentReferralCode == ''){
+      formData.parentReferralCode = null
+    }
+
     
     if (await this.checkFormValidation(formData)) {
       if (await this.authService.signup(formData)) this.changeView.emit(true);
@@ -222,6 +233,9 @@ export class SignupComponent {
       console.log('Not Valid');
 
     }
+
+
+
   }
   async checkFormValidation(_formData: ISignUp) {
     
@@ -289,5 +303,23 @@ export class SignupComponent {
     setTimeout(() => {
       this.formControls.forEach((it) => (it.hasErr = false));
     }, 1000);
+  }
+
+
+
+  get knowType() {
+    if(this._formcontrol['parentReferralCode'].value) {
+      this.dropDown = true;
+      this.wayKnowTypeIcon = 'assets/icon/people-icon.svg';
+      this.wayKnowTypeName='';
+      this.wayKnowTypeName = 'دوستان';
+      this.saveWayKnowType = 3;
+      return this.saveWayKnowType
+    }
+    else {
+      this.wayKnowTypeIcon ='';
+      this.wayKnowTypeName ='نحوه آشنایی با ما';
+      return this.saveWayKnowType
+    }
   }
 }
