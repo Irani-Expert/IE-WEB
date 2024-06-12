@@ -56,7 +56,7 @@
   
         <div class="grid grid-cols-2 gap-6 mb-3 mt-6 w-[250px] max-w-[287px]">
             <ng-container *ngFor="let item of wayKnowType; let i = index">
-              <div class="flex mx-2 cursor-pointer hover:opacity-100" [ngClass]="item.active ? 'opacity-100' : 'opacity-25'" (click)="toggle(i , item.label , item.icon)">
+              <div class="flex mx-2 cursor-pointer hover:opacity-100" [ngClass]="knowType == item.id ? 'opacity-100' : 'opacity-25'" (click)="toggle(i , item.label , item.icon)">
                 <img [src]="item.icon" alt="icon-modal">
                 <p class="mr-2 text-black">{{item.label}}</p>
               </div>

@@ -25,6 +25,6 @@ export interface ISignUp {
   phoneNumber: string;
   password: string;
   // accountNumber?: string;
-  parentReferralCode?: string;
+  parentReferralCode: string | null;
   wayKnowType : number;
 }
