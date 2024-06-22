@@ -17,7 +17,7 @@ export interface Blog {
   createDate: string;
   favoriteCount : number;
   colorCode: string;
-
+  isActive?: boolean;
 }
 export interface SingleBlog {
   createDate: string;
@@ -45,6 +45,7 @@ export interface SingleBlog {
   browserTitle: string;
   favoriteCount : number;
   colorCode: string;
+  isActive?: boolean;
   linkTags: [
     {
       title: string;
