@@ -46,3 +46,38 @@
 .drop-down:hover{
   border: gray 2px solid;
 }
+.countries-row{
+  direction: ltr;
+  width: 15.6rem;
+  height: 2rem;
+  align-items: center;
+  border-bottom: 1px solid #e3e3e3;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  margin-right: 0.25rem;
+  @media screen and (min-width: 1023px) {
+  opacity: 0.4;
+  }
+}
+@media screen and (min-width: 1023px) {
+.countries-row:hover {
+    opacity: 1;
+  }
+}
+.box-selected-countries{
+  width: 16.6rem;
+  height: 2.75rem;
+  align-items: center;
+  border-radius: 8px;
+}
+.outline-input{
+  outline: 0;
+}
+.scale-6{
+scale: 0.6 !important;
+}
+.border-input-box{
+border: 2px solid #e3e3e3;
+// transition: all 0.25s ease-in-out;
+border-radius: 8px;
+}

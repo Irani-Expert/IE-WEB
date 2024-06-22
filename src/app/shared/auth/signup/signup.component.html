@@ -41,8 +41,41 @@
       </div>
     </ng-container>
 
-    <!-- ==========[نحوه آشنایی]======== -->
     <div>
+          <!-- ==========[شماره موبایل]======== -->
+           <div class="border-input-box rounded-md w-[16.6rem] overflow-hidden mb-3" [ngClass]="!showCountriesList ? 'h-12' : 'h-[12200px]'">
+
+            <div class="flex box-selected-countries">
+    
+              <input (input)="fillMobileValue($any($event.target).value)" type="text" class="bg-white outline-input w-[8.75rem] mr-2 top-1 relative text-sm" placeholder="شماره همراه">
+              <div class="flex scale-90 relative top-1 cursor-pointer" dir="ltr" (click)="countriesDropDown()">
+                <i class="scale-6 icon-modal mr-2" [ngClass]="!showCountriesList ? 'icon-up' : 'icon-down'"></i>
+                <i class="w-8 h-6 rounded-md mr-3 relative -top-1 flag fi fi-{{ countrieIcon| lowercase}}"></i>
+                <p class="text-black">{{'(+' + countriePhone + ')'}}</p>
+              </div>
+              
+            </div>
+    
+            <div class="w-[16.6rem]">
+    
+              <div class="relative flex w-64 mb-4 bg-[bisque] rounded-md h-8 mr-1 mt-2">
+                <i class="search-icon-white absolute z-10 scale-6 top-1 right-56"></i>
+                <input (input)="fillSearchValue($any($event.target).value)" type="search" class="bg-[bisque] outline-input w-52 h-7 mr-2 top-1 relative text-sm" dir="ltr" placeholder="search-country">
+              </div>
+    
+              <ng-container *ngFor="let item of countries| serchFilter:search">
+                <div class="flex countries-row" (click)="countriesSelected(item.code, item.phone)">
+                  <i class="w-8 h-6 rounded-md mr-3 relative -top-1 flag fi fi-{{ item.code| lowercase}}"></i>
+                  <p class="text-black mr-2">{{item.name}}</p>
+                  <p class="text-black">{{'(+' + item.phone + ')'}}</p>
+                </div>
+              </ng-container>
+    
+            </div>
+    
+          </div>
+
+      <!-- ==========[نحوه آشنایی]======== -->
       <div class="flex drop-down flex-col overflow-hidden w-[268px] max-w-[287px]"  [ngClass]="!dropDown ? 'h-[9.5rem]' : 'h-12'">
         <div class="flex items-center justify-between mt-1 cursor-pointer" (click)="toggleDropDown()">
           <div class="flex">
@@ -64,9 +97,17 @@
           </div>
       </div>
 
-      <ng-container *ngIf="activeError">
+
+
+      <ng-container *ngIf="activeError1">
         <p class="text-red-700 md:text-base text-sm w-56 mt-3">لطفا نحوه آشنایی با ما را بیان کنید</p>
       </ng-container>
+      <ng-container *ngIf="activeError2">
+        <p class="text-red-700 md:text-base text-sm w-56 mt-3">لطفا شماره موبایل را وارد کنید</p>
+      </ng-container>
+      <!-- <ng-container *ngIf="activeError3">
+        <p class="text-red-700 md:text-base text-sm w-56 mt-3">لطفا فرمت موبایل را به درستی وارد کنید</p>
+      </ng-container> -->
       <!-- <ng-container *ngIf="activeError2">
         <p class="text-red-700 md:text-base text-sm w-56 mt-3">لطفا کد معرف ار وارد کنید</p>
       </ng-container> -->
@@ -74,7 +115,6 @@
 
     <button
     class="button-submit rounded-lg text-white font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 col-span-2"
-    
       type="submit"
     >
       عضویت

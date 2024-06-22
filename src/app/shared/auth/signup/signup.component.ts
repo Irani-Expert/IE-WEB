@@ -10,6 +10,9 @@ import {
 } from '@angular/animations';
 import { ISignUp } from '../user.interface';
 import { AuthService } from '../auth.service';
+import countries_code  from 'src/app/shared/auth/signup/country-code .json';
+import { CountriesCode } from 'src/app/classes/interfaces/countries.code';
+
 const formDataInit: ISignUp = {
   password: '',
   userName: '',
@@ -37,12 +40,48 @@ const formDataInit: ISignUp = {
   ],
 })
 export class SignupComponent {
+
   @Output('changingView') changeView: EventEmitter<boolean> =
     new EventEmitter<boolean>(false);
   loading = false;
   iconSrc = 'assets/icon/eye-off.svg';
-  activeError : boolean;
-  
+  activeError1 : boolean;
+
+
+
+  // <!-- ==========[اینپوت کشورها]======== -->
+  countries : CountriesCode[];
+  showCountriesList : boolean;
+  countrieIcon = 'IR';
+  countriePhone = 98;
+  search : string = '';
+  mobileNumber : string;
+  activeError2: boolean;
+  // activeError3: boolean;
+
+  countriesDropDown(){
+    this.showCountriesList = !this.showCountriesList;
+  }
+
+  fillSearchValue(value: string) {
+    this.search = value;
+  }
+
+  fillMobileValue(value: string) {
+    this.mobileNumber = value;
+  }
+
+  get country() {
+    return this.countries;
+  }
+
+  countriesSelected(code : string, phone: number ){
+    this.countrieIcon = '';
+    this.countriePhone = 0;
+    this.countrieIcon = code;
+    this.countriePhone = phone;
+    this.showCountriesList = !this.showCountriesList;
+  }
   // <!-- ==========[نحوه آشنایی]======== -->
   
   saveWayKnowType : number;
@@ -99,6 +138,7 @@ export class SignupComponent {
       this.dropDown = !this.dropDown;
       this.wayKnowType[index].active = true;
       this.saveWayKnowType = index;
+
       if(this.saveWayKnowType == 3){
         this._formcontrol['parentReferralCode'].addValidators([Validators.required,Validators.minLength(2)])
         this._formcontrol['parentReferralCode'].updateValueAndValidity({onlySelf: true})
@@ -106,10 +146,12 @@ export class SignupComponent {
       else {
         this._formcontrol['parentReferralCode'].removeValidators([Validators.required,Validators.minLength(2)])
         this._formcontrol['parentReferralCode'].updateValueAndValidity({onlySelf: true})
-
       }
   }
 
+
+  ngOnInit(){    
+  }
   formsControlInit: InputInterface[] = [
     {
       id: 1,
@@ -135,17 +177,17 @@ export class SignupComponent {
       required: false,
       placeholder: 'کد معرف',
     },
-    {
-      id: 4,
-      label: 'شماره همراه',
-      name: 'phoneNumber',
-      type: 'text',
-      typeofVlaue: 'number',
-      required: true,
-      placeholder: 'شماره همراه',
-      minLength: 11,
-      maxLength: 11,
-    },
+    // {
+    //   id: 4,
+    //   label: 'شماره همراه',
+    //   name: 'phoneNumber',
+    //   type: 'text',
+    //   typeofVlaue: 'number',
+    //   required: true,
+    //   placeholder: 'شماره همراه',
+    //   minLength: 11,
+    //   maxLength: 11,
+    // },
     // {
     //   id: 7,
     //   label: 'شماره حساب',
@@ -189,7 +231,10 @@ export class SignupComponent {
   form: FormGroup;
   formControls: InputInterface[];
 
+
   constructor(private authService: AuthService) {
+    
+    this.countries = countries_code.countries;
     this.form = new FormGroup({});
     
     this.formMaker.inputs.forEach((item) => {
@@ -219,12 +264,15 @@ export class SignupComponent {
     //   ? (formData.parentReferralCode =
     //       this._formcontrol['parentReferralCode'].value)
     //   : undefined;
-    formData.phoneNumber = this._formcontrol['phoneNumber'].value;
+    // formData.phoneNumber = this._formcontrol['phoneNumber'].value;
+    formData.phoneNumber = this.countriePhone + this.mobileNumber + '+';
+
+    console.log(this.activeError2);
+    
     formData.userName = formData.email;
     if(formData.parentReferralCode == ''){
       formData.parentReferralCode = null
     }
-
     
     if (await this.checkFormValidation(formData)) {
       if (await this.authService.signup(formData)) this.changeView.emit(true);
@@ -242,13 +290,32 @@ export class SignupComponent {
     var valid = true;
     let email = _formData.email.split('@');
 
+    if(this.mobileNumber == '' || this.mobileNumber == undefined)
+    {
+      this.activeError2 = true;
+      // if ( this.mobileNumber.length > 11){
+      // this.activeError3 = true;
+      // }
+      // else {
+      //   this.activeError3 = false;
+      // }
+    }
+    else{
+      this.activeError2 = false;
+    }
     if(this.saveWayKnowType == null){
-      this.activeError = true;
+      this.activeError1 = true;
+    }
+    else{
+      this.activeError1 = false;
+    }
+
+    if(this.saveWayKnowType == null || this.mobileNumber == '' || this.mobileNumber == undefined){
       valid = false
       return valid
     }
     else{
-      this.activeError = false;
+      console.log('senddata');
     } 
 
     if (this.form.valid) {

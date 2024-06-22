@@ -11,17 +11,21 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 import { NgOtpInputModule } from 'ng-otp-input';
 import { SharedModule } from '../shared.module';
 // import {MatRadioModule} from '@angular/material/radio';
+import { SerchFilterPipe } from './signup/serch-filter.pipe';
+import { FormsModule } from '@angular/forms';
 
 const components = [
   AuthComponent,
   SignupComponent,
   LoginComponent,
   ForgetPasswordComponent,
+  SerchFilterPipe
 ];
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    FormsModule,
     SmoothHeightDirective,
     Toggler,
     NgOtpInputModule,
