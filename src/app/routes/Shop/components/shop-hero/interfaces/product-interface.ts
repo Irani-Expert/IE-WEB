@@ -15,4 +15,6 @@ export interface planInterface {
   offPrice: number;
   price: number;
   description: string;
+  discountPrice: number;
+  toPayPrice: number;
 }

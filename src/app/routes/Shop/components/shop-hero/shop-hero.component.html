@@ -114,26 +114,52 @@
                     </span></a
                   >
                 </div>
+                
                 <div class="flex mr-auto items-center justify-end mt-2 pt-3">
-                  <div class="flex items-center flex-row-reverse">
-                    <p
-                      [ngClass]="{
-                        'price-animation': animationState
-                      }"
-                      class="text-black font-black text-2xl"
-                    >
-                      {{ selectedPlan.price | currency }}
-                    </p>
-                    <!-- <ng-container *ngIf="selectedPlan.id == 39">
+                  <!-- =====[بدون تخفیف]===== -->
+                  <ng-container *ngIf="hideDiscount">
+                    <div class="flex items-center flex-row-reverse">
                       <p
-                        [ngClass]="animationState ? 'price-animation' : ''"
-                        class="text-[#3246d3] font-bold text-lg mx-2"
+                        [ngClass]="{
+                          'price-animation': animationState
+                        }"
+                        class="text-black font-black text-2xl"
                       >
-                        {{ selectedPlan.price - 120 | currency }}
+                        {{ selectedPlan.price | currency }}
                       </p>
-                    </ng-container> -->
-                  </div>
+                    </div>
+                  </ng-container>
+                  <!-- =====[با تخفیف]===== -->
+                  <ng-container *ngIf="!hideDiscount">
+                    
+                    <div class="flex bg-[#2ceca3] items-start ml-2 mb-1 rounded-2xl pading-box-discount"            
+                    [ngClass]="{'price-animation': animationState,}">
+                      <i class="Percent-icon scale-[0.85]"></i>
+                      <p class="text-[0.8rem] font-bold">{{selectedPlan.discountPrice}}</p>
+                    </div>
+
+                    <del
+                    [ngClass]="{
+                      'price-animation': animationState
+                    }"
+                    class="text-black font-black ml-2"
+                    >
+                    {{ selectedPlan.price | currency }}
+                    </del>
+
+                    <p
+                    [ngClass]="{
+                      'price-animation': animationState
+                    }"
+                    class="text-black font-black text-2xl"
+                    >
+                      {{ selectedPlan.toPayPrice | currency }}
+                    </p>
+
+                  </ng-container>
+
                 </div>
+
                 <br />
                 <div class="-mr-2">
                   <button
@@ -237,7 +263,6 @@
             [ngClass]="p.active ? ' bg-[#3246d3]' : ' bg-[#f3f3f3]'"
           >
             <button
-              [disabled]="i == plans.length - 1"
               class="p-2 h-full w-full transition-all disabled:opacity-50"
               (click)="toggle(p)"
             >
@@ -341,22 +366,46 @@
         </button>
       </div>
       <div class="inline-flex justify-center items-center mt-2 basis-2/3">
-        <p
+
+        <!-- =====[بدون تخفیف]===== -->
+        <ng-container *ngIf="hideDiscount">          
+          <p
+            [ngClass]="{
+              'price-animation': animationState,
+            }"
+            class="text-black font-black text-2xl"
+          >
+            {{ selectedPlan.price | currency }}
+          </p>
+        </ng-container>
+      
+        <!-- =====[با تخفیف]===== -->
+        <ng-container *ngIf="!hideDiscount">
+          <div class="flex bg-[#2ceca3] items-start ml-2 mb-1 rounded-2xl pading-box-discount"
+          [ngClass]="{'price-animation': animationState,}">
+            <i class="Percent-icon scale-[0.85]"></i>
+            <p class="text-[0.8rem] font-bold">{{selectedPlan.discountPrice}}</p>
+          </div>
+
+          <del
           [ngClass]="{
-            'price-animation': animationState,
+            'price-animation': animationState
+          }"
+          class="text-black font-black ml-2"
+          >
+          {{ selectedPlan.price | currency }}
+          </del>
+
+          <p
+          [ngClass]="{
+            'price-animation': animationState
           }"
           class="text-black font-black text-2xl"
-        >
-          {{ selectedPlan.price | currency }}
-        </p>
-        <!-- <ng-container *ngIf="selectedPlan.id == 39">
-          <p
-            [ngClass]="animationState ? 'price-animation' : ''"
-            class="text-[#3246d3] font-bold text-lg mx-2"
           >
-            {{ selectedPlan.price - 120 | currency }}
+            {{ selectedPlan.toPayPrice | currency }}
           </p>
-        </ng-container> -->
+        </ng-container>
+
       </div>
     </div>
   </div>

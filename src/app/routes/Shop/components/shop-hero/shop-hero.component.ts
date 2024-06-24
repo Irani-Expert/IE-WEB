@@ -36,6 +36,8 @@ const planInit: planInterface = {
   price: 0,
   title: '',
   description: '',
+  discountPrice: 0,
+  toPayPrice: 0,
 };
 
 @Component({
@@ -194,6 +196,8 @@ export class ShopHeroComponent implements OnInit {
           price: it.price,
           title: it.title,
           description: it.description,
+          discountPrice: it.discountPrice,
+          toPayPrice: it.toPayPrice,
         });
       });
 
@@ -206,12 +210,35 @@ export class ShopHeroComponent implements OnInit {
         src: this.contentUrl + it.filePath,
       });
     });
+    this.discountPrice();
   }
   // get _modalStatus() {
   //   return ShopHeroComponent.modalStatus;
   // }
+  // ======={تخفیف}=====
+  hideDiscount : boolean;
+
+  discountPrice(){
+    // this.product.plans.filter((it) => {
+      
+    //   if( it.discountPrice == null || it.discountPrice == 0 || it.discountPrice == undefined){
+    //     this.hideDiscount = false;
+    //   }
+    //   else{
+    //     this.hideDiscount = true;
+    //   }      
+    // })
+    if (this.selectedPlan.discountPrice == null || this.selectedPlan.discountPrice == 0 || this.selectedPlan.discountPrice == undefined){
+      this.hideDiscount = true;
+    }
+    else{
+      this.hideDiscount = false;
+    }
+    
+  }
   // ==========={اکتیو}=========
   toggle(plan: planInterface) {
+    
     if (this.selectedPlan.id == plan.id) {
       return;
     }
@@ -219,6 +246,13 @@ export class ShopHeroComponent implements OnInit {
     plan.active = true;
     this.selectedPlan = plan;
     this.fireAnimation();
+    
+    if(plan.discountPrice == null || plan.discountPrice == 0 || plan.discountPrice == undefined){
+      this.hideDiscount = true;
+    }
+    else{
+      this.hideDiscount = false;
+    }
   }
   // =================[انیمیشن]============
   changed = false;
@@ -252,13 +286,20 @@ export class ShopHeroComponent implements OnInit {
   async toCheckout(item: planInterface) {
     let itemForBsk: BskItem = {
       count: 1,
-      price: item.price,
+      price: 0,
       rowID: item.id,
       tableType: 17,
       title: item.title,
       id: this._orderService.basket.value.basketItems.length + 1,
     };
 
+    if(item.discountPrice == null || item.discountPrice == 0 || item.discountPrice == undefined){
+      itemForBsk.price = item.price;
+    }
+    else{
+      itemForBsk.price = item.toPayPrice;
+    }
+    
     // let basket: Basket = {
     //   basketItems: [itemForBsk, product],
     //   totalCount: 1,

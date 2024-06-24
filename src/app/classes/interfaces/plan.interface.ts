@@ -16,6 +16,8 @@ export interface Plan {
   expireDate: string;
   iconPath: string;
   isFirstBuy: boolean;
+  discountPrice: number;
+  toPayPrice: number;
   planOptions: PlanOption[];
 }
 export interface PlanOption {
