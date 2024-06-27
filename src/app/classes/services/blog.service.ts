@@ -44,4 +44,15 @@ export class BlogService extends BaseService<any> {
     );
     return await lastValueFrom(result);
   }
+
+  async getBlogById(id: number) {
+    const result = this.get(`Article/details?id=${id}`).pipe(
+      map((res) => {
+        if (res.success) this.singleBlog.next(res.data);
+        return res.success;
+      })
+    );
+    return await lastValueFrom(result);
+  }
+
 }

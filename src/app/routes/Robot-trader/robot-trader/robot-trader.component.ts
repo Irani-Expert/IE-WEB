@@ -34,13 +34,29 @@ export class RobotTraderComponent {
   articleHtml: SafeHtml;
 
   async ngAfterViewInit() {
-    if (await this.getDetail('expert-advisor', 'fa')) {
+    // if (await this.getDetail('expert-advisor', 'fa')) {
+
+
+    // }
+    // ======[متاتگ ها]========
+    if (await this.getDetailByID(1062)) {
       this.tags = this.blogService._blog!.sharpLinkTags;
 
       this.id = Number(this.blogService._blog?.id);
       this.articleHtml = this._sanitizer.bypassSecurityTrustHtml(
         this.blogService._blog!.description
       );
+      this.sendDataToChild = true;
+      if (this.blogService._blog!.studyTime == null || undefined) {
+        this.blogService._blog!.studyTime = '00:15:00';
+      }
+
+      if (this.blogService._blog!.colorCode == null || undefined) {
+        this.color = '#0066FF';
+      } else {
+        this.color = this.blogService._blog!.colorCode;
+      }
+
       let keywords = '';
       this.blogService._blog!.linkTags.forEach((item) => {
         keywords += `${item.title.replace(/#/g, '')},`;
@@ -57,25 +73,17 @@ export class RobotTraderComponent {
       });
       this._meta.updateTag({
         name: 'keywords',
-        content:
-          'دستیار معامله  گر-ربات خودکار- ربات ATM - ربات اتو تریدر-خرید ربات تریدر-ربات معامله گر  طلا- خرید ربات معامله گر- ربات اتوماتیک ترید-ساخت ربات معامله گر-',
-        // content:keywords,
+        content:keywords,
       });
-      this.sendDataToChild = true;
-      if (this.blogService._blog!.studyTime == null || undefined) {
-        this.blogService._blog!.studyTime = '00:15:00';
-      }
-
-      if (this.blogService._blog!.colorCode == null || undefined) {
-        this.color = '#0066FF';
-      } else {
-        this.color = this.blogService._blog!.colorCode;
-      }
     }
   }
 
   async getDetail(title: string, language: string) {
     const apiRes = await this.blogService.getBlog(title, language);
+    return apiRes;
+  }
+  async getDetailByID(id : number) {
+    const apiRes = await this.blogService.getBlogById(id);
     return apiRes;
   }
 

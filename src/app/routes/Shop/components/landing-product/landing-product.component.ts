@@ -26,7 +26,7 @@ export class LandingProductComponent {
   }
   ngOnInit() {
     this._title.setTitle(
-      'خرید بهترین ربات ترید فارکس 2024 تضمینی با بستری ساده و امن'
+      'خرید بهترین ربات متا تریدر فارکس 2024 تضمینی با بستری ساده و امن'
     );
   }
 

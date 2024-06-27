@@ -47,6 +47,10 @@ export class CopyTradeComponent {
       });
       // =======[متاتگ ها]======
       this._meta.updateTag({
+        name:'title',
+        content: 'Test Home'
+      });
+      this._meta.updateTag({
         name: 'description',
         content: this.blogService._blog!.metaDescription,
       });

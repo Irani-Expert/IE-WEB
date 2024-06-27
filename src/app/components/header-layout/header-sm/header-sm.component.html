@@ -54,7 +54,9 @@
           (click)="choosenLink(item.id)"
         >
         <img [src]="item.icon" class="relative bottom-1 w-6 aspect-square ml-2 ">
-        <a [routerLink]="item.path" class="text-white no-underline font-medium"
+        <a [href]="item.path"
+        target="_blank"
+        class="text-white no-underline font-medium"
         >{{ item.name }}
         </a>
         </li>
@@ -65,7 +67,8 @@
           >
             <a
               class="text-white no-underline font-medium block"
-              [routerLink]="sub.path"
+              target="_blank"
+              [href]="sub.path"
               >{{ sub.name }}</a
             >
           </li>
