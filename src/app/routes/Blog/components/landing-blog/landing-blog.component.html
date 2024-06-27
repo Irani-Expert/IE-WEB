@@ -1,8 +1,65 @@
+
+<app-baner-searchblog></app-baner-searchblog>
+
 <div class="bg-all">
-  <div class="mr-8 ml-8 pt-9 hidden lg:block">
-    <ng-container *ngIf="!loading">
-      <app-blog-hero [data]="itemsBlog.slice(0, 5)"></app-blog-hero>
-    </ng-container>
+
+  <ng-container *ngIf="!loading">
+    <app-blog-hero [data]="itemsBlog.slice(0, 5)"></app-blog-hero>
+  </ng-container>
+
+  <div class="xl:grid xl:grid-cols-4 xl:mx-4 py-16 px-4">
+      <!-- ==========[فیلتر دسکتاپ]=========== -->
+      <div class="part-1 hidden lg:block">
+       <app-blog-filter (result)="filterCategory($event)">
+         <p header class="text-black">دسته بندی</p>
+       </app-blog-filter>
+      </div>
+
+      <div class="pt-12 xl:col-span-3 xl:mr-4">
+
+         <!-- ===========[پیشنهاد سردبیر]========== -->
+         <div class="block lg:hidden">
+           <span class="flex title-offer">
+             <i class="icon-offer mb-4 ml-1"></i>
+             پیشنهاد سردبیر</span
+           >
+           <span class="title-offer2">برگزیده آخرین اخبار و مقالات</span>
+           <ng-container *ngIf="!loading">
+             <ng-container *ngFor="let item of itemsBlog">
+               <app-blog-cart [data]="item"></app-blog-cart>
+             </ng-container>
+           </ng-container>
+         </div>
+
+         <app-filter-responsive
+         (result)="filterCategory($event)"
+         [categoryIcon]="categoryIcon"
+         [data]="color"
+       >
+         <p header class="text-black w-28">دسته بندی</p>
+       </app-filter-responsive>
+
+       <div class="mr-6 ml-6 mt-4">
+          <!-- ===========[ پیشنهادات و مقالات ]========== -->
+          <ng-container *ngIf="!loading">
+            <div class="hidden lg:block">
+              <app-offers [data]="itemsBlog"></app-offers>
+            </div>
+            <div class="block lg:hidden">
+              <app-offers [data]="itemsBlog.slice(0, 5)"></app-offers>
+            </div>
+          </ng-container>
+        <!-- <img class="w-full h-16" src="assets/img/add-blog(responsive).webp" alt="add" width="220" height="200"/> -->
+        <!-- ===========[ آرتیکلز ]========== -->
+        <app-articles></app-articles>
+      </div>
+
+      </div>
+
+  </div>
+
+  <!-- <div class="mr-8 ml-8 pt-9 hidden lg:block">
+
     <div class="grid grid-cols-4 mt-16">
       <div class="part-1">
         <app-blog-filter (result)="filterCategory($event)">
@@ -16,50 +73,15 @@
         </ng-container>
       </div>
     </div>
-  </div>
+  </div> -->
+
 </div>
 
 <!-- ==========[رسپانسیو]=========== -->
-<div class="pt-12 lg:hidden">
-  <!-- ========================[بنر]============== -->
-  <div class="flex justify-center mb-10">
-    <div class="baner-mobile">
-      <div class="flex flex-row">
-        <div class="flex items-center mr-3 basis-2/2">
-          <div>
-            <span class="dividr-title"
-              >با ایرانی اکسپرت مطمئن و آسان ترید کن
-            </span>
-            <span class="title-baner">مقالات آموزشی فارکس</span>
-          </div>
-        </div>
-        <div class="relative basis-1/3 flex">
-          <img
-            class="logo-mobile"
-            src="assets/img/blog-baner-logo.webp"
-            alt="logo" width="176" height="176"
-          />
-        </div>
-      </div>
-      <div class="mr-12 ml-12">
-        <div class="search-box">
-          <input
-            (input)="fillValue($any($event.target).value)"
-            class="input-baner"
-            type="text"
-            placeholder="مقاله مورد نظر را جستجو کنید"
-          />
-            <i class="search-icon-blog icon-search"></i>
-        </div>
-      </div>
-    </div>
-  </div>
-  <ng-container *ngIf="!loading">
-    <app-blog-hero [linkType]="1" [data]="itemsBlog.slice(0, 5)"></app-blog-hero>
-  </ng-container>
-  <div class="mr-6 ml-6 mt-10">
+<!-- <div class="pt-12 lg:hidden">
+  <div class="mr-6 ml-6 mt-10"> -->
     <!-- ===========[پیشنهاد سردبیر]========== -->
-    <span class="flex title-offer">
+    <!-- <span class="flex title-offer">
       <i class="icon-offer mb-4 ml-1"></i>
       پیشنهاد سردبیر</span
     >
@@ -68,7 +90,7 @@
       <ng-container *ngFor="let item of itemsBlog">
         <app-blog-cart [data]="item"></app-blog-cart>
       </ng-container>
-    </ng-container>
+    </ng-container> -->
     <!-- ===========[مدرسه فارکس]========== -->
     <!-- <div class="flex justify-center mt-8">
       <div class="school-box">
@@ -95,23 +117,23 @@
     </div>
   </div> -->
   <!-- =========[دسته بندی]====== -->
-
+<!-- 
   <app-filter-responsive
     (result)="filterCategory($event)"
     [categoryIcon]="categoryIcon"
     [data]="color"
   >
     <p header class="text-black w-28">دسته بندی</p>
-  </app-filter-responsive>
+  </app-filter-responsive> -->
 
   <!-- ===========[ پیشنهادات و مقالات ]========== -->
-  <ng-container *ngIf="!loading">
+  <!-- <ng-container *ngIf="!loading">
     <app-offers [data]="itemsBlog.slice(0, 5)"></app-offers>
-  </ng-container>
+  </ng-container> -->
   <!-- ===========[ تبلیغات ]========== -->
-  <div class="mr-6 ml-6 mt-4">
+  <!-- <div class="mr-6 ml-6 mt-4"> -->
     <!-- <img class="w-full h-16" src="assets/img/add-blog(responsive).webp" alt="add" width="220" height="200"/> -->
     <!-- ===========[ آرتیکلز ]========== -->
-    <app-articles></app-articles>
-  </div>
-</div>
+    <!-- <app-articles></app-articles> -->
+  <!-- </div> -->
+<!-- </div> -->

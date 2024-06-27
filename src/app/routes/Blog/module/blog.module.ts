@@ -12,6 +12,7 @@ import { LandingBlogDetailComponent } from '../components/landing-blog-detail/la
 import { CarouselBlogComponent } from '../components/carousel-blog/carousel-blog.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { BlogDetailComponent } from '../components/blog-detail/blog-detail.component';
+import { BanerSearchblogComponent } from '../components/baner-searchblog/baner-searchblog.component';
 
 const components = [
   LandingBlogComponent,
@@ -23,6 +24,7 @@ const components = [
   BlogPaginationComponent,
   ArticlesComponent,
   BlogDetailComponent,
+  BanerSearchblogComponent,
 ];
 
 @NgModule({

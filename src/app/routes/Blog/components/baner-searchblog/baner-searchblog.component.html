@@ -1,0 +1,69 @@
+<!-- ========================[بنر]============== -->
+<div class="hidden justify-center w-full lg:flex">
+    <div class="baner flex">
+      <div class="basis-1/3 flex items-center">
+        <div class="flex items-center">
+          <div class="lg:pt-0 pt-4">
+            <span class="divid-h lg:!text-base"
+              >با ایرانی اکسپرت مطمئن و آسان ترید کن
+            </span>
+            <br />
+            <span class="faq-h mb-4 lg:!text-2xl">مقالات آموزشی فارکس</span>
+          </div>
+        </div>
+      </div>
+      <div class="basis-1/3 flex items-center">
+        <div class="search-box">
+          <input
+            class="input-baner"
+            type="text"
+            (input)="fillValue($any($event.target).value)"
+            placeholder="مقاله مورد نظر را جستجو کنید"
+          />
+            <i class="search-icon-blog"></i>
+        </div>
+      </div>
+      <div class="basis-1/3 relative flex justify-end">
+        <img
+          class="logo"
+          src="assets/img/blog-baner-logo.webp"
+          alt="logo"
+          width="100"
+          height="100"
+        />
+      </div>
+    </div>
+</div>  
+<!-- ==========[رسپانسیو]=========== -->
+<div class="flex justify-center my-10 lg:hidden">
+    <div class="baner-mobile">
+      <div class="flex flex-row">
+        <div class="flex items-center mr-3 basis-2/2">
+          <div>
+            <span class="dividr-title"
+              >با ایرانی اکسپرت مطمئن و آسان ترید کن
+            </span>
+            <span class="title-baner">مقالات آموزشی فارکس</span>
+          </div>
+        </div>
+        <div class="relative basis-1/3 flex">
+          <img
+            class="logo-mobile"
+            src="assets/img/blog-baner-logo.webp"
+            alt="logo" width="176" height="176"
+          />
+        </div>
+      </div>
+      <div class="mr-12 ml-12">
+        <div class="search-box">
+          <input
+            (input)="fillValue($any($event.target).value)"
+            class="input-baner"
+            type="text"
+            placeholder="مقاله مورد نظر را جستجو کنید"
+          />
+            <i class="search-icon-blog icon-search"></i>
+        </div>
+      </div>
+    </div>
+  </div>
