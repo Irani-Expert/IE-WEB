@@ -13,6 +13,8 @@ export interface InputInterface {
   minLength?: number;
   maxLength?: number;
   hasErr?: boolean;
+  height?: number;
+  width?: number;
 }
 export interface InputIcon {
   readonly id: number;

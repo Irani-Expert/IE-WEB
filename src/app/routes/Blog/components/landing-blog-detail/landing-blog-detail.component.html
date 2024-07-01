@@ -1,6 +1,6 @@
 
   <!-- ==========[بنر]=========== -->
-  <div class="justify-center hidden xl:flex">
+  <!-- <div class="justify-center hidden xl:flex">
     <div class="baner flex flex-row ml-4 mr-4">
       <div class="basis-2/3 flex items-center">
         <div class="mr-12">
@@ -23,7 +23,8 @@
         />
       </div>
     </div>
-  </div>
+  </div> -->
+  <app-counseling-needs-banner></app-counseling-needs-banner>
 
   <div class="xl:grid xl:grid-cols-4 xl:mx-4 py-16 px-4">
 
@@ -38,8 +39,10 @@
 
     <div class="xl:col-span-3 xl:mr-4">
       <ng-container *ngIf="sendDataToChild">
-  
+
+        <!-- <app-counseling-needs-banner></app-counseling-needs-banner> -->
         <app-blog-detail [data]="blogService._blog!"></app-blog-detail>
+
         <app-faq-blog [data]="blogService._blog?.faQs!"></app-faq-blog>
         <!-- <app-share-link-box></app-share-link-box> -->
 
@@ -80,7 +83,7 @@
           </div>
         </div>
 
-        <app-free-advice></app-free-advice>
+        <!-- <app-free-advice></app-free-advice> -->
         <app-vote [data]="blogService._blog!" ></app-vote>
         <ng-container *ngIf="isBrowser">
           <app-comments

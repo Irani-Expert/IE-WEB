@@ -1,4 +1,5 @@
 <ng-container *ngIf="sendDataToChild">
+  <app-counseling-needs-banner></app-counseling-needs-banner>
   <div class="flex flex-row-reverse w-full p-5 bg-page">
     <div class="xl:w-9/12 w-full">
       <img
@@ -73,7 +74,7 @@
           <p header class="text-black w-28">دسترسی سریع</p>
         </app-filter-responsive>
       </div>
-      <app-free-advice></app-free-advice>
+      <!-- <app-free-advice></app-free-advice> -->
       <app-faq-blog [data]="blogService._blog?.faQs!"></app-faq-blog>
       <app-vote [data]="blogService._blog!"></app-vote>
       <!-- <div class="bg-[#ECECEC] rounded-3xl p-5 text-[#4D4D4D]">

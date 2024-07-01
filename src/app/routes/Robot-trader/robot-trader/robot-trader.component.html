@@ -1,7 +1,7 @@
 <ng-container *ngIf="sendDataToChild">
   <h1 class="sr-only">ربات معامله گر چیست؟</h1>
   <h2 class="sr-only">{{ blogService._blog!.title }}</h2>
-  <div
+  <!-- <div
     class="flex justify-between bg-lightBlue rounded-2xl w-full my-32 max-lg:hidden"
   >
     <div class="p-10">
@@ -22,7 +22,9 @@
         height="100"
       />
     </div>
-  </div>
+  </div> -->
+  <app-counseling-needs-banner></app-counseling-needs-banner>
+  
   <div class="flex flex-row-reverse w-full sm:p-5 p-2">
     <div class="lg:w-9/12 w-full">
       <div
@@ -106,6 +108,8 @@
       <ng-container *ngIf="isBrowser">
         <app-content-menu [data]="listElems" [wid]="100"></app-content-menu>
       </ng-container>
+      <app-counseling-needs-banner></app-counseling-needs-banner>
+
       <!-- =============[]======== -->
       <div
         id="ckeditor"
@@ -132,7 +136,7 @@
       </div>
 
       <ng-container *ngIf="isBrowser">
-        <app-free-advice></app-free-advice
+        <!-- <app-free-advice></app-free-advice -->
       ></ng-container>
       <app-faq-blog [data]="blogService._blog?.faQs!"></app-faq-blog>
       <ng-container *ngIf="isBrowser">

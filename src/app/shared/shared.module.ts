@@ -33,6 +33,7 @@ import { Spinner } from './spinner/spinner.component';
 import { FaqBlogComponent } from '../routes/Blog/components/faq-blog/faq-blog.component';
 import { ProductProperties } from './product-properties/product-properties.component';
 import { RatingComponent } from './rating/rating.component';
+import { CounselingNeedsBannerComponent } from './counseling-needs-banner/counseling-needs-banner.component';
 
 const components = [
   AcordianComponent,
@@ -52,6 +53,7 @@ const components = [
   FreeAdviceComponent,
   ConsultationFormComponent,
   SectorFilterComponent,
+  CounselingNeedsBannerComponent
 ];
 @NgModule({
   imports: [
@@ -84,6 +86,7 @@ const components = [
     NotFoundComponent,
     ContentMenuComponent,
     FilterPipe,
+    CounselingNeedsBannerComponent,
   ],
   providers: [
     DefaultMatCalendarRangeStrategy,
