@@ -1,80 +1,81 @@
 
-<div class="w-full hidden lg:flex" (mouseleave)="deactivateAnimation()">
-    <div class="flex my-4 mx-8 w-full bg-banner rounded-3xl lg:h-72 xl:h-48 max-w-[1314px] flex-col-reverse lg:flex-row">
-
-        <!-- =====[سمت راست]====== -->
-        <div class="lg:basis-1/4 xl:basis-1/5 2xl:basis-1/4 pr-12 items-center flex">
-            <p class="text-white font-bold text-2xl w-48 text-center">
-                 هر آن چه به موفقیت نیاز دارید در
-                <br>
-                <span class="mx-1 text-[#FFEE00] font-black text-3xl">ایرانی اکسپرت</span>
-                <br>
-                پیدا میکنید
-            </p>
-        </div>
-        <!-- =====[ستون وسط]====== -->
-        <div class="flex flex-col lg:basis-2/4 xl:basis-3/5 2xl:basis-2/4 justify-center items-center">
-            <p class="text-white font-black lg:text-3xl 2xl:text-4xl" [ngClass]=" animation == false ? 'titile-banner-zoom-out' : 'titile-banner-zoom-in' ">نیاز به مشاوره داری؟ ما کمکت میکنیم</p>
-            <!-- lg:text-3xl 2xl:text-4xl -->
-            
-            <ng-container *ngIf="!animation">
-                <div class="flex mt-6" (mouseenter)="activeAnimation()">
-                    <img class="lg:w-20 2xl:w-24 h-24 img-baner" src="../.././../assets/img/bot-bnaer-off.webp" alt="img-bot-baner" [ngClass]=" animation == false ? 'animation-move-right-reverse' : 'animation-move-right' ">
-                    <span class="flex flex-col box-c lg:w-44 2xl:w-56 mr-8 pt-8 xl">
-                        <p class="flex text-white font-bold lg:text-xl 2xl:text-2xl" [ngClass]=" animation == false ? 'animation-move-right-reverse' : 'animation-move-right' ">
-                            مشاوره
-                            <span class="mx-1 text-[#FFEE00] font-black">رایگان</span>
-                            ربات
-                        </p>
-                        <div class="lg:w-10 2xl:w-12 aspect-square">
-                            <app-lottie [config]="lottieConfig2" />
-                        </div>
-                    </span>
-                </div>
-            </ng-container>
-
-            <!-- =====[فرم]====== -->
-            <ng-container *ngIf="animation">
-                <form
-                  class="flex flex-col items-center lg:pr-20 xl:pr-0"
-                  [formGroup]="form"
-                  (ngSubmit)="consultationServices()"
-                  [ngClass]=" animation == true ? 'animation-move-right-reverse' : 'animation-move-right' ">
-                  
-                  <div class="grid lg:grid-cols-1 xl:grid-cols-2 gap-2 lg:w-full xl:w-[85%]">
-                      <ng-container *ngFor="let control of formControls; let i = index">
-                        <div
-                          class="input-container m-2 sm:w-96">
-                          <div class="relative -mt-4">
-                            <input
-                              [id]="control.name"
-                              autocomplete="off"
-                              [ngClass]="control.hasErr == true ? '  hasError' : '!border-none'"
-                              class="input-with-icon  !text-base font-semibold bg-[#f3f3f3] sm:bg-white"
-                              [type]="control?.type ? control.type : 'text'"
-                              formControlName="{{ control.name }}"
-                              [placeholder]="control?.placeholder ? control.placeholder : ''"/>
-                          </div>
-                        </div>
-                      </ng-container>
-                  </div>
-                  
-                  <button type="submit" class="btn-form relative lg:left-12 xl:left-0 mt-2">
-                    <p class="text-[#061fb8] font-bold text-sm">
-                        ثبت درخواست
-                    </p>
-                  </button>
+<ng-container *ngIf="loading">
+    <div class="w-full mt-12 lg:mt-0" (mouseleave)="deactivateAnimation()">
+        <div class="flex my-4 mx-8 w-[85%] lg:w-full bg-banner rounded-3xl lg:h-72 xl:h-48 max-w-[1314px] flex-col-reverse lg:flex-row overflow-hidden">
     
-                </form>
-            </ng-container>
-
-        </div>
-        <!-- =====[سمت چپ]====== -->
-        <div class="flex lg:basis-1/4 xl:basis-1/5 2xl:basis-1/4 items-center justify-end pl-8">
-            <div class="aspect-square lg:w-44 xl:w-52">
-                <app-lottie [config]="lottieConfig" />
+            <!-- =====[سمت راست]====== -->
+            <div class="lg:basis-1/4 xl:basis-1/5 2xl:basis-1/4 lg:pr-4 2xl:pr-12 items-center justify-center flex my-8 lg:my-0">
+                <p class="text-white font-bold lg:text-xl 2xl:text-2xl 2xl:w-48 text-center lg:w-36">
+                     هر آن چه به موفقیت نیاز دارید در
+                    <br>
+                    <span class="mx-1 text-[#FFEE00] font-black text-3xl">ایرانی اکسپرت</span>
+                    <br>
+                    پیدا میکنید
+                </p>
             </div>
+            <!-- =====[ستون وسط]====== -->
+            <div class="flex flex-col lg:basis-2/4 xl:basis-3/5 2xl:basis-2/4 justify-center items-center mt-8 lg:mt-0">
+                <p class="text-white font-black text-xl md:text-2xl lg:text-3xl 2xl:text-4xl" [ngClass]=" animation == false ? 'titile-banner-zoom-out' : 'titile-banner-zoom-in' ">نیاز به مشاوره داری؟ ما کمکت میکنیم</p>
+                
+                <ng-container *ngIf="!animation">
+                    <div class="flex mt-6" (mouseenter)="activeAnimation()" (click)="activeAnimation()">
+                        <img class="lg:w-20 2xl:w-24 h-24 img-baner" src="../.././../assets/img/bot-bnaer-off.webp" alt="img-bot-baner" [ngClass]=" animation == false ? 'animation-move-right-reverse' : 'animation-move-right' ">
+                        <span class="flex flex-col box-c lg:w-44 2xl:w-56 mr-8 pt-8 xl" [ngClass]=" animation == false ? 'animation-move-right-reverse' : 'animation-move-right' ">
+                            <p class="flex text-white font-bold lg:text-xl 2xl:text-2xl">
+                                مشاوره
+                                <span class="mx-1 text-[#FFEE00] font-black">رایگان</span>
+                                ربات
+                            </p>
+                            <div class="lg:w-10 2xl:w-12 aspect-square">
+                                <app-lottie [config]="lottieConfig2" />
+                            </div>
+                        </span>
+                    </div>
+                </ng-container>
+    
+                <!-- =====[فرم]====== -->
+                <ng-container *ngIf="animation">
+                    <form
+                      class="flex flex-col items-center lg:pr-20 xl:pr-0 justify-center md:"
+                      [formGroup]="form"
+                      (ngSubmit)="consultationServices()"
+                      [ngClass]=" animation == true ? 'animation-move-right-reverse' : 'animation-move-right' ">
+                      
+                      <div class="grid lg:grid-cols-1 xl:grid-cols-2 gap-2 lg:w-full xl:w-[85%] md:w-[70%]">
+                          <ng-container *ngFor="let control of formControls; let i = index">
+                            <div
+                              class="input-container m-2 sm:w-96">
+                              <div class="relative -mt-4">
+                                <input
+                                  [id]="control.name"
+                                  autocomplete="off"
+                                  [ngClass]="control.hasErr == true ? '  hasError' : '!border-none'"
+                                  class="input-with-icon  !text-base font-semibold bg-[#f3f3f3] sm:bg-white"
+                                  [type]="control?.type ? control.type : 'text'"
+                                  formControlName="{{ control.name }}"
+                                  [placeholder]="control?.placeholder ? control.placeholder : ''"/>
+                              </div>
+                            </div>
+                          </ng-container>
+                      </div>
+                      
+                      <button type="submit" class="btn-form relative lg:left-12 xl:left-0 mt-2">
+                        <p class="text-[#061fb8] font-bold text-sm">
+                            ثبت درخواست
+                        </p>
+                      </button>
+        
+                    </form>
+                </ng-container>
+    
+            </div>
+            <!-- =====[سمت چپ]====== -->
+            <div class="flex lg:basis-1/4 xl:basis-1/5 2xl:basis-1/4 items-center justify-center">
+                <div class="aspect-square w-60 lg:w-44 xl:w-52">
+                    <app-lottie [config]="lottieConfig" />
+                </div>
+            </div>
+    
         </div>
-
     </div>
-</div>
+</ng-container>

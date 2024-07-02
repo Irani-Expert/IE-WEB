@@ -15,7 +15,6 @@ loading = false;
 config: config;
 ngOnInit() {
   this.config = this.mergeConfig(this.options);
-  // console.log(this.data);
   if (AppComponent.isBrowser.value){
     this.loading = true;
   }

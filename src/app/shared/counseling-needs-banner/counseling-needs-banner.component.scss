@@ -28,8 +28,6 @@
 .btn-form:hover{
   background-color: #D0C30B;  
 }
-// transform: translate(0rem,-0.75rem);
-//   font-size: 0.9rem;
 input {
   height: 2.5rem;
   width: 16.5rem;
@@ -52,44 +50,55 @@ input:hover {
   background-color: #eae3e3;
  }
 .animation-move-right{
-  animation: moveRight 0.5s ease-in-out;
-  // transition: transform 0.2s;
-  // transform: translate(30rem,0rem);
+  // position: absolute;
+  animation: fade 0.25s ease-in forwards;
+  // transition: transform 1.2s;
+  // transform: translate(300rem,0rem);
 }
 .animation-move-right-reverse{
-  animation: moveRightReverse 0.5s ease-in-out;
-  transition: transform 0.2s;
-  transform: translate(0rem,0rem);
+  // position: relative;
+  animation: fadeReverse 0.25s ease-in forwards;
+  // transition: transform 1.2s;
+  // transform: translate(0rem,0rem);
 }
-// .img-baner{
-//   transition: all 0.35s ease-in-out;
-//   transform: translate(30rem,0rem);
+// .animation-move-left{
+  // position: absolute;
+  // animation: fade 0.25s ease-in forwards;
+  // transition: transform 1.2s;
+  // transform: translate(-250rem,0rem);
+// }
+// .animation-move-left-reverse{
+  // position: relative;
+  // animation: fadeReverse 0.25s ease-in forwards;
+  // transition: transform 1.2s;
+  // transform: translate(0rem,0rem);
 // }
 
-@keyframes moveRight {
+
+@keyframes fade {
   0% {
-    opacity: 1;
-    transform: translate(3rem,0rem);
+    opacity: 1 !important;
+    // transform: translate(3rem,0rem);
   }
   25% {
-    opacity: 0.75;
-    transform: translate(7.5rem,0rem);
+    opacity: 0.75 !important;
+    // transform: translate(7.5rem,0rem);
   }
   50% {
-    opacity: 0.5;
-    transform: translate(15rem,0rem);
+    opacity: 0.5 !important;
+    // transform: translate(15rem,0rem);
   }
   75% {
-    opacity: 0.25;
-    transform: translate(25rem,0rem);
+    opacity: 0.25 !important;
+    // transform: translate(25rem,0rem);
   }
   100% {
-    opacity: 0;
-    transform: translate(30rem,0rem);
+    opacity: 0 !important;
+    // transform: translate(30rem,0rem);
   }
 }
 
-@keyframes moveRightReverse {
+@keyframes fadeReverse {
   0% {
     opacity: 0;
     // transform: translate(-3rem,0rem);

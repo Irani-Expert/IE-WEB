@@ -5,6 +5,7 @@ import { InputForm, InputInterface } from 'src/app/classes/input';
 import { UserNeedService } from 'src/app/classes/services/user-need.service';
 import { ToastrService } from 'ngx-toastr';
 import { GiftInter } from 'src/app/routes/Home/components/gift-form/gift-Inter';
+import { AppComponent } from 'src/app/app.component';
 
 const formDataInit: GiftInter = {
   id: 0,
@@ -115,6 +116,14 @@ export class CounselingNeedsBannerComponent {
     this.formControls = this.formMaker.inputs;
   }
   
+  loading = false;
+
+  ngOnInit() {
+    if (AppComponent.isBrowser.value){
+      this.loading = true;
+    }
+  }
+
   get _firstName(): string {
     return this.form.controls['firstName'].value;
   }
