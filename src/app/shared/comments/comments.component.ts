@@ -8,6 +8,7 @@ import { AuthService } from '../auth/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { Result } from 'src/app/classes/result';
 import { PageInterface } from 'src/app/classes/page.model';
+import { AppComponent } from 'src/app/app.component';
 
 let formDataInit: Comment = {
   id: 0,
@@ -88,9 +89,15 @@ export class CommentsComponent {
   get _Email(): string {
     return this.form.controls['Email'].value;
   }
+  loading = false;
+
   ngOnInit() {
-    this.getComment();
-    formDataInit.id != this.rowId;
+    if (AppComponent.isBrowser.value){
+      this.loading = true;
+    }
+
+    this.getComment();    
+    
   }
 
   async getComment() {
@@ -121,8 +128,8 @@ export class CommentsComponent {
     formData.text = this._text;
     formData.email = this._Email;
     formData.rate = this.rate;
-    formData.tableType = this.tableType;
-    formData.rowID != this.rowId;
+    formData.tableType = this.tableType;    
+    formData.rowID = this.rowId!;
     formData.userID = this._authservice._user.id;
     if (await this.checkFormValidation(formData)) {
       let address = 'Comment?authorID=' + this._authservice._user.id;

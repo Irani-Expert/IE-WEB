@@ -4,18 +4,22 @@
         <div class="flex my-4 mx-8 w-[85%] lg:w-full bg-banner rounded-3xl lg:h-72 xl:h-48 max-w-[1314px] flex-col-reverse lg:flex-row overflow-hidden">
     
             <!-- =====[سمت راست]====== -->
-            <div class="lg:basis-1/4 xl:basis-1/5 2xl:basis-1/4 lg:pr-4 2xl:pr-12 items-center justify-center flex my-8 lg:my-0">
-                <p class="text-white font-bold lg:text-xl 2xl:text-2xl 2xl:w-48 text-center lg:w-36">
-                     هر آن چه به موفقیت نیاز دارید در
+            <div class="lg:basis-1/4 xl:basis-1/5 2xl:basis-1/4 lg:pr-4 2xl:pr-7 items-center justify-center flex my-8 lg:my-0">
+                <p class="text-white font-bold lg:text-lg 2xl:text-xl 2xl:w-60 text-center lg:w-52 xl:-mr-2 2xl:-mr-10 ">
+                     هر آنچه برای موفقیت در بازارمالی لازمه اینجا پیدا می کنی
                     <br>
-                    <span class="mx-1 text-[#FFEE00] font-black text-3xl">ایرانی اکسپرت</span>
-                    <br>
-                    پیدا میکنید
+                    <span class="mx-1 text-[#FFEE00] font-black text-2xl">از رباتی که مناسب حساب های شخصی و پراپه تا تقویم اقتصادی</span>
                 </p>
             </div>
             <!-- =====[ستون وسط]====== -->
             <div class="flex flex-col lg:basis-2/4 xl:basis-3/5 2xl:basis-2/4 justify-center items-center mt-8 lg:mt-0">
-                <p class="text-white font-black text-xl md:text-2xl lg:text-3xl 2xl:text-4xl" [ngClass]=" animation == false ? 'titile-banner-zoom-out' : 'titile-banner-zoom-in' ">نیاز به مشاوره داری؟ ما کمکت میکنیم</p>
+                <ng-container *ngIf="animation">
+                   <p class="text-white font-black titile-banner-zoom-in" [ngClass]=" animation == true ? 'animation-move-right-reverse' : 'animation-move-right' ">منتظر تماس ما باش (طول نمیکشه😉)</p>
+                </ng-container>
+                <ng-container *ngIf="!animation">
+                    <p class="text-white font-black text-xl md:text-2xl lg:text-3xl 2xl:text-4xl" [ngClass]=" animation == false ? 'animation-move-right-reverse' : 'animation-move-right' ">فرم رو پر کن، جواب سوالاتتو بگیر</p>
+                </ng-container>
+
                 
                 <ng-container *ngIf="!animation">
                     <div class="flex mt-6" (mouseenter)="activeAnimation()" (click)="activeAnimation()">
@@ -24,7 +28,7 @@
                             <p class="flex text-white font-bold lg:text-xl 2xl:text-2xl">
                                 مشاوره
                                 <span class="mx-1 text-[#FFEE00] font-black">رایگان</span>
-                                ربات
+                                تخصصی
                             </p>
                             <div class="lg:w-10 2xl:w-12 aspect-square">
                                 <app-lottie [config]="lottieConfig2" />
@@ -61,7 +65,7 @@
                       
                       <button type="submit" class="btn-form relative lg:left-12 xl:left-0 mt-2">
                         <p class="text-[#061fb8] font-bold text-sm">
-                            ثبت درخواست
+                            ثبت مشاوره
                         </p>
                       </button>
         

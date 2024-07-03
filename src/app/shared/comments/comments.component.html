@@ -1,271 +1,273 @@
-<div class="flex justify-center m-2">
-  <div class="lg::w-9/12 mb-7">
-    <div class="mb-3">
-      <div class="md:mb-10 mb-2">
-        <div class="flex items-center text-base font-semibold text-[#3246D3]">
-          <div
-            class="me-2 w-[24px] h-[6px] inline-block bg--blue rounded-[5px]"
-          ></div>
-          <h4 class="mt-1.5 text-[#3246D3]"> نظرات خریداران ربات ATM</h4>
+<ng-container *ngIf="loading">
+  <div class="flex justify-center m-2">
+    <div class="lg::w-9/12 mb-7">
+      <div class="mb-3">
+        <div class="md:mb-10 mb-2">
+          <div class="flex items-center text-base font-semibold text-[#3246D3]">
+            <div
+              class="me-2 w-[24px] h-[6px] inline-block bg--blue rounded-[5px]"
+            ></div>
+            <h4 class="mt-1.5 text-[#3246D3]"> نظرات خریداران ربات ATM</h4>
+          </div>
+          <p class="sm:text-[27px] text-xl font-bold mt-1 text-black">
+            لطفا نظرات خود را جهت راهنمایی دیگر خریداران ثبت کنید
+          </p>
         </div>
-        <p class="sm:text-[27px] text-xl font-bold mt-1 text-black">
-          لطفا نظرات خود را جهت راهنمایی دیگر خریداران ثبت کنید
-        </p>
-      </div>
-      <form [formGroup]="form" (ngSubmit)="commentServices()">
-        <div class="flex flex-col items-center">
-          <div
-            class="flex md:w-[46rem] justify-between max-lg:flex-col max-lg:items-center"
-          >
+        <form [formGroup]="form" (ngSubmit)="commentServices()">
+          <div class="flex flex-col items-center">
             <div
-              class="sep-part"
-              [ngClass]="this.formErrors['NameInfo'] != null ? 'hasError' : ''"
+              class="flex md:w-[46rem] justify-between max-lg:flex-col max-lg:items-center"
             >
-              <input
-                type="text"
-                [ngClass]="completedFill ? 'disable-color' : ''"
-                placeholder="نام خود را وارد کنید"
-                formControlName="NameInfo"
-              />
               <div
-                class="w-[16rem] flex items-center font-bold md:text-xl text-lg"
+                class="sep-part"
+                [ngClass]="this.formErrors['NameInfo'] != null ? 'hasError' : ''"
               >
-                نام و نام خانوادگی
-              </div>
-            </div>
-            <div
-              class="sep-part max-lg:w-full max-md:mt-6"
-              [ngClass]="this.formErrors['Email'] != null ? 'hasError' : ''"
-            >
-              <input
-                type="text"
-                [ngClass]="completedFill ? 'disable-color' : ''"
-                placeholder="ایمیل خود را وارد کنید"
-                formControlName="Email"
-              />
-              <div
-                class="w-[5rem] flex items-center font-bold md:text-xl text-lg"
-              >
-                ایمیل
-              </div>
-            </div>
-          </div>
-
-          <div class="w-full mt-5">
-            <textarea
-              [ngClass]="this.formErrors['textAr'] != null ? 'hasError' : ''"
-              formControlName="textAr"
-              placeholder="نظر خود را درباره بروکر معرفی شده ثبت کنید"
-            ></textarea>
-          </div>
-
-          <div class="flex flex-col w-full">
-            <div class="w-full flex justify-between max-md:flex-col-reverse">
-              <div class="flex flex-col">
-                <span class="font-bold me-2">امتیاز دهید:{{ rateText }}</span>
-                <span>برداشت خود را در بررسی مطلب ارائه شده ثبت کنید</span>
-              </div>
-              <div class="flex items-center max-md:mb-4">
-                ثبت نظر به صورت ناشناس <app-toggle class="mr-3"></app-toggle>
-              </div>
-            </div>
-            <div class="lg:flex">
-              <div class="flex flex-col w-full justify-center">
+                <input
+                  type="text"
+                  [ngClass]="completedFill ? 'disable-color' : ''"
+                  placeholder="نام خود را وارد کنید"
+                  formControlName="NameInfo"
+                />
                 <div
-                  class="p-div lg:w-[18rem] flex flex-col p-2 text-2xl mb-[24px] justify-center"
+                  class="w-[16rem] flex items-center font-bold md:text-xl text-lg"
                 >
-                  <div class="flex flex-col">
-                    <div class="flex flex-row-reverse max-md:justify-around">
-                      <div
-                        class="flex justify-center mx-2 w-9 cursor-pointer"
-                        [ngClass]="rate == 1 ? 'bg-active' : ''"
-                      >
-                        <i
-                          class="ie-h1 mx-1"
-                          (click)="putStyle(1, 'خیلی بد ')"
-                        ></i>
-                      </div>
-                      <div
-                        class="flex justify-center mx-2 w-9 cursor-pointer"
-                        [ngClass]="rate == 2 ? 'bg-active' : ''"
-                      >
-                        <i class="ie-h2 mx-1" (click)="putStyle(2, 'بد')"></i>
-                      </div>
-                      <div
-                        class="flex justify-center mx-2 w-9 cursor-pointer"
-                        [ngClass]="rate == 3 ? 'bg-active' : ''"
-                      >
-                        <i class="ie-h3 mx-1" (click)="putStyle(3, 'خوب')"></i>
-                      </div>
-                      <div
-                        class="flex justify-center mx-2 w-9 cursor-pointer"
-                        [ngClass]="rate == 4 ? 'bg-active' : ''"
-                      >
-                        <i
-                          class="ie-h4 mx-1"
-                          (click)="putStyle(4, 'خیلی خوب')"
-                        ></i>
-                      </div>
-                      <div
-                        class="flex justify-center mx-2 w-9 cursor-pointer"
-                        [ngClass]="rate == 5 ? 'bg-active' : ''"
-                      >
-                        <i class="ie-h5 mx-1" (click)="putStyle(5, 'عالی')">
-                        </i>
-                      </div>
-                    </div>
-                    <!-- <div class="flex justify-end items-center sm:mt-2 mt-6">
-                    <span class="me-2">{{ rateText }}</span>
-                    <button
-                      class="bg-[#0080FF] text-white font-bold text-2xl p-2 rounded-2xl"
-                    >
-                      ثبت رای
-                    </button>
-                  </div> -->
-                  </div>
-                  <!-- <progress
-                  min="0"
-                  max="100"
-                  class="pr-Before w-full cursor-pointer"
-                  value="{{ rangeRate }}"
-                  (click)="handleClick($event)"
-                  [ngStyle]="{ '--movement': left }"
-                ></progress> -->
+                  نام و نام خانوادگی
                 </div>
               </div>
               <div
-                class="flex flex-col w-full lg:w-fit max-md:items-center items-end justify-end mb-4"
+                class="sep-part max-lg:w-full max-md:mt-6"
+                [ngClass]="this.formErrors['Email'] != null ? 'hasError' : ''"
               >
-                <button
-                  class="bg--blue rounded-xl text-white sm:w-[13.5rem] w-[12rem] mr-2 p-4"
+                <input
+                  type="text"
+                  [ngClass]="completedFill ? 'disable-color' : ''"
+                  placeholder="ایمیل خود را وارد کنید"
+                  formControlName="Email"
+                />
+                <div
+                  class="w-[5rem] flex items-center font-bold md:text-xl text-lg"
                 >
-                  ثبت دیدگاه
-                </button>
+                  ایمیل
+                </div>
+              </div>
+            </div>
+  
+            <div class="w-full mt-5">
+              <textarea
+                [ngClass]="this.formErrors['textAr'] != null ? 'hasError' : ''"
+                formControlName="textAr"
+                placeholder="نظر خود را درباره بروکر معرفی شده ثبت کنید"
+              ></textarea>
+            </div>
+  
+            <div class="flex flex-col w-full">
+              <div class="w-full flex justify-between max-md:flex-col-reverse">
+                <div class="flex flex-col">
+                  <span class="font-bold me-2">امتیاز دهید:{{ rateText }}</span>
+                  <span>برداشت خود را در بررسی مطلب ارائه شده ثبت کنید</span>
+                </div>
+                <div class="flex items-center max-md:mb-4">
+                  ثبت نظر به صورت ناشناس <app-toggle class="mr-3"></app-toggle>
+                </div>
+              </div>
+              <div class="lg:flex">
+                <div class="flex flex-col w-full justify-center">
+                  <div
+                    class="p-div lg:w-[18rem] flex flex-col p-2 text-2xl mb-[24px] justify-center"
+                  >
+                    <div class="flex flex-col">
+                      <div class="flex flex-row-reverse max-md:justify-around">
+                        <div
+                          class="flex justify-center mx-2 w-9 cursor-pointer"
+                          [ngClass]="rate == 1 ? 'bg-active' : ''"
+                        >
+                          <i
+                            class="ie-h1 mx-1"
+                            (click)="putStyle(1, 'خیلی بد ')"
+                          ></i>
+                        </div>
+                        <div
+                          class="flex justify-center mx-2 w-9 cursor-pointer"
+                          [ngClass]="rate == 2 ? 'bg-active' : ''"
+                        >
+                          <i class="ie-h2 mx-1" (click)="putStyle(2, 'بد')"></i>
+                        </div>
+                        <div
+                          class="flex justify-center mx-2 w-9 cursor-pointer"
+                          [ngClass]="rate == 3 ? 'bg-active' : ''"
+                        >
+                          <i class="ie-h3 mx-1" (click)="putStyle(3, 'خوب')"></i>
+                        </div>
+                        <div
+                          class="flex justify-center mx-2 w-9 cursor-pointer"
+                          [ngClass]="rate == 4 ? 'bg-active' : ''"
+                        >
+                          <i
+                            class="ie-h4 mx-1"
+                            (click)="putStyle(4, 'خیلی خوب')"
+                          ></i>
+                        </div>
+                        <div
+                          class="flex justify-center mx-2 w-9 cursor-pointer"
+                          [ngClass]="rate == 5 ? 'bg-active' : ''"
+                        >
+                          <i class="ie-h5 mx-1" (click)="putStyle(5, 'عالی')">
+                          </i>
+                        </div>
+                      </div>
+                      <!-- <div class="flex justify-end items-center sm:mt-2 mt-6">
+                      <span class="me-2">{{ rateText }}</span>
+                      <button
+                        class="bg-[#0080FF] text-white font-bold text-2xl p-2 rounded-2xl"
+                      >
+                        ثبت رای
+                      </button>
+                    </div> -->
+                    </div>
+                    <!-- <progress
+                    min="0"
+                    max="100"
+                    class="pr-Before w-full cursor-pointer"
+                    value="{{ rangeRate }}"
+                    (click)="handleClick($event)"
+                    [ngStyle]="{ '--movement': left }"
+                  ></progress> -->
+                  </div>
+                </div>
+                <div
+                  class="flex flex-col w-full lg:w-fit max-md:items-center items-end justify-end mb-4"
+                >
+                  <button
+                    class="bg--blue rounded-xl text-white sm:w-[13.5rem] w-[12rem] mr-2 p-4"
+                  >
+                    ثبت دیدگاه
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </form>
-
-      <div
-        class="border-solid border-2 border-gray-300 rounded-lg mb-6"
-        *ngFor="let x of preComments"
-      >
+        </form>
+  
         <div
-          class="flex justify-between border-b-2 m-2 py-2 sm:mx-8 border-gray-300"
-        >
-          <div class="flex justify-around text-xs">
-            <div class="point-card font-extrabold">{{ x.rate }}</div>
-            <p class="font-bold sm:leading-[20px] mx-2 pt-2 text-[#847b7b]">
-              {{ x.createDate | date : "MMMM d" }}
-            </p>
-            <p class="font-bold sm:leading-[20x] mx-2 pt-2 text-[#847b7b]">
-              {{ x.name }}
-            </p>
-
-            <div
-              class="rounded-full flex text-[#17ee9d] items-center text-base bg-gray-100 px-6 ms-1 sm:mt-2 py-4 font-bold max-md:hidden sm:h-[36%]"
-            >
-              خریدار
-            </div>
-          </div>
-          <div class="w-1/4 flex justify-end">
-            <i
-              class="fa fa-ellipsis-v leading-[44px] text-xl text-gray-400"
-            ></i>
-          </div>
-        </div>
-        <div class="sm:h-[48%] flex m-2 sm:mx-8 border-b-2 pt-2">
-          <img
-            loading="lazy"
-            src="../../../assets/img/avatar-c-2.webp"
-            class="ms-8 h-12 w-12 bg-[#e8e8e8] rounded-full"
-            alt="avatar"
-            width="10"
-            height="20"
-          />
-          <p class="sm:leading-[3.4rem] ms-2">
-            {{ x.text }}
-          </p>
-        </div>
-        <div class="h-1/4 sm:m-2 mx-8">
-          <span class="text-[#0f9260]"
-            ><i class="fa fa-thumbs-up text-lg cursor-pointer"></i> 27+</span
-          >
-          <i class="fa fa-thumbs-down text-gray-400 text-lg cursor-pointer"></i>
-        </div>
-      </div>
-      <!-- <div class="flex lg:items-end lg:h-64 max-lg:mt-7 mix-blend-screen:ms-3">
-        <div class="h-full max-md:hidden">
-          <div
-            class="border-solid border-r-2 border-b-2 border-gray-300 w-5 h-4/6"
-          ></div>
-        </div>
-        <div
-          class="border-solid border-2 border-gray-300 w-full rounded-lg bg-[#E9F6FF]"
+          class="border-solid border-2 border-gray-300 rounded-lg mb-6"
+          *ngFor="let x of preComments"
         >
           <div
-            class="flex justify-between border-b-2 py-2 sm:mx-8 max-md:justify-around lg:w-full border-gray-300"
+            class="flex justify-between border-b-2 m-2 py-2 sm:mx-8 border-gray-300"
           >
             <div class="flex justify-around text-xs">
-              <p class="font-bold sm:leading-[22px] text-[#847b7b] pt-2.5 me-2">
-                3 شهریور 1400
+              <div class="point-card font-extrabold">{{ x.rate }}</div>
+              <p class="font-bold sm:leading-[20px] mx-2 pt-2 text-[#847b7b]">
+                {{ x.createDate | date : "MMMM d" }}
               </p>
-              <p class="font-bold sm:leading-[22px] text-[#847b7b] pt-2.5 me-2">
-                سعید عبداللهی
+              <p class="font-bold sm:leading-[20x] mx-2 pt-2 text-[#847b7b]">
+                {{ x.name }}
               </p>
+  
               <div
-                class="rounded-full flex items-center text-white text-base md:py-4 bg-[#17C9EE] px-4 ms-1 sm:mt-2 p-1 font-bold md:h-[36%] max-md:h-fit"
+                class="rounded-full flex text-[#17ee9d] items-center text-base bg-gray-100 px-6 ms-1 sm:mt-2 py-4 font-bold max-md:hidden sm:h-[36%]"
               >
-                فروشنده
+                خریدار
               </div>
             </div>
-            <div class="md:w-1/4 flex justify-end">
+            <div class="w-1/4 flex justify-end">
               <i
                 class="fa fa-ellipsis-v leading-[44px] text-xl text-gray-400"
               ></i>
             </div>
           </div>
-          <div class="flex m-2 sm:mx-8 border-b-2 pt-2">
+          <div class="sm:h-[48%] flex m-2 sm:mx-8 border-b-2 pt-2">
             <img
-              src="../../../assets/img/avatar-c.webp"
-              class="ms-8 mb-3 h-12 w-12 rounded-full bg-white"
+              loading="lazy"
+              src="../../../assets/img/avatar-c-2.webp"
+              class="ms-8 h-12 w-12 bg-[#e8e8e8] rounded-full"
               alt="avatar"
               width="10"
               height="20"
             />
-            <p class="ms-2 mx-2">
-              سلام و عرض ادب ... خیلی ممنون لطف دارید همیشه پر سود باشید
+            <p class="sm:leading-[3.4rem] ms-2">
+              {{ x.text }}
             </p>
           </div>
           <div class="h-1/4 sm:m-2 mx-8">
             <span class="text-[#0f9260]"
               ><i class="fa fa-thumbs-up text-lg cursor-pointer"></i> 27+</span
             >
-            <i
-              class="fa fa-thumbs-down text-gray-400 text-lg cursor-pointer"
-            ></i>
+            <i class="fa fa-thumbs-down text-gray-400 text-lg cursor-pointer"></i>
           </div>
         </div>
-      </div> -->
-
-      <!-- <div class="flex items-end h-64 ms-3">
-        <div class="h-full">
+        <!-- <div class="flex lg:items-end lg:h-64 max-lg:mt-7 mix-blend-screen:ms-3">
+          <div class="h-full max-md:hidden">
+            <div
+              class="border-solid border-r-2 border-b-2 border-gray-300 w-5 h-4/6"
+            ></div>
+          </div>
           <div
-            class="border-solid border-r-2 border-b-2 border-gray-300 w-5 h-4/6"
-          ></div>
-          <div class="border-solid w-5 h-2/6"></div>
-        </div>
-      </div> -->
+            class="border-solid border-2 border-gray-300 w-full rounded-lg bg-[#E9F6FF]"
+          >
+            <div
+              class="flex justify-between border-b-2 py-2 sm:mx-8 max-md:justify-around lg:w-full border-gray-300"
+            >
+              <div class="flex justify-around text-xs">
+                <p class="font-bold sm:leading-[22px] text-[#847b7b] pt-2.5 me-2">
+                  3 شهریور 1400
+                </p>
+                <p class="font-bold sm:leading-[22px] text-[#847b7b] pt-2.5 me-2">
+                  سعید عبداللهی
+                </p>
+                <div
+                  class="rounded-full flex items-center text-white text-base md:py-4 bg-[#17C9EE] px-4 ms-1 sm:mt-2 p-1 font-bold md:h-[36%] max-md:h-fit"
+                >
+                  فروشنده
+                </div>
+              </div>
+              <div class="md:w-1/4 flex justify-end">
+                <i
+                  class="fa fa-ellipsis-v leading-[44px] text-xl text-gray-400"
+                ></i>
+              </div>
+            </div>
+            <div class="flex m-2 sm:mx-8 border-b-2 pt-2">
+              <img
+                src="../../../assets/img/avatar-c.webp"
+                class="ms-8 mb-3 h-12 w-12 rounded-full bg-white"
+                alt="avatar"
+                width="10"
+                height="20"
+              />
+              <p class="ms-2 mx-2">
+                سلام و عرض ادب ... خیلی ممنون لطف دارید همیشه پر سود باشید
+              </p>
+            </div>
+            <div class="h-1/4 sm:m-2 mx-8">
+              <span class="text-[#0f9260]"
+                ><i class="fa fa-thumbs-up text-lg cursor-pointer"></i> 27+</span
+              >
+              <i
+                class="fa fa-thumbs-down text-gray-400 text-lg cursor-pointer"
+              ></i>
+            </div>
+          </div>
+        </div> -->
+  
+        <!-- <div class="flex items-end h-64 ms-3">
+          <div class="h-full">
+            <div
+              class="border-solid border-r-2 border-b-2 border-gray-300 w-5 h-4/6"
+            ></div>
+            <div class="border-solid w-5 h-2/6"></div>
+          </div>
+        </div> -->
+      </div>
     </div>
   </div>
-</div>
-<!-- ========================[رسپانسیو]================== -->
-<div class="comment-mobile" [ngClass]="device == 'sm' ? 'block' : 'hidden'">
-  <div class="lg:!mr-14 row">
-    <span class="divid-h lg:!text-base">ATM نظرات خریداران ربات </span>
-    <p class="faq-h mb-4 lg:!text-2xl">
-      لطفا نظرات خود را جهت راهنمایی دیگر خریداران ثبت کنید
-    </p>
+  <!-- ========================[رسپانسیو]================== -->
+  <div class="comment-mobile" [ngClass]="device == 'sm' ? 'block' : 'hidden'">
+    <div class="lg:!mr-14 row">
+      <span class="divid-h lg:!text-base">ATM نظرات خریداران ربات </span>
+      <p class="faq-h mb-4 lg:!text-2xl">
+        لطفا نظرات خود را جهت راهنمایی دیگر خریداران ثبت کنید
+      </p>
+    </div>
   </div>
-</div>
+</ng-container>

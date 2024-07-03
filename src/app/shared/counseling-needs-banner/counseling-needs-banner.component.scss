@@ -3,14 +3,12 @@
     background: linear-gradient(90deg, rgba(70,122,251,1) 0%, rgba(34,70,213,1) 31%, rgba(0,22,178,1) 100%); 
 }
 .titile-banner-zoom-in{
-  transition: all 0.5s ease-in-out;
-  scale: 0.5;
-  transform: translate(0rem,-1.75rem);
+  transform: translate(0rem,-0.75rem);
 }
-.titile-banner-zoom-out{
-  transition: all 0.5s ease-in-out;
-  scale: 1;
-}
+// .titile-banner-zoom-out{
+//   transition: all 0.5s ease-in-out;
+//   scale: 1;
+// }
 
 .box-c{
   border: 2px solid #FFEE00;
